@@ -437,10 +437,17 @@ const CATEGORIES = [
   { label: "PRP-4", cat: "PRP-4", weight: 1, files: ["Russia_Arms_Expo_2013_%28531-22%29.jpg"] },
   { label: "SNAR-10", cat: "SNAR-10", weight: 1, files: ["MAKS2015part6-08.jpg"] },
   { label: "ZOOPARK-1", cat: "ZOOPARK-1", weight: 1, files: ["ArtilleryExercise2014-06.jpg"] },
-  { label: "STRELA-10M3", cat: "STRELA-10M3", weight: 1, files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg"] },
+  { label: "STRELA-10", cat: "STRELA-10", weight: 1, files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg"] },
   { label: "9P149 Shturm-S", cat: "9P149 Shturm-S", weight: 1, files: ["9P149.jpg", "Штурм-С_-_Контрольная_проверка_курсантов_Учебного_центра_боевого_применения_ракетных_войск_и_артиллерии_02.jpg"] },
   { label: "9P157 Krizantema-S", cat: "9P157 Krizantema-S", weight: 1, files: ["9P157-2_combat_vehicle_of_9K123_Khrizantema-S_AT_system_at_Engineering_Technologies_2012.jpg", "Oboronexpo2014part3-35.jpg", "May_5th_rehearsal_of_2014_Victory_Day_Parade_in_Moscow_%28562-22%29.jpg"] },
-  { label: "BRM-1K", cat: "BRM-1K", weight: 1, files: ["BRM-1K_top.jpg", "BRM-1K_%283%29.jpg" ] },
+  { label: "BRM-1K", cat: "BRM-1K", weight: 1, files: ["BRM-1K_top.jpg", "BRM-1K_%283%29.jpg"] },
+  { label: "MT-LBu", cat: "MT-LBu", weight: 1, files: ["ParkPatriot2015part11-139.jpg"] },
+  { label: "2S25 Sprut-SD", cat: "2S25 Sprut-SD", weight: 1, files: ["2S25_Sprut-SD_at_Army_2016.jpg"] },
+  { label: "1V13", cat: "1V13", weight: 1, files: ["Engineering_Technologies_2010_Part4_0033_copy.jpg"] },
+  { label: "BMD-1Ksh", cat: "BMD-1Ksh", weight: 1, files: ["Командно-штабные_машины_в_артиллерийском_музее_—_2.jpg"] },
+  { label: "BMP-T", cat: "BMP-T", weight: 1, files: ["Terminator_%2840115444250%29.jpg"] },
+  { label: "BMO-T", cat: "BMO-T", weight: 1, files: ["Army2016demo-030.jpg"] },
+  { label: "BREM-D", cat: "BREM-D", weight: 1, files: ["Army2016-297.jpg"] },
 
 
   // Iseliikuv suurtükivägi
@@ -460,12 +467,14 @@ const CATEGORIES = [
   { label: "D-30 (veetav haubits)", cat: "D-30", weight: 1, files: ["122mm_howitzer_D-30_-_Armory_masters4.jpg"] },
   { label: "2A65", cat: "2A65", weight: 1, files: ["2A65_howitzer.jpg"] },
   { label: "2A36", cat: "2A36", weight: 1, files: ["ParkPatriot2015part6-62.jpg"] },
+  { label: "D-20", cat: "D-20", weight: 1, files: ["2p16_luna_rf.jpg"] },
 
   // Raketisuurtükivägi
   { label: "BM-21 Grad", cat: "BM-21", weight: 2, files: ["BM_-_21_Grad.jpg", "BM-21_Grad_%2803%29.jpg"] },
   { label: "BM-27 Uragan", cat: "BM-27", weight: 1, files: ["BM-27_Uragan.jpg", "Uragan_MLRS_of_the_52nd_Artillery_Brigade_%282%29.png"] },
   { label: "9K58 Smerch", cat: "9K58 Smerch", weight: 1, files: ["BM-30_Smerch%2C_2010.jpg"] },
   { label: "TOS-1A", cat: "TOS-1", weight: 2, files: ["TZM-T_of_the_TOS-1A_system_%281%29.jpg"] },
+  { label: "2P16", cat: "2P16", weight: 2, files: ["2p16_luna_rf.jpg"] },
 
   // Raketikompleksid
   { label: "9K720 Iskander", cat: "9K720 Iskander", weight: 2, files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg"] },
@@ -489,13 +498,17 @@ const CATEGORIES = [
   { label: "BREM-1", cat: "BREM-1", weight: 1, files: ["BREM-1_-_ETIF-2010_%281%29.jpg"] },
   { label: "BREM-2", cat: "BREM-2", weight: 1, files: ["BREM-2_in_Patriot_Park.jpg"] },
   { label: "BREM-K", cat: "BREM-K", weight: 1, files: ["BREM-K_-_TankBiathlon14part2-07.jpg", "Army2016-303.jpg"] },
+  { label: "MTU-90", cat: "MTU-90", weight: 1, files: ["MTU-90_3.jpg"] },
+  { label: "MT-55A", cat: "MT-55A", weight: 1, files: ["T-55_inženirsko_vozilo.JPG"] },
+  { label: "MTU-20", cat: "MTU-20", weight: 1, files: ["TankBiathlon14final-92.jpg"] },
 
   // Helikopterid
-  { label: "Mi-8", cat: "Mi-8", weight: 3, files: ["Mi-8_AMTSH.jpg"] },
-  { label: "Mi-24/Mi-35", cat: "Mi-24", weight: 2, files: ["Mil_Mi-24...%2C_Russia_-_Air_Force_AN2177076.jpg"] },
+  { label: "Mi-8", cat: "Mi-8", weight: 3, files: ["Mi-8_AMTSH.jpg", "Moscow%2C_VDNKh%2C_Mi-8_July_2026_01.jpg"] },
+  { label: "Mi-24/Mi-35", cat: "Mi-24/Mi-35", weight: 2, files: ["Mil_Mi-24...%2C_Russia_-_Air_Force_AN2177076.jpg"] },
   { label: "Mi-28", cat: "Mi-28", weight: 2, files: ["Russian_Air_Force%2C_RF-13489%2C_Mil_Mi-28NM_%2849581609382%29.jpg"] },
   { label: "Ka-52", cat: "Ka-52", weight: 2, files: ["Kamov_Ka-52.jpg", "MoscowVictoryDayParade2020_Ka-52_010_3407.jpg"] },
   { label: "Ka-29", cat: "Ka-29", weight: 2, files: ["NavalFlyingAce2018-18.jpg"] },
+  { label: "Mi-26", cat: "Mi-26", weight: 2, files: ["Mil_Design_Bureau%2C_3112%2C_Mil_Mi-26T2_Halo_%2849581304097%29.jpg"] },
 
   // Lennukid
   { label: "Su-25", cat: "Su-25", weight: 2, files: ["Sukhoi_Su-25_of_the_Russian_Air_Force_landing_at_Vladivostok_%288683076150%29.jpg"] },
@@ -505,7 +518,13 @@ const CATEGORIES = [
   { label: "Su-35 (hävitaja)", cat: "Sukhoi Su-35", weight: 2, files: [] },
   { label: "MiG-31", cat: "MiG-31", weight: 1, files: ["Russian_Air_Force_Mikoyan-Gurevich_MiG-31P.jpg"] },
   { label: "MiG-29", cat: "MiG-29", weight: 1, files: ["Mig-29_on_landing.jpg"] },
-  { label: "Tu95", cat: "Tu95", weight: 1, files: ["Tu-95_at_an_Air_show_in_Voronezh_2014.jpg/960px-Tu-95_at_an_Air_show_in_Voronezh_2014.jpg"] },
+  { label: "Tu-95", cat: "Tu-95", weight: 1, files: ["Tu-95_at_an_Air_show_in_Voronezh_2014.jpg/960px-Tu-95_at_an_Air_show_in_Voronezh_2014.jpg"] },
+  { label: "IL-76", cat: "IL-76", weight: 1, files: ["Il-76MD-90A_maneuvering.jpg"] },
+  { label: "A-50", cat: "A-50", weight: 1, files: ["Beriev_A-50%2C_Russia_-_Air_Force_AN2229988.jpg"] },
+  { label: "Tu-22M", cat: "Tu-22M", weight: 1, files: ["Tu-22M_%2812467430424%29.jpg"] },
+  { label: "Su-30", cat: "Su-30", weight: 1, files: ["Sukhoi_Su-30MK_of_the_Russian_Air_Force.jpg/960px-Sukhoi_Su-30MK_of_the_Russian_Air_Force.jpg"] },
+  { label: "Ropucha II", cat: "Ropucha II", weight: 1, files: ["Project_775M_AZOV_2008_G1.jpg"] },
+  { label: "Buyan-M", cat: "Buyan-M", weight: 1, files: ["«Великий_Устюг».jpg"] },
   
   // Veoautod ja maasturid
   { label: "URAL-43206", cat: "URAL-43206", weight: 1, files: ["Interpolitex_2012_%28478-14%29.jpg"] },
