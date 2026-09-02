@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEHNIKA TUVASTAMINE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#14170f;
+    --bg-1:#1b1f15;
+    --panel:#20241a;
+    --panel-2:#262b1d;
+    --line:#3a4030;
+    --bone:#d9d9c4;
+    --bone-dim:#9a9d87;
+    --olive:#8a9a5b;
+    --olive-dim:#5c6640;
+    --amber:#c9a227;
+    --red:#b0432f;
+    --green:#6f9a4a;
+    --font-display:'Oswald', 'Arial Narrow', sans-serif;
+    --font-mono:'IBM Plex Mono', 'Courier New', monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(ellipse at 20% -10%, #232819 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 110%, #1c2013 0%, transparent 55%),
+      var(--bg-0);
+    color:var(--bone);
+    font-family:var(--font-mono);
+    min-height:100vh;
+    padding:28px 16px 60px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:940px;margin:0 auto;}
+
+  /* history nav */
+  .hist-nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  .nav-btn{
+    font-family:var(--font-mono);
+    font-size:16px;
+    line-height:1;
+    padding:9px 16px;
+    border:1px solid var(--line);
+    background:var(--panel-2);
+    color:var(--bone);
+    cursor:pointer;
+    min-width:46px;
+    transition:background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .nav-btn:hover:not(:disabled){border-color:var(--olive);color:var(--olive);}
+  .nav-btn:disabled{opacity:0.3;cursor:not-allowed;}
+  .hist-status{
+    flex:1;
+    text-align:center;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--bone-dim);
+  }
+  .hist-status.live{color:var(--olive);}
+
+  /* header */
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    border-bottom:1px solid var(--line);
+    padding-bottom:14px;
+    margin-bottom:22px;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .eyebrow{
+    font-size:11px;
+    letter-spacing:0.22em;
+    color:var(--olive);
+    text-transform:uppercase;
+    margin-bottom:4px;
+  }
+  h1{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(26px,5vw,38px);
+    letter-spacing:0.02em;
+    margin:0;
+    color:var(--bone);
+    text-transform:uppercase;
+  }
+  h1 span{color:var(--amber);}
+  .scorebox{
+    font-family:var(--font-mono);
+    text-align:right;
+    line-height:1.5;
+    border:1px solid var(--line);
+    background:var(--panel);
+    padding:8px 14px;
+    min-width:150px;
+  }
+  .scorebox .lbl{font-size:10px;letter-spacing:0.14em;color:var(--bone-dim);text-transform:uppercase;}
+  .scorebox .val{font-size:20px;font-weight:600;color:var(--olive);}
+  .scorebox .val .slash{color:var(--bone-dim);font-weight:400;}
+
+  /* viewfinder */
+  .scope{
+    position:relative;
+    border:1px solid var(--line);
+    background:#0d0f0a;
+    overflow:hidden;
+    margin-bottom:2px;
+    height:min(64vh, 680px);
+    min-height:300px;
+  }
+  .scope img{
+    width:100%;height:100%;object-fit:contain;
+    background:#0a0c07;
+    display:block;
+  }
+  .corner{
+    position:absolute;width:26px;height:26px;
+    border-color:var(--amber);
+    opacity:0.85;
+    pointer-events:none;
+  }
+  .corner.tl{top:8px;left:8px;border-top:2px solid;border-left:2px solid;}
+  .corner.tr{top:8px;right:8px;border-top:2px solid;border-right:2px solid;}
+  .corner.bl{bottom:8px;left:8px;border-bottom:2px solid;border-left:2px solid;}
+  .corner.br{bottom:8px;right:8px;border-bottom:2px solid;border-right:2px solid;}
+  .crosshair{
+    position:absolute;top:50%;left:50%;
+    width:34px;height:34px;
+    transform:translate(-50%,-50%);
+    pointer-events:none;
+    opacity:0;
+    transition:opacity 0.4s ease;
+  }
+  .scope.ready .crosshair{opacity:0.35;}
+  .crosshair::before,.crosshair::after{
+    content:'';position:absolute;background:var(--olive);
+  }
+  .crosshair::before{top:50%;left:0;width:100%;height:1px;transform:translateY(-50%);}
+  .crosshair::after{left:50%;top:0;width:1px;height:100%;transform:translateX(-50%);}
+  .hud-tag{
+    position:absolute;bottom:8px;left:8px;
+    font-size:10px;letter-spacing:0.12em;
+    color:var(--olive);background:rgba(13,15,10,0.72);
+    padding:3px 7px;text-transform:uppercase;
+  }
+  .hud-status{
+    position:absolute;top:8px;right:8px;
+    font-size:10px;letter-spacing:0.12em;
+    color:var(--bone-dim);background:rgba(13,15,10,0.72);
+    padding:3px 7px;text-transform:uppercase;
+  }
+  .state-msg{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:10px;
+    color:var(--bone-dim);
+    font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
+    text-align:center;
+    padding:20px;
+  }
+  .spinner{
+    width:22px;height:22px;
+    border:2px solid var(--olive-dim);
+    border-top-color:var(--olive);
+    border-radius:50%;
+    animation:spin 0.8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* control panel */
+  .panel{
+    border:1px solid var(--line);
+    border-top:none;
+    background:var(--panel);
+    padding:16px;
+  }
+  .row{display:flex;gap:10px;}
+  input[type=text]{
+    flex:1;
+    background:var(--bg-0);
+    border:1px solid var(--line);
+    color:var(--bone);
+    font-family:var(--font-mono);
+    font-size:15px;
+    padding:11px 12px;
+    outline:none;
+  }
+  input[type=text]:focus{border-color:var(--olive);}
+  input[type=text]::placeholder{color:var(--bone-dim);}
+
+  button{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:11px 16px;
+    border:1px solid var(--line);
+    background:var(--panel-2);
+    color:var(--bone);
+    cursor:pointer;
+    transition:background 0.15s, border-color 0.15s, color 0.15s;
+    white-space:nowrap;
+  }
+  button:hover{border-color:var(--olive);color:var(--olive);}
+  button:disabled{opacity:0.4;cursor:not-allowed;}
+  button.primary{background:var(--olive-dim);border-color:var(--olive-dim);color:var(--bone);}
+  button.primary:hover{background:var(--olive);border-color:var(--olive);color:#12140c;}
+  button.good{border-color:var(--green);color:var(--green);}
+  button.good:hover{background:var(--green);color:#0d0f0a;}
+  button.bad{border-color:var(--red);color:var(--red);}
+  button.bad:hover{background:var(--red);color:#0d0f0a;}
+
+  .answer-block{
+    margin-top:14px;
+    border-top:1px dashed var(--line);
+    padding-top:14px;
+  }
+  .answer-block .lbl{
+    font-size:10px;letter-spacing:0.14em;color:var(--bone-dim);
+    text-transform:uppercase;margin-bottom:4px;
+  }
+  .answer-block .value{
+    font-family:var(--font-display);
+    font-size:22px;font-weight:600;
+    color:var(--amber);
+    letter-spacing:0.01em;
+    margin-bottom:10px;
+  }
+  .filename{
+    font-size:12px;color:var(--bone-dim);
+    word-break:break-word;
+    margin-bottom:12px;
+  }
+  .filename a{color:var(--olive);text-decoration:none;border-bottom:1px dotted var(--olive-dim);}
+  .filename a:hover{color:var(--amber);}
+  .your-guess{
+    font-size:12px;color:var(--bone-dim);margin-bottom:10px;
+  }
+  .your-guess b{color:var(--bone);font-weight:600;}
+
+  .verdict-row{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+  .verdict-row button{flex:1;}
+
+  .verdict-badge{
+    display:inline-block;
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:10px 14px;
+    border:1px solid var(--line);
+    margin-bottom:12px;
+  }
+  .verdict-badge.good{border-color:var(--green);color:var(--green);}
+  .verdict-badge.bad{border-color:var(--red);color:var(--red);}
+
+  .credit{
+    font-size:10px;color:var(--bone-dim);
+    margin-top:14px;line-height:1.6;
+    border-top:1px solid var(--line);
+    padding-top:10px;
+  }
+  .credit a{color:var(--olive-dim);}
+
+  footer{
+    text-align:center;
+    font-size:10px;
+    color:var(--bone-dim);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-top:26px;
+    opacity:0.7;
+  }
+
+  @media(max-width:480px){
+    .verdict-row{flex-direction:column;}
+    .row{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <div class="eyebrow"></div>
+      <h1>TEHNIKA<span>TUVASTUS</span></h1>
+    </div>
+    <div class="scorebox">
+      <div class="lbl">Tulemus</div>
+      <div class="val"><span id="scoreCorrect">0</span><span class="slash"> / </span><span id="scoreTotal">0</span></div>
+    </div>
+  </header>
+
+  <div class="hist-nav">
+    <button id="histPrev" class="nav-btn" aria-label="Eelmine">‹</button>
+    <div class="hist-status live" id="histStatus">LIVE</div>
+    <button id="histNext" class="nav-btn" aria-label="Järgmine" disabled>›</button>
+  </div>
+
+  <div class="scope" id="scope">
+    <div class="crosshair"></div>
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+    <div class="hud-tag" id="hudCat">—</div>
+    <div class="hud-status" id="hudStatus">OOTEL</div>
+    <img id="photo" alt="" style="display:none;">
+    <div class="state-msg" id="stateMsg">
+      <div class="spinner"></div>
+      <div>Laen pilti...</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="row">
+      <input type="text" id="guessInput" placeholder="Kirjuta oma vastus (nt T-72, Su-25...)" autocomplete="off">
+      <button class="primary" id="revealBtn">Näita vastust</button>
+    </div>
+
+    <div class="answer-block" id="answerBlock" style="display:none;">
+      <div class="your-guess" id="yourGuess"></div>
+      <div class="lbl">Õige vastus</div>
+      <div class="value" id="correctValue">—</div>
+      <div class="filename" id="fileLine"></div>
+
+      <div class="verdict-row" id="verdictRow">
+        <button class="good" id="markGood">✓ Läks täppi</button>
+        <button class="bad" id="markBad">✗ Ei läinud täppi</button>
+      </div>
+      <div class="verdict-badge" id="verdictBadge" style="display:none;"></div>
+
+      <div class="credit" id="credit"></div>
+    </div>
+
+    <div class="row" style="margin-top:12px;">
+      <button id="skipBtn" style="flex:1;">Jäta vahele (uus pilt)</button>
+    </div>
+  </div>
+
+  <footer>Pildid: Wikimedia Commons · Vene Föderatsiooni sõjatehnika</footer>
+</div>
+
+<script>
+// ============================================================================
+// KUREERIMINE — SAMM-SAMMULT
+// ============================================================================
+// App näitab AINULT pilte, mille failinime oled ise `files: []` massiivi
+// lisanud. Kui mõne tehnikaühiku `files` on tühi, jäetakse see lihtsalt
+// vahele (seda ei kuvata kunagi) — nii et enne mängimist tuleb vähemalt
+// mõnele tehnikaühikule pildid lisada.
+//
+// 1) Ava Commonsi kategooria brauseris. URL on:
+//    https://commons.wikimedia.org/wiki/Category:<cat väärtus, tühikud → _>
+//    Nt T-72B3 puhul: https://commons.wikimedia.org/wiki/Category:T-72B3
+//    (Väli `cat` on jäetud iga rea juurde ainult mugavaks viiteks, koodi
+//    töösse see enam ei puutu.)
+//
+// 2) Sirvi pisipilte. Klõpsa neile, mis näitavad TERVET masinat selgelt,
+//    mõistlikust kaugusest (külg-, ¾- või eestvaade on tavaliselt kõige parem).
+//
+// 3) Faili lehel on ülal pealkiri kujul "File:Mingi_nimi_2020.jpg".
+//    Kopeeri TÄPSELT see osa, mis tuleb pärast "File:" — "File:" ennast
+//    massiivi EI PANE.
+//
+// 4) Otsi (Ctrl+F) sellest failist õige tehnika rida allpool ja lisa
+//    kopeeritud failinimi jutumärkides `files` massiivi, komaga eraldatult:
+//
+//    files: ["Täpne failinimi 1.jpg", "Täpne failinimi 2.jpg"]
+//
+// 5) Salvesta fail ja lae see brauseris uuesti — kontrolli, et pilt laadib.
+//    Kui kirjutasid failinime valesti, jätab app selle vahele ja proovib
+//    järgmist tehnikaühikut.
+//
+// Sama tehnika kohta tasub lisada 5-10 head pilti, et sama pilt liiga
+// tihti ei korduks. App ei näita mitte ühtegi pilti (ükskõik millisest
+// tehnikaühikust) teist korda enne, kui KÕIK kureeritud pildid kõikide
+// tehnikaühikute peale kokku on vähemalt korra läbi käidud — alles siis
+// algab uus tsükkel uuesti segatud järjekorras.
+//
+// NB: väli `weight` on nüüd kasutuseta (jäetud alles ainult viitena/hilisemaks
+// kasutuseks) — range "mitte kordust enne kui kõik läbi" tähendab, et kõik
+// pildid on tsükli sees täpselt võrdse tõenäosusega.
+// ============================================================================
+
+// weight = kui tihti see tüüp keskmiselt "kotist" tuleb (suurem = sagedamini).
+// Levinumad/rohkem dokumenteeritud masinad said kõrgema kaalu.
+const CATEGORIES = [
+  // Tankid
+  { label: "T-72", cat: "T-72", weight: 2, files: ["T-72_Ruske_vojske_-_Odbrana_slobode_2019_Niš_1.jpg", "Kazan_T-72_2024-07-18_2451.jpg", "Танк_Т-72Б.jpg", "Sloboda_2019_-_Ruski_T-72_02.jpg"] },
+  { label: "T-80", cat: "T-80", weight: 2, files: ["4thTankBrigade_-_T-80U_-01.jpg/960px-4thTankBrigade_-_T-80U_-01.jpg", "4thTankBrigade_-_T-80U_-11.jpg", "T-80BVM.jpg", "T-80BVM_%282%29.jpg"] },
+  { label: "T-90M", cat: "T-90M", weight: 2, files: ["T-90M.jpg", "Т-90М.jpg", "T-90M_MBT_Army-2022_2022-08-20_2397.jpg", "Zapad_2017_%28Proving_Ground_Luzhsky%29_02.jpg", "Army-2023_vehicle_showcase_16.jpg"] },
+  { label: "T-90A", cat: "T-90A", weight: 2, files: ["Moscow_2012_Victory_Day_Parade_Rehearsal%2C_T-90_tank%2C_Russia.jpg", "T-90A_front_Army-2016.jpg", "T-90A_MBT_photo011.jpg", "T-90A_with_OPVT_wading_snorkel_during_river_crossing_training_-_September_2023_01.jpg"] },
+  { label: "T-62", cat: "T-62", weight: 2, files: ["VNPA_T-62_-_092025.jpg"] },
+
+  // Jalaväe ja dessandi lahingumasinad / soomustransportöörid
+  { label: "BMP-2", cat: "BMP-2", weight: 3, files: ["BMP-2_of_Russian_Ground_Forces.jpg", "BMP-2_%281%29.jpg", "BMP-2_-_TankBiathlon14part1-11.jpg" ] },
+  { label: "BMP-3", cat: "BMP-3", weight: 2, files: ["Destruction_of_Russian_tanks_by_Ukrainian_troops_in_Mariupol_%284%29.jpg", "BMP-3_%2841204909204%29.jpg", "BMP-3_infantry_fighting_vehicle_at_Engineering_Technologies_2012_02.jpg"] },
+  { label: "BMP-1", cat: "BMP-1", weight: 1, files: ["Kazan_BMP-1_2024-07-18_2453.jpg"] },
+  { label: "BTR-80", cat: "BTR-80", weight: 2, files: ["BTR-80_swimming.jpg", "BTR-80_of_TsSN_Vityaz.jpg", "2018-05-09._День_Победы_в_Донецке_f204.jpg"] },
+  { label: "BTR-82A", cat: "BTR-82A", weight: 3, files: ["BTR-82_%2841072268395%29.jpg", "Interpolitex2016part2-52.jpg", "BTR-82A_12april_Alabino_05.jpg"] },
+  { label: "MT-LB", cat: "MT-LB", weight: 2, files: ["Soviet_MT-LB.JPEG/960px-Soviet_MT-LB.JPEG", "202nd_Air_Defence_Brigade_-_MT-LB_-_002.jpg"] },
+  { label: "BMD-2", cat: "BMD-2", weight: 2, files: ["BMD-2_-_137AirborneRegiment29.jpg", "BMD-2_-_137AirborneRegiment01.jpg"] },
+  { label: "BMD-4M", cat: "BMD-4M", weight: 2, files: ["BMD-4M_0002_copy.jpg", "BMD-4M_14.jpg"] },
+  { label: "BTR-D", cat: "BTR-D", weight: 2, files: ["Vdvcompetition10.jpg", "106th_Guards_Airborne_Division_%28394-39%29.jpg"] },
+  { label: "BTR-MDM", cat: "BTR-MDM", weight: 2, files: ["Army2016demo-018.jpg", "Alabino22042016-50.jpg", "Ryazan_BMD4M-1200-12.jpg"] },
+  { label: "BMP-1KSh", cat: "BMP-1KSh", weight: 1, files: ["ParkPatriot2015part10-24.jpg"] },
+  { label: "R-149MA1", cat: "R-149MA1", weight: 1, files: ["R-149MA1_-_Engineering_technologies_2012_%282%29.jpg"] },
+  { label: "R-166-0,5", cat: "R-166-0,5", weight: 1, files: ["R-166-0%2C5_radiostation_-_27th_Independent_Sevastopol_Guards_Motor_Rifle_Brigade_%282%29.jpg"] },
+  { label: "PRP-4", cat: "PRP-4", weight: 1, files: ["Russia_Arms_Expo_2013_%28531-22%29.jpg"] },
+  { label: "SNAR-10", cat: "SNAR-10", weight: 1, files: ["MAKS2015part6-08.jpg"] },
+  { label: "ZOOPARK-1", cat: "ZOOPARK-1", weight: 1, files: ["ArtilleryExercise2014-06.jpg"] },
+  { label: "STRELA-10M3", cat: "STRELA-10M3", weight: 1, files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg"] },
+  { label: "9P149 Shturm-S", cat: "9P149 Shturm-S", weight: 1, files: ["9P149.jpg", "Штурм-С_-_Контрольная_проверка_курсантов_Учебного_центра_боевого_применения_ракетных_войск_и_артиллерии_02.jpg"] },
+  { label: "9P157 Krizantema-S", cat: "9P157 Krizantema-S", weight: 1, files: ["9P157-2_combat_vehicle_of_9K123_Khrizantema-S_AT_system_at_Engineering_Technologies_2012.jpg", "Oboronexpo2014part3-35.jpg", "May_5th_rehearsal_of_2014_Victory_Day_Parade_in_Moscow_%28562-22%29.jpg"] },
+
+
+  // Iseliikuv suurtükivägi
+  { label: "2S19 Msta-S", cat: "2S19 Msta", weight: 3, files: ["ParkPatriot2015part6-02.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_01.jpg"] },
+  { label: "2S3 Akatsija", cat: "2S3 Akatsiya", weight: 2, files: ["2S3_Akatsiya_3261.jpg", "2S3_Akatsiya_2017-12-24.jpg"] },
+  { label: "2S1 Gvozdika", cat: "2S1 Gvozdika", weight: 2, files: ["2S1_Gvozdika_2017-12-24.jpg", "Openwater2016-40.jpg"] },
+  { label: "2S9 Nona", cat: "2S9 Nona", weight: 1, files: ["2S9_Nona-S.png", "ParkPatriot2015part5-71.jpg"] },
+  { label: "2S4 Tjulpan", cat: "2S4 Tjulpan", weight: 1, files: ["2S4_Tyulpan_ARMY-2022.jpg", "240-mm_self-propelled_mortar_2B8_%28SAC-2S4%29.JPG"] },
+  { label: "2S7 Pion", cat: "2S7 Pion", weight: 1, files: ["Russian_2S7_Pion_self_propelled_203_mm_Heavy_artillery_gun_%28Ank_Kumar%2C_Infosys_Limited%29_03.jpg", "2S7_Pion_at_ARMY-2018.jpg"] },
+  { label: "2S43 Malva", cat: "2S43 Malva", weight: 2, files: ["2S43_Malva.jpg/960px-2S43_Malva.jpg", "2S43_Malva_in_forest.jpg"] },
+  { label: "2S44 Giatsint-K", cat: "2S44 Giatsint-K", weight: 2, files: ["2S44_Giatsint-K_-_2025_Moscow_Victory_Day_Parade_61_%28cropped%29.jpg"] },
+  { label: "2S5 Giatsint-S", cat: "2S5 Giatsint-S", weight: 2, files: ["2S5_Giatsint-S.jpg", "2S5_Giatsint-S%2C_Самоходная_пушка_2С5_Гиацинт-С%2C_Artillery_museum%2C_Saint-Petersburg_pic2.JPG"] },
+  { label: "2S23 NONA-SVK", cat: "2S23 NONA-SVK", weight: 2, files: ["ParkPatriot2015part5-65.jpg"] },
+
+
+  // Veetav suurtükivägi
+  { label: "D-30 (veetav haubits)", cat: "D-30", weight: 1, files: ["122mm_howitzer_D-30_-_Armory_masters4.jpg"] },
+  { label: "2A65", cat: "2A65", weight: 1, files: ["2A65_howitzer.jpg"] },
+  { label: "2A36", cat: "2A36", weight: 1, files: ["ParkPatriot2015part6-62.jpg"] },
+
+  // Raketisuurtükivägi
+  { label: "BM-21 Grad", cat: "BM-21", weight: 2, files: ["BM_-_21_Grad.jpg", "BM-21_Grad_%2803%29.jpg"] },
+  { label: "BM-27 Uragan", cat: "BM-27", weight: 1, files: ["BM-27_Uragan.jpg", "Uragan_MLRS_of_the_52nd_Artillery_Brigade_%282%29.png"] },
+  { label: "9K58 Smerch", cat: "9K58 Smerch", weight: 1, files: ["BM-30_Smerch%2C_2010.jpg"] },
+  { label: "TOS-1A", cat: "TOS-1", weight: 2, files: ["TZM-T_of_the_TOS-1A_system_%281%29.jpg"] },
+
+  // Raketikompleksid
+  { label: "9K720 Iskander", cat: "9K720 Iskander", weight: 2, files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg"] },
+
+  // Õhutõrje
+  { label: "Pantsir-S1", cat: "Pantsir-S1", weight: 2, files: ["Astrakhan_Victory_Day_Parade_%28May_9_2015%29_Pantsir-S1_P5090721_2185.jpg", "Панцирь-С1.JPG"] },
+  { label: "Buk-M1-2", cat: "Buk-M1-2", weight: 1, files: ["Buk-M1-2_9A310M1-2.jpg"] },
+  { label: "S-400", cat: "S-400", weight: 2, files: [] },
+  { label: "Tor", cat: "Tor", weight: 1, files: ["TOR-2M_%2841072268085%29.jpg"] },
+  { label: "9K33 Osa (õhutõrjekompleks)", cat: "9K33 Osa", weight: 1, files: [] },
+  { label: "ZSU-23-4 Shilka", cat: "ZSU-23-4", weight: 1, files: ["Shilka_at_Tula_%282017%29.jpg"] },
+  { label: "2K22 Tunguska", cat: "2K22 Tunguska", weight: 1, files: ["2S6M1_Tunguska_M1_at_ARMY-2016.JPG"] },
+
+  // Pioneeri- ja inseneritehnika
+  { label: "IMR-2", cat: "IMR-2", weight: 1, files: ["RIAN_archive_734015_Wildfires_in_Moscow_Region%27s_Lukhovitsky_district.jpg"] },
+  { label: "BAT-2", cat: "BAT-2", weight: 1, files: ["OpenWater2017qualifying-44.jpg"] },
+  { label: "MTU-72", cat: "MTU-72", weight: 1, files: ["Army2016demo-098.jpg"] },
+  { label: "UR-77 Meteorit", cat: "UR-77", weight: 1, files: ["EngineerExercise2020-19.jpg"] },
+  { label: "GMZ-3", cat: "GMZ-3", weight: 1, files: ["GMZ-3_minelayer_vehicle_at_Engineering_Technologies_2012.jpg"] },
+  { label: "PTS-2", cat: "PTS-2", weight: 1, files: ["PTS-2_-_RaceofHeroes-part2-35.jpg"] },
+  { label: "BREM-1", cat: "BREM-1", weight: 1, files: ["BREM-1_-_ETIF-2010_%281%29.jpg"] },
+  { label: "BREM-2", cat: "BREM-2", weight: 1, files: ["BREM-2_in_Patriot_Park.jpg"] },
+  { label: "BREM-K", cat: "BREM-K", weight: 1, files: ["BREM-K_-_TankBiathlon14part2-07.jpg", "Army2016-303.jpg"] },
+
+  // Helikopterid
+  { label: "Mi-8", cat: "Mi-8", weight: 3, files: ["Mi-8_AMTSH.jpg"] },
+  { label: "Mi-24/Mi-35", cat: "Mi-24", weight: 2, files: ["Mil_Mi-24...%2C_Russia_-_Air_Force_AN2177076.jpg"] },
+  { label: "Mi-28", cat: "Mi-28", weight: 2, files: ["Russian_Air_Force%2C_RF-13489%2C_Mil_Mi-28NM_%2849581609382%29.jpg"] },
+  { label: "Ka-52", cat: "Ka-52", weight: 2, files: ["Kamov_Ka-52.jpg", "MoscowVictoryDayParade2020_Ka-52_010_3407.jpg"] },
+  { label: "Ka-29", cat: "Ka-29", weight: 2, files: ["NavalFlyingAce2018-18.jpg"] },
+
+  // Lennukid
+  { label: "Su-25", cat: "Su-25", weight: 2, files: ["Sukhoi_Su-25_of_the_Russian_Air_Force_landing_at_Vladivostok_%288683076150%29.jpg"] },
+  { label: "Su-34", cat: "Su-34", weight: 2, files: ["Russian_Air_Force_Sukhoi_Su-34_Beltyukov-1.jpg", "MAKS2015part1-10_%28cropped%29.jpg"] },
+  { label: "Su-24", cat: "Su-24", weight: 2, files: ["Sukhoi_Su-24_inflight_Mishin.jpg"] },
+  { label: "Su-27", cat: "Su-27", weight: 1, files: ["Su-27SM3_in_flight%2C_Celebration_of_the_100th_anniversary_of_Russian_Air_Force.jpg"] },
+  { label: "Su-35 (hävitaja)", cat: "Sukhoi Su-35", weight: 2, files: [] },
+  { label: "MiG-31", cat: "MiG-31", weight: 1, files: ["Russian_Air_Force_Mikoyan-Gurevich_MiG-31P.jpg"] },
+  { label: "MiG-29", cat: "MiG-29", weight: 1, files: ["Mig-29_on_landing.jpg"] },
+  { label: "Tu95", cat: "Tu95", weight: 1, files: ["Tu-95_at_an_Air_show_in_Voronezh_2014.jpg/960px-Tu-95_at_an_Air_show_in_Voronezh_2014.jpg"] },
+  
+  // Veoautod ja maasturid
+  { label: "URAL-43206", cat: "URAL-43206", weight: 1, files: ["Interpolitex_2012_%28478-14%29.jpg"] },
+  { label: "KAMAZ-5350", cat: "KAMAZ-5350", weight: 1, files: ["KamAZ-5350.jpg"] },
+  { label: "KRAZ-260", cat: "KRAZ-260", weight: 1, files: ["790th_Fighter_Order_of_Kutuzov_3rd_class_Aviation_Regiment%2C_Khotilovo_airbase_%28356-28%29.jpg"] },
+
+  // Droonid
+  { label: "Orlan-10", cat: "Orlan-10", weight: 2, files: ["Orlan-10_%282%29.jpg"] },
+  { label: "ZALA Lancet", cat: "ZALA Lancet", weight: 1, files: ["Army-2020-314.JPG"] },
+  { label: "Gerbera", cat: "Gerbera", weight: 1, files: ["Russian_drone_Gerbera%2C_downed_in_Ukraine_%282025-01-05%29.jpg"] },
+  { label: "Geran-2", cat: "Geran-2", weight: 1, files: ["National_Aerospace_Park_in_September_2023_%2813%29.jpg"] },
+];
+
+const scope = document.getElementById('scope');
+const photo = document.getElementById('photo');
+const stateMsg = document.getElementById('stateMsg');
+const hudCat = document.getElementById('hudCat');
+const hudStatus = document.getElementById('hudStatus');
+const guessInput = document.getElementById('guessInput');
+const revealBtn = document.getElementById('revealBtn');
+const answerBlock = document.getElementById('answerBlock');
+const yourGuess = document.getElementById('yourGuess');
+const correctValue = document.getElementById('correctValue');
+const fileLine = document.getElementById('fileLine');
+const credit = document.getElementById('credit');
+const verdictRow = document.getElementById('verdictRow');
+const markGood = document.getElementById('markGood');
+const markBad = document.getElementById('markBad');
+const verdictBadge = document.getElementById('verdictBadge');
+const skipBtn = document.getElementById('skipBtn');
+const scoreCorrectEl = document.getElementById('scoreCorrect');
+const scoreTotalEl = document.getElementById('scoreTotal');
+const histPrev = document.getElementById('histPrev');
+const histNext = document.getElementById('histNext');
+const histStatus = document.getElementById('histStatus');
+
+let score = { correct: 0, total: 0 };
+
+// Täielikult vastatud (märgitud) voorud, ajaloos tagasi vaadatavad.
+// Iga kirje: { current: {label,url,filename,filepageUrl,artist,license,cat}, guess, isCorrect }
+let history = [];
+
+// viewIndex === null  → näidatakse LIVE (praegust/pooleliolevat) vooru
+// viewIndex === N      → näidatakse history[N] (loetav, mitte muudetav)
+let viewIndex = null;
+
+// Praeguse/pooleliva vooru olek, millest LIVE vaade joonistatakse.
+// phase: 'loading' | 'ready' | 'revealed' | 'error' | 'end'
+let liveState = { phase: 'loading', current: null, guessText: '', message: 'Laen pilti...' };
+
+// --- "Ei korda enne kui KÕIK pildid on läbi käidud" loogika ---
+// Üks ühtne kott KÕIGI kureeritud piltide peale, olenemata tehnikaühikust/kategooriast.
+// NB: see asendab varasema kaalu(weight)-põhise "mõni tüüp tuleb sagedamini" loogika —
+// range "mitte kordust enne kui absoluutselt kõik läbi" ja "mõni tüüp sagedamini"
+// on omavahel vastuolus, seega praegu on iga pilt täpselt võrdse tõenäosusega ja
+// näidatakse täpselt üks kord, enne kui tsükkel algab uuesti otsast.
+function buildImagePool(){
+  const pool = [];
+  CATEGORIES.forEach(entry => {
+    (entry.files || []).forEach(filename => {
+      pool.push({ entry, filename });
+    });
+  });
+  for(let i = pool.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  return pool;
+}
+
+let imageBag = buildImagePool();
+let lastShownCat = null; // eelmise näidatud pildi tehnikaühik — ei tohi kohe korduda
+
+function drawNextImage(){
+  if(imageBag.length === 0) return null; // terve tsükkel läbi — ei täideta automaatselt uuesti
+
+  // Otsi kotist esimene pilt, mis EI ole sama tehnikaühik kui viimati näidatu.
+  let idx = imageBag.findIndex(item => item.entry.cat !== lastShownCat);
+  if(idx === -1) idx = 0; // kõik ülejäänud kotis on sama kategooria — kordust pole enam võimalik vältida
+
+  const [draw] = imageBag.splice(idx, 1);
+  return draw;
+}
+
+function setStateMsg(text, showSpinner){
+  stateMsg.style.display = 'flex';
+  stateMsg.innerHTML = (showSpinner ? '<div class="spinner"></div>' : '') + '<div>' + text + '</div>';
+  photo.style.display = 'none';
+  scope.classList.remove('ready');
+}
+
+function cleanTitle(title){
+  return title.replace(/^File:/,'').replace(/\.[a-zA-Z0-9]+$/,'').replace(/_/g,' ');
+}
+
+function stripHtml(html){
+  const d = document.createElement('div');
+  d.innerHTML = html || '';
+  return d.textContent.trim();
+}
+
+// Kui failinimi kopeeriti kogemata thumbnail-URL kujul (sisaldab "/960px-..." vms)
+// või URL-kodeeritud kujul (%27, %2C jms), parandatakse see siin automaatselt.
+function normalizeFilename(raw){
+  let f = raw.trim();
+  const slashIdx = f.indexOf('/');
+  if(slashIdx !== -1) f = f.substring(0, slashIdx);
+  if(/%[0-9A-Fa-f]{2}/.test(f)){
+    try{ f = decodeURIComponent(f); }catch(e){ /* jäta muutmata */ }
+  }
+  return f;
+}
+
+async function fetchSpecificFile(filename){
+  const title = 'File:' + normalizeFilename(filename);
+  const url = 'https://commons.wikimedia.org/w/api.php?action=query'
+    + '&titles=' + encodeURIComponent(title)
+    + '&prop=imageinfo'
+    + '&iiprop=url|size|mime|extmetadata'
+    + '&iiurlwidth=1400'
+    + '&format=json&origin=*';
+
+  const res = await fetch(url);
+  if(!res.ok) throw new Error('network');
+  const data = await res.json();
+  const pages = data.query && data.query.pages;
+  if(!pages) throw new Error('empty');
+
+  const page = Object.values(pages)[0];
+  if(!page || page.missing !== undefined) throw new Error('missing-file: ' + filename);
+
+  const ii = page.imageinfo && page.imageinfo[0];
+  if(!ii || !ii.mime || !ii.mime.startsWith('image/')) throw new Error('no-imageinfo');
+
+  const ext = ii.extmetadata || {};
+  return {
+    filename: cleanTitle(page.title),
+    rawTitle: page.title,
+    url: ii.thumburl || ii.url,
+    filepageUrl: 'https://commons.wikimedia.org/wiki/' + encodeURIComponent(page.title.replace(/ /g,'_')),
+    artist: stripHtml(ext.Artist && ext.Artist.value),
+    license: stripHtml(ext.LicenseShortName && ext.LicenseShortName.value)
+  };
+}
+
+// ============================================================================
+// RENDER — kuvab kas LIVE vooru (praegune/pooleliolev) või AJALOO kirje (loetav)
+// ============================================================================
+function fillAnswerBlock(cur, guessText){
+  yourGuess.innerHTML = guessText
+    ? 'Sinu vastus: <b>' + guessText.replace(/</g,'&lt;') + '</b>'
+    : 'Vastus jäeti tühjaks.';
+  correctValue.textContent = cur.label;
+  fileLine.innerHTML = 'Failinimi: ' + cur.filename
+    + ' — <a href="' + cur.filepageUrl + '" target="_blank" rel="noopener">vaata Commonsis</a>';
+
+  let creditText = '';
+  if(cur.artist) creditText += 'Autor: ' + cur.artist + '. ';
+  if(cur.license) creditText += 'Litsents: ' + cur.license + '.';
+  credit.textContent = creditText || '';
+}
+
+function updateNavControls(){
+  const canLeft = viewIndex === null ? history.length > 0 : viewIndex > 0;
+  const canRight = viewIndex !== null;
+  histPrev.disabled = !canLeft;
+  histNext.disabled = !canRight;
+
+  if(viewIndex === null){
+    histStatus.textContent = 'LIVE';
+    histStatus.classList.add('live');
+  } else {
+    histStatus.textContent = 'AJALUGU ' + (viewIndex + 1) + ' / ' + history.length;
+    histStatus.classList.remove('live');
+  }
+}
+
+function renderLive(){
+  verdictRow.style.display = 'flex';
+  verdictBadge.style.display = 'none';
+
+  if(liveState.phase === 'loading' || liveState.phase === 'error' || liveState.phase === 'end'){
+    setStateMsg(liveState.message, liveState.phase === 'loading');
+    answerBlock.style.display = 'none';
+    guessInput.value = '';
+    hudCat.textContent = liveState.phase === 'end' ? 'TSÜKKEL LÄBI' : '—';
+    hudStatus.textContent = liveState.phase === 'end' ? 'LÕPP' : (liveState.phase === 'error' ? 'VIGA' : 'OTSIN...');
+
+    const stopped = liveState.phase !== 'loading';
+    guessInput.disabled = stopped;
+    revealBtn.disabled = stopped;
+    markGood.disabled = true;
+    markBad.disabled = true;
+    skipBtn.disabled = stopped;
+    return;
+  }
+
+  const cur = liveState.current;
+  photo.src = cur.url;
+  photo.style.display = 'block';
+  stateMsg.style.display = 'none';
+  scope.classList.add('ready');
+  hudCat.textContent = 'SIHTMÄRK #' + (score.total + 1);
+  guessInput.value = liveState.guessText;
+  skipBtn.disabled = false;
+
+  if(liveState.phase === 'ready'){
+    hudStatus.textContent = 'OOTAN VASTUST';
+    answerBlock.style.display = 'none';
+    guessInput.disabled = false;
+    revealBtn.disabled = false;
+  } else { // 'revealed'
+    hudStatus.textContent = 'TUVASTATUD';
+    guessInput.disabled = true;
+    revealBtn.disabled = true;
+    fillAnswerBlock(cur, liveState.guessText);
+    answerBlock.style.display = 'block';
+    markGood.disabled = false;
+    markBad.disabled = false;
+  }
+}
+
+function renderHistory(entry){
+  photo.src = entry.current.url;
+  photo.style.display = 'block';
+  stateMsg.style.display = 'none';
+  scope.classList.add('ready');
+  hudCat.textContent = 'AJALUGU';
+  hudStatus.textContent = entry.isCorrect ? 'TUVASTATUD' : 'MÖÖDA';
+
+  guessInput.value = entry.guess;
+  guessInput.disabled = true;
+  revealBtn.disabled = true;
+  skipBtn.disabled = true;
+
+  fillAnswerBlock(entry.current, entry.guess);
+  answerBlock.style.display = 'block';
+
+  verdictRow.style.display = 'none';
+  verdictBadge.style.display = 'inline-block';
+  verdictBadge.textContent = entry.isCorrect ? '✓ Sina märkisid: LÄKS TÄPPI' : '✗ Sina märkisid: EI LÄINUD TÄPPI';
+  verdictBadge.className = 'verdict-badge ' + (entry.isCorrect ? 'good' : 'bad');
+}
+
+function render(){
+  if(viewIndex === null){
+    renderLive();
+  } else {
+    renderHistory(history[viewIndex]);
+  }
+  updateNavControls();
+}
+
+// ============================================================================
+// VOORU LOOGIKA
+// ============================================================================
+async function loadNext(){
+  liveState = { phase: 'loading', current: null, guessText: '', message: 'Laen pilti...' };
+  viewIndex = null; // uus voor toob alati tagasi LIVE juurde
+  render();
+
+  const anyEligible = CATEGORIES.some(c => c.files && c.files.length > 0);
+  if(!anyEligible){
+    liveState = { phase: 'error', current: null, guessText: '',
+      message: 'Ühelgi tehnikaühikul pole veel kureeritud pilte (files[] on tühi). Lisa failinimesid CATEGORIES massiivi ja lae leht uuesti.' };
+    render();
+    return;
+  }
+
+  let attempts = 0;
+  let bagWasEmpty = false;
+
+  while(attempts < 8){
+    attempts++;
+    const draw = drawNextImage();
+    if(!draw){ bagWasEmpty = true; break; }
+    const { entry, filename } = draw;
+
+    try{
+      const file = await fetchSpecificFile(filename);
+      const cur = { label: entry.label, cat: entry.cat, ...file };
+
+      await new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = file.url;
+      });
+
+      lastShownCat = entry.cat;
+      liveState = { phase: 'ready', current: cur, guessText: '', message: '' };
+      render();
+      guessInput.focus();
+      return;
+    }catch(err){
+      continue;
+    }
+  }
+
+  if(bagWasEmpty){
+    // Kogu tsükkel on läbi käidud — ei täida kotti automaatselt uuesti,
+    // vaid näitab selget lõputeadet.
+    liveState = { phase: 'end', current: null, guessText: '',
+      message: 'LÕPP — kõik kureeritud pildid on selles sessioonis näidatud (' + score.total + ' kokku). Uue ringi alustamiseks lae leht uuesti (F5).' };
+    render();
+    return;
+  }
+
+  liveState = { phase: 'error', current: null, guessText: '',
+    message: 'Mitut pilti järjest ei õnnestunud laadida (vale failinimi või võrguprobleem). Kontrolli konsooli (F12) või failinimesid.' };
+  render();
+}
+
+function reveal(){
+  if(viewIndex !== null) return; // ajaloos vaadates ei saa live vooru muuta
+  if(!liveState.current || liveState.phase !== 'ready') return;
+  liveState.guessText = guessInput.value.trim();
+  liveState.phase = 'revealed';
+  render();
+}
+
+function markResult(isCorrect){
+  if(viewIndex !== null) return;
+  if(!liveState.current || liveState.phase !== 'revealed') return;
+
+  score.total++;
+  if(isCorrect) score.correct++;
+  scoreCorrectEl.textContent = score.correct;
+  scoreTotalEl.textContent = score.total;
+
+  history.push({
+    current: liveState.current,
+    guess: liveState.guessText,
+    isCorrect
+  });
+
+  loadNext();
+}
+
+// --- Ajaloo navigeerimine (‹ / ›) ---
+// Vasakule minnes ei puudutata live vooru olekut üldse — see jääb täpselt
+// samasse faasi, kus see oli (ootab vastust / on tuvastatud), ja taastub
+// muutumatuna, kui paremale klõpsates LIVE juurde tagasi tullakse.
+histPrev.addEventListener('click', () => {
+  if(viewIndex === null){
+    if(history.length === 0) return;
+    if(liveState.phase === 'ready') liveState.guessText = guessInput.value; // salvesta pooleli kirjutatud vastus
+    viewIndex = history.length - 1;
+  } else if(viewIndex > 0){
+    viewIndex--;
+  }
+  render();
+});
+
+histNext.addEventListener('click', () => {
+  if(viewIndex === null) return;
+  if(viewIndex < history.length - 1){
+    viewIndex++;
+  } else {
+    viewIndex = null; // tagasi LIVE juurde
+  }
+  render();
+});
+
+revealBtn.addEventListener('click', reveal);
+guessInput.addEventListener('keydown', e => {
+  if(e.key === 'Enter') reveal();
+});
+markGood.addEventListener('click', () => markResult(true));
+markBad.addEventListener('click', () => markResult(false));
+skipBtn.addEventListener('click', () => {
+  if(viewIndex !== null) return;
+  loadNext();
+});
+
+loadNext();
+</script>
+</body>
+</html>
