@@ -121,6 +121,7 @@
   .scorebox .lbl{font-size:10px;letter-spacing:0.14em;color:var(--bone-dim);text-transform:uppercase;}
   .scorebox .val{font-size:20px;font-weight:600;color:var(--olive);}
   .scorebox .val .slash{color:var(--bone-dim);font-weight:400;}
+  .scorebox .pct{font-size:12px;color:var(--bone-dim);margin-top:2px;}
 
   /* viewfinder */
   .scope{
@@ -313,6 +314,7 @@
     <div class="scorebox">
       <div class="lbl">Tulemus</div>
       <div class="val"><span id="scoreCorrect">0</span><span class="slash"> / </span><span id="scoreTotal">0</span></div>
+      <div class="pct" id="scorePct">—</div>
     </div>
   </header>
 
@@ -535,6 +537,7 @@ const verdictBadge = document.getElementById('verdictBadge');
 const skipBtn = document.getElementById('skipBtn');
 const scoreCorrectEl = document.getElementById('scoreCorrect');
 const scoreTotalEl = document.getElementById('scoreTotal');
+const scorePctEl = document.getElementById('scorePct');
 const histPrev = document.getElementById('histPrev');
 const histNext = document.getElementById('histNext');
 const histStatus = document.getElementById('histStatus');
@@ -574,6 +577,7 @@ function buildImagePool(){
 }
 
 let imageBag = buildImagePool();
+const TOTAL_IMAGES = imageBag.length; // koguarv, mida näidatakse sihtmärgi numbri kõrval
 let lastShownCat = null; // eelmise näidatud pildi tehnikaühik — ei tohi kohe korduda
 
 function drawNextImage(){
@@ -705,7 +709,7 @@ function renderLive(){
   photo.style.display = 'block';
   stateMsg.style.display = 'none';
   scope.classList.add('ready');
-  hudCat.textContent = 'SIHTMÄRK #' + (score.total + 1);
+  hudCat.textContent = 'SIHTMÄRK #' + (score.total + 1) + ' / ' + TOTAL_IMAGES;
   guessInput.value = liveState.guessText;
   skipBtn.disabled = false;
 
@@ -832,6 +836,9 @@ function markResult(isCorrect){
   if(isCorrect) score.correct++;
   scoreCorrectEl.textContent = score.correct;
   scoreTotalEl.textContent = score.total;
+  scorePctEl.textContent = score.total > 0
+    ? Math.round((score.correct / score.total) * 100) + '%'
+    : '—';
 
   history.push({
     current: liveState.current,
