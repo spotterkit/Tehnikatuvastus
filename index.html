@@ -1166,6 +1166,21 @@ function normalizeFilename(raw){
 }
 
 async function fetchSpecificFile(filename){
+  // Kohalikud GitHub Pagesi pildid: kõik files[] kirjed, mis algavad "images/".
+  // Näide: "images/t90m_01.jpg". Ülejäänud failinimed kasutavad endiselt Wikimedia Commonsit.
+  if(typeof filename === 'string' && filename.trim().startsWith('images/')){
+    const localPath = filename.trim();
+    return {
+      filename: localPath.split('/').pop(),
+      rawTitle: localPath,
+      url: localPath,
+      filepageUrl: '',
+      artist: '',
+      license: '',
+      isLocal: true
+    };
+  }
+
   const title = 'File:' + normalizeFilename(filename);
   const url = 'https://commons.wikimedia.org/w/api.php?action=query'
     + '&titles=' + encodeURIComponent(title)
@@ -1206,7 +1221,7 @@ function fillAnswerBlock(cur, guessText){
     : 'Vastus jäeti tühjaks.';
   correctValue.textContent = (cur.type ? cur.type + ' ' : '') + cur.label;
   fileLine.innerHTML = 'Failinimi: ' + cur.filename
-    + ' — <a href="' + cur.filepageUrl + '" target="_blank" rel="noopener">vaata Commonsis</a>';
+    + (cur.filepageUrl ? ' — <a href="' + cur.filepageUrl + '" target="_blank" rel="noopener">vaata Commonsis</a>' : '');
 
   let creditText = '';
   if(cur.artist) creditText += 'Autor: ' + cur.artist + '. ';
@@ -1876,7 +1891,7 @@ function revealKuldAnswer(){
   if(!q.current) return;
   kuldCorrectValue.textContent = (q.current.type ? q.current.type + ' ' : '') + q.current.label;
   kuldFileLine.innerHTML = 'Failinimi: ' + q.current.filename
-    + ' — <a href="' + q.current.filepageUrl + '" target="_blank" rel="noopener">vaata Commonsis</a>';
+    + (q.current.filepageUrl ? ' — <a href="' + q.current.filepageUrl + '" target="_blank" rel="noopener">vaata Commonsis</a>' : '');
   kuldAnswer.style.display = 'block';
   kuldRevealBtn.disabled = true;
   kuldGoodBtn.disabled = false;
