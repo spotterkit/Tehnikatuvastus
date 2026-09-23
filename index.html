@@ -749,7 +749,7 @@ const CATEGORIES = [
   // Liikursuurtükid ja -miinipildujad
   { label: "2S19 Msta-S", group: "spg", type: "Liikursuurtükk", cat: "2S19 Msta", weight: 3, files: ["ParkPatriot2015part6-02.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_01.jpg", "Військовослужбовці_провели_тактичне_заняття_09.jpg"] },
   { label: "2S3 Akatsija", group: "spg", type: "Liikursuurtükk", cat: "2S3 Akatsiya", weight: 2, files: ["2S3_Akatsiya_3261.jpg", "2S3_Akatsiya_2017-12-24.jpg", "Northern_Fleet_artillery_combat_training_in_Murmansk_-_January_2023_07.jpg"] },
-  { label: "2S1 Gvozdika", group: "spg", type: "Liikursuurtükk", cat: "2S1 Gvozdika", weight: 2, files: ["2S1_Gvozdika_2017-12-24.jpg", "Openwater2016-40.jpg"] },
+  { label: "2S1 Gvozdika", group: "spg", type: "Liikursuurtükk", cat: "2S1 Gvozdika", weight: 2, files: ["2S1_Gvozdika_2017-12-24.jpg", "Openwater2016-40.jpg", "AmphibiousAssault2015-03.jpg"] },
   { label: "2S9 Nona", group: "spg", type: "Liikurmiinipilduja", cat: "2S9 Nona", weight: 1, files: ["2S9_Nona-S.png", "ParkPatriot2015part5-71.jpg", "2S9_Nona_in_Saint-Petersburg.jpg"] },
   { label: "2S4 Tjulpan", group: "spg", type: "Liikurmiinipilduja", cat: "2S4 Tjulpan", weight: 1, files: ["2S4_Tyulpan_ARMY-2022.jpg", "240-mm_self-propelled_mortar_2B8_%28SAC-2S4%29.JPG"] },
   { label: "2S7 Pion", group: "spg", type: "Liikursuurtükk", cat: "2S7 Pion", weight: 1, files: ["Russian_2S7_Pion_self_propelled_203_mm_Heavy_artillery_gun_%28Ank_Kumar%2C_Infosys_Limited%29_03.jpg", "2S7_Pion_at_ARMY-2018.jpg"] },
@@ -773,13 +773,14 @@ const CATEGORIES = [
   { label: "2B11 / 2S12", group: "towed_artillery", type: "Miinipilduja", cat: "2B11 / 2S12", weight: 1, files: ["120mm_2B11_mortar_-_4thTankDivisionOpenDay17p2-35.jpg", "CombatArtilleryExercise2018-02.jpg"] },
   { label: "2B14 / 2B24", group: "towed_artillery", type: "Miinipilduja", cat: "2B14 / 2B24", weight: 1, files: ["Russian_troops_in_northeastern_Ukraine_%28February_2023%29.jpg", "AirborneExercise2017_06.jpg"] },
   { label: "2B9 Vasiljok", group: "towed_artillery", type: "Automaatmiinipilduja", cat: "2B9 Vasiljok", weight: 1, files: ["82mm_automatic_mortar_2B9_Vasilek_-_Oboronexpo2014part3-27.jpg", "2B9_Vasilyok_in_Museum_of_technique_2016-08-16.JPG"] },
-  { label: "2B23 Nona-M1", group: "towed_artillery", type: "Järelveetav miinipilduja", cat: "2B23", weight: 1, files: ["Oboronexpo2014part3-24.jpg"] },
+  { label: "2B23 Nona-M1", group: "towed_artillery", type: "Järelveetav miinipilduja", cat: "2B23", weight: 1, files: ["Oboronexpo2014part3-24.jpg", "Oboronexpo2014part3-23.jpg"] },
 
   // Laevad
   { label: "Ropucha II", group: "ships", type: "Suur maabumisalus", cat: "Ropucha II", weight: 1, files: ["Project_775M_AZOV_2008_G1.jpg"] },
   { label: "Buyan-M", group: "ships", type: "Korvett/väike raketilaev", cat: "Buyan-M", weight: 1, files: ["«Великий_Устюг».jpg"] },
   { label: "Vishnya", group: "ships", type: "Luurelaev", cat: "Vishnya", weight: 1, files: [] },
-  { label: "Parchim II", group: "ships", type: "Korvett/väike raketilaev", cat: "Parchim II", weight: 1, files: [] },
+  { label: "Parchim II", group: "ships", type: "Korvett/väike raketilaev", cat: "Parchim II", weight: 1, files: ["Channel_One_Russia_in_Navy_%2827-06-2013%29_35.jpg"] },
+  { label: "Neustrashimyy", group: "ships", type: "Fregatt", cat: "Neustrashimyy", weight: 1, files: ["Channel_One_Russia_in_Navy_%2827-06-2013%29_35.jpg"] },
 
   // Droonid
   { label: "Orlan-10", group: "drones", type: "Luuredroon", cat: "Orlan-10", weight: 2, files: ["Orlan-10_%282%29.jpg"] },
@@ -799,8 +800,9 @@ const CATEGORIES = [
   { label: "MTU-20", group: "engineer", type: "Sillatank", cat: "MTU-20", weight: 1, files: ["TankBiathlon14final-92.jpg"] },
   { label: "UR-83P", group: "engineer", type: "Reaktiivdemineerimisseade", cat: "UR-83P", weight: 1, files: [] },
   { label: "ZRP-2", group: "engineer", type: "Reaktiivdemineerimisseade", cat: "ZRP-2", weight: 1, files: [] },
-  { label: "IMR-3", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-3", weight: 1, files: [] },
-  { label: "TMM-3", group: "engineer", type: "Sillamasin", cat: "TMM-3", weight: 1, files: [] },
+  { label: "IMR-3", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-3", weight: 1, files: ["Obstacle_clearing_vehicle_IMR-3_during_the_"Armiya_2021"_exhibition.jpg"] },
+  { label: "TMM-3", group: "engineer", type: "Sillamasin", cat: "TMM-3", weight: 1, files: ["ТММ-3_тяжёлый_механизированный_мост.jpg"] },
+  { label: "TMM-6", group: "engineer", type: "Sillamasin", cat: "TMM-6", weight: 1, files: ["TMM-6_bridgelayer_01.jpg"] },
   { label: "Pontoonsillapark", group: "engineer", type: "Pontoonsillapark", cat: "Pontoonsillapark", weight: 1, files: ["KrAZ-255_PMP_Pontoon_Bridge.jpg"] },
   { label: "UMZ", group: "engineer", type: "Universaalne miinilaotur", cat: "UMZ", weight: 1, files: [] },
   { label: "GMZ-3", group: "engineer", type: "Mineerimissoomuk", cat: "GMZ-3", weight: 1, files: ["GMZ-3_minelayer_vehicle_at_Engineering_Technologies_2012.jpg", "Engineering_Technologies_-_2012_%285-43%29.jpg"] },
@@ -920,8 +922,6 @@ const CATEGORIES = [
   { label: "Krasukha-2", group: "ew", type: "Elektroonilise sõjapidamise eriseadme kompleks", cat: "Krasukha-2", weight: 1, files: ["Krasukha-2_%28Красуха-2%29_Unloaded.jpg"] },
   { label: "Moskva-1", group: "ew", type: "Raadioelektroonilise luure ja EV kompleks", cat: "Moskva-1", weight: 1, files: ["MAKS2015part6-39.jpg"] },
 
-  // Grupeerimata
-  { label: "9K33 Osa", group: "unassigned", type: "Õhutõrjekompleks", cat: "9K33 Osa", weight: 1, files: [] },
 ];
 // Kaheksa harjutuskategooriat — iga CATEGORIES kirje `group` väli viitab siia.
 const GROUPS = [
@@ -1033,11 +1033,12 @@ const TEST_SIZE = 50;
 const TEST_GROUP_LIMITS = {
   drones: 3,
   ships: 2,
-  planes: 6,
+  planes: 5,
   helicopters: 5,
   comms: 3,
   ew: 3,
-  recon_special: 4
+  recon_special: 4,
+  engineer: 5
 };
 
 
