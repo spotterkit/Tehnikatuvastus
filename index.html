@@ -716,7 +716,7 @@ const CATEGORIES = [
 
   // Jalaväe lahingumasinad
   { label: "BMP-2", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-2", weight: 3, files: ["BMP-2_of_Russian_Ground_Forces.jpg", "BMP-2_%281%29.jpg", "BMP-2_-_TankBiathlon14part1-11.jpg" ] },
-  { label: "BMP-3", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-3", weight: 2, files: ["Destruction_of_Russian_tanks_by_Ukrainian_troops_in_Mariupol_%284%29.jpg", "BMP-3_%2841204909204%29.jpg", "BMP-3_infantry_fighting_vehicle_at_Engineering_Technologies_2012_02.jpg", "images/bmp3_01.webp"] },
+  { label: "BMP-3", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-3", weight: 2, files: ["Destruction_of_Russian_tanks_by_Ukrainian_troops_in_Mariupol_%284%29.jpg", "BMP-3_%2841204909204%29.jpg", "BMP-3_infantry_fighting_vehicle_at_Engineering_Technologies_2012_02.jpg"] },
   { label: "BMP-1", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-1", weight: 1, files: ["Kazan_BMP-1_2024-07-18_2453.jpg"] },
 
   // Jalaväe soomustransportöörid
@@ -744,7 +744,7 @@ const CATEGORIES = [
   { label: "1V13", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V13", weight: 1, files: ["Engineering_Technologies_2010_Part4_0033_copy.jpg"] },
   { label: "1V18", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V18", weight: 1, files: ["2018._Донецк_N_18_DSC_8191.jpg", "2014-12-06._Площадка_военной_техники_в_парке_Ленинского_комсомола_07.JPG"] },
   { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", weight: 1, files: ["RehearsalTula02052017-05.jpg", "1V119_Reostat.jpg"] },
-  { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", weight: 1, files: ["images/ark1_01.jpg"] },
+  { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", weight: 1, files: ["images/ark1_01.jpg] },
 
   // Liikursuurtükid ja -miinipildujad
   { label: "2S19 Msta-S", group: "spg", type: "Liikursuurtükk", cat: "2S19 Msta", weight: 3, files: ["ParkPatriot2015part6-02.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_01.jpg", "Військовослужбовці_провели_тактичне_заняття_09.jpg"] },
@@ -1668,7 +1668,7 @@ function renderModelList(){
     else ungrouped.push(e);
   });
 
-  function renderSection(title, entries){
+  function renderSection(title, entries, groupId){
     if(!entries.length) return;
     const section = document.createElement('div');
 
@@ -1700,8 +1700,8 @@ function renderModelList(){
     modelListContent.appendChild(section);
   }
 
-  GROUPS.forEach(g => renderSection(g.label, byGroup.get(g.id)));
-  renderSection('Grupeerimata', ungrouped);
+  GROUPS.forEach(g => renderSection(g.label, byGroup.get(g.id), g.id));
+  renderSection('Grupeerimata', ungrouped, null);
 }
 
 // ============================================================================
