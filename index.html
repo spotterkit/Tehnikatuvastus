@@ -716,7 +716,7 @@ const CATEGORIES = [
 
   // Jalaväe lahingumasinad
   { label: "BMP-2", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-2", weight: 3, files: ["BMP-2_of_Russian_Ground_Forces.jpg", "BMP-2_%281%29.jpg", "BMP-2_-_TankBiathlon14part1-11.jpg" ] },
-  { label: "BMP-3", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-3", weight: 2, files: ["Destruction_of_Russian_tanks_by_Ukrainian_troops_in_Mariupol_%284%29.jpg", "BMP-3_%2841204909204%29.jpg", "BMP-3_infantry_fighting_vehicle_at_Engineering_Technologies_2012_02.jpg"] },
+  { label: "BMP-3", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-3", weight: 2, files: ["Destruction_of_Russian_tanks_by_Ukrainian_troops_in_Mariupol_%284%29.jpg", "BMP-3_%2841204909204%29.jpg", "BMP-3_infantry_fighting_vehicle_at_Engineering_Technologies_2012_02.jpg", "images/bmp3_01.webp"] },
   { label: "BMP-1", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-1", weight: 1, files: ["Kazan_BMP-1_2024-07-18_2453.jpg"] },
 
   // Jalaväe soomustransportöörid
@@ -874,19 +874,18 @@ const CATEGORIES = [
 
   // Luuresoomukid, soomustatud autod ja pioneeriluure
   { label: "BRM-1K", group: "recon_special", type: "Luuresoomuk", cat: "BRM-1K", weight: 1, files: ["BRM-1K_top.jpg", "BRM-1K_%283%29.jpg"] },
-  { label: "GAZ-2975 Tigr", group: "recon_special", type: "Maastur", cat: "GAZ-2975 Tigr", weight: 1, files: ["Gaz-tigr-2975.jpg"] },
   { label: "BRDM-2 / BRDM-2M", group: "recon_special", type: "Luuresoomuk", cat: "BRDM-2 / BRDM-2M", weight: 1, files: ["BRDM-2_-_ETIF-2010_%283%29.jpg"] },
   { label: "RKhM-4", group: "recon_special", type: "Luuresoomuk", cat: "RKhM-4", weight: 1, files: [] },
   { label: "RKhM-6", group: "recon_special", type: "TBK-luuresoomuk", cat: "RKhM-6", weight: 1, files: ["RKhM-6_-4.jpg"] },
   { label: "IRM", group: "recon_special", type: "Pioneeriluuresoomuk", cat: "IRM", weight: 1, files: ["Army2016demo-102.jpg", "ИРМ_Жук_из_состава_187-го_Псковского_ордена_Красной_Звезды_межвидового_учебного_центра_инженерных_войск.jpg"] },
   { label: "Taifun-K, 4x4", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-K, 4x4", weight: 1, files: [] },
-  { label: "Taifun-VDV K-4386, 4x4", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-VDV K-4386, 4x4", weight: 1, files: [] },
+  { label: "Taifun-VDV K-4386, 4x4", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-VDV K-4386, 4x4", weight: 1, files: ["images/taifunvdvk_01.jpg"] },
   { label: "Taifun-K KAMAZ-63968, 6x6", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-K KAMAZ-63968, 6x6", weight: 1, files: ["9may2015Moscow-19.jpg"] },
   { label: "Taifun-U, 6x6", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-U, 6x6", weight: 1, files: [] },
   { label: "Taifun-U Ural-53099", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-U Ural-53099", weight: 1, files: ["Ural-53099_Typhoon-U_-_DayTechnologies2017p2-71.jpg"] },
   { label: "Taifun-U KAMAZ-5350, 6x6", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-U KAMAZ-5350, 6x6", weight: 1, files: [] },
   { label: "Taifun-U Ural-63095, 6x6", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-U Ural-63095, 6x6", weight: 1, files: ["Alabino220415part1-20.jpg"] },
-  { label: "GAZ-233014/TIGR", group: "recon_special", type: "Maastur", cat: "GAZ-233014/TIGR", weight: 1, files: [] },
+  { label: "GAZ-233014/TIGR", group: "recon_special", type: "Maastur", cat: "GAZ-233014/TIGR", weight: 1, files: [""Gaz-tigr-2975.jpg""] },
   { label: "RÕS/IVECO", group: "recon_special", type: "Soomustatud auto", cat: "RÕS/IVECO", weight: 1, files: ["Iveco_LMV_Lynx_of_the_Russian_Airborne_Troops_08.jpg"] },
 
   // Side- ja juhtimissoomukid ning autod
@@ -895,14 +894,11 @@ const CATEGORIES = [
   { label: "R-166-0,5", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-166-0,5", weight: 1, files: ["R-166-0%2C5_radiostation_-_27th_Independent_Sevastopol_Guards_Motor_Rifle_Brigade_%282%29.jpg"] },
   { label: "BMD-1Ksh", group: "comms", type: "Juhtimissoomuk", cat: "BMD-1Ksh", weight: 1, files: ["Командно-штабные_машины_в_артиллерийском_музее_—_2.jpg"] },
   { label: "R-145BM", group: "comms", type: "Juhtimissoomuk", cat: "R-145BM", weight: 1, files: ["R-145BM_command_vehicle_on_BTR-60_base.jpg", "ParkPatriot2015part9-47.jpg"] },
-  { label: "BMP-2K", group: "comms", type: "Juhtimissoomuk", cat: "BMP-2K", weight: 1, files: [] },
   { label: "R-149BMR", group: "comms", type: "Juhtimissoomuk", cat: "R-149BMR", weight: 1, files: ["Yuzhno-Sakhalinsk_Victory_Day_Parade_%282019%29_14.jpg"] },
-  { label: "BMRD R-149", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "BMRD R-149", weight: 1, files: [] },
   { label: "BMD-1R", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "BMD-1R", weight: 1, files: [] },
-  { label: "R-149MA", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-149MA", weight: 1, files: [] },
   { label: "R-440 ODB", group: "comms", type: "ÕDV satelliitsidesoomuk", cat: "R-440 ODB", weight: 1, files: ["images/r440odb_01.jpg"] },
-  { label: "MP-1L", group: "comms", type: "Sidesoomuk", cat: "MP-1L", weight: 1, files: [] },
-  { label: "MP-2L", group: "comms", type: "Sidesoomuk", cat: "MP-2L", weight: 1, files: [] },
+  { label: "R-166", group: "comms", type: "Kombineeritud raadioside masin", cat: "R-166", weight: 1, files: ["R-166_radiostation.jpg"] },
+  { label: "R-441-0 Liven", group: "comms", type: "SAT raadiosideauto", cat: "R-441-0 Liven", weight: 1, files: ["images/r441liven_01.jpg"] },
 
   // Pind-pind tüüpi juhitavad raketid
   { label: "9K720 Iskander", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "9K720 Iskander", weight: 2, files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg"] },
