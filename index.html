@@ -82,7 +82,10 @@
   .hist-status.live{color:var(--olive);}
 
   /* header */
-  body.home-active .scorebox{display:none;}\n  body.run-active .scorebox{display:block;}\n\n  header{
+  body.home-active .scorebox{display:none;}
+  body.run-active .scorebox{display:block;}
+
+  header{
     display:flex;
     justify-content:space-between;
     align-items:flex-end;
@@ -299,9 +302,69 @@
     opacity:0.7;
   }
 
+  /* kuldvillak */
+  .kuld-config{
+    margin-top:10px;padding:14px;border:1px solid var(--line);
+    background:var(--panel-2);
+  }
+  .kuld-config-title{
+    font-family:var(--font-display);font-size:18px;color:var(--amber);
+    text-transform:uppercase;margin-bottom:5px;
+  }
+  .kuld-config-help{font-size:11px;color:var(--bone-dim);line-height:1.55;margin-bottom:12px;}
+  .kuld-config-actions{display:flex;gap:8px;margin-bottom:10px;}
+  .kuld-config-actions button{flex:1;}
+  .kuld-config-count{font-size:11px;color:var(--olive);margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em;}
+  .kuld-group-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;}
+  .kuld-group-check{
+    display:flex;align-items:center;gap:9px;padding:9px 10px;
+    border:1px solid var(--line);background:var(--bg-0);cursor:pointer;
+  }
+  .kuld-group-check:hover{border-color:var(--olive);}
+  .kuld-group-check.disabled{opacity:.38;cursor:not-allowed;}
+  .kuld-group-check input{width:16px;height:16px;accent-color:var(--olive);flex:0 0 auto;}
+  .kuld-group-check .kg-name{flex:1;font-size:11px;line-height:1.3;}
+  .kuld-group-check .kg-count{font-size:9px;color:var(--bone-dim);white-space:nowrap;}
+  .kuld-panel{border-top:1px solid var(--line);}
+  .kuld-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;}
+  .kuld-eyebrow{font-size:10px;color:var(--bone-dim);letter-spacing:.14em;text-transform:uppercase;}
+  .kuld-title{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--amber);letter-spacing:.04em;}
+  .kuld-score{border:1px solid var(--line);padding:6px 12px;text-align:right;}
+  .kuld-score span{display:block;font-size:9px;color:var(--bone-dim);letter-spacing:.12em;}
+  .kuld-score b{font-size:22px;color:var(--olive);}
+  .kuld-board{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;}
+  .kuld-cat{
+    min-height:66px;padding:9px 6px;border:1px solid var(--line);background:var(--bg-0);
+    color:var(--bone);font-family:var(--font-display);font-size:14px;text-align:center;
+    display:flex;align-items:center;justify-content:center;line-height:1.15;
+  }
+  .kuld-cell{
+    min-height:72px;border:1px solid var(--olive-dim);background:var(--panel-2);
+    color:var(--amber);font-family:var(--font-display);font-size:28px;font-weight:700;
+    cursor:pointer;transition:.15s;
+  }
+  .kuld-cell:hover:not(:disabled){background:var(--olive-dim);color:var(--bone);}
+  .kuld-cell:disabled{cursor:default;opacity:.28;text-decoration:line-through;}
+  .kuld-question{margin-top:12px;}
+  .kuld-question-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .kuld-question-cat{font-family:var(--font-display);font-size:20px;color:var(--amber);text-transform:uppercase;}
+  .kuld-question-value{font-family:var(--font-display);font-size:28px;color:var(--olive);font-weight:700;}
+  .kuld-scope{height:min(58vh,560px);margin-bottom:0;}
+  .kuld-scope img{width:100%;height:100%;object-fit:contain;background:#0a0c07;display:block;}
+  .kuld-answer{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);}
+  @media(max-width:600px){
+    .kuld-group-grid{grid-template-columns:1fr;}
+    .kuld-board{gap:4px;}
+    .kuld-cat{min-height:72px;font-size:11px;}
+    .kuld-cell{min-height:60px;font-size:22px;}
+    .kuld-scope{height:46vh;min-height:260px;}
+  }
+
   @media(max-width:480px){
     .verdict-row{flex-direction:column;}
     .row{flex-direction:column;}
+    .model-list-row{flex-wrap:wrap;}
+    .model-list-row .m-name{min-width:100%;}
   }
 
   /* home / menu screen */
@@ -332,6 +395,77 @@
     font-size:10px;letter-spacing:0.14em;color:var(--bone-dim);
     text-transform:uppercase;padding-top:14px;
   }
+
+  .stats-line{
+    font-size:12px;color:var(--bone-dim);
+    margin-bottom:14px;
+    padding:9px 12px;
+    border:1px solid var(--line);
+    background:var(--panel-2);
+  }
+  .stats-line b{color:var(--olive);font-weight:600;}
+
+  /* kodulehe kahetulbaline paigutus: vasakul valikud, paremal QR-kood */
+  .home-layout{display:flex;gap:22px;align-items:flex-start;}
+  .home-main{flex:1;min-width:0;}
+  .qr-panel{
+    flex:0 0 220px;
+    border:1px solid var(--line);
+    background:var(--panel);
+    padding:16px;
+    text-align:center;
+  }
+  .qr-panel .qr-eyebrow{
+    font-size:11px;letter-spacing:0.14em;color:var(--olive);
+    text-transform:uppercase;margin-bottom:12px;
+  }
+  .qr-panel .qr-box{
+    background:#fff;padding:10px;display:inline-block;
+    max-width:100%;line-height:0;
+  }
+  .qr-panel .qr-box svg{display:block;width:100%;height:auto;}
+  .qr-panel .qr-caption{
+    font-size:10px;color:var(--bone-dim);
+    margin-top:12px;line-height:1.6;
+  }
+  @media(max-width:760px){
+    .qr-panel{display:none;}
+  }
+
+  /* mudelite nimekirja ekraan */
+  .model-list-summary{
+    font-size:12px;color:var(--bone-dim);
+    line-height:1.6;
+    margin-bottom:16px;
+    padding-bottom:14px;
+    border-bottom:1px dashed var(--line);
+  }
+  .model-list-heading{
+    font-family:var(--font-display);
+    font-size:14px;font-weight:600;
+    color:var(--amber);
+    text-transform:uppercase;letter-spacing:0.04em;
+    margin:20px 0 8px;
+    padding-bottom:6px;
+    border-bottom:1px solid var(--line);
+  }
+  .model-list-heading:first-child{margin-top:0;}
+  .model-list-heading .grp-cnt{
+    color:var(--bone-dim);font-family:var(--font-mono);
+    font-size:11px;text-transform:none;letter-spacing:0.02em;
+  }
+  .model-list-row{
+    display:flex;gap:10px;align-items:baseline;
+    padding:7px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:13px;
+  }
+  .model-list-row .m-name{flex:0 0 auto;min-width:160px;color:var(--bone);font-weight:600;}
+  .model-list-row .m-type{flex:1;color:var(--bone-dim);font-size:12px;}
+  .model-list-row .m-status{
+    flex:0 0 auto;font-size:11px;letter-spacing:0.06em;
+    text-transform:uppercase;color:var(--green);white-space:nowrap;
+  }
 </style>
 </head>
 <body>
@@ -350,22 +484,108 @@
   </header>
 
   <div class="panel" id="homeScreen">
-    <div class="home-eyebrow">Vali harjutuskategooriad</div>
-    <div class="home-select-actions">
-      <button type="button" id="selectAllBtn">Vali kõik</button>
-      <button type="button" id="clearAllBtn">Tühista kõik</button>
+    <div class="home-layout">
+      <div class="home-main">
+        <div class="home-eyebrow">Vali harjutuskategooriad</div>
+        <div class="home-select-actions">
+          <button type="button" id="selectAllBtn">Vali kõik</button>
+          <button type="button" id="clearAllBtn">Tühista kõik</button>
+        </div>
+        <div class="home-group-grid" id="groupGrid"></div>
+        <div class="stats-line" id="statsLine"></div>
+        <div class="row">
+          <button class="primary" id="startPracticeBtn" style="flex:1;">Harjuta valitud kategooriaid</button>
+        </div>
+        <div class="home-divider">Testid</div>
+        <div class="row">
+          <button class="primary" id="startTestBtn" style="flex:1;">Genereeri test (50 küsimust)</button>
+        </div>
+        <div class="row" style="margin-top:8px;">
+          <button class="primary" id="startKuldvillakBtn" style="flex:1;">Genereeri kuldvillak</button>
+        </div>
+        <div id="kuldConfig" class="kuld-config" style="display:none;">
+          <div class="kuld-config-title">Kuldvillaku kategooriad</div>
+          <div class="kuld-config-help">Vali 5 kategooriat käsitsi või lase rakendusel valida 5 juhuslikku kategooriat. Igas kategoorias on 5 küsimust, iga küsimus väärtusega 100.</div>
+          <div class="kuld-config-actions">
+            <button type="button" id="kuldRandomBtn" class="primary">Juhuslikud 5</button>
+            <button type="button" id="kuldUseSelectedBtn">Kasuta valitud 5</button>
+          </div>
+          <div class="kuld-config-count" id="kuldConfigCount"></div>
+          <div class="kuld-group-grid" id="kuldGroupGrid"></div>
+        </div>
+        <div class="home-divider">Vaba sirvimine</div>
+        <div class="row">
+          <button id="startCatalogBtn" style="flex:1;">Vaata kogu kataloogi</button>
+        </div>
+        <div class="row" style="margin-top:8px;">
+          <button id="showModelListBtn" style="flex:1;">Kõik mudelid (nimekiri)</button>
+        </div>
+      </div>
+      <div class="qr-panel" id="qrPanel">
+        <div class="qr-eyebrow">Ava telefonis</div>
+        <div class="qr-box" id="qrBox"></div>
+        <div class="qr-caption">Skanni QR-kood, et avada see leht oma seadmes.</div>
+      </div>
     </div>
-    <div class="home-group-grid" id="groupGrid"></div>
-    <div class="row">
-      <button class="primary" id="startPracticeBtn" style="flex:1;">Harjuta valitud kategooriaid</button>
+  </div>
+
+  <div id="listScreen" style="display:none;">
+    <div class="hist-nav">
+      <button id="listBackBtn" class="nav-btn" aria-label="Tagasi menüüsse" title="Tagasi menüüsse">‹ Menüü</button>
+      <div class="hist-status live">MUDELITE NIMEKIRI</div>
     </div>
-    <div class="home-divider">Testid</div>
-    <div class="row">
-      <button class="primary" id="startTestBtn" style="flex:1;">Genereeri test (50 küsimust)</button>
+    <div class="panel" id="modelListPanel">
+      <div class="model-list-summary" id="modelListSummary"></div>
+      <div id="modelListContent"></div>
     </div>
-    <div class="home-divider">Vaba sirvimine</div>
-    <div class="row">
-      <button id="startCatalogBtn" style="flex:1;">Vaata kogu kataloogi</button>
+  </div>
+
+  <div id="kuldScreen" style="display:none;">
+    <div class="hist-nav">
+      <button id="kuldMenuBtn" class="nav-btn" aria-label="Tagasi menüüsse" title="Tagasi menüüsse">‹ Menüü</button>
+      <div class="hist-status live" id="kuldStatus">KULDVILLAK</div>
+      <button id="kuldResetBtn" class="nav-btn" title="Uus kuldvillak">↻</button>
+    </div>
+
+    <div class="panel kuld-panel">
+      <div class="kuld-head">
+        <div>
+          <div class="kuld-eyebrow">5 × 5 küsimust</div>
+          <div class="kuld-title">KULDVILLAK</div>
+        </div>
+        <div class="kuld-score">
+          <span>PUNKTID</span>
+          <b id="kuldScore">0</b>
+        </div>
+      </div>
+      <div class="kuld-board" id="kuldBoard"></div>
+    </div>
+
+    <div class="panel kuld-question" id="kuldQuestion" style="display:none;">
+      <div class="kuld-question-top">
+        <div class="kuld-question-cat" id="kuldQuestionCat">—</div>
+        <div class="kuld-question-value" id="kuldQuestionValue">100</div>
+      </div>
+      <div class="scope kuld-scope" id="kuldScope">
+        <img id="kuldPhoto" alt="" style="display:none;">
+        <div class="state-msg" id="kuldStateMsg">
+          <div class="spinner"></div>
+          <div>Laen pilti...</div>
+        </div>
+      </div>
+      <div class="kuld-answer" id="kuldAnswer" style="display:none;">
+        <div class="lbl">Õige vastus</div>
+        <div class="value" id="kuldCorrectValue">—</div>
+        <div class="filename" id="kuldFileLine"></div>
+      </div>
+      <div class="verdict-row">
+        <button class="good" id="kuldGoodBtn">✓ Läks täppi (+100)</button>
+        <button class="bad" id="kuldBadBtn">✗ Ei läinud täppi</button>
+      </div>
+      <div class="row">
+        <button id="kuldRevealBtn" class="primary" style="flex:1;">Näita vastust</button>
+        <button id="kuldBackBoardBtn" style="flex:1;">Tagasi mängulauale</button>
+      </div>
     </div>
   </div>
 
@@ -406,8 +626,8 @@
         <div class="filename" id="fileLine"></div>
 
         <div class="verdict-row" id="verdictRow">
-          <button class="good" id="markGood">✓ Läks täppi</button>
-          <button class="bad" id="markBad">✗ Ei läinud täppi</button>
+          <button class="good" id="markGood">✓ Läks täppi (1)</button>
+          <button class="bad" id="markBad">✗ Ei läinud täppi (2)</button>
         </div>
         <div class="row" id="practiceNextRow" style="display:none;">
           <button class="primary" id="practiceNextBtn" style="flex:1;">Järgmine pilt (Enter) →</button>
@@ -423,6 +643,7 @@
 
       <div class="row" id="endActionsRow" style="display:none;margin-top:12px;">
         <button class="primary" id="endRestartBtn" style="flex:1;">Alusta uuesti</button>
+        <button id="endRepeatBtn" style="flex:1;display:none;">Korda vigu</button>
         <button id="endMenuBtn" style="flex:1;">Tagasi menüüsse</button>
       </div>
     </div>
@@ -431,6 +652,14 @@
 
   <footer>Pildid: Wikimedia Commons · Vene Föderatsiooni sõjatehnika</footer>
 </div>
+
+<!-- Vendored QR-koodi generaator (MIT litsents, autor Kazuhiko Arase).
+     Allikas: npm pakett "qrcode-generator" (https://github.com/kazuhikoarase/qrcode-generator).
+     Genereerib QR-koodi puhtalt brauseris, ilma välise API/internetiühenduseta.
+     Kasutus allpool: qrcode(0,'M').addData(url); .make(); .createSvgTag(...) -->
+<script>
+var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],f={},c=function(t,r){o=function(t){for(var r=new Array(t),e=0;e<t;e+=1){r[e]=new Array(t);for(var n=0;n<t;n+=1)r[e][n]=null}return r}(i=4*e+17),l(0,0),l(i-7,0),l(0,i-7),s(),h(),d(t,r),e>=7&&v(t),null==a&&(a=p(e,n,u)),w(a,r)},l=function(t,r){for(var e=-1;e<=7;e+=1)if(!(t+e<=-1||i<=t+e))for(var n=-1;n<=7;n+=1)r+n<=-1||i<=r+n||(o[t+e][r+n]=0<=e&&e<=6&&(0==n||6==n)||0<=n&&n<=6&&(0==e||6==e)||2<=e&&e<=4&&2<=n&&n<=4)},h=function(){for(var t=8;t<i-8;t+=1)null==o[t][6]&&(o[t][6]=t%2==0);for(var r=8;r<i-8;r+=1)null==o[6][r]&&(o[6][r]=r%2==0)},s=function(){for(var t=B.getPatternPosition(e),r=0;r<t.length;r+=1)for(var n=0;n<t.length;n+=1){var i=t[r],a=t[n];if(null==o[i][a])for(var u=-2;u<=2;u+=1)for(var f=-2;f<=2;f+=1)o[i+u][a+f]=-2==u||2==u||-2==f||2==f||0==u&&0==f}},v=function(t){for(var r=B.getBCHTypeNumber(e),n=0;n<18;n+=1){var a=!t&&1==(r>>n&1);o[Math.floor(n/3)][n%3+i-8-3]=a}for(n=0;n<18;n+=1){a=!t&&1==(r>>n&1);o[n%3+i-8-3][Math.floor(n/3)]=a}},d=function(t,r){for(var e=n<<3|r,a=B.getBCHTypeInfo(e),u=0;u<15;u+=1){var f=!t&&1==(a>>u&1);u<6?o[u][8]=f:u<8?o[u+1][8]=f:o[i-15+u][8]=f}for(u=0;u<15;u+=1){f=!t&&1==(a>>u&1);u<8?o[8][i-u-1]=f:u<9?o[8][15-u-1+1]=f:o[8][15-u-1]=f}o[i-8][8]=!t},w=function(t,r){for(var e=-1,n=i-1,a=7,u=0,f=B.getMaskFunction(r),c=i-1;c>0;c-=2)for(6==c&&(c-=1);;){for(var g=0;g<2;g+=1)if(null==o[n][c-g]){var l=!1;u<t.length&&(l=1==(t[u]>>>a&1)),f(n,c-g)&&(l=!l),o[n][c-g]=l,-1==(a-=1)&&(u+=1,a=7)}if((n+=e)<0||i<=n){n-=e,e=-e;break}}},p=function(t,r,e){for(var n=A.getRSBlocks(t,r),o=b(),i=0;i<e.length;i+=1){var a=e[i];o.put(a.getMode(),4),o.put(a.getLength(),B.getLengthInBits(a.getMode(),t)),a.write(o)}var u=0;for(i=0;i<n.length;i+=1)u+=n[i].dataCount;if(o.getLengthInBits()>8*u)throw"code length overflow. ("+o.getLengthInBits()+">"+8*u+")";for(o.getLengthInBits()+4<=8*u&&o.put(0,4);o.getLengthInBits()%8!=0;)o.putBit(!1);for(;!(o.getLengthInBits()>=8*u||(o.put(236,8),o.getLengthInBits()>=8*u));)o.put(17,8);return function(t,r){for(var e=0,n=0,o=0,i=new Array(r.length),a=new Array(r.length),u=0;u<r.length;u+=1){var f=r[u].dataCount,c=r[u].totalCount-f;n=Math.max(n,f),o=Math.max(o,c),i[u]=new Array(f);for(var g=0;g<i[u].length;g+=1)i[u][g]=255&t.getBuffer()[g+e];e+=f;var l=B.getErrorCorrectPolynomial(c),h=k(i[u],l.getLength()-1).mod(l);for(a[u]=new Array(l.getLength()-1),g=0;g<a[u].length;g+=1){var s=g+h.getLength()-a[u].length;a[u][g]=s>=0?h.getAt(s):0}}var v=0;for(g=0;g<r.length;g+=1)v+=r[g].totalCount;var d=new Array(v),w=0;for(g=0;g<n;g+=1)for(u=0;u<r.length;u+=1)g<i[u].length&&(d[w]=i[u][g],w+=1);for(g=0;g<o;g+=1)for(u=0;u<r.length;u+=1)g<a[u].length&&(d[w]=a[u][g],w+=1);return d}(o,n)};f.addData=function(t,r){var e=null;switch(r=r||"Byte"){case"Numeric":e=M(t);break;case"Alphanumeric":e=x(t);break;case"Byte":e=m(t);break;case"Kanji":e=L(t);break;default:throw"mode:"+r}u.push(e),a=null},f.isDark=function(t,r){if(t<0||i<=t||r<0||i<=r)throw t+","+r;return o[t][r]},f.getModuleCount=function(){return i},f.make=function(){if(e<1){for(var t=1;t<40;t++){for(var r=A.getRSBlocks(t,n),o=b(),i=0;i<u.length;i++){var a=u[i];o.put(a.getMode(),4),o.put(a.getLength(),B.getLengthInBits(a.getMode(),t)),a.write(o)}var g=0;for(i=0;i<r.length;i++)g+=r[i].dataCount;if(o.getLengthInBits()<=8*g)break}e=t}c(!1,function(){for(var t=0,r=0,e=0;e<8;e+=1){c(!0,e);var n=B.getLostPoint(f);(0==e||t>n)&&(t=n,r=e)}return r}())},f.createTableTag=function(t,r){t=t||2;var e="";e+='<table style="',e+=" border-width: 0px; border-style: none;",e+=" border-collapse: collapse;",e+=" padding: 0px; margin: "+(r=void 0===r?4*t:r)+"px;",e+='">',e+="<tbody>";for(var n=0;n<f.getModuleCount();n+=1){e+="<tr>";for(var o=0;o<f.getModuleCount();o+=1)e+='<td style="',e+=" border-width: 0px; border-style: none;",e+=" border-collapse: collapse;",e+=" padding: 0px; margin: 0px;",e+=" width: "+t+"px;",e+=" height: "+t+"px;",e+=" background-color: ",e+=f.isDark(n,o)?"#000000":"#ffffff",e+=";",e+='"/>';e+="</tr>"}return e+="</tbody>",e+="</table>"},f.createSvgTag=function(t,r,e,n){var o={};"object"==typeof arguments[0]&&(t=(o=arguments[0]).cellSize,r=o.margin,e=o.alt,n=o.title),t=t||2,r=void 0===r?4*t:r,(e="string"==typeof e?{text:e}:e||{}).text=e.text||null,e.id=e.text?e.id||"qrcode-description":null,(n="string"==typeof n?{text:n}:n||{}).text=n.text||null,n.id=n.text?n.id||"qrcode-title":null;var i,a,u,c,g=f.getModuleCount()*t+2*r,l="";for(c="l"+t+",0 0,"+t+" -"+t+",0 0,-"+t+"z ",l+='<svg version="1.1" xmlns="http://www.w3.org/2000/svg"',l+=o.scalable?"":' width="'+g+'px" height="'+g+'px"',l+=' viewBox="0 0 '+g+" "+g+'" ',l+=' preserveAspectRatio="xMinYMin meet"',l+=n.text||e.text?' role="img" aria-labelledby="'+y([n.id,e.id].join(" ").trim())+'"':"",l+=">",l+=n.text?'<title id="'+y(n.id)+'">'+y(n.text)+"</title>":"",l+=e.text?'<description id="'+y(e.id)+'">'+y(e.text)+"</description>":"",l+='<rect width="100%" height="100%" fill="white" cx="0" cy="0"/>',l+='<path d="',a=0;a<f.getModuleCount();a+=1)for(u=a*t+r,i=0;i<f.getModuleCount();i+=1)f.isDark(a,i)&&(l+="M"+(i*t+r)+","+u+c);return l+='" stroke="transparent" fill="black"/>',l+="</svg>"},f.createDataURL=function(t,r){t=t||2,r=void 0===r?4*t:r;var e=f.getModuleCount()*t+2*r,n=r,o=e-r;return I(e,e,function(r,e){if(n<=r&&r<o&&n<=e&&e<o){var i=Math.floor((r-n)/t),a=Math.floor((e-n)/t);return f.isDark(a,i)?0:1}return 1})},f.createImgTag=function(t,r,e){t=t||2,r=void 0===r?4*t:r;var n=f.getModuleCount()*t+2*r,o="";return o+="<img",o+=' src="',o+=f.createDataURL(t,r),o+='"',o+=' width="',o+=n,o+='"',o+=' height="',o+=n,o+='"',e&&(o+=' alt="',o+=y(e),o+='"'),o+="/>"};var y=function(t){for(var r="",e=0;e<t.length;e+=1){var n=t.charAt(e);switch(n){case"<":r+="&lt;";break;case">":r+="&gt;";break;case"&":r+="&amp;";break;case'"':r+="&quot;";break;default:r+=n}}return r};return f.createASCII=function(t,r){if((t=t||1)<2)return function(t){t=void 0===t?2:t;var r,e,n,o,i,a=1*f.getModuleCount()+2*t,u=t,c=a-t,g={"██":"█","█ ":"▀"," █":"▄","  ":" "},l={"██":"▀","█ ":"▀"," █":" ","  ":" "},h="";for(r=0;r<a;r+=2){for(n=Math.floor((r-u)/1),o=Math.floor((r+1-u)/1),e=0;e<a;e+=1)i="█",u<=e&&e<c&&u<=r&&r<c&&f.isDark(n,Math.floor((e-u)/1))&&(i=" "),u<=e&&e<c&&u<=r+1&&r+1<c&&f.isDark(o,Math.floor((e-u)/1))?i+=" ":i+="█",h+=t<1&&r+1>=c?l[i]:g[i];h+="\n"}return a%2&&t>0?h.substring(0,h.length-a-1)+Array(a+1).join("▀"):h.substring(0,h.length-1)}(r);t-=1,r=void 0===r?2*t:r;var e,n,o,i,a=f.getModuleCount()*t+2*r,u=r,c=a-r,g=Array(t+1).join("██"),l=Array(t+1).join("  "),h="",s="";for(e=0;e<a;e+=1){for(o=Math.floor((e-u)/t),s="",n=0;n<a;n+=1)i=1,u<=n&&n<c&&u<=e&&e<c&&f.isDark(o,Math.floor((n-u)/t))&&(i=0),s+=i?g:l;for(o=0;o<t;o+=1)h+=s+"\n"}return h.substring(0,h.length-1)},f.renderTo2dContext=function(t,r){r=r||2;for(var e=f.getModuleCount(),n=0;n<e;n++)for(var o=0;o<e;o++)t.fillStyle=f.isDark(n,o)?"black":"white",t.fillRect(o*r,n*r,r,r)},f};t.stringToBytes=(t.stringToBytesFuncs={default:function(t){for(var r=[],e=0;e<t.length;e+=1){var n=t.charCodeAt(e);r.push(255&n)}return r}}).default,t.createStringToBytes=function(t,r){var e=function(){for(var e=S(t),n=function(){var t=e.read();if(-1==t)throw"eof";return t},o=0,i={};;){var a=e.read();if(-1==a)break;var u=n(),f=n()<<8|n();i[String.fromCharCode(a<<8|u)]=f,o+=1}if(o!=r)throw o+" != "+r;return i}(),n="?".charCodeAt(0);return function(t){for(var r=[],o=0;o<t.length;o+=1){var i=t.charCodeAt(o);if(i<128)r.push(i);else{var a=e[t.charAt(o)];"number"==typeof a?(255&a)==a?r.push(a):(r.push(a>>>8),r.push(255&a)):r.push(n)}}return r}};var r,e,n,o,i,a=1,u=2,f=4,c=8,g={L:1,M:0,Q:3,H:2},l=0,h=1,s=2,v=3,d=4,w=5,p=6,y=7,B=(r=[[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50],[6,30,54],[6,32,58],[6,34,62],[6,26,46,66],[6,26,48,70],[6,26,50,74],[6,30,54,78],[6,30,56,82],[6,30,58,86],[6,34,62,90],[6,28,50,72,94],[6,26,50,74,98],[6,30,54,78,102],[6,28,54,80,106],[6,32,58,84,110],[6,30,58,86,114],[6,34,62,90,118],[6,26,50,74,98,122],[6,30,54,78,102,126],[6,26,52,78,104,130],[6,30,56,82,108,134],[6,34,60,86,112,138],[6,30,58,86,114,142],[6,34,62,90,118,146],[6,30,54,78,102,126,150],[6,24,50,76,102,128,154],[6,28,54,80,106,132,158],[6,32,58,84,110,136,162],[6,26,54,82,110,138,166],[6,30,58,86,114,142,170]],e=1335,n=7973,i=function(t){for(var r=0;0!=t;)r+=1,t>>>=1;return r},(o={}).getBCHTypeInfo=function(t){for(var r=t<<10;i(r)-i(e)>=0;)r^=e<<i(r)-i(e);return 21522^(t<<10|r)},o.getBCHTypeNumber=function(t){for(var r=t<<12;i(r)-i(n)>=0;)r^=n<<i(r)-i(n);return t<<12|r},o.getPatternPosition=function(t){return r[t-1]},o.getMaskFunction=function(t){switch(t){case l:return function(t,r){return(t+r)%2==0};case h:return function(t,r){return t%2==0};case s:return function(t,r){return r%3==0};case v:return function(t,r){return(t+r)%3==0};case d:return function(t,r){return(Math.floor(t/2)+Math.floor(r/3))%2==0};case w:return function(t,r){return t*r%2+t*r%3==0};case p:return function(t,r){return(t*r%2+t*r%3)%2==0};case y:return function(t,r){return(t*r%3+(t+r)%2)%2==0};default:throw"bad maskPattern:"+t}},o.getErrorCorrectPolynomial=function(t){for(var r=k([1],0),e=0;e<t;e+=1)r=r.multiply(k([1,C.gexp(e)],0));return r},o.getLengthInBits=function(t,r){if(1<=r&&r<10)switch(t){case a:return 10;case u:return 9;case f:case c:return 8;default:throw"mode:"+t}else if(r<27)switch(t){case a:return 12;case u:return 11;case f:return 16;case c:return 10;default:throw"mode:"+t}else{if(!(r<41))throw"type:"+r;switch(t){case a:return 14;case u:return 13;case f:return 16;case c:return 12;default:throw"mode:"+t}}},o.getLostPoint=function(t){for(var r=t.getModuleCount(),e=0,n=0;n<r;n+=1)for(var o=0;o<r;o+=1){for(var i=0,a=t.isDark(n,o),u=-1;u<=1;u+=1)if(!(n+u<0||r<=n+u))for(var f=-1;f<=1;f+=1)o+f<0||r<=o+f||0==u&&0==f||a==t.isDark(n+u,o+f)&&(i+=1);i>5&&(e+=3+i-5)}for(n=0;n<r-1;n+=1)for(o=0;o<r-1;o+=1){var c=0;t.isDark(n,o)&&(c+=1),t.isDark(n+1,o)&&(c+=1),t.isDark(n,o+1)&&(c+=1),t.isDark(n+1,o+1)&&(c+=1),0!=c&&4!=c||(e+=3)}for(n=0;n<r;n+=1)for(o=0;o<r-6;o+=1)t.isDark(n,o)&&!t.isDark(n,o+1)&&t.isDark(n,o+2)&&t.isDark(n,o+3)&&t.isDark(n,o+4)&&!t.isDark(n,o+5)&&t.isDark(n,o+6)&&(e+=40);for(o=0;o<r;o+=1)for(n=0;n<r-6;n+=1)t.isDark(n,o)&&!t.isDark(n+1,o)&&t.isDark(n+2,o)&&t.isDark(n+3,o)&&t.isDark(n+4,o)&&!t.isDark(n+5,o)&&t.isDark(n+6,o)&&(e+=40);var g=0;for(o=0;o<r;o+=1)for(n=0;n<r;n+=1)t.isDark(n,o)&&(g+=1);return e+=Math.abs(100*g/r/r-50)/5*10},o),C=function(){for(var t=new Array(256),r=new Array(256),e=0;e<8;e+=1)t[e]=1<<e;for(e=8;e<256;e+=1)t[e]=t[e-4]^t[e-5]^t[e-6]^t[e-8];for(e=0;e<255;e+=1)r[t[e]]=e;var n={glog:function(t){if(t<1)throw"glog("+t+")";return r[t]},gexp:function(r){for(;r<0;)r+=255;for(;r>=256;)r-=255;return t[r]}};return n}();function k(t,r){if(void 0===t.length)throw t.length+"/"+r;var e=function(){for(var e=0;e<t.length&&0==t[e];)e+=1;for(var n=new Array(t.length-e+r),o=0;o<t.length-e;o+=1)n[o]=t[o+e];return n}(),n={getAt:function(t){return e[t]},getLength:function(){return e.length},multiply:function(t){for(var r=new Array(n.getLength()+t.getLength()-1),e=0;e<n.getLength();e+=1)for(var o=0;o<t.getLength();o+=1)r[e+o]^=C.gexp(C.glog(n.getAt(e))+C.glog(t.getAt(o)));return k(r,0)},mod:function(t){if(n.getLength()-t.getLength()<0)return n;for(var r=C.glog(n.getAt(0))-C.glog(t.getAt(0)),e=new Array(n.getLength()),o=0;o<n.getLength();o+=1)e[o]=n.getAt(o);for(o=0;o<t.getLength();o+=1)e[o]^=C.gexp(C.glog(t.getAt(o))+r);return k(e,0).mod(t)}};return n}var A=function(){var t=[[1,26,19],[1,26,16],[1,26,13],[1,26,9],[1,44,34],[1,44,28],[1,44,22],[1,44,16],[1,70,55],[1,70,44],[2,35,17],[2,35,13],[1,100,80],[2,50,32],[2,50,24],[4,25,9],[1,134,108],[2,67,43],[2,33,15,2,34,16],[2,33,11,2,34,12],[2,86,68],[4,43,27],[4,43,19],[4,43,15],[2,98,78],[4,49,31],[2,32,14,4,33,15],[4,39,13,1,40,14],[2,121,97],[2,60,38,2,61,39],[4,40,18,2,41,19],[4,40,14,2,41,15],[2,146,116],[3,58,36,2,59,37],[4,36,16,4,37,17],[4,36,12,4,37,13],[2,86,68,2,87,69],[4,69,43,1,70,44],[6,43,19,2,44,20],[6,43,15,2,44,16],[4,101,81],[1,80,50,4,81,51],[4,50,22,4,51,23],[3,36,12,8,37,13],[2,116,92,2,117,93],[6,58,36,2,59,37],[4,46,20,6,47,21],[7,42,14,4,43,15],[4,133,107],[8,59,37,1,60,38],[8,44,20,4,45,21],[12,33,11,4,34,12],[3,145,115,1,146,116],[4,64,40,5,65,41],[11,36,16,5,37,17],[11,36,12,5,37,13],[5,109,87,1,110,88],[5,65,41,5,66,42],[5,54,24,7,55,25],[11,36,12,7,37,13],[5,122,98,1,123,99],[7,73,45,3,74,46],[15,43,19,2,44,20],[3,45,15,13,46,16],[1,135,107,5,136,108],[10,74,46,1,75,47],[1,50,22,15,51,23],[2,42,14,17,43,15],[5,150,120,1,151,121],[9,69,43,4,70,44],[17,50,22,1,51,23],[2,42,14,19,43,15],[3,141,113,4,142,114],[3,70,44,11,71,45],[17,47,21,4,48,22],[9,39,13,16,40,14],[3,135,107,5,136,108],[3,67,41,13,68,42],[15,54,24,5,55,25],[15,43,15,10,44,16],[4,144,116,4,145,117],[17,68,42],[17,50,22,6,51,23],[19,46,16,6,47,17],[2,139,111,7,140,112],[17,74,46],[7,54,24,16,55,25],[34,37,13],[4,151,121,5,152,122],[4,75,47,14,76,48],[11,54,24,14,55,25],[16,45,15,14,46,16],[6,147,117,4,148,118],[6,73,45,14,74,46],[11,54,24,16,55,25],[30,46,16,2,47,17],[8,132,106,4,133,107],[8,75,47,13,76,48],[7,54,24,22,55,25],[22,45,15,13,46,16],[10,142,114,2,143,115],[19,74,46,4,75,47],[28,50,22,6,51,23],[33,46,16,4,47,17],[8,152,122,4,153,123],[22,73,45,3,74,46],[8,53,23,26,54,24],[12,45,15,28,46,16],[3,147,117,10,148,118],[3,73,45,23,74,46],[4,54,24,31,55,25],[11,45,15,31,46,16],[7,146,116,7,147,117],[21,73,45,7,74,46],[1,53,23,37,54,24],[19,45,15,26,46,16],[5,145,115,10,146,116],[19,75,47,10,76,48],[15,54,24,25,55,25],[23,45,15,25,46,16],[13,145,115,3,146,116],[2,74,46,29,75,47],[42,54,24,1,55,25],[23,45,15,28,46,16],[17,145,115],[10,74,46,23,75,47],[10,54,24,35,55,25],[19,45,15,35,46,16],[17,145,115,1,146,116],[14,74,46,21,75,47],[29,54,24,19,55,25],[11,45,15,46,46,16],[13,145,115,6,146,116],[14,74,46,23,75,47],[44,54,24,7,55,25],[59,46,16,1,47,17],[12,151,121,7,152,122],[12,75,47,26,76,48],[39,54,24,14,55,25],[22,45,15,41,46,16],[6,151,121,14,152,122],[6,75,47,34,76,48],[46,54,24,10,55,25],[2,45,15,64,46,16],[17,152,122,4,153,123],[29,74,46,14,75,47],[49,54,24,10,55,25],[24,45,15,46,46,16],[4,152,122,18,153,123],[13,74,46,32,75,47],[48,54,24,14,55,25],[42,45,15,32,46,16],[20,147,117,4,148,118],[40,75,47,7,76,48],[43,54,24,22,55,25],[10,45,15,67,46,16],[19,148,118,6,149,119],[18,75,47,31,76,48],[34,54,24,34,55,25],[20,45,15,61,46,16]],r=function(t,r){var e={};return e.totalCount=t,e.dataCount=r,e},e={};return e.getRSBlocks=function(e,n){var o=function(r,e){switch(e){case g.L:return t[4*(r-1)+0];case g.M:return t[4*(r-1)+1];case g.Q:return t[4*(r-1)+2];case g.H:return t[4*(r-1)+3];default:return}}(e,n);if(void 0===o)throw"bad rs block @ typeNumber:"+e+"/errorCorrectionLevel:"+n;for(var i=o.length/3,a=[],u=0;u<i;u+=1)for(var f=o[3*u+0],c=o[3*u+1],l=o[3*u+2],h=0;h<f;h+=1)a.push(r(c,l));return a},e}(),b=function(){var t=[],r=0,e={getBuffer:function(){return t},getAt:function(r){var e=Math.floor(r/8);return 1==(t[e]>>>7-r%8&1)},put:function(t,r){for(var n=0;n<r;n+=1)e.putBit(1==(t>>>r-n-1&1))},getLengthInBits:function(){return r},putBit:function(e){var n=Math.floor(r/8);t.length<=n&&t.push(0),e&&(t[n]|=128>>>r%8),r+=1}};return e},M=function(t){var r=a,e=t,n={getMode:function(){return r},getLength:function(t){return e.length},write:function(t){for(var r=e,n=0;n+2<r.length;)t.put(o(r.substring(n,n+3)),10),n+=3;n<r.length&&(r.length-n==1?t.put(o(r.substring(n,n+1)),4):r.length-n==2&&t.put(o(r.substring(n,n+2)),7))}},o=function(t){for(var r=0,e=0;e<t.length;e+=1)r=10*r+i(t.charAt(e));return r},i=function(t){if("0"<=t&&t<="9")return t.charCodeAt(0)-"0".charCodeAt(0);throw"illegal char :"+t};return n},x=function(t){var r=u,e=t,n={getMode:function(){return r},getLength:function(t){return e.length},write:function(t){for(var r=e,n=0;n+1<r.length;)t.put(45*o(r.charAt(n))+o(r.charAt(n+1)),11),n+=2;n<r.length&&t.put(o(r.charAt(n)),6)}},o=function(t){if("0"<=t&&t<="9")return t.charCodeAt(0)-"0".charCodeAt(0);if("A"<=t&&t<="Z")return t.charCodeAt(0)-"A".charCodeAt(0)+10;switch(t){case" ":return 36;case"$":return 37;case"%":return 38;case"*":return 39;case"+":return 40;case"-":return 41;case".":return 42;case"/":return 43;case":":return 44;default:throw"illegal char :"+t}};return n},m=function(r){var e=f,n=t.stringToBytes(r),o={getMode:function(){return e},getLength:function(t){return n.length},write:function(t){for(var r=0;r<n.length;r+=1)t.put(n[r],8)}};return o},L=function(r){var e=c,n=t.stringToBytesFuncs.SJIS;if(!n)throw"sjis not supported.";!function(){var t=n("友");if(2!=t.length||38726!=(t[0]<<8|t[1]))throw"sjis not supported."}();var o=n(r),i={getMode:function(){return e},getLength:function(t){return~~(o.length/2)},write:function(t){for(var r=o,e=0;e+1<r.length;){var n=(255&r[e])<<8|255&r[e+1];if(33088<=n&&n<=40956)n-=33088;else{if(!(57408<=n&&n<=60351))throw"illegal char at "+(e+1)+"/"+n;n-=49472}n=192*(n>>>8&255)+(255&n),t.put(n,13),e+=2}if(e<r.length)throw"illegal char at "+(e+1)}};return i},D=function(){var t=[],r={writeByte:function(r){t.push(255&r)},writeShort:function(t){r.writeByte(t),r.writeByte(t>>>8)},writeBytes:function(t,e,n){e=e||0,n=n||t.length;for(var o=0;o<n;o+=1)r.writeByte(t[o+e])},writeString:function(t){for(var e=0;e<t.length;e+=1)r.writeByte(t.charCodeAt(e))},toByteArray:function(){return t},toString:function(){var r="";r+="[";for(var e=0;e<t.length;e+=1)e>0&&(r+=","),r+=t[e];return r+="]"}};return r},S=function(t){var r=t,e=0,n=0,o=0,i={read:function(){for(;o<8;){if(e>=r.length){if(0==o)return-1;throw"unexpected end of file./"+o}var t=r.charAt(e);if(e+=1,"="==t)return o=0,-1;t.match(/^\s$/)||(n=n<<6|a(t.charCodeAt(0)),o+=6)}var i=n>>>o-8&255;return o-=8,i}},a=function(t){if(65<=t&&t<=90)return t-65;if(97<=t&&t<=122)return t-97+26;if(48<=t&&t<=57)return t-48+52;if(43==t)return 62;if(47==t)return 63;throw"c:"+t};return i},I=function(t,r,e){for(var n=function(t,r){var e=t,n=r,o=new Array(t*r),i={setPixel:function(t,r,n){o[r*e+t]=n},write:function(t){t.writeString("GIF87a"),t.writeShort(e),t.writeShort(n),t.writeByte(128),t.writeByte(0),t.writeByte(0),t.writeByte(0),t.writeByte(0),t.writeByte(0),t.writeByte(255),t.writeByte(255),t.writeByte(255),t.writeString(","),t.writeShort(0),t.writeShort(0),t.writeShort(e),t.writeShort(n),t.writeByte(0);var r=a(2);t.writeByte(2);for(var o=0;r.length-o>255;)t.writeByte(255),t.writeBytes(r,o,255),o+=255;t.writeByte(r.length-o),t.writeBytes(r,o,r.length-o),t.writeByte(0),t.writeString(";")}},a=function(t){for(var r=1<<t,e=1+(1<<t),n=t+1,i=u(),a=0;a<r;a+=1)i.add(String.fromCharCode(a));i.add(String.fromCharCode(r)),i.add(String.fromCharCode(e));var f,c,g,l=D(),h=(f=l,c=0,g=0,{write:function(t,r){if(t>>>r!=0)throw"length over";for(;c+r>=8;)f.writeByte(255&(t<<c|g)),r-=8-c,t>>>=8-c,g=0,c=0;g|=t<<c,c+=r},flush:function(){c>0&&f.writeByte(g)}});h.write(r,n);var s=0,v=String.fromCharCode(o[s]);for(s+=1;s<o.length;){var d=String.fromCharCode(o[s]);s+=1,i.contains(v+d)?v+=d:(h.write(i.indexOf(v),n),i.size()<4095&&(i.size()==1<<n&&(n+=1),i.add(v+d)),v=d)}return h.write(i.indexOf(v),n),h.write(e,n),h.flush(),l.toByteArray()},u=function(){var t={},r=0,e={add:function(n){if(e.contains(n))throw"dup key:"+n;t[n]=r,r+=1},size:function(){return r},indexOf:function(r){return t[r]},contains:function(r){return void 0!==t[r]}};return e};return i}(t,r),o=0;o<r;o+=1)for(var i=0;i<t;i+=1)n.setPixel(i,o,e(i,o));var a=D();n.write(a);for(var u=function(){var t=0,r=0,e=0,n="",o={},i=function(t){n+=String.fromCharCode(a(63&t))},a=function(t){if(t<0);else{if(t<26)return 65+t;if(t<52)return t-26+97;if(t<62)return t-52+48;if(62==t)return 43;if(63==t)return 47}throw"n:"+t};return o.writeByte=function(n){for(t=t<<8|255&n,r+=8,e+=1;r>=6;)i(t>>>r-6),r-=6},o.flush=function(){if(r>0&&(i(t<<6-r),t=0,r=0),e%3!=0)for(var o=3-e%3,a=0;a<o;a+=1)n+="="},o.toString=function(){return n},o}(),f=a.toByteArray(),c=0;c<f.length;c+=1)u.writeByte(f[c]);return u.flush(),"data:image/gif;base64,"+u};return t}();qrcode.stringToBytesFuncs["UTF-8"]=function(t){return function(t){for(var r=[],e=0;e<t.length;e++){var n=t.charCodeAt(e);n<128?r.push(n):n<2048?r.push(192|n>>6,128|63&n):n<55296||n>=57344?r.push(224|n>>12,128|n>>6&63,128|63&n):(e++,n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>>6&63,128|63&n))}return r}(t)},function(t){"function"==typeof define&&define.amd?define([],t):"object"==typeof exports&&(module.exports=t())}(function(){return qrcode});
+</script>
 
 <script>
 // ============================================================================
@@ -483,44 +712,41 @@ const CATEGORIES = [
   { label: "T-90M", group: "tank", type: "Tank", cat: "T-90M", weight: 2, files: ["T-90M.jpg", "Т-90М.jpg", "T-90M_MBT_Army-2022_2022-08-20_2397.jpg", "Zapad_2017_%28Proving_Ground_Luzhsky%29_02.jpg", "Army-2023_vehicle_showcase_16.jpg"] },
   { label: "T-90A", group: "tank", type: "Tank", cat: "T-90A", weight: 2, files: ["Moscow_2012_Victory_Day_Parade_Rehearsal%2C_T-90_tank%2C_Russia.jpg", "T-90A_front_Army-2016.jpg", "T-90A_MBT_photo011.jpg", "T-90A_with_OPVT_wading_snorkel_during_river_crossing_training_-_September_2023_01.jpg"] },
   { label: "T-62", group: "tank", type: "Tank", cat: "T-62", weight: 2, files: ["VNPA_T-62_-_092025.jpg"] },
+  { label: "BMP-T", group: "tank", type: "Tankituletoetusmasin", cat: "BMP-T", weight: 1, files: ["Terminator_%2840115444250%29.jpg"] },
 
-  // Jalaväe ja dessandi lahingumasinad / soomustransportöörid
+  // Jalaväe lahingumasinad
   { label: "BMP-2", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-2", weight: 3, files: ["BMP-2_of_Russian_Ground_Forces.jpg", "BMP-2_%281%29.jpg", "BMP-2_-_TankBiathlon14part1-11.jpg" ] },
   { label: "BMP-3", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-3", weight: 2, files: ["Destruction_of_Russian_tanks_by_Ukrainian_troops_in_Mariupol_%284%29.jpg", "BMP-3_%2841204909204%29.jpg", "BMP-3_infantry_fighting_vehicle_at_Engineering_Technologies_2012_02.jpg"] },
   { label: "BMP-1", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-1", weight: 1, files: ["Kazan_BMP-1_2024-07-18_2453.jpg"] },
+
+  // Jalaväe soomustransportöörid
   { label: "BTR-80", group: "apc", type: "Jalaväe soomustransportöör", cat: "BTR-80", weight: 2, files: ["BTR-80_swimming.jpg", "BTR-80_of_TsSN_Vityaz.jpg", "2018-05-09._День_Победы_в_Донецке_f204.jpg"] },
   { label: "BTR-82A", group: "apc", type: "Jalaväe soomustransportöör", cat: "BTR-82A", weight: 3, files: ["BTR-82_%2841072268395%29.jpg", "Interpolitex2016part2-52.jpg", "BTR-82A_12april_Alabino_05.jpg"] },
   { label: "MT-LB", group: "apc", type: "Jalaväe soomustransportöör", cat: "MT-LB", weight: 2, files: ["Soviet_MT-LB.JPEG/960px-Soviet_MT-LB.JPEG", "202nd_Air_Defence_Brigade_-_MT-LB_-_002.jpg"] },
+  { label: "MT-LBu", group: "apc", type: "Alusplatvorm erisoomukitele", cat: "MT-LBu", weight: 1, files: ["ParkPatriot2015part11-139.jpg"] },
+  { label: "BMO-T", group: "apc", type: "Jalaväe soomustransportöör", cat: "BMO-T", weight: 1, files: ["Army2016demo-030.jpg", "Українські_військові_знищили_БМО-Т.jpg"] },
+  { label: "MT-LBVMK", group: "apc", type: "Jalaväe soomustransportöör", cat: "MT-LBVMK", weight: 1, files: ["ArcticBrigadeTacticalTraining-02.jpg"] },
+
+  // Dessandi lahingumasinad
   { label: "BMD-2", group: "airborne_ifv", type: "Dessandi lahingumasin", cat: "BMD-2", weight: 2, files: ["BMD-2_-_137AirborneRegiment29.jpg", "BMD-2_-_137AirborneRegiment01.jpg", "BMD-2_-_137AirborneRegiment36.jpg"] },
   { label: "BMD-4M", group: "airborne_ifv", type: "Dessandi lahingumasin", cat: "BMD-4M", weight: 2, files: ["BMD-4M_0002_copy.jpg", "BMD-4M_14.jpg", "Moscow%2C_Tverskaya_Street%2C_parade_rehearsal%2C_BMD-4_%2831092775422%29.jpg"] },
+  { label: "BMD-1", group: "airborne_ifv", type: "Dessandi lahingumasin", cat: "BMD-1", weight: 2, files: ["BMD-1_Belarus.jpg"] },
+
+  // Dessandi soomustransportöörid
   { label: "BTR-D", group: "airborne_apc", type: "Dessandi soomustransportöör", cat: "BTR-D", weight: 2, files: ["Vdvcompetition10.jpg", "106th_Guards_Airborne_Division_%28394-39%29.jpg"] },
   { label: "BTR-MDM", group: "airborne_apc", type: "Dessandi soomustransportöör", cat: "BTR-MDM", weight: 2, files: ["Army2016demo-018.jpg", "Alabino22042016-50.jpg", "Ryazan_BMD4M-1200-12.jpg"] },
-  { label: "BMP-1KSh", group: "comms", type: "Juhtimissoomuk", cat: "BMP-1KSh", weight: 1, files: ["ParkPatriot2015part10-24.jpg"] },
-  { label: "R-149MA1", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-149MA1", weight: 1, files: ["R-149MA1_-_Engineering_technologies_2012_%282%29.jpg"] },
-  { label: "R-166-0,5", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-166-0,5", weight: 1, files: ["R-166-0%2C5_radiostation_-_27th_Independent_Sevastopol_Guards_Motor_Rifle_Brigade_%282%29.jpg"] },
+
+  // Suurtükiväe luure-, juhtimis- ja tulejuhtimissoomukid
   { label: "PRP-3", group: "artillery_recon", type: "STV luure- ja tulejuhtimissoomuk", cat: "PRP-3", weight: 1, files: [] },
   { label: "PRP-4", group: "artillery_recon", type: "STV luure- ja tulejuhtimissoomuk", cat: "PRP-4", weight: 1, files: ["Russia_Arms_Expo_2013_%28531-22%29.jpg", "Army2016-510.jpg"] },
   { label: "SNAR-10", group: "artillery_recon", type: "STV Luure- ja tulejuhtimissoomuk", cat: "SNAR-10", weight: 1, files: ["MAKS2015part6-08.jpg", "Oboronexpo2014part3-57.jpg"] },
   { label: "ZOOPARK-1", group: "artillery_recon", type: "STV vastutuleradar", cat: "ZOOPARK-1", weight: 1, files: ["ArtilleryExercise2014-06.jpg", "1L219M_back_view_MAKS2005.jpg"] },
-  { label: "STRELA-10", group: "ad", type: "Õhutõrjesoomuk", cat: "STRELA-10", weight: 1, files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%284%29.jpg"] },
-  { label: "9P149 Shturm-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P149 Shturm-S", weight: 1, files: ["9P149.jpg", "Штурм-С_-_Контрольная_проверка_курсантов_Учебного_центра_боевого_применения_ракетных_войск_и_артиллерии_02.jpg"] },
-  { label: "9P157 Krizantema-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P157 Krizantema-S", weight: 1, files: ["9P157-2_combat_vehicle_of_9K123_Khrizantema-S_AT_system_at_Engineering_Technologies_2012.jpg", "Oboronexpo2014part3-35.jpg", "May_5th_rehearsal_of_2014_Victory_Day_Parade_in_Moscow_%28562-22%29.jpg"] },
-  { label: "BRM-1K", group: "recon_special", type: "Luuresoomuk", cat: "BRM-1K", weight: 1, files: ["BRM-1K_top.jpg", "BRM-1K_%283%29.jpg"] },
-  { label: "MT-LBu", group: "apc", type: "Alusplatvorm erisoomukitele", cat: "MT-LBu", weight: 1, files: ["ParkPatriot2015part11-139.jpg"] },
-  { label: "2S25 Sprut-SD", group: "antitank", type: "Tankitõrjesoomuk", cat: "2S25 Sprut-SD", weight: 1, files: ["2S25_Sprut-SD_at_Army_2016.jpg"] },
   { label: "1V13", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V13", weight: 1, files: ["Engineering_Technologies_2010_Part4_0033_copy.jpg"] },
   { label: "1V18", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V18", weight: 1, files: ["2018._Донецк_N_18_DSC_8191.jpg", "2014-12-06._Площадка_военной_техники_в_парке_Ленинского_комсомола_07.JPG"] },
   { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", weight: 1, files: ["RehearsalTula02052017-05.jpg", "1V119_Reostat.jpg"] },
-  { label: "BMD-1Ksh", group: "comms", type: "Juhtimissoomuk", cat: "BMD-1Ksh", weight: 1, files: ["Командно-штабные_машины_в_артиллерийском_музее_—_2.jpg"] },
-  { label: "BMP-T", group: "tank", type: "Tankituletoetusmasin", cat: "BMP-T", weight: 1, files: ["Terminator_%2840115444250%29.jpg"] },
-  { label: "BMO-T", group: "apc", type: "Jalaväe soomustransportöör", cat: "BMO-T", weight: 1, files: ["Army2016demo-030.jpg", "Українські_військові_знищили_БМО-Т.jpg"] },
-  { label: "BREM-D", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-D", weight: 1, files: ["Army2016-297.jpg"] },
-  { label: "MT-LBVMK", group: "apc", type: "Jalaväe soomustransportöör", cat: "MT-LBVMK", weight: 1, files: ["ArcticBrigadeTacticalTraining-02.jpg"] },
-  { label: "R-145BM", group: "comms", type: "Juhtimissoomuk", cat: "R-145BM", weight: 1, files: ["R-145BM_command_vehicle_on_BTR-60_base.jpg", "ParkPatriot2015part9-47.jpg"] },
-  { label: "BMD-1", group: "airborne_ifv", type: "Dessandi lahingumasin", cat: "BMD-1", weight: 2, files: ["BMD-1_Belarus.jpg"] },
+  { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", weight: 1, files: [] },
 
-
-  // Iseliikuv suurtükivägi
+  // Liikursuurtükid ja -miinipildujad
   { label: "2S19 Msta-S", group: "spg", type: "Liikursuurtükk", cat: "2S19 Msta", weight: 3, files: ["ParkPatriot2015part6-02.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_01.jpg", "Військовослужбовці_провели_тактичне_заняття_09.jpg"] },
   { label: "2S3 Akatsija", group: "spg", type: "Liikursuurtükk", cat: "2S3 Akatsiya", weight: 2, files: ["2S3_Akatsiya_3261.jpg", "2S3_Akatsiya_2017-12-24.jpg", "Northern_Fleet_artillery_combat_training_in_Murmansk_-_January_2023_07.jpg"] },
   { label: "2S1 Gvozdika", group: "spg", type: "Liikursuurtükk", cat: "2S1 Gvozdika", weight: 2, files: ["2S1_Gvozdika_2017-12-24.jpg", "Openwater2016-40.jpg"] },
@@ -532,8 +758,13 @@ const CATEGORIES = [
   { label: "2S5 Giatsint-S", group: "spg", type: "Liikursuurtükk", cat: "2S5 Giatsint-S", weight: 2, files: ["2S5_Giatsint-S.jpg", "2S5_Giatsint-S%2C_Самоходная_пушка_2С5_Гиацинт-С%2C_Artillery_museum%2C_Saint-Petersburg_pic2.JPG", "2024-08-21_-_24_OMBr_ZSU_-_Captured_Giatsint-S_SPG_-_Chasiv_Yar_-_08.jpg"] },
   { label: "2S23 NONA-SVK", group: "spg", type: "Liikurmiinipilduja", cat: "2S23 NONA-SVK", weight: 2, files: ["ParkPatriot2015part5-65.jpg", "2S23_Nona-SVK.jpg"] },
 
+  // Mitmikraketiheitja (reaktiivsuurtükk)
+  { label: "BM-21 Grad", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-21", weight: 2, files: ["BM_-_21_Grad.jpg", "BM-21_Grad_%2803%29.jpg"] },
+  { label: "BM-27 Uragan", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-27", weight: 1, files: ["BM-27_Uragan.jpg", "Uragan_MLRS_of_the_52nd_Artillery_Brigade_%282%29.png", "165th_Artillery_Brigade%27s_9K57_Uragan_MLRS_06.jpg"] },
+  { label: "Smertš", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "Smertš", weight: 1, files: ["BM-30_Smerch%2C_2010.jpg", "9A52_Smerch_2017-12-24.jpg", "9A52_of_300-mm_multiple_rocket_launching_system_9K58_«Smerch»%2C_Artillery_museum%2C_Saint-Petersburg_pic4.JPG"] },
+  { label: "TOS-1A", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-1", weight: 2, files: ["TZM-T_of_the_TOS-1A_system_%281%29.jpg", "TOS-1A_MRL_during_the_the_May_Parade_2010.jpeg"] },
 
-  // Veetav suurtükivägi
+  // Järelveetavad suurtükid ja miinipildujad
   { label: "D-30", group: "towed_artillery", type: "Haubits", cat: "D-30", weight: 1, files: ["122mm_howitzer_D-30_-_Armory_masters4.jpg"] },
   { label: "2A65", group: "towed_artillery", type: "Suurtükk", cat: "2A65", weight: 1, files: ["2A65_howitzer.jpg", "2A65_Msta-B_howitzer_%2814-11-2019%29_05.jpg", "2A65_Msta-B_howitzer_%2824-10-2017%29_03.jpg"] },
   { label: "2A36", group: "towed_artillery", type: "Suurtükk", cat: "2A36", weight: 1, files: ["ParkPatriot2015part6-62.jpg", "CheboksaryMemorialPark-36.jpg", "2А36_с_тягачом-машиной_управления_огня.JPG"] },
@@ -544,38 +775,39 @@ const CATEGORIES = [
   { label: "2B9 Vasiljok", group: "towed_artillery", type: "Automaatmiinipilduja", cat: "2B9 Vasiljok", weight: 1, files: ["82mm_automatic_mortar_2B9_Vasilek_-_Oboronexpo2014part3-27.jpg", "2B9_Vasilyok_in_Museum_of_technique_2016-08-16.JPG"] },
   { label: "2B23 Nona-M1", group: "towed_artillery", type: "Järelveetav miinipilduja", cat: "2B23", weight: 1, files: ["Oboronexpo2014part3-24.jpg"] },
 
-  // Raketisuurtükivägi
-  { label: "BM-21 Grad", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-21", weight: 2, files: ["BM_-_21_Grad.jpg", "BM-21_Grad_%2803%29.jpg"] },
-  { label: "BM-27 Uragan", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-27", weight: 1, files: ["BM-27_Uragan.jpg", "Uragan_MLRS_of_the_52nd_Artillery_Brigade_%282%29.png", "165th_Artillery_Brigade%27s_9K57_Uragan_MLRS_06.jpg"] },
-  { label: "Smertš", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "Smertš", weight: 1, files: ["BM-30_Smerch%2C_2010.jpg", "9A52_Smerch_2017-12-24.jpg", "9A52_of_300-mm_multiple_rocket_launching_system_9K58_«Smerch»%2C_Artillery_museum%2C_Saint-Petersburg_pic4.JPG"] },
-  { label: "TOS-1A", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-1", weight: 2, files: ["TZM-T_of_the_TOS-1A_system_%281%29.jpg", "TOS-1A_MRL_during_the_the_May_Parade_2010.jpeg"] },
+  // Laevad
+  { label: "Ropucha II", group: "ships", type: "Suur maabumisalus", cat: "Ropucha II", weight: 1, files: ["Project_775M_AZOV_2008_G1.jpg"] },
+  { label: "Buyan-M", group: "ships", type: "Korvett/väike raketilaev", cat: "Buyan-M", weight: 1, files: ["«Великий_Устюг».jpg"] },
+  { label: "Vishnya", group: "ships", type: "Luurelaev", cat: "Vishnya", weight: 1, files: [] },
+  { label: "Parchim II", group: "ships", type: "Korvett/väike raketilaev", cat: "Parchim II", weight: 1, files: [] },
 
-  // Raketikompleksid
-  { label: "9K720 Iskander", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "9K720 Iskander", weight: 2, files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg"] },
+  // Droonid
+  { label: "Orlan-10", group: "drones", type: "Luuredroon", cat: "Orlan-10", weight: 2, files: ["Orlan-10_%282%29.jpg"] },
+  { label: "ZALA Lancet", group: "drones", type: "Ründedroon", cat: "ZALA Lancet", weight: 1, files: ["Army-2020-314.JPG"] },
+  { label: "Gerbera", group: "drones", type: "Mitmeotstarbeline droon", cat: "Gerbera", weight: 1, files: ["Russian_drone_Gerbera%2C_downed_in_Ukraine_%282025-01-05%29.jpg"] },
+  { label: "Geran-2", group: "drones", type: "Ründedroon", cat: "Geran-2", weight: 1, files: ["National_Aerospace_Park_in_September_2023_%2813%29.jpg"] },
+  { label: "Supercam S350", group: "drones", type: "Luuredroon", cat: "Supercam S350", weight: 1, files: ["БВС_Supercam_S350.jpg"] },
 
-  // Õhutõrje
-  { label: "Pantsir-S1", group: "ad", type: "Õhutõrjekompleks", cat: "Pantsir-S1", weight: 2, files: ["Astrakhan_Victory_Day_Parade_%28May_9_2015%29_Pantsir-S1_P5090721_2185.jpg", "Панцирь-С1.JPG"] },
-  { label: "Buk-M1", group: "ad", type: "Õhutõrjesoomuk", cat: "Buk-M1", weight: 1, files: ["Buk-M1-2_9A310M1-2.jpg", "084_-_BUK-M1_SA-17_%27Grizzly%27_%2830927707757%29.jpg"] },
-  { label: "S-400", group: "ad", type: "Õhutõrjekompleks", cat: "S-400", weight: 2, files: ["Парад_2020_Симферополь_5.jpg"] },
-  { label: "Tor", group: "ad", type: "Õhutõrjesoomuk", cat: "Tor", weight: 1, files: ["TOR-2M_%2841072268085%29.jpg", "Tor-M2U_Army-2016.jpg"] },
-  { label: "9K33 Osa", group: "unassigned", type: "Õhutõrjekompleks", cat: "9K33 Osa", weight: 1, files: [] },
-  { label: "ZSU-23-4 Shilka", group: "ad", type: "Õhutõrjesoomuk", cat: "ZSU-23-4", weight: 1, files: ["Shilka_at_Tula_%282017%29.jpg", "ZSU-23-4M4_Shilka-M4_Armia2018.jpg"] },
-  { label: "2S6 Tunguska", group: "ad", type: "Õhutõrjesoomuk", cat: "2S6 Tunguska", weight: 1, files: ["2S6M1_Tunguska_M1_at_ARMY-2016.JPG", "Самбекские_высоты%2C_Тунгуска.jpg"] },
-  { label: "SA-8B Gecko", group: "ad", type: "Õhutõrjesoomuk", cat: "SA-8B Gecko", weight: 1, files: ["9K33M3_Osa-AKM_in_VDNKh.jpg"] },
-  { label: "9S932-1 Barnaul-T", group: "ad", type: "ÕT juhtimissüsteem", cat: "9S932-1 Barnaul-T", weight: 1, files: ["9S932-1_02.jpg"] },
-
-  // Pioneeri- ja inseneritehnika
+  // Pioneerisoomukid ja tehnika
   { label: "IMR-2", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-2", weight: 1, files: ["RIAN_archive_734015_Wildfires_in_Moscow_Region%27s_Lukhovitsky_district.jpg"] },
   { label: "BAT-2", group: "engineer", type: "Roomikbuldooser", cat: "BAT-2", weight: 1, files: ["OpenWater2017qualifying-44.jpg", 'Track_laying_vehicle_BAT-2M_during_the_"Armiya_2021"_exhibition.jpg'] },
   { label: "MTU-72", group: "engineer", type: "Sillatank", cat: "MTU-72", weight: 1, files: ["Army2016demo-098.jpg"] },
   { label: "UR-77 Meteorit", group: "engineer", type: "Demineerimissoomuk", cat: "UR-77", weight: 1, files: ["EngineerExercise2020-19.jpg", "UR-77.jpg"] },
   { label: "PTS-2", group: "engineer", type: "Amfiibtransportöör", cat: "PTS-2", weight: 1, files: ["PTS-2_-_RaceofHeroes-part2-35.jpg"] },
-  { label: "BREM-1", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-1", weight: 1, files: ["BREM-1_-_ETIF-2010_%281%29.jpg", "BREM-1_-_TankBiathlon14part1-48.jpg"] },
-  { label: "BREM-2", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-2", weight: 1, files: ["BREM-2_in_Patriot_Park.jpg", "BREM-2_armored_recovery_vehicle.jpg"] },
-  { label: "BREM-K", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-K", weight: 1, files: ["BREM-K_-_TankBiathlon14part2-07.jpg", "Army2016-303.jpg"] },
   { label: "MTU-90", group: "engineer", type: "Sillatank", cat: "MTU-90", weight: 1, files: ["MTU-90_3.jpg"] },
   { label: "MT-55A", group: "engineer", type: "Sillatank", cat: "MT-55A", weight: 1, files: ["T-55_inženirsko_vozilo.JPG"] },
   { label: "MTU-20", group: "engineer", type: "Sillatank", cat: "MTU-20", weight: 1, files: ["TankBiathlon14final-92.jpg"] },
+  { label: "UR-83P", group: "engineer", type: "Reaktiivdemineerimisseade", cat: "UR-83P", weight: 1, files: [] },
+  { label: "ZRP-2", group: "engineer", type: "Reaktiivdemineerimisseade", cat: "ZRP-2", weight: 1, files: [] },
+  { label: "IMR-3", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-3", weight: 1, files: [] },
+  { label: "TMM-3", group: "engineer", type: "Sillamasin", cat: "TMM-3", weight: 1, files: [] },
+  { label: "Pontoonsillapark", group: "engineer", type: "Pontoonsillapark", cat: "Pontoonsillapark", weight: 1, files: ["KrAZ-255_PMP_Pontoon_Bridge.jpg"] },
+  { label: "UMZ", group: "engineer", type: "Universaalne miinilaotur", cat: "UMZ", weight: 1, files: [] },
+  { label: "GMZ-3", group: "engineer", type: "Mineerimissoomuk", cat: "GMZ-3", weight: 1, files: ["GMZ-3_minelayer_vehicle_at_Engineering_Technologies_2012.jpg"] },
+  { label: "BTM-4M", group: "engineer", type: "Tranžeemasin", cat: "BTM-4M", weight: 1, files: [] },
+  { label: "BTM-3", group: "engineer", type: "Tranžeemasin", cat: "BTM-3", weight: 1, files: ["BTM-3_trenching_vehicle_at_Park_Patriot_01.jpg"] },
+  { label: "MDK-3", group: "engineer", type: "Kraavikaevamismasin", cat: "MDK-3", weight: 1, files: ["TankBiathlon14final-89.jpg"] },
+  { label: "MDK-2M", group: "engineer", type: "Kraavikaevamismasin", cat: "MDK-2M", weight: 1, files: [] },
 
   // Helikopterid
   { label: "Mi-8", group: "helicopters", type: "Transpordikopter", cat: "Mi-8", weight: 3, files: ["Mi-8_AMTSH.jpg", "Moscow%2C_VDNKh%2C_Mi-8_July_2026_01.jpg"] },
@@ -604,40 +836,40 @@ const CATEGORIES = [
   { label: "Tu-22M", group: "planes", type: "Pommituslennuk", cat: "Tu-22M", weight: 1, files: ["Tu-22M_%2812467430424%29.jpg"] },
   { label: "Tu-160", group: "planes", type: "Strateegiline pommitaja", cat: "Tu-160", weight: 1, files: ["Tupolev_Tu-160_9_May_2015_Moscow41.jpg"] },
   { label: "Su-30", group: "planes", type: "Hävitaja", cat: "Su-30", weight: 1, files: ["Sukhoi_Su-30MK_of_the_Russian_Air_Force.jpg"] },
-  { label: "Ropucha II", group: "ships", type: "Suur maabumisalus", cat: "Ropucha II", weight: 1, files: ["Project_775M_AZOV_2008_G1.jpg"] },
-  { label: "Buyan-M", group: "ships", type: "Korvett/väike raketilaev", cat: "Buyan-M", weight: 1, files: ["«Великий_Устюг».jpg"] },
   { label: "Su-57", group: "planes", type: "Mitmeotstarbeline hävitaja", cat: "Su-57", weight: 1, files: ["Sukhoi_Su-57_bn058_Kubinka_2020.jpg"] },
-  
-  // Veoautod ja maasturid
+
+  // Maasturid ning tagala- ja toetusmasinad
+  { label: "BREM-D", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-D", weight: 1, files: ["Army2016-297.jpg"] },
+  { label: "BREM-1", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-1", weight: 1, files: ["BREM-1_-_ETIF-2010_%281%29.jpg", "BREM-1_-_TankBiathlon14part1-48.jpg"] },
+  { label: "BREM-2", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-2", weight: 1, files: ["BREM-2_in_Patriot_Park.jpg", "BREM-2_armored_recovery_vehicle.jpg"] },
+  { label: "BREM-K", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-K", weight: 1, files: ["BREM-K_-_TankBiathlon14part2-07.jpg", "Army2016-303.jpg"] },
   { label: "URAL-43206", group: "trucks", type: "Veok", cat: "URAL-43206", weight: 1, files: ["Interpolitex_2012_%28478-14%29.jpg"] },
   { label: "KAMAZ-5350", group: "trucks", type: "Veok", cat: "KAMAZ-5350", weight: 1, files: ["KamAZ-5350.jpg"] },
   { label: "KRAZ-260", group: "trucks", type: "Veok", cat: "KRAZ-260", weight: 1, files: ["790th_Fighter_Order_of_Kutuzov_3rd_class_Aviation_Regiment%2C_Khotilovo_airbase_%28356-28%29.jpg"] },
   { label: "UAZ-469", group: "trucks", type: "Maastur", cat: "UAZ-469", weight: 1, files: ["ParkPatriot2015part4-12.jpg"] },
   { label: "GAZ-66", group: "trucks", type: "Veok", cat: "GAZ-66", weight: 1, files: ["ГАЗ-66_в_Хабаровске.JPG"] },
+
+  // Õhutõrjesoomukid ja -juhtimissoomukid
+  { label: "STRELA-10", group: "ad", type: "Õhutõrjesoomuk", cat: "STRELA-10", weight: 1, files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%284%29.jpg"] },
+  { label: "Pantsir-S1", group: "ad", type: "Õhutõrjekompleks", cat: "Pantsir-S1", weight: 2, files: ["Astrakhan_Victory_Day_Parade_%28May_9_2015%29_Pantsir-S1_P5090721_2185.jpg", "Панцирь-С1.JPG"] },
+  { label: "Buk-M1", group: "ad", type: "Õhutõrjesoomuk", cat: "Buk-M1", weight: 1, files: ["Buk-M1-2_9A310M1-2.jpg", "084_-_BUK-M1_SA-17_%27Grizzly%27_%2830927707757%29.jpg"] },
+  { label: "S-400", group: "ad", type: "Õhutõrjekompleks", cat: "S-400", weight: 2, files: ["Парад_2020_Симферополь_5.jpg"] },
+  { label: "Tor", group: "ad", type: "Õhutõrjesoomuk", cat: "Tor", weight: 1, files: ["TOR-2M_%2841072268085%29.jpg", "Tor-M2U_Army-2016.jpg"] },
+  { label: "ZSU-23-4 Shilka", group: "ad", type: "Õhutõrjesoomuk", cat: "ZSU-23-4", weight: 1, files: ["Shilka_at_Tula_%282017%29.jpg", "ZSU-23-4M4_Shilka-M4_Armia2018.jpg"] },
+  { label: "2S6 Tunguska", group: "ad", type: "Õhutõrjesoomuk", cat: "2S6 Tunguska", weight: 1, files: ["2S6M1_Tunguska_M1_at_ARMY-2016.JPG", "Самбекские_высоты%2C_Тунгуска.jpg"] },
+  { label: "SA-8B Gecko", group: "ad", type: "Õhutõrjesoomuk", cat: "SA-8B Gecko", weight: 1, files: ["9K33M3_Osa-AKM_in_VDNKh.jpg"] },
+  { label: "9S932-1 Barnaul-T", group: "ad", type: "ÕT juhtimissüsteem", cat: "9S932-1 Barnaul-T", weight: 1, files: ["9S932-1_02.jpg"] },
+
+  // Tankitõrjesoomukid
+  { label: "9P149 Shturm-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P149 Shturm-S", weight: 1, files: ["9P149.jpg", "Штурм-С_-_Контрольная_проверка_курсантов_Учебного_центра_боевого_применения_ракетных_войск_и_артиллерии_02.jpg"] },
+  { label: "9P157 Krizantema-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P157 Krizantema-S", weight: 1, files: ["9P157-2_combat_vehicle_of_9K123_Khrizantema-S_AT_system_at_Engineering_Technologies_2012.jpg", "Oboronexpo2014part3-35.jpg", "May_5th_rehearsal_of_2014_Victory_Day_Parade_in_Moscow_%28562-22%29.jpg"] },
+  { label: "2S25 Sprut-SD", group: "antitank", type: "Tankitõrjesoomuk", cat: "2S25 Sprut-SD", weight: 1, files: ["2S25_Sprut-SD_at_Army_2016.jpg"] },
+  { label: "BTR-RD", group: "antitank", type: "Dessandi tankitõrjesoomuk", cat: "BTR-RD", weight: 1, files: [] },
+  { label: "9P162 Kornet-T", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P162 Kornet-T", weight: 1, files: ["Kornet-T_in_1000th_Training_Center_of_Rocket_and_Artillery_Troops_01.jpg"] },
+
+  // Luuresoomukid, soomustatud autod ja pioneeriluure
+  { label: "BRM-1K", group: "recon_special", type: "Luuresoomuk", cat: "BRM-1K", weight: 1, files: ["BRM-1K_top.jpg", "BRM-1K_%283%29.jpg"] },
   { label: "GAZ-2975 Tigr", group: "recon_special", type: "Maastur", cat: "GAZ-2975 Tigr", weight: 1, files: ["Gaz-tigr-2975.jpg"] },
-  
-
-  // Droonid
-  { label: "Orlan-10", group: "drones", type: "Luuredroon", cat: "Orlan-10", weight: 2, files: ["Orlan-10_%282%29.jpg"] },
-  { label: "ZALA Lancet", group: "drones", type: "Ründedroon", cat: "ZALA Lancet", weight: 1, files: ["Army-2020-314.JPG"] },
-  { label: "Gerbera", group: "drones", type: "Mitmeotstarbeline droon", cat: "Gerbera", weight: 1, files: ["Russian_drone_Gerbera%2C_downed_in_Ukraine_%282025-01-05%29.jpg"] },
-  { label: "Geran-2", group: "drones", type: "Ründedroon", cat: "Geran-2", weight: 1, files: ["National_Aerospace_Park_in_September_2023_%2813%29.jpg"] },
-  { label: "Supercam S350", group: "drones", type: "Luuredroon", cat: "Supercam S350", weight: 1, files: ["БВС_Supercam_S350.jpg"] },
-,
-
-  // Uued kategooriad ja masinad Claude'i vestluse järgi — pildid lisatakse hiljem
-  { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", weight: 1, files: [] },
-  { label: "UR-83P", group: "engineer", type: "Reaktiivdemineerimisseade", cat: "UR-83P", weight: 1, files: [] },
-  { label: "ZRP-2", group: "engineer", type: "Reaktiivdemineerimisseade", cat: "ZRP-2", weight: 1, files: [] },
-  { label: "IMR-3", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-3", weight: 1, files: [] },
-  { label: "TMM-3", group: "engineer", type: "Sillamasin", cat: "TMM-3", weight: 1, files: [] },
-  { label: "Pontoonsillapark", group: "engineer", type: "Pontoonsillapark", cat: "Pontoonsillapark", weight: 1, files: ["KrAZ-255_PMP_Pontoon_Bridge.jpg"] },
-  { label: "UMZ", group: "engineer", type: "Universaalne miinilaotur", cat: "UMZ", weight: 1, files: [] },
-  { label: "GMZ-3", group: "engineer", type: "Mineerimissoomuk", cat: "GMZ-3", weight: 1, files: ["GMZ-3_minelayer_vehicle_at_Engineering_Technologies_2012.jpg"] },
-  { label: "BTM-4M", group: "engineer", type: "Tranžeemasin", cat: "BTM-4M", weight: 1, files: [] },
-  { label: "BTM-3", group: "engineer", type: "Tranžeemasin", cat: "BTM-3", weight: 1, files: ["BTM-3_trenching_vehicle_at_Park_Patriot_01.jpg"] },
-  { label: "MDK-3", group: "engineer", type: "Kraavikaevamismasin", cat: "MDK-3", weight: 1, files: ["TankBiathlon14final-89.jpg"] },
-  { label: "MDK-2M", group: "engineer", type: "Kraavikaevamismasin", cat: "MDK-2M", weight: 1, files: [] },
   { label: "BRDM-2 / BRDM-2M", group: "recon_special", type: "Luuresoomuk", cat: "BRDM-2 / BRDM-2M", weight: 1, files: ["BRDM-2_-_ETIF-2010_%283%29.jpg"] },
   { label: "RKhM-4", group: "recon_special", type: "Luuresoomuk", cat: "RKhM-4", weight: 1, files: [] },
   { label: "RKhM-6", group: "recon_special", type: "TBK-luuresoomuk", cat: "RKhM-6", weight: 1, files: ["RKhM-6_-4.jpg"] },
@@ -649,21 +881,29 @@ const CATEGORIES = [
   { label: "Taifun-U Ural-53099", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-U Ural-53099", weight: 1, files: [] },
   { label: "Taifun-U KAMAZ-5350, 6x6", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-U KAMAZ-5350, 6x6", weight: 1, files: [] },
   { label: "Taifun-U Ural-63095, 6x6", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-U Ural-63095, 6x6", weight: 1, files: ["Alabino220415part1-20.jpg"] },
-  { label: "BTR-RD", group: "antitank", type: "Dessandi tankitõrjesoomuk", cat: "BTR-RD", weight: 1, files: [] },
-  { label: "9P162 Kornet-T", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P162 Kornet-T", weight: 1, files: ["Kornet-T_in_1000th_Training_Center_of_Rocket_and_Artillery_Troops_01.jpg"] },
+  { label: "GAZ-233014/TIGR", group: "recon_special", type: "Maastur", cat: "GAZ-233014/TIGR", weight: 1, files: [] },
+  { label: "RÕS/IVECO", group: "recon_special", type: "Soomustatud auto", cat: "RÕS/IVECO", weight: 1, files: ["Iveco_LMV_Lynx_of_the_Russian_Airborne_Troops_08.jpg"] },
+
+  // Side- ja juhtimissoomukid ning autod
+  { label: "BMP-1KSh", group: "comms", type: "Juhtimissoomuk", cat: "BMP-1KSh", weight: 1, files: ["ParkPatriot2015part10-24.jpg"] },
+  { label: "R-149MA1", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-149MA1", weight: 1, files: ["R-149MA1_-_Engineering_technologies_2012_%282%29.jpg"] },
+  { label: "R-166-0,5", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-166-0,5", weight: 1, files: ["R-166-0%2C5_radiostation_-_27th_Independent_Sevastopol_Guards_Motor_Rifle_Brigade_%282%29.jpg"] },
+  { label: "BMD-1Ksh", group: "comms", type: "Juhtimissoomuk", cat: "BMD-1Ksh", weight: 1, files: ["Командно-штабные_машины_в_артиллерийском_музее_—_2.jpg"] },
+  { label: "R-145BM", group: "comms", type: "Juhtimissoomuk", cat: "R-145BM", weight: 1, files: ["R-145BM_command_vehicle_on_BTR-60_base.jpg", "ParkPatriot2015part9-47.jpg"] },
   { label: "BMP-2K", group: "comms", type: "Juhtimissoomuk", cat: "BMP-2K", weight: 1, files: [] },
   { label: "R-149BMR", group: "comms", type: "Juhtimissoomuk", cat: "R-149BMR", weight: 1, files: ["Yuzhno-Sakhalinsk_Victory_Day_Parade_%282019%29_14.jpg"] },
   { label: "BMRD R-149", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "BMRD R-149", weight: 1, files: [] },
   { label: "BMD-1R", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "BMD-1R", weight: 1, files: [] },
   { label: "R-149MA", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-149MA", weight: 1, files: [] },
-  { label: "Totška", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "Totška", weight: 1, files: ["Tochka-U_rep_parad_Yekat.jpg"] },
-  { label: "Vishnya", group: "ships", type: "Luurelaev", cat: "Vishnya", weight: 1, files: [] },
-  { label: "Parchim II", group: "ships", type: "Korvett/väike raketilaev", cat: "Parchim II", weight: 1, files: [] },
-  { label: "GAZ-233014/TIGR", group: "recon_special", type: "Maastur", cat: "GAZ-233014/TIGR", weight: 1, files: [] },
-  { label: "RÕS/IVECO", group: "recon_special", type: "Soomustatud auto", cat: "RÕS/IVECO", weight: 1, files: ["Iveco_LMV_Lynx_of_the_Russian_Airborne_Troops_08.jpg"] },
   { label: "R-440 ODB", group: "comms", type: "Satelliitsidesoomuk", cat: "R-440 ODB", weight: 1, files: [] },
   { label: "MP-1L", group: "comms", type: "Sidesoomuk", cat: "MP-1L", weight: 1, files: [] },
   { label: "MP-2L", group: "comms", type: "Sidesoomuk", cat: "MP-2L", weight: 1, files: [] },
+
+  // Pind-pind tüüpi juhitavad raketid
+  { label: "9K720 Iskander", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "9K720 Iskander", weight: 2, files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg"] },
+  { label: "Totška", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "Totška", weight: 1, files: ["Tochka-U_rep_parad_Yekat.jpg"] },
+
+  // Elektroonilise sõjapidamise vahendid ja tehnika
   { label: "R-381 Taran", group: "ew", type: "Raadioluurejaam", cat: "R-381 Taran", weight: 1, files: [] },
   { label: "1RL243 Rubikon (MASRR)", group: "ew", type: "Raadio-tehniline luurejaam", cat: "1RL243 Rubikon (MASRR)", weight: 1, files: [] },
   { label: "R-378B", group: "ew", type: "Raadiohäirete jaam", cat: "R-378B", weight: 1, files: [] },
@@ -679,6 +919,9 @@ const CATEGORIES = [
   { label: "Krasukha-4", group: "ew", type: "Elektroonilise sõjapidamise eriseadme kompleks", cat: "Krasukha-4", weight: 1, files: [] },
   { label: "Krasukha-2", group: "ew", type: "Elektroonilise sõjapidamise eriseadme kompleks", cat: "Krasukha-2", weight: 1, files: [] },
   { label: "Moskva-1", group: "ew", type: "Raadioelektroonilise luure ja EV kompleks", cat: "Moskva-1", weight: 1, files: [] },
+
+  // Grupeerimata
+  { label: "9K33 Osa", group: "unassigned", type: "Õhutõrjekompleks", cat: "9K33 Osa", weight: 1, files: [] },
 ];
 // Kaheksa harjutuskategooriat — iga CATEGORIES kirje `group` väli viitab siia.
 const GROUPS = [
@@ -731,12 +974,19 @@ const histStatus = document.getElementById('histStatus');
 
 const homeScreen = document.getElementById('homeScreen');
 const runScreen = document.getElementById('runScreen');
+const listScreen = document.getElementById('listScreen');
 const groupGrid = document.getElementById('groupGrid');
+const statsLine = document.getElementById('statsLine');
 const startPracticeBtn = document.getElementById('startPracticeBtn');
 const selectAllBtn = document.getElementById('selectAllBtn');
 const clearAllBtn = document.getElementById('clearAllBtn');
 const startTestBtn = document.getElementById('startTestBtn');
 const startCatalogBtn = document.getElementById('startCatalogBtn');
+const showModelListBtn = document.getElementById('showModelListBtn');
+const listBackBtn = document.getElementById('listBackBtn');
+const modelListSummary = document.getElementById('modelListSummary');
+const modelListContent = document.getElementById('modelListContent');
+const qrBox = document.getElementById('qrBox');
 const menuBtn = document.getElementById('menuBtn');
 const titleHome = document.getElementById('titleHome');
 const practiceNextRow = document.getElementById('practiceNextRow');
@@ -744,13 +994,59 @@ const practiceNextBtn = document.getElementById('practiceNextBtn');
 const skipRow = document.getElementById('skipRow');
 const endActionsRow = document.getElementById('endActionsRow');
 const endRestartBtn = document.getElementById('endRestartBtn');
+const endRepeatBtn = document.getElementById('endRepeatBtn');
 const endMenuBtn = document.getElementById('endMenuBtn');
 
+const kuldScreen = document.getElementById('kuldScreen');
+const kuldBoard = document.getElementById('kuldBoard');
+const kuldScoreEl = document.getElementById('kuldScore');
+const kuldQuestion = document.getElementById('kuldQuestion');
+const kuldQuestionCat = document.getElementById('kuldQuestionCat');
+const kuldQuestionValue = document.getElementById('kuldQuestionValue');
+const kuldPhoto = document.getElementById('kuldPhoto');
+const kuldStateMsg = document.getElementById('kuldStateMsg');
+const kuldCorrectValue = document.getElementById('kuldCorrectValue');
+const kuldFileLine = document.getElementById('kuldFileLine');
+const kuldAnswer = document.getElementById('kuldAnswer');
+const kuldRevealBtn = document.getElementById('kuldRevealBtn');
+const kuldGoodBtn = document.getElementById('kuldGoodBtn');
+const kuldBadBtn = document.getElementById('kuldBadBtn');
+const kuldBackBoardBtn = document.getElementById('kuldBackBoardBtn');
+const kuldMenuBtn = document.getElementById('kuldMenuBtn');
+const kuldResetBtn = document.getElementById('kuldResetBtn');
+const startKuldvillakBtn = document.getElementById('startKuldvillakBtn');
+const kuldConfig = document.getElementById('kuldConfig');
+const kuldGroupGrid = document.getElementById('kuldGroupGrid');
+const kuldConfigCount = document.getElementById('kuldConfigCount');
+const kuldRandomBtn = document.getElementById('kuldRandomBtn');
+const kuldUseSelectedBtn = document.getElementById('kuldUseSelectedBtn');
+
 const TEST_SIZE = 50;
+
+// ============================================================================
+// TESTI KATEGOORIATE PIIRANGUD — SIIT SAAB KÄSITSI MUUTA
+// ============================================================================
+// Iga number on selle suure kategooria MAKSIMAALNE masinate arv 50 küsimuse
+// testis. Kui soovid piirangut muuta, muuda ainult siin olevat numbrit.
+// Kategooria ID peab vastama allpool olevale GROUPS massiivi id-le.
+//
+// Näide: drones: 5 tähendab, et testis võib olla kuni 5 erinevat drooni.
+const TEST_GROUP_LIMITS = {
+  drones: 3,
+  ships: 2,
+  planes: 6,
+  helicopters: 5,
+  comms: 3,
+  ew: 3,
+  recon_special: 4
+};
+
 
 // appMode: 'practice' | 'test' | 'catalog' — pole varem eksisteerinud, valitakse menüüst.
 let appMode = 'catalog';
 let selectedGroupIds = new Set();
+let kuldSelectedGroupIds = new Set();
+let kuldGame = null;
 let currentGroupId = null; // praeguse harjutuskategooria id (ainult 'practice' režiimis)
 
 let score = { correct: 0, total: 0 };
@@ -794,13 +1090,28 @@ function buildImagePool(filterFn){
   return shuffleArray(pool);
 }
 
-// Testi jaoks: iga tehnikaühik (masin) täpselt ÜKS kord — üks juhuslik pilt
-// selle masina files[] hulgast. Nii ei saa ükski masin testis korduda.
 function buildUniqueVehiclePool(n){
   const eligible = CATEGORIES.filter(e => e.files && e.files.length > 0);
-  const shuffled = shuffleArray(eligible.slice());
-  const chosen = shuffled.slice(0, Math.min(n, shuffled.length));
-  return chosen.map(entry => {
+  const chosen = [];
+  const chosenCats = new Set();
+
+  // Kõigepealt täidame piiratud suurtest kategooriatest nende lubatud
+  // maksimumi (või vähem, kui selles kategoorias pole nii palju masinaid).
+  Object.entries(TEST_GROUP_LIMITS).forEach(([groupId, limit]) => {
+    const candidates = shuffleArray(eligible.filter(e => e.group === groupId).slice());
+    candidates.slice(0, Math.min(limit, candidates.length)).forEach(entry => {
+      chosen.push(entry);
+      chosenCats.add(entry.cat);
+    });
+  });
+
+  // Ülejäänud kohad täidame ainult teistest suurtest kategooriatest, et
+  // määratud ülempiire ei saaks juhuslik valik kogemata ületada.
+  const remaining = shuffleArray(eligible.filter(e => !chosenCats.has(e.cat)).slice());
+  const slotsLeft = Math.max(0, Math.min(n, eligible.length) - chosen.length);
+  remaining.slice(0, slotsLeft).forEach(entry => chosen.push(entry));
+
+  return shuffleArray(chosen).map(entry => {
     const filename = entry.files[Math.floor(Math.random() * entry.files.length)];
     return { entry, filename };
   });
@@ -934,10 +1245,32 @@ function updateScoreUI(){
   }
 }
 
+// Unikaalsed tehnikaühikud (cat), mis SELLES voorus valesti märgiti.
+// Kasutatakse "Korda vigu" nupu jaoks testi lõpus.
+function currentRunMistakes(){
+  const seen = new Set();
+  history.forEach(h => {
+    if(h.isCorrect === false) seen.add(h.current.cat);
+  });
+  return [...seen];
+}
+
 function setEndActions(){
+  endRepeatBtn.style.display = 'none';
+  endRepeatBtn.onclick = null;
+
   if(appMode === 'test'){
     endRestartBtn.textContent = 'Uus test';
     endRestartBtn.onclick = startTest;
+
+    // Õigesti/valesti hindamine toimub ainult testis, seega ka "Korda vigu"
+    // pakutakse ainult testi lõpus, ja ainult siis, kui midagi valesti läks.
+    const mistakes = currentRunMistakes();
+    if(mistakes.length > 0){
+      endRepeatBtn.style.display = 'block';
+      endRepeatBtn.textContent = 'Korda vigu (' + mistakes.length + ')';
+      endRepeatBtn.onclick = () => startRepeatMistakes(mistakes);
+    }
   } else if(appMode === 'practice'){
     endRestartBtn.textContent = 'Sega uuesti';
     endRestartBtn.onclick = () => startPractice(currentGroupId);
@@ -1169,13 +1502,26 @@ function practiceAdvance(){
 function showRunScreen(){
   document.body.classList.remove('home-active'); document.body.classList.add('run-active');
   homeScreen.style.display = 'none';
+  listScreen.style.display = 'none';
+  kuldScreen.style.display = 'none';
   runScreen.style.display = 'block';
 }
 
 function showHomeScreen(){
   document.body.classList.remove('run-active'); document.body.classList.add('home-active');
   runScreen.style.display = 'none';
+  listScreen.style.display = 'none';
+  kuldScreen.style.display = 'none';
   homeScreen.style.display = 'block';
+}
+
+function showListScreen(){
+  document.body.classList.remove('run-active'); document.body.classList.add('home-active');
+  homeScreen.style.display = 'none';
+  runScreen.style.display = 'none';
+  kuldScreen.style.display = 'none';
+  listScreen.style.display = 'block';
+  renderModelList();
 }
 
 function resetRunState(){
@@ -1188,6 +1534,23 @@ function resetRunState(){
 
 function countEligible(groupId){
   return CATEGORIES.filter(e => e.group === groupId && e.files && e.files.length > 0).length;
+}
+
+// Terve äpi ülevaatlik statistika — loetakse alati otse CATEGORIES massiivist,
+// nii et see uueneb iseenesest, kui lisad uusi masinaid või pilte.
+// Loeb ainult neid masinaid, millel on juba vähemalt üks pilt (files.length > 0) —
+// pildita read on failis alles šabloonina hilisemaks täiendamiseks ega kajastu kuskil.
+function computeOverallStats(){
+  let totalModels = 0;
+  let totalPhotos = 0;
+  CATEGORIES.forEach(e => {
+    const n = (e.files || []).length;
+    if(n > 0){
+      totalModels++;
+      totalPhotos += n;
+    }
+  });
+  return { totalModels, totalPhotos };
 }
 
 function renderHome(){
@@ -1217,7 +1580,87 @@ function renderHome(){
   const totalEligible = CATEGORIES.filter(e => e.files && e.files.length > 0).length;
   startTestBtn.disabled = totalEligible === 0;
   startTestBtn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE, totalEligible) + ' küsimust)';
+
+  const stats = computeOverallStats();
+  statsLine.innerHTML = 'Kokku <b>' + stats.totalModels + '</b> erinevat masinat, <b>'
+    + stats.totalPhotos + '</b> pilti.';
+
   updatePracticeButton();
+}
+
+// ============================================================================
+// MUDELITE NIMEKIRI — puhtalt tekstiline ülevaade masinatest, millel on juba
+// vähemalt üks pilt olemas, grupeeritud kategooriate kaupa. Ei laadi ega
+// näita ühtegi pilti ennast. Pildita read (CATEGORIES massiivis šabloonina
+// hilisemaks täiendamiseks olemas olevad kirjed) EI kajastu siin kuskil —
+// uueneb automaatselt, kui mõnele reale files[] sisu lisatakse.
+// ============================================================================
+function renderModelList(){
+  const stats = computeOverallStats();
+  modelListSummary.innerHTML = 'Kokku <b>' + stats.totalModels + '</b> erinevat masinat, <b>'
+    + stats.totalPhotos + '</b> pilti.';
+
+  modelListContent.innerHTML = '';
+
+  const byGroup = new Map();
+  GROUPS.forEach(g => byGroup.set(g.id, []));
+  const ungrouped = [];
+  CATEGORIES.forEach(e => {
+    if(!e.files || e.files.length === 0) return; // pildita read jäetakse nimekirjast täiesti välja
+    if(byGroup.has(e.group)) byGroup.get(e.group).push(e);
+    else ungrouped.push(e);
+  });
+
+  function renderSection(title, entries){
+    if(!entries.length) return;
+    const section = document.createElement('div');
+
+    const heading = document.createElement('div');
+    heading.className = 'model-list-heading';
+    heading.innerHTML = title + ' <span class="grp-cnt">(' + entries.length + ' masinat)</span>';
+    section.appendChild(heading);
+
+    entries.slice().sort((a,b) => a.label.localeCompare(b.label, 'et')).forEach(e => {
+      const row = document.createElement('div');
+      row.className = 'model-list-row';
+
+      const n = document.createElement('span');
+      n.className = 'm-name';
+      n.textContent = e.label;
+
+      const t = document.createElement('span');
+      t.className = 'm-type';
+      t.textContent = e.type || '';
+
+      const s = document.createElement('span');
+      s.className = 'm-status';
+      s.textContent = e.files.length + ' pilti';
+
+      row.append(n, t, s);
+      section.appendChild(row);
+    });
+
+    modelListContent.appendChild(section);
+  }
+
+  GROUPS.forEach(g => renderSection(g.label, byGroup.get(g.id)));
+  renderSection('Grupeerimata', ungrouped);
+}
+
+// ============================================================================
+// QR-KOOD — avalehe paremal pool (peidus kitsal ekraanil). Genereeritakse
+// puhtalt brauseris (vendored teek, vt faili algus), ei vaja internetti.
+// Viib täpselt samale lehele, kus rakendus praegu on avatud.
+// ============================================================================
+function renderQr(){
+  try{
+    const qr = qrcode(0, 'M');
+    qr.addData(window.location.href);
+    qr.make();
+    qrBox.innerHTML = qr.createSvgTag({ cellSize: 6, margin: 2, scalable: true });
+  }catch(err){
+    qrBox.textContent = 'QR-koodi ei õnnestunud luua.';
+  }
 }
 
 function updatePracticeButton(){
@@ -1238,6 +1681,241 @@ function clearAllGroups(){
   renderHome();
 }
 
+
+const KULD_VARIA_ID = 'kuld_varia';
+
+function getKuldGroupDefs(){
+  const normal = GROUPS.filter(g => countEligible(g.id) >= 5);
+  const smallGroups = GROUPS.filter(g => countEligible(g.id) > 0 && countEligible(g.id) < 5);
+  const variaCount = smallGroups.reduce((sum, g) => sum + countEligible(g.id), 0);
+  if(variaCount >= 5){
+    return normal.concat([{
+      id: KULD_VARIA_ID,
+      label: 'Varia',
+      description: 'Väiksemad kategooriad (alla 5 masinat) koondatuna'
+    }]);
+  }
+  return normal;
+}
+
+function getKuldEntries(groupId){
+  if(groupId === KULD_VARIA_ID){
+    const smallIds = new Set(GROUPS.filter(g => countEligible(g.id) > 0 && countEligible(g.id) < 5).map(g => g.id));
+    return CATEGORIES.filter(e => smallIds.has(e.group) && e.files && e.files.length > 0);
+  }
+  return CATEGORIES.filter(e => e.group === groupId && e.files && e.files.length > 0);
+}
+
+function eligibleKuldGroups(){
+  return getKuldGroupDefs();
+}
+
+function renderKuldConfig(){
+  kuldGroupGrid.innerHTML = '';
+  eligibleKuldGroups().forEach(g => {
+    const n = getKuldEntries(g.id).length;
+    const label = document.createElement('label');
+    label.className = 'kuld-group-check';
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = kuldSelectedGroupIds.has(g.id);
+    checkbox.addEventListener('change', () => {
+      if(checkbox.checked) kuldSelectedGroupIds.add(g.id);
+      else kuldSelectedGroupIds.delete(g.id);
+      updateKuldConfigCount();
+    });
+
+    const name = document.createElement('span');
+    name.className = 'kg-name';
+    name.textContent = g.label;
+
+    const cnt = document.createElement('span');
+    cnt.className = 'kg-count';
+    cnt.textContent = n + ' masinat';
+
+    label.append(checkbox, name, cnt);
+    kuldGroupGrid.appendChild(label);
+  });
+  updateKuldConfigCount();
+}
+
+function updateKuldConfigCount(){
+  const validIds = new Set(eligibleKuldGroups().map(g => g.id));
+  const n = [...kuldSelectedGroupIds].filter(id => validIds.has(id)).length;
+  kuldConfigCount.textContent = n + ' / 5 valitud';
+  kuldUseSelectedBtn.disabled = n !== 5;
+}
+
+function randomKuldGroups(){
+  const ids = shuffleArray(eligibleKuldGroups().map(g => g.id).slice()).slice(0,5);
+  if(ids.length < 5){
+    alert('Kuldvillaku jaoks on vaja vähemalt 5 kategooriat. Alla 5 masinaga kategooriad on koondatud kategooriasse „Varia“.');
+    return;
+  }
+  kuldSelectedGroupIds = new Set(ids);
+  renderKuldConfig();
+  startKuldvillak(ids);
+}
+
+function startKuldFromSelection(){
+  const validIds = new Set(eligibleKuldGroups().map(g => g.id));
+  const ids = [...kuldSelectedGroupIds].filter(id => validIds.has(id));
+  if(ids.length !== 5) return;
+  startKuldvillak(ids);
+}
+
+function buildKuldGame(groupIds){
+  return {
+    groups: groupIds.map(id => {
+      const group = eligibleKuldGroups().find(g => g.id === id);
+      const entries = shuffleArray(getKuldEntries(id).slice()).slice(0,5);
+      return {
+        id,
+        label: group ? group.label : id,
+        questions: entries.map(entry => ({
+          entry,
+          filename: entry.files[Math.floor(Math.random() * entry.files.length)],
+          value: 100,
+          state: 'open',
+          current: null
+        }))
+      };
+    }),
+    score: 0,
+    active: null
+  };
+}
+
+function renderKuldBoard(){
+  kuldBoard.innerHTML = '';
+  if(!kuldGame) return;
+
+  kuldGame.groups.forEach(group => {
+    const cat = document.createElement('div');
+    cat.className = 'kuld-cat';
+    cat.textContent = group.label;
+    kuldBoard.appendChild(cat);
+  });
+
+  for(let row = 0; row < 5; row++){
+    kuldGame.groups.forEach((group, col) => {
+      const q = group.questions[row];
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'kuld-cell';
+      btn.textContent = q.state === 'done' ? '—' : '100';
+      btn.disabled = q.state === 'done';
+      btn.title = group.label + ' — 100 punkti';
+      btn.addEventListener('click', () => openKuldQuestion(col, row));
+      kuldBoard.appendChild(btn);
+    });
+  }
+  kuldScoreEl.textContent = kuldGame.score;
+}
+
+function showKuldScreen(){
+  document.body.classList.remove('home-active','run-active');
+  homeScreen.style.display = 'none';
+  runScreen.style.display = 'none';
+  listScreen.style.display = 'none';
+  kuldScreen.style.display = 'block';
+}
+
+function showKuldBoard(){
+  kuldQuestion.style.display = 'none';
+  kuldBoard.parentElement.style.display = 'block';
+  kuldStatus.textContent = 'KULDVILLAK';
+}
+
+async function openKuldQuestion(col, row){
+  if(!kuldGame || kuldGame.active) return;
+  const q = kuldGame.groups[col].questions[row];
+  if(q.state === 'done') return;
+
+  kuldGame.active = { col, row };
+  kuldQuestion.style.display = 'block';
+  kuldQuestionCat.textContent = kuldGame.groups[col].label;
+  kuldQuestionValue.textContent = q.value;
+  kuldPhoto.style.display = 'none';
+  kuldAnswer.style.display = 'none';
+  kuldRevealBtn.disabled = true;
+  kuldGoodBtn.disabled = true;
+  kuldBadBtn.disabled = true;
+  kuldStateMsg.style.display = 'flex';
+  kuldStateMsg.innerHTML = '<div class="spinner"></div><div>Laen pilti...</div>';
+
+  try{
+    const file = await fetchSpecificFile(q.filename);
+    q.current = { label:q.entry.label, type:q.entry.type || '', cat:q.entry.cat, ...file };
+    kuldPhoto.src = file.url;
+    await new Promise((resolve,reject) => {
+      const img = new Image();
+      img.onload = resolve;
+      img.onerror = reject;
+      img.src = file.url;
+    });
+    kuldStateMsg.style.display = 'none';
+    kuldPhoto.style.display = 'block';
+    kuldRevealBtn.disabled = false;
+  }catch(err){
+    kuldStateMsg.innerHTML = '<div>Pilti ei õnnestunud laadida.</div>';
+    kuldBackBoardBtn.disabled = false;
+    q.current = null;
+    kuldGame.active = null;
+  }
+}
+
+function revealKuldAnswer(){
+  if(!kuldGame || !kuldGame.active) return;
+  const {col,row} = kuldGame.active;
+  const q = kuldGame.groups[col].questions[row];
+  if(!q.current) return;
+  kuldCorrectValue.textContent = (q.current.type ? q.current.type + ' ' : '') + q.current.label;
+  kuldFileLine.innerHTML = 'Failinimi: ' + q.current.filename
+    + ' — <a href="' + q.current.filepageUrl + '" target="_blank" rel="noopener">vaata Commonsis</a>';
+  kuldAnswer.style.display = 'block';
+  kuldRevealBtn.disabled = true;
+  kuldGoodBtn.disabled = false;
+  kuldBadBtn.disabled = false;
+}
+
+function finishKuldQuestion(isCorrect){
+  if(!kuldGame || !kuldGame.active) return;
+  const {col,row} = kuldGame.active;
+  const q = kuldGame.groups[col].questions[row];
+  if(!q.current) return;
+
+  if(isCorrect) kuldGame.score += q.value;
+  q.state = 'done';
+  kuldGame.active = null;
+  renderKuldBoard();
+  showKuldBoard();
+
+  const done = kuldGame.groups.every(g => g.questions.every(x => x.state === 'done'));
+  if(done){
+    kuldStatus.textContent = 'LÕPP — ' + kuldGame.score + ' PUNKTI';
+  }
+}
+
+function startKuldvillak(groupIds){
+  if(!groupIds || groupIds.length !== 5) return;
+  kuldGame = buildKuldGame(groupIds);
+  kuldConfig.style.display = 'none';
+  showKuldScreen();
+  renderKuldBoard();
+}
+
+function openKuldConfig(){
+  kuldConfig.style.display = kuldConfig.style.display === 'none' ? 'block' : 'none';
+  if(kuldConfig.style.display !== 'none') renderKuldConfig();
+}
+
+function resetKuldvillak(){
+  if(!kuldGame) return;
+  startKuldvillak(kuldGame.groups.map(g => g.id));
+}
+
 function startPractice(){
   const ids = [...selectedGroupIds].filter(id => countEligible(id) > 0);
   if(!ids.length) return;
@@ -1256,6 +1934,24 @@ function startTest(){
   currentGroupId = null;
   resetRunState();
   imageBag = buildUniqueVehiclePool(TEST_SIZE);
+  TOTAL_IMAGES = imageBag.length;
+  updateScoreUI();
+  showRunScreen();
+  loadNext();
+}
+
+// Uus testivoor, mis sisaldab ainult neid tehnikaühikuid, mis eelmises
+// testis valesti märgiti (üks juhuslik pilt iga sellise masina files[]-ist).
+function startRepeatMistakes(mistakeCats){
+  const entries = CATEGORIES.filter(e => mistakeCats.includes(e.cat) && e.files && e.files.length > 0);
+  if(!entries.length) return;
+  appMode = 'test';
+  currentGroupId = null;
+  resetRunState();
+  imageBag = shuffleArray(entries.map(entry => {
+    const filename = entry.files[Math.floor(Math.random() * entry.files.length)];
+    return { entry, filename };
+  }));
   TOTAL_IMAGES = imageBag.length;
   updateScoreUI();
   showRunScreen();
@@ -1305,15 +2001,26 @@ histNext.addEventListener('click', () => {
 
 revealBtn.addEventListener('click', reveal);
 document.addEventListener('keydown', e => {
-  if(e.key !== 'Enter') return;
-  if(runScreen.style.display === 'none') return; // Enter ei tee midagi kodumenüüs
-  if(viewIndex !== null) return; // ajaloos vaadates Enter ei tee midagi
-  // Harjutusrežiimis: kui vastus on juba näidatud, viib teine Enter otse
-  // järgmise pildi juurde (ei pea hiirega "Järgmine" peale klõpsama).
-  if(appMode === 'practice' && liveState.phase === 'revealed'){
-    practiceAdvance();
-  } else {
-    reveal();
+  if(runScreen.style.display === 'none') return; // klahvid ei tee midagi kodumenüüs
+  if(viewIndex !== null) return; // ajaloos vaadates klahvid ei tee midagi
+
+  if(e.key === 'Enter'){
+    // Harjutusrežiimis: kui vastus on juba näidatud, viib teine Enter otse
+    // järgmise pildi juurde (ei pea hiirega "Järgmine" peale klõpsama).
+    if(appMode === 'practice' && liveState.phase === 'revealed'){
+      practiceAdvance();
+    } else {
+      reveal();
+    }
+    return;
+  }
+
+  // Klaviatuuriga hindamine (ainult testis/kataloogis, kus vastust üldse
+  // hinnatakse — harjutuses õigsust ei märgita, seal on ainult "Järgmine"):
+  // 1 = "Läks täppi", 2 = "Ei läinud täppi".
+  if(appMode !== 'practice' && liveState.phase === 'revealed'){
+    if(e.key === '1') markResult(true);
+    else if(e.key === '2') markResult(false);
   }
 });
 markGood.addEventListener('click', () => markResult(true));
@@ -1330,9 +2037,21 @@ startPracticeBtn.addEventListener('click', startPractice);
 selectAllBtn.addEventListener('click', selectAllGroups);
 clearAllBtn.addEventListener('click', clearAllGroups);
 startTestBtn.addEventListener('click', startTest);
+startKuldvillakBtn.addEventListener('click', openKuldConfig);
+kuldRandomBtn.addEventListener('click', randomKuldGroups);
+kuldUseSelectedBtn.addEventListener('click', startKuldFromSelection);
+kuldRevealBtn.addEventListener('click', revealKuldAnswer);
+kuldGoodBtn.addEventListener('click', () => finishKuldQuestion(true));
+kuldBadBtn.addEventListener('click', () => finishKuldQuestion(false));
+kuldBackBoardBtn.addEventListener('click', showKuldBoard);
+kuldMenuBtn.addEventListener('click', goHome);
+kuldResetBtn.addEventListener('click', resetKuldvillak);
 startCatalogBtn.addEventListener('click', startCatalog);
+showModelListBtn.addEventListener('click', showListScreen);
+listBackBtn.addEventListener('click', goHome);
 
 renderHome();
+renderQr();
 showHomeScreen();
 </script>
 </body>
