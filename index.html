@@ -1746,7 +1746,7 @@ function renderModelList(){
 
       const s = document.createElement('span');
       s.className = 'm-status';
-      s.textContent = e.files.length + ' pilti';
+      s.textContent = e.files.length + (e.files.length === 1 ? ' pilt' : ' pilti');
 
       row.append(n, t, s);
       section.appendChild(row);
