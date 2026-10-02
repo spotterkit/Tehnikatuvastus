@@ -2289,12 +2289,46 @@ showHomeScreen();
  GROUPS.forEach(g=>{const o=document.createElement('option');o.value=g.id;o.textContent=g.label;select.appendChild(o)});
  select.value='ifv';
  toggle.onclick=()=>{panel.classList.add('open');panel.setAttribute('aria-hidden','false')}; close.onclick=()=>{panel.classList.remove('open');panel.setAttribute('aria-hidden','true')};
- function loadImage(url,ms=12000){return new Promise((resolve,reject)=>{const im=new Image();let done=false;const finish=(ok,msg)=>{if(done)return;done=true;clearTimeout(t);im.onload=im.onerror=null;ok?resolve():reject(new Error(msg))};const t=setTimeout(()=>finish(false,'timeout '+ms/1000+'s'),ms);im.onload=()=>finish(true);im.onerror=()=>finish(false,'pildi URL ei laadinud');im.src=url;});}
- function row(status,label,file,msg){const d=document.createElement('div');d.className='diagRow '+(status==='OK'?'diagOk':status==='VIGA'?'diagBad':'diagRun');d.innerHTML='<span class="diagStatus"></span><strong></strong><span></span>';d.children[0].textContent=status;d.children[1].textContent=label;d.children[2].textContent=file+(msg?' — '+msg:'');results.appendChild(d);return d;}
- start.onclick=async()=>{start.disabled=true;results.innerHTML='';const entries=CATEGORIES.filter(e=>e.group===select.value&&Array.isArray(e.files)&&e.files.length);const jobs=[];entries.forEach(e=>e.files.forEach(f=>jobs.push({e,f})));let ok=0,bad=0;progress.textContent='Kontroll 0 / '+jobs.length+' · OK 0 · VIGA 0';
-  for(let i=0;i<jobs.length;i++){const {e,f}=jobs[i];const r=row('KONTROLL',e.label,f,'');try{const sourceFilename=f;const isImagesFile=typeof sourceFilename==='string'&&(sourceFilename.startsWith('images/')||sourceFilename.startsWith('./images/'));let info;if(isImagesFile){const directUrl=sourceFilename.startsWith('./')?sourceFilename.slice(2):sourceFilename;info={url:directUrl,isLocal:true,sourceFilename};}else{info=await fetchSpecificFile(sourceFilename);}if(!info||!info.url)throw new Error('pildi URL-i ei saadud');await loadImage(info.url);ok++;r.className='diagRow diagOk';r.children[0].textContent='OK';r.children[2].textContent=sourceFilename+' — '+(isImagesFile?'GITHUB images/':'WIKIMEDIA Commons');}catch(err){bad++;r.className='diagRow diagBad';r.children[0].textContent='VIGA';r.children[2].textContent=f+' — '+((typeof f==='string'&&(f.startsWith('images/')||f.startsWith('./images/')))?'GITHUB: ':'WIKIMEDIA: ')+(err&&err.message?err.message:String(err));}
-   progress.textContent='Kontroll '+(i+1)+' / '+jobs.length+' · OK '+ok+' · VIGA '+bad;
-  } start.disabled=false;progress.textContent+=' · VALMIS';};
+ const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+ function loadImage(url,ms=15000){return new Promise((resolve,reject)=>{const im=new Image();let done=false;const finish=(ok,msg)=>{if(done)return;done=true;clearTimeout(t);im.onload=im.onerror=null;ok?resolve():reject(new Error(msg))};const t=setTimeout(()=>finish(false,'timeout '+ms/1000+'s'),ms);im.onload=()=>finish(true);im.onerror=()=>finish(false,'pildi URL ei laadinud');im.src=url;});}
+ function row(status,label,file,msg){const d=document.createElement('div');d.className='diagRow '+(status.startsWith('OK')?'diagOk':status==='VIGA'?'diagBad':'diagRun');d.innerHTML='<span class="diagStatus"></span><strong></strong><span></span>';d.children[0].textContent=status;d.children[1].textContent=label;d.children[2].textContent=file+(msg?' — '+msg:'');results.appendChild(d);return d;}
+ async function checkSource(sourceFilename){
+   const isImagesFile=typeof sourceFilename==='string'&&(sourceFilename.startsWith('images/')||sourceFilename.startsWith('./images/'));
+   let info;
+   if(isImagesFile){const directUrl=sourceFilename.startsWith('./')?sourceFilename.slice(2):sourceFilename;info={url:directUrl,isLocal:true,sourceFilename};}
+   else{info=await fetchSpecificFile(sourceFilename);}
+   if(!info||!info.url)throw new Error('pildi URL-i ei saadud');
+   await loadImage(info.url);
+   return {isImagesFile,info};
+ }
+ start.onclick=async()=>{
+   start.disabled=true; results.innerHTML='';
+   const entries=CATEGORIES.filter(e=>e.group===select.value&&Array.isArray(e.files)&&e.files.length);
+   const jobs=[]; entries.forEach(e=>e.files.forEach(f=>jobs.push({e,f})));
+   let ok=0,bad=0,retried=0;
+   progress.textContent='Kontroll 0 / '+jobs.length+' · OK 0 · VIGA 0';
+   for(let i=0;i<jobs.length;i++){
+     const {e,f}=jobs[i]; const r=row('KONTROLL',e.label,f,''); let result=null, firstErr=null, usedRetry=false;
+     try{ result=await checkSource(f); }
+     catch(err){
+       firstErr=err; usedRetry=true; r.children[0].textContent='KORDUS'; r.children[2].textContent=f+' — 1. katse ebaõnnestus, proovin uuesti';
+       await sleep(700);
+       try{ result=await checkSource(f); }catch(err2){ firstErr=err2; }
+     }
+     if(result){
+       ok++; if(usedRetry)retried++;
+       r.className='diagRow diagOk'; r.children[0].textContent=usedRetry?'OK (2. katsel)':'OK';
+       r.children[2].textContent=f+' — '+(result.isImagesFile?'GITHUB images/':'WIKIMEDIA Commons');
+     }else{
+       bad++; r.className='diagRow diagBad'; r.children[0].textContent='VIGA';
+       const local=typeof f==='string'&&(f.startsWith('images/')||f.startsWith('./images/'));
+       r.children[2].textContent=f+' — '+(local?'GITHUB: ':'WIKIMEDIA: ')+(firstErr&&firstErr.message?firstErr.message:String(firstErr));
+     }
+     progress.textContent='Kontroll '+(i+1)+' / '+jobs.length+' · OK '+ok+' · VIGA '+bad+(retried?' · 2. katsel '+retried:'');
+     if(i<jobs.length-1)await sleep(180);
+   }
+   start.disabled=false; progress.textContent+=' · VALMIS';
+ };
 })();
 </script>
 </body>
