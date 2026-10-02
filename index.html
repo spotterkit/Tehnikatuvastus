@@ -2286,6 +2286,7 @@ showHomeScreen();
 <script id="imageDiagScript">
 (function(){
  const panel=document.getElementById('diagPanel'), toggle=document.getElementById('diagToggle'), close=document.getElementById('diagClose'), select=document.getElementById('diagGroup'), start=document.getElementById('diagStart'), progress=document.getElementById('diagProgress'), results=document.getElementById('diagResults');
+ const allOption=document.createElement('option');allOption.value='__all__';allOption.textContent='Kõik pildid';select.appendChild(allOption);
  GROUPS.forEach(g=>{const o=document.createElement('option');o.value=g.id;o.textContent=g.label;select.appendChild(o)});
  select.value='ifv';
  toggle.onclick=()=>{panel.classList.add('open');panel.setAttribute('aria-hidden','false')}; close.onclick=()=>{panel.classList.remove('open');panel.setAttribute('aria-hidden','true')};
@@ -2303,7 +2304,7 @@ showHomeScreen();
  }
  start.onclick=async()=>{
    start.disabled=true; results.innerHTML='';
-   const entries=CATEGORIES.filter(e=>e.group===select.value&&Array.isArray(e.files)&&e.files.length);
+   const entries=CATEGORIES.filter(e=>(select.value==='__all__'||e.group===select.value)&&Array.isArray(e.files)&&e.files.length);
    const jobs=[]; entries.forEach(e=>e.files.forEach(f=>jobs.push({e,f})));
    let ok=0,bad=0,retried=0;
    progress.textContent='Kontroll 0 / '+jobs.length+' · OK 0 · VIGA 0';
