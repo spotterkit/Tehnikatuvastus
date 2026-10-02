@@ -466,6 +466,24 @@
     flex:0 0 auto;font-size:11px;letter-spacing:0.06em;
     text-transform:uppercase;color:var(--green);white-space:nowrap;
   }
+
+  /* Õppesessiooni progress ja lõpuülevaade */
+  .run-progress{height:6px;background:rgba(255,255,255,.09);border-radius:999px;overflow:hidden;margin:0 0 12px;}
+  .run-progress-fill{height:100%;width:0;background:currentColor;opacity:.8;transition:width .2s ease;}
+  .end-summary{display:none;margin-top:14px;padding:16px;border:1px solid var(--line);border-radius:10px;}
+  .end-summary h3{margin:0 0 12px;font-size:16px;}
+  .end-score-panel{padding:16px;border:1px solid var(--line);border-radius:10px;margin-bottom:16px;}
+  .end-score-main{font-size:22px;line-height:1.2;margin-bottom:12px;}
+  .end-score-main b{font-size:32px;}
+  .end-score-stats{display:grid;grid-template-columns:repeat(3,minmax(100px,1fr));gap:10px;}
+  .end-score-stat{padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:14px;}
+  .end-score-stat b{display:block;margin-top:3px;font-size:22px;}
+  .end-groups-title{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--bone-dim);}
+  .end-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;}
+  .end-summary-item{padding:9px 10px;border:1px solid var(--line);border-radius:8px;}
+  .end-summary-item .group-result{display:block;margin-top:4px;font-size:12px;color:var(--bone-dim);}
+  .end-mistakes{margin-top:14px;font-size:13px;line-height:1.55;}
+  @media(max-width:560px){.end-score-stats{grid-template-columns:1fr;}.end-score-main b{font-size:28px;}}
 </style>
 </head>
 <body>
@@ -598,6 +616,8 @@
       <button id="histNext" class="nav-btn" aria-label="Järgmine" disabled>›</button>
     </div>
 
+    <div class="run-progress" id="runProgress" aria-label="Sessiooni progress"><div class="run-progress-fill" id="runProgressFill"></div></div>
+
     <div class="scope" id="scope">
       <div class="crosshair"></div>
       <div class="corner tl"></div>
@@ -641,6 +661,8 @@
         <button id="skipBtn" style="flex:1;">Jäta vahele (uus pilt)</button>
       </div>
 
+      <div class="end-summary" id="endSummary"></div>
+
       <div class="row" id="endActionsRow" style="display:none;margin-top:12px;">
         <button class="primary" id="endRestartBtn" style="flex:1;">Alusta uuesti</button>
         <button id="endRepeatBtn" style="flex:1;display:none;">Korda vigu</button>
@@ -649,6 +671,7 @@
     </div>
 
   </div>
+
 
   <footer>Pildid: Wikimedia Commons · Vene Föderatsiooni sõjatehnika</footer>
 </div>
@@ -1063,6 +1086,8 @@ const scorePctEl = document.getElementById('scorePct');
 const histPrev = document.getElementById('histPrev');
 const histNext = document.getElementById('histNext');
 const histStatus = document.getElementById('histStatus');
+const runProgressFill = document.getElementById('runProgressFill');
+const endSummary = document.getElementById('endSummary');
 
 const homeScreen = document.getElementById('homeScreen');
 const runScreen = document.getElementById('runScreen');
@@ -1129,7 +1154,7 @@ const TEST_GROUP_LIMITS = {
   planes: 5,
   helicopters: 5,
   comms: 3,
-  ew: 3,
+  ew: 2,
   recon_special: 4,
   engineer: 5,
   ranks: 2,
@@ -1189,7 +1214,7 @@ function buildUniqueVehiclePool(n){
   const eligible = shuffleArray(CATEGORIES.filter(e => e.files && e.files.length > 0).slice());
   const chosen = [];
   const groupCounts = {};
-  const subtypeCounts = { bridgeTank: 0, bridgeVehicleOrPontoon: 0, su27Family: 0 };
+  const subtypeCounts = { bridgeTank: 0, bridgeVehicleOrPontoon: 0, su27Family: 0, adRadar: 0 };
   const target = Math.min(n, eligible.length);
 
   // Kõik pildiga mudelid osalevad ühes juhuslikus valikus.
@@ -1198,6 +1223,7 @@ function buildUniqueVehiclePool(n){
   //   - max 1 sillatank
   //   - max 1 sillamasin VÕI pontoonsillapark kokku
   // Lennukitest max 1: Su-27, Su-30, Su-33 või Su-35 (Su-35S).
+  // Õhutõrje kategoorias max 1 kirje täpsustusega/type 'ÕT radar'.
   for(const entry of eligible){
     if(chosen.length >= target) break;
 
@@ -1213,6 +1239,9 @@ function buildUniqueVehiclePool(n){
     const isSu27Family = entry.group === 'planes' && ['Su-27', 'Su-30', 'Su-33', 'Su-35'].includes(entry.label);
     if(isSu27Family && subtypeCounts.su27Family >= 1) continue;
 
+    const isAdRadar = entry.group === 'ad' && entry.type === 'ÕT radar';
+    if(isAdRadar && subtypeCounts.adRadar >= 1) continue;
+
     chosen.push(entry);
     groupCounts[entry.group] = used + 1;
 
@@ -1221,6 +1250,7 @@ function buildUniqueVehiclePool(n){
       if(entry.type === 'Sillamasin' || entry.type === 'Pontoonsillapark') subtypeCounts.bridgeVehicleOrPontoon++;
     }
     if(isSu27Family) subtypeCounts.su27Family++;
+    if(isAdRadar) subtypeCounts.adRadar++;
   }
 
   return shuffleArray(chosen).map(entry => {
@@ -1368,6 +1398,43 @@ function updateNavControls(){
 
 // Skoorikast peakirjas — 'practice' režiimis loeb lihtsalt näidatud pilte,
 // 'test'/'catalog' režiimis näitab õigesti/valesti tulemust nagu varem.
+function updateRunProgress(){
+  if(!runProgressFill) return;
+  const done = Math.min(shownCount, TOTAL_IMAGES || 0);
+  runProgressFill.style.width = (TOTAL_IMAGES ? (done / TOTAL_IMAGES) * 100 : 0) + '%';
+}
+
+function renderEndSummary(){
+  if(!endSummary) return;
+  if(liveState.phase !== 'end'){ endSummary.style.display='none'; endSummary.innerHTML=''; return; }
+  if(appMode !== 'test'){
+    endSummary.style.display='block';
+    endSummary.innerHTML='<h3>Sessiooni kokkuvõte</h3><div class="end-summary-grid"><div class="end-summary-item">Näidatud <b>'+shownCount+'</b> pilti</div></div>';
+    return;
+  }
+  const total=score.total, correct=score.correct, wrong=Math.max(0,total-correct), pct=total?Math.round(correct/total*100):0;
+  const byGroup={};
+  history.forEach(h=>{
+    if(h.isCorrect===null || !h.current) return;
+    const entry=CATEGORIES.find(e=>e.cat===h.current.cat);
+    const gid=entry?entry.group:'other';
+    if(!byGroup[gid]) byGroup[gid]={correct:0,total:0};
+    byGroup[gid].total++; if(h.isCorrect) byGroup[gid].correct++;
+  });
+  const groupHtml=Object.entries(byGroup).map(([gid,v])=>{
+    const g=GROUPS.find(x=>x.id===gid);
+    const groupWrong=Math.max(0,v.total-v.correct);
+    return '<div class="end-summary-item"><b>'+(g?g.label:gid)+'</b><span class="group-result">Õige '+v.correct+' · Vale '+groupWrong+' · Kokku '+v.total+'</span></div>';
+  }).join('');
+  const mistakes=[...new Set(history.filter(h=>h.isCorrect===false&&h.current).map(h=>h.current.label))];
+  endSummary.style.display='block';
+  endSummary.innerHTML='<h3>Testi kokkuvõte</h3>'+
+    '<div class="end-score-panel"><div class="end-score-main">Tulemus <b>'+correct+'/'+total+'</b></div>'+
+    '<div class="end-score-stats"><div class="end-score-stat">Õige <b>'+correct+'</b></div><div class="end-score-stat">Vale <b>'+wrong+'</b></div><div class="end-score-stat">Täpsus <b>'+pct+'%</b></div></div></div>'+
+    (groupHtml?'<div class="end-groups-title">Tulemused kategooriate kaupa</div><div class="end-summary-grid">'+groupHtml+'</div>':'')+
+    (mistakes.length?'<div class="end-mistakes"><b>Eksitud mudelid:</b> '+mistakes.join(', ')+'</div>':'');
+}
+
 function updateScoreUI(){
   const scoreLbl = document.querySelector('.scorebox .lbl');
   if(appMode === 'practice'){
@@ -1383,6 +1450,7 @@ function updateScoreUI(){
       ? Math.round((score.correct / score.total) * 100) + '%'
       : '—';
   }
+  updateRunProgress();
 }
 
 // Unikaalsed tehnikaühikud (cat), mis SELLES voorus valesti märgiti.
@@ -1427,6 +1495,7 @@ function renderLive(){
   practiceNextRow.style.display = 'none';
   verdictBadge.style.display = 'none';
   endActionsRow.style.display = 'none';
+  endSummary.style.display = 'none';
 
   if(liveState.phase === 'loading' || liveState.phase === 'error' || liveState.phase === 'end'){
     setStateMsg(liveState.message, liveState.phase === 'loading');
@@ -1445,6 +1514,7 @@ function renderLive(){
 
     if(stopped){
       setEndActions();
+      renderEndSummary();
       endActionsRow.style.display = 'flex';
     }
     return;
@@ -1586,7 +1656,7 @@ async function loadNext(){
     // Kogu (filtreeritud) tsükkel on läbi käidud — ei täida kotti automaatselt
     // uuesti, vaid näitab selget lõputeadet koos "sega uuesti"/"uus test" nupuga.
     liveState = { phase: 'end', current: null, guessText: '', message: endMessage() };
-    render();
+      render();
     return;
   }
 
@@ -2192,6 +2262,10 @@ kuldResetBtn.addEventListener('click', resetKuldvillak);
 startCatalogBtn.addEventListener('click', startCatalog);
 showModelListBtn.addEventListener('click', showListScreen);
 listBackBtn.addEventListener('click', goHome);
+
+guessInput.addEventListener('input', () => {
+  if(viewIndex===null && liveState.phase==='ready') liveState.guessText=guessInput.value;
+});
 
 renderHome();
 renderQr();
