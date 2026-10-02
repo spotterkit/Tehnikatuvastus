@@ -743,7 +743,7 @@ const CATEGORIES = [
   { label: "ZOOPARK-1", group: "artillery_recon", type: "STV vastutuleradar", cat: "ZOOPARK-1", weight: 1, files: ["ArtilleryExercise2014-06.jpg", "1L219M_back_view_MAKS2005.jpg"] },
   { label: "1V13", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V13", weight: 1, files: ["Engineering_Technologies_2010_Part4_0033_copy.jpg"] },
   { label: "1V18", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V18", weight: 1, files: ["2018._Донецк_N_18_DSC_8191.jpg", "2014-12-06._Площадка_военной_техники_в_парке_Ленинского_комсомола_07.JPG"] },
-  { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", weight: 1, files: ["RehearsalTula02052017-05.jpg", "1V119_Reostat.jpg"] },
+  { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", weight: 1, files: ["RehearsalTula02052017-05.jpg"] },
   { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", weight: 1, files: ["images/ark1_01.jpg"] },
   { label: "1V15", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V15", weight: 1, files: ["images/1v15_01.webp"] },
 
@@ -1186,26 +1186,42 @@ function buildImagePool(filterFn){
 }
 
 function buildUniqueVehiclePool(n){
-  const eligible = CATEGORIES.filter(e => e.files && e.files.length > 0);
+  const eligible = shuffleArray(CATEGORIES.filter(e => e.files && e.files.length > 0).slice());
   const chosen = [];
-  const chosenCats = new Set();
+  const groupCounts = {};
+  const subtypeCounts = { bridgeTank: 0, bridgeVehicleOrPontoon: 0, su27Family: 0 };
+  const target = Math.min(n, eligible.length);
 
-  // Kõigepealt täidame piiratud suurtest kategooriatest nende lubatud
-  // maksimumi (või vähem, kui selles kategoorias pole nii palju masinaid).
-  Object.entries(TEST_GROUP_LIMITS).forEach(([groupId, limit]) => {
-    const candidates = shuffleArray(eligible.filter(e => e.group === groupId).slice());
-    candidates.slice(0, Math.min(limit, candidates.length)).forEach(entry => {
-      chosen.push(entry);
-      chosenCats.add(entry.cat);
-    });
-  });
+  // Kõik pildiga mudelid osalevad ühes juhuslikus valikus.
+  // TEST_GROUP_LIMITS väärtused on ainult MAKSIMUMID, mitte kohustuslikud kogused.
+  // Pioneeride sees kehtivad lisaks sillatehnika maksimumid:
+  //   - max 1 sillatank
+  //   - max 1 sillamasin VÕI pontoonsillapark kokku
+  // Lennukitest max 1: Su-27, Su-30, Su-33 või Su-35 (Su-35S).
+  for(const entry of eligible){
+    if(chosen.length >= target) break;
 
-  // Ülejäänud kohad täidame ainult teistest suurtest kategooriatest, et
-  // määratud ülempiire ei saaks juhuslik valik kogemata ületada.
-  const limitedGroupIds = new Set(Object.keys(TEST_GROUP_LIMITS));
-  const remaining = shuffleArray(eligible.filter(e => !chosenCats.has(e.cat) && !limitedGroupIds.has(e.group)).slice());
-  const slotsLeft = Math.max(0, Math.min(n, eligible.length) - chosen.length);
-  remaining.slice(0, slotsLeft).forEach(entry => chosen.push(entry));
+    const limit = TEST_GROUP_LIMITS[entry.group];
+    const used = groupCounts[entry.group] || 0;
+    if(limit !== undefined && used >= limit) continue;
+
+    if(entry.group === 'engineer'){
+      if(entry.type === 'Sillatank' && subtypeCounts.bridgeTank >= 1) continue;
+      if((entry.type === 'Sillamasin' || entry.type === 'Pontoonsillapark') && subtypeCounts.bridgeVehicleOrPontoon >= 1) continue;
+    }
+
+    const isSu27Family = entry.group === 'planes' && ['Su-27', 'Su-30', 'Su-33', 'Su-35'].includes(entry.label);
+    if(isSu27Family && subtypeCounts.su27Family >= 1) continue;
+
+    chosen.push(entry);
+    groupCounts[entry.group] = used + 1;
+
+    if(entry.group === 'engineer'){
+      if(entry.type === 'Sillatank') subtypeCounts.bridgeTank++;
+      if(entry.type === 'Sillamasin' || entry.type === 'Pontoonsillapark') subtypeCounts.bridgeVehicleOrPontoon++;
+    }
+    if(isSu27Family) subtypeCounts.su27Family++;
+  }
 
   return shuffleArray(chosen).map(entry => {
     const filename = entry.files[Math.floor(Math.random() * entry.files.length)];
