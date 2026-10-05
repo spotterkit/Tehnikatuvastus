@@ -519,17 +519,7 @@
   <div class="panel" id="homeScreen">
     <div class="home-layout">
       <div class="home-main">
-        <div class="home-eyebrow">Vali harjutuskategooriad</div>
-        <div class="home-select-actions">
-          <button type="button" id="selectAllBtn">Vali kõik</button>
-          <button type="button" id="clearAllBtn">Tühista kõik</button>
-        </div>
-        <div class="home-group-grid" id="groupGrid"></div>
-        <div class="stats-line" id="statsLine"></div>
-        <div class="row">
-          <button class="primary" id="startPracticeBtn" style="flex:1;">Harjuta valitud kategooriaid</button>
-        </div>
-        <div class="home-divider">Testid</div>
+        <div class="home-divider" style="margin-top:0;border-top:none;padding-top:0;">Testid</div>
         <div class="row">
           <button class="primary" id="startTestBtn" style="flex:1;">Genereeri test (50 küsimust)</button>
         </div>
@@ -546,12 +536,27 @@
           <div class="kuld-config-count" id="kuldConfigCount"></div>
           <div class="kuld-group-grid" id="kuldGroupGrid"></div>
         </div>
+
+        <div class="home-divider">Nimekiri</div>
+        <div class="row">
+          <button id="showModelListBtn" style="flex:1;">Kõik mudelid (nimekiri)</button>
+        </div>
+
+        <div class="home-divider">Harjutamine</div>
+        <div class="home-eyebrow">Vali harjutuskategooriad</div>
+        <div class="home-select-actions">
+          <button type="button" id="selectAllBtn">Vali kõik</button>
+          <button type="button" id="clearAllBtn">Tühista kõik</button>
+        </div>
+        <div class="home-group-grid" id="groupGrid"></div>
+        <div class="stats-line" id="statsLine"></div>
+        <div class="row">
+          <button class="primary" id="startPracticeBtn" style="flex:1;">Harjuta valitud kategooriaid</button>
+        </div>
+
         <div class="home-divider">Vaba sirvimine</div>
         <div class="row">
           <button id="startCatalogBtn" style="flex:1;">Vaata kogu kataloogi</button>
-        </div>
-        <div class="row" style="margin-top:8px;">
-          <button id="showModelListBtn" style="flex:1;">Kõik mudelid (nimekiri)</button>
         </div>
         <div class="row" style="margin-top:8px;">
           <button id="diagToggle" type="button" style="flex:1;">Pildidiagnostika</button>
@@ -572,6 +577,9 @@
     </div>
     <div class="panel" id="modelListPanel">
       <div class="model-list-summary" id="modelListSummary"></div>
+      <div class="model-list-search" style="margin-bottom:14px;">
+        <input type="text" id="modelListSearch" placeholder="Otsi mudelit (nt T-72, Su-...)" autocomplete="off" style="width:100%;">
+      </div>
       <div id="modelListContent"></div>
     </div>
   </div>
@@ -1846,8 +1854,9 @@ function renderHome(){
 // hilisemaks täiendamiseks olemas olevad kirjed) EI kajastu siin kuskil —
 // uueneb automaatselt, kui mõnele reale files[] sisu lisatakse.
 // ============================================================================
-function renderModelList(){
+function renderModelList(filterText = ''){
   const stats = computeOverallStats();
+  const query = String(filterText || '').trim().toLocaleLowerCase('et');
   modelListSummary.innerHTML = 'Kokku <b>' + stats.totalModels + '</b> erinevat masinat, <b>'
     + stats.totalPhotos + '</b> pilti.';
 
@@ -1858,6 +1867,10 @@ function renderModelList(){
   const ungrouped = [];
   CATEGORIES.forEach(e => {
     if(!e.files || e.files.length === 0) return; // pildita read jäetakse nimekirjast täiesti välja
+    if(query){
+      const haystack = [e.label, e.type, e.cat].filter(Boolean).join(' ').toLocaleLowerCase('et');
+      if(!haystack.includes(query)) return;
+    }
     if(byGroup.has(e.group)) byGroup.get(e.group).push(e);
     else ungrouped.push(e);
   });
@@ -1903,6 +1916,15 @@ function renderModelList(){
 
   GROUPS.forEach(g => renderSection(g.label, byGroup.get(g.id), g.id));
   renderSection('Grupeerimata', ungrouped, null);
+
+  if(query && !modelListContent.children.length){
+    modelListContent.innerHTML = '<div class="model-list-summary">Otsingule sobivaid mudeleid ei leitud.</div>';
+  }
+}
+
+const modelListSearch = document.getElementById('modelListSearch');
+if(modelListSearch){
+  modelListSearch.addEventListener('input', () => renderModelList(modelListSearch.value));
 }
 
 async function openModelGallery(entry){
