@@ -539,6 +539,16 @@
   .model-gallery-file{padding:8px 10px;font-size:10px;color:var(--bone-dim);word-break:break-word;border-top:1px solid var(--line);}
   @media(max-width:600px){.model-gallery{inset:2vh 2vw;padding:12px}.model-gallery-grid{grid-template-columns:1fr}.model-gallery-imgwrap{height:240px}}
 
+  /* Desktop: mudeligalerii pildi suurendamine */
+  @media(min-width:601px){
+    .model-gallery-imgwrap img{cursor:zoom-in;}
+    .model-gallery-imgwrap img.is-zoomed{cursor:zoom-out;}
+  }
+  .model-image-zoom{display:none;position:fixed;inset:0;z-index:10020;background:rgba(0,0,0,.92);align-items:center;justify-content:center;overflow:hidden;}
+  .model-image-zoom.open{display:flex;}
+  .model-image-zoom img{max-width:96vw;max-height:94vh;object-fit:contain;transform-origin:center center;user-select:none;-webkit-user-drag:none;}
+  .model-image-zoom-hint{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);padding:7px 10px;background:rgba(13,15,10,.82);border:1px solid var(--line);font-size:10px;color:var(--bone-dim);letter-spacing:.06em;white-space:nowrap;pointer-events:none;}
+
   /* Õppesessiooni progress ja lõpuülevaade */
   .run-progress{height:6px;background:rgba(255,255,255,.09);border-radius:999px;overflow:hidden;margin:0 0 12px;}
   .run-progress-fill{height:100%;width:0;background:currentColor;opacity:.8;transition:width .2s ease;}
@@ -663,6 +673,11 @@
       <button type="button" id="modelGalleryClose">Sulge</button>
     </div>
     <div class="model-gallery-grid" id="modelGalleryGrid"></div>
+  </div>
+
+  <div id="modelImageZoom" class="model-image-zoom" aria-hidden="true">
+    <img id="modelImageZoomImg" alt="">
+    <div class="model-image-zoom-hint">Hiireratas: suumi · lohista: liiguta · topeltklõps: 100% · Esc: sulge</div>
   </div>
 
   <div id="kuldScreen" style="display:none;">
@@ -1219,6 +1234,8 @@ const modelGallery = document.getElementById('modelGallery');
 const modelGalleryTitle = document.getElementById('modelGalleryTitle');
 const modelGalleryGrid = document.getElementById('modelGalleryGrid');
 const modelGalleryClose = document.getElementById('modelGalleryClose');
+const modelImageZoom = document.getElementById('modelImageZoom');
+const modelImageZoomImg = document.getElementById('modelImageZoomImg');
 const qrBox = document.getElementById('qrBox');
 const menuBtn = document.getElementById('menuBtn');
 const titleHome = document.getElementById('titleHome');
@@ -2098,6 +2115,7 @@ async function openModelGallery(entry){
       if(!info || !info.url) throw new Error('Pildi URL-i ei saadud');
       const img = document.createElement('img');
       img.alt = entry.label;
+      img.addEventListener('click', () => { if(window.matchMedia('(min-width:601px)').matches) openModelImageZoom(info.url, entry.label); });
       img.onload = () => { state.remove(); };
       img.onerror = () => { state.textContent = 'Pildi laadimine ebaõnnestus'; img.remove(); };
       wrap.appendChild(img);
@@ -2107,6 +2125,52 @@ async function openModelGallery(entry){
     }
   });
 }
+
+let modelZoomScale = 1;
+let modelZoomX = 0;
+let modelZoomY = 0;
+let modelZoomDragging = false;
+let modelZoomStartX = 0;
+let modelZoomStartY = 0;
+
+function applyModelImageZoom(){
+  modelImageZoomImg.style.transform = `translate(${modelZoomX}px, ${modelZoomY}px) scale(${modelZoomScale})`;
+}
+function resetModelImageZoom(){
+  modelZoomScale = 1; modelZoomX = 0; modelZoomY = 0; applyModelImageZoom();
+}
+function openModelImageZoom(src, alt){
+  if(!window.matchMedia('(min-width:601px)').matches) return;
+  resetModelImageZoom();
+  modelImageZoomImg.src = src;
+  modelImageZoomImg.alt = alt || '';
+  modelImageZoom.classList.add('open');
+  modelImageZoom.setAttribute('aria-hidden','false');
+}
+function closeModelImageZoom(){
+  modelImageZoom.classList.remove('open');
+  modelImageZoom.setAttribute('aria-hidden','true');
+  modelImageZoomImg.src = '';
+  resetModelImageZoom();
+}
+modelImageZoom.addEventListener('wheel', e => {
+  if(!modelImageZoom.classList.contains('open')) return;
+  e.preventDefault();
+  modelZoomScale = Math.min(6, Math.max(1, modelZoomScale * (e.deltaY < 0 ? 1.15 : 0.87)));
+  if(modelZoomScale === 1){ modelZoomX = 0; modelZoomY = 0; }
+  applyModelImageZoom();
+}, {passive:false});
+modelImageZoomImg.addEventListener('mousedown', e => {
+  if(modelZoomScale <= 1) return;
+  modelZoomDragging = true; modelZoomStartX = e.clientX - modelZoomX; modelZoomStartY = e.clientY - modelZoomY; e.preventDefault();
+});
+window.addEventListener('mousemove', e => {
+  if(!modelZoomDragging) return; modelZoomX = e.clientX - modelZoomStartX; modelZoomY = e.clientY - modelZoomStartY; applyModelImageZoom();
+});
+window.addEventListener('mouseup', () => { modelZoomDragging = false; });
+modelImageZoomImg.addEventListener('dblclick', e => { e.preventDefault(); resetModelImageZoom(); });
+modelImageZoom.addEventListener('click', e => { if(e.target === modelImageZoom) closeModelImageZoom(); });
+window.addEventListener('keydown', e => { if(e.key === 'Escape' && modelImageZoom.classList.contains('open')) closeModelImageZoom(); });
 
 function closeModelGallery(){
   modelGallery.classList.remove('open');
