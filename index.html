@@ -556,6 +556,16 @@
   .end-summary-item .group-result{display:block;margin-top:4px;font-size:12px;color:var(--bone-dim);}
   .end-mistakes{margin-top:14px;font-size:13px;line-height:1.55;}
   @media(max-width:560px){.end-score-stats{grid-template-columns:1fr;}.end-score-main b{font-size:28px;}}
+
+/* Desktop zoom — kasutab juba laetud galerii pilti, ei lae pilti uuesti */
+@media (min-width:761px) and (hover:hover) and (pointer:fine){
+  .model-gallery-imgwrap img{cursor:zoom-in}
+  .desktop-model-zoom{display:none;position:fixed;inset:0;z-index:10050;background:rgba(0,0,0,.94);align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .desktop-model-zoom.open{display:flex}
+  .desktop-model-zoom img{width:auto!important;height:auto!important;max-width:94vw!important;max-height:92vh!important;object-fit:contain;transform-origin:center;cursor:grab;will-change:transform}
+  .desktop-model-zoom.dragging img{cursor:grabbing}
+  .desktop-model-zoom-hint{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);padding:7px 10px;border:1px solid var(--line);background:rgba(13,15,10,.86);color:var(--bone-dim);font-size:10px;white-space:nowrap;pointer-events:none}
+}
 </style>
 </head>
 <body>
@@ -665,7 +675,11 @@
     <div class="model-gallery-grid" id="modelGalleryGrid"></div>
   </div>
 
-  <div id="kuldScreen" style="display:none;">
+  
+<div id="desktopModelZoom" class="desktop-model-zoom" aria-hidden="true">
+  <div class="desktop-model-zoom-hint">Hiireratas: zoom · Lohista: liiguta · Topeltklõps: 100% · Esc: sulge</div>
+</div>
+<div id="kuldScreen" style="display:none;">
     <div class="hist-nav">
       <button id="kuldMenuBtn" class="nav-btn" aria-label="Tagasi menüüsse" title="Tagasi menüüsse">‹ Menüü</button>
       <div class="hist-status live" id="kuldStatus">KULDVILLAK</div>
@@ -2818,6 +2832,49 @@ showHomeScreen();
   });
 
   updateOfflineState();
+})();
+</script>
+
+<script>
+/* Desktopi galerii-zoom. Tähtis: pilti EI kopeerita ega määrata uut src-i.
+   Juba laetud <img> tõstetakse ajutiselt overlay sisse ja sulgemisel tagasi. */
+(function(){
+  const overlay=document.getElementById('desktopModelZoom');
+  if(!overlay) return;
+  let img=null, home=null, next=null, scale=1, x=0, y=0, dragging=false, sx=0, sy=0, ox=0, oy=0;
+  const desktop=()=>matchMedia('(min-width:761px) and (hover:hover) and (pointer:fine)').matches;
+  const apply=()=>{ if(img) img.style.transform=`translate(${x}px,${y}px) scale(${scale})`; };
+  const reset=()=>{scale=1;x=0;y=0;apply();};
+  function close(){
+    if(!img) return;
+    dragging=false; overlay.classList.remove('dragging','open'); overlay.setAttribute('aria-hidden','true');
+    img.style.transform='';
+    if(home){ if(next && next.parentNode===home) home.insertBefore(img,next); else home.appendChild(img); }
+    img=null; home=null; next=null; scale=1; x=0; y=0;
+  }
+  document.addEventListener('click',function(e){
+    const target=e.target.closest('.model-gallery-imgwrap img');
+    if(!target || !desktop() || overlay.classList.contains('open')) return;
+    e.preventDefault(); e.stopPropagation();
+    img=target; home=target.parentNode; next=target.nextSibling; reset();
+    overlay.insertBefore(target, overlay.firstChild);
+    overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
+  });
+  overlay.addEventListener('click',e=>{if(e.target===overlay) close();});
+  overlay.addEventListener('wheel',e=>{
+    if(!img) return; e.preventDefault();
+    scale=Math.min(6,Math.max(1,scale*(e.deltaY<0?1.15:.87)));
+    if(scale===1){x=0;y=0;} apply();
+  },{passive:false});
+  overlay.addEventListener('mousedown',e=>{
+    if(!img || e.target!==img || scale<=1) return;
+    e.preventDefault(); dragging=true; sx=e.clientX; sy=e.clientY; ox=x; oy=y; overlay.classList.add('dragging');
+  });
+  addEventListener('mousemove',e=>{if(dragging){x=ox+e.clientX-sx;y=oy+e.clientY-sy;apply();}});
+  addEventListener('mouseup',()=>{dragging=false;overlay.classList.remove('dragging');});
+  overlay.addEventListener('dblclick',e=>{if(e.target===img){e.preventDefault();reset();}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&img) close();});
+  addEventListener('resize',()=>{if(img&&!desktop()) close();});
 })();
 </script>
 </body>
