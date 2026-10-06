@@ -5,6 +5,7 @@
   "./icon-192.png",
   "./icon-512.png",
   "./apple-touch-icon.png",
+  "./offline-sw.js",
   "./offline-assets.json",
   "./images/ad/PPRU1_01.jpg",
   "./images/antitank/kornett_01.jpg",
