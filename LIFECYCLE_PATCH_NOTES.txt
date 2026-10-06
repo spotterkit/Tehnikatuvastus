@@ -1,0 +1,24 @@
+TEHNIKATUVASTUS OFFLINE / SERVICE WORKER LIFECYCLE PATCH
+
+Tõenäoline stuck-telefoni põhjus
+- RC1 SW install oli kõik-või-mitte-midagi: ühe CORE_ASSET vea korral uus worker ei aktiveerunud ja vana jäi juhtima.
+- RC1 precache'is oli offline-sw.js ning app shell ja ~167 MB media kasutasid sama cache nime.
+- Vana installatsiooni täpset üksikpõhjust ei saa ainult koodist tõestada; võimalikud on installi nurjumine, update-ajastus või vana SW lifecycle.
+- Inkognito uus / tavabrauser vana tõestab, et deploy oli olemas, kuid olemasolev SW/installatsioon jäi vanale versioonile.
+
+Probleem | Koht | Põhjus | Parandus
+1. SW install kõik-või-mitte-midagi | offline-sw.js install | iga 8 faili viga katkestas installi | ainult index.html kriitiline; ülejäänud Promise.allSettled; offline-sw.js precache'ist eemaldatud
+2. Map ei tõestanud cache olemasolu | index.html getOfflineCommonsEntry + installer | map võis viidata puuduvale pildile | resolver kontrollib cached URL Set'i; map kirjutatakse ainult cache'is kinnitatud kirjetega
+3. controllerchange reload | index.html SW registreerimine | tingimusteta reload võis katkestada installi/testi | hadController + home/idle + max üks reload; installi ajal reload puudub
+4. Navigation hang | offline-sw.js fetch | network-first võis lie-fi korral kaua oodata | 3.5 s AbortController, cache:no-cache, cache.put event.waitUntil
+5. Same-origin stale | offline-sw.js fetch | cache-first võis jääda igaveseks vanaks | stale-while-revalidate
+6. App/media cache seotud | mõlemad failid | release ja 313 pilti samas cache'is | APP_CACHE eraldi; MEDIA_CACHE jääb tehnikatuvastus-offline-final-v13; activate kustutab ainult vanad app-cache'id
+7. SW update kontroll | index.html register | HTTP cache/update timing võis hoida vana workerit | updateViaCache:none; reg.update käivitamisel ja visibilitychange'il; mitte installeri sees
+8. Incremental media cleanup | index.html installer | osaline listing ei tohi hävitada vana media | ainult puuduvad pildid laetakse; orphan cleanup ainult täieliku API listing'u korral
+
+Märkused
+- MEDIA_CACHE nime ei tohi muuta ilma eraldi migratsioonita.
+- Commonsi local-first resolver säilib.
+- localStorage'it ei lisatud.
+- ajutisi diagnostikanuppe ei lisatud.
+- edukal täielikul installil kutsutakse navigator.storage.persist?.().
