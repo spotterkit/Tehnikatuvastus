@@ -556,14 +556,6 @@
   .end-summary-item .group-result{display:block;margin-top:4px;font-size:12px;color:var(--bone-dim);}
   .end-mistakes{margin-top:14px;font-size:13px;line-height:1.55;}
   @media(max-width:560px){.end-score-stats{grid-template-columns:1fr;}.end-score-main b{font-size:28px;}}
-
-/* Desktop-only zoom for Kõik mudelid. Does not change/reload image src. */
-@media (min-width: 761px) and (hover: hover) and (pointer: fine){
-  .model-gallery-imgwrap img{cursor:zoom-in;}
-  .model-gallery-imgwrap.desktop-zoom-active{position:fixed;inset:0;z-index:10050;height:auto;background:rgba(0,0,0,.94);overflow:hidden;display:flex;align-items:center;justify-content:center;}
-  .model-gallery-imgwrap.desktop-zoom-active img{width:auto;height:auto;max-width:94vw;max-height:92vh;object-fit:contain;transform:translate(var(--zoom-x,0px),var(--zoom-y,0px)) scale(var(--zoom-scale,1));transform-origin:center;cursor:grab;will-change:transform;}
-  .model-gallery-imgwrap.desktop-zoom-active.is-dragging img{cursor:grabbing;}
-}
 </style>
 </head>
 <body>
@@ -2826,32 +2818,6 @@ showHomeScreen();
   });
 
   updateOfflineState();
-})();
-</script>
-
-<script>
-/* Desktop-only gallery zoom. IMPORTANT: never assigns/clones/reloads img.src. */
-(function(){
-  const desktop=()=>window.matchMedia('(min-width: 761px) and (hover: hover) and (pointer: fine)').matches;
-  let wrap=null, scale=1, x=0, y=0, dragging=false, sx=0, sy=0, ox=0, oy=0;
-  function apply(){ if(wrap){ wrap.style.setProperty('--zoom-scale',scale); wrap.style.setProperty('--zoom-x',x+'px'); wrap.style.setProperty('--zoom-y',y+'px'); } }
-  function reset(){ scale=1; x=0; y=0; apply(); }
-  function close(){ if(!wrap)return; wrap.classList.remove('desktop-zoom-active','is-dragging'); wrap.style.removeProperty('--zoom-scale'); wrap.style.removeProperty('--zoom-x'); wrap.style.removeProperty('--zoom-y'); wrap=null; dragging=false; }
-  document.addEventListener('click',function(e){
-    const img=e.target.closest && e.target.closest('.model-gallery-imgwrap img');
-    if(img && desktop()){ const w=img.closest('.model-gallery-imgwrap'); if(w!==wrap){ close(); wrap=w; reset(); wrap.classList.add('desktop-zoom-active'); } return; }
-    if(wrap && e.target===wrap) close();
-  });
-  document.addEventListener('wheel',function(e){
-    if(!wrap)return; e.preventDefault(); scale=Math.max(1,Math.min(6,scale*(e.deltaY<0?1.15:0.87))); if(scale===1){x=0;y=0;} apply();
-  },{passive:false});
-  document.addEventListener('mousedown',function(e){ if(!wrap || scale<=1 || !wrap.contains(e.target))return; e.preventDefault(); dragging=true; sx=e.clientX; sy=e.clientY; ox=x; oy=y; wrap.classList.add('is-dragging'); });
-  document.addEventListener('mousemove',function(e){ if(!dragging||!wrap)return; x=ox+(e.clientX-sx); y=oy+(e.clientY-sy); apply(); });
-  document.addEventListener('mouseup',function(){ dragging=false; if(wrap)wrap.classList.remove('is-dragging'); });
-  document.addEventListener('dblclick',function(e){ if(wrap && wrap.contains(e.target)){ e.preventDefault(); reset(); } });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape')close(); });
-  window.addEventListener('resize',function(){ if(wrap && !desktop())close(); });
-  const oldClose=document.getElementById('modelGalleryClose'); if(oldClose)oldClose.addEventListener('click',close);
 })();
 </script>
 </body>
