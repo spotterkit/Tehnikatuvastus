@@ -614,7 +614,20 @@
   .what-list{list-style:none;margin:0;padding:0;}
   .what-list li{display:flex;gap:8px;padding:5px 0;border-bottom:1px dotted rgba(255,255,255,.08);font-size:12px;line-height:1.38;color:var(--bone);}
   .what-num{flex:0 0 auto;min-width:20px;padding:0 4px;box-sizing:border-box;height:20px;border-radius:10px;white-space:nowrap;background:#e8d93a;color:#12140c;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:-1px;}
-  .what-num.is-empty{background:transparent;border:1px dotted var(--line);}
+  .what-num.is-empty{background:var(--bone-soft);opacity:.85;}
+  .model-gallery-actions{display:flex;gap:8px;flex-shrink:0;align-items:center;}
+  .mg-back{border-color:var(--amber);color:var(--amber);max-width:46vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .what-note{border:1px solid var(--line);border-left:4px solid var(--olive);background:rgba(138,154,91,.08);padding:9px 12px;margin:0 0 14px;font-size:13px;line-height:1.45;color:var(--bone);}
+  .what-related{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);}
+  .what-related + .what-related{margin-top:10px;border-top:1px dashed var(--line);}
+  .what-related-title{font-size:13px;color:var(--bone-soft);margin:0 0 8px;}
+  .what-rel-list{display:flex;flex-wrap:wrap;gap:7px 8px;}
+  .what-rel{font-size:12px;padding:5px 10px;border:1px solid var(--line);line-height:1.2;}
+  .what-rel.is-link{border-color:var(--olive);color:var(--bone);cursor:pointer;background:rgba(138,154,91,.10);}
+  .what-rel.is-link::after{content:' ›';color:var(--amber);}
+  .what-rel.is-link:hover,.what-rel.is-link:focus-visible{border-color:var(--amber);color:var(--amber);outline:none;}
+  .what-rel.is-text{color:var(--bone-dim);border-style:dashed;}
+  .what-rel-hint{font-size:11px;color:var(--bone-dim);margin-top:8px;}
   .what-layout.no-image{grid-template-columns:1fr;}
   .what-layout.no-image .what-cols{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
   .wcmp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 22px;}
@@ -794,7 +807,10 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
         <div class="home-eyebrow" style="margin-bottom:3px;" id="modelGalleryEyebrow">Mudel</div>
         <div class="model-gallery-title" id="modelGalleryTitle">—</div>
       </div>
-      <button type="button" id="modelGalleryClose">Sulge</button>
+      <div class="model-gallery-actions">
+        <button type="button" id="modelGalleryBack" class="mg-back" hidden></button>
+        <button type="button" id="modelGalleryClose">Sulge</button>
+      </div>
     </div>
     <div class="mg-tabs" id="modelGalleryTabs" role="tablist" aria-label="Mudeli info"></div>
     <div class="mg-panel" id="mgPanelPhotos" role="tabpanel">
@@ -2548,6 +2564,7 @@ function renderWHATPanel(entry, record){
   if(picker) head.appendChild(picker);
   if(badge || picker) panel.appendChild(head);
 
+  if(record.note) panel.appendChild(el('div', 'what-note', record.note));
   const layout = el('div', 'what-layout' + (record.image ? '' : ' no-image'));
   const fig = makeWhatFigure(entry, record);
   if(fig) layout.appendChild(fig);
@@ -2561,8 +2578,50 @@ function renderWHATPanel(entry, record){
   });
   layout.appendChild(cols);
   panel.appendChild(layout);
+  const related = renderWhatRelated(entry, record);
+  if(related) panel.appendChild(related);
   if(record.source) panel.appendChild(el('div', 'data-sources', 'Allikas: ' + record.source));
   return panel;
+}
+
+// "X alusplatvormi kasutavad": äpis olemas (cat + pildid) → klikitav, avab selle mudeli pildid; muidu tekst.
+function renderWhatRelated(entry, record){
+  const groups = Array.isArray(record.related) ? record.related.filter(g => g && Array.isArray(g.models) && g.models.length) : [];
+  if(!groups.length) return null;
+  const wrap = document.createDocumentFragment();
+  let anyText = false, anyLink = false;
+  groups.forEach(g => {
+    const box = el('div', 'what-related');
+    box.appendChild(el('div', 'what-related-title', (g.label || 'Kasutavad sama alusplatvormi') + ':'));
+    const list = el('div', 'what-rel-list');
+    g.models.forEach(m => {
+      const target = m.cat ? entryByCat(m.cat) : null;
+      if(target && target.files && target.files.length){
+        anyLink = true;
+        const b = el('span', 'what-rel is-link', m.name);
+        b.setAttribute('role', 'button');
+        b.setAttribute('tabindex', '0');
+        b.title = 'Ava ' + target.label + ' pildid';
+        const go = () => openModelGallery(target, 'photos', {from: entry, fromTab: 'what'});
+        b.addEventListener('click', go);
+        b.addEventListener('keydown', ev => { if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); go(); } });
+        list.appendChild(b);
+      }else{
+        anyText = true;
+        const t = el('span', 'what-rel is-text', m.name);
+        t.title = 'Seda mudelit äpis (veel) pole';
+        list.appendChild(t);
+      }
+    });
+    box.appendChild(list);
+    wrap.appendChild(box);
+  });
+  if(anyLink || anyText){
+    const hint = el('div', 'what-rel-hint',
+      (anyLink ? 'Raamitud nimed avavad mudeli pildid.' : '') + (anyLink && anyText ? ' ' : '') + (anyText ? 'Punktiirjoonega: äpis pilte pole.' : ''));
+    wrap.lastChild.appendChild(hint);
+  }
+  return wrap;
 }
 
 function showWHATView(entry){
@@ -2622,9 +2681,46 @@ function setModelTab(tab){
   modelGalleryTabs.querySelectorAll('.mg-tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === tab)));
 }
 
-async function openModelGallery(entry, tab){
+// Mudelilt mudelile liikumine (alusplatvormi lingid): eelmised mudelid pinus, iga tase = üks history kirje,
+// nii et "‹ Tagasi" ja telefoni tagasi-nupp viivad eelmise mudeli juurde, mitte ei sulge akent.
+const modelGalleryBack = document.getElementById('modelGalleryBack');
+let galleryStack = [];
+let galleryCurrent = null;
+
+function updateGalleryBack(){
+  const top = galleryStack[galleryStack.length - 1];
+  modelGalleryBack.hidden = !top;
+  if(top){
+    modelGalleryBack.textContent = '‹ ' + top.entry.label;
+    modelGalleryBack.title = 'Tagasi: ' + top.entry.label;
+  }
+}
+
+function galleryGoBack(fromHistory){
+  const prev = galleryStack.pop();
+  if(!prev) return;
+  if(fromHistory !== true) popLayer();
+  openModelGallery(prev.entry, prev.tab, {back: true});
+}
+
+function currentGalleryTab(){
+  const sel = modelGalleryTabs.querySelector('.mg-tab[aria-selected="true"]');
+  return sel ? sel.dataset.tab : 'photos';
+}
+
+async function openModelGallery(entry, tab, opts){
+  opts = opts || {};
   const galleryWasOpen = modelGallery.classList.contains('open');
-  if(!galleryWasOpen) pushLayer();
+  if(opts.from && galleryWasOpen){
+    if(lbOpen) closeLightbox(false);
+    galleryStack.push({entry: opts.from, tab: opts.fromTab || currentGalleryTab()});
+    pushLayer();
+  }else if(!galleryWasOpen){
+    galleryStack = [];
+    pushLayer();
+  }
+  galleryCurrent = entry;
+  updateGalleryBack();
   modelGalleryEyebrow.textContent = entry.type || 'Mudel';
   modelGalleryTitle.textContent = entry.label;
   modelGalleryGrid.innerHTML = '';
@@ -2692,7 +2788,12 @@ async function openModelGallery(entry, tab){
 function closeModelGallery(fromHistory){
   const wasOpen = modelGallery.classList.contains('open');
   if(lbOpen) closeLightbox(false, fromHistory === true);
-  if(wasOpen && fromHistory !== true) popLayer();
+  if(wasOpen && fromHistory !== true){
+    popLayers(galleryStack.length + 1);   // mudelilt-mudelile tasemed + galerii ise
+  }
+  galleryStack = [];
+  galleryCurrent = null;
+  updateGalleryBack();
   modelGallery.classList.remove('open');
   modelGallery.setAttribute('aria-hidden','true');
   modelGalleryGrid.innerHTML = '';
@@ -2709,20 +2810,30 @@ function closeModelGallery(fromHistory){
 // ============================================================================
 // Telefoni tagasi-nupp: iga avatud kiht (galerii, lightbox) lisab ühe history kirje; tagasi-nupp sulgeb
 // ülemise kihi. UI kaudu sulgemisel eemaldatakse kirje history.back()-iga (popstate seda ignoreerib).
+// NB: alati window.history – skripti globaalne `let history = []` (testi ajalugu) varjab muidu brauseri history objekti.
 let layerDepth = 0, ignorePops = 0;
 function pushLayer(){
-  try{ history.pushState({tvLayer:true}, ''); layerDepth++; }catch(e){}
+  try{ window.history.pushState({tvLayer:true}, ''); layerDepth++; }catch(e){}
 }
 function popLayer(){
   if(layerDepth <= 0) return;
   layerDepth--; ignorePops++;
-  try{ history.back(); }catch(e){ ignorePops--; }
+  try{ window.history.back(); }catch(e){ ignorePops--; }
+}
+// Mitu kihti korraga (nt "Sulge" pärast mudelilt-mudelile liikumist): üks history.go(-n), üks popstate.
+function popLayers(n){
+  n = Math.min(n, layerDepth);
+  if(n <= 0) return;
+  if(n === 1) return popLayer();
+  layerDepth -= n; ignorePops++;
+  try{ window.history.go(-n); }catch(e){ ignorePops--; }
 }
 window.addEventListener('popstate', () => {
   if(ignorePops > 0){ ignorePops--; return; }
   if(layerDepth <= 0) return;
   layerDepth--;
   if(lbOpen) closeLightbox(true, true);
+  else if(modelGallery.classList.contains('open') && galleryStack.length) galleryGoBack(true);
   else if(modelGallery.classList.contains('open')) closeModelGallery(true);
 });
 
@@ -3367,6 +3478,7 @@ startCatalogBtn.addEventListener('click', startCatalog);
 showModelListBtn.addEventListener('click', showListScreen);
 listBackBtn.addEventListener('click', goHome);
 modelGalleryClose.addEventListener('click', () => closeModelGallery());
+modelGalleryBack.addEventListener('click', () => galleryGoBack());
 modelGallery.addEventListener('click', e => { if(e.target === modelGallery) closeModelGallery(); });
 
 guessInput.addEventListener('input', () => {
@@ -3453,7 +3565,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc9'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc10'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
   if(buildLabel) buildLabel.textContent = 'versioon ' + APP_BUILD;

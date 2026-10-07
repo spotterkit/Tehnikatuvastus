@@ -159,6 +159,17 @@ if(whatData){
     if(!cats.has(model)) fail(`${where}: sellist mudelit (cat) index.html-is pole`);
     if(!COLS.some(c => Array.isArray(r[c]) && r[c].length)) fail(`${where}: ükski W/H/A/T veerg pole täidetud`);
     if(r.draft !== undefined && typeof r.draft !== 'boolean') fail(`${where}: draft peab olema true või false`);
+    if(r.note !== undefined && (typeof r.note !== 'string' || !r.note.trim())) fail(`${where}: note peab olema tekst`);
+    if(r.related !== undefined){
+      if(!Array.isArray(r.related)) fail(`${where}: related peab olema massiiv`);
+      else r.related.forEach((g, gi) => {
+        if(!g || !Array.isArray(g.models)) { fail(`${where}: related[${gi}].models puudub`); return; }
+        g.models.forEach((m, mi) => {
+          if(!m || typeof m.name !== 'string' || !m.name.trim()) fail(`${where}: related[${gi}].models[${mi}].name puudub`);
+          else if(m.cat !== undefined && !cats.has(m.cat)) fail(`${where}: related "${m.name}" viitab mudelile "${m.cat}", mida index.html-is pole`);
+        });
+      });
+    }
     if(r.draft) dataNotices.push(`${where}: mustand`);
     for(const c of COLS) (r[c] || []).forEach((it, i) => {
       if(!it || typeof it.text !== 'string' || !it.text.trim()) fail(`${where}: ${c}[${i}] text puudub`);

@@ -24,6 +24,9 @@ TTA KIRJE
     "verifyAgainst": { "name": "U.S. Army ODIN / WEG", "url": "https://odin.t2com.army.mil/WEG/Asset/..." }
   }
 - Lisa ainult need väljad, mille väärtus on teada. Tühja/"—" välja ära kirjuta.
+- REEGEL: väärtus peab olema allikas kirjas SELLE masina/variandi (või selle konkreetse relva) kohta.
+  Ei tuletata, ei asendata sarnase relva/baasversiooni andmetega (nt 2A72 ≠ 2A42, PKT ≠ PK/PKM,
+  BMD-4M ≠ BMD-4). Kui ei leia, jääb väli lihtsalt ära.
 - Arvud on numbrid (80, mitte "80km/h"); ühik tuleb sõnastikust ja kuvatakse kohe numbri järel (80km/h).
   Laskekaugus: "range" {min, max}.
 - Tekstides kirjuta ühik samuti tühikuta: 30mm, 7,62mm, 1500m.
@@ -64,7 +67,7 @@ KONTROLLITUKS MÄRKIMINE
 - Kontrollimata kirje TTA nupp on nimekirjas kollane.
 
 RELEASE
-- APP_BUILD rc9 / SW_VERSION offline-rc9. data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
+- APP_BUILD rc10 / SW_VERSION offline-rc10. data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
 - MEDIA_CACHE nime ei muudetud.
 
 TTA VÕRDLUS (2 mudelit)
@@ -80,6 +83,25 @@ WHAT VÕRDLUS (2 mudelit) – "kumb masin see on?"
 - Pildid kõrvuti, all W / H / A / T samal real kõrvuti. Pildile vajutades suurendus; seal saab
   noolte/libistamisega kahe pildi vahel liikuda.
 - Mitu numbrit ühel tunnusel: "n": "3/4". Mustand: "draft": true (kollane "kontrollimata" märge).
+
+WHAT: MÄRKUS JA ALUSPLATVORM (rc10)
+- "note": "tekst"  → roheliste äärtega infokast WHAT-vahekaardi ülaosas (nt BTR-60 baasversioon).
+- "related": [ { "label": "Kasutavad BMP-1 alusplatvormi",
+                 "models": [ { "name": "PRP-4A", "cat": "PRP-4" }, { "name": "BMP-1AM" } ] } ]
+  · "cat" olemas ja mudelil on pildid → klikitav, avab selle mudeli pildid.
+  · "cat" puudub (või mudelil pole pilte) → kuvatakse tekstina (punktiirjoon).
+  · Kui hiljem lisad äppi uue mudeli (nt BMP-1AM), lisa siia "cat" – nimi muutub klikitavaks.
+- Mudelilt mudelile liikudes ilmub üles "‹ <eelmine mudel>" nupp; telefoni tagasi-nupp teeb sama.
+
+WHAT-SLAIDIDE TÖÖTLEMINE (.pptx → äpp)
+- Tabeli tekst võetakse otse .pptx-ist (mitte pildilt). Pilt renderdatakse slaidist ja lõigatakse
+  tabeli kohalt. LibreOffice ei joonista PowerPointi glow-efekti ega pealkirja kontuuri – need
+  taastatakse eraldi (numbrid kollase mummuga, pealkiri valge + tume kontuur).
+- check_release.js kontrollib ka, et "related" "cat" viitaks olemasolevale mudelile.
+
+PARANDUS rc10
+- Telefoni tagasi-nupp ei sulgenud galeriid/suurendust: skripti globaalne `let history = []`
+  varjas brauseri history objekti. Kihtide loogika kasutab nüüd window.history.
 
 TULEVIK
 - Viktoriin: "Kumma masina max kiirus on suurem?", "Mis number pildil on lainemurdja?" (WHAT `n`).
