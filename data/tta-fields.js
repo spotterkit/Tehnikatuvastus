@@ -34,10 +34,13 @@ window.TTA_FIELDS = {
     "atgmPenetration":   { "label": "TTRK soomuseläbivus",            "type": "text",    "section": "armament",   "order": 25 },
     "secondaryArmament": { "label": "Lisarelvastus",                  "type": "text",    "section": "armament",   "order": 30 },
 
+    "mainGunRange":      { "label": "Pearelv (kahur)",                "type": "number",  "section": "ranges",     "order": 5,  "unit": "m",    "comparable": true, "better": "higher" },
     "atgmRange":         { "label": "Tankitõrjeraketid",              "type": "range",   "section": "ranges",     "order": 10, "unit": "m",    "comparable": true, "better": "higher" },
     "cannonRangeArmored":{ "label": "Kahur – kergsoomustatud sihtmärk","type": "number", "section": "ranges",     "order": 20, "unit": "m",    "comparable": true, "better": "higher" },
     "cannonRangeSoft":   { "label": "Kahur – soomustamata sihtmärk",  "type": "number",  "section": "ranges",     "order": 30, "unit": "m",    "comparable": true, "better": "higher" },
     "cannonRangeAir":    { "label": "Kahur – õhusihtmärk",            "type": "number",  "section": "ranges",     "order": 40, "unit": "m",    "comparable": true, "better": "higher" },
+    "hmgRange":          { "label": "Raskekuulipilduja – maasihtmärk","type": "number", "section": "ranges",     "order": 45, "unit": "m",    "comparable": true, "better": "higher" },
+    "hmgRangeAir":       { "label": "Raskekuulipilduja – õhusihtmärk","type": "number", "section": "ranges",     "order": 46, "unit": "m",    "comparable": true, "better": "higher" },
     "mgRange":           { "label": "Kuulipilduja",                   "type": "number",  "section": "ranges",     "order": 50, "unit": "m",    "comparable": true, "better": "higher" },
 
     "armor":             { "label": "Soomus",                         "type": "text",    "section": "protection", "order": 10 }
