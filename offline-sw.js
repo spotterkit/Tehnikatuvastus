@@ -1,5 +1,5 @@
 // Service Worker lifecycle release. SW_VERSION is only a version marker.
-const SW_VERSION = 'offline-rc2';
+const SW_VERSION = 'offline-rc3';
 const APP_CACHE = 'tehnikatuvastus-app-' + SW_VERSION;
 // MEDIA nime EI TOHI muuta: olemasolevad Commonsi offline-pildid peavad release'ide vahel säilima.
 const MEDIA_CACHE = 'tehnikatuvastus-offline-final-v13';
@@ -64,11 +64,15 @@ async function navigationNetworkFirst(event){
 async function staleWhileRevalidate(event){
   const appCache = await caches.open(APP_CACHE);
   const mediaCache = await caches.open(MEDIA_CACHE);
-  const cached = (await appCache.match(event.request, {ignoreVary:true})) ||
-                 (await mediaCache.match(event.request, {ignoreVary:true}));
+  let hitCache = appCache;
+  let cached = await appCache.match(event.request, {ignoreVary:true});
+  if(!cached){
+    cached = await mediaCache.match(event.request, {ignoreVary:true});
+    if(cached) hitCache = mediaCache; // värskenda seda cache'i, kus koopia päriselt asub
+  }
   const network = fetch(event.request, {cache:'no-cache'}).then(async response => {
     if(response && response.ok){
-      await appCache.put(event.request, response.clone());
+      await hitCache.put(event.request, response.clone());
     }
     return response;
   });
@@ -97,6 +101,10 @@ self.addEventListener('fetch', event => {
     event.respondWith(navigationNetworkFirst(event));
     return;
   }
+
+  // Installer ja värskendus küsivad faile cache:'reload' / 'no-store' režiimis: need peavad
+  // minema päriselt võrku, mitte saama SW kaudu vana cache'itud koopiat tagasi.
+  if(event.request.cache === 'reload' || event.request.cache === 'no-store') return;
 
   if(url.origin === self.location.origin){
     event.respondWith(staleWhileRevalidate(event));
