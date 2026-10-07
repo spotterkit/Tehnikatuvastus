@@ -67,7 +67,7 @@ KONTROLLITUKS MÄRKIMINE
 - Kontrollimata kirje TTA nupp on nimekirjas kollane.
 
 RELEASE
-- APP_BUILD rc10 / SW_VERSION offline-rc10. data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
+- APP_BUILD rc11 / SW_VERSION offline-rc11. data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
 - MEDIA_CACHE nime ei muudetud.
 
 TTA VÕRDLUS (2 mudelit)

@@ -723,7 +723,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
           <div class="kuld-config-help">Vali 5 kategooriat käsitsi või lase rakendusel valida 5 juhuslikku kategooriat. Igas kategoorias on 5 küsimust, iga küsimus väärtusega 100.</div>
           <div class="kuld-config-actions">
             <button type="button" id="kuldRandomBtn" class="primary">Juhuslikud 5</button>
-            <button type="button" id="kuldUseSelectedBtn">Kasuta valitud 5</button>
+            <button type="button" id="kuldUseSelectedBtn" class="primary">Kasuta valitud 5</button>
           </div>
           <div class="kuld-config-count" id="kuldConfigCount"></div>
           <div class="kuld-group-grid" id="kuldGroupGrid"></div>
@@ -731,17 +731,17 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
 
         <div class="home-divider">Nimekiri</div>
         <div class="row">
-          <button id="showModelListBtn" style="flex:1;">Kõik mudelid (nimekiri)</button>
+          <button class="primary" id="showModelListBtn" style="flex:1;">Kõik mudelid (Nimekiri, TTA, WHAT, Pildid)</button>
         </div>
 
         <div class="home-divider">Harjutamine</div>
         <div class="row" style="margin-bottom:10px;">
-          <button type="button" id="groupToggleBtn" style="flex:1;" aria-expanded="false" aria-controls="practiceGroupsPanel">Vali harjutuskategooriad <span class="btn-caret" aria-hidden="true">▾</span></button>
+          <button type="button" class="primary" id="groupToggleBtn" style="flex:1;" aria-expanded="false" aria-controls="practiceGroupsPanel">Vali harjutuskategooriad <span class="btn-caret" aria-hidden="true">▾</span></button>
         </div>
         <div id="practiceGroupsPanel" hidden>
           <div class="home-select-actions">
-            <button type="button" id="selectAllBtn">Vali kõik</button>
-            <button type="button" id="clearAllBtn">Tühista kõik</button>
+            <button type="button" class="primary" id="selectAllBtn">Vali kõik</button>
+            <button type="button" class="primary" id="clearAllBtn">Tühista kõik</button>
           </div>
           <div class="home-group-grid" id="groupGrid"></div>
         </div>
@@ -752,18 +752,18 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
 
         <div class="home-divider">Vaba sirvimine</div>
         <div class="row">
-          <button id="startCatalogBtn" style="flex:1;">Vaata kogu kataloogi</button>
+          <button class="primary" id="startCatalogBtn" style="flex:1;">Vaata kogu kataloogi</button>
         </div>
         <div class="row" style="margin-top:8px;">
-          <button id="diagToggle" type="button" style="flex:1;">Pildidiagnostika</button>
+          <button class="primary" id="diagToggle" type="button" style="flex:1;">Pildidiagnostika</button>
         </div>
 
         <div class="home-divider">Offline kasutus</div>
         <div class="row">
-          <button id="offlineInstallBtn" type="button" style="flex:1;">Lae äpp offline kasutuseks</button>
+          <button class="primary" id="offlineInstallBtn" type="button" style="flex:1;">Lae äpp offline kasutuseks</button>
         </div>
         <div class="row" style="margin-top:8px;">
-          <button id="offlineDeleteBtn" type="button" style="flex:1; display:none;">Kustuta offline andmed</button>
+          <button class="primary" id="offlineDeleteBtn" type="button" style="flex:1; display:none;">Kustuta offline andmed</button>
         </div>
         <div class="row" style="display:none; margin-top:8px;">
         </div>
@@ -3565,7 +3565,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc10'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc11'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
   if(buildLabel) buildLabel.textContent = 'versioon ' + APP_BUILD;
