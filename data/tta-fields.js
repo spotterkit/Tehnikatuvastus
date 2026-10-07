@@ -1,0 +1,45 @@
+// TTA väljade sõnastik. Uue välja lisamiseks lisa siia üks rida – äpi koodi muutma ei pea.
+// type: "number" (ühik `unit`), "range" ({ "min": .., "max": .. }, ühik `unit`), "text", "boolean".
+// comparable: true = sobib võrdlusse (range võrreldakse max järgi).
+// better: "higher" | "lower" = võrdluses tõstetakse esile parem väärtus; puudub = ei hinnata (nt mass, mõõtmed).
+// Sektsiooni comparePriority: väiksem number = võrdluses eespool ja alati nähtav; ilma selleta = "Kõik andmed" all.
+// Sisu hoia puhta JSON-ina (jutumärgid võtmete ümber, lõpukomasid pole) – check_release.js kontrollib.
+window.TTA_FIELDS = {
+  "version": 2,
+  "sections": [
+    { "id": "general",    "label": "Üldandmed" },
+    { "id": "mobility",   "label": "Liikuvus" },
+    { "id": "armament",   "label": "Relvastus", "comparePriority": 1 },
+    { "id": "ranges",     "label": "Efektiivsed laskekaugused", "comparePriority": 2 },
+    { "id": "protection", "label": "Kaitse" }
+  ],
+  "fields": {
+    "crew":              { "label": "Meeskond",                       "type": "text",    "section": "general",    "order": 10 },
+    "combatWeight":      { "label": "Lahingumass",                    "type": "number",  "section": "general",    "order": 20, "unit": "t",    "comparable": true },
+    "length":            { "label": "Pikkus",                         "type": "number",  "section": "general",    "order": 30, "unit": "m",    "comparable": true },
+    "width":             { "label": "Laius",                          "type": "number",  "section": "general",    "order": 40, "unit": "m",    "comparable": true },
+    "height":            { "label": "Kõrgus",                         "type": "number",  "section": "general",    "order": 50, "unit": "m",    "comparable": true },
+
+    "engine":            { "label": "Mootor",                         "type": "text",    "section": "mobility",   "order": 10 },
+    "power":             { "label": "Võimsus",                        "type": "number",  "section": "mobility",   "order": 20, "unit": "hj",   "comparable": true, "better": "higher" },
+    "maxSpeedRoad":      { "label": "Max kiirus (maantee)",           "type": "number",  "section": "mobility",   "order": 30, "unit": "km/h", "comparable": true, "better": "higher" },
+    "maxSpeedOffroad":   { "label": "Max kiirus (maastik)",           "type": "number",  "section": "mobility",   "order": 40, "unit": "km/h", "comparable": true, "better": "higher" },
+    "maxSpeedWater":     { "label": "Max kiirus (vees)",              "type": "number",  "section": "mobility",   "order": 50, "unit": "km/h", "comparable": true, "better": "higher" },
+    "range":             { "label": "Sõiduulatus",                    "type": "number",  "section": "mobility",   "order": 60, "unit": "km",   "comparable": true, "better": "higher" },
+    "amphibious":        { "label": "Ujuv",                           "type": "boolean", "section": "mobility",   "order": 70 },
+    "airDroppable":      { "label": "Langevarjuga heidetav",          "type": "boolean", "section": "mobility",   "order": 80 },
+
+    "mainArmament":      { "label": "Põhirelvastus",                  "type": "text",    "section": "armament",   "order": 10 },
+    "atgm":              { "label": "Tankitõrjeraketid",              "type": "text",    "section": "armament",   "order": 20 },
+    "atgmPenetration":   { "label": "TTRK soomuseläbivus",            "type": "text",    "section": "armament",   "order": 25 },
+    "secondaryArmament": { "label": "Lisarelvastus",                  "type": "text",    "section": "armament",   "order": 30 },
+
+    "atgmRange":         { "label": "Tankitõrjeraketid",              "type": "range",   "section": "ranges",     "order": 10, "unit": "m",    "comparable": true, "better": "higher" },
+    "cannonRangeArmored":{ "label": "Kahur – kergsoomustatud sihtmärk","type": "number", "section": "ranges",     "order": 20, "unit": "m",    "comparable": true, "better": "higher" },
+    "cannonRangeSoft":   { "label": "Kahur – soomustamata sihtmärk",  "type": "number",  "section": "ranges",     "order": 30, "unit": "m",    "comparable": true, "better": "higher" },
+    "cannonRangeAir":    { "label": "Kahur – õhusihtmärk",            "type": "number",  "section": "ranges",     "order": 40, "unit": "m",    "comparable": true, "better": "higher" },
+    "mgRange":           { "label": "Kuulipilduja",                   "type": "number",  "section": "ranges",     "order": 50, "unit": "m",    "comparable": true, "better": "higher" },
+
+    "armor":             { "label": "Soomus",                         "type": "text",    "section": "protection", "order": 10 }
+  }
+};
