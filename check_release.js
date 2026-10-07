@@ -92,6 +92,92 @@ for(const required of ['./index.html', './offline-sw.js', './offline-assets.json
   if(!seen.has(required)) fail('offline-assets.json-ist puudub ' + required);
 }
 
+// 7. Lokaalsed andmestikud (data/*.js): süntaks, puhas JSON, võtmed = CATEGORIES `cat`, väljad ja tüübid,
+//    allikad, WHAT-pildid olemas ja offline-assets.json-is. Puuduv data-fail on viga, kui index.html seda laeb.
+const dataNotices = [];
+const cats = new Set();
+{ const catRe = /\bcat:\s*"([^"]+)"/g; let c; while((c = catRe.exec(html))) cats.add(c[1]); }
+function loadDataFile(rel, globalName){
+  if(!html.includes('src="./' + rel + '"')) return null;          // äpp ei kasuta seda faili
+  if(!existsExact(rel)){ fail('index.html laeb puuduva faili: ' + rel); return null; }
+  const text = read(rel);
+  const sandbox = {window:{}};
+  try{ vm.runInNewContext(text, sandbox, {filename: rel}); }
+  catch(e){ fail(rel + ' süntaksiviga: ' + e.message); return null; }
+  const value = sandbox.window[globalName];
+  if(!value || typeof value !== 'object'){ fail(rel + ': window.' + globalName + ' puudub'); return null; }
+  const body = text.slice(text.indexOf('window.' + globalName)).replace(/^window\.\w+\s*=\s*/, '').trim().replace(/;$/, '');
+  try{ JSON.parse(body); }catch(e){ fail(rel + ': sisu ei ole puhas JSON (' + e.message + ')'); }
+  if(!seen.has('./' + rel)) fail(rel + ' ei ole offline-assets.json-is');
+  if(!sw.includes("'./" + rel + "'")) fail(rel + ' ei ole offline-sw.js OPTIONAL_APP_ASSETS-is');
+  return value;
+}
+const hasHttps = list => (list || []).some(s => s && /^https:\/\//.test(String(s.url || '')));
+const isNum = v => typeof v === 'number' && Number.isFinite(v);
+const TYPE_OK = {
+  number: isNum,
+  text: v => typeof v === 'string' && v.trim() !== '',
+  boolean: v => typeof v === 'boolean',
+  range: v => v && typeof v === 'object' && isNum(v.max) && (v.min === undefined || (isNum(v.min) && v.min <= v.max))
+};
+const ttaFields = loadDataFile('data/tta-fields.js', 'TTA_FIELDS');
+const ttaData = loadDataFile('data/tta.js', 'TTA_DATA');
+const whatData = loadDataFile('data/what.js', 'WHAT_DATA');
+if(ttaFields && ttaData){
+  const sections = new Set((ttaFields.sections || []).map(s => s.id));
+  const fields = ttaFields.fields || {};
+  for(const [k, f] of Object.entries(fields)){
+    if(!TYPE_OK[f.type]) fail(`tta-fields: '${k}' tundmatu type '${f.type}'`);
+    if(!sections.has(f.section)) fail(`tta-fields: '${k}' tundmatu section '${f.section}'`);
+    if(f.better !== undefined && !['higher', 'lower'].includes(f.better)) fail(`tta-fields: '${k}' better peab olema 'higher' või 'lower'`);
+    if(f.better !== undefined && !['number', 'range'].includes(f.type)) fail(`tta-fields: '${k}' better sobib ainult number/range väljale`);
+  }
+  for(const [model, r] of Object.entries(ttaData.models || {})){
+    const where = `tta.js [${model}]`;
+    if(!cats.has(model)) fail(`${where}: sellist mudelit (cat) index.html-is pole`);
+    if(!['verified', 'unverified'].includes(r.status)) fail(`${where}: status peab olema 'verified' või 'unverified'`);
+    const values = r.values || {};
+    if(!Object.keys(values).length) fail(`${where}: values on tühi`);
+    for(const [k, v] of Object.entries(values)){
+      if(!fields[k]) fail(`${where}: väli '${k}' puudub tta-fields.js-ist`);
+      else if(TYPE_OK[fields[k].type] && !TYPE_OK[fields[k].type](v)) fail(`${where}: '${k}' peab olema ${fields[k].type}, on ${JSON.stringify(v)}`);
+    }
+    for(const extra of ['notes', 'warnings']) for(const k of Object.keys(r[extra] || {})){
+      if(!(k in values)) fail(`${where}: ${extra}.${k} viitab väljale, millel pole väärtust`);
+    }
+    if(!hasHttps(r.sources)) fail(`${where}: vähemalt üks allikas https-lingiga on kohustuslik`);
+    if(r.status === 'verified' && !(r.sources || []).some(s => /odin\.t2com\.army\.mil/.test(String(s.url || '')))){
+      fail(`${where}: 'verified' kirje allikates peab olema ODIN/WEG link`);
+    }
+    if(r.status !== 'verified') dataNotices.push(`${where}: kontrollimata`);
+  }
+}
+if(whatData){
+  const COLS = ['wheels', 'hull', 'armament', 'turret'];
+  for(const [model, r] of Object.entries(whatData.models || {})){
+    const where = `what.js [${model}]`;
+    if(!cats.has(model)) fail(`${where}: sellist mudelit (cat) index.html-is pole`);
+    if(!COLS.some(c => Array.isArray(r[c]) && r[c].length)) fail(`${where}: ükski W/H/A/T veerg pole täidetud`);
+    if(r.draft !== undefined && typeof r.draft !== 'boolean') fail(`${where}: draft peab olema true või false`);
+    if(r.draft) dataNotices.push(`${where}: mustand`);
+    for(const c of COLS) (r[c] || []).forEach((it, i) => {
+      if(!it || typeof it.text !== 'string' || !it.text.trim()) fail(`${where}: ${c}[${i}] text puudub`);
+    });
+    if(r.image){
+      const rel = String(r.image).replace(/^\.\//, '');
+      if(!existsExact(rel)) fail(`${where}: pilt puudub (või vale tähesuurusega): ${rel}`);
+      else if(!seen.has('./' + rel)) fail(`${where}: pilt ei ole offline-assets.json-is: ./${rel}`);
+      else {
+        const size = fs.statSync(path.join(root, rel)).size;
+        if(!/\.webp$/i.test(rel) || size > 250 * 1024){
+          dataNotices.push(`${where}: pilt ${Math.round(size / 1024)} KB` + (/\.webp$/i.test(rel) ? '' : ', mitte WebP') + ' – käivita: python tools/optimize_what_images.py --apply');
+        }
+      }
+    }
+  }
+}
+dataNotices.forEach(n => console.log('Märkus: ' + n));
+
 if(errors.length){
   console.error('Release-kontroll EBAÕNNESTUS (' + errors.length + '):');
   errors.forEach(e => console.error(' - ' + e));

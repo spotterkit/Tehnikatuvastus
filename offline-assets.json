@@ -7,6 +7,9 @@
   "./apple-touch-icon.png",
   "./offline-sw.js",
   "./offline-assets.json",
+  "./data/tta-fields.js",
+  "./data/tta.js",
+  "./data/what.js",
   "./images/ad/PPRU1_01.jpg",
   "./images/antitank/kornett_01.jpg",
   "./images/antitank/shturms_01.jpg",
@@ -50,5 +53,7 @@
   "./images/ships/karakurt_01.png",
   "./images/ships/kilo2_01.jpg",
   "./images/ships/vishnya_01.jpg",
-  "./images/trucks/desertcross1000-3_01.jpg"
+  "./images/trucks/desertcross1000-3_01.jpg",
+  "./images/what/BMD-2_what.webp",
+  "./images/what/BMP-2_what.webp"
 ]

@@ -1,0 +1,85 @@
+TEHNIKATUVASTUS – MUDELI ANDMED: TTA JA WHAT (rc9)
+
+PÕHIMÕTE
+- Mudeli lisainfo on lokaalsetes failides kaustas data/. Äpp ei laadi midagi ODIN-ist ega API-st.
+- Iga kirje võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2"), mitte pilt/failinimi.
+- Kirje puudub → nimekirjas pole TTA/WHAT nuppu ega mudeli aknas vahekaarti. Midagi ei lähe katki.
+- Failid on .js (window.X = {...};), mitte .json, et äpp töötaks ka index.html otse failist avades.
+  Sisu hoia puhta JSON-ina: jutumärgid võtmete ümber, lõpukomasid pole. check_release.js kontrollib.
+
+FAILID
+- data/tta-fields.js   TTA väljade sõnastik: silt, tüüp, ühik, sektsioon, järjekord, comparable
+- data/tta.js          TTA väärtused mudelite kaupa
+- data/what.js         WHAT-analüüs mudelite kaupa
+- images/what/<cat>_what.webp  annoteeritud pilt (numbrid pildil = `n` what.js-is)
+- tools/optimize_what_images.py  teeb PNG/JPG-d WebP-ks ja uuendab viited (vaikimisi dry-run)
+
+TTA KIRJE
+  "BMD-2": {
+    "status": "unverified" | "verified",
+    "values":   { "maxSpeedRoad": 80, "atgmRange": { "min": 70, "max": 4000 }, ... },
+    "warnings": { välja_võti: "tekst" },     ← kollane märge (nt allikad lahknevad)
+    "notes":    { välja_võti: "tekst" },     ← hall täpsustus
+    "sources":  [ { "name": "...", "url": "https://...", "retrieved": "AAAA-KK-PP" } ],
+    "verifyAgainst": { "name": "U.S. Army ODIN / WEG", "url": "https://odin.t2com.army.mil/WEG/Asset/..." }
+  }
+- Lisa ainult need väljad, mille väärtus on teada. Tühja/"—" välja ära kirjuta.
+- Arvud on numbrid (80, mitte "80km/h"); ühik tuleb sõnastikust ja kuvatakse kohe numbri järel (80km/h).
+  Laskekaugus: "range" {min, max}.
+- Tekstides kirjuta ühik samuti tühikuta: 30mm, 7,62mm, 1500m.
+- Uus väli (nt suurtükile laskekaugus, MLRS-ile rakettide arv): lisa üks rida tta-fields.js-i.
+
+WHAT KIRJE
+  "BMD-2": {
+    "image": "images/what/BMD-2_what.webp",
+    "source": "Tehnikatuvastuse koolitusslaid",
+    "wheels":   [ { "n": 1, "text": "..." } ],
+    "hull":     [ { "text": "ilma numbrita tunnus" }, { "n": 2, "text": "..." } ],
+    "armament": [ ... ],
+    "turret":   [ ... ]
+  }
+- PowerPointist: ekspordi ainult annoteeritud fotode osa pildina (ilma tabelita), tabeli tekst läheb what.js-i.
+- Pilt lisa ka offline-assets.json-i (muidu pole see offline'is olemas – check_release.js annab vea).
+
+WHAT-PILDI LISAMINE / ASENDAMINE (soovitatav viis)
+1. Ekspordi PowerPointist PNG/JPG nimega <cat>_what.png (nt BMP-2_what.png) kausta images/what/.
+   Asendamisel kustuta enne vana <cat>_what.webp (muidu skript jätab vahele: "on juba olemas").
+2. what.js-is "image": "images/what/BMP-2_what.png" (uue mudeli puhul; asendamisel on viide juba olemas).
+3. python tools/optimize_what_images.py          → vaata, mis muutuks
+   python tools/optimize_what_images.py --apply  → WebP (max 1000 px, kvaliteet 70), viited uuendatakse,
+                                                    originaal kustutatakse kaustast
+4. node check_release.js .
+- Tulemus: ~100 KB pildi kohta (BMD-2: 181 KB → 99 KB; otse slaidi PNG: 1,3 MB → ~115 KB).
+- check_release.js annab märkuse, kui WHAT-pilt pole WebP või on üle 250 KB.
+
+TÖÖVOOG UUE MUDELI JAOKS
+1. TTA: Wikipedia/ODIN → tta.js, status "unverified", allikad kirja.
+2. WHAT: slaidi pilt → images/what/, tekst → what.js, siis python tools/optimize_what_images.py --apply.
+3. node check_release.js .    → "Release-kontroll OK"
+4. Ava index.html otse (topeltklõps) ja vaata mudel üle.
+5. Kui väärtused on WEG-iga võrreldud: lisa ODIN sources'isse ja sea status "verified".
+
+KONTROLLITUKS MÄRKIMINE
+- check_release.js nõuab, et "verified" kirje allikates oleks ODIN/WEG link.
+- Kontrollimata kirje TTA nupp on nimekirjas kollane.
+
+RELEASE
+- APP_BUILD rc9 / SW_VERSION offline-rc9. data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
+- MEDIA_CACHE nime ei muudetud.
+
+TTA VÕRDLUS (2 mudelit)
+- TTA vahekaardil "Võrdle:" → vali teine mudel, millel on TTA (sama grupp eespool).
+- Eespool ja alati nähtav: sektsioonid, millel on comparePriority (praegu Relvastus=1, Laskekaugused=2).
+  Ülejäänud on "Kõik andmed" all (telefonis vaikimisi kinni, lauaarvutis lahti).
+- Esile tõstetakse (▲) ainult väljad, millel on tta-fields.js-is "better": "higher" | "lower".
+  Mass, mõõtmed ja tekstiväljad jäetakse teadlikult hindamata.
+- Uue mudeli võrdlusse lisamiseks piisab, kui sellel on tta.js kirje – koodi muutma ei pea.
+
+WHAT VÕRDLUS (2 mudelit) – "kumb masin see on?"
+- WHAT vahekaardil "Võrdle:" → vali teine mudel, millel on WHAT.
+- Pildid kõrvuti, all W / H / A / T samal real kõrvuti. Pildile vajutades suurendus; seal saab
+  noolte/libistamisega kahe pildi vahel liikuda.
+- Mitu numbrit ühel tunnusel: "n": "3/4". Mustand: "draft": true (kollane "kontrollimata" märge).
+
+TULEVIK
+- Viktoriin: "Kumma masina max kiirus on suurem?", "Mis number pildil on lainemurdja?" (WHAT `n`).
