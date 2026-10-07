@@ -719,7 +719,28 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
   <div class="panel" id="homeScreen">
     <div class="home-layout">
       <div class="home-main">
-        <div class="home-divider" style="margin-top:0;border-top:none;padding-top:0;">Testid</div>
+        <div class="home-divider" style="margin-top:0;border-top:none;padding-top:0;">Nimekiri</div>
+        <div class="row">
+          <button class="primary" id="showModelListBtn" style="flex:1;">Kõik mudelid (Nimekiri, TTA, WHAT, Pildid)</button>
+        </div>
+        <div class="stats-line" id="statsLine" style="margin-top:8px;"></div>
+
+        <div class="home-divider">Harjutamine</div>
+        <div class="row" style="margin-bottom:10px;">
+          <button type="button" class="primary" id="groupToggleBtn" style="flex:1;" aria-expanded="false" aria-controls="practiceGroupsPanel">Vali harjutuskategooriad <span class="btn-caret" aria-hidden="true">▾</span></button>
+        </div>
+        <div id="practiceGroupsPanel" hidden>
+          <div class="home-select-actions">
+            <button type="button" class="primary" id="selectAllBtn">Vali kõik</button>
+            <button type="button" class="primary" id="clearAllBtn">Tühista kõik</button>
+          </div>
+          <div class="home-group-grid" id="groupGrid"></div>
+        </div>
+        <div class="row">
+          <button class="primary" id="startPracticeBtn" style="flex:1;">Harjuta valitud kategooriaid</button>
+        </div>
+
+        <div class="home-divider">Testid</div>
         <div class="row">
           <button class="primary" id="startTestBtn" style="flex:1;">Genereeri test (50 küsimust)</button>
         </div>
@@ -737,35 +758,6 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
           <div class="kuld-group-grid" id="kuldGroupGrid"></div>
         </div>
 
-        <div class="home-divider">Nimekiri</div>
-        <div class="row">
-          <button class="primary" id="showModelListBtn" style="flex:1;">Kõik mudelid (Nimekiri, TTA, WHAT, Pildid)</button>
-        </div>
-
-        <div class="home-divider">Harjutamine</div>
-        <div class="row" style="margin-bottom:10px;">
-          <button type="button" class="primary" id="groupToggleBtn" style="flex:1;" aria-expanded="false" aria-controls="practiceGroupsPanel">Vali harjutuskategooriad <span class="btn-caret" aria-hidden="true">▾</span></button>
-        </div>
-        <div id="practiceGroupsPanel" hidden>
-          <div class="home-select-actions">
-            <button type="button" class="primary" id="selectAllBtn">Vali kõik</button>
-            <button type="button" class="primary" id="clearAllBtn">Tühista kõik</button>
-          </div>
-          <div class="home-group-grid" id="groupGrid"></div>
-        </div>
-        <div class="stats-line" id="statsLine"></div>
-        <div class="row">
-          <button class="primary" id="startPracticeBtn" style="flex:1;">Harjuta valitud kategooriaid</button>
-        </div>
-
-        <div class="home-divider">Vaba sirvimine</div>
-        <div class="row">
-          <button class="primary" id="startCatalogBtn" style="flex:1;">Vaata kogu kataloogi</button>
-        </div>
-        <div class="row" style="margin-top:8px;">
-          <button class="primary" id="diagToggle" type="button" style="flex:1;">Pildidiagnostika</button>
-        </div>
-
         <div class="home-divider">Offline kasutus</div>
         <div class="row">
           <button class="primary" id="offlineInstallBtn" type="button" style="flex:1;">Lae äpp offline kasutuseks</button>
@@ -778,6 +770,14 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
         <div id="offlineStatus" class="stats-line" style="margin-top:8px;">Offline-versiooni pole veel seadmesse laaditud.</div>
         <pre id="roundTripAuditOutput" style="display:none; white-space:pre-wrap; word-break:break-word; margin-top:10px; padding:10px; border:1px solid rgba(255,255,255,.18); border-radius:8px; font-size:12px; line-height:1.45; max-height:520px; overflow:auto;"></pre>
         <pre id="commonsAuditOutput" style="display:none; white-space:pre-wrap; word-break:break-word; margin-top:10px; padding:10px; border:1px solid rgba(255,255,255,.18); border-radius:8px; font-size:12px; line-height:1.45; max-height:520px; overflow:auto;"></pre>
+
+        <div class="home-divider">Vaba sirvimine</div>
+        <div class="row">
+          <button class="primary" id="startCatalogBtn" style="flex:1;">Vaata kogu kataloogi</button>
+        </div>
+        <div class="row" style="margin-top:8px;">
+          <button class="primary" id="diagToggle" type="button" style="flex:1;">Pildidiagnostika</button>
+        </div>
       </div>
       <div class="qr-panel" id="qrPanel">
         <div class="qr-eyebrow">Ava telefonis</div>
@@ -3640,7 +3640,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc12'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc13'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
   if(buildLabel) buildLabel.textContent = 'versioon ' + APP_BUILD;
