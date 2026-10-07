@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 3,
+  "version": 4,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -379,6 +379,258 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Army Technology: BTR-MDM", "url": "https://www.army-technology.com/projects/btr-mdm-armoured-personnel-carrier/", "retrieved": "2026-10-07"}
+      ]
+    },
+    "T-62": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "combatWeight": 37,
+        "length": 9.34,
+        "width": 3.3,
+        "height": 2.4,
+        "engine": "V-55V diisel",
+        "power": 580,
+        "maxSpeedRoad": 50,
+        "maxSpeedOffroad": 40,
+        "range": 450,
+        "mainArmament": "115mm U-5TS (2A20) sileraudne kahur (40 lasku)",
+        "atgm": "T-62M jt: AT-12 „Šeksna“ läbi 115mm raua",
+        "atgmPenetration": "Umbes 650mm (RHA)",
+        "secondaryArmament": "7,62mm PKT koaksiaalne (2500 lasku); 12,7mm DŠK õhutõrjekuulipilduja",
+        "mainGunRange": 4000,
+        "atgmRange": {"min": 100, "max": 5000},
+        "hmgRange": 2000,
+        "armor": "Valatud torn: esiosa 214mm (alates 1972 242mm); kere esiosa 102mm 60° nurga all"
+      },
+      "notes": {
+        "crew": "Andmed: T-62 obr. 1960 (põhiversioon).",
+        "length": "Kahur ees; kere 6,63m.",
+        "power": "Hiljem 620hj.",
+        "range": "Maastikul 320km.",
+        "mainGunRange": "Päeval umbes 4km, öösel 800m.",
+        "atgmRange": "Ainult moderniseeritud variandid (T-62M, T-62MV jt).",
+        "hmgRange": "DŠK."
+      },
+      "sources": [
+        {"name": "Wikipedia: T-62", "url": "https://en.wikipedia.org/wiki/T-62", "retrieved": "2026-10-07"},
+        {"name": "GlobalSecurity: AT-12 Sheksna", "url": "https://www.globalsecurity.org/military/world/russia/at-12.htm", "retrieved": "2026-10-07"},
+        {"name": "Wikipedia: DShK", "url": "https://en.wikipedia.org/wiki/DShK", "retrieved": "2026-10-07"}
+      ]
+    },
+    "T-72": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "combatWeight": 41.5,
+        "length": 9.73,
+        "width": 3.4,
+        "height": 2.23,
+        "engine": "V-46-6 diisel",
+        "power": 780,
+        "maxSpeedRoad": 60,
+        "range": 500,
+        "mainArmament": "125mm 2A46-seeria sileraudne kahur (39 lasku, neist 22 laadimisautomaadis)",
+        "atgm": "T-72B seeria: Svir (AT-11) läbi 125mm raua",
+        "atgmPenetration": "700–900mm (RHA)",
+        "secondaryArmament": "7,62mm PKT koaksiaalne; 12,7mm NSVT",
+        "mainGunRange": 3000,
+        "atgmRange": {"min": 75, "max": 4000},
+        "hmgRange": 2000,
+        "hmgRangeAir": 1500,
+        "armor": "Teras ja komposiit, aktiivsoomus"
+      },
+      "notes": {
+        "crew": "Andmed: T-72A.",
+        "length": "Kahur ees; kere 6,67–6,86m.",
+        "width": "3,40–3,59m.",
+        "range": "Lisakütusega 650–700km.",
+        "mainGunRange": "Maksimaalne otsetule kaugus 3000m; raketiga sihitud tule piir 4000m.",
+        "atgmRange": "Ainult T-72B ja uuemad.",
+        "hmgRange": "NSVT."
+      },
+      "sources": [
+        {"name": "Wikipedia: T-72", "url": "https://en.wikipedia.org/wiki/T-72", "retrieved": "2026-10-07"},
+        {"name": "Wikipedia: 9M119 Svir", "url": "https://en.wikipedia.org/wiki/9M119_Svir", "retrieved": "2026-10-07"},
+        {"name": "Wikipedia: NSV machine gun", "url": "https://en.wikipedia.org/wiki/NSV_machine_gun", "retrieved": "2026-10-07"}
+      ]
+    },
+    "T-80": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "combatWeight": 46,
+        "length": 9.654,
+        "width": 3.603,
+        "height": 2.202,
+        "engine": "GTD-1250 gaasiturbiin",
+        "power": 1250,
+        "maxSpeedRoad": 70,
+        "maxSpeedOffroad": 48,
+        "range": 335,
+        "mainArmament": "125mm 2A46M-1 sileraudne kahur (45 lasku)",
+        "atgm": "9K119 Refleks (AT-11), 6 raketti",
+        "atgmPenetration": "700–900mm (RHA)",
+        "secondaryArmament": "7,62mm PKT koaksiaalne; õhutõrjekuulipilduja (12,7mm NSVT, DŠK või PKT)",
+        "atgmRange": {"min": 75, "max": 5000},
+        "armor": "Kere ja torn Kontakt-5 aktiivsoomusega"
+      },
+      "notes": {
+        "crew": "Andmed: T-80U. T-80B: 42,5t, gaasiturbiin SG-1000 (1000hj), 9M112 Kobra.",
+        "length": "Kahur ees; kere 7m.",
+        "range": "Lisapaakidega 415km."
+      },
+      "sources": [
+        {"name": "Wikipedia: T-80", "url": "https://en.wikipedia.org/wiki/T-80", "retrieved": "2026-10-07"},
+        {"name": "Wikipedia: 9M119 Svir", "url": "https://en.wikipedia.org/wiki/9M119_Svir", "retrieved": "2026-10-07"}
+      ]
+    },
+    "T-90A": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "combatWeight": 46.5,
+        "length": 9.63,
+        "width": 3.78,
+        "height": 2.22,
+        "engine": "V-92S2 diisel",
+        "power": 1000,
+        "maxSpeedRoad": 60,
+        "range": 550,
+        "mainArmament": "125mm 2A46M-2 sileraudne kahur (42 lasku)",
+        "atgm": "9M119M Refleks-M (AT-11) läbi 125mm raua",
+        "atgmPenetration": "700–900mm (RHA)",
+        "secondaryArmament": "12,7mm Kord; 7,62mm PKMT",
+        "atgmRange": {"min": 100, "max": 6000},
+        "hmgRange": 2000,
+        "armor": "Teras-komposiit, Kontakt-5 aktiivsoomus"
+      },
+      "warnings": {
+        "atgmRange": "Allikad lahknevad: T-90 lehel 100–6000m, 9M119 lehel Refleks 75–5000m."
+      },
+      "notes": {
+        "length": "Kahur ees; kere 6,86m.",
+        "range": "Ilma lisakütuseta.",
+        "hmgRange": "Kord."
+      },
+      "sources": [
+        {"name": "Wikipedia: T-90", "url": "https://en.wikipedia.org/wiki/T-90", "retrieved": "2026-10-07"},
+        {"name": "Wikipedia: 9M119 Svir", "url": "https://en.wikipedia.org/wiki/9M119_Svir", "retrieved": "2026-10-07"},
+        {"name": "Wikipedia: Kord machine gun", "url": "https://en.wikipedia.org/wiki/Kord_machine_gun", "retrieved": "2026-10-07"}
+      ]
+    },
+    "T-90M": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "combatWeight": 48,
+        "length": 9.63,
+        "width": 3.78,
+        "height": 2.22,
+        "engine": "V-92S2F diisel",
+        "power": 1130,
+        "mainArmament": "125mm 2A46M-5 sileraudne kahur (43 lasku)",
+        "secondaryArmament": "12,7mm Kord distantsjuhitavas moodulis UDP T05BV-1; 7,62mm koaksiaalne",
+        "hmgRange": 2000,
+        "armor": "Relikt aktiivsoomus"
+      },
+      "notes": {
+        "length": "Kahur ees; kere 6,86m.",
+        "hmgRange": "Kord."
+      },
+      "sources": [
+        {"name": "Wikipedia: T-90", "url": "https://en.wikipedia.org/wiki/T-90", "retrieved": "2026-10-07"},
+        {"name": "Wikipedia: Kord machine gun", "url": "https://en.wikipedia.org/wiki/Kord_machine_gun", "retrieved": "2026-10-07"}
+      ]
+    },
+    "2S1 Gvozdika": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "combatWeight": 16,
+        "length": 7.26,
+        "width": 2.85,
+        "height": 2.73,
+        "engine": "YaMZ-238N diisel",
+        "power": 300,
+        "maxSpeedRoad": 60,
+        "maxSpeedWater": 4.5,
+        "range": 500,
+        "amphibious": true,
+        "mainArmament": "122mm haubits (eraldi laadimine)",
+        "rateOfFire": 5,
+        "firingRange": 15.3,
+        "firingRangeExt": 21.9,
+        "armor": "7–20mm"
+      },
+      "warnings": {
+        "mainArmament": "Wikipedia infokastis relv „2A18“ (D-30 tähis); teistes allikates 2A31. Kontrolli WEG-ist."
+      },
+      "notes": {
+        "rateOfFire": "Püsiv 1–2 lasku/min."
+      },
+      "sources": [
+        {"name": "Wikipedia: 2S1 Gvozdika", "url": "https://en.wikipedia.org/wiki/2S1_Gvozdika", "retrieved": "2026-10-07"}
+      ]
+    },
+    "2S3 Akatsiya": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "combatWeight": 28,
+        "length": 8.4,
+        "width": 3.25,
+        "height": 3.05,
+        "engine": "V-59 diisel",
+        "power": 520,
+        "maxSpeedRoad": 63,
+        "maxSpeedOffroad": 45,
+        "range": 500,
+        "mainArmament": "152,4mm D-22 haubits (kuni 46 lasku)",
+        "secondaryArmament": "7,62mm PKT kaugjuhitav (1500 lasku)",
+        "rateOfFire": 4,
+        "firingRange": 18.5,
+        "firingRangeExt": 24,
+        "armor": "Kere 15mm, torn ja kere esiosa 30mm"
+      },
+      "notes": {
+        "length": "Kere 7,765m.",
+        "height": "Ilma kuulipildujata 2,615m.",
+        "rateOfFire": "Püsiv 1 lask/min."
+      },
+      "sources": [
+        {"name": "Wikipedia: 2S3 Akatsiya", "url": "https://en.wikipedia.org/wiki/2S3_Akatsiya", "retrieved": "2026-10-07"}
+      ]
+    },
+    "2S19 Msta": {
+      "status": "unverified",
+      "values": {
+        "crew": "5",
+        "combatWeight": 42,
+        "length": 11.91,
+        "height": 2.9,
+        "engine": "V-84A diisel",
+        "power": 840,
+        "maxSpeedRoad": 60,
+        "range": 500,
+        "mainArmament": "152mm 2A64 haubits (50 lasku)",
+        "secondaryArmament": "12,7mm NSVT (300 lasku)",
+        "rateOfFire": 8,
+        "firingRange": 24.7,
+        "firingRangeExt": 36,
+        "hmgRange": 2000,
+        "hmgRangeAir": 1500
+      },
+      "notes": {
+        "rateOfFire": "Wikipedia: 6–8 lasku/min; 2S19M2: 10 lasku/min.",
+        "firingRange": "Põhjagaasigeneraatoriga mürsk 28,9km. 2S19M2: 30km.",
+        "firingRangeExt": "2S19M2: 40km.",
+        "hmgRange": "NSVT."
+      },
+      "sources": [
+        {"name": "Army Technology: 2S19 Msta-S", "url": "https://www.army-technology.com/projects/msta/", "retrieved": "2026-10-07"},
+        {"name": "Wikipedia: 2S19 Msta", "url": "https://en.wikipedia.org/wiki/2S19_Msta", "retrieved": "2026-10-07"},
+        {"name": "Wikipedia: NSV machine gun", "url": "https://en.wikipedia.org/wiki/NSV_machine_gun", "retrieved": "2026-10-07"}
       ]
     }
   }
