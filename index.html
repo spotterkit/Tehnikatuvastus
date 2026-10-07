@@ -705,7 +705,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
       <button type="button" id="lbNext" aria-label="Järgmine pilt" title="Järgmine (→)">›</button>
       <button type="button" id="lbOut" aria-label="Vähenda" title="Vähenda (-)">−</button>
       <button type="button" id="lbIn" aria-label="Suurenda" title="Suurenda (+)">+</button>
-      <button type="button" id="lbFit" aria-label="Sobita ekraanile" title="Sobita (0)">⤢</button>
+      <button type="button" id="lbFull" aria-label="Täisekraan" title="Täisekraan (F)">⛶</button>
       <div class="lightbox-info" id="lbInfo"></div>
       <button type="button" id="lbClose" aria-label="Sulge" title="Sulge (Esc)">✕</button>
     </div>
@@ -2279,6 +2279,7 @@ function closeLightbox(restoreFocus, fromHistory){
   lbOpen = false;
   if(fromHistory !== true) popLayer();
   lbPointers.clear(); lbPinch = null; lbLastTap = null;
+  try{ if(document.fullscreenElement) document.exitFullscreen().catch(() => {}); }catch(e){}
   lightbox.classList.remove('open');
   lightbox.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
@@ -2294,7 +2295,22 @@ document.getElementById('lbPrev').addEventListener('click', () => lbShow(lbIndex
 document.getElementById('lbNext').addEventListener('click', () => lbShow(lbIndex + 1));
 document.getElementById('lbIn').addEventListener('click', () => lbZoomBy(1.4));
 document.getElementById('lbOut').addEventListener('click', () => lbZoomBy(1 / 1.4));
-document.getElementById('lbFit').addEventListener('click', lbSetFit);
+// Täisekraan (Fullscreen API). Peidetud seal, kus brauser seda elementidele ei toeta (nt iPhone Safari).
+const lbFullBtn = document.getElementById('lbFull');
+const lbCanFullscreen = !!(lightbox.requestFullscreen && document.exitFullscreen);
+if(!lbCanFullscreen) lbFullBtn.style.display = 'none';
+function lbToggleFullscreen(){
+  if(!lbCanFullscreen) return;
+  try{
+    if(document.fullscreenElement) document.exitFullscreen().catch(() => {});
+    else lightbox.requestFullscreen().catch(() => {});
+  }catch(e){}
+}
+lbFullBtn.addEventListener('click', lbToggleFullscreen);
+document.addEventListener('fullscreenchange', () => {
+  // Ekraani mõõt muutub: sobita pilt uuesti, kui layout on paigas.
+  setTimeout(() => { if(lbOpen && lbImg.naturalWidth) lbSetFit(); }, 120);
+});
 
 lbStage.addEventListener('wheel', ev => {
   ev.preventDefault();
@@ -2368,6 +2384,7 @@ document.addEventListener('keydown', ev => {
     else if(k === '+' || k === '=') lbZoomBy(1.4);
     else if(k === '-' || k === '_') lbZoomBy(1 / 1.4);
     else if(k === '0') lbSetFit();
+    else if(k === 'f' || k === 'F') lbToggleFullscreen();
     else if(k === 'ArrowLeft') lbShow(lbIndex - 1);
     else if(k === 'ArrowRight') lbShow(lbIndex + 1);
     else if(k === 'Home') lbShow(0);
@@ -2906,7 +2923,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc7'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc8'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
   if(buildLabel) buildLabel.textContent = 'versioon ' + APP_BUILD;
