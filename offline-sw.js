@@ -1,12 +1,14 @@
 // Service Worker lifecycle release. SW_VERSION on ainult versioonimärk (peab klappima APP_BUILD-iga).
-const SW_VERSION = 'offline-rc8';
+const SW_VERSION = 'offline-rc9';
 const APP_CACHE = 'tehnikatuvastus-app-' + SW_VERSION;
 // MEDIA nime EI TOHI muuta: olemasolevad Commonsi offline-pildid peavad release'ide vahel säilima.
 const MEDIA_CACHE = 'tehnikatuvastus-offline-final-v13';
 
 // Ainult index.html on installi jaoks kriitiline. SW ise ei kuulu precache'i.
 const CRITICAL_ASSET = './index.html';
-const OPTIONAL_APP_ASSETS = ['./', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
+// data/*.js = lokaalsed TTA/WHAT andmestikud (väikesed, kuuluvad app shelli juurde).
+const OPTIONAL_APP_ASSETS = ['./', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png',
+  './data/tta-fields.js', './data/tta.js', './data/what.js'];
 const NAV_TIMEOUT_MS = 3500;
 
 // Last-known-good shell:
