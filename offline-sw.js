@@ -1,5 +1,5 @@
 // Service Worker lifecycle release. SW_VERSION on ainult versioonimärk (peab klappima APP_BUILD-iga).
-const SW_VERSION = 'offline-rc13';
+const SW_VERSION = 'offline-rc14';
 const APP_CACHE = 'tehnikatuvastus-app-' + SW_VERSION;
 // MEDIA nime EI TOHI muuta: olemasolevad Commonsi offline-pildid peavad release'ide vahel säilima.
 const MEDIA_CACHE = 'tehnikatuvastus-offline-final-v13';
@@ -179,7 +179,9 @@ self.addEventListener('fetch', event => {
   if(url.origin === self.location.origin && url.pathname.includes('/__offline_image__/')){
     event.respondWith((async () => {
       const mediaCache = await caches.open(MEDIA_CACHE);
-      const image = await mediaCache.match(event.request, {ignoreVary:true, ignoreSearch:true});
+      // Otseotsing on kiire; ignoreSearch (käib kogu cache'i läbi) ainult varuvariandina.
+      const image = await mediaCache.match(event.request, {ignoreVary:true})
+        || await mediaCache.match(event.request, {ignoreVary:true, ignoreSearch:true});
       return image || new Response('', {status:404, statusText:'Offline image not cached'});
     })());
     return;
