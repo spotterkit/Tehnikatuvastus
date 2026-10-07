@@ -31,6 +31,11 @@ TTA KIRJE
   Laskekaugus: "range" {min, max}.
 - Tekstides kirjuta ühik samuti tühikuta: 30mm, 7,62mm, 1500m.
 - Uus väli (nt suurtükile laskekaugus, MLRS-ile rakettide arv): lisa üks rida tta-fields.js-i.
+- Suurtükid / miinipildujad / reaktiivsuurtükid (rc12):
+  caliber (mm), weightKg (järelveetavad, kg), chassis (tekst), launchTubes (tk), salvoTime (s),
+  firingRangeMin, firingRange (põhimoon), firingRangeBB (põhjagaasigeneraator),
+  firingRangeExt (reaktiivmürsk / pikendatud), firingRangeGuided (juhitav) – kõik km;
+  directFireRange (otsetule kaugus, m). Moona nimi (nt 9M22U, OF45) kirjuta "notes" alla.
 
 WHAT KIRJE
   "BMD-2": {
@@ -62,16 +67,24 @@ TÖÖVOOG UUE MUDELI JAOKS
 4. Ava index.html otse (topeltklõps) ja vaata mudel üle.
 5. Kui väärtused on WEG-iga võrreldud: lisa ODIN sources'isse ja sea status "verified".
 
+ODIN/WEG PDF-EKSPORT (eelistatud allikas)
+- ODIN-is mudeli lehel: ekspordi PDF. Saada PDF-id (võib ka mitu korraga / zip-ina).
+- PDF-ist loetakse väljad automaatselt (System, Dimensions, Automotive, Main Weapon System, Ammunition).
+  "INA" = andmed puuduvad → välja ei lisata. Allikaks ODIN/WEG link → status "verified" (roheline).
+- WEG lisab maastikuläbivuse: gradient (tõusunurk %), sideSlope (külgkalle %), verticalStep (m),
+  trench (kraavi laius m), fording (koolme sügavus m).
+
 KONTROLLITUKS MÄRKIMINE
 - check_release.js nõuab, et "verified" kirje allikates oleks ODIN/WEG link.
 - Kontrollimata kirje TTA nupp on nimekirjas kollane.
 
 RELEASE
-- APP_BUILD rc11 / SW_VERSION offline-rc11. data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
+- APP_BUILD rc12 / SW_VERSION offline-rc12. data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
 - MEDIA_CACHE nime ei muudetud.
 
 TTA VÕRDLUS (2 mudelit)
-- TTA vahekaardil "Võrdle:" → vali teine mudel, millel on TTA (sama grupp eespool).
+- TTA/WHAT vahekaardil "Võrdle:" → trüki osa nimest (nt "t72", "bm 21") või vali nimekirjast.
+  Otsing vaatab nime, tüüpi ja mudelikoodi; sidekriipsud ja tühikud ei loe. ↑ ↓ Enter, Esc sulgeb.
 - Eespool ja alati nähtav: sektsioonid, millel on comparePriority (praegu Relvastus=1, Laskekaugused=2).
   Ülejäänud on "Kõik andmed" all (telefonis vaikimisi kinni, lauaarvutis lahti).
 - Esile tõstetakse (▲) ainult väljad, millel on tta-fields.js-is "better": "higher" | "lower".

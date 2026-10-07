@@ -562,8 +562,16 @@
   .tta-disclaimer b{color:var(--amber);font-weight:700;}
   @media(max-width:600px){.tta-disclaimer{font-size:13px;padding:9px 12px;}}
   .tta-compare-pick{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--bone-dim);}
-  .tta-compare-pick select{background:var(--bg-0);color:var(--bone);border:1px solid var(--line);font-family:var(--font-body);font-size:12px;padding:6px 8px;max-width:260px;text-transform:none;letter-spacing:0;}
-  .tta-compare-pick select:focus{outline:1px solid var(--amber);}
+  .cmp-pick-box{position:relative;width:280px;max-width:100%;}
+  .cmp-pick-input{width:100%;box-sizing:border-box;background:var(--bg-0);color:var(--bone);border:1px solid var(--line);font-family:var(--font-body);font-size:13px;padding:7px 9px;text-transform:none;letter-spacing:0;}
+  .cmp-pick-input:focus{outline:1px solid var(--amber);border-color:var(--amber);}
+  .cmp-pick-list{position:absolute;z-index:30;top:calc(100% + 2px);left:0;right:0;max-height:300px;overflow-y:auto;margin:0;padding:4px 0;list-style:none;background:var(--bg-0);border:1px solid var(--olive);box-shadow:0 10px 30px rgba(0,0,0,.55);text-transform:none;letter-spacing:0;}
+  .cmp-pick-list[hidden]{display:none;}
+  .cmp-pick-head{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--olive);padding:7px 10px 3px;}
+  .cmp-pick-opt{display:flex;justify-content:space-between;gap:10px;padding:7px 10px;cursor:pointer;font-size:13px;color:var(--bone);}
+  .cmp-pick-opt span{color:var(--bone-dim);font-size:11px;text-align:right;}
+  .cmp-pick-opt.is-active{background:rgba(201,162,39,.16);color:var(--amber);}
+  .cmp-pick-empty{padding:8px 10px;font-size:12px;color:var(--bone-dim);}
   .tta-back{font-size:11px;padding:6px 12px;}
   .cmp-table{display:grid;}
   .cmp-row{display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,1.3fr) minmax(0,1.3fr);gap:0 16px;padding:6px 0;border-bottom:1px dotted rgba(255,255,255,.08);font-size:12px;line-height:1.35;}
@@ -580,7 +588,7 @@
   .cmp-more summary:hover{color:var(--amber);}
   @media(max-width:600px){
     .tta-compare-pick{width:100%;}
-    .tta-compare-pick select{flex:1;min-width:0;width:100%;max-width:none;}
+    .cmp-pick-box{flex:1;min-width:0;width:auto;}
     .tta-compare-pick{box-sizing:border-box;}
     .cmp-row{grid-template-columns:1fr 1fr;gap:2px 12px;}
     .cmp-row .cmp-label{grid-column:1 / -1;font-size:10px;letter-spacing:.04em;text-transform:uppercase;}
@@ -2389,6 +2397,10 @@ function renderTTAPanel(entry, record){
 // ---------------------------------------------------------------------------
 function entryByCat(cat){ return CATEGORIES.find(e => e.cat === cat) || null; }
 
+// Võrdluse valik: trükitav otsing (nimi, tüüp, cat; sidekriipsud/tühikud ei loe) + filtreeritud nimekiri.
+// Hiir/puude: vali nimekirjast. Klaviatuur: ↑ ↓ liiguvad, Enter valib, Esc sulgeb.
+function cmpNorm(t){ return String(t || '').toLocaleLowerCase('et').replace(/[\s\-–_\/.,()„“"]+/g, ''); }
+
 function makeComparePicker(entry, selectedCat, kind){
   kind = kind || 'tta';
   const store = kind === 'what' ? WHAT_MODELS : TTA_MODELS;
@@ -2398,27 +2410,90 @@ function makeComparePicker(entry, selectedCat, kind){
     .map(entryByCat)
     .sort((a,b) => a.label.localeCompare(b.label, 'et'));
   if(!others.length) return null;
-  const wrap = el('label', 'tta-compare-pick');
-  wrap.append(el('span', '', 'Võrdle:'));
-  const sel = document.createElement('select');
-  sel.appendChild(new Option('vali mudel…', ''));
-  const same = others.filter(e => e.group === entry.group), rest = others.filter(e => e.group !== entry.group);
-  const addGroup = (label, list) => {
-    if(!list.length) return;
-    const og = document.createElement('optgroup');
-    og.label = label;
-    list.forEach(e => og.appendChild(new Option(e.label + (e.type ? ' · ' + e.type : ''), e.cat)));
-    sel.appendChild(og);
-  };
-  addGroup('Sama grupp', same);
-  addGroup(same.length ? 'Teised' : 'Mudelid', rest);
-  if(selectedCat) sel.value = selectedCat;
-  sel.addEventListener('change', () => {
-    const other = sel.value ? entryByCat(sel.value) : null;
-    if(kind === 'what') other ? showWHATCompare(entry, other) : showWHATView(entry);
-    else other ? showTTACompare(entry, other) : showTTAView(entry);
+  const groupLabel = id => { const g = (typeof GROUPS !== 'undefined' ? GROUPS : []).find(x => x.id === id); return g ? g.label : ''; };
+
+  const wrap = el('div', 'tta-compare-pick');
+  const lab = el('label', '', 'Võrdle:');
+  const box = el('div', 'cmp-pick-box');
+  const input = document.createElement('input');
+  input.type = 'search';
+  input.className = 'cmp-pick-input';
+  input.placeholder = 'Trüki või vali mudel…';
+  input.autocomplete = 'off';
+  input.setAttribute('role', 'combobox');
+  input.setAttribute('aria-expanded', 'false');
+  input.setAttribute('aria-autocomplete', 'list');
+  const listId = 'cmpList' + Math.random().toString(36).slice(2, 8);
+  input.setAttribute('aria-controls', listId);
+  lab.htmlFor = input.id = listId + 'In';
+  const list = el('ul', 'cmp-pick-list');
+  list.id = listId;
+  list.setAttribute('role', 'listbox');
+  list.hidden = true;
+  box.append(input, list);
+  wrap.append(lab, box);
+  if(selectedCat){ const sel = entryByCat(selectedCat); if(sel) input.value = sel.label; }
+
+  let shown = [], active = -1;
+  function choose(target){
+    input.value = target.label;
+    close();
+    if(kind === 'what') showWHATCompare(entry, target); else showTTACompare(entry, target);
+  }
+  function setActive(i){
+    active = i;
+    list.querySelectorAll('.cmp-pick-opt').forEach((li, k) => {
+      li.classList.toggle('is-active', k === i);
+      li.setAttribute('aria-selected', String(k === i));
+      if(k === i) li.scrollIntoView({block: 'nearest'});
+    });
+  }
+  function render(){
+    const q = cmpNorm(input.value);
+    const selectedLabel = selectedCat && entryByCat(selectedCat) ? entryByCat(selectedCat).label : null;
+    const showAll = !q || input.value === selectedLabel;
+    const hit = e => showAll || [e.label, e.type, e.cat].some(t => cmpNorm(t).includes(q));
+    const same = others.filter(e => e.group === entry.group && hit(e));
+    const rest = others.filter(e => e.group !== entry.group && hit(e));
+    list.innerHTML = '';
+    shown = [];
+    const addGroup = (title, arr) => {
+      if(!arr.length) return;
+      list.appendChild(el('li', 'cmp-pick-head', title));
+      arr.forEach(e => {
+        const li = el('li', 'cmp-pick-opt');
+        li.setAttribute('role', 'option');
+        li.append(el('b', '', e.label), el('span', '', e.type || groupLabel(e.group)));
+        const idx = shown.length;
+        li.addEventListener('mousedown', ev => ev.preventDefault());   // fookus jääb väljale
+        li.addEventListener('click', () => choose(e));
+        li.addEventListener('mousemove', () => { if(active !== idx) setActive(idx); });
+        list.appendChild(li);
+        shown.push(e);
+      });
+    };
+    addGroup('Sama grupp', same);
+    addGroup(same.length ? 'Teised' : 'Mudelid', rest);
+    if(!shown.length) list.appendChild(el('li', 'cmp-pick-empty', 'Ei leitud – proovi teist nime'));
+    setActive(shown.length && !showAll ? 0 : -1);
+  }
+  function open(){ render(); list.hidden = false; input.setAttribute('aria-expanded', 'true'); }
+  function close(){ list.hidden = true; input.setAttribute('aria-expanded', 'false'); active = -1; }
+
+  input.addEventListener('focus', () => { input.select(); open(); });
+  input.addEventListener('click', () => { if(list.hidden) open(); });
+  input.addEventListener('input', open);
+  input.addEventListener('blur', () => setTimeout(close, 120));
+  input.addEventListener('keydown', ev => {
+    if(ev.key === 'ArrowDown'){ ev.preventDefault(); if(list.hidden) open(); setActive(Math.min(active + 1, shown.length - 1)); }
+    else if(ev.key === 'ArrowUp'){ ev.preventDefault(); setActive(Math.max(active - 1, 0)); }
+    else if(ev.key === 'Enter'){
+      ev.preventDefault();
+      const pick = active >= 0 ? shown[active] : (shown.length === 1 ? shown[0] : null);
+      if(pick) choose(pick);
+    }
+    else if(ev.key === 'Escape'){ if(!list.hidden){ ev.preventDefault(); ev.stopPropagation(); close(); } }
   });
-  wrap.appendChild(sel);
   return wrap;
 }
 
@@ -3565,7 +3640,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc11'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc12'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
   if(buildLabel) buildLabel.textContent = 'versioon ' + APP_BUILD;
