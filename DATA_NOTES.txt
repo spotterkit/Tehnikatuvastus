@@ -79,7 +79,7 @@ KONTROLLITUKS MÄRKIMINE
 - Kontrollimata kirje TTA nupp on nimekirjas kollane.
 
 RELEASE
-- APP_BUILD rc14 / SW_VERSION offline-rc14. data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
+- APP_BUILD rc15 / SW_VERSION offline-rc15. data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
 - MEDIA_CACHE nime ei muudetud.
 
 TTA VÕRDLUS (2 mudelit)
@@ -103,7 +103,9 @@ WHAT: MÄRKUS JA ALUSPLATVORM (rc10)
                  "models": [ { "name": "PRP-4A", "cat": "PRP-4" }, { "name": "BMP-1AM" } ] } ]
   · "cat" olemas ja mudelil on pildid → klikitav, avab selle mudeli pildid.
   · "cat" puudub (või mudelil pole pilte) → kuvatakse tekstina (punktiirjoon).
-  · Kui hiljem lisad äppi uue mudeli (nt BMP-1AM), lisa siia "cat" – nimi muutub klikitavaks.
+  · "cat" puudub → äpp otsib mudeli NIME järgi (rc15). Kui lisad äppi uue mudeli (nt BMM-3), muutub
+    nimi kõigis WHAT-ides ise klikitavaks. "cat" on vaja ainult siis, kui nimi ja mudeli cat erinevad
+    (nt "PRP-4A" → "PRP-4") või nimele sobib mitu mudelit.
 - Mudelilt mudelile liikudes ilmub üles "‹ <eelmine mudel>" nupp; telefoni tagasi-nupp teeb sama.
 
 WHAT-SLAIDIDE TÖÖTLEMINE (.pptx → äpp)

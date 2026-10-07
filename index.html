@@ -2400,6 +2400,22 @@ function renderTTAPanel(entry, record){
 // ---------------------------------------------------------------------------
 function entryByCat(cat){ return CATEGORIES.find(e => e.cat === cat) || null; }
 
+// WHAT "related": kui "cat" puudub, otsitakse mudel nime järgi (sidekriipsud, tühikud, jutumärgid ei loe).
+// 1) täpne vaste cat-i või label-iga; 2) cat/label algab nimega + tühik/"/"/"(" (nt "BMM-3" → "BMM-3 Vetluga").
+// Mitmese vaste korral ei arvata – jääb tekstiks.
+function relNorm(t){ return String(t || '').toLocaleLowerCase('et').replace(/[„“"«»]/g, '').replace(/[\s\-–_.,]+/g, ''); }
+function entryByRelatedName(name){
+  const n = relNorm(name); if(!n) return null;
+  const withFiles = CATEGORIES.filter(e => e && e.files && e.files.length);
+  let hits = withFiles.filter(e => relNorm(e.cat) === n || relNorm(e.label) === n);
+  if(!hits.length){
+    const first = t => relNorm(String(t || '').split(/[\s\/(]/)[0]);
+    hits = withFiles.filter(e => first(e.cat) === n || first(e.label) === n);
+  }
+  const uniq = [...new Set(hits)];
+  return uniq.length === 1 ? uniq[0] : null;
+}
+
 // Võrdluse valik: trükitav otsing (nimi, tüüp, cat; sidekriipsud/tühikud ei loe) + filtreeritud nimekiri.
 // Hiir/puude: vali nimekirjast. Klaviatuur: ↑ ↓ liiguvad, Enter valib, Esc sulgeb.
 function cmpNorm(t){ return String(t || '').toLocaleLowerCase('et').replace(/[\s\-–_\/.,()„“"]+/g, ''); }
@@ -2673,7 +2689,7 @@ function renderWhatRelated(entry, record){
     box.appendChild(el('div', 'what-related-title', (g.label || 'Kasutavad sama alusplatvormi') + ':'));
     const list = el('div', 'what-rel-list');
     g.models.forEach(m => {
-      const target = m.cat ? entryByCat(m.cat) : null;
+      const target = m.cat ? entryByCat(m.cat) : entryByRelatedName(m.name);
       if(target && target.files && target.files.length){
         anyLink = true;
         const b = el('span', 'what-rel is-link', m.name);
@@ -3643,7 +3659,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc14'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc15'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
   if(buildLabel) buildLabel.textContent = 'versioon ' + APP_BUILD;
