@@ -2603,6 +2603,8 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
+  const APP_BUILD = 'rc4'; // tõsta iga release'iga; kuvatakse oleku real, et näha, millist versiooni seade käitab
+  let pendingReload = false;
   let wakeLock = null;
   async function acquireWakeLock(){
     try{ if('wakeLock' in navigator && document.visibilityState==='visible') wakeLock = await navigator.wakeLock.request('screen'); }
@@ -2704,15 +2706,28 @@ showHomeScreen();
     }else{
       btn.textContent='Lae äpp offline kasutuseks'; delBtn.style.display='none'; status.textContent='Offline-versiooni pole veel seadmesse laaditud.';
     }
+    status.textContent += ' · versioon ' + APP_BUILD;
   }
 
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     // Ära katkesta installi, testi ega Kuldvillakut. Kui leht avanes ilma kontrollerita,
     // ei ole reload vajalik; uus kontroller teenindab järgmisi navigatsioone ise.
-    if(controllerReloaded || !hadController || !isHomeIdle()) return;
+    if(controllerReloaded || !hadController) return;
+    if(!isHomeIdle()){ pendingReload = true; return; } // reload hiljem, kui ollakse avaekraanil
     controllerReloaded=true;
     location.reload();
   });
+
+  // SW teatab, kui ta serveeris aeglase võrgu tõttu vana lehte ja leidis taustal uue.
+  navigator.serviceWorker.addEventListener('message', e => {
+    if(e.data && e.data.type === 'shell-updated') pendingReload = true;
+  });
+  setInterval(() => {
+    if(pendingReload && hadController && !controllerReloaded && isHomeIdle()){
+      controllerReloaded = true;
+      location.reload();
+    }
+  }, 2000);
 
   navigator.serviceWorker.register('./offline-sw.js', {updateViaCache:'none'}).then(async reg => {
     swRegistration=reg;
