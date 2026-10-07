@@ -32,6 +32,7 @@ window.TTA_FIELDS = {
     "mainArmament":      { "label": "Põhirelvastus",                  "type": "text",    "section": "armament",   "order": 10 },
     "atgm":              { "label": "Tankitõrjeraketid",              "type": "text",    "section": "armament",   "order": 20 },
     "atgmPenetration":   { "label": "TTRK soomuseläbivus",            "type": "text",    "section": "armament",   "order": 25 },
+    "rateOfFire":        { "label": "Laskekiirus (max)",             "type": "number",  "section": "armament",   "order": 28, "unit": " lasku/min", "comparable": true, "better": "higher" },
     "secondaryArmament": { "label": "Lisarelvastus",                  "type": "text",    "section": "armament",   "order": 30 },
 
     "mainGunRange":      { "label": "Pearelv (kahur)",                "type": "number",  "section": "ranges",     "order": 5,  "unit": "m",    "comparable": true, "better": "higher" },
@@ -39,6 +40,8 @@ window.TTA_FIELDS = {
     "cannonRangeArmored":{ "label": "Kahur – kergsoomustatud sihtmärk","type": "number", "section": "ranges",     "order": 20, "unit": "m",    "comparable": true, "better": "higher" },
     "cannonRangeSoft":   { "label": "Kahur – soomustamata sihtmärk",  "type": "number",  "section": "ranges",     "order": 30, "unit": "m",    "comparable": true, "better": "higher" },
     "cannonRangeAir":    { "label": "Kahur – õhusihtmärk",            "type": "number",  "section": "ranges",     "order": 40, "unit": "m",    "comparable": true, "better": "higher" },
+    "firingRange":       { "label": "Laskekaugus – tavaline mürsk",  "type": "number",  "section": "ranges",     "order": 60, "unit": "km",   "comparable": true, "better": "higher" },
+    "firingRangeExt":    { "label": "Laskekaugus – reaktiivmürsk",   "type": "number",  "section": "ranges",     "order": 61, "unit": "km",   "comparable": true, "better": "higher" },
     "hmgRange":          { "label": "Raskekuulipilduja – maasihtmärk","type": "number", "section": "ranges",     "order": 45, "unit": "m",    "comparable": true, "better": "higher" },
     "hmgRangeAir":       { "label": "Raskekuulipilduja – õhusihtmärk","type": "number", "section": "ranges",     "order": 46, "unit": "m",    "comparable": true, "better": "higher" },
     "mgRange":           { "label": "Kuulipilduja",                   "type": "number",  "section": "ranges",     "order": 50, "unit": "m",    "comparable": true, "better": "higher" },
