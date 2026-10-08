@@ -42,6 +42,13 @@ while((m = scriptRe.exec(html))){
   catch(e){ fail('index.html <script #' + scriptNo + '> süntaksiviga: ' + e.message); }
 }
 
+// 1b. Kureeritud testi moodul (curated-test.js): süntaks, laetakse index.html-ist ja on offline-nimekirjas.
+if(existsExact('curated-test.js')){
+  try{ new vm.Script(read('curated-test.js'), {filename:'curated-test.js'}); }catch(e){ fail('curated-test.js süntaksiviga: ' + e.message); }
+  if(!/<script src="\.\/curated-test\.js"><\/script>/.test(html)) fail('index.html ei lae curated-test.js-i');
+  if(!sw.includes("'./curated-test.js'")) fail('offline-sw.js: curated-test.js puudub OPTIONAL_APP_ASSETS-ist');
+}
+
 // 2. Versioonid: APP_BUILD ja SW_VERSION peavad klappima.
 const appBuild = (/APP_BUILD\s*=\s*'([^']+)'/.exec(html) || [])[1];
 const swVersion = (/SW_VERSION\s*=\s*'([^']+)'/.exec(sw) || [])[1];
@@ -88,7 +95,7 @@ for(const rel of referenced){
   if(!existsExact(rel)) fail('index.html viitab puuduvale pildile (või vale tähesuurusega): ' + rel);
   if(!seen.has('./' + rel)) fail('Pilt ei ole offline-assets.json-is (offline-is puudu): ./' + rel);
 }
-for(const required of ['./index.html', './offline-sw.js', './offline-assets.json', './manifest.json']){
+for(const required of ['./index.html', './offline-sw.js', './offline-assets.json', './manifest.json'].concat(existsExact('curated-test.js') ? ['./curated-test.js'] : [])){
   if(!seen.has(required)) fail('offline-assets.json-ist puudub ' + required);
 }
 

@@ -773,6 +773,13 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
           <div class="kuld-config-count" id="kuldConfigCount"></div>
           <div class="kuld-group-grid" id="kuldGroupGrid"></div>
         </div>
+        <div class="row" style="margin-top:8px;">
+          <button class="primary" id="startCuratedBtn" type="button" style="flex:1;">Kureeri test (õpetajale)</button>
+        </div>
+        <div class="row" style="margin-top:8px;">
+          <button class="primary" id="openCuratedBtn" type="button" style="flex:1;">Ava salvestatud test</button>
+          <input type="file" id="openCuratedInput" accept=".html,.htm,.json" hidden>
+        </div>
 
         <div class="home-divider">Offline kasutus</div>
         <div class="row">
@@ -857,6 +864,8 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
       <div class="lightbox-msg" id="lbMsg"></div>
     </div>
   </div>
+
+  <div id="curatedScreen" style="display:none;"></div>
 
   <div id="kuldScreen" style="display:none;">
     <div class="hist-nav">
@@ -2102,6 +2111,7 @@ function practiceAdvance(){
 // REŽIIMIVALIK — kodumenüü ja kolm mängurežiimi
 // ============================================================================
 function showRunScreen(){
+  if(window.CuratedTest) window.CuratedTest.hide();
   document.body.classList.remove('home-active'); document.body.classList.add('run-active');
   homeScreen.style.display = 'none';
   listScreen.style.display = 'none';
@@ -2110,6 +2120,7 @@ function showRunScreen(){
 }
 
 function showHomeScreen(){
+  if(window.CuratedTest) window.CuratedTest.hide();
   document.body.classList.remove('run-active'); document.body.classList.add('home-active');
   runScreen.style.display = 'none';
   listScreen.style.display = 'none';
@@ -2118,6 +2129,7 @@ function showHomeScreen(){
 }
 
 function showListScreen(){
+  if(window.CuratedTest) window.CuratedTest.hide();
   document.body.classList.remove('run-active'); document.body.classList.add('home-active');
   homeScreen.style.display = 'none';
   runScreen.style.display = 'none';
@@ -2252,7 +2264,7 @@ function renderModelList(filterText = ''){
       const tta = getTTA(e);
       actions.append(
         getWHAT(e) ? makeModelChip(e, 'what', 'WHAT', e.label + ' WHAT-analüüs') : el('span', 'm-slot'),
-        tta ? makeModelChip(e, 'tta', 'TTA', e.label + ' taktikalis-tehnilised andmed', tta.status !== 'verified') : el('span', 'm-slot')
+        tta ? makeModelChip(e, 'tta', 'TTA', e.label + ' taktikalis-tehnilised andmed', true) : el('span', 'm-slot')   // kõik TTA andmed on avalikest allikatest → alati sama (kollane) toon
       );
       const s = makeModelChip(e, 'photos', e.files.length + (e.files.length === 1 ? ' pilt' : ' pilti'), 'Ava ' + e.label + ' pildid');
       s.classList.add('m-status', 'm-photos');
@@ -2556,7 +2568,7 @@ function showTTACompare(a, b){
   back.addEventListener('click', () => showTTAView(a));
   head.append(back, makeComparePicker(a, b.cat));
   panel.appendChild(head);
-  if(ra.status !== 'verified' || rb.status !== 'verified') panel.appendChild(ttaDisclaimer());
+  panel.appendChild(ttaDisclaimer());   // alati – kõik TTA andmed on avalikest allikatest
 
   const table = el('div', 'cmp-table');
   const hdr = el('div', 'cmp-row cmp-hdr');
@@ -2564,7 +2576,7 @@ function showTTACompare(a, b){
   [[a, ra], [b, rb]].forEach(([e, r]) => {
     const c = el('div', 'cmp-val');
     c.appendChild(el('b', '', e.label));
-    if(r.status !== 'verified') c.appendChild(el('span', 'cmp-unv', 'kontrollimata'));
+    c.appendChild(el('span', 'cmp-unv', 'kontrollimata'));
     hdr.appendChild(c);
   });
   table.appendChild(hdr);
@@ -3386,6 +3398,7 @@ function renderKuldBoard(){
 }
 
 function showKuldScreen(){
+  if(window.CuratedTest) window.CuratedTest.hide();
   document.body.classList.remove('home-active','run-active');
   homeScreen.style.display = 'none';
   runScreen.style.display = 'none';
@@ -3637,6 +3650,8 @@ renderHome();
 renderQr();
 showHomeScreen();
 </script>
+<!-- Kureeritud test (õpetajale): eraldi moodul, vt curated-test.js ja Kureeritud_test_nouded.md -->
+<script src="./curated-test.js"></script>
 <style id="imageDiagStyles">
 #diagPanel{display:none;position:fixed;inset:4vh 4vw;z-index:9999;background:#111;color:#eee;border:1px solid #555;border-radius:14px;box-shadow:0 20px 60px #000a;padding:18px;overflow:auto;font:14px system-ui}
 #diagPanel.open{display:block} #diagPanel h2{margin:0 0 12px;font-size:22px} #diagControls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
@@ -3713,7 +3728,8 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc17'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc19'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
   if(buildLabel) buildLabel.textContent = 'versioon ' + APP_BUILD;
