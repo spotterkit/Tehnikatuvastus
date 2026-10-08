@@ -81,6 +81,10 @@ ODIN/WEG PDF-EKSPORT (eelistatud allikas)
   trench (kraavi laius m), fording (veetakistuse sügavus m, ilma ettevalmistuseta; ettevalmistusega → notes).
 - Tankid (ODIN/WEG, 8.10.2026): mainGunRange = APFSDS efektiivne laskekaugus, HEAT/HE kaugused notes all.
   "Speed, Average Cross" ei ole max maastikukiirus – maxSpeedOffroad'i sellest ei täideta.
+- Pioneeri- ja õhutõrjetehnika (rc21, tta-fields version 5): uus sektsioon "Eriotstarbeline varustus"
+  (mineLaying, mineCapacity, mineClearing, specialEquipment) ja õhutõrjeväljad samMissiles, sensors,
+  samRange / samAltitude (range, m), cannonAltitudeAir. Kirjed: GMZ-3, UMZ, UR-77, IRM, 2S6 Tunguska
+  (2S6M andmed), STRELA-10/SA-13 Gopher. UMZ ODIN-i kandevõime ja MT-LBu soomus = teised variandid → warning.
 
 KONTROLLITUKS MÄRKIMINE (rc16: eemaldatud)
 - Kõik TTA andmed on avalikest allikatest (ka ODIN/WEG) ja kuvatakse ALATI disclaimeriga
@@ -88,7 +92,7 @@ KONTROLLITUKS MÄRKIMINE (rc16: eemaldatud)
 - Rohelist "TTA · kontrollitud" märget enam ei ole. check_release.js lubab ainult status "unverified".
 
 RELEASE
-- APP_BUILD rc20 / SW_VERSION offline-rc20. Lisatud curated-test.js (kureeritud test). Avalehelt eemaldatud "Vaata kogu kataloogi" (rc17). data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
+- APP_BUILD rc21 / SW_VERSION offline-rc21 (rc21: TTA pioneeri- ja õhutõrjetehnika). Lisatud curated-test.js (kureeritud test). Avalehelt eemaldatud "Vaata kogu kataloogi" (rc17). data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
 - MEDIA_CACHE nime ei muudetud.
 
 TTA VÕRDLUS (2 mudelit)
