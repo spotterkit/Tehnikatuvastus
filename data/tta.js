@@ -1696,6 +1696,219 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S44 Giatsint-K", "url": "https://odin.t2com.army.mil/WEG/Asset/aef72388775e5c89be3c2d7879158089", "retrieved": "2026-10-07"}
       ]
+    },
+    "GMZ-3": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 (ülem, juht-mehaanik, miinipaigaldaja)",
+        "chassis": "Roomikšassii, 2K11 Krug (SA-4 Ganef) baasil",
+        "combatWeight": 28.5,
+        "length": 8.62,
+        "width": 3.25,
+        "height": 2.7,
+        "engine": "KaMAZ-7482 vesijahutusega diisel",
+        "power": 525,
+        "maxSpeedRoad": 60,
+        "maxSpeedOffroad": 25,
+        "range": 500,
+        "amphibious": false,
+        "gradient": 57.7,
+        "sideSlope": 46.7,
+        "verticalStep": 0.7,
+        "trench": 2.5,
+        "fording": 1,
+        "caliber": 7.62,
+        "mainArmament": "7,62mm PKT kuulipilduja (2500 lasku)",
+        "mineLaying": "Adratüüpi, kaherenniline automaatne; maapinnale 8 miini/min, maasse 4 miini/min; miinide vahe 5 või 10m",
+        "mineCapacity": "208 tankitõrjemiini",
+        "armor": "Kergsoomustatud kere; suitsugranaadiheitjad"
+      },
+      "notes": {
+        "range": "Miinilastiga 300km.",
+        "mineLaying": "Paigalduskiirus maapinnale kuni 16km/h, maasse kuni 6km/h. Matmissügavus mullas kuni 120mm, lumes kuni 500mm. Miiniväli: survemiinid kuni 1km, magnetmiinid kuni 2km.",
+        "mineCapacity": "Täislaadimine 7-liikmelise jaoga 15–20 min."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: GMZ-3", "url": "https://odin.t2com.army.mil/WEG/Asset/2598076104bbf6c447b7a4193c06cf38", "retrieved": "2026-10-08"},
+        {"name": "Wikipedia: GMZ-3", "url": "https://en.wikipedia.org/wiki/GMZ-3", "retrieved": "2026-10-08"}
+      ]
+    },
+    "UMZ": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "ZIL-131 6×6 veoauto (UMZ-K: KamAZ-63501; UMZ-G: T-72/T-90 tanki šassii)",
+        "combatWeight": 10,
+        "length": 7.1,
+        "width": 3,
+        "height": 2.5,
+        "engine": "Bensiinimootor (ZIL-131)",
+        "power": 150,
+        "maxSpeedRoad": 80,
+        "maxSpeedOffroad": 30,
+        "range": 525,
+        "fording": 1.4,
+        "mineLaying": "6 pöörlevat kassettheitjat (3 kummalgi küljel), kokku 180 toru (140mm); miinid külgedele ja/või taha; 1–3-rajaline miiniväli",
+        "mineCapacity": "180 PTM-3 tankitõrjemiini, 720 POM-2 või 11 520 PFM-1S jalaväemiini",
+        "armor": "Soomustamata (ZIL-131 versioon)"
+      },
+      "warnings": {
+        "chassis": "ODIN/WEG: kandevõime 15 000kg ja MT-LBu soomuskere käivad teiste variantide kohta (KamAZ-63501, MT-LB), mitte ZIL-131 põhivariandi kohta. Siin välja jäetud."
+      },
+      "notes": {
+        "chassis": "Peetakse GMZ-seeria asendajaks.",
+        "combatWeight": "Miinilastiga; ilma miinideta 8,3t.",
+        "mineLaying": "Paigalduskiirus 10–40km/h. Miinivälja pikkus 1000–1200m, sügavus 30–120m. Ühe laadungiga miinivälja max pikkus: PFM-1S 3200m, POM-2 5000m, PTM-3 600m. Kasutab samu miinikassette mis PKM."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: UMZ", "url": "https://odin.t2com.army.mil/WEG/Asset/5a51749ebc13bfc7090c2a7d8a6fd4c8", "retrieved": "2026-10-08"}
+      ]
+    },
+    "UR-77": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "2S1 Gvozdika šassii",
+        "combatWeight": 15.5,
+        "length": 8.4,
+        "width": 2.8,
+        "height": 3.1,
+        "engine": "YaMZ-238N diisel",
+        "power": 300,
+        "maxSpeedRoad": 60,
+        "maxSpeedOffroad": 30,
+        "maxSpeedWater": 5,
+        "range": 500,
+        "amphibious": true,
+        "mineClearing": "Kaks reaktiivset miinitõrjelaengut (UZP-77 või UZ-67); laengu pikkus 93m; lastakse 200–500m kaugusele; puhastab kuni 6m laiuse ja 80–90m pikkuse koridori",
+        "armor": "Keevitatud teras: kere kuni 15mm, heitjakate 20mm"
+      },
+      "notes": {
+        "mineClearing": "Koridori rajamine 3–5 min. UZ-67: laskekaugus 200–350m, koridor 75–80m. Laengut on kasutatud ka linnalahingus hoonete hävitamiseks."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: UR-77 Meteorit", "url": "https://odin.t2com.army.mil/WEG/Asset/ff60b0630b4bff5a8cd9707cffd449ca", "retrieved": "2026-10-08"},
+        {"name": "Wikipedia: UR-77 Meteorit", "url": "https://en.wikipedia.org/wiki/UR-77_Meteorit", "retrieved": "2026-10-08"}
+      ]
+    },
+    "IRM": {
+      "status": "unverified",
+      "values": {
+        "crew": "6 (ülem, juht, 4 pioneeri)",
+        "chassis": "BMP-1 komponendid, 7 tugirullikut külje kohta",
+        "combatWeight": 18,
+        "length": 8.3,
+        "width": 3.15,
+        "height": 2.42,
+        "engine": "UTD-20 diisel",
+        "power": 300,
+        "maxSpeedRoad": 52,
+        "maxSpeedWater": 10,
+        "range": 500,
+        "amphibious": true,
+        "verticalStep": 0.65,
+        "trench": 2.3,
+        "caliber": 7.62,
+        "mainArmament": "7,62mm PKT kuulipilduja",
+        "mgRange": 1500,
+        "specialEquipment": "Laiahaardeline miiniotsija RShM-2 (metall kuni 300mm sügavusel, 3–5km/h); kajalood EIR (veesügavus 0,5–20m); periskoop PIR-451 ja kaugusmõõtja DSP-30; navigatsioonisüsteem TNA-3; käsimiiniotsijad; reaktiivne enesepäästesüsteem (2 × 12 raketti)",
+        "armor": "Keevitatud teraskere; kaitseb kergrelvade tule ja mürsukildude eest"
+      },
+      "notes": {
+        "maxSpeedWater": "Kaks sõukruvi kere tagaosas.",
+        "mgRange": "Max laskekaugus 4000m.",
+        "specialEquipment": "Teeluure tavaliselt 8–10km/h, miiniväljade luure 5km/h; 100m laiune veetakistus läbitakse 5 minutiga. Variant IPR: kokkuklapitav snorkel."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: IRM Zhuk", "url": "https://odin.t2com.army.mil/WEG/Asset/b0c87376508539e29e4ee631d84c3234", "retrieved": "2026-10-08"}
+      ]
+    },
+    "2S6 Tunguska": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "chassis": "GM-352M roomikšassii",
+        "combatWeight": 34,
+        "length": 7.93,
+        "width": 3.24,
+        "height": 3.36,
+        "engine": "V-46 diisel",
+        "power": 780,
+        "maxSpeedRoad": 65,
+        "maxSpeedOffroad": 40,
+        "range": 500,
+        "amphibious": false,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 1,
+        "trench": 1,
+        "fording": 1,
+        "caliber": 30,
+        "mainArmament": "2 × 30mm 2A38M kaksiktoruga automaatkahur (kokku 4 toru, 1904 lasku)",
+        "samMissiles": "8 × 9M311 (raadiokäsujuhtimine, 9kg varraslõhkepea, laserlähedussüütur)",
+        "rateOfFire": 5000,
+        "sensors": "Avastamisradar 1RL144 (C-sagedusala, umbes 18km); jälgimisradar (X-sagedusala, umbes 16km); optiline sihtimissüsteem 1A29; IFF 1RL138",
+        "samRange": {"min": 2500, "max": 10000},
+        "samAltitude": {"min": 10, "max": 3500},
+        "cannonRangeAir": 4000,
+        "cannonAltitudeAir": 2000,
+        "armor": "Kaitseb kergrelvade tule ja mürsukildude eest"
+      },
+      "notes": {
+        "combatWeight": "Andmed 2S6M järgi. Wikipedia (2S6M1): 35t.",
+        "height": "Radar üleval 4,02m.",
+        "power": "Wikipedia: nimivõimsus 780hj, selles sõidukis piiratud 710hj-ga.",
+        "samMissiles": "2S6M põhitootmisversioon; algsel 2S6-l 4 raketti. Laskmine liikumiselt kuni 45km/h.",
+        "rateOfFire": "Ühe kahuri kohta 1950–2500 lasku/min.",
+        "sensors": "Süsteemi reageerimisaeg umbes 8 s.",
+        "samRange": "9M311M / 2S6M1. Algne 9M311: kuni 8km.",
+        "samAltitude": "Wikipedia (9M311-M1): 15–3500m.",
+        "cannonRangeAir": "Kaldkaugus; min umbes 200m."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2S6M Tunguska-M", "url": "https://odin.t2com.army.mil/WEG/Asset/5fadf3d546d246dc08b49b62deed65a2", "retrieved": "2026-10-08"},
+        {"name": "Wikipedia: 2K22 Tunguska", "url": "https://en.wikipedia.org/wiki/2K22_Tunguska", "retrieved": "2026-10-08"}
+      ]
+    },
+    "STRELA-10/SA-13 Gopher": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 (ülem, operaator, juht)",
+        "chassis": "MT-LB",
+        "combatWeight": 12.1,
+        "length": 6.45,
+        "width": 2.85,
+        "height": 2.22,
+        "engine": "YaMZ-238V diisel",
+        "power": 240,
+        "maxSpeedRoad": 60,
+        "maxSpeedWater": 6,
+        "range": 500,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.6,
+        "trench": 2.4,
+        "samMissiles": "9M37 – 4 kanderaamil + 8 varuraketti sõiduki sees; kahe sagedusalaga infrapuna- ja fotokontrastisihtija, 3kg kildlõhkepea",
+        "secondaryArmament": "7,62mm PKT kuulipilduja (2000 lasku)",
+        "sensors": "Kaugusmõõtja radar 9S86 (450–10 000m); passiivne radarisignaalide avastus 9S16 (osal masinatel); sihtmärgiinfo eraldi MT-LBu radarilt Dog Ear (kuni 80km)",
+        "samRange": {"min": 800, "max": 5000},
+        "samAltitude": {"min": 25, "max": 3500},
+        "armor": "Kaitseb kergrelvade tule ja mürsukildude eest"
+      },
+      "notes": {
+        "combatWeight": "Wikipedia (Strela-10M3): 12,3t.",
+        "length": "Wikipedia: 6,6m.",
+        "height": "Lahinguasendis 3,96m.",
+        "maxSpeedWater": "5–6km/h, liigub vees roomikute abil.",
+        "samMissiles": "Uuestilaadimine umbes 3 min. Strela-10M3 rakett 9M333: 5kg lõhkepea, sobib ka droonide ja tiibrakettide vastu.",
+        "secondaryArmament": "Wikipedia: PKMB kuulipilduja.",
+        "samAltitude": "9M333: alates 10m."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: 9K35 Strela-10", "url": "https://odin.t2com.army.mil/WEG/Asset/a237e8ba38ff3eb1f4ac04002b80e5c7", "retrieved": "2026-10-08"},
+        {"name": "Wikipedia: 9K35 Strela-10", "url": "https://en.wikipedia.org/wiki/9K35_Strela-10", "retrieved": "2026-10-08"}
+      ]
     }
   }
 };
