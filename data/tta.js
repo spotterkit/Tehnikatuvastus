@@ -59,23 +59,34 @@ window.TTA_DATA = {
         "maxSpeedRoad": 65,
         "maxSpeedOffroad": 45,
         "maxSpeedWater": 7,
-        "range": 600,
+        "range": 550,
         "amphibious": true,
-        "mainArmament": "30mm 2A42 automaatkahur (~500 lasku)",
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.7,
+        "trench": 2.5,
+        "caliber": 30,
+        "mainArmament": "30mm 2A42 automaatkahur (500 lasku)",
         "atgm": "9M113 Konkurs (AT-5); ekspordimudelitel 9K111 Fagot (AT-4)",
         "atgmPenetration": "Konkurs 600–800mm, Fagot 400–600mm (RHA)",
+        "rateOfFire": 800,
         "secondaryArmament": "7,62mm PKT koaksiaalne, 2000 lasku",
         "atgmRange": {"min": 70, "max": 4000},
         "cannonRangeArmored": 1500,
         "cannonRangeSoft": 4000,
         "cannonRangeAir": 2000,
-        "armor": "Keevitatud teras, max 33mm"
+        "mgRange": 1500,
+        "armor": "Keevitatud teras 5–19mm, kere esiosas lisaks alumiiniumplaat; torn 23–33mm"
       },
       "notes": {
+        "range": "Wikipedia: 600km.",
+        "rateOfFire": "Kiire režiim 550–800, aeglane 200–300 lasku/min.",
         "atgmRange": "Konkurs 9M113: 70–4000m · Fagot 9M111: 70–2000m (9M111M kuni 2500m).",
+        "cannonRangeSoft": "ODIN/WEG: efektiivne 2000m, maksimaalne 4000m.",
         "cannonRangeAir": "Madalal lendav allahelikiirusega sihtmärk; kaldkaugus kuni 2500m."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BMP-2", "url": "https://odin.t2com.army.mil/WEG/Asset/0463e5419617d63ff6dc58ed40babd01", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BMP-2", "url": "https://en.wikipedia.org/wiki/BMP-2", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 9M113 Konkurs", "url": "https://en.wikipedia.org/wiki/9M113_Konkurs", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: Shipunov 2A42", "url": "https://en.wikipedia.org/wiki/Shipunov_2A42", "retrieved": "2026-10-07"}
@@ -85,33 +96,42 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "3 + 8 dessantväelast",
-        "combatWeight": 13.2,
+        "combatWeight": 13.5,
         "length": 6.735,
         "width": 2.94,
-        "height": 2.068,
+        "height": 2.15,
         "engine": "UTD-20, V6 diisel",
         "power": 300,
         "maxSpeedRoad": 65,
         "maxSpeedOffroad": 45,
         "maxSpeedWater": 7,
-        "range": 600,
+        "range": 550,
         "amphibious": true,
-        "mainArmament": "73mm 2A28 „Grom“ sileraudne kahur (40 lasku)",
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.8,
+        "trench": 2.2,
+        "caliber": 73,
+        "mainArmament": "73mm 2A28 „Grom“ sileraudne kahur (40 lasku), laadimisautomaat",
         "atgm": "9M14 Malyutka (AT-3), 4 raketti; BMP-1P: 9M111 Fagot / 9M113 Konkurs",
         "atgmPenetration": "Malyutka kuni 460mm (9M14P), Fagot/Konkurs 400–800mm (RHA)",
+        "rateOfFire": 8,
         "secondaryArmament": "7,62mm PKT koaksiaalne (2000 lasku)",
         "mainGunRange": 500,
         "atgmRange": {"min": 500, "max": 3000},
-        "armor": "Keevitatud valtsitud teras 6–33mm"
+        "mgRange": 1500,
+        "armor": "Keevitatud valtsitud teras: kere kuni 19mm, torn 23mm"
       },
       "notes": {
-        "height": "Torni kõrgus 1,881m.",
+        "power": "ODIN/WEG: moderniseeritud mootor UTD-23, 360hj.",
         "maxSpeedWater": "7–8km/h.",
-        "range": "Maastikul 500km.",
-        "mainGunRange": "2A28 Grom: lahinguoludes efektiivne kuni 500m.",
-        "atgmRange": "9M14 Malyutka: 500–3000m · BMP-1P (9M111/9M113): 70–4000m."
+        "range": "Wikipedia: 600km (maastikul 500km).",
+        "mainGunRange": "2A28 Grom: lahinguoludes efektiivne kuni 500m; ODIN/WEG maksimaalne laskekaugus 4500m.",
+        "atgmRange": "9M14 Malyutka: 500–3000m · BMP-1P (9M111/9M113): 70–4000m.",
+        "armor": "Wikipedia: 6–33mm."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BMP-1", "url": "https://odin.t2com.army.mil/WEG/Asset/cf0e6eb4267d8a3e60d66101379a8149", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BMP-1", "url": "https://en.wikipedia.org/wiki/BMP-1", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 9M14 Malyutka", "url": "https://en.wikipedia.org/wiki/9M14_Malyutka", "retrieved": "2026-10-07"}
       ]
@@ -122,28 +142,43 @@ window.TTA_DATA = {
         "crew": "3 + 7 dessantväelast (+2 lisakohta)",
         "combatWeight": 18.7,
         "length": 7.14,
-        "width": 3.2,
-        "height": 2.4,
+        "width": 3.23,
+        "height": 2.65,
         "engine": "UTD-29M diisel",
         "power": 500,
-        "maxSpeedRoad": 72,
+        "maxSpeedRoad": 70,
         "maxSpeedOffroad": 45,
         "maxSpeedWater": 10,
         "range": 600,
         "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.8,
+        "trench": 2.5,
+        "caliber": 100,
         "mainArmament": "100mm 2A70 kahur-raketiheitja (40 lasku) + 30mm 2A72 automaatkahur (500 lasku)",
         "atgm": "9M117 Bastion (AT-10) läbi 100mm raua, 8 raketti",
         "atgmPenetration": "550–750mm (RHA, sõltuvalt versioonist)",
-        "secondaryArmament": "3 × 7,62mm PKT (1 koaksiaalne, 2 kere esinurkades)",
+        "rateOfFire": 10,
+        "secondaryArmament": "3 × 7,62mm PKT (1 koaksiaalne, 2 kere esinurkades), 2500 lasku",
         "mainGunRange": 4000,
         "atgmRange": {"min": 100, "max": 4000},
-        "armor": "Alumiiniumsulam ja teras"
+        "cannonRangeArmored": 1500,
+        "cannonRangeSoft": 2000,
+        "cannonRangeAir": 4000,
+        "mgRange": 1500,
+        "armor": "Keevitatud alumiiniumsulam: kere esiosa kaitseb 30mm soomusläbistava mürsu eest, küljed ja tagaosa 14,5mm eest; torn 30–35mm. Arena aktiivkaitse saadaval."
       },
       "notes": {
-        "mainGunRange": "2A70 OF-mürsk (3OF32): 300–4000m.",
-        "atgmRange": "9M117 Bastion / 9M117M Kan: 100–4000m · 9M117M1 Arkan: kuni 5500m."
+        "length": "Kere 6,715m.",
+        "height": "Torni katuseni 2,30m.",
+        "rateOfFire": "2A70: 8–10 lasku/min.",
+        "mainGunRange": "2A70 OF-mürsk (3OF32): 300–4000m; maksimaalne sihtimiskaugus 5000m.",
+        "atgmRange": "9M117 Bastion / 9M117M Kan: 100–4000m · 9M117M1 Arkan: kuni 5500m.",
+        "cannonRangeArmored": "2A72 30mm automaatkahur (ka maa- ja õhusihtmärgi read)."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BMP-3", "url": "https://odin.t2com.army.mil/WEG/Asset/822df89dbe778cd601cb1e8cee707585", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BMP-3", "url": "https://en.wikipedia.org/wiki/BMP-3", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 2A70", "url": "https://en.wikipedia.org/wiki/2A70", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 9M117 Bastion", "url": "https://en.wikipedia.org/wiki/9M117_Bastion", "retrieved": "2026-10-07"}
@@ -152,7 +187,7 @@ window.TTA_DATA = {
     "BTR-60": {
       "status": "unverified",
       "values": {
-        "crew": "3 + 14 dessantväelast",
+        "crew": "2 + 14 dessantväelast",
         "combatWeight": 10.3,
         "length": 7.56,
         "width": 2.825,
@@ -163,20 +198,67 @@ window.TTA_DATA = {
         "maxSpeedWater": 10,
         "range": 500,
         "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.4,
+        "trench": 2,
+        "caliber": 14.5,
         "mainArmament": "14,5mm KPVT raskekuulipilduja (500 lasku)",
-        "secondaryArmament": "7,62mm PKT koaksiaalne (3000 lasku)",
+        "rateOfFire": 600,
+        "secondaryArmament": "7,62mm PKT koaksiaalne (2500 lasku)",
         "hmgRange": 3000,
         "hmgRangeAir": 2000,
-        "armor": "Keevitatud teras: kere 5–9mm, torn 7mm"
+        "mgRange": 1500,
+        "armor": "Keevitatud teras: kere esiosa 7–9mm, küljed 7mm, põhi 5mm; torn esiosa 10mm, küljed 7mm"
       },
       "notes": {
-        "crew": "Andmed: BTR-60PB.",
+        "crew": "Wikipedia (BTR-60PB): 3 + 14.",
         "power": "2 × 90hj.",
         "hmgRange": "KPVT: maksimaalne laskekaugus 4000m."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BTR-60", "url": "https://odin.t2com.army.mil/WEG/Asset/547812768252900f3a32aaebe26dc418", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BTR-60", "url": "https://en.wikipedia.org/wiki/BTR-60", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: KPV heavy machine gun", "url": "https://en.wikipedia.org/wiki/KPV_heavy_machine_gun", "retrieved": "2026-10-07"}
+      ]
+    },
+    "BTR-70": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 + 9 dessantväelast",
+        "combatWeight": 11.5,
+        "length": 7.535,
+        "width": 2.8,
+        "height": 2.235,
+        "engine": "2 × ZMZ-4905 bensiinimootor",
+        "power": 240,
+        "maxSpeedRoad": 80,
+        "maxSpeedWater": 9,
+        "range": 600,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.5,
+        "trench": 2,
+        "caliber": 14.5,
+        "mainArmament": "14,5mm KPVT raskekuulipilduja (500 lasku)",
+        "rateOfFire": 600,
+        "secondaryArmament": "7,62mm PKT koaksiaalne (2000 lasku)",
+        "hmgRange": 3000,
+        "mgRange": 1000,
+        "armor": "Keevitatud teras 6–10mm (esiosa 9mm, küljed 7mm)"
+      },
+      "notes": {
+        "crew": "Wikipedia: 3 + 7.",
+        "height": "Wikipedia: 2,32m.",
+        "power": "2 × 120hj.",
+        "range": "400–600km.",
+        "hmgRange": "KPVT: maksimaalne laskekaugus 4000m.",
+        "mgRange": "ODIN/WEG efektiivne laskekaugus."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: BTR-70", "url": "https://odin.t2com.army.mil/WEG/Asset/146a46d960de31b2409f05b05df2ed2d", "retrieved": "2026-10-08"},
+        {"name": "Wikipedia: BTR-70", "url": "https://en.wikipedia.org/wiki/BTR-70", "retrieved": "2026-10-08"}
       ]
     },
     "BTR-80": {
@@ -186,24 +268,35 @@ window.TTA_DATA = {
         "combatWeight": 13.6,
         "length": 7.7,
         "width": 2.9,
-        "height": 2.41,
+        "height": 2.46,
         "engine": "KamAZ-7403 diisel",
         "power": 260,
         "maxSpeedRoad": 80,
-        "maxSpeedWater": 10,
+        "maxSpeedWater": 9,
         "range": 600,
         "amphibious": true,
-        "mainArmament": "14,5mm KPVT raskekuulipilduja",
-        "secondaryArmament": "7,62mm PKT koaksiaalne",
+        "gradient": 60,
+        "sideSlope": 42,
+        "verticalStep": 0.5,
+        "trench": 2,
+        "caliber": 14.5,
+        "mainArmament": "14,5mm KPVT raskekuulipilduja (500 lasku)",
+        "rateOfFire": 600,
+        "secondaryArmament": "7,62mm PKT koaksiaalne (2500 lasku)",
         "hmgRange": 3000,
         "hmgRangeAir": 2000,
-        "armor": "Kere 10mm, torn 7mm"
+        "mgRange": 1500,
+        "armor": "Kaldsoomus kuni 10mm: esiosa kaitseb 12,7mm, küljed 7,62mm soomusläbistava kuuli eest; torn 12,7mm ja kildude eest. Lisasoomus saadaval."
+      },
+      "warnings": {
+        "power": "ODIN/WEG: YaMZ-238M2, 140hj – vastuolus sama lehe võimsuse ja massi suhtega (19,1hj/t ≈ 260hj). Siin Wikipedia andmed."
       },
       "notes": {
         "maxSpeedRoad": "Allikas: 80–90km/h.",
         "hmgRange": "KPVT: maksimaalne laskekaugus 4000m."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BTR-80", "url": "https://odin.t2com.army.mil/WEG/Asset/a4fd3058789fe5d3485f4b5013237e89", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: KPV heavy machine gun", "url": "https://en.wikipedia.org/wiki/KPV_heavy_machine_gun", "retrieved": "2026-10-07"}
       ]
@@ -214,18 +307,30 @@ window.TTA_DATA = {
         "crew": "3 + 7 dessantväelast",
         "combatWeight": 15.4,
         "length": 7.65,
-        "width": 2.9,
+        "width": 2.95,
         "height": 2.8,
         "engine": "KamAZ-740.14-300 turbodiisel",
         "power": 300,
         "maxSpeedRoad": 100,
+        "maxSpeedOffroad": 65,
+        "maxSpeedWater": 10,
         "range": 600,
         "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.5,
+        "trench": 2,
+        "caliber": 30,
         "mainArmament": "30mm 2A72 automaatkahur (kahe etteandega)",
         "secondaryArmament": "7,62mm PKTM koaksiaalne; 2 × 3 81mm suitsugranaadiheitjat",
-        "armor": "BTR-80-st tugevam soomus, killuvooder"
+        "armor": "Esiosa kaitseb 12,7mm, ümberringi 7,62mm kuuli ja kildude eest; killuvooder; lisasoomus saadaval"
+      },
+      "warnings": {
+        "combatWeight": "ODIN/WEG (BTR-82): 13,6t.",
+        "mainArmament": "ODIN/WEG PDF on BTR-82 kohta (14,5mm KPVT). BTR-82A relvastus: Army Technology."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BTR-82", "url": "https://odin.t2com.army.mil/WEG/Asset/a27afe2e5a4fe5a7a2ef8df88c926c9d", "retrieved": "2026-10-08"},
         {"name": "Army Technology: BTR-82A", "url": "https://www.army-technology.com/projects/btr-82a-armoured-personnel-carrier/", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-10-07"}
       ]
@@ -235,23 +340,32 @@ window.TTA_DATA = {
       "values": {
         "crew": "2 + 11 dessantväelast",
         "combatWeight": 11.9,
-        "length": 6.45,
+        "length": 6.454,
         "width": 2.86,
-        "height": 1.86,
-        "engine": "YaMZ-238 V8 diisel",
+        "height": 1.865,
+        "engine": "YaMZ-238V V8 diisel",
         "power": 240,
-        "maxSpeedRoad": 61,
-        "maxSpeedWater": 6,
+        "maxSpeedRoad": 61.5,
+        "maxSpeedWater": 4.5,
         "range": 500,
         "amphibious": true,
-        "mainArmament": "7,62mm PKT väikeses tornis (põhiversioon)",
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.61,
+        "trench": 2.41,
+        "caliber": 7.62,
+        "mainArmament": "7,62mm PKT väikeses tornis (2000 lasku)",
+        "rateOfFire": 800,
         "secondaryArmament": "MT-LBVM/VMK: 12,7mm NSVT/Kord; MT-LBMB: 30mm automaatkahur",
-        "armor": "Max 14mm"
+        "mgRange": 1500,
+        "armor": "Keevitatud teras 7–14mm"
       },
       "notes": {
-        "maxSpeedWater": "5–6km/h (liigub roomikutega)."
+        "maxSpeedWater": "Liigub vees roomikutega. Wikipedia: 5–6km/h.",
+        "rateOfFire": "700–800 lasku/min."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: MT-LB", "url": "https://odin.t2com.army.mil/WEG/Asset/6eba8568bfb1ffa74a03edc24db3a174", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: MT-LB", "url": "https://en.wikipedia.org/wiki/MT-LB", "retrieved": "2026-10-07"}
       ]
     },
@@ -267,16 +381,25 @@ window.TTA_DATA = {
         "power": 300,
         "maxSpeedRoad": 61.5,
         "maxSpeedOffroad": 30,
-        "maxSpeedWater": 6,
+        "maxSpeedWater": 4.5,
         "range": 500,
         "amphibious": true,
-        "mainArmament": "Puudub – alusplatvorm eriotstarbelistele masinatele"
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.61,
+        "trench": 2.41,
+        "mainArmament": "Põhiversioonil puudub (katuse keskel ava tornile); mõnel variandil 7,62mm PKT",
+        "armor": "Keevitatud teras 3–10mm"
+      },
+      "warnings": {
+        "combatWeight": "ODIN/WEG: 11,9t ja 2 + 11 – samad mis MT-LB-l (ilmselt sealt kopeeritud). Siin Wikipedia andmed."
       },
       "notes": {
         "combatWeight": "Sõltub paigaldatud eriseadmetest.",
-        "maxSpeedWater": "5–6km/h."
+        "maxSpeedWater": "Liigub vees roomikutega. Wikipedia: 5–6km/h."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: MT-LBu", "url": "https://odin.t2com.army.mil/WEG/Asset/a58fe6021604d74d51e48d93eff4feda", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: MT-LBu", "url": "https://en.wikipedia.org/wiki/MT-LBu", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: MT-LB", "url": "https://en.wikipedia.org/wiki/MT-LB", "retrieved": "2026-10-07"}
       ]

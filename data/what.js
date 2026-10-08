@@ -138,7 +138,7 @@ window.WHAT_DATA = {
       ],
       "related": [
         {
-          "label": "Kasutavad BMP-1 alusplatvormi",
+          "label": "Näiteks kasutavad BMP-1 alusplatvormi",
           "models": [
             {"name": "BMP-1KSh", "cat": "BMP-1KSh"},
             {"name": "BMP-1AM"},
@@ -176,7 +176,7 @@ window.WHAT_DATA = {
       ],
       "related": [
         {
-          "label": "Kasutavad BMP-2 alusplatvormi",
+          "label": "Näiteks kasutavad BMP-2 alusplatvormi",
           "models": [
             {"name": "BMP-2M"},
             {"name": "BMP-2K"}
@@ -208,7 +208,7 @@ window.WHAT_DATA = {
       ],
       "related": [
         {
-          "label": "Kasutavad BMP-3 alusplatvormi",
+          "label": "Näiteks kasutavad BMP-3 alusplatvormi",
           "models": [
             {"name": "9P157 „KRIZANTEMA-S“", "cat": "9P157 Krizantema-S"},
             {"name": "BREM-L"},
@@ -243,7 +243,7 @@ window.WHAT_DATA = {
       ],
       "related": [
         {
-          "label": "Kasutavad BTR-80 alusplatvormi",
+          "label": "Näiteks kasutavad BTR-80 alusplatvormi",
           "models": [
             {"name": "RKhM-6", "cat": "RKhM-6"},
             {"name": "RKhM-4", "cat": "RKhM-4"},
@@ -253,7 +253,7 @@ window.WHAT_DATA = {
           ]
         },
         {
-          "label": "Mudelid, mis kasutavad K1Š1 – BTR-80 šassiil põhinevat kõrgendatud kerega alusplatvormi",
+          "label": "Näiteks kasutavad K1Š1 – BTR-80 šassiil põhinevat kõrgendatud kerega alusplatvormi",
           "models": [
             {"name": "1V152"},
             {"name": "R-166-0,5", "cat": "R-166-0,5"},
@@ -313,7 +313,7 @@ window.WHAT_DATA = {
       ],
       "related": [
         {
-          "label": "Kasutavad MT-LB alusplatvormi",
+          "label": "Näiteks kasutavad MT-LB alusplatvormi",
           "models": [
             {"name": "MT-LBVMK", "cat": "MT-LBVMK"},
             {"name": "MT-LBV"},
@@ -368,7 +368,7 @@ window.WHAT_DATA = {
       ],
       "related": [
         {
-          "label": "Mudelid, mis kasutavad MT-LBu alusplatvormi (osad näited)",
+          "label": "Näiteks kasutavad MT-LBu alusplatvormi",
           "models": [
             {"name": "PPRU-M1", "cat": "PPRU-1"},
             {"name": "ZOOPARK-1", "cat": "ZOOPARK-1"},
@@ -404,7 +404,7 @@ window.WHAT_DATA = {
       ],
       "related": [
         {
-          "label": "Kasutavad BTR-60 alusplatvormi",
+          "label": "Näiteks kasutavad BTR-60 alusplatvormi",
           "models": [
             {"name": "R-145BM", "cat": "R-145BM"},
             {"name": "R-145BM1"},
@@ -435,7 +435,7 @@ window.WHAT_DATA = {
       ],
       "related": [
         {
-          "label": "Kasutavad BMD-2 alusplatvormi",
+          "label": "Näiteks kasutavad BMD-2 alusplatvormi",
           "models": [
             {"name": "BMD-2K-AU"},
             {"name": "BMD-2K"},
@@ -486,7 +486,7 @@ window.WHAT_DATA = {
       ],
       "related": [
         {
-          "label": "Kasutavad BTR-D alusplatvormi (osad näited)",
+          "label": "Näiteks kasutavad BTR-D alusplatvormi",
           "models": [
             {"name": "BTR-RD", "cat": "BTR-RD"},
             {"name": "BMD-1KSh", "cat": "BMD-1Ksh"},
