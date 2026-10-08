@@ -38,6 +38,13 @@ const CSS = `
 .ct-step.is-active b{background:var(--olive);border-color:var(--olive);color:#12140c;}
 .ct-step.is-done b{border-color:var(--olive);color:var(--olive);}
 .ct-panel{border-top:1px solid var(--line);margin-bottom:12px;}
+.ct-topbar{position:sticky;top:0;z-index:25;display:flex;align-items:center;gap:12px 18px;flex-wrap:wrap;padding:12px 16px;box-shadow:0 6px 18px rgba(0,0,0,.45);}
+.ct-topbar .ct-count{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-soft);margin:0;}
+.ct-topbar-state{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-soft);}
+.ct-topbar-state b{font-family:var(--font-display);font-size:20px;color:var(--amber);letter-spacing:.02em;}
+.ct-topbar-state b.is-ok{color:var(--green);}
+.ct-topbar-gap{flex:1;}
+.ct-topbar .ct-msg{flex:1;margin:0;}
 .ct-notice{border:1px solid var(--amber);border-left-width:4px;background:rgba(201,162,39,.08);padding:10px 14px;margin-bottom:12px;font-size:14px;line-height:1.45;}
 .ct-field{margin-bottom:18px;}
 .ct-field > label,.ct-label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-soft);margin-bottom:8px;}
@@ -318,6 +325,18 @@ function thumb(file){
 // ---------------------------------------------------------------------------
 // Ekraan
 // ---------------------------------------------------------------------------
+// Kureerimise vaatel on oma history kirje: brauseri/hiire tagasi-nupp viib eelmisse sammu, mitte äpist välja.
+let navPushed = false;
+function pushNav(){
+  if(navPushed) return;
+  try{ window.history.pushState({ctScreen: true}, ''); navPushed = true; }catch(e){}
+}
+function popNav(){
+  if(!navPushed) return;
+  navPushed = false;
+  ignorePop = true;
+  try{ window.history.back(); }catch(e){ ignorePop = false; }
+}
 function showScreen(){
   ['homeScreen', 'listScreen', 'runScreen', 'kuldScreen'].forEach(id => {
     const e = document.getElementById(id); if(e) e.style.display = 'none';
@@ -325,8 +344,14 @@ function showScreen(){
   document.body.classList.remove('run-active');
   document.body.classList.add('home-active');
   screen.style.display = 'block';
+  pushNav();
 }
-function hide(){ screen.style.display = 'none'; closePicker(); }
+function hide(){
+  if(screen.style.display === 'none') return;
+  screen.style.display = 'none';
+  closePicker();
+  popNav();
+}
 function confirmLeave(){
   return !isDirty() || confirm('Test või selle muudatused on salvestamata. Kui lahkud, need kaovad. Lahkuda?');
 }
@@ -411,6 +436,16 @@ function renderStep1(){
 // ---------------------------------------------------------------------------
 function renderStep2(){
   const s = S.settings, q = S.questions;
+  const missing = q.filter(x => x.missing).length;
+  // --- Ülemine riba: küsimuste arv (esimene valik) ja Kinnita test – jääb kerimisel nähtavaks ---
+  const countInp = h('input', {type: 'number', min: 1, max: MAX_Q, value: s.count, class: 'ct-num ct-num-s', id: 'ctCount'});
+  countInp.addEventListener('change', () => { s.count = clampInt(countInp.value, 1, MAX_Q, s.count); render(); });
+  countInp.addEventListener('keydown', ev => { if(ev.key === 'Enter'){ ev.preventDefault(); countInp.blur(); } });
+  screen.appendChild(h('div', {class: 'panel ct-panel ct-topbar'},
+    h('label', {for: 'ctCount', class: 'ct-count'}, 'Küsimuste arv ', countInp),
+    h('span', {class: 'ct-topbar-state'}, 'Testis ', h('b', {class: q.length === s.count ? 'is-ok' : ''}, q.length + ' / ' + s.count)),
+    missing ? h('span', {class: 'ct-msg is-warn'}, missing + ' pilti puudub – vaheta need') : h('span', {class: 'ct-topbar-gap'}),
+    h('button', {class: 'primary', type: 'button', disabled: !q.length || missing > 0, onclick: confirmTest}, 'Kinnita test ›')));
   // --- Reeglid ---
   // Paneel on alguses lahti; edasi jääb selliseks, nagu õpetaja selle jättis.
   if(S.rulesOpen === null) S.rulesOpen = !q.length;
@@ -487,12 +522,8 @@ function renderStep2(){
   // --- Eelvaade ---
   const prev = h('div', {class: 'panel ct-panel ct-preview'});
   const full = q.length >= s.count;
-  const countInp = h('input', {type: 'number', min: 1, max: MAX_Q, value: s.count, class: 'ct-num ct-num-s', id: 'ctCount'});
-  countInp.addEventListener('change', () => { s.count = clampInt(countInp.value, 1, MAX_Q, s.count); render(); });
   prev.appendChild(h('div', {class: 'ct-prev-head'},
-    h('div', {class: 'ct-prev-title'},
-      h('label', {for: 'ctCount', class: 'ct-count'}, 'Küsimuste arv ', countInp),
-      h('span', null, 'Testis ', h('b', {class: q.length === s.count ? 'is-ok' : ''}, q.length + ' / ' + s.count))),
+    h('div', {class: 'ct-prev-title'}, 'Testi küsimused'),
     h('div', {class: 'ct-prev-tools'},
       h('button', {type: 'button', class: 'primary', onclick: () => openPicker(null), disabled: full, title: full ? 'Test on täis' : null}, '+ Lisa pilt käsitsi'),
       h('button', {type: 'button', onclick: () => { shuffle(S.questions); render(); }, disabled: q.length < 2}, 'Sega järjekord'),
@@ -509,12 +540,7 @@ function renderStep2(){
   }
   prev.appendChild(list);
   if(q.length > s.count) prev.appendChild(h('div', {class: 'ct-msg is-warn'}, 'Testis on rohkem küsimusi kui määratud küsimuste arv (' + s.count + '). Kinnitamisel jääb testi ' + q.length + ' küsimust.'));
-  const missing = q.filter(x => x.missing).length;
-  const confirmBtn = h('button', {class: 'primary', type: 'button', disabled: !q.length || missing > 0, onclick: confirmTest}, 'Kinnita test ›');
-  prev.appendChild(h('div', {class: 'ct-actions'},
-    h('button', {type: 'button', onclick: () => goStep(1)}, '‹ Seaded'),
-    missing ? h('span', {class: 'ct-msg is-warn'}, missing + ' küsimuse pilt puudub äpist – vaheta need enne kinnitamist.') : h('span'),
-    confirmBtn));
+  if(missing) prev.appendChild(h('div', {class: 'ct-msg is-warn'}, missing + ' küsimuse pilt puudub äpist – vaheta need enne kinnitamist.'));
   screen.appendChild(prev);
 }
 
@@ -1031,7 +1057,17 @@ function closeProjector(silent){
 let ignorePop = false;
 window.addEventListener('popstate', () => {
   if(ignorePop){ ignorePop = false; return; }
-  if(!P.el) return;
+  if(!P.el){
+    if(!navPushed || screen.style.display === 'none') return;
+    navPushed = false;                      // see kirje on nüüd tarbitud
+    if(pickerEl){ closePicker(); pushNav(); return; }
+    if(S.step > 1){ goStep(S.step - 1); pushNav(); return; }
+    if(confirmLeave()){
+      screen.style.display = 'none';
+      if(typeof goHome === 'function') goHome();
+    }else pushNav();
+    return;
+  }
   // Telefoni/brauseri tagasi-nupp: ei lõpeta testi kogemata.
   if(P.phase !== 'end' && P.phase !== 'start'){
     pauseTimer(true);
