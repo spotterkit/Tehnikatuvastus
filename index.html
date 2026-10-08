@@ -2912,7 +2912,7 @@ async function openModelGallery(entry, tab, opts){
 }
 
 // Mudeli pildikaardid konteinerisse (galerii ja piltide võrdlus kasutavad sama loogikat).
-// withLabel: suurenduse allkirja ette mudeli nimi (võrdluses on kahe mudeli pildid ühes reas).
+// Suurenduse allkiri = mudel – täpsustus (ka võrdluses, kus kahe mudeli pildid on ühes reas). withLabel jäi ühilduvuse jaoks.
 function loadGalleryCards(entry, container, withLabel){
   entry.files.forEach(async sourceFilename => {
     const card = document.createElement('div');
@@ -2938,7 +2938,7 @@ function loadGalleryCards(entry, container, withLabel){
       img.tabIndex = 0;
       img.setAttribute('role', 'button');
       img.setAttribute('aria-label', 'Suurenda: ' + sourceFilename);
-      img.dataset.caption = (withLabel ? entry.label + ' · ' : '') + sourceFilename;
+      img.dataset.caption = entry.label + (entry.type ? ' – ' + entry.type : '');   // suurenduses mudel ja täpsustus, mitte failinimi
       img.addEventListener('click', () => openLightbox(img));
       img.addEventListener('keydown', ev => {
         if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); openLightbox(img); }
@@ -3729,7 +3729,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc22'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc23'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
