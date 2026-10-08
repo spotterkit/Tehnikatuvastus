@@ -1909,6 +1909,182 @@ window.TTA_DATA = {
         {"name": "U.S. Army ODIN / WEG: 9K35 Strela-10", "url": "https://odin.t2com.army.mil/WEG/Asset/a237e8ba38ff3eb1f4ac04002b80e5c7", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 9K35 Strela-10", "url": "https://en.wikipedia.org/wiki/9K35_Strela-10", "retrieved": "2026-10-08"}
       ]
+    },
+    "PRP-4": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "chassis": "BMP-1 šassii",
+        "combatWeight": 13.8,
+        "length": 6.74,
+        "width": 2.94,
+        "height": 2.15,
+        "engine": "UTD-20S1 diisel",
+        "power": 300,
+        "maxSpeedRoad": 65,
+        "maxSpeedWater": 7,
+        "range": 550,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.7,
+        "trench": 2.2,
+        "caliber": 7.62,
+        "mainArmament": "7,62mm PKT kuulipilduja (enesekaitseks)",
+        "sensors": "Mastil maapealse seire radar 1L120-1 (Ku-sagedusala): inimene umbes 7km, sõidukid 12–20km, hooned kuni 25km; periskoopiline laserkaugusmõõtja 1D14-1; soojuskaamera",
+        "specialEquipment": "Suurtükiväe luure ja tulejuhtimine: sihtmärkide koordinaatide määramine; maha võetav vaatluspost kuni 6km kaugusele sõidukist",
+        "armor": "Keevitatud valtsitud teras (kere katus 6mm), torn 33mm; lisasoomus saadaval"
+      },
+      "notes": {
+        "combatWeight": "Andmed PRP-4A Argus (2009) järgi; baasmudel PRP-4 Nard on 1980. aastate algusest.",
+        "sensors": "Seisva tanki avastuskaugus väljalülitatud mootoriga väheneb umbes 2km-ni."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: PRP-4A Argus", "url": "https://odin.t2com.army.mil/WEG/Asset/9bd635a80bf83183f54381f4d29935f1", "retrieved": "2026-10-08"}
+      ]
+    },
+    "ZOOPARK-1": {
+      "status": "unverified",
+      "values": {
+        "chassis": "MT-LBu",
+        "length": 6.45,
+        "width": 2.86,
+        "engine": "YaMZ-238 diisel",
+        "power": 240,
+        "maxSpeedRoad": 60,
+        "maxSpeedWater": 5,
+        "range": 500,
+        "amphibious": true,
+        "secondaryArmament": "7,62mm PKT kuulipilduja",
+        "sensors": "3D monopulssradar 1L259 (G/H-sagedusala, 4–8GHz), skaneerimissektor 90°; jälgib korraga kuni 12 sihtmärki, kuni 70 tulepositsiooni minutis",
+        "specialEquipment": "Vastutuleradar: määrab vastase miinipildujate, suurtükkide, raketiheitjate ja taktikaliste rakettide stardipositsioonid mürsu trajektoori järgi; jälgib ka oma suurtüki tule tulemusi. Avastuskaugus: suurtükimürsud 8–10km, miinid 12–15km, reaktiivmürsud 12–20km, taktikalised raketid 35km. Lahingusse ja marsile alla 5 min",
+        "armor": "Keevitatud teras 14mm"
+      },
+      "warnings": {
+        "specialEquipment": "Allikad lahknevad oluliselt. ODIN/WEG tekstis ka: 82–120mm miinid 17km, 105–155mm mürsud 12km, reaktiivmürsud 22km, taktikalised raketid 45km. Wikipedia: miinid kuni 20km, suurtükimürsud kuni 30km, raketid kuni 50km."
+      },
+      "notes": {
+        "chassis": "Komplekti kuuluvad ka hooldusauto 1L30 (Ural-43203) ja generaatorihaagis. Radarit toidab põhimootori võimsusvõtt (30kW). 1L260 Zoopark-1M teenistuses alates 2017.",
+        "length": "MT-LB šassii mõõtmed.",
+        "power": "Uuematel KamAZ-740.50, 360hj.",
+        "secondaryArmament": "ODIN/WEG: enamikul MT-LB variantidel."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: 1L219 Zoopark-1", "url": "https://odin.t2com.army.mil/WEG/Asset/100a6d9e7cd19b088a28e2ec49760597", "retrieved": "2026-10-08"},
+        {"name": "Wikipedia: Zoopark-1", "url": "https://en.wikipedia.org/wiki/Zoopark-1", "retrieved": "2026-10-08"}
+      ]
+    },
+    "9P149 Shturm-S": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "MT-LB",
+        "combatWeight": 11.9,
+        "length": 6.454,
+        "width": 2.86,
+        "height": 1.865,
+        "engine": "YaMZ-238V diisel",
+        "power": 240,
+        "maxSpeedRoad": 61.5,
+        "maxSpeedWater": 4.5,
+        "range": 500,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.61,
+        "trench": 2.41,
+        "atgm": "9M114 Kokon (AT-6 Spiral) – üks sissetõmmatav kanderaam automaatlaaduriga; raadiokäsujuhtimine (SACLOS)",
+        "atgmPenetration": "560–600mm RHA (kumulatiivne lõhkepea)",
+        "sensors": "Optiline sihik laserkaugusmõõtjaga (päevane)",
+        "atgmRange": {"min": 400, "max": 5000},
+        "armor": "Keevitatud teras 7–14mm"
+      },
+      "warnings": {
+        "atgm": "ODIN/WEG: põhirelvaks 9M120 Ataka (400–5800m, tandem-kumulatiivne ≥800mm) – see käib Shturm-SM kohta; Shturm-S automaatlaadurisse mahuvad ainult varased Shturmi raketid. ODIN/WEG nimetab ka PKT kuulipildujat, 11 reisijat ja 2000kg kandevõimet – need on MT-LB transportööri andmed."
+      },
+      "notes": {
+        "atgm": "Kanderaam sees olles sarnaneb MT-LB-ga; eristab väikese kuulipildujatorni asemel suur optiline sihik. Shturm-SM (2014): raketid 9M120 Ataka, päeva- ja öösihik.",
+        "atgmRange": "9M114M1: kuni 6km, 9M114M2: kuni 7km. Shturm-SM (9M120 Ataka): kuni 6km."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: 9P149 Shturm-S", "url": "https://odin.t2com.army.mil/WEG/Asset/9f3f567f902e5cd82c5b267d68dd484d", "retrieved": "2026-10-08"},
+        {"name": "Wikipedia: 9K114 Shturm", "url": "https://en.wikipedia.org/wiki/9K114_Shturm", "retrieved": "2026-10-08"}
+      ]
+    },
+    "9P157 Krizantema-S": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 (operaator, juht)",
+        "chassis": "BMP-3 šassii, tornita",
+        "combatWeight": 18.7,
+        "length": 7.14,
+        "width": 3.15,
+        "height": 2.3,
+        "engine": "UTD-29M diisel",
+        "power": 500,
+        "maxSpeedRoad": 70,
+        "maxSpeedWater": 10,
+        "range": 600,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.8,
+        "trench": 2.5,
+        "atgm": "9M123 Krizantema (AT-15) – 2 kanderaamil, kokku 15 raketti, revolvertüüpi automaatlaadur; kaksikjuhtimine: millimeeterlaine-radar või laserkiir",
+        "atgmPenetration": "Tandem-kumulatiivne: üle 1100mm RHA aktiivsoomuse taga; ka termobaariline lõhkepea",
+        "sensors": "Sissetõmmatav millimeeterlaine-radar; optiline sihik laserjuhtimisega; laserkaugusmõõtja",
+        "atgmRange": {"min": 400, "max": 6000},
+        "armor": "Alumiiniumsulam + poltidega terasest lisasoomus; esiosa peab 30mm mürsule vastu 200m kauguselt"
+      },
+      "warnings": {
+        "width": "ODIN/WEG: 6,715m (ilmne viga). Siin BMP-3 laius."
+      },
+      "notes": {
+        "atgm": "Kanderaamid laetakse automaatselt umbes 15 sekundiga. Rakett umbes 400m/s; tabab ka madalal lendavaid sihtmärke (kuni 3000m). 9P157-4 on patarei juhtimismasin (BMP-3 torn ilma relvata).",
+        "atgmPenetration": "Wikipedia: 1100–1250mm."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: 9P157 Khrizantema-S", "url": "https://odin.t2com.army.mil/WEG/Asset/ecf8afb0fa6f4c6aa532e100cf191796", "retrieved": "2026-10-08"},
+        {"name": "Wikipedia: 9M123 Khrizantema", "url": "https://en.wikipedia.org/wiki/9M123_Khrizantema", "retrieved": "2026-10-08"}
+      ]
+    },
+    "9P162 Kornet-T": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 (juht, ülem-operaator)",
+        "chassis": "BMP-3 šassii, tornita",
+        "combatWeight": 14.1,
+        "length": 6.73,
+        "width": 3.15,
+        "height": 1.77,
+        "engine": "UTD-29 diisel",
+        "power": 500,
+        "maxSpeedRoad": 70,
+        "maxSpeedOffroad": 45,
+        "maxSpeedWater": 10,
+        "range": 600,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.8,
+        "trench": 2.5,
+        "atgm": "9M133 Kornet (AT-14 Spriggan) – 2 sissetõmmataval kanderaamil, kokku 16 raketti (12 automaatlaaduris + 4 keres); laserkiirjuhtimine; ka 9M133F fugassraketid",
+        "atgmPenetration": "1000–1200mm RHA aktiivsoomuse taga (ilma 1200–1400mm); betoon 3–3,5m",
+        "atgmRange": {"min": 100, "max": 5500},
+        "armor": "BMP-3 kere: alumiiniumsulam, esiosa komposiitsoomus peab 30mm soomust läbistavale mürsule vastu; ümberringi 14,5mm"
+      },
+      "warnings": {
+        "combatWeight": "ODIN/WEG väärtus, tõenäoliselt alahinnatud: sama BMP-3 šassii Krizantema-S kaalub 18,7t."
+      },
+      "notes": {
+        "height": "Kanderaamid sees.",
+        "atgm": "Kaks raketti saab lasta samale sihtmärgile alla sekundilise vahega (aktiivkaitse ülekoormamiseks) või kahele sihtmärgile korraga. Muud relvastust peale meeskonna isikurelvade pole.",
+        "atgmRange": "9M133M-2: 150–8000m (Wikipedia)."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: 9P162 Kornet-T", "url": "https://odin.t2com.army.mil/WEG/Asset/223bc869ffda3e31fc9dd6f14997d978", "retrieved": "2026-10-08"},
+        {"name": "Wikipedia: 9M133 Kornet", "url": "https://en.wikipedia.org/wiki/9M133_Kornet", "retrieved": "2026-10-08"}
+      ]
     }
   }
 };
