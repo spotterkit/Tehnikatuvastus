@@ -6,45 +6,91 @@ window.TTA_DATA = {
     "BMD-2": {
       "status": "unverified",
       "values": {
-        "crew": "2 + 6 dessantväelast",
-        "combatWeight": 11.5,
+        "crew": "3 + 4 dessantväelast",
+        "combatWeight": 8.2,
         "length": 5.4,
         "width": 2.63,
-        "height": 1.97,
-        "engine": "5D-20, V6 diisel, 15,9l",
-        "power": 241,
-        "maxSpeedRoad": 80,
+        "height": 2.175,
+        "engine": "5D20 V6 diisel",
+        "power": 240,
+        "maxSpeedRoad": 61,
         "maxSpeedOffroad": 40,
         "maxSpeedWater": 10,
         "range": 450,
         "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.6,
+        "trench": 1.2,
         "airDroppable": true,
+        "caliber": 30,
         "mainArmament": "30mm 2A42 automaatkahur (300 lasku)",
         "atgm": "9M111 Fagot (AT-4) / 9M113 Konkurs (AT-5)",
         "atgmPenetration": "Fagot 400–600mm, Konkurs 600–800mm (RHA)",
+        "rateOfFire": 800,
         "secondaryArmament": "2 × 7,62mm PKT (koaksiaalne ja kere), 2940 lasku",
         "atgmRange": {"min": 70, "max": 4000},
         "cannonRangeArmored": 1500,
         "cannonRangeSoft": 4000,
         "cannonRangeAir": 2000,
-        "armor": "Keevitatud alumiiniumsulam: torn 7mm, kere esiosa 15mm, ülejäänud kere 10mm"
-      },
-      "warnings": {
-        "combatWeight": "Allikad lahknevad: mitmes allikas on BMD-2 mass ligikaudu 8t. Kontrolli WEG-ist."
+        "mgRange": 1500,
+        "armor": "Keevitatud alumiiniumsulam: kere esiosa 15mm, ülejäänud kere 10mm; torn esiosa 23mm, küljed 19mm, taga 13mm, katus 6mm"
       },
       "notes": {
+        "crew": "Wikipedia: 2 + 6.",
+        "combatWeight": "Wikipedia: 11,5t.",
         "length": "Kere pikkus; kahur ettepoole 5,91m.",
-        "height": "Tõstetud vedrustusega; langetatult 1,62m.",
+        "height": "Wikipedia: 1,97m tõstetud vedrustusega, langetatult 1,62m.",
+        "maxSpeedRoad": "Wikipedia: 80km/h.",
+        "rateOfFire": "Kiire režiim 550–800, aeglane 200–300 lasku/min.",
         "atgmRange": "Fagot 9M111: 70–2000m · 9M111M: 75–2500m · Konkurs 9M113: 70–4000m.",
+        "cannonRangeSoft": "ODIN/WEG: efektiivne 2000m, maksimaalne 4000m.",
         "cannonRangeAir": "Madalal lendav allahelikiirusega sihtmärk; kaldkaugus kuni 2500m."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BMD-2", "url": "https://odin.t2com.army.mil/WEG/Asset/ffe2837b4c03ff3bb6860fdd342bf0fc", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BMD-2", "url": "https://en.wikipedia.org/wiki/BMD-2", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 9K111 Fagot", "url": "https://en.wikipedia.org/wiki/9K111_Fagot", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 9M113 Konkurs", "url": "https://en.wikipedia.org/wiki/9M113_Konkurs", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: Shipunov 2A42", "url": "https://en.wikipedia.org/wiki/Shipunov_2A42", "retrieved": "2026-10-07"}
-      ],
-      "verifyAgainst": {"name": "U.S. Army ODIN / WEG", "url": "https://odin.t2com.army.mil/WEG/Asset/ffe2837b4c03ff3bb6860fdd342bf0fc"}
+      ]
+    },
+    "BMD-1": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 + 4 dessantväelast",
+        "combatWeight": 7.5,
+        "length": 5.4,
+        "width": 2.63,
+        "height": 1.62,
+        "engine": "5D20 V6 diisel",
+        "power": 240,
+        "maxSpeedRoad": 70,
+        "maxSpeedWater": 10,
+        "range": 320,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.8,
+        "trench": 1.6,
+        "airDroppable": true,
+        "caliber": 73,
+        "mainArmament": "73mm 2A28 „Grom“ sileraudne kahur (40 lasku), laadimisautomaat",
+        "atgm": "9M14 Malyutka (AT-3)",
+        "rateOfFire": 10,
+        "secondaryArmament": "7,62mm PKT koaksiaalne (1500 lasku)",
+        "atgmRange": {"min": 500, "max": 3000},
+        "mgRange": 1500,
+        "armor": "Keevitatud alumiiniumkere: esiosa 15mm, mujal 10mm. Keevitatud terastorn: esiosa 23mm, küljed 19mm, taga 13mm, katus 6mm"
+      },
+      "notes": {
+        "airDroppable": "Langevarjusüsteem PRSM-916 / PRSM-925, heitekõrgus 500–1500m.",
+        "mainArmament": "Laskemoon: 16 OG-15V (HE-Frag) + 24 PG-15V (HEAT).",
+        "rateOfFire": "8–10 lasku/min."
+      },
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: BMD-1", "url": "https://odin.t2com.army.mil/WEG/Asset/7f2e9dd3ec2de0cad0ee5dd1d9574b8f", "retrieved": "2026-10-08"}
+      ]
     },
     "BMP-2": {
       "status": "unverified",
@@ -436,20 +482,45 @@ window.TTA_DATA = {
     "BMD-4M": {
       "status": "unverified",
       "values": {
+        "crew": "3 + 6 dessantväelast",
+        "combatWeight": 13.5,
+        "length": 6.4,
+        "width": 3.1,
+        "height": 2.5,
         "engine": "UTD-29 diisel",
         "power": 500,
+        "maxSpeedRoad": 70,
+        "maxSpeedWater": 10,
+        "range": 500,
+        "amphibious": true,
+        "gradient": 70,
+        "sideSlope": 30,
+        "verticalStep": 0.8,
+        "trench": 1.8,
+        "caliber": 100,
         "mainArmament": "100mm 2A70 kahur-raketiheitja + 30mm 2A72 automaatkahur (moodul Bakhcha-U)",
         "atgm": "9M117M1 Arkan läbi 100mm raua",
         "atgmPenetration": "Kuni 750mm (RHA, aktiivsoomuse taga)",
-        "secondaryArmament": "7,62mm PKT koaksiaalne",
+        "rateOfFire": 10,
+        "secondaryArmament": "7,62mm PKT koaksiaalne (2500 lasku)",
         "mainGunRange": 4000,
-        "atgmRange": {"min": 100, "max": 5500}
+        "atgmRange": {"min": 100, "max": 5500},
+        "cannonRangeSoft": 2000,
+        "mgRange": 1500,
+        "armor": "Keevitatud alumiiniumsulam keraamiliste plaatidega: esiosa kaitseb 12,7mm, küljed 7,62mm kuuli eest"
+      },
+      "warnings": {
+        "atgmRange": "ODIN/WEG (BMD-4): 9M117M1 Arkan kuni 4000m; Wikipedia: kuni 5500m."
       },
       "notes": {
+        "crew": "Andmed: BMD-4 (ODIN/WEG); BMD-4M-il sama UTD-29 mootor ja relvamoodul.",
+        "length": "Kahur ees; kere 6,1m.",
+        "rateOfFire": "2A70: kuni 10 lasku/min.",
         "mainGunRange": "2A70 OF-mürsk: 300–4000m.",
-        "power": "BMD-4M: UTD-29 mootor (BMP-3-ga sama). Muud BMD-4M andmed (mass, mõõtmed, kiirus) allikates puudusid."
+        "cannonRangeSoft": "2A72 30mm automaatkahur: efektiivne 2000m, maksimaalne 4000m."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BMD-4", "url": "https://odin.t2com.army.mil/WEG/Asset/0b0252ef60737282417f02e725ae471d", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BMD-4", "url": "https://en.wikipedia.org/wiki/BMD-4", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 9M117 Bastion", "url": "https://en.wikipedia.org/wiki/9M117_Bastion", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 2A70", "url": "https://en.wikipedia.org/wiki/2A70", "retrieved": "2026-10-07"}
@@ -459,27 +530,36 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "3 + 10 dessantväelast",
-        "combatWeight": 8.5,
+        "combatWeight": 8.2,
         "length": 6.74,
-        "width": 2.94,
-        "height": 1.67,
-        "engine": "5D-20, V6 diisel, 15,9l",
-        "power": 245,
+        "width": 2.63,
+        "height": 2.05,
+        "engine": "5D20 V6 diisel",
+        "power": 240,
         "maxSpeedRoad": 61,
         "maxSpeedOffroad": 35,
         "maxSpeedWater": 10,
-        "range": 500,
+        "range": 450,
         "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.7,
+        "trench": 2.5,
         "airDroppable": true,
-        "mainArmament": "2 × 7,62mm PKB kere esinurkades (2000 lasku)",
+        "caliber": 7.62,
+        "mainArmament": "2 × 7,62mm PKT kere esinurkades (2000 lasku)",
         "secondaryArmament": "Võib lisaks olla AGS-17/AGS-30 automaatgranaadiheitja",
-        "armor": "Kere esiosa 15mm"
+        "armor": "Keevitatud alumiiniumsoomus: esiosa (15mm) kaitseb 12,7mm kuuli eest 200m kauguselt, küljed 7,62mm kuuli eest"
       },
       "notes": {
-        "combatWeight": "Tühimass 8t.",
-        "range": "Vees 116km."
+        "crew": "ODIN/WEG: 1 + 13.",
+        "combatWeight": "Tühimass 8t. Wikipedia: 8,5t.",
+        "width": "Wikipedia: 2,94m.",
+        "height": "Wikipedia: 1,67m.",
+        "range": "Wikipedia: 500km, vees 116km."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BTR-D", "url": "https://odin.t2com.army.mil/WEG/Asset/4c664f7c3b53fc81f1af53bbeedd4e1f", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BTR-D", "url": "https://en.wikipedia.org/wiki/BTR-D", "retrieved": "2026-10-07"}
       ]
     },
@@ -488,19 +568,32 @@ window.TTA_DATA = {
       "values": {
         "crew": "2 + 13 dessantväelast",
         "combatWeight": 13.2,
-        "engine": "UTD-29 diisel",
+        "width": 3.15,
+        "height": 2.7,
+        "engine": "UTD-29T diisel",
         "power": 500,
         "maxSpeedRoad": 70,
         "maxSpeedWater": 10,
         "range": 500,
         "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.8,
+        "trench": 1.5,
         "airDroppable": true,
-        "mainArmament": "7,62mm (või 12,7mm) kuulipilduja ülema juures + 7,62mm PKMT ees paremal"
+        "caliber": 7.62,
+        "mainArmament": "2 × 7,62mm PKTM kere esinurkades (4000 lasku)",
+        "rateOfFire": 800,
+        "mgRange": 1500,
+        "armor": "Keevitatud alumiinium, vahedega keraamilised lisaplaadid; tornil kaks terasplaati ees ja külgedel"
       },
       "notes": {
-        "range": "Maastikul 350km."
+        "range": "Maastikul 350km.",
+        "mainArmament": "Army Technology: ülema juures 7,62mm (või 12,7mm) kuulipilduja + 7,62mm PKMT ees paremal.",
+        "rateOfFire": "700–800 lasku/min."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BTR-MDM Rakushka-M", "url": "https://odin.t2com.army.mil/WEG/Asset/3af6301b891ad5c873fe2a9a697e1bec", "retrieved": "2026-10-08"},
         {"name": "Army Technology: BTR-MDM", "url": "https://www.army-technology.com/projects/btr-mdm-armoured-personnel-carrier/", "retrieved": "2026-10-07"}
       ]
     },
@@ -744,60 +837,82 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "4",
-        "combatWeight": 16,
+        "chassis": "MT-LBu",
+        "combatWeight": 15.7,
         "length": 7.26,
         "width": 2.85,
         "height": 2.73,
         "engine": "YaMZ-238N diisel",
         "power": 300,
         "maxSpeedRoad": 60,
-        "maxSpeedWater": 4.5,
+        "maxSpeedOffroad": 30,
+        "maxSpeedWater": 6,
         "range": 500,
         "amphibious": true,
-        "mainArmament": "122mm haubits (eraldi laadimine)",
+        "gradient": 77,
+        "sideSlope": 55,
+        "verticalStep": 0.7,
+        "trench": 2.2,
+        "caliber": 122,
+        "mainArmament": "122mm 2A31 haubits (40 lasku)",
         "rateOfFire": 5,
+        "secondaryArmament": "7,62mm PK kuulipilduja",
+        "directFireRange": 1000,
+        "firingRangeMin": 1,
         "firingRange": 15.3,
         "firingRangeExt": 21.9,
-        "armor": "7–20mm",
-        "caliber": 122
-      },
-      "warnings": {
-        "mainArmament": "Wikipedia infokastis relv „2A18“ (D-30 tähis); teistes allikates 2A31. Kontrolli WEG-ist."
+        "armor": "Keevitatud teras: kere kuni 15mm, torn 20mm"
       },
       "notes": {
-        "rateOfFire": "Püsiv 1–2 lasku/min."
+        "maxSpeedWater": "Wikipedia: 4,5km/h.",
+        "mainArmament": "Wikipedia infokastis 2A18 (D-30 tähis).",
+        "rateOfFire": "4–5 lasku/min; püsiv 1–2 lasku/min.",
+        "directFireRange": "Kumulatiivmürsk (HEAT-FS) läbistab 460mm.",
+        "firingRangeExt": "Rakettkiirendiga mürsk."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2S1 Gvozdika", "url": "https://odin.t2com.army.mil/WEG/Asset/08b8cac0bf7658df6cf95d0850fc9a18", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 2S1 Gvozdika", "url": "https://en.wikipedia.org/wiki/2S1_Gvozdika", "retrieved": "2026-10-07"}
       ]
     },
     "2S3 Akatsiya": {
       "status": "unverified",
       "values": {
-        "crew": "4",
-        "combatWeight": 28,
+        "crew": "4–6",
+        "chassis": "Objekt 123 roomikšassii",
+        "combatWeight": 27.5,
         "length": 8.4,
         "width": 3.25,
         "height": 3.05,
         "engine": "V-59 diisel",
         "power": 520,
-        "maxSpeedRoad": 63,
+        "maxSpeedRoad": 60,
         "maxSpeedOffroad": 45,
         "range": 500,
-        "mainArmament": "152,4mm D-22 haubits (kuni 46 lasku)",
-        "secondaryArmament": "7,62mm PKT kaugjuhitav (1500 lasku)",
+        "amphibious": false,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.7,
+        "trench": 3,
+        "fording": 1,
+        "caliber": 152.4,
+        "mainArmament": "152mm 2A33 (D-22) haubits (46 lasku)",
         "rateOfFire": 4,
+        "secondaryArmament": "7,62mm PKT (1000 lasku)",
+        "mgRange": 1500,
         "firingRange": 18.5,
         "firingRangeExt": 24,
-        "armor": "Kere 15mm, torn ja kere esiosa 30mm",
-        "caliber": 152.4
+        "armor": "Kere 15mm, torn 20mm"
       },
       "notes": {
         "length": "Kere 7,765m.",
         "height": "Ilma kuulipildujata 2,615m.",
-        "rateOfFire": "Püsiv 1 lask/min."
+        "rateOfFire": "3–4 lasku/min; püsiv 1 lask/min.",
+        "firingRangeExt": "Rakettkiirendiga mürsk (Wikipedia).",
+        "armor": "Wikipedia: torn ja kere esiosa 30mm."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2S3 Akatsiya", "url": "https://odin.t2com.army.mil/WEG/Asset/db17bd5d3c8bcab93b89b6408fde38ef", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 2S3 Akatsiya", "url": "https://en.wikipedia.org/wiki/2S3_Akatsiya", "retrieved": "2026-10-07"}
       ]
     },
@@ -805,31 +920,46 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "5",
+        "chassis": "T-72 baasil",
         "combatWeight": 42,
-        "length": 11.91,
-        "height": 2.9,
-        "engine": "V-84A diisel",
-        "power": 840,
+        "length": 11.917,
+        "width": 3.584,
+        "height": 2.985,
+        "engine": "V-84A mitmekütuseline diisel",
+        "power": 780,
         "maxSpeedRoad": 60,
         "range": 500,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.85,
+        "trench": 2.8,
+        "fording": 1.2,
+        "caliber": 152,
         "mainArmament": "152mm 2A64 haubits (50 lasku)",
-        "secondaryArmament": "12,7mm NSVT (300 lasku)",
         "rateOfFire": 8,
-        "firingRange": 24.7,
-        "firingRangeExt": 36,
+        "secondaryArmament": "12,7mm NSVT (500 lasku)",
         "hmgRange": 2000,
         "hmgRangeAir": 1500,
-        "caliber": 152,
-        "firingRangeBB": 28.9
+        "firingRange": 24.7,
+        "firingRangeBB": 29,
+        "firingRangeExt": 36
+      },
+      "warnings": {
+        "power": "Wikipedia: 840hj.",
+        "mainArmament": "ODIN/WEG märgib relvaks 2A46 (see on tankikahur) – ilmselt viga; 2S19 relv on 2A64."
       },
       "notes": {
-        "rateOfFire": "Wikipedia: 6–8 lasku/min; 2S19M2: 10 lasku/min.",
-        "firingRange": "2S19M2: 30km.",
-        "firingRangeExt": "2S19M2: 40km.",
+        "length": "Kahur ees; kere 6,04m.",
+        "width": "Ilma põllesteta 3,38m.",
+        "fording": "Ettevalmistusega 5m.",
+        "rateOfFire": "6–8 lasku/min; püsiv 3–4; 2S19M2: 10 lasku/min.",
         "hmgRange": "NSVT.",
-        "firingRangeBB": "Põhjagaasigeneraatoriga mürsk."
+        "firingRange": "2S19M2: 30km.",
+        "firingRangeBB": "Base bleed mürsk OF-91.",
+        "firingRangeExt": "Rakettkiirendiga mürsk (Wikipedia); 2S19M2: 40km."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2S19M1 Msta-S", "url": "https://odin.t2com.army.mil/WEG/Asset/5d89ac25a8643d6e283c22f341f000a6", "retrieved": "2026-10-08"},
         {"name": "Army Technology: 2S19 Msta-S", "url": "https://www.army-technology.com/projects/msta/", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 2S19 Msta", "url": "https://en.wikipedia.org/wiki/2S19_Msta", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: NSV machine gun", "url": "https://en.wikipedia.org/wiki/NSV_machine_gun", "retrieved": "2026-10-07"}
@@ -839,29 +969,40 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "4",
-        "combatWeight": 8.7,
+        "chassis": "S-120 (BTR-D baasil)",
+        "combatWeight": 8.8,
         "length": 6.02,
         "width": 2.63,
         "height": 2.3,
         "engine": "5D20 diisel",
         "power": 240,
         "maxSpeedRoad": 60,
-        "maxSpeedWater": 9,
+        "maxSpeedWater": 10,
         "range": 500,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.7,
+        "trench": 2,
         "caliber": 120,
-        "mainArmament": "120mm 2A51 kahur-miinipilduja (40–60 lasku)",
+        "mainArmament": "120mm 2A51 kahur-miinipilduja (25 lasku)",
         "rateOfFire": 10,
+        "secondaryArmament": "7,62mm PKT (1500 lasku)",
+        "mgRange": 1500,
         "directFireRange": 1000,
-        "firingRange": 8.8,
-        "firingRangeExt": 12.8
+        "firingRange": 8.85,
+        "firingRangeExt": 12.8,
+        "armor": "Esiosa kaitseb 12,7mm, küljed 7,62mm kuuli eest; torn 16mm"
       },
       "notes": {
-        "rateOfFire": "Püsiv 4 lasku/min.",
+        "length": "Kahur ees; kere 5,89m.",
+        "mainArmament": "ODIN/WEG (2S9-1M) märgib relvaks 2A60. Wikipedia: 40–60 lasku.",
+        "rateOfFire": "8–10 lasku/min; püsiv 4 lasku/min.",
         "directFireRange": "Kumulatiivmürsk läbistab 600–650mm terast kuni 1km kaugusel.",
-        "firingRange": "Wikipedias märgitud efektiivse laskekaugusena (tavamoon).",
+        "firingRange": "OF-mürsk 8,85km; miin 7,15km.",
         "firingRangeExt": "Pikendatud laskekaugusega moon."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2S9-1M Nona-S", "url": "https://odin.t2com.army.mil/WEG/Asset/c8f7d048a361903479ad71de6b46247d", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 2S9 Nona", "url": "https://en.wikipedia.org/wiki/2S9_Nona", "retrieved": "2026-10-07"}
       ]
     },
@@ -895,26 +1036,39 @@ window.TTA_DATA = {
     "2S7 Pion": {
       "status": "unverified",
       "values": {
-        "crew": "14",
+        "crew": "7",
+        "chassis": "Objekt 216",
         "combatWeight": 46.5,
-        "length": 10.5,
+        "length": 13.12,
         "width": 3.38,
         "height": 3,
         "engine": "V-46-I V12 turbodiisel",
         "power": 840,
-        "maxSpeedRoad": 50,
-        "range": 650,
+        "maxSpeedRoad": 51,
+        "range": 500,
+        "amphibious": false,
+        "gradient": 40,
+        "sideSlope": 20,
+        "verticalStep": 0.7,
+        "trench": 2.5,
+        "fording": 1.2,
         "caliber": 203,
         "mainArmament": "203mm 2A44 kahur (L/56,2)",
         "rateOfFire": 1.5,
         "firingRange": 37.5,
-        "firingRangeExt": 47.5
+        "firingRangeExt": 47.5,
+        "armor": "Keevitatud teras 10mm"
       },
       "notes": {
-        "mainArmament": "Masinas kohe kasutamiseks 4 lasku (2S7M: 8).",
-        "rateOfFire": "2S7M: 2,5 lasku/min."
+        "crew": "Koos laskemoonamasina meeskonnaga 14.",
+        "length": "Kahur ees; kere 10,5m.",
+        "range": "Wikipedia: 650km.",
+        "mainArmament": "Masinas 8 lasku (Wikipedia: 4, 2S7M: 8).",
+        "rateOfFire": "2S7M: 2,5 lasku/min.",
+        "firingRangeExt": "Rakettkiirendiga mürsk."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2S7 Pion", "url": "https://odin.t2com.army.mil/WEG/Asset/debeca79b7cbf053d9ded62c6c859dbf", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 2S7 Pion", "url": "https://en.wikipedia.org/wiki/2S7_Pion", "retrieved": "2026-10-07"}
       ]
     },
@@ -922,26 +1076,35 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "5",
+        "chassis": "BAZ-6910-027 „Voštšina“ 8×8 ratasšassii",
         "combatWeight": 32,
-        "chassis": "BAZ-6610-02 „Voštšina“ 8×8 ratasšassii",
+        "length": 13,
+        "width": 2.75,
+        "height": 3.1,
         "engine": "YaMZ-8424.10 diisel",
         "power": 470,
         "maxSpeedRoad": 80,
         "range": 1000,
+        "amphibious": false,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.6,
+        "trench": 2,
+        "fording": 1.4,
         "caliber": 152,
-        "mainArmament": "152mm 2A64 või 2A88 haubits (30 lasku)",
+        "mainArmament": "152mm 2A64 haubits (30 lasku)",
         "rateOfFire": 7,
         "firingRange": 24.5,
-        "firingRangeGuided": 50
-      },
-      "warnings": {
-        "chassis": "Allikad lahknevad: Wikipedia BAZ-6610-02, ODIN/WEG (2S44 kirje) järgi BAZ-6910-027."
+        "firingRangeGuided": 50,
+        "armor": "Soomustatud kabiin (kaitse kergrelvade tule eest)"
       },
       "notes": {
-        "firingRange": "2A64.",
+        "chassis": "Wikipedia: BAZ-6610-02.",
+        "mainArmament": "Wikipedia: 2A64 või 2A88.",
         "firingRangeGuided": "3OF95 Krasnopol-M2: üle 50km."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2S43 Malva", "url": "https://odin.t2com.army.mil/WEG/Asset/b59fadc3a1a4539f7e7cf175111daa05", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 2S43 Malva", "url": "https://en.wikipedia.org/wiki/2S43_Malva", "retrieved": "2026-10-07"}
       ]
     },
@@ -953,61 +1116,78 @@ window.TTA_DATA = {
         "length": 8.33,
         "width": 3.25,
         "height": 2.76,
-        "engine": "Diisel",
+        "engine": "V-59 diisel",
         "power": 520,
-        "maxSpeedRoad": 62,
+        "maxSpeedRoad": 63,
         "range": 500,
+        "gradient": 58,
+        "sideSlope": 47,
+        "verticalStep": 0.7,
+        "trench": 2.5,
         "caliber": 152,
         "mainArmament": "152mm 2A37 kahur (L/54, 30 lasku)",
-        "secondaryArmament": "7,62mm kuulipilduja",
         "rateOfFire": 6,
-        "firingRange": 28,
-        "firingRangeExt": 40
+        "secondaryArmament": "7,62mm PKT (1500 lasku)",
+        "mgRange": 1500,
+        "firingRangeMin": 8.6,
+        "firingRange": 24.8,
+        "firingRangeExt": 33,
+        "armor": "Keevitatud teras kuni 13mm; kilp 12mm"
+      },
+      "warnings": {
+        "firingRange": "Wikipedia: 28km.",
+        "firingRangeExt": "Wikipedia: rakettkiirendiga mürsk 33–40km."
       },
       "notes": {
-        "crew": "Koos laskemoonamasinaga 7.",
-        "rateOfFire": "5–6 lasku/min.",
-        "firingRangeExt": "Reaktiivmürsk 33–40km."
+        "crew": "5–6; koos laskemoonamasinaga 7.",
+        "rateOfFire": "5–6 lasku/min."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2S5 Giatsint-S", "url": "https://odin.t2com.army.mil/WEG/Asset/24b3b651219fe1792ecef375d738f6b6", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 2S5 Giatsint-S", "url": "https://en.wikipedia.org/wiki/2S5_Giatsint-S", "retrieved": "2026-10-07"}
       ]
     },
     "2S23 NONA-SVK": {
       "status": "unverified",
       "values": {
-        "crew": "4–6",
+        "crew": "4",
+        "chassis": "BTR-80 (modifitseeritud) 8×8",
         "combatWeight": 14.5,
-        "length": 7.4,
+        "length": 7.5,
         "width": 2.9,
-        "height": 2.5,
-        "chassis": "BTR-80",
-        "engine": "V8 diisel",
-        "power": 260,
-        "maxSpeedRoad": 70,
+        "height": 2.75,
+        "engine": "KamAZ-7403 V8 diisel",
+        "power": 280,
+        "maxSpeedRoad": 80,
         "maxSpeedOffroad": 40,
         "maxSpeedWater": 10,
-        "range": 600,
+        "range": 500,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.5,
+        "trench": 2,
         "caliber": 120,
         "mainArmament": "120mm 2A60 kahur-miinipilduja (30 lasku)",
-        "secondaryArmament": "7,62mm kuulipilduja tornis",
         "rateOfFire": 10,
+        "secondaryArmament": "7,62mm PKT tornis (2400 lasku)",
+        "mgRange": 1500,
         "directFireRange": 800,
-        "firingRange": 8.8,
+        "firingRange": 8.85,
         "firingRangeExt": 12.8,
-        "firingRangeGuided": 9
-      },
-      "warnings": {
-        "maxSpeedRoad": "Allikad lahknevad: GlobalSecurity 70km/h, Army Technology 80km/h.",
-        "range": "Allikad lahknevad: GlobalSecurity 600km, Army Technology umbes 500km."
+        "firingRangeGuided": 9,
+        "armor": "Ümberringi kaitse 7,62mm soomusläbistava kuuli ja kildude eest"
       },
       "notes": {
-        "crew": "Army Technology: 4.",
+        "crew": "GlobalSecurity: 4–6.",
+        "power": "Wikipedia/GlobalSecurity: 260hj.",
+        "maxSpeedRoad": "GlobalSecurity: 70km/h.",
+        "range": "GlobalSecurity: 600km.",
         "rateOfFire": "Püsiv 4 lasku/min.",
-        "firingRange": "OF-mürsk 8,8km; miin 7,1km.",
+        "firingRange": "OF-mürsk 8,85km; miin 7,15km.",
         "firingRangeGuided": "Laserjuhitav „Kitolov-2“."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2S23 Nona-SVK", "url": "https://odin.t2com.army.mil/WEG/Asset/50c19159fdbb249e9116cc31d516d548", "retrieved": "2026-10-08"},
         {"name": "GlobalSecurity: 2S23 specs", "url": "https://www.globalsecurity.org/military/world/russia/2s23-specs.htm", "retrieved": "2026-10-07"},
         {"name": "Army Technology: 2S23 Nona-SVK", "url": "https://www.army-technology.com/projects/2s23-nona-svk-120mm-self-propelled-gun-system/", "retrieved": "2026-10-07"}
       ]
@@ -1085,7 +1265,7 @@ window.TTA_DATA = {
       },
       "notes": {
         "rateOfFire": "Püsiv 65 lasku/h.",
-        "firingRange": "Reaktiivmürsuga kaugemale (täpset väärtust allikas pole)."
+        "firingRange": "Rakettkiirendiga mürsuga kaugemale (täpset väärtust allikas pole)."
       },
       "sources": [
         {"name": "Wikipedia: D-20", "url": "https://en.wikipedia.org/wiki/152_mm_towed_gun-howitzer_M1955_(D-20)", "retrieved": "2026-10-07"}
@@ -1350,7 +1530,7 @@ window.TTA_DATA = {
         "chassis": "2S43 Malvaga sama šassii.",
         "firingRange": "3OF59 OF-mürsk.",
         "firingRangeBB": "3OF30 „Baklan“.",
-        "firingRangeExt": "Reaktiivmürsk.",
+        "firingRangeExt": "Rakettkiirendiga mürsk.",
         "firingRangeGuided": "3OF95M Krasnopol-D: 45–47km · 3OF95 Krasnopol-M2: 37–40km.",
         "mainArmament": "Automatiseeritud tulejuhtimine (ASUNO), MRSI-võimekus; positsiooni hõivamine, tuli ja lahkumine 2–3 minutiga."
       },
