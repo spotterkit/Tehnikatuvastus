@@ -1195,18 +1195,33 @@ window.TTA_DATA = {
     "D-30": {
       "status": "unverified",
       "values": {
-        "weightKg": 3150,
+        "crew": "7",
+        "chassis": "Vedukas: MT-LB või Ural-4320",
+        "weightKg": 3200,
+        "length": 5.4,
+        "width": 1.9,
+        "height": 1.6,
+        "maxSpeedRoad": 60,
+        "maxSpeedOffroad": 25,
         "caliber": 122,
-        "mainArmament": "122mm haubits (toru 35 kaliibrit), 360° pööramine",
+        "mainArmament": "122mm 2A18M haubits (toru 38 kaliibrit), 360° pööramine",
         "rateOfFire": 8,
+        "firingRangeMin": 1,
         "firingRange": 15.3,
         "firingRangeExt": 21.9
       },
       "notes": {
-        "rateOfFire": "6–8 lasku/min; püsiv 5–6.",
-        "mainArmament": "Otsetule sihik; kumulatiivmürsk läbistab 460–580mm (laskekaugust allikas pole)."
+        "weightKg": "Wikipedia: 3150kg.",
+        "length": "Transpordiasendis.",
+        "maxSpeedRoad": "Pukseerimiskiirus.",
+        "maxSpeedOffroad": "Pukseerimiskiirus.",
+        "mainArmament": "Otsetule sihik; kumulatiivmürsk läbistab 460–580mm (laskekaugust allikas pole).",
+        "rateOfFire": "Tavaline 6, püsiv 4 lasku/min.",
+        "firingRange": "OF-81.",
+        "firingRangeExt": "Rakettkiirendiga mürsk."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: D-30 (M1963)", "url": "https://odin.t2com.army.mil/WEG/Asset/b14f9899cde6b3e6045f28966886449e", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: D-30 howitzer", "url": "https://en.wikipedia.org/wiki/D-30_howitzer", "retrieved": "2026-10-07"}
       ]
     },
@@ -1236,38 +1251,68 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "8",
-        "weightKg": 9800,
+        "chassis": "Vedukas: KrAZ-255B, KrAZ-4556 või AT-S",
+        "weightKg": 9760,
         "length": 12.3,
-        "width": 2.788,
+        "width": 2.7,
+        "height": 2.7,
+        "maxSpeedRoad": 70,
+        "maxSpeedOffroad": 20,
         "caliber": 152.4,
         "mainArmament": "152,4mm 2A36 „Giatsint-B“ kahur",
         "rateOfFire": 6,
-        "firingRange": 27,
+        "directFireRange": 1000,
+        "firingRange": 30.5,
         "firingRangeExt": 40
       },
+      "warnings": {
+        "firingRangeExt": "ODIN/WEG: OF-39 (rakettkiirendiga) 28,4km. Siin Wikipedia väärtus."
+      },
       "notes": {
-        "rateOfFire": "Püsiv 1 lask/min (USA luure).",
-        "mainArmament": "Soomustläbistav mürsk otsetuleks tankide vastu (kaugust allikas pole)."
+        "weightKg": "Wikipedia: 9800kg.",
+        "length": "Laskeasendis; transpordiasendis 12,9m.",
+        "width": "Transpordiasendis; laskeasendis 8,7m.",
+        "maxSpeedRoad": "Pukseerimiskiirus.",
+        "maxSpeedOffroad": "Pukseerimiskiirus.",
+        "rateOfFire": "Tavaline 5, püsiv 4 lasku/min (USA luure: püsiv 1).",
+        "directFireRange": "Kumulatiivmürsk BP-540 otsetules.",
+        "firingRange": "OF-86. Wikipedia: 27km."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2A36 Giatsint-B", "url": "https://odin.t2com.army.mil/WEG/Asset/b9f63392cd0d13e15b046e91dc796f63", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 2A36 Giatsint-B", "url": "https://en.wikipedia.org/wiki/2A36_Giatsint-B", "retrieved": "2026-10-07"}
       ]
     },
     "D-20": {
       "status": "unverified",
       "values": {
-        "crew": "8–10",
-        "weightKg": 5700,
+        "crew": "8",
+        "chassis": "Vedukas: 6×6 või 8×8 veoauto",
+        "weightKg": 5560,
+        "length": 8.1,
+        "width": 2.4,
+        "height": 2.52,
+        "maxSpeedRoad": 60,
+        "maxSpeedOffroad": 30,
         "caliber": 152,
         "mainArmament": "152mm kahurhaubits (toru 26 kaliibrit)",
-        "rateOfFire": 5,
+        "rateOfFire": 6,
+        "directFireRange": 1000,
+        "firingRangeMin": 4.6,
         "firingRange": 17.4
       },
       "notes": {
-        "rateOfFire": "Püsiv 65 lasku/h.",
-        "firingRange": "Rakettkiirendiga mürsuga kaugemale (täpset väärtust allikas pole)."
+        "crew": "Wikipedia: 8–10.",
+        "weightKg": "Wikipedia: 5700kg.",
+        "length": "Transpordiasendis; laskeasendis 8,69m.",
+        "maxSpeedRoad": "Pukseerimiskiirus.",
+        "maxSpeedOffroad": "Pukseerimiskiirus.",
+        "rateOfFire": "5–6 lasku/min; püsiv 1 lask/min.",
+        "directFireRange": "Kumulatiivmürsk BP-540.",
+        "firingRange": "OF-32; OF-96: kuni 24,4km."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: D-20 (M1955)", "url": "https://odin.t2com.army.mil/WEG/Asset/82908ad6e362b16a8295d3ac2eb01943", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: D-20", "url": "https://en.wikipedia.org/wiki/152_mm_towed_gun-howitzer_M1955_(D-20)", "retrieved": "2026-10-07"}
       ]
     },
@@ -1275,18 +1320,29 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "5",
+        "weightKg": 1100,
+        "length": 5.9,
+        "width": 1.79,
+        "height": 1.7,
+        "maxSpeedRoad": 80,
+        "maxSpeedOffroad": 35,
         "caliber": 120,
-        "mainArmament": "120mm järelveetav kahur-miinipilduja",
-        "rateOfFire": 10,
+        "mainArmament": "120mm 2A51 kahur-miinipilduja (toru 24,2 kaliibrit)",
+        "rateOfFire": 8,
         "firingRangeMin": 0.85,
         "firingRange": 8.85,
-        "firingRangeExt": 13
+        "firingRangeExt": 12.8
       },
       "notes": {
-        "rateOfFire": "8–10 lasku/min.",
-        "mainArmament": "Toimib miinipilduja, kerge haubitsa ja tankitõrjekahurina."
+        "length": "Transpordiasendis.",
+        "maxSpeedRoad": "Pukseerimiskiirus.",
+        "maxSpeedOffroad": "Pukseerimiskiirus.",
+        "mainArmament": "Toimib miinipilduja, kerge haubitsa ja tankitõrjekahurina.",
+        "rateOfFire": "Tavaline 6, püsiv 4 lasku/min.",
+        "firingRangeExt": "OF-50 rakettkiirendiga mürsk."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2B16 Nona-K", "url": "https://odin.t2com.army.mil/WEG/Asset/b7f5af5722082db0ba9e5d24c385c637", "retrieved": "2026-10-08"},
         {"name": "Militarnyi: Nona-K", "url": "https://militarnyi.com/en/news/the-armed-forces-of-ukraine-destroyed-the-nona-k-artillery-systems-and-russian-ammunition/", "retrieved": "2026-10-07"}
       ]
     },
@@ -1294,18 +1350,25 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "5 (+2 veduki meeskond)",
-        "weightKg": 190.5,
         "chassis": "2F510 kaherattaline käru, vedukas GAZ-66",
+        "weightKg": 210,
+        "length": 1.95,
+        "width": 1.04,
+        "height": 1.54,
         "caliber": 120,
         "mainArmament": "120mm 2B11 miinipilduja",
-        "rateOfFire": 12,
-        "firingRangeMin": 0.5,
-        "firingRange": 7.1
+        "rateOfFire": 15,
+        "firingRangeMin": 0.46,
+        "firingRange": 7.18
       },
       "notes": {
-        "weightKg": "Miinipilduja ilma transpordikäruta."
+        "weightKg": "Laskeasendis; transpordiasendis 300kg. Wikipedia: 190,5kg ilma käruta.",
+        "length": "Transpordiasendis.",
+        "rateOfFire": "Sihiku korrigeerimisega 15, ilma 10 lasku/min.",
+        "firingRange": "Valgustusmiin 5,3km, suitsumiin 6,8km."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2B11 Sani", "url": "https://odin.t2com.army.mil/WEG/Asset/415cc764898e355ad2be19e4319f3430", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 2S12 Sani", "url": "https://en.wikipedia.org/wiki/2S12_Sani", "retrieved": "2026-10-07"}
       ]
     },
@@ -1318,15 +1381,16 @@ window.TTA_DATA = {
         "mainArmament": "82mm miinipilduja",
         "rateOfFire": 30,
         "firingRangeMin": 0.08,
-        "firingRange": 4.27
+        "firingRange": 4.1
       },
       "notes": {
         "crew": "Andmed: 2B14 „Podnos“. 2B24: meeskond 5.",
-        "rateOfFire": "2B14: 24–30 lasku/min. 2B24: vähemalt 20.",
+        "rateOfFire": "2B14: 30 lasku/min, püsiv 24. 2B24: vähemalt 20.",
         "firingRangeMin": "2B24: kuni 0,1km.",
-        "firingRange": "2B24 (miin 3-O-26): vähemalt 6km."
+        "firingRange": "2B14: M-74 miin 5,6km (Wikipedia: 4,27km). 2B24 (miin 3-O-26): vähemalt 6km."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2B14 Podnos", "url": "https://odin.t2com.army.mil/WEG/Asset/588e76a8c703fc2004ab3b58124ccbcc", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 2B14 Podnos", "url": "https://en.wikipedia.org/wiki/2B14_Podnos", "retrieved": "2026-10-07"},
         {"name": "FSVTS kataloog: 2B24", "url": "https://esp.fsvts.gov.ru/catalog/988.en.html", "retrieved": "2026-10-07"}
       ]
@@ -1334,16 +1398,26 @@ window.TTA_DATA = {
     "2B9 Vasiljok": {
       "status": "unverified",
       "values": {
-        "weightKg": 632,
+        "crew": "6",
+        "weightKg": 645,
+        "length": 4.115,
+        "width": 1.576,
+        "height": 1.18,
+        "maxSpeedRoad": 60,
         "caliber": 82,
         "mainArmament": "82mm automaatmiinipilduja",
-        "rateOfFire": 120,
+        "rateOfFire": 170,
+        "firingRangeMin": 0.8,
         "firingRange": 4.27
       },
       "notes": {
-        "rateOfFire": "Tsükliline 100–120 lasku/min."
+        "weightKg": "Wikipedia: 632kg.",
+        "length": "Transpordiasendis.",
+        "maxSpeedRoad": "Pukseerimiskiirus.",
+        "rateOfFire": "Praktiline 120 lasku/min."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2B9 Vasilek", "url": "https://odin.t2com.army.mil/WEG/Asset/8799d46bf9471d052cd06b89a2a5d76e", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 2B9 Vasilek", "url": "https://en.wikipedia.org/wiki/2B9_Vasilek", "retrieved": "2026-10-07"}
       ]
     },
@@ -1352,18 +1426,25 @@ window.TTA_DATA = {
       "values": {
         "crew": "5",
         "weightKg": 415,
+        "length": 2.61,
+        "width": 2.12,
+        "height": 3.7,
         "caliber": 120,
         "mainArmament": "120mm 2B23 „Nona-M1“ vintraudne poolautomaatne miinipilduja",
         "rateOfFire": 11,
-        "firingRange": 8.8,
+        "firingRangeMin": 0.195,
+        "firingRange": 8.835,
         "firingRangeExt": 12.8
       },
       "notes": {
         "weightKg": "Transpordiasendis 507kg.",
         "rateOfFire": "OF-mürsk 9, OF-miin 11 lasku/min.",
-        "firingRange": "OF-mürsk 8,8km; OF-miin 7,2km."
+        "firingRangeMin": "Miin; vintmürsk 1,7km.",
+        "firingRange": "Vintmürsk 8,835km; miin 7,154km.",
+        "firingRangeExt": "Rakettkiirendiga mürsk."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 2B23 Nona-M1", "url": "https://odin.t2com.army.mil/WEG/Asset/9d3db6be1ad1857c75db0e65bbcc2c0c", "retrieved": "2026-10-08"},
         {"name": "FSVTS kataloog: Nona-M1 (2B23)", "url": "https://esp.fsvts.gov.ru/catalog/982.en.html", "retrieved": "2026-10-07"}
       ]
     },
