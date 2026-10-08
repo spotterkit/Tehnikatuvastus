@@ -38,8 +38,9 @@ TTA KIRJE
 - Uus väli (nt suurtükile laskekaugus, MLRS-ile rakettide arv): lisa üks rida tta-fields.js-i.
 - Suurtükid / miinipildujad / reaktiivsuurtükid (rc12):
   caliber (mm), weightKg (järelveetavad, kg), chassis (tekst), launchTubes (tk), salvoTime (s),
-  firingRangeMin, firingRange (põhimoon), firingRangeBB (põhjagaasigeneraator),
-  firingRangeExt (reaktiivmürsk / pikendatud), firingRangeGuided (juhitav) – kõik km;
+  firingRangeMin, firingRange (põhimoon), firingRangeBB (base bleed mürsk, BB),
+  firingRangeExt (rakettkiirendiga mürsk, RAP – Militermi eelistatud termin), firingRangeGuided (juhitav) – kõik km;
+  Base bleed: Militermis eestikeelset terminit pole (8.10.2026) – kasutatakse "base bleed mürsk (BB)".
   directFireRange (otsetule kaugus, m). Moona nimi (nt 9M22U, OF45) kirjuta "notes" alla.
 
 WHAT KIRJE
