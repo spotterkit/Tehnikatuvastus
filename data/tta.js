@@ -1370,82 +1370,126 @@ window.TTA_DATA = {
     "BM-21 Grad": {
       "status": "unverified",
       "values": {
-        "crew": "3",
-        "combatWeight": 13.71,
+        "crew": "5",
+        "chassis": "Ural-375D (BM-21-1: Ural-4320)",
+        "combatWeight": 13.7,
         "length": 7.35,
         "width": 2.4,
         "height": 3.09,
-        "chassis": "Ural-375D (BM-21-1: Ural-4320)",
         "engine": "ZiL-375 V8 bensiin",
         "power": 180,
         "maxSpeedRoad": 75,
-        "range": 405,
+        "maxSpeedOffroad": 35,
+        "range": 750,
+        "amphibious": false,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.6,
+        "trench": 0.6,
+        "fording": 1.5,
         "caliber": 122,
+        "mainArmament": "9P132 raketiheitja: 40 × 122mm rakett (9M22U, 9M28F)",
         "launchTubes": 40,
         "salvoTime": 20,
-        "firingRangeMin": 5,
-        "firingRange": 20.38,
-        "firingRangeExt": 40
+        "firingRangeMin": 0.5,
+        "firingRange": 20.4,
+        "firingRangeExt": 40,
+        "armor": "Soomustamata"
+      },
+      "warnings": {
+        "range": "Wikipedia: 405km.",
+        "firingRangeMin": "Wikipedia: 5km."
       },
       "notes": {
-        "salvoTime": "Laskevalmis 3 minutiga.",
-        "firingRangeMin": "9M22U.",
-        "firingRange": "9M22U.",
+        "crew": "9K51 kompleksis 8; Wikipedia: 3.",
+        "salvoTime": "Laskevalmis 3 minutiga; ümberlaadimine 7 minutit.",
+        "firingRangeMin": "9M22U: 0,5km; 9M28F: 1,5km.",
+        "firingRange": "9M22U; 9M28F: 15km.",
         "firingRangeExt": "9M521: 40km · 9M522: 37,5km."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BM-21 Grad", "url": "https://odin.t2com.army.mil/WEG/Asset/250d04a7bec1cb46b44ab21a6cbe985b", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BM-21 Grad", "url": "https://en.wikipedia.org/wiki/BM-21_Grad", "retrieved": "2026-10-07"}
       ]
     },
     "BM-27 Uragan": {
       "status": "unverified",
       "values": {
-        "crew": "6",
+        "crew": "4",
+        "chassis": "ZIL-135LM 8×8",
         "combatWeight": 20,
-        "chassis": "ZIL-135 8×8",
+        "length": 9.63,
+        "width": 2.8,
+        "height": 3.23,
+        "engine": "2 × ZIL-375 bensiinimootor",
+        "power": 360,
         "maxSpeedRoad": 65,
+        "maxSpeedOffroad": 40,
         "range": 500,
+        "amphibious": false,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.9,
+        "trench": 2,
+        "fording": 1.2,
         "caliber": 220,
+        "mainArmament": "9P140 raketiheitja: 16 × 220mm rakett (9M27F, 9M27K, 9M27K2)",
         "launchTubes": 16,
         "salvoTime": 20,
-        "firingRangeMin": 8,
+        "firingRangeMin": 10,
         "firingRange": 35,
-        "firingRangeGuided": 70
+        "firingRangeGuided": 70,
+        "armor": "Soomustamata"
       },
       "notes": {
-        "salvoTime": "Ümberlaadimine umbes 20 minutit.",
-        "firingRangeMin": "9M27K3.",
+        "crew": "Wikipedia: 6.",
+        "power": "2 × 180hj.",
+        "salvoTime": "Ümberlaadimine 15–20 minutit.",
+        "firingRangeMin": "9M27F/K/K2; Wikipedia (9M27K3): 8km.",
         "firingRangeGuided": "Juhitavad raketid üle 70km."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 9P140 (BM-27 Uragan)", "url": "https://odin.t2com.army.mil/WEG/Asset/57ff33a6536a23f1a11644d1f426c13d", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BM-27 Uragan", "url": "https://en.wikipedia.org/wiki/BM-27_Uragan", "retrieved": "2026-10-07"}
       ]
     },
     "BM-30 Smertš": {
       "status": "unverified",
       "values": {
-        "crew": "3",
+        "crew": "4",
+        "chassis": "MAZ-543M",
         "combatWeight": 43.7,
-        "length": 12,
+        "length": 12.1,
         "width": 3.05,
         "height": 3.05,
-        "chassis": "MAZ-543M",
         "engine": "D12A-525A V12 diisel",
-        "power": 525,
+        "power": 518,
         "maxSpeedRoad": 60,
-        "range": 850,
+        "range": 650,
+        "gradient": 68,
+        "verticalStep": 0.78,
+        "trench": 2.5,
         "caliber": 300,
+        "mainArmament": "9A52 raketiheitja: 12 × 300mm rakett (9M55F, 9M55K, 9M55K1)",
         "launchTubes": 12,
         "firingRangeMin": 20,
         "firingRange": 70,
-        "firingRangeExt": 200
+        "firingRangeExt": 200,
+        "armor": "Soomustamata"
+      },
+      "warnings": {
+        "range": "Wikipedia: 850km."
       },
       "notes": {
-        "crew": "Andmed: 9A52-2.",
+        "crew": "Andmed: 9A52-2. Wikipedia: 3.",
+        "power": "Wikipedia: 525hj.",
+        "mainArmament": "Ümberlaadimine 36 minutit.",
         "firingRangeMin": "9M55K: 20km · 9M528: 25km.",
+        "firingRange": "9M55F, 9M55K, 9M55K1.",
         "firingRangeExt": "Kuni 200km sõltuvalt raketist."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: 9A52-2 (BM-30 Smerch-M)", "url": "https://odin.t2com.army.mil/WEG/Asset/2caad55fb3c4c4d5cdd28a2194007544", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BM-30 Smerch", "url": "https://en.wikipedia.org/wiki/BM-30_Smerch", "retrieved": "2026-10-07"}
       ]
     },
@@ -1453,22 +1497,38 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "3",
-        "combatWeight": 45.3,
-        "chassis": "T-72/T-90 tanki šassii",
-        "engine": "V-84 diisel",
+        "chassis": "T-72 tanki šassii (modifitseeritud)",
+        "combatWeight": 44.3,
+        "length": 6.86,
+        "width": 3.46,
+        "height": 2.6,
+        "engine": "V-84M diisel",
         "power": 840,
         "maxSpeedRoad": 60,
+        "maxSpeedOffroad": 45,
         "range": 550,
+        "amphibious": false,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.85,
+        "trench": 2.8,
+        "fording": 1.2,
         "caliber": 220,
+        "mainArmament": "Termobaarilised raketid MO.1.01.04M; süüterakett MO.1.01.04M.OP",
         "launchTubes": 24,
-        "mainArmament": "Termobaarilised raketid MO.1.01.04M",
+        "firingRangeMin": 0.6,
         "firingRange": 6,
-        "firingRangeExt": 10
+        "firingRangeExt": 10,
+        "armor": "Teras ja komposiit + aktiivsoomus, ekvivalent 500–600mm (RHA)"
       },
       "notes": {
-        "firingRangeExt": "2020. aasta uuendatud rakett."
+        "chassis": "Wikipedia: T-72/T-90 tanki šassii.",
+        "combatWeight": "Wikipedia: 45,3t.",
+        "length": "Kere.",
+        "firingRangeExt": "2020. aasta uuendatud rakett (Wikipedia)."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: TOS-1A Solntsepek", "url": "https://odin.t2com.army.mil/WEG/Asset/3067b1cfe6cb93f35b4065e3a2067bc7", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: TOS-1", "url": "https://en.wikipedia.org/wiki/TOS-1", "retrieved": "2026-10-07"}
       ]
     },
@@ -1476,20 +1536,38 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "3",
-        "combatWeight": 45.3,
-        "chassis": "T-72 tanki šassii",
-        "engine": "V-84 diisel",
+        "chassis": "T-72 tanki šassii (modifitseeritud)",
+        "combatWeight": 42,
+        "length": 9.53,
+        "width": 3.37,
+        "height": 3.23,
+        "engine": "V-84M diisel",
         "power": 840,
         "maxSpeedRoad": 60,
-        "range": 550,
+        "maxSpeedOffroad": 45,
+        "range": 500,
+        "amphibious": false,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.85,
+        "trench": 2.8,
+        "fording": 1.2,
         "caliber": 220,
+        "mainArmament": "Termobaarilised raketid MO.1.01.04",
         "launchTubes": 30,
         "salvoTime": 15,
-        "mainArmament": "Termobaarilised raketid MO.1.01.04",
-        "firingRangeMin": 0.5,
-        "firingRange": 3
+        "firingRangeMin": 0.4,
+        "firingRange": 3.5,
+        "armor": "Teras ja komposiit + aktiivsoomus, ekvivalent 500–600mm (RHA)"
+      },
+      "notes": {
+        "combatWeight": "Wikipedia: 45,3t.",
+        "range": "Wikipedia: 550km.",
+        "mainArmament": "Rakett 220mm, 173kg; sihtmärgi tuvastamisest tuleni 90s.",
+        "salvoTime": "ODIN/WEG märgib ka 7,5s."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: TOS-1 Buratino", "url": "https://odin.t2com.army.mil/WEG/Asset/9292c23c5b064d5446656bf2852c9b9b", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: TOS-1", "url": "https://en.wikipedia.org/wiki/TOS-1", "retrieved": "2026-10-07"}
       ]
     },
@@ -1506,8 +1584,8 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "5",
-        "combatWeight": 36.4,
         "chassis": "BAZ-6910-027 „Voštšina“ 8×8 ratasšassii",
+        "combatWeight": 36.4,
         "engine": "YaMZ-849 diisel",
         "power": 500,
         "maxSpeedRoad": 80,
@@ -1519,7 +1597,7 @@ window.TTA_DATA = {
         "trench": 2,
         "fording": 1.4,
         "caliber": 152,
-        "mainArmament": "152mm 2A36 kahur (Giatsint-B relv, toru 50 kaliibrit ≈7,6m, laadimiskamber 27l)",
+        "mainArmament": "152mm 2A36 kahur (sama relv mis järelveetaval Giatsint-B-l)",
         "firingRange": 30.5,
         "firingRangeBB": 33.5,
         "firingRangeExt": 40,
@@ -1528,11 +1606,11 @@ window.TTA_DATA = {
       },
       "notes": {
         "chassis": "2S43 Malvaga sama šassii.",
+        "mainArmament": "Toru pikkus umbes 7,6m. Automatiseeritud tulejuhtimine (ASUNO), MRSI-võimekus; positsiooni hõivamine, tuli ja lahkumine 2–3 minutiga.",
         "firingRange": "3OF59 OF-mürsk.",
         "firingRangeBB": "3OF30 „Baklan“.",
         "firingRangeExt": "Rakettkiirendiga mürsk.",
-        "firingRangeGuided": "3OF95M Krasnopol-D: 45–47km · 3OF95 Krasnopol-M2: 37–40km.",
-        "mainArmament": "Automatiseeritud tulejuhtimine (ASUNO), MRSI-võimekus; positsiooni hõivamine, tuli ja lahkumine 2–3 minutiga."
+        "firingRangeGuided": "3OF95M Krasnopol-D: 45–47km · 3OF95 Krasnopol-M2: 37–40km."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S44 Giatsint-K", "url": "https://odin.t2com.army.mil/WEG/Asset/aef72388775e5c89be3c2d7879158089", "retrieved": "2026-10-07"}
