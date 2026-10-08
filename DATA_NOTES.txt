@@ -78,7 +78,7 @@ ODIN/WEG PDF-EKSPORT (eelistatud allikas)
 - PDF-ist loetakse väljad automaatselt (System, Dimensions, Automotive, Main Weapon System, Ammunition).
   "INA" = andmed puuduvad → välja ei lisata. Allikaks ODIN/WEG link; status jääb "unverified".
 - WEG lisab maastikuläbivuse: gradient (tõusunurk %), sideSlope (külgkalle %), verticalStep (m),
-  trench (kraavi laius m), fording (koolme sügavus m, ilma ettevalmistuseta; ettevalmistusega → notes).
+  trench (kraavi laius m), fording (veetakistuse sügavus m, ilma ettevalmistuseta; ettevalmistusega → notes).
 - Tankid (ODIN/WEG, 8.10.2026): mainGunRange = APFSDS efektiivne laskekaugus, HEAT/HE kaugused notes all.
   "Speed, Average Cross" ei ole max maastikukiirus – maxSpeedOffroad'i sellest ei täideta.
 
