@@ -85,6 +85,11 @@ ODIN/WEG PDF-EKSPORT (eelistatud allikas)
   (mineLaying, mineCapacity, mineClearing, specialEquipment) ja õhutõrjeväljad samMissiles, sensors,
   samRange / samAltitude (range, m), cannonAltitudeAir. Kirjed: GMZ-3, UMZ, UR-77, IRM, 2S6 Tunguska
   (2S6M andmed), STRELA-10/SA-13 Gopher. UMZ ODIN-i kandevõime ja MT-LBu soomus = teised variandid → warning.
+- rc22: PRP-4 (PRP-4A Argus andmed), ZOOPARK-1, 9P149 Shturm-S, 9P157 Krizantema-S, 9P162 Kornet-T.
+  ODIN-i vead → warning: Krizantema laius 6,715m, Shturm-S 9M120 Ataka (= Shturm-SM) ja MT-LB andmed,
+  Kornet-T mass 14,1t, Zoopark avastuskaugused (allikad lahknevad).
+- TTA võrdluses on mudeli nime all mudeli täpsustus (entry.type, nt "Pioneeriluuresoomuk"), mitte "kontrollimata"
+  – disclaimer on niikuinii tabeli kohal (rc22).
 
 KONTROLLITUKS MÄRKIMINE (rc16: eemaldatud)
 - Kõik TTA andmed on avalikest allikatest (ka ODIN/WEG) ja kuvatakse ALATI disclaimeriga
@@ -92,7 +97,7 @@ KONTROLLITUKS MÄRKIMINE (rc16: eemaldatud)
 - Rohelist "TTA · kontrollitud" märget enam ei ole. check_release.js lubab ainult status "unverified".
 
 RELEASE
-- APP_BUILD rc21 / SW_VERSION offline-rc21 (rc21: TTA pioneeri- ja õhutõrjetehnika). Lisatud curated-test.js (kureeritud test). Avalehelt eemaldatud "Vaata kogu kataloogi" (rc17). data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
+- APP_BUILD rc22 / SW_VERSION offline-rc22 (rc21: TTA pioneeri- ja õhutõrjetehnika; rc22: tankitõrje + STV luure, võrdluse päis). Lisatud curated-test.js (kureeritud test). Avalehelt eemaldatud "Vaata kogu kataloogi" (rc17). data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
 - MEDIA_CACHE nime ei muudetud.
 
 TTA VÕRDLUS (2 mudelit)
