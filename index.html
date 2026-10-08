@@ -676,6 +676,22 @@
   .lightbox-stage img.ready{visibility:visible;}
   .lightbox-msg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--bone-dim);font-size:13px;pointer-events:none;}
   @media(max-width:600px){.model-gallery{inset:2vh 2vw;padding:12px}.model-gallery-grid{grid-template-columns:1fr}.model-gallery-imgwrap{height:240px}}
+  /* Piltide võrdlus (2 mudelit kõrvuti) */
+  .mg-photos-head:empty{display:none;}
+  .model-gallery-grid[hidden]{display:none;}
+  .pcmp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 18px;}
+  .pcmp[hidden]{display:none;}
+  .pcmp-col{display:flex;flex-direction:column;gap:12px;min-width:0;}
+  .pcmp-col .wcmp-head{margin-bottom:0;}
+  .pcmp .model-gallery-card{min-height:0;}
+  .pcmp .model-gallery-imgwrap{height:240px;}
+  @media(max-width:600px){
+    .pcmp{gap:0 8px;}
+    .pcmp-col{gap:8px;}
+    .pcmp .model-gallery-imgwrap{height:150px;}
+    .pcmp .model-gallery-file{font-size:9px;padding:5px 6px;}
+    .pcmp .wcmp-head b{font-size:15px;}
+  }
 
   /* Õppesessiooni progress ja lõpuülevaade */
   .run-progress{height:6px;background:rgba(255,255,255,.09);border-radius:999px;overflow:hidden;margin:0 0 12px;}
@@ -771,11 +787,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
         <pre id="roundTripAuditOutput" style="display:none; white-space:pre-wrap; word-break:break-word; margin-top:10px; padding:10px; border:1px solid rgba(255,255,255,.18); border-radius:8px; font-size:12px; line-height:1.45; max-height:520px; overflow:auto;"></pre>
         <pre id="commonsAuditOutput" style="display:none; white-space:pre-wrap; word-break:break-word; margin-top:10px; padding:10px; border:1px solid rgba(255,255,255,.18); border-radius:8px; font-size:12px; line-height:1.45; max-height:520px; overflow:auto;"></pre>
 
-        <div class="home-divider">Vaba sirvimine</div>
-        <div class="row">
-          <button class="primary" id="startCatalogBtn" style="flex:1;">Vaata kogu kataloogi</button>
-        </div>
-        <div class="row" style="margin-top:8px;">
+        <div class="row" style="margin-top:14px;">
           <button class="primary" id="diagToggle" type="button" style="flex:1;">Pildidiagnostika</button>
         </div>
       </div>
@@ -822,7 +834,9 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
     </div>
     <div class="mg-tabs" id="modelGalleryTabs" role="tablist" aria-label="Mudeli info"></div>
     <div class="mg-panel" id="mgPanelPhotos" role="tabpanel">
+      <div class="tta-head mg-photos-head" id="mgPhotosHead"></div>
       <div class="model-gallery-grid" id="modelGalleryGrid"></div>
+      <div class="pcmp" id="mgPhotosCompare" hidden></div>
     </div>
     <div class="mg-panel" id="mgPanelTta" role="tabpanel" hidden></div>
     <div class="mg-panel" id="mgPanelWhat" role="tabpanel" hidden></div>
@@ -1398,7 +1412,6 @@ const startPracticeBtn = document.getElementById('startPracticeBtn');
 const selectAllBtn = document.getElementById('selectAllBtn');
 const clearAllBtn = document.getElementById('clearAllBtn');
 const startTestBtn = document.getElementById('startTestBtn');
-const startCatalogBtn = document.getElementById('startCatalogBtn');
 const showModelListBtn = document.getElementById('showModelListBtn');
 const listBackBtn = document.getElementById('listBackBtn');
 const modelListSummary = document.getElementById('modelListSummary');
@@ -1473,8 +1486,8 @@ const TEST_GROUP_LIMITS = {
 };
 
 
-// appMode: 'practice' | 'test' | 'catalog' — pole varem eksisteerinud, valitakse menüüst.
-let appMode = 'catalog';
+// appMode: 'practice' | 'test' — valitakse menüüst (kuldvillakul on oma olek kuldGame).
+let appMode = 'test';
 let selectedGroupIds = new Set();
 let kuldSelectedGroupIds = new Set();
 let kuldGame = null;
@@ -1779,7 +1792,7 @@ function updateNavControls(){
 }
 
 // Skoorikast peakirjas — 'practice' režiimis loeb lihtsalt näidatud pilte,
-// 'test'/'catalog' režiimis näitab õigesti/valesti tulemust nagu varem.
+// 'test' režiimis näitab õigesti/valesti tulemust nagu varem.
 function updateRunProgress(){
   if(!runProgressFill) return;
   const done = Math.min(shownCount, TOTAL_IMAGES || 0);
@@ -1861,12 +1874,9 @@ function setEndActions(){
       endRepeatBtn.textContent = 'Korda vigu (' + mistakes.length + ')';
       endRepeatBtn.onclick = () => startRepeatMistakes(mistakes);
     }
-  } else if(appMode === 'practice'){
-    endRestartBtn.textContent = 'Sega uuesti';
-    endRestartBtn.onclick = () => startPractice(currentGroupId);
   } else {
     endRestartBtn.textContent = 'Sega uuesti';
-    endRestartBtn.onclick = startCatalog;
+    endRestartBtn.onclick = () => startPractice(currentGroupId);
   }
   endMenuBtn.onclick = goHome;
 }
@@ -2358,13 +2368,12 @@ function renderTTAPanel(entry, record){
   const panel = el('div', 'tta-panel');
   const fields = TTA_SCHEMA.fields || {};
   const values = record.values || {}, notes = record.notes || {}, warnings = record.warnings || {};
-  const verified = record.status === 'verified';
+  // Kõik TTA andmed on avalikest allikatest: disclaimer kuvatakse alati, "kontrollitud" märget ei ole.
   const head = el('div', 'tta-head');
-  head.appendChild(verified ? el('div', 'tta-status is-verified', 'TTA · kontrollitud') : el('span'));
+  head.appendChild(el('span'));
   const picker = makeComparePicker(entry, null);
-  if(picker) head.appendChild(picker);
-  if(verified || picker) panel.appendChild(head);
-  if(!verified) panel.appendChild(ttaDisclaimer());
+  if(picker){ head.appendChild(picker); panel.appendChild(head); }
+  panel.appendChild(ttaDisclaimer());
 
   const wrap = el('div', 'tta-sections');
   (TTA_SCHEMA.sections || []).forEach(section => {
@@ -2388,7 +2397,7 @@ function renderTTAPanel(entry, record){
 
   const src = el('div', 'data-sources');
   (record.sources || []).forEach(x => src.appendChild(sourceLine('Allikas: ', x)));
-  if(!verified && record.verifyAgainst) src.appendChild(sourceLine('Kontrolli: ', record.verifyAgainst));
+  if(record.verifyAgainst) src.appendChild(sourceLine('Kontrolli: ', record.verifyAgainst));
   if(src.children.length) panel.appendChild(src);
   return panel;
 }
@@ -2422,12 +2431,17 @@ function cmpNorm(t){ return String(t || '').toLocaleLowerCase('et').replace(/[\s
 
 function makeComparePicker(entry, selectedCat, kind){
   kind = kind || 'tta';
-  const store = kind === 'what' ? WHAT_MODELS : TTA_MODELS;
-  const has = kind === 'what' ? getWHAT : getTTA;
-  const others = Object.keys(store)
-    .filter(cat => cat !== entry.cat && entryByCat(cat) && has(entryByCat(cat)))
-    .map(entryByCat)
-    .sort((a,b) => a.label.localeCompare(b.label, 'et'));
+  let others;
+  if(kind === 'photos'){
+    others = CATEGORIES.filter(e => e && e.cat !== entry.cat && e.files && e.files.length);
+  }else{
+    const store = kind === 'what' ? WHAT_MODELS : TTA_MODELS;
+    const has = kind === 'what' ? getWHAT : getTTA;
+    others = Object.keys(store)
+      .filter(cat => cat !== entry.cat && entryByCat(cat) && has(entryByCat(cat)))
+      .map(entryByCat);
+  }
+  others = others.slice().sort((a,b) => a.label.localeCompare(b.label, 'et'));
   if(!others.length) return null;
   const groupLabel = id => { const g = (typeof GROUPS !== 'undefined' ? GROUPS : []).find(x => x.id === id); return g ? g.label : ''; };
 
@@ -2457,7 +2471,9 @@ function makeComparePicker(entry, selectedCat, kind){
   function choose(target){
     input.value = target.label;
     close();
-    if(kind === 'what') showWHATCompare(entry, target); else showTTACompare(entry, target);
+    if(kind === 'what') showWHATCompare(entry, target);
+    else if(kind === 'photos') showPhotosCompare(entry, target);
+    else showTTACompare(entry, target);
   }
   function setActive(i){
     active = i;
@@ -2770,6 +2786,43 @@ function showWHATCompare(a, b){
   mgPanels.what.scrollIntoView({block: 'nearest'});
 }
 
+// PILTIDE VÕRDLUS: "Võrdle:" riba Piltide vahekaardil (kõik mudelid, millel on pilte – TTA/WHAT pole vaja).
+// Valikul kaks pildiveergu kõrvuti; mudeli enda galerii jääb alles (peidetuna), tagasi minek ei lae uuesti.
+const mgPhotosHead = document.getElementById('mgPhotosHead');
+const mgPhotosCompare = document.getElementById('mgPhotosCompare');
+
+function showPhotosView(entry){
+  mgPhotosHead.innerHTML = '';
+  mgPhotosCompare.innerHTML = '';
+  mgPhotosCompare.hidden = true;
+  modelGalleryGrid.hidden = false;
+  const picker = makeComparePicker(entry, null, 'photos');
+  if(picker) mgPhotosHead.appendChild(picker);
+}
+
+function showPhotosCompare(a, b){
+  if(!b || !b.files || !b.files.length){ showPhotosView(a); return; }
+  mgPhotosHead.innerHTML = '';
+  const back = el('button', 'tta-back', '‹ ' + a.label + ' pildid');
+  back.type = 'button';
+  back.addEventListener('click', () => showPhotosView(a));
+  mgPhotosHead.append(back, makeComparePicker(a, b.cat, 'photos'));
+
+  mgPhotosCompare.innerHTML = '';
+  [a, b].forEach(e => {
+    const col = el('div', 'pcmp-col');
+    const h = el('div', 'wcmp-head');
+    h.appendChild(el('b', '', e.label));
+    h.appendChild(el('span', 'wcmp-type', [e.type, e.files.length + ' pilti'].filter(Boolean).join(' · ')));
+    col.appendChild(h);
+    mgPhotosCompare.appendChild(col);
+    loadGalleryCards(e, col, true);
+  });
+  modelGalleryGrid.hidden = true;
+  mgPhotosCompare.hidden = false;
+  mgPanels.photos.scrollIntoView({block: 'nearest'});
+}
+
 function setModelTab(tab){
   Object.entries(mgPanels).forEach(([k, p]) => { p.hidden = k !== tab; });
   modelGalleryTabs.querySelectorAll('.mg-tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === tab)));
@@ -2818,6 +2871,7 @@ async function openModelGallery(entry, tab, opts){
   modelGalleryEyebrow.textContent = entry.type || 'Mudel';
   modelGalleryTitle.textContent = entry.label;
   modelGalleryGrid.innerHTML = '';
+  showPhotosView(entry);
   mgPanels.tta.innerHTML = '';
   mgPanels.what.innerHTML = '';
   modelGalleryTabs.innerHTML = '';
@@ -2841,6 +2895,12 @@ async function openModelGallery(entry, tab, opts){
   modelGallery.classList.add('open');
   modelGallery.setAttribute('aria-hidden','false');
 
+  loadGalleryCards(entry, modelGalleryGrid, false);
+}
+
+// Mudeli pildikaardid konteinerisse (galerii ja piltide võrdlus kasutavad sama loogikat).
+// withLabel: suurenduse allkirja ette mudeli nimi (võrdluses on kahe mudeli pildid ühes reas).
+function loadGalleryCards(entry, container, withLabel){
   entry.files.forEach(async sourceFilename => {
     const card = document.createElement('div');
     card.className = 'model-gallery-card';
@@ -2854,17 +2914,18 @@ async function openModelGallery(entry, tab, opts){
     file.textContent = sourceFilename;
     wrap.appendChild(state);
     card.append(wrap, file);
-    modelGalleryGrid.appendChild(card);
+    container.appendChild(card);
 
     try{
       const info = await fetchSpecificFile(sourceFilename);
       if(!info || !info.url) throw new Error('Pildi URL-i ei saadud');
+      if(!card.isConnected) return;   // vahepeal vahetati mudelit / võrdlust
       const img = document.createElement('img');
       img.alt = entry.label;
       img.tabIndex = 0;
       img.setAttribute('role', 'button');
       img.setAttribute('aria-label', 'Suurenda: ' + sourceFilename);
-      img.dataset.caption = sourceFilename;
+      img.dataset.caption = (withLabel ? entry.label + ' · ' : '') + sourceFilename;
       img.addEventListener('click', () => openLightbox(img));
       img.addEventListener('keydown', ev => {
         if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); openLightbox(img); }
@@ -2891,6 +2952,10 @@ function closeModelGallery(fromHistory){
   modelGallery.classList.remove('open');
   modelGallery.setAttribute('aria-hidden','true');
   modelGalleryGrid.innerHTML = '';
+  modelGalleryGrid.hidden = false;
+  mgPhotosHead.innerHTML = '';
+  mgPhotosCompare.innerHTML = '';
+  mgPhotosCompare.hidden = true;
   mgPanels.tta.innerHTML = '';
   mgPanels.what.innerHTML = '';
   modelGalleryTabs.innerHTML = '';
@@ -2991,6 +3056,7 @@ function lbShow(i){
 function openLightbox(clickedImg){
   const lbScope = clickedImg.closest('.mg-panel') || modelGalleryGrid; // pildid või WHAT-pilt
   lbItems = Array.from(lbScope.querySelectorAll('img'))
+    .filter(im => !im.closest('[hidden]'))   // piltide võrdluses on mudeli enda galerii peidus
     .filter(im => im.complete && im.naturalWidth > 0 && (im.currentSrc || im.src))
     .map(im => ({src: im.currentSrc || im.src, alt: im.alt, caption: im.dataset.caption || '', el: im}));
   const idx = lbItems.findIndex(it => it.el === clickedImg);
@@ -3463,17 +3529,6 @@ function startRepeatMistakes(mistakeCats){
   loadNext();
 }
 
-function startCatalog(){
-  appMode = 'catalog';
-  currentGroupId = null;
-  resetRunState();
-  imageBag = buildImagePool(null);
-  TOTAL_IMAGES = imageBag.length;
-  updateScoreUI();
-  showRunScreen();
-  loadNext();
-}
-
 function goHome(){
   renderHome();
   showHomeScreen();
@@ -3520,7 +3575,7 @@ document.addEventListener('keydown', e => {
     return;
   }
 
-  // Klaviatuuriga hindamine (ainult testis/kataloogis, kus vastust üldse
+  // Klaviatuuriga hindamine (ainult testis, kus vastust üldse
   // hinnatakse — harjutuses õigsust ei märgita, seal on ainult "Järgmine"):
   // 1 = "Läks täppi", 2 = "Ei läinud täppi".
   if(appMode !== 'practice' && liveState.phase === 'revealed'){
@@ -3568,7 +3623,6 @@ kuldBadBtn.addEventListener('click', () => finishKuldQuestion(false));
 kuldBackBoardBtn.addEventListener('click', showKuldBoard);
 kuldMenuBtn.addEventListener('click', goHome);
 kuldResetBtn.addEventListener('click', resetKuldvillak);
-startCatalogBtn.addEventListener('click', startCatalog);
 showModelListBtn.addEventListener('click', showListScreen);
 listBackBtn.addEventListener('click', goHome);
 modelGalleryClose.addEventListener('click', () => closeModelGallery());
@@ -3659,7 +3713,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc15'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc17'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
   if(buildLabel) buildLabel.textContent = 'versioon ' + APP_BUILD;

@@ -1126,7 +1126,7 @@ window.TTA_DATA = {
       ]
     },
     "2S44 Giatsint-K": {
-      "status": "verified",
+      "status": "unverified",
       "values": {
         "crew": "5",
         "combatWeight": 36.4,
