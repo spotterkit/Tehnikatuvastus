@@ -88,7 +88,7 @@ KONTROLLITUKS MÄRKIMINE (rc16: eemaldatud)
 - Rohelist "TTA · kontrollitud" märget enam ei ole. check_release.js lubab ainult status "unverified".
 
 RELEASE
-- APP_BUILD rc19 / SW_VERSION offline-rc19. Lisatud curated-test.js (kureeritud test). Avalehelt eemaldatud "Vaata kogu kataloogi" (rc17). data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
+- APP_BUILD rc20 / SW_VERSION offline-rc20. Lisatud curated-test.js (kureeritud test). Avalehelt eemaldatud "Vaata kogu kataloogi" (rc17). data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
 - MEDIA_CACHE nime ei muudetud.
 
 TTA VÕRDLUS (2 mudelit)
@@ -158,6 +158,8 @@ KUREERITUD TEST (rc18–rc19) – õpetajale, fail curated-test.js
 - Projektor: start → pilt + suur number → "Kirjuta vastus" → järgmine → "Test läbi". Klahvid: → ↓ PageDown Enter edasi,
   ← ↑ PageUp tagasi, tühik = paus (automaatne) / edasi (käsitsi), F = täisekraan. Esc väljub ainult täisekraanist,
   test jääb alles; ✕ ja tagasi-nupp küsivad kinnitust. Failinime, allikat ega vihjeid ekraanil ei ole.
+- "Test läbi" ekraanil: "Näita vastuseid" (rc20) – kõik õiged vastused ühel ekraanil (nr. mudel – täpsustus),
+  "‹ Tagasi" viib "Test läbi" juurde, "Sulge" lõpetab.
 - NB: moodulis alati window.history (index.html globaalne `let history` varjab brauseri oma).
 - localStorage'it ei kasutata. Olemasolevat testi, harjutamist ja kuldvillakut moodul ei muuda.
 
