@@ -53,8 +53,8 @@ window.TTA_FIELDS = {
     "directFireRange": {"label": "Otsetule kaugus", "type": "number", "section": "ranges", "order": 55, "unit": "m", "comparable": true, "better": "higher"},
     "firingRangeMin": {"label": "Min laskekaugus", "type": "number", "section": "ranges", "order": 58, "unit": "km", "comparable": true},
     "firingRange": {"label": "Max laskekaugus – põhimoon", "type": "number", "section": "ranges", "order": 60, "unit": "km", "comparable": true, "better": "higher"},
-    "firingRangeBB": {"label": "Max laskekaugus – põhjagaasigeneraatoriga mürsk", "type": "number", "section": "ranges", "order": 61, "unit": "km", "comparable": true, "better": "higher"},
-    "firingRangeExt": {"label": "Max laskekaugus – reaktiivmürsk / pikendatud", "type": "number", "section": "ranges", "order": 62, "unit": "km", "comparable": true, "better": "higher"},
+    "firingRangeBB": {"label": "Max laskekaugus – base bleed mürsk (BB)", "type": "number", "section": "ranges", "order": 61, "unit": "km", "comparable": true, "better": "higher"},
+    "firingRangeExt": {"label": "Max laskekaugus – rakettkiirendiga mürsk (RAP)", "type": "number", "section": "ranges", "order": 62, "unit": "km", "comparable": true, "better": "higher"},
     "firingRangeGuided": {"label": "Max laskekaugus – juhitav mürsk", "type": "number", "section": "ranges", "order": 63, "unit": "km", "comparable": true, "better": "higher"},
     "armor": {"label": "Soomus", "type": "text", "section": "protection", "order": 10}
   }
