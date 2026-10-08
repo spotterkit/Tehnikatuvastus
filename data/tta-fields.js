@@ -32,7 +32,7 @@ window.TTA_FIELDS = {
     "sideSlope": {"label": "Külgkalle", "type": "number", "section": "mobility", "order": 73, "unit": "%", "comparable": true, "better": "higher"},
     "verticalStep": {"label": "Vertikaalne takistus", "type": "number", "section": "mobility", "order": 74, "unit": "m", "comparable": true, "better": "higher"},
     "trench": {"label": "Kraavi laius", "type": "number", "section": "mobility", "order": 75, "unit": "m", "comparable": true, "better": "higher"},
-    "fording": {"label": "Koolme sügavus", "type": "number", "section": "mobility", "order": 76, "unit": "m", "comparable": true, "better": "higher"},
+    "fording": {"label": "Veetakistuse sügavus", "type": "number", "section": "mobility", "order": 76, "unit": "m", "comparable": true, "better": "higher"},
     "airDroppable": {"label": "Langevarjuga heidetav", "type": "boolean", "section": "mobility", "order": 80},
     "caliber": {"label": "Kaliiber", "type": "number", "section": "armament", "order": 5, "unit": "mm", "comparable": true},
     "mainArmament": {"label": "Põhirelvastus", "type": "text", "section": "armament", "order": 10},
