@@ -5,12 +5,13 @@
 // Sektsiooni comparePriority: väiksem number = võrdluses eespool ja alati nähtav; ilma selleta = "Kõik andmed" all.
 // Sisu hoia puhta JSON-ina (jutumärgid võtmete ümber, lõpukomasid pole) – check_release.js kontrollib.
 window.TTA_FIELDS = {
-  "version": 4,
+  "version": 5,
   "sections": [
     {"id": "general", "label": "Üldandmed"},
     {"id": "mobility", "label": "Liikuvus"},
     {"id": "armament", "label": "Relvastus", "comparePriority": 1},
     {"id": "ranges", "label": "Laskekaugused", "comparePriority": 2},
+    {"id": "special", "label": "Eriotstarbeline varustus"},
     {"id": "protection", "label": "Kaitse"}
   ],
   "fields": {
@@ -37,16 +38,21 @@ window.TTA_FIELDS = {
     "caliber": {"label": "Kaliiber", "type": "number", "section": "armament", "order": 5, "unit": "mm", "comparable": true},
     "mainArmament": {"label": "Põhirelvastus", "type": "text", "section": "armament", "order": 10},
     "atgm": {"label": "Tankitõrjeraketid", "type": "text", "section": "armament", "order": 20},
+    "samMissiles": {"label": "Õhutõrjeraketid", "type": "text", "section": "armament", "order": 22},
     "atgmPenetration": {"label": "TTRK soomuseläbivus", "type": "text", "section": "armament", "order": 25},
     "launchTubes": {"label": "Torude arv", "type": "number", "section": "armament", "order": 26, "unit": " tk", "comparable": true, "better": "higher"},
     "salvoTime": {"label": "Täissalvo aeg", "type": "number", "section": "armament", "order": 27, "unit": "s", "comparable": true, "better": "lower"},
     "rateOfFire": {"label": "Laskekiirus (max)", "type": "number", "section": "armament", "order": 28, "unit": " lasku/min", "comparable": true, "better": "higher"},
     "secondaryArmament": {"label": "Lisarelvastus", "type": "text", "section": "armament", "order": 30},
+    "sensors": {"label": "Radarid ja sihtimisseadmed", "type": "text", "section": "armament", "order": 35},
     "mainGunRange": {"label": "Pearelv (kahur)", "type": "number", "section": "ranges", "order": 5, "unit": "m", "comparable": true, "better": "higher"},
     "atgmRange": {"label": "Tankitõrjeraketid", "type": "range", "section": "ranges", "order": 10, "unit": "m", "comparable": true, "better": "higher"},
+    "samRange": {"label": "Õhutõrjeraketid – kaugus", "type": "range", "section": "ranges", "order": 12, "unit": "m", "comparable": true, "better": "higher"},
+    "samAltitude": {"label": "Õhutõrjeraketid – kõrgus", "type": "range", "section": "ranges", "order": 14, "unit": "m", "comparable": true, "better": "higher"},
     "cannonRangeArmored": {"label": "Kahur – kergsoomustatud sihtmärk", "type": "number", "section": "ranges", "order": 20, "unit": "m", "comparable": true, "better": "higher"},
     "cannonRangeSoft": {"label": "Kahur – soomustamata sihtmärk", "type": "number", "section": "ranges", "order": 30, "unit": "m", "comparable": true, "better": "higher"},
     "cannonRangeAir": {"label": "Kahur – õhusihtmärk", "type": "number", "section": "ranges", "order": 40, "unit": "m", "comparable": true, "better": "higher"},
+    "cannonAltitudeAir": {"label": "Kahur – õhusihtmärgi kõrgus", "type": "number", "section": "ranges", "order": 41, "unit": "m", "comparable": true, "better": "higher"},
     "hmgRange": {"label": "Raskekuulipilduja – maasihtmärk", "type": "number", "section": "ranges", "order": 45, "unit": "m", "comparable": true, "better": "higher"},
     "hmgRangeAir": {"label": "Raskekuulipilduja – õhusihtmärk", "type": "number", "section": "ranges", "order": 46, "unit": "m", "comparable": true, "better": "higher"},
     "mgRange": {"label": "Kuulipilduja", "type": "number", "section": "ranges", "order": 50, "unit": "m", "comparable": true, "better": "higher"},
@@ -56,6 +62,10 @@ window.TTA_FIELDS = {
     "firingRangeBB": {"label": "Max laskekaugus – base bleed mürsk (BB)", "type": "number", "section": "ranges", "order": 61, "unit": "km", "comparable": true, "better": "higher"},
     "firingRangeExt": {"label": "Max laskekaugus – rakettkiirendiga mürsk (RAP)", "type": "number", "section": "ranges", "order": 62, "unit": "km", "comparable": true, "better": "higher"},
     "firingRangeGuided": {"label": "Max laskekaugus – juhitav mürsk", "type": "number", "section": "ranges", "order": 63, "unit": "km", "comparable": true, "better": "higher"},
+    "mineLaying": {"label": "Miinipaigaldus", "type": "text", "section": "special", "order": 10},
+    "mineCapacity": {"label": "Miinide arv", "type": "text", "section": "special", "order": 15},
+    "mineClearing": {"label": "Demineerimine", "type": "text", "section": "special", "order": 20},
+    "specialEquipment": {"label": "Eriseadmed", "type": "text", "section": "special", "order": 30},
     "armor": {"label": "Soomus", "type": "text", "section": "protection", "order": 10}
   }
 };
