@@ -135,7 +135,8 @@ if(ttaFields && ttaData){
   for(const [model, r] of Object.entries(ttaData.models || {})){
     const where = `tta.js [${model}]`;
     if(!cats.has(model)) fail(`${where}: sellist mudelit (cat) index.html-is pole`);
-    if(!['verified', 'unverified'].includes(r.status)) fail(`${where}: status peab olema 'verified' või 'unverified'`);
+    // Kõik TTA andmed on avalikest allikatest ja kuvatakse alati disclaimeriga – 'verified' staatust ei kasutata.
+    if(r.status !== 'unverified') fail(`${where}: status peab olema 'unverified' (TTA-d ei märgita kontrollituks)`);
     const values = r.values || {};
     if(!Object.keys(values).length) fail(`${where}: values on tühi`);
     for(const [k, v] of Object.entries(values)){
@@ -146,10 +147,6 @@ if(ttaFields && ttaData){
       if(!(k in values)) fail(`${where}: ${extra}.${k} viitab väljale, millel pole väärtust`);
     }
     if(!hasHttps(r.sources)) fail(`${where}: vähemalt üks allikas https-lingiga on kohustuslik`);
-    if(r.status === 'verified' && !(r.sources || []).some(s => /odin\.t2com\.army\.mil/.test(String(s.url || '')))){
-      fail(`${where}: 'verified' kirje allikates peab olema ODIN/WEG link`);
-    }
-    if(r.status !== 'verified') dataNotices.push(`${where}: kontrollimata`);
   }
 }
 if(whatData){

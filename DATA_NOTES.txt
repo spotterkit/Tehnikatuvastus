@@ -16,7 +16,7 @@ FAILID
 
 TTA KIRJE
   "BMD-2": {
-    "status": "unverified" | "verified",
+    "status": "unverified",                  ← alati; TTA-d ei märgita kontrollituks
     "values":   { "maxSpeedRoad": 80, "atgmRange": { "min": 70, "max": 4000 }, ... },
     "warnings": { välja_võti: "tekst" },     ← kollane märge (nt allikad lahknevad)
     "notes":    { välja_võti: "tekst" },     ← hall täpsustus
@@ -65,21 +65,22 @@ TÖÖVOOG UUE MUDELI JAOKS
 2. WHAT: slaidi pilt → images/what/, tekst → what.js, siis python tools/optimize_what_images.py --apply.
 3. node check_release.js .    → "Release-kontroll OK"
 4. Ava index.html otse (topeltklõps) ja vaata mudel üle.
-5. Kui väärtused on WEG-iga võrreldud: lisa ODIN sources'isse ja sea status "verified".
+5. Kui väärtused on WEG-iga võrreldud: lisa ODIN sources'isse. Status jääb "unverified".
 
 ODIN/WEG PDF-EKSPORT (eelistatud allikas)
 - ODIN-is mudeli lehel: ekspordi PDF. Saada PDF-id (võib ka mitu korraga / zip-ina).
 - PDF-ist loetakse väljad automaatselt (System, Dimensions, Automotive, Main Weapon System, Ammunition).
-  "INA" = andmed puuduvad → välja ei lisata. Allikaks ODIN/WEG link → status "verified" (roheline).
+  "INA" = andmed puuduvad → välja ei lisata. Allikaks ODIN/WEG link; status jääb "unverified".
 - WEG lisab maastikuläbivuse: gradient (tõusunurk %), sideSlope (külgkalle %), verticalStep (m),
   trench (kraavi laius m), fording (koolme sügavus m).
 
-KONTROLLITUKS MÄRKIMINE
-- check_release.js nõuab, et "verified" kirje allikates oleks ODIN/WEG link.
-- Kontrollimata kirje TTA nupp on nimekirjas kollane.
+KONTROLLITUKS MÄRKIMINE (rc16: eemaldatud)
+- Kõik TTA andmed on avalikest allikatest (ka ODIN/WEG) ja kuvatakse ALATI disclaimeriga
+  "Kontrollimata andmed avalikest allikatest. Võimalusel kontrolli üle täpsemast allikast."
+- Rohelist "TTA · kontrollitud" märget enam ei ole. check_release.js lubab ainult status "unverified".
 
 RELEASE
-- APP_BUILD rc15 / SW_VERSION offline-rc15. data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
+- APP_BUILD rc17 / SW_VERSION offline-rc17. Avalehelt eemaldatud "Vaata kogu kataloogi" (rc17). data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
 - MEDIA_CACHE nime ei muudetud.
 
 TTA VÕRDLUS (2 mudelit)
@@ -118,5 +119,11 @@ PARANDUS rc10
 - Telefoni tagasi-nupp ei sulgenud galeriid/suurendust: skripti globaalne `let history = []`
   varjas brauseri history objekti. Kihtide loogika kasutab nüüd window.history.
 
-TULEVIK
+PILTIDE VÕRDLUS (rc16)
+- Pildid-vahekaardil "Võrdle:" → sama otsitav valik nagu TTA/WHAT juures, kuid nimekirjas on KÕIK
+  mudelid, millel on pilte (TTA/WHAT pole vaja). Valikul kaks pildiveergu kõrvuti.
+- "‹ <mudel> pildid" viib tagasi mudeli enda galeriisse. Pildile vajutades suurendus; noolte/libistamisega
+  liigub läbi mõlema mudeli piltide (allkirjas mudeli nimi).
 
+TULEVIK
+- Viktoriin: "Kumma masina max kiirus on suurem?", "Mis number pildil on lainemurdja?" (WHAT `n`).
