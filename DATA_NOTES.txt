@@ -107,8 +107,9 @@ WHAT VÕRDLUS (2 mudelit) – "kumb masin see on?"
 
 WHAT: MÄRKUS JA ALUSPLATVORM (rc10)
 - "note": "tekst"  → roheliste äärtega infokast WHAT-vahekaardi ülaosas (nt BTR-60 baasversioon).
-- "related": [ { "label": "Kasutavad BMP-1 alusplatvormi",
+- "related": [ { "label": "Näiteks kasutavad BMP-1 alusplatvormi",
                  "models": [ { "name": "PRP-4A", "cat": "PRP-4" }, { "name": "BMP-1AM" } ] } ]
+  · Silt algab alati "Näiteks kasutavad …" – nimekiri on näited, mitte täielik loetelu (koolon lisatakse ise).
   · "cat" olemas ja mudelil on pildid → klikitav, avab selle mudeli pildid.
   · "cat" puudub (või mudelil pole pilte) → kuvatakse tekstina (punktiirjoon).
   · "cat" puudub → äpp otsib mudeli NIME järgi (rc15). Kui lisad äppi uue mudeli (nt BMM-3), muutub
