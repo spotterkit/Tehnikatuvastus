@@ -119,4 +119,4 @@ PARANDUS rc10
   varjas brauseri history objekti. Kihtide loogika kasutab nüüd window.history.
 
 TULEVIK
-- Viktoriin: "Kumma masina max kiirus on suurem?", "Mis number pildil on lainemurdja?" (WHAT `n`).
+
