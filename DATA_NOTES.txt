@@ -80,7 +80,7 @@ KONTROLLITUKS MÄRKIMINE (rc16: eemaldatud)
 - Rohelist "TTA · kontrollitud" märget enam ei ole. check_release.js lubab ainult status "unverified".
 
 RELEASE
-- APP_BUILD rc17 / SW_VERSION offline-rc17. Avalehelt eemaldatud "Vaata kogu kataloogi" (rc17). data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
+- APP_BUILD rc19 / SW_VERSION offline-rc19. Lisatud curated-test.js (kureeritud test). Avalehelt eemaldatud "Vaata kogu kataloogi" (rc17). data/*.js on OPTIONAL_APP_ASSETS-is ja offline-assets.json-is.
 - MEDIA_CACHE nime ei muudetud.
 
 TTA VÕRDLUS (2 mudelit)
@@ -124,6 +124,32 @@ PILTIDE VÕRDLUS (rc16)
   mudelid, millel on pilte (TTA/WHAT pole vaja). Valikul kaks pildiveergu kõrvuti.
 - "‹ <mudel> pildid" viib tagasi mudeli enda galeriisse. Pildile vajutades suurendus; noolte/libistamisega
   liigub läbi mõlema mudeli piltide (allkirjas mudeli nimi).
+
+KUREERITUD TEST (rc18–rc19) – õpetajale, fail curated-test.js
+- Avalehel Testid all: "Kureeri test (õpetajale)" ja "Ava salvestatud test". Nõuded: Kureeritud_test_nouded.md (N1–N28).
+- Ülemine riba "1 Seaded · 2 Pildid · 3 Kinnita ja salvesta" on klikitav (3 = kinnita). "‹ Tagasi" = eelmine samm,
+  sammust 1 avalehele. Salvestamata testist lahkudes (ka TEHNIKATUVASTUS pealkirja kaudu) küsitakse kinnitust.
+- Samm 1: testi nimi (failinimes ja projektori avaekraanil; tühi → "Tehnikatest <kuupäev>"), liikumine
+  (käsitsi / automaatne; vaikimisi pilt 15 s, kirjutamine 10 s).
+- Samm 2: küsimuste arv (eelvaate päises); "Täida piltidega": kogus kategooria kaupa, "Kõik" / "0" igal real,
+  "Tühjenda kõik". Linnuke "Üks pilt mudeli kohta": peal → maksimum = mudelite arv; maas → maksimum = kõigi piltide arv
+  ja pildid jaotatakse ühtlaselt ringide kaupa (igast mudelist üks, siis teine ring...), sama pilt ei kordu.
+  Kategooria nimele klõps näitab mudeleid koos piltide arvuga; linnukesega saab mudeli välja jätta.
+  Kui valitud rohkem kui vabu kohti, pakub arvu suurendada. Eelvaates "pilt 2/5" ja "mudel testis 3×".
+  "+ Lisa pilt käsitsi" (mis tahes mudeli mis tahes pilt), eelvaates Vaheta pilt / ↑ / ↓ / ✕, Sega, Kategooriate kaupa.
+- Samm 3: järjest 1) Salvesta test (.html), 2) Prindi vastuste leht, 3) Prindi õpilase leht; siis "Alusta testi".
+  Linnukesed on seotud testi sisuga: kui test pärast salvestamist muutub, kaovad linnukesed ja samm 3 hoiatab,
+  et vana fail ja vanad lehed ei kehti. Muutmata test säilitab linnukesed ja kuupäeva.
+  Lehed tulevad brauseri printimisaknast (ka "Salvesta PDF-ina"); PDF-i faili nimeks pakub brauser lehe pealkirja.
+- Testifail <nimi>_<kuupäev>_<arv>kys.html (nimeta: Tehnikatest_…): sees JSON (id="tehnikatuvastus-test") ja suunamine
+  <äpi aadress>#kureeritud=<base64url JSON>. Topeltklõps avab äpi koos testiga (vajab internetti Commonsi piltide jaoks).
+  Äpi aadress = see, kust test salvestati (GitHub Pages või kohalik index.html). Failis on vastused – õpilastele ei jagata.
+- Avamisel kontrollitakse, kas iga küsimuse mudel (cat) ja pildifail on veel CATEGORIES-is. Puuduv → samm 2, vaheta.
+- Projektor: start → pilt + suur number → "Kirjuta vastus" → järgmine → "Test läbi". Klahvid: → ↓ PageDown Enter edasi,
+  ← ↑ PageUp tagasi, tühik = paus (automaatne) / edasi (käsitsi), F = täisekraan. Esc väljub ainult täisekraanist,
+  test jääb alles; ✕ ja tagasi-nupp küsivad kinnitust. Failinime, allikat ega vihjeid ekraanil ei ole.
+- NB: moodulis alati window.history (index.html globaalne `let history` varjab brauseri oma).
+- localStorage'it ei kasutata. Olemasolevat testi, harjutamist ja kuldvillakut moodul ei muuda.
 
 TULEVIK
 - Viktoriin: "Kumma masina max kiirus on suurem?", "Mis number pildil on lainemurdja?" (WHAT `n`).

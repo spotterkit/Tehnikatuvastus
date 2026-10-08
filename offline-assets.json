@@ -10,6 +10,7 @@
   "./data/tta-fields.js",
   "./data/tta.js",
   "./data/what.js",
+  "./curated-test.js",
   "./images/ad/PPRU1_01.jpg",
   "./images/antitank/kornett_01.jpg",
   "./images/antitank/shturms_01.jpg",
