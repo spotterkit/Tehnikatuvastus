@@ -24,9 +24,14 @@ TTA KIRJE
     "verifyAgainst": { "name": "U.S. Army ODIN / WEG", "url": "https://odin.t2com.army.mil/WEG/Asset/..." }
   }
 - Lisa ainult need väljad, mille väärtus on teada. Tühja/"—" välja ära kirjuta.
-- REEGEL: väärtus peab olema allikas kirjas SELLE masina/variandi (või selle konkreetse relva) kohta.
-  Ei tuletata, ei asendata sarnase relva/baasversiooni andmetega (nt 2A72 ≠ 2A42, PKT ≠ PK/PKM,
-  BMD-4M ≠ BMD-4). Kui ei leia, jääb väli lihtsalt ära.
+- REEGEL: väärtus peab olema allikas kirjas selle masina kohta. Ei tuletata ega arvata.
+  Üldise nimega mudel (nt T-72, T-80, T-62): sobib esindava variandi andmestik (nt ODIN/WEG T-80BV);
+  variant on näha allika nimes ja vajadusel märkuses "Andmed: ...". Täpsustusi variantide kaupa ei taotleta.
+  Konkreetse variandi nimega mudel (nt T-90M, BMD-4M): eelistatult selle variandi andmed.
+  Kui ei leia, jääb väli lihtsalt ära.
+- ODIN/WEG vs Wikipedia: eelistatakse ODIN/WEG väärtust; suure lahknevuse korral "warnings" märge.
+  Erand: kui ODIN/WEG on ilmselgelt kopeeritud teiselt mudelilt (nt T-90M mootor = T-90A oma),
+  jääb Wikipedia väärtus ja lahknevus kirjutatakse "warnings" alla.
 - Arvud on numbrid (80, mitte "80km/h"); ühik tuleb sõnastikust ja kuvatakse kohe numbri järel (80km/h).
   Laskekaugus: "range" {min, max}.
 - Tekstides kirjuta ühik samuti tühikuta: 30mm, 7,62mm, 1500m.
@@ -72,7 +77,9 @@ ODIN/WEG PDF-EKSPORT (eelistatud allikas)
 - PDF-ist loetakse väljad automaatselt (System, Dimensions, Automotive, Main Weapon System, Ammunition).
   "INA" = andmed puuduvad → välja ei lisata. Allikaks ODIN/WEG link; status jääb "unverified".
 - WEG lisab maastikuläbivuse: gradient (tõusunurk %), sideSlope (külgkalle %), verticalStep (m),
-  trench (kraavi laius m), fording (koolme sügavus m).
+  trench (kraavi laius m), fording (koolme sügavus m, ilma ettevalmistuseta; ettevalmistusega → notes).
+- Tankid (ODIN/WEG, 8.10.2026): mainGunRange = APFSDS efektiivne laskekaugus, HEAT/HE kaugused notes all.
+  "Speed, Average Cross" ei ole max maastikukiirus – maxSpeedOffroad'i sellest ei täideta.
 
 KONTROLLITUKS MÄRKIMINE (rc16: eemaldatud)
 - Kõik TTA andmed on avalikest allikatest (ka ODIN/WEG) ja kuvatakse ALATI disclaimeriga
