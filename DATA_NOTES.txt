@@ -128,7 +128,8 @@ PILTIDE VÕRDLUS (rc16)
 KUREERITUD TEST (rc18–rc19) – õpetajale, fail curated-test.js
 - Avalehel Testid all: "Kureeri test (õpetajale)" ja "Ava salvestatud test". Nõuded: Kureeritud_test_nouded.md (N1–N28).
 - Ülemine riba "1 Seaded · 2 Pildid · 3 Kinnita ja salvesta" on klikitav (3 = kinnita). "‹ Tagasi" = eelmine samm,
-  sammust 1 avalehele. Salvestamata testist lahkudes (ka TEHNIKATUVASTUS pealkirja kaudu) küsitakse kinnitust.
+  sammust 1 avalehele. Brauseri/hiire tagasi-nupp teeb sama (oma history kirje), ka pärast printimisakent.
+- Sammus 2 on üleval kleepuv riba: küsimuste arv, "Testis x / y" ja "Kinnita test ›". Salvestamata testist lahkudes (ka TEHNIKATUVASTUS pealkirja kaudu) küsitakse kinnitust.
 - Samm 1: testi nimi (failinimes ja projektori avaekraanil; tühi → "Tehnikatest <kuupäev>"), liikumine
   (käsitsi / automaatne; vaikimisi pilt 15 s, kirjutamine 10 s).
 - Samm 2: küsimuste arv (eelvaate päises); "Täida piltidega": kogus kategooria kaupa, "Kõik" / "0" igal real,
