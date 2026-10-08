@@ -205,6 +205,18 @@ body.ct-proj-open{overflow:hidden;}
 .ct-proj-go{font-size:3vh;padding:1.6vh 5vh;margin-top:2vh;cursor:pointer;}
 .ct-proj-end-msg{font-family:var(--font-display);font-size:16vh;color:#ffd24a;text-transform:uppercase;letter-spacing:.06em;}
 .ct-proj-end button{font-size:2.6vh;padding:1.4vh 4vh;cursor:pointer;}
+.ct-proj-end-btns{display:flex;gap:2vh;flex-wrap:wrap;justify-content:center;}
+.ct-proj-answers{position:absolute;inset:0;display:flex;flex-direction:column;padding:2.5vh 3vw 2vh;}
+.ct-proj-answers[hidden]{display:none;}
+.ct-proj-ans-head{display:flex;align-items:center;justify-content:space-between;gap:2vh;margin-bottom:2vh;}
+.ct-proj-ans-head > span{font-family:var(--font-display);font-size:6vh;color:#ffd24a;text-transform:uppercase;letter-spacing:.06em;}
+.ct-proj-ans-btns{display:flex;gap:1.5vh;}
+.ct-proj-ans-btns button{font-size:2.2vh;padding:1.1vh 3vh;cursor:pointer;}
+.ct-proj-ans-list{flex:1;min-height:0;margin:0;padding:0 0 7vh;list-style:none;display:grid;grid-auto-flow:column;column-gap:3vw;row-gap:.3em;align-content:start;overflow:hidden;}
+.ct-proj-top[hidden]{display:none;}
+.ct-proj-ans-list li{display:flex;gap:.6em;line-height:1.25;color:#f2f2e6;}
+.ct-proj-ans-list b{color:#ffd24a;min-width:2.4em;text-align:right;flex:0 0 auto;}
+.ct-proj-stage.is-answers{align-items:stretch;}
 .ct-proj-bar{height:2.2vh;background:#1d2117;}
 .ct-proj-bar[hidden]{display:none;}
 .ct-proj-bar i{display:block;height:100%;width:100%;background:#ffd24a;}
@@ -1002,7 +1014,13 @@ function openProjector(){
     +   '<img class="ct-proj-img" alt="" draggable="false">'
     +   '<div class="ct-proj-write" hidden><div class="ct-proj-write-nr"></div><div class="ct-proj-write-msg">Kirjuta vastus</div></div>'
     +   '<div class="ct-proj-start" hidden></div>'
-    +   '<div class="ct-proj-end" hidden><div class="ct-proj-end-msg">Test läbi</div><button type="button" class="primary ct-proj-close2">Sulge</button></div>'
+    +   '<div class="ct-proj-end" hidden><div class="ct-proj-end-msg">Test läbi</div><div class="ct-proj-end-btns">'
+    +     '<button type="button" class="ct-proj-showans">Näita vastuseid</button>'
+    +     '<button type="button" class="primary ct-proj-close2">Sulge</button></div></div>'
+    +   '<div class="ct-proj-answers" hidden><div class="ct-proj-ans-head"><span>Vastused</span><div class="ct-proj-ans-btns">'
+    +     '<button type="button" class="ct-proj-ansback">‹ Tagasi</button>'
+    +     '<button type="button" class="primary ct-proj-close3">Sulge</button></div></div>'
+    +     '<ol class="ct-proj-ans-list"></ol></div>'
     + '</div>'
     + '<div class="ct-proj-bar" hidden><i></i></div>'
     + '<div class="ct-proj-ctrl">'
@@ -1025,6 +1043,9 @@ function openProjector(){
     else if(a === 'close') askClose();
   });
   el.querySelector('.ct-proj-close2').addEventListener('click', () => closeProjector());
+  el.querySelector('.ct-proj-close3').addEventListener('click', () => closeProjector());
+  el.querySelector('.ct-proj-showans').addEventListener('click', () => setPhase('answers'));
+  el.querySelector('.ct-proj-ansback').addEventListener('click', () => setPhase('end'));
   el.addEventListener('mousemove', showCtrl);
   el.addEventListener('click', ev => { if(!ev.target.closest('button')) showCtrl(); });
   window.addEventListener('keydown', projKey, true);
@@ -1069,7 +1090,7 @@ window.addEventListener('popstate', () => {
     return;
   }
   // Telefoni/brauseri tagasi-nupp: ei lõpeta testi kogemata.
-  if(P.phase !== 'end' && P.phase !== 'start'){
+  if(P.phase !== 'end' && P.phase !== 'answers' && P.phase !== 'start'){
     pauseTimer(true);
     if(!confirm('Lõpetada test ja sulgeda projektorivaade?')){
       try{ window.history.pushState({ctProj: true}, ''); }catch(e){}
@@ -1080,7 +1101,7 @@ window.addEventListener('popstate', () => {
   closeProjector();
 });
 function askClose(){
-  if(P.phase === 'end' || P.phase === 'start' || confirm('Lõpetada test ja sulgeda projektorivaade?')) closeProjector();
+  if(P.phase === 'end' || P.phase === 'answers' || P.phase === 'start' || confirm('Lõpetada test ja sulgeda projektorivaade?')) closeProjector();
 }
 
 function preload(){
@@ -1124,8 +1145,13 @@ function draw(){
   const showNum = P.phase === 'view' || P.phase === 'write';
   num.innerHTML = showNum ? '<b>' + (P.i + 1) + '</b><span> / ' + n + '</span>' : '';
   el.querySelector('.ct-proj-top').classList.toggle('is-empty', !showNum);
+  el.querySelector('.ct-proj-top').hidden = P.phase === 'answers';
   start.hidden = P.phase !== 'start';
   end.hidden = P.phase !== 'end';
+  const ans = el.querySelector('.ct-proj-answers');
+  ans.hidden = P.phase !== 'answers';
+  el.querySelector('.ct-proj-stage').classList.toggle('is-answers', P.phase === 'answers');
+  if(P.phase === 'answers') drawAnswers(ans.querySelector('.ct-proj-ans-list'));
   write.hidden = P.phase !== 'write';
   if(P.phase === 'write') write.querySelector('.ct-proj-write-nr').textContent = String(P.i + 1);
   if(P.phase === 'view'){
@@ -1147,8 +1173,28 @@ function draw(){
   pb.textContent = P.paused ? '▶' : '❚❚';
   if(P.phase === 'start') drawStart();
 }
+// Kõik õiged vastused ühel ekraanil (õpetaja valikul pärast "Test läbi"). Tulpade arv ja kirja suurus sõltuvad küsimuste arvust.
+function drawAnswers(list){
+  const n = S.questions.length;
+  const cols = n <= 10 ? 1 : n <= 24 ? 2 : n <= 48 ? 3 : 4;
+  const rows = Math.ceil(n / cols);
+  list.style.gridTemplateColumns = 'repeat(' + cols + ', minmax(0, 1fr))';
+  list.style.gridTemplateRows = 'repeat(' + rows + ', auto)';
+  list.innerHTML = '';
+  S.questions.forEach((q, i) => list.appendChild(h('li', null, h('b', null, (i + 1) + '.'), h('span', null, answerText(q)))));
+  // Kiri nii suur kui võimalik, aga kõik vastused peavad mahtuma ühele ekraanile (ilma kerimiseta).
+  let size = Math.min(4.6, 80 / rows);
+  list.style.fontSize = size.toFixed(2) + 'vh';
+  requestAnimationFrame(() => {
+    while(size > 1.2 && list.scrollHeight > list.clientHeight + 1){
+      size -= 0.15;
+      list.style.fontSize = size.toFixed(2) + 'vh';
+    }
+  });
+}
 function next(){
   const n = S.questions.length;
+  if(P.phase === 'end' || P.phase === 'answers') return;
   if(P.phase === 'start'){ if(P.loaded + P.failed >= n){ P.i = 0; setPhase('view'); } return; }
   if(P.phase === 'view') return setPhase('write');
   if(P.phase === 'write'){
@@ -1157,6 +1203,7 @@ function next(){
   }
 }
 function prev(){
+  if(P.phase === 'answers') return setPhase('end');
   if(P.phase === 'end'){ P.i = S.questions.length - 1; return setPhase('write'); }
   if(P.phase === 'write') return setPhase('view');
   if(P.phase === 'view' && P.i > 0){ P.i--; return setPhase('write'); }
@@ -1203,7 +1250,7 @@ function projKey(ev){
   let handled = true;
   if(k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || k === 'Enter') next();
   else if(k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || k === 'Backspace') prev();
-  else if(k === ' ' || k === 'Spacebar') { if(auto && P.phase !== 'start' && P.phase !== 'end') togglePause(); else next(); }
+  else if(k === ' ' || k === 'Spacebar') { if(auto && (P.phase === 'view' || P.phase === 'write')) togglePause(); else next(); }
   else if(k === 'p' || k === 'P') togglePause();
   else if(k === 'f' || k === 'F') toggleFs();
   else if(k === 'Escape') { handled = false; }     // brauser väljub täisekraanist; test jääb alles

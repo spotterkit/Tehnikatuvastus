@@ -71,6 +71,7 @@ Täiendused pärast esimest katsetust (8.10):
 | N37 | Ühtlane jaotus | Kui linnuke on maas, võetakse kõigepealt üks pilt igast mudelist, siis teine ring neist, kellel veel pilte on, jne. |
 | N38 | Mudelid ja piltide arv nähtavad | Kategooria nimele klõps näitab mudeleid koos piltide arvuga. Linnukesega saab mudeli välja jätta (asendab eraldi otsingu). |
 | N39 | Kordused eelvaates | Rida näitab „pilt 2/5“ ja kui mudel on testis mitu korda, kollast märki „mudel testis 3×“. |
+| N40 | „Näita vastuseid“ lõpus | „Test läbi“ ekraanil on „Sulge“ kõrval nupp „Näita vastuseid“: projektorile ilmuvad kõik õiged vastused kujul `<nr>. <mudel> – <täpsustus>`. Sealt „‹ Tagasi“ või „Sulge“. |
 
 N6 kohta: andmetes on juba olemas mudeli nimi (`label`) ja tüüp (`type`), nt `label: "2S43 Malva"`, `type: "Liikursuurtükk"`. Seega saab vastuste lehe rea teha praegustest andmetest ja uut andmevälja pole vaja. Need on samad väljad, mida praegune „Genereeri test“ näitab vastuse avamisel (N25).
 
