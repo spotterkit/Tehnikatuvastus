@@ -50,6 +50,21 @@ window.WHAT_DATA = {
         {"n": 7, "text": "Aktiivsoomuse all ovaalne valatud torn."},
         {"n": 8, "text": "Torni tagaosas paiknev silindriline snorklitoru"},
         {"text": "Aktiivsoomus Kontakt-1/Kontakt-5/Relikt."}
+      ],
+      "related": [
+        {
+          "label": "Näiteks kasutavad T-72 alusplatvormi",
+          "models": [
+            {"name": "BMO-T", "cat": "BMO-T"},
+            {"name": "BMP-T „TERMINATOR“", "cat": "BMP-T"},
+            {"name": "TOS-1 „BURATINO“", "cat": "TOS-1 Buratino"},
+            {"name": "TOS-1A", "cat": "TOS-1A"},
+            {"name": "BREM-1", "cat": "BREM-1"},
+            {"name": "IMR-2", "cat": "IMR-2"},
+            {"name": "MTU-72", "cat": "MTU-72"},
+            {"name": "2S19 „MSTA-S“", "cat": "2S19 Msta"}
+          ]
+        }
       ]
     },
     "T-80": {
@@ -95,6 +110,15 @@ window.WHAT_DATA = {
         {"n": 8, "text": "Keevitatud, nurgeline torn, „teemanti“ kujuga. T-90A torn väiksem kui T-90M."},
         {"n": 9, "text": "Štora tuled mõlemal pool pearelva (mitte kõigil)."},
         {"text": "Aktiivsoomus Kontakt-1/Kontakt-5/Relikt."}
+      ],
+      "related": [
+        {
+          "label": "Näiteks kasutavad T-90 alusplatvormi",
+          "models": [
+            {"name": "IMR-3", "cat": "IMR-3"},
+            {"name": "MTU-90", "cat": "MTU-90"}
+          ]
+        }
       ]
     },
     "T-90M": {
@@ -147,7 +171,7 @@ window.WHAT_DATA = {
         {
           "label": "Näiteks kasutavad BMP-1 alusplatvormi",
           "models": [
-            {"name": "BMP-1KSh", "cat": "BMP-1KSh"},
+            {"name": "BMP-1KSh", "cat": "BMP-1Ksh"},
             {"name": "BMP-1AM"},
             {"name": "BRM-1K", "cat": "BRM-1K"},
             {"name": "PRP-4A", "cat": "PRP-4"},
@@ -219,7 +243,7 @@ window.WHAT_DATA = {
         {
           "label": "Näiteks kasutavad BMP-3 alusplatvormi",
           "models": [
-            {"name": "9P157 „KRIZANTEMA-S“", "cat": "9P157 Krizantema-S"},
+            {"name": "9P157-2 „KRIZANTEMA-S“", "cat": "9P157-2 Krizantema-S"},
             {"name": "BREM-L"},
             {"name": "BMP-3F"},
             {"name": "9P162 „KORNET-T“", "cat": "9P162 Kornet-T"}
@@ -265,11 +289,12 @@ window.WHAT_DATA = {
         {
           "label": "Näiteks kasutavad K1Š1 – BTR-80 šassiil põhinevat kõrgendatud kerega alusplatvormi",
           "models": [
-            {"name": "1V152"},
+            {"name": "1V152", "cat": "1V152"},
             {"name": "R-166-0,5", "cat": "R-166-0,5"},
             {"name": "RB-531B", "cat": "RB-531B Infauna"},
             {"name": "R-149BMR", "cat": "R-149BMR"},
-            {"name": "BMM-3"}
+            {"name": "R-149MA1", "cat": "R-149MA1"},
+            {"name": "BMM-3", "cat": "BMM-3"}
           ]
         }
       ]
@@ -327,7 +352,7 @@ window.WHAT_DATA = {
         {
           "label": "Näiteks kasutavad MT-LB alusplatvormi",
           "models": [
-            {"name": "MT-LBVMK", "cat": "MT-LBVMK"},
+            {"name": "MT-LBVMK"},
             {"name": "MT-LBV"},
             {"name": "MT-LBMA"},
             {"name": "SNAR-10", "cat": "SNAR-10"},
@@ -391,7 +416,10 @@ window.WHAT_DATA = {
             {"name": "SPRM-2M"},
             {"name": "R-166-1B"},
             {"name": "ARK-1M", "cat": "ARK-1"},
-            {"name": "1V12"}
+            {"name": "1V12"},
+            {"name": "1V13", "cat": "1V13"},
+            {"name": "1V15", "cat": "1V15"},
+            {"name": "RB-301B „BORISOGLEBSK-2“", "cat": "RB-301B Borisoglebsk-2"}
           ]
         }
       ]
@@ -422,7 +450,7 @@ window.WHAT_DATA = {
           "label": "Näiteks kasutavad BTR-60 alusplatvormi",
           "models": [
             {"name": "R-145BM", "cat": "R-145BM"},
-            {"name": "R-145BM1"},
+            {"name": "R-145BM1", "cat": "R-145BM1"},
             {"name": "1V18", "cat": "1V18"}
           ]
         }
@@ -512,7 +540,8 @@ window.WHAT_DATA = {
             {"name": "BMRD R-149"},
             {"name": "R-440 ODB", "cat": "R-440 ODB"},
             {"name": "BMD-1R"},
-            {"name": "1V119", "cat": "1V119"}
+            {"name": "1V119", "cat": "1V119"},
+            {"name": "BREM-D", "cat": "BREM-D"}
           ]
         }
       ]

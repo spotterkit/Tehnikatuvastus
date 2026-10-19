@@ -2011,7 +2011,7 @@ window.TTA_DATA = {
         {"name": "Wikipedia: 9K114 Shturm", "url": "https://en.wikipedia.org/wiki/9K114_Shturm", "retrieved": "2026-10-08"}
       ]
     },
-    "9P157 Krizantema-S": {
+    "9P157-2 Krizantema-S": {
       "status": "unverified",
       "values": {
         "crew": "2 (operaator, juht)",
