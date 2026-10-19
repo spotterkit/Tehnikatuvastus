@@ -19,7 +19,7 @@ const FILE_KIND = 'tehnikatuvastus-kureeritud-test';
 const FILE_VERSION = 1;
 const HASH_KEY = '#kureeritud=';
 const MAX_Q = 100;
-const DEFAULTS = {count: 20, mode: 'manual', viewSec: 15, writeSec: 10, name: ''};
+const DEFAULTS = {count: 20, mode: 'manual', viewSec: 15, writeSec: 15, name: ''};
 
 const screen = document.getElementById('curatedScreen');
 if(!screen || typeof CATEGORIES === 'undefined') return;
