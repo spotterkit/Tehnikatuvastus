@@ -1234,7 +1234,7 @@ const CATEGORIES = [
   { label: "96L6 Cheese Board", group: "ad", type: "ÕT radar", cat: "96L6 Cheese Board", weight: 1, files: ["96L6-TsP_radar_%284%29.png"] },
   { label: "PPRU-1", group: "ad", type: "ÕT luure- ja juhtimissoomuk", cat: "PPRU-1", weight: 1, files: ["images/ad/PPRU1_01.jpg"] },
   { label: "9S912", group: "ad", type: "ÕT juhtimissoomuk", cat: "9S912", weight: 2, files: ["4thGuardsTankDivisionExercises2011_14.jpg"] },
-  { label: "1L119 NEBO-SVU", group: "ad", type: "1L119 NEBO-SVU", cat: "64N6 Big Bird", weight: 1, files: ["images/ad/nebosvu.jpg"] },
+  { label: "1L119 NEBO-SVU", group: "ad", type: "ÕT radar", cat: "1L119 NEBO-SVU", weight: 1, files: ["images/ad/nebosvu.jpg"] },
 
   // Tankitõrjesoomukid
   { label: "9P149 Shturm-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P149 Shturm-S", weight: 1, files: ["9P149.jpg", "Штурм-С_-_Контрольная_проверка_курсантов_Учебного_центра_боевого_применения_ракетных_войск_и_артиллерии_02.jpg", "images/antitank/shturms_01.jpg"] },
@@ -3730,7 +3730,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc23'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc24'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
