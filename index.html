@@ -1366,6 +1366,28 @@ const CATEGORIES = [
   { label: "Strela-3 (9K34)", group: "weapons", type: "Õhutõrjerakett", cat: "Strela-3 (9K34)", weight: 1, files: [] },
   { label: "Verba (9K333)", group: "weapons", type: "Õhutõrjerakett", cat: "Verba (9K333)", weight: 1, files: ["9K333_Verba_MANPAD_at_Military-technical_forum_ARMY-2016_01.jpg"] },
 
+  // Väeliigid ja väed — emblemmid ja üldfotod; šabloon, lisa pildifailid files[] massiividesse
+  // (nt "images/forces/vdv_embleem.png" või Commonsi failinimi). Pildita read ei kajastu kusagil.
+  { label: "Maavägi / Сухопутные войска", group: "forces", type: "", cat: "Maavägi", weight: 1, files: [] },
+  { label: "Õhu- ja kosmosejõud (VKS) / Воздушно-космические силы", group: "forces", type: "", cat: "Õhu- ja kosmosejõud (VKS)", weight: 1, files: [] },
+  { label: "Merevägi (VMF) / Военно-морской флот", group: "forces", type: "", cat: "Merevägi (VMF)", weight: 1, files: [] },
+  { label: "Strateegilised raketiväed / Ракетные войска стратегического назначения", group: "forces", type: "", cat: "Strateegilised raketiväed", weight: 1, files: [] },
+  { label: "Õhudessantväed (VDV) / Воздушно-десантные войска", group: "forces", type: "", cat: "Õhudessantväed (VDV)", weight: 1, files: [] },
+  { label: "Merejalavägi / Морская пехота", group: "forces", type: "", cat: "Merejalavägi", weight: 1, files: [] },
+  { label: "Rannikuväed / Береговые войска", group: "forces", type: "", cat: "Rannikuväed", weight: 1, files: [] },
+  { label: "Rosgvardija / Росгвардия", group: "forces", type: "", cat: "Rosgvardija", weight: 1, files: [] },
+  { label: "Kosmoseväed / Космические войска", group: "forces", type: "", cat: "Kosmoseväed", weight: 1, files: [] },
+  { label: "Raketi- ja suurtükiväed / Ракетные войска и артиллерия", group: "forces", type: "", cat: "Raketi- ja suurtükiväed", weight: 1, files: [] },
+  { label: "Õhutõrjeväed / Войска ПВО", group: "forces", type: "", cat: "Õhutõrjeväed", weight: 1, files: [] },
+  { label: "Inseneriväed / Инженерные войска", group: "forces", type: "", cat: "Inseneriväed", weight: 1, files: [] },
+  { label: "Sideväed / Войска связи", group: "forces", type: "", cat: "Sideväed", weight: 1, files: [] },
+  { label: "EW-väed (elektrooniline sõjapidamine) / Войска РЭБ", group: "forces", type: "", cat: "EW-väed", weight: 1, files: [] },
+  { label: "RKBK-väed (kiirgus-, keemia- ja bioloogiline kaitse) / Войска РХБ защиты", group: "forces", type: "", cat: "RKBK-väed", weight: 1, files: [] },
+  { label: "Raudteeväed / Железнодорожные войска", group: "forces", type: "", cat: "Raudteeväed", weight: 1, files: [] },
+  { label: "Sõjaväepolitsei / Военная полиция", group: "forces", type: "", cat: "Sõjaväepolitsei", weight: 1, files: [] },
+  { label: "GRU eriüksused (Spetsnaz) / Спецназ ГРУ", group: "forces", type: "", cat: "GRU eriüksused (Spetsnaz)", weight: 1, files: [] },
+  { label: "FSB piirivalve / Пограничная служба ФСБ", group: "forces", type: "", cat: "FSB piirivalve", weight: 1, files: [] },
+
 ];
 // Kaheksa harjutuskategooriat — iga CATEGORIES kirje `group` väli viitab siia.
 const GROUPS = [
@@ -1390,7 +1412,15 @@ const GROUPS = [
   { id: "ew", label: "Elektroonilise sõjapidamise vahendid ja tehnika" },
   { id: "ranks", label: "Auastmed" },
   { id: "weapons", label: "Relvastus" },
+  { id: "forces", label: "Väeliigid" },
 ];
+
+// Kategooriad, mis EI ole masinad: loendurites ja siltides kasutatakse nende oma sõna.
+const GROUP_COUNT_WORD = { ranks: 'auastet', weapons: 'relva', forces: 'väeliiki' };   // "5 väeliiki"
+const GROUP_STATS_WORD = { ranks: 'Auastmeid', weapons: 'Relvi', forces: 'Väeliike' }; // avalehe kokkuvõte
+const GROUP_ENTRY_NOUN = { ranks: 'Auaste', weapons: 'Relv', forces: 'Väeliik' };      // mudeli akna üldsilt, kui type puudub
+const NON_MACHINE_GROUPS = new Set(Object.keys(GROUP_COUNT_WORD));
+function groupCountLabel(groupId, n){ return n + ' ' + (GROUP_COUNT_WORD[groupId] || 'masinat'); }
 
 const scope = document.getElementById('scope');
 const photo = document.getElementById('photo');
@@ -1497,7 +1527,8 @@ const TEST_GROUP_LIMITS = {
   recon_special: 4,
   engineer: 5,
   ranks: 2,
-  weapons: 2
+  weapons: 2,
+  forces: 2   // väeliigid (embleemid/üldfotod): max 2 pilti 50 küsimuse testis
 };
 
 
@@ -1842,7 +1873,7 @@ function renderEndSummary(){
     '<div class="end-score-panel"><div class="end-score-main">Tulemus <b>'+correct+'/'+total+'</b></div>'+
     '<div class="end-score-stats"><div class="end-score-stat">Õige <b>'+correct+'</b></div><div class="end-score-stat">Vale <b>'+wrong+'</b></div><div class="end-score-stat">Täpsus <b>'+pct+'%</b></div></div></div>'+
     (groupHtml?'<div class="end-groups-title">Tulemused kategooriate kaupa</div><div class="end-summary-grid">'+groupHtml+'</div>':'')+
-    (mistakes.length?'<div class="end-mistakes"><b>Eksitud mudelid:</b> '+mistakes.join(', ')+'</div>':'');
+    (mistakes.length?'<div class="end-mistakes"><b>Eksitud:</b> '+mistakes.join(', ')+'</div>':'');
 }
 
 function updateScoreUI(){
@@ -2193,7 +2224,7 @@ function renderHome(){
     name.textContent = g.label;
     const cnt = document.createElement('span');
     cnt.className = 'cnt';
-    cnt.textContent = n + (g.id === 'ranks' ? ' auastet' : (g.id === 'weapons' ? ' relva' : ' masinat'));
+    cnt.textContent = groupCountLabel(g.id, n);
     label.append(checkbox, name, cnt);
     groupGrid.appendChild(label);
   });
@@ -2202,11 +2233,14 @@ function renderHome(){
   startTestBtn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE, totalEligible) + ' küsimust)';
 
   const stats = computeOverallStats();
-  const rankCount = CATEGORIES.filter(e => e.group === 'ranks' && e.files && e.files.length > 0).length;
-  const weaponCount = CATEGORIES.filter(e => e.group === 'weapons' && e.files && e.files.length > 0).length;
-  const machineCount = CATEGORIES.filter(e => e.group !== 'ranks' && e.group !== 'weapons' && e.files && e.files.length > 0).length;
-  statsLine.innerHTML = 'Masinaid <b>' + machineCount + '</b> · Auastmeid <b>' + rankCount
-    + '</b> · Relvi <b>' + weaponCount + '</b> · Pilte kokku <b>' + stats.totalPhotos + '</b>';
+  const withPhotosAll = CATEGORIES.filter(e => e.files && e.files.length > 0);
+  const machineCount = withPhotosAll.filter(e => !NON_MACHINE_GROUPS.has(e.group)).length;
+  const statParts = ['Masinaid <b>' + machineCount + '</b>'];
+  Object.keys(GROUP_STATS_WORD).forEach(id => {
+    statParts.push(GROUP_STATS_WORD[id] + ' <b>' + withPhotosAll.filter(e => e.group === id).length + '</b>');
+  });
+  statParts.push('Pilte kokku <b>' + stats.totalPhotos + '</b>');
+  statsLine.innerHTML = statParts.join(' · ');
 
   updatePracticeButton();
 }
@@ -2224,7 +2258,12 @@ function renderModelList(filterText = ''){
   const withPhotos = CATEGORIES.filter(e => e.files && e.files.length);
   const ttaCount = withPhotos.filter(getTTA).length;
   const whatCount = withPhotos.filter(getWHAT).length;
-  modelListSummary.innerHTML = 'Kokku <b>' + stats.totalModels + '</b> erinevat masinat, <b>'
+  const listParts = ['<b>' + withPhotos.filter(e => !NON_MACHINE_GROUPS.has(e.group)).length + '</b> erinevat masinat'];
+  Object.keys(GROUP_COUNT_WORD).forEach(id => {
+    const k = withPhotos.filter(e => e.group === id).length;
+    if(k > 0) listParts.push('<b>' + k + '</b> ' + GROUP_COUNT_WORD[id]);
+  });
+  modelListSummary.innerHTML = 'Kokku ' + listParts.join(', ') + ', <b>'
     + stats.totalPhotos + '</b> pilti. TTA: <b>' + ttaCount + '</b> · WHAT: <b>' + whatCount + '</b> mudelil.';
 
   modelListContent.innerHTML = '';
@@ -2248,7 +2287,7 @@ function renderModelList(filterText = ''){
 
     const heading = document.createElement('div');
     heading.className = 'model-list-heading';
-    heading.innerHTML = title + ' <span class="grp-cnt">(' + entries.length + (groupId === 'ranks' ? ' auastet' : (groupId === 'weapons' ? ' relva' : ' masinat')) + ')</span>';
+    heading.innerHTML = title + ' <span class="grp-cnt">(' + groupCountLabel(groupId, entries.length) + ')</span>';
     section.appendChild(heading);
 
     entries.slice().sort((a,b) => a.label.localeCompare(b.label, 'et')).forEach(e => {
@@ -2886,7 +2925,7 @@ async function openModelGallery(entry, tab, opts){
   }
   galleryCurrent = entry;
   updateGalleryBack();
-  modelGalleryEyebrow.textContent = entry.type || 'Mudel';
+  modelGalleryEyebrow.textContent = entry.type || GROUP_ENTRY_NOUN[entry.group] || 'Mudel';
   modelGalleryTitle.textContent = entry.label;
   modelGalleryGrid.innerHTML = '';
   showPhotosView(entry);
@@ -3281,7 +3320,7 @@ function getKuldGroupDefs(){
     return normal.concat([{
       id: KULD_VARIA_ID,
       label: 'Varia',
-      description: 'Väiksemad kategooriad (alla 5 masinat) koondatuna'
+      description: 'Väiksemad kategooriad (alla 5 kirjega) koondatuna'
     }]);
   }
   return normal;
@@ -3321,7 +3360,7 @@ function renderKuldConfig(){
 
     const cnt = document.createElement('span');
     cnt.className = 'kg-count';
-    cnt.textContent = n + (g.id === 'ranks' ? ' auastet' : (g.id === 'weapons' ? ' relva' : ' masinat'));
+    cnt.textContent = groupCountLabel(g.id, n);
 
     label.append(checkbox, name, cnt);
     kuldGroupGrid.appendChild(label);
@@ -3339,7 +3378,7 @@ function updateKuldConfigCount(){
 function randomKuldGroups(){
   const ids = shuffleArray(eligibleKuldGroups().map(g => g.id).slice()).slice(0,5);
   if(ids.length < 5){
-    alert('Kuldvillaku jaoks on vaja vähemalt 5 kategooriat. Alla 5 masinaga kategooriad on koondatud kategooriasse „Varia“.');
+    alert('Kuldvillaku jaoks on vaja vähemalt 5 kategooriat. Alla 5 kirjega kategooriad on koondatud kategooriasse „Varia“.');
     return;
   }
   kuldSelectedGroupIds = new Set(ids);
@@ -3734,7 +3773,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc24'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc25'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
