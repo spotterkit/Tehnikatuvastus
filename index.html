@@ -1366,7 +1366,7 @@ const CATEGORIES = [
   { label: "Strela-3 (9K34)", group: "weapons", type: "Õhutõrjerakett", cat: "Strela-3 (9K34)", weight: 1, files: [] },
   { label: "Verba (9K333)", group: "weapons", type: "Õhutõrjerakett", cat: "Verba (9K333)", weight: 1, files: ["9K333_Verba_MANPAD_at_Military-technical_forum_ARMY-2016_01.jpg"] },
 
-  // Väeliigid ja väed — emblemmid ja üldfotod; šabloon, lisa pildifailid files[] massiividesse
+  // Väeliigid ja üksused — emblemmid ja üldfotod; šabloon, lisa pildifailid files[] massiividesse
   // (nt "images/forces/vdv_embleem.png" või Commonsi failinimi). Pildita read ei kajastu kusagil.
   { label: "Maavägi / Сухопутные войска", group: "forces", type: "", cat: "Maavägi", weight: 1, files: ["Russian_soldier_with_a_RPK-74.jpg", "Indra2018-27.jpg"] },
   { label: "Õhu- ja kosmosejõud (VKS) / Воздушно-космические силы", group: "forces", type: "", cat: "Õhu- ja kosmosejõud (VKS)", weight: 1, files: ["65th_anniversary_of_Radio-Technical_Troops_14.jpg"] },
@@ -1386,7 +1386,9 @@ const CATEGORIES = [
   { label: "Raudteeväed / Железнодорожные войска", group: "forces", type: "", cat: "Raudteeväed", weight: 1, files: ["PB-3M_%2804.08.2021%29_01.jpg"] },
   { label: "Sõjaväepolitsei / Военная полиция", group: "forces", type: "", cat: "Sõjaväepolitsei", weight: 1, files: ["Танки_Т-41_в_городе_Муром.jpg"] },
   { label: "GRU eriüksused (Spetsnaz) / Спецназ ГРУ", group: "forces", type: "", cat: "GRU eriüksused (Spetsnaz)", weight: 1, files: ["images/forces/spetsnas_01.webp", "images/forces/spetsnas_02.webp"] },
-  { label: "FSB piirivalve / Пограничная служба ФСБ", group: "forces", type: "", cat: "FSB piirivalve", weight: 1, files: ["RIAN_archive_1052479_Work_of_border_guards_on_Russian-Lithuanian_border_in_Ribachy_village%2C_Kaliningrad_region.jpg", "RIAN_archive_109544_Frontier_Guards_Day.jpg"];
+  { label: "FSB piirivalve / Пограничная служба ФСБ", group: "forces", type: "", cat: "FSB piirivalve", weight: 1, files: ["RIAN_archive_1052479_Work_of_border_guards_on_Russian-Lithuanian_border_in_Ribachy_village%2C_Kaliningrad_region.jpg", "RIAN_archive_109544_Frontier_Guards_Day.jpg"] },
+
+];
 // Kaheksa harjutuskategooriat — iga CATEGORIES kirje `group` väli viitab siia.
 const GROUPS = [
   { id: "tank", label: "Tankid" },
@@ -1410,13 +1412,13 @@ const GROUPS = [
   { id: "ew", label: "Elektroonilise sõjapidamise vahendid ja tehnika" },
   { id: "ranks", label: "Auastmed" },
   { id: "weapons", label: "Relvastus" },
-  { id: "forces", label: "Väeliigid" },
+  { id: "forces", label: "Väeliigid ja üksused" },
 ];
 
 // Kategooriad, mis EI ole masinad: loendurites ja siltides kasutatakse nende oma sõna.
-const GROUP_COUNT_WORD = { ranks: 'auastet', weapons: 'relva', forces: 'väeliiki' };   // "5 väeliiki"
-const GROUP_STATS_WORD = { ranks: 'Auastmeid', weapons: 'Relvi', forces: 'Väeliike' }; // avalehe kokkuvõte
-const GROUP_ENTRY_NOUN = { ranks: 'Auaste', weapons: 'Relv', forces: 'Väeliik' };      // mudeli akna üldsilt, kui type puudub
+const GROUP_COUNT_WORD = { ranks: 'auastet', weapons: 'relva', forces: 'väeliiki/üksust' };   // "5 väeliiki/üksust"
+const GROUP_STATS_WORD = { ranks: 'Auastmeid', weapons: 'Relvi', forces: 'Väeliike ja üksusi' }; // avalehe kokkuvõte
+const GROUP_ENTRY_NOUN = { ranks: 'Auaste', weapons: 'Relv', forces: 'Väeliik/üksus' };      // mudeli akna üldsilt, kui type puudub
 const NON_MACHINE_GROUPS = new Set(Object.keys(GROUP_COUNT_WORD));
 function groupCountLabel(groupId, n){ return n + ' ' + (GROUP_COUNT_WORD[groupId] || 'masinat'); }
 
@@ -1526,7 +1528,7 @@ const TEST_GROUP_LIMITS = {
   engineer: 5,
   ranks: 2,
   weapons: 2,
-  forces: 2   // väeliigid (embleemid/üldfotod): max 2 pilti 50 küsimuse testis
+  forces: 2   // väeliigid ja üksused (embleemid/üldfotod): max 2 pilti 50 küsimuse testis
 };
 
 
@@ -3771,7 +3773,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc26'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc27'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
