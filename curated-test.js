@@ -104,6 +104,8 @@ const CSS = `
 .ct-search-opt span{color:var(--bone-dim);font-size:11px;text-align:right;}
 .ct-search-opt:hover,.ct-search-opt:focus,.ct-search-opt.is-active{background:rgba(201,162,39,.16);color:var(--amber);outline:none;}
 .ct-search-empty{padding:8px 10px;font-size:12px;color:var(--bone-dim);}
+.ct-search-grp{position:sticky;top:-4px;z-index:1;display:flex;justify-content:space-between;gap:10px;padding:6px 10px;margin-top:2px;background:var(--bg-0);border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-soft);}
+.ct-search-grp span{color:var(--bone-dim);letter-spacing:0;text-transform:none;}
 .ct-prev-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
 .ct-prev-title{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-soft);}
 .ct-prev-title b{font-family:var(--font-display);font-size:20px;color:var(--amber);letter-spacing:.02em;}
@@ -111,10 +113,19 @@ const CSS = `
 .ct-prev-tools{display:flex;gap:6px;flex-wrap:wrap;}
 .ct-prev-tools button{font-size:11px;padding:8px 11px;}
 .ct-list{list-style:none;margin:0;padding:0;display:grid;gap:6px;}
-.ct-row{display:grid;grid-template-columns:40px 96px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);background:var(--panel-2);padding:6px 8px;}
-.ct-row.is-empty{border-style:dashed;background:transparent;opacity:.7;}
+.ct-row{display:grid;grid-template-columns:58px 96px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);background:var(--panel-2);padding:6px 8px;}
+.ct-row.is-empty{border-style:dashed;background:transparent;opacity:.7;cursor:pointer;}
+.ct-row.is-empty:hover,.ct-row.is-empty:focus-visible{border-color:var(--amber);opacity:1;outline:none;}
+.ct-row.is-empty:hover .ct-empty-txt,.ct-row.is-empty:focus-visible .ct-empty-txt{color:var(--amber);}
+.ct-row.is-dragging{opacity:.4;}
+.ct-row.is-drop-before{box-shadow:0 -3px 0 0 var(--amber);}
+.ct-row.is-drop-after{box-shadow:0 3px 0 0 var(--amber);}
+.ct-drag{cursor:grab;color:var(--bone-dim);font-size:17px;line-height:1;user-select:none;padding:6px 1px;}
+.ct-drag:hover{color:var(--amber);}
+.ct-drag:active{cursor:grabbing;}
 .ct-row.is-missing{border-color:var(--amber);}
-.ct-nr{font-family:var(--font-display);font-size:22px;color:var(--amber);text-align:center;}
+.ct-nr{font-family:var(--font-display);font-size:22px;color:var(--amber);display:flex;align-items:center;justify-content:center;gap:3px;}
+.ct-nr .ct-drag{font-family:var(--font-body,inherit);}
 .ct-thumb{width:96px;height:64px;background:#0a0c07;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .ct-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
 .ct-thumb.is-err::after{content:'pilt puudub';font-size:10px;color:var(--bone-dim);}
@@ -171,7 +182,7 @@ const CSS = `
   .ct-rule-models{grid-template-columns:1fr;}
   .ct-rule-btn{padding:5px 6px;}
   .ct-steps{flex-direction:column;}
-  .ct-row{grid-template-columns:30px 72px 1fr;}
+  .ct-row{grid-template-columns:48px 72px 1fr;}
   .ct-thumb{width:72px;height:50px;}
   .ct-row-tools{grid-column:1 / -1;justify-content:flex-end;}
   .ct-modal-body{grid-template-columns:1fr;grid-template-rows:40% 60%;}
@@ -546,10 +557,13 @@ function renderStep2(){
   q.forEach(x => catCount.set(x.cat, (catCount.get(x.cat) || 0) + 1));
   q.forEach((item, i) => list.appendChild(questionRow(item, i)));
   for(let i = q.length; i < s.count; i++){
-    list.appendChild(h('li', {class: 'ct-row is-empty'},
+    const addHere = () => openPicker(null);
+    list.appendChild(h('li', {class: 'ct-row is-empty', role: 'button', tabindex: '0', title: 'Lisa pilt sellele kohale',
+        onclick: addHere, onkeydown: ev => { if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); addHere(); } }},
       h('span', {class: 'ct-nr'}, String(i + 1)), h('div', {class: 'ct-thumb'}),
-      h('div', {class: 'ct-info'}, h('span', {class: 'ct-empty-txt'}, 'Tühi koht'))));
+      h('div', {class: 'ct-info'}, h('span', {class: 'ct-empty-txt'}, 'Tühi koht – klõpsa pildi lisamiseks'))));
   }
+  enableDragSort(list);
   prev.appendChild(list);
   if(q.length > s.count) prev.appendChild(h('div', {class: 'ct-msg is-warn'}, 'Testis on rohkem küsimusi kui määratud küsimuste arv (' + s.count + '). Kinnitamisel jääb testi ' + q.length + ' küsimust.'));
   if(missing) prev.appendChild(h('div', {class: 'ct-msg is-warn'}, missing + ' küsimuse pilt puudub äpist – vaheta need enne kinnitamist.'));
@@ -565,8 +579,9 @@ function questionRow(item, i){
   const extra = [];
   if(e && e.files.length > 1 && idx >= 0) extra.push(h('span', {class: 'ct-pic'}, 'pilt ' + (idx + 1) + '/' + e.files.length));
   if(reps > 1) extra.push(h('span', {class: 'ct-rep', title: 'Sama mudel on testis mitu korda'}, 'mudel testis ' + reps + '×'));
+  const handle = h('span', {class: 'ct-drag', title: 'Lohista järjekorra muutmiseks', 'aria-hidden': 'true'}, '⠿');
   const li = h('li', {class: 'ct-row' + (item.missing ? ' is-missing' : '')},
-    h('span', {class: 'ct-nr'}, String(i + 1)),
+    h('span', {class: 'ct-nr'}, handle, String(i + 1)),
     item.missing ? h('div', {class: 'ct-thumb is-err'}) : thumb(item.file),
     h('div', {class: 'ct-info'},
       h('b', null, item.label),
@@ -579,7 +594,60 @@ function questionRow(item, i){
       h('button', {type: 'button', class: 'ct-ico', title: 'Alla', 'aria-label': 'Alla', disabled: i === n - 1, onclick: () => moveQ(i, 1)}, '↓'),
       h('button', {type: 'button', class: 'ct-ico bad', title: 'Eemalda', 'aria-label': 'Eemalda', onclick: () => { S.questions.splice(i, 1); render(); }}, '✕')));
   if(reps > 1) li.classList.add('is-rep');
+  li.dataset.i = String(i);
+  // Rida muutub lohistatavaks alles käepidemest haarates, et nupud ja tekst töötaks tavapäraselt.
+  handle.addEventListener('mousedown', () => {
+    li.draggable = true;
+    document.addEventListener('mouseup', () => { li.draggable = false; }, {once: true});
+  });
+  li.addEventListener('dragstart', ev => {
+    if(!li.draggable){ ev.preventDefault(); return; }
+    dragFrom = i;
+    ev.dataTransfer.effectAllowed = 'move';
+    try{ ev.dataTransfer.setData('text/plain', String(i)); ev.dataTransfer.setDragImage(li, 24, 24); }catch(e){}
+    setTimeout(() => li.classList.add('is-dragging'), 0);
+  });
+  li.addEventListener('dragend', () => {
+    dragFrom = null; li.draggable = false;
+    document.querySelectorAll('.ct-list .is-dragging,.ct-list .is-drop-before,.ct-list .is-drop-after')
+      .forEach(el => el.classList.remove('is-dragging', 'is-drop-before', 'is-drop-after'));
+  });
   return li;
+}
+// Küsimuste järjekorra muutmine lohistades (nooled jäävad alles). Tühja koha peale lasku = viimaseks.
+let dragFrom = null;
+function enableDragSort(list){
+  const clearMarks = () => list.querySelectorAll('.is-drop-before,.is-drop-after').forEach(el => el.classList.remove('is-drop-before', 'is-drop-after'));
+  const target = ev => {
+    const row = ev.target.closest ? ev.target.closest('li.ct-row') : null;
+    if(!row || !list.contains(row)) return null;
+    const n = S.questions.length;
+    if(row.classList.contains('is-empty')) return n ? {pos: n, el: list.children[n - 1], cls: 'is-drop-after'} : null;
+    const r = row.getBoundingClientRect();
+    const after = ev.clientY > r.top + r.height / 2;
+    const i = Number(row.dataset.i);
+    return {pos: after ? i + 1 : i, el: row, cls: after ? 'is-drop-after' : 'is-drop-before'};
+  };
+  list.addEventListener('dragover', ev => {
+    if(dragFrom === null) return;
+    const t = target(ev); if(!t) return;
+    ev.preventDefault();
+    if(ev.dataTransfer) ev.dataTransfer.dropEffect = 'move';
+    clearMarks(); t.el.classList.add(t.cls);
+  });
+  list.addEventListener('drop', ev => {
+    if(dragFrom === null) return;
+    const t = target(ev); if(!t) return;
+    ev.preventDefault(); clearMarks();
+    const from = dragFrom; dragFrom = null;
+    let to = t.pos; if(from < to) to--;
+    if(to === from) return;
+    const y = window.scrollY;
+    const [m] = S.questions.splice(from, 1);
+    S.questions.splice(to, 0, m);
+    render();
+    window.scrollTo(0, y);
+  });
 }
 function moveQ(i, d){
   const j = i + d, q = S.questions;
@@ -668,16 +736,33 @@ function modelSearch(onPick, placeholder, opts){
     list.innerHTML = '';
     if(!qv && !opts.inline){ list.hidden = true; return; }
     const hits = eligible().filter(e => !qv || [e.label, e.type, e.cat].some(t => norm(t).includes(qv)))
-      .sort((a, b) => a.label.localeCompare(b.label, 'et')).slice(0, opts.inline ? 400 : 40);
-    hits.forEach(e => {
+      .sort((a, b) => a.label.localeCompare(b.label, 'et'));
+    const addOpt = (e, grouped) => {
+      const sub = grouped ? (e.type ? e.type + ' · ' : '') + e.files.length + ' pilti' : (e.type || groupLabel(e.group)) + ' · ' + e.files.length + ' pilti';
       const li = h('li', {class: 'ct-search-opt' + (opts.activeCat === e.cat ? ' is-active' : ''), role: 'option', tabindex: 0},
-        h('b', null, e.label), h('span', null, (e.type || groupLabel(e.group)) + ' · ' + e.files.length + ' pilti'));
+        h('b', null, e.label), h('span', null, sub));
       const go = () => { onPick(e); if(!opts.inline){ input.value = ''; list.hidden = true; } };
       li.addEventListener('mousedown', ev => ev.preventDefault());
       li.addEventListener('click', go);
       li.addEventListener('keydown', ev => { if(ev.key === 'Enter'){ ev.preventDefault(); go(); } });
       list.appendChild(li);
-    });
+    };
+    if(opts.inline){
+      // Kategooriate kaupa nagu mudelite nimekirjas: GROUPS järjekord, igas grupis nimede järgi.
+      const byGroup = new Map(GROUPS.map(g => [g.id, []]));
+      const other = [];
+      hits.forEach(e => (byGroup.has(e.group) ? byGroup.get(e.group) : other).push(e));
+      const section = (title, arr, id) => {
+        if(!arr.length) return;
+        const cnt = (id && typeof groupCountLabel === 'function') ? groupCountLabel(id, arr.length) : String(arr.length);
+        list.appendChild(h('li', {class: 'ct-search-grp', role: 'presentation'}, title, h('span', null, cnt)));
+        arr.forEach(e => addOpt(e, true));
+      };
+      GROUPS.forEach(g => section(g.label, byGroup.get(g.id), g.id));
+      section('Muu', other, null);
+    }else{
+      hits.slice(0, 40).forEach(e => addOpt(e, false));
+    }
     if(!hits.length) list.appendChild(h('li', {class: 'ct-search-empty'}, 'Ei leitud'));
     list.hidden = false;
   };
@@ -750,6 +835,7 @@ function openPicker(swapIndex){
   document.body.appendChild(pickerEl);
   document.addEventListener('keydown', pickerKey, true);
   drawImages();
+  const act = search.querySelector('.ct-search-opt.is-active'); if(act) act.scrollIntoView({block: 'center'});
   const inp = search.querySelector('input'); if(inp) setTimeout(() => inp.focus(), 30);
 }
 // ---------------------------------------------------------------------------
