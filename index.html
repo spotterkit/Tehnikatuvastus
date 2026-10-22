@@ -316,7 +316,7 @@
     text-transform:uppercase;margin-bottom:5px;
   }
   .kuld-config-help{font-size:11px;color:var(--bone-dim);line-height:1.55;margin-bottom:12px;}
-  .kuld-config-actions{display:flex;gap:8px;margin-bottom:10px;}
+  .kuld-config-actions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
   .kuld-config-actions button{flex:1;}
   .kuld-config-count{font-size:11px;color:var(--olive);margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em;}
   .kuld-group-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;}
@@ -350,19 +350,48 @@
   }
   .kuld-cell:hover:not(:disabled){background:var(--olive-dim);color:var(--bone);}
   .kuld-cell:disabled{cursor:default;opacity:.28;text-decoration:line-through;}
-  .kuld-question{margin-top:12px;}
-  .kuld-question-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .kuld-question{
+    position:fixed;inset:0;z-index:5000;display:none;flex-direction:column;gap:10px;
+    background:var(--bg-0);overflow:hidden;
+    padding:max(10px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));
+  }
+  .kuld-question.open{display:flex;}
+  .kuld-question .verdict-row,.kuld-question > .row{flex:0 0 auto;}
+  .kuld-question-top{display:flex;justify-content:space-between;align-items:center;flex:0 0 auto;}
   .kuld-question-cat{font-family:var(--font-display);font-size:20px;color:var(--amber);text-transform:uppercase;}
   .kuld-question-value{font-family:var(--font-display);font-size:28px;color:var(--olive);font-weight:700;}
-  .kuld-scope{height:min(58vh,560px);margin-bottom:0;}
-  .kuld-scope img{width:100%;height:100%;object-fit:contain;background:#0a0c07;display:block;}
-  .kuld-answer{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);}
+  .kuld-question .kuld-scope{flex:1 1 auto;height:auto;min-height:0;margin:0;}
+  .kuld-scope img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0a0c07;display:block;}
+  .kuld-answer{flex:0 0 auto;margin-top:0;padding-top:10px;border-top:1px dashed var(--line);}
+  .kuld-cell.is-empty{opacity:.1;text-decoration:none;}
+  .kuld-head-right{display:flex;align-items:center;gap:10px;}
+  .kuld-edit-btn{padding:8px 10px;font-size:11px;}
+  /* kuldvillaku redaktor */
+  .kuld-editor{border-top:1px solid var(--line);}
+  .kuld-ed-tools{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
+  .kuld-ed-tools button{flex:0 0 auto;padding:7px 10px;font-size:11px;}
+  .kuld-ed-msg{min-height:16px;font-size:11px;color:var(--olive);margin-bottom:6px;}
+  .kuld-ed-wrap{overflow-x:auto;margin-bottom:12px;}
+  .kuld-ed-grid{display:grid;grid-template-columns:repeat(5,minmax(124px,1fr));gap:6px;min-width:660px;}
+  .kuld-ed-colhead{display:flex;flex-direction:column;gap:4px;min-width:0;}
+  .kuld-ed-colhead input,.kuld-ed-colhead select{width:100%;min-width:0;font-size:12px;padding:6px;background:var(--bg-0);color:var(--bone);border:1px solid var(--line);}
+  .kuld-ed-colhead input{font-family:var(--font-display);}
+  .kuld-ed-cell{border:1px dashed var(--line);background:var(--panel-2);min-height:132px;display:flex;flex-direction:column;gap:4px;padding:4px;min-width:0;}
+  .kuld-ed-cell.filled{border-style:solid;border-color:var(--olive-dim);}
+  .kuld-ed-pic{padding:0;border:0;background:#0a0c07;cursor:pointer;display:block;}
+  .kuld-ed-pic .ct-thumb{width:100%;height:84px;}
+  .kuld-ed-pic .ct-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .kuld-ed-add{flex:1;border:0;background:transparent;color:var(--bone-dim);cursor:pointer;font-size:12px;text-transform:none;letter-spacing:0;}
+  .kuld-ed-add:hover{color:var(--amber);}
+  .kuld-ed-name{font-size:10px;line-height:1.2;color:var(--bone-soft);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+  .kuld-ed-pts{display:flex;gap:4px;}
+  .kuld-ed-pts input{flex:1;min-width:0;width:100%;font-size:12px;padding:3px 5px;background:var(--bg-0);color:var(--amber);border:1px solid var(--line);}
+  .kuld-ed-del{padding:2px 7px;font-size:11px;}
   @media(max-width:600px){
     .kuld-group-grid{grid-template-columns:1fr;}
     .kuld-board{gap:4px;}
     .kuld-cat{min-height:82px;padding:6px 3px;font-size:9px;line-height:1.08;letter-spacing:-0.01em;}
     .kuld-cell{min-height:60px;font-size:22px;}
-    .kuld-scope{height:46vh;min-height:260px;}
   }
 
   @media(max-width:480px){
@@ -766,10 +795,11 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
         </div>
         <div id="kuldConfig" class="kuld-config" style="display:none;">
           <div class="kuld-config-title">Kuldvillaku kategooriad</div>
-          <div class="kuld-config-help">Vali 5 kategooriat käsitsi või lase rakendusel valida 5 juhuslikku kategooriat. Igas kategoorias on 5 küsimust, iga küsimus väärtusega 100.</div>
+          <div class="kuld-config-help">Vali 5 kategooriat käsitsi või lase rakendusel valida 5 juhuslikku kategooriat (iga küsimus väärtusega 100). Või koosta laud ise: vali iga küsimuse pilt ja punktid.</div>
           <div class="kuld-config-actions">
             <button type="button" id="kuldRandomBtn" class="primary">Juhuslikud 5</button>
             <button type="button" id="kuldUseSelectedBtn" class="primary">Kasuta valitud 5</button>
+            <button type="button" id="kuldCustomBtn" class="primary">Koosta ise</button>
           </div>
           <div class="kuld-config-count" id="kuldConfigCount"></div>
           <div class="kuld-group-grid" id="kuldGroupGrid"></div>
@@ -875,21 +905,42 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
       <button id="kuldResetBtn" class="nav-btn" title="Uus kuldvillak">↻</button>
     </div>
 
-    <div class="panel kuld-panel">
+    <div class="panel kuld-panel" id="kuldPanel">
       <div class="kuld-head">
         <div>
-          <div class="kuld-eyebrow">5 × 5 küsimust</div>
+          <div class="kuld-eyebrow" id="kuldEyebrow">5 × 5 küsimust</div>
           <div class="kuld-title">KULDVILLAK</div>
         </div>
-        <div class="kuld-score">
-          <span>PUNKTID</span>
-          <b id="kuldScore">0</b>
+        <div class="kuld-head-right">
+          <button type="button" id="kuldEditBtn" class="nav-btn kuld-edit-btn" title="Muuda pilte, punkte ja kategooriaid">✎ Muuda</button>
+          <div class="kuld-score">
+            <span>PUNKTID</span>
+            <b id="kuldScore">0</b>
+          </div>
         </div>
       </div>
       <div class="kuld-board" id="kuldBoard"></div>
     </div>
 
-    <div class="panel kuld-question" id="kuldQuestion" style="display:none;">
+    <div class="panel kuld-editor" id="kuldEditor" style="display:none;">
+      <div class="kuld-eyebrow">Redaktor</div>
+      <div class="kuld-title" style="font-size:22px;">Koosta kuldvillak</div>
+      <div class="kuld-config-help" style="margin-top:6px;">Nimeta kategooriad ja klõpsa lahtril, et valida pilt. Punktid saad igale küsimusele eraldi määrata. Kategooria allikast saab tühjad lahtrid juhuslikult täita. Tühjaks jäetud lahtrid jäävad laual tühjaks.</div>
+      <div class="kuld-ed-tools">
+        <button type="button" id="kuldEdFillBtn">🎲 Täida tühjad juhuslikult</button>
+        <button type="button" id="kuldEdLadderBtn">Punktid 100–500</button>
+        <button type="button" id="kuldEdFlatBtn">Punktid kõik 100</button>
+        <button type="button" id="kuldEdClearBtn">Tühjenda kõik</button>
+      </div>
+      <div class="kuld-ed-msg" id="kuldEdMsg"></div>
+      <div class="kuld-ed-wrap"><div class="kuld-ed-grid" id="kuldEdGrid"></div></div>
+      <div class="row">
+        <button type="button" id="kuldEdStartBtn" class="primary" style="flex:1;">Alusta mängu</button>
+        <button type="button" id="kuldEdCancelBtn" style="flex:1;">Tühista</button>
+      </div>
+    </div>
+
+    <div class="kuld-question" id="kuldQuestion" role="dialog" aria-modal="true" aria-label="Kuldvillaku küsimus">
       <div class="kuld-question-top">
         <div class="kuld-question-cat" id="kuldQuestionCat">—</div>
         <div class="kuld-question-value" id="kuldQuestionValue">100</div>
@@ -1420,6 +1471,36 @@ const CATEGORIES = [
   { label: "GRU eriüksused (Spetsnaz) / Спецназ ГРУ", group: "forces", type: "", cat: "GRU eriüksused (Spetsnaz)", weight: 1, files: ["images/forces/spetsnas_01.webp", "images/forces/spetsnas_02.webp"] },
   { label: "FSB piirivalve / Пограничная служба ФСБ", group: "forces", type: "", cat: "FSB piirivalve", weight: 1, files: ["RIAN_archive_1052479_Work_of_border_guards_on_Russian-Lithuanian_border_in_Ribachy_village%2C_Kaliningrad_region.jpg", "RIAN_archive_109544_Frontier_Guards_Day.jpg"] },
 
+  // Maamiinid (Venemaa/NSVL) — šabloon; lisa pildifailid files[] massiividesse (kaust images/mines/) ning vajadusel lisa/eemalda miinitüüpe.
+  // Pildita read ei kajastu kusagil. Allikad: Landmine Monitor (Venemaa), Vikipeedia miiniloendid, GlobalSecurity.
+  { label: "PMN / ПМН", group: "mines", type: "Jalaväemiin", cat: "PMN", weight: 1, files: [] },
+  { label: "PMN-2 / ПМН-2", group: "mines", type: "Jalaväemiin", cat: "PMN-2", weight: 1, files: [] },
+  { label: "PMN-4 / ПМН-4", group: "mines", type: "Jalaväemiin", cat: "PMN-4", weight: 1, files: [] },
+  { label: "PMD-6 / ПМД-6", group: "mines", type: "Jalaväemiin (puitkorpus)", cat: "PMD-6", weight: 1, files: [] },
+  { label: "PFM-1 «Lepestok» / ПФМ-1 «Лепесток»", group: "mines", type: "Kaugpaigaldatav jalaväemiin", cat: "PFM-1", weight: 1, files: [] },
+  { label: "POM-2 / ПОМ-2", group: "mines", type: "Kaugpaigaldatav kildmiin", cat: "POM-2", weight: 1, files: [] },
+  { label: "POM-3 «Medaljon» / ПОМ-3 «Медальон»", group: "mines", type: "Kaugpaigaldatav kildmiin", cat: "POM-3", weight: 1, files: [] },
+  { label: "POMZ-2M / ПОМЗ-2М", group: "mines", type: "Kildmiin (tõmbetraadiga)", cat: "POMZ-2M", weight: 1, files: [] },
+  { label: "OZM-3 / ОЗМ-3", group: "mines", type: "Hüppav kildmiin", cat: "OZM-3", weight: 1, files: [] },
+  { label: "OZM-72 / ОЗМ-72", group: "mines", type: "Hüppav kildmiin", cat: "OZM-72", weight: 1, files: [] },
+  { label: "OZM-160 / ОЗМ-160", group: "mines", type: "Hüppav kildmiin", cat: "OZM-160", weight: 1, files: [] },
+  { label: "MON-50 / МОН-50", group: "mines", type: "Suunatud kildmiin", cat: "MON-50", weight: 1, files: [] },
+  { label: "MON-90 / МОН-90", group: "mines", type: "Suunatud kildmiin", cat: "MON-90", weight: 1, files: [] },
+  { label: "MON-100 / МОН-100", group: "mines", type: "Suunatud kildmiin", cat: "MON-100", weight: 1, files: [] },
+  { label: "MON-200 / МОН-200", group: "mines", type: "Suunatud kildmiin", cat: "MON-200", weight: 1, files: [] },
+  { label: "MOB", group: "mines", type: "Suunatud kildmiin", cat: "MOB", weight: 1, files: [] },
+  { label: "TM-46 / ТМ-46", group: "mines", type: "Tankitõrjemiin", cat: "TM-46", weight: 1, files: [] },
+  { label: "TM-57 / ТМ-57", group: "mines", type: "Tankitõrjemiin", cat: "TM-57", weight: 1, files: [] },
+  { label: "TM-62M / ТМ-62М", group: "mines", type: "Tankitõrjemiin (metallkorpus)", cat: "TM-62M", weight: 1, files: [] },
+  { label: "TM-62P / ТМ-62П", group: "mines", type: "Tankitõrjemiin (kiudkorpus)", cat: "TM-62P", weight: 1, files: [] },
+  { label: "TM-72 / ТМ-72", group: "mines", type: "Tankitõrjemiin", cat: "TM-72", weight: 1, files: [] },
+  { label: "TM-83 / ТМ-83", group: "mines", type: "Tankitõrjemiin (teeäärne)", cat: "TM-83", weight: 1, files: [] },
+  { label: "TM-89 / ТМ-89", group: "mines", type: "Tankitõrjemiin", cat: "TM-89", weight: 1, files: [] },
+  { label: "TMK-2 / ТМК-2", group: "mines", type: "Tankitõrjemiin (kumulatiivne)", cat: "TMK-2", weight: 1, files: [] },
+  { label: "PTM-1 / ПТМ-1", group: "mines", type: "Kaugpaigaldatav tankitõrjemiin", cat: "PTM-1", weight: 1, files: [] },
+  { label: "PTM-3 / ПТМ-3", group: "mines", type: "Kaugpaigaldatav tankitõrjemiin", cat: "PTM-3", weight: 1, files: [] },
+  { label: "PTKM-1R / ПТКМ-1Р", group: "mines", type: "Ülalt tabav tankitõrjemiin", cat: "PTKM-1R", weight: 1, files: [] },
+
 ];
 // Kaheksa harjutuskategooriat — iga CATEGORIES kirje `group` väli viitab siia.
 const GROUPS = [
@@ -1445,12 +1526,13 @@ const GROUPS = [
   { id: "ranks", label: "Auastmed" },
   { id: "weapons", label: "Relvastus" },
   { id: "forces", label: "Väeliigid ja üksused" },
+  { id: "mines", label: "Maamiinid" },
 ];
 
 // Kategooriad, mis EI ole masinad: loendurites ja siltides kasutatakse nende oma sõna.
-const GROUP_COUNT_WORD = { ranks: 'auastet', weapons: 'relva', forces: 'väeliiki/üksust' };   // "5 väeliiki/üksust"
-const GROUP_STATS_WORD = { ranks: 'Auastmeid', weapons: 'Relvi', forces: 'Väeliike ja üksusi' }; // avalehe kokkuvõte
-const GROUP_ENTRY_NOUN = { ranks: 'Auaste', weapons: 'Relv', forces: 'Väeliik/üksus' };      // mudeli akna üldsilt, kui type puudub
+const GROUP_COUNT_WORD = { ranks: 'auastet', weapons: 'relva', forces: 'väeliiki/üksust', mines: 'miini' };   // "5 väeliiki/üksust"
+const GROUP_STATS_WORD = { ranks: 'Auastmeid', weapons: 'Relvi', forces: 'Väeliike ja üksusi', mines: 'Miine' }; // avalehe kokkuvõte
+const GROUP_ENTRY_NOUN = { ranks: 'Auaste', weapons: 'Relv', forces: 'Väeliik/üksus', mines: 'Miin' };      // mudeli akna üldsilt, kui type puudub
 const NON_MACHINE_GROUPS = new Set(Object.keys(GROUP_COUNT_WORD));
 function groupCountLabel(groupId, n){ return n + ' ' + (GROUP_COUNT_WORD[groupId] || 'masinat'); }
 
@@ -1538,6 +1620,13 @@ const kuldGroupGrid = document.getElementById('kuldGroupGrid');
 const kuldConfigCount = document.getElementById('kuldConfigCount');
 const kuldRandomBtn = document.getElementById('kuldRandomBtn');
 const kuldUseSelectedBtn = document.getElementById('kuldUseSelectedBtn');
+const kuldCustomBtn = document.getElementById('kuldCustomBtn');
+const kuldPanel = document.getElementById('kuldPanel');
+const kuldEyebrow = document.getElementById('kuldEyebrow');
+const kuldEditBtn = document.getElementById('kuldEditBtn');
+const kuldEditor = document.getElementById('kuldEditor');
+const kuldEdGrid = document.getElementById('kuldEdGrid');
+const kuldEdMsg = document.getElementById('kuldEdMsg');
 
 const TEST_SIZE = 50;
 
@@ -1560,8 +1649,15 @@ const TEST_GROUP_LIMITS = {
   engineer: 5,
   ranks: 2,
   weapons: 2,
-  forces: 2   // väeliigid ja üksused (embleemid/üldfotod): max 2 pilti 50 küsimuse testis
+  forces: 2,  // väeliigid ja üksused (embleemid/üldfotod): max 2 pilti 50 küsimuse testis
+  mines: 1    // maamiinid: MAKSIMUM 1 miin testis (võib ka 0)
 };
+
+// Tõenäosus, et kategooria üldse testi satub (muidu puudub see testist täielikult).
+// Piirang (TEST_GROUP_LIMITS) kehtib lisaks: kui kategooria satub testi, siis kuni piirini.
+// Vajalik, sest suur kategooria satuks juhusliku valiku tõttu peaaegu igasse testi.
+// Maamiinid: ~50% testidest sisaldavad ühe miini, ülejäänud ei sisalda ühtegi. Muuda arvu vabalt.
+const TEST_GROUP_CHANCE = { mines: 0.5 };
 
 
 // appMode: 'practice' | 'test' — valitakse menüüst (kuldvillakul on oma olek kuldGame).
@@ -1618,6 +1714,7 @@ function buildUniqueVehiclePool(n){
   const groupCounts = {};
   const subtypeCounts = { bridgeTank: 0, bridgeVehicleOrPontoon: 0, su27Family: 0, adRadar: 0 };
   const target = Math.min(n, eligible.length);
+  const skippedGroups = new Set(Object.keys(TEST_GROUP_CHANCE).filter(g => Math.random() >= TEST_GROUP_CHANCE[g]));
 
   // Kõik pildiga mudelid osalevad ühes juhuslikus valikus.
   // TEST_GROUP_LIMITS väärtused on ainult MAKSIMUMID, mitte kohustuslikud kogused.
@@ -1629,6 +1726,7 @@ function buildUniqueVehiclePool(n){
   for(const entry of eligible){
     if(chosen.length >= target) break;
 
+    if(skippedGroups.has(entry.group)) continue;
     const limit = TEST_GROUP_LIMITS[entry.group];
     const used = groupCounts[entry.group] || 0;
     if(limit !== undefined && used >= limit) continue;
@@ -3432,6 +3530,7 @@ function buildKuldGame(groupIds){
       const entries = shuffleArray(getKuldEntries(id).slice()).slice(0,5);
       return {
         id,
+        sourceId: id,
         label: group ? group.label : id,
         questions: entries.map(entry => ({
           entry,
@@ -3443,13 +3542,58 @@ function buildKuldGame(groupIds){
       };
     }),
     score: 0,
-    active: null
+    active: null,
+    custom: false
+  };
+}
+
+// --- Oma laud: redaktori mustand -> mäng ---
+const kuldEmptyQ = () => ({ empty: true, entry: null, filename: null, value: 0, state: 'done', current: null });
+function kuldEntryByCat(cat){ return CATEGORIES.find(e => e.cat === cat) || null; }
+function kuldDefaultValue(draft, row){ return draft.ladder ? 100 * (row + 1) : 100; }
+
+function newKuldDraft(){
+  return {
+    ladder: true,
+    cols: Array.from({length: 5}, (_, i) => ({ label: 'Kategooria ' + (i + 1), groupId: null, cells: [null, null, null, null, null] }))
+  };
+}
+
+function draftFromKuldGame(game){
+  const cols = game.groups.map((g, i) => ({
+    label: g.label,
+    groupId: g.sourceId || null,
+    cells: g.questions.map(q => (q.empty || !q.entry) ? null : { cat: q.entry.cat, file: q.filename, value: q.value })
+  }));
+  while(cols.length < 5) cols.push({ label: 'Kategooria ' + (cols.length + 1), groupId: null, cells: [null, null, null, null, null] });
+  return { ladder: false, cols };
+}
+
+function buildKuldGameFromDraft(draft){
+  const cols = draft.cols.filter(c => c.cells.some(Boolean));
+  return {
+    groups: cols.map((c, i) => ({
+      id: 'custom_' + i,
+      sourceId: c.groupId || null,
+      label: (c.label || '').trim() || ('Kategooria ' + (i + 1)),
+      questions: c.cells.map(cell => {
+        const entry = cell ? kuldEntryByCat(cell.cat) : null;
+        if(!entry) return kuldEmptyQ();
+        return { entry, filename: cell.file, value: cell.value, state: 'open', current: null };
+      })
+    })),
+    score: 0,
+    active: null,
+    custom: true,
+    draft: JSON.parse(JSON.stringify(draft))
   };
 }
 
 function renderKuldBoard(){
   kuldBoard.innerHTML = '';
   if(!kuldGame) return;
+  const n = kuldGame.groups.length;
+  kuldBoard.style.gridTemplateColumns = 'repeat(' + n + ', minmax(0, 1fr))';
 
   kuldGame.groups.forEach(group => {
     const cat = document.createElement('div');
@@ -3464,13 +3608,23 @@ function renderKuldBoard(){
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'kuld-cell';
-      btn.textContent = q.state === 'done' ? '—' : '100';
-      btn.disabled = q.state === 'done';
-      btn.title = group.label + ' — 100 punkti';
-      btn.addEventListener('click', () => openKuldQuestion(col, row));
+      if(q.empty){
+        btn.classList.add('is-empty');
+        btn.disabled = true;
+        btn.setAttribute('aria-hidden', 'true');
+        btn.tabIndex = -1;
+      }else{
+        btn.textContent = q.state === 'done' ? '—' : String(q.value);
+        btn.disabled = q.state === 'done';
+        btn.title = group.label + ' — ' + q.value + ' punkti';
+        btn.addEventListener('click', () => openKuldQuestion(col, row));
+      }
       kuldBoard.appendChild(btn);
     });
   }
+  const total = kuldGame.groups.reduce((sum, g) => sum + g.questions.filter(q => !q.empty).length, 0);
+  kuldEyebrow.textContent = total + ' küsimust' + (kuldGame.custom ? ' · oma laud' : '');
+  kuldResetBtn.title = kuldGame.custom ? 'Alusta sama lauda uuesti' : 'Uus kuldvillak';
   kuldScoreEl.textContent = kuldGame.score;
 }
 
@@ -3483,21 +3637,40 @@ function showKuldScreen(){
   kuldScreen.style.display = 'block';
 }
 
+// Küsimuse täisekraanvaade: lukustab lehe kerimise, kuni küsimus on avatud.
+let kuldLoadToken = 0;
+function hideKuldQuestion(){
+  kuldQuestion.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 function showKuldBoard(){
-  kuldQuestion.style.display = 'none';
-  kuldBoard.parentElement.style.display = 'block';
+  hideKuldQuestion();
+  kuldEditor.style.display = 'none';
+  kuldPanel.style.display = 'block';
   kuldStatus.textContent = 'KULDVILLAK';
+}
+
+// „Tagasi mängulauale" ilma vastamata: küsimus jääb lauale avatuks (saab hiljem uuesti avada).
+// Varem jäi kuldGame.active seadmata tagasi, mistõttu ükski lahter enam ei avanenud ("laud külmus").
+function backToKuldBoard(){
+  kuldLoadToken++;                     // pooleli pildilaadimine ei tohi enam midagi kuvada
+  if(kuldGame) kuldGame.active = null;
+  showKuldBoard();
 }
 
 async function openKuldQuestion(col, row){
   if(!kuldGame || kuldGame.active) return;
   const q = kuldGame.groups[col].questions[row];
-  if(q.state === 'done') return;
+  if(q.empty || q.state === 'done') return;
 
+  const token = ++kuldLoadToken;
   kuldGame.active = { col, row };
-  kuldQuestion.style.display = 'block';
+  kuldQuestion.classList.add('open');
+  document.body.style.overflow = 'hidden';
   kuldQuestionCat.textContent = kuldGame.groups[col].label;
   kuldQuestionValue.textContent = q.value;
+  kuldGoodBtn.textContent = '✓ Läks täppi (+' + q.value + ')';
   kuldPhoto.style.display = 'none';
   kuldAnswer.style.display = 'none';
   kuldRevealBtn.disabled = true;
@@ -3508,6 +3681,7 @@ async function openKuldQuestion(col, row){
 
   try{
     const file = await fetchSpecificFile(q.filename);
+    if(token !== kuldLoadToken) return;
     q.current = { label:q.entry.label, type:q.entry.type || '', cat:q.entry.cat, ...file };
     kuldPhoto.src = file.url;
     await new Promise((resolve,reject) => {
@@ -3516,12 +3690,13 @@ async function openKuldQuestion(col, row){
       img.onerror = reject;
       img.src = file.url;
     });
+    if(token !== kuldLoadToken) return;
     kuldStateMsg.style.display = 'none';
     kuldPhoto.style.display = 'block';
     kuldRevealBtn.disabled = false;
   }catch(err){
+    if(token !== kuldLoadToken) return;
     kuldStateMsg.innerHTML = '<div>Pilti ei õnnestunud laadida.</div>';
-    kuldBackBoardBtn.disabled = false;
     q.current = null;
     kuldGame.active = null;
   }
@@ -3564,6 +3739,7 @@ function startKuldvillak(groupIds){
   kuldGame = buildKuldGame(groupIds);
   kuldConfig.style.display = 'none';
   showKuldScreen();
+  showKuldBoard();
   renderKuldBoard();
 }
 
@@ -3574,7 +3750,199 @@ function openKuldConfig(){
 
 function resetKuldvillak(){
   if(!kuldGame) return;
+  if(kuldGame.custom){
+    kuldGame = buildKuldGameFromDraft(kuldGame.draft);   // sama laud otsast peale
+    showKuldBoard();
+    renderKuldBoard();
+    return;
+  }
   startKuldvillak(kuldGame.groups.map(g => g.id));
+}
+
+// --- Redaktor ---
+let kuldDraft = null;
+let kuldEditorFromGame = false;
+
+function kuldDraftUsedFiles(){
+  const used = new Set();
+  kuldDraft.cols.forEach(c => c.cells.forEach(x => { if(x) used.add(x.file); }));
+  return used;
+}
+
+function openKuldEditor(fromGame){
+  if(!window.CuratedTest || typeof window.CuratedTest.pickImage !== 'function'){
+    alert('Pildivalija pole saadaval (curated-test.js ei laadinud).');
+    return;
+  }
+  kuldEditorFromGame = !!(fromGame && kuldGame);
+  kuldDraft = kuldEditorFromGame ? draftFromKuldGame(kuldGame) : newKuldDraft();
+  kuldConfig.style.display = 'none';
+  showKuldScreen();
+  hideKuldQuestion();
+  kuldPanel.style.display = 'none';
+  kuldEditor.style.display = 'block';
+  kuldStatus.textContent = 'REDAKTOR';
+  kuldEdMsg.textContent = '';
+  renderKuldEditor();
+}
+
+function pickKuldCell(ci, row){
+  const d = kuldDraft;
+  const cur = d.cols[ci].cells[row];
+  window.CuratedTest.pickImage({
+    title: ((d.cols[ci].label || '').trim() || ('Kategooria ' + (ci + 1))) + ' · ' + (row + 1) + '. rida',
+    currentCat: cur ? cur.cat : null,
+    currentFile: cur ? cur.file : null,
+    used: kuldDraftUsedFiles(),
+    onPick: (entry, file) => {
+      d.cols[ci].cells[row] = { cat: entry.cat, file, value: cur ? cur.value : kuldDefaultValue(d, row) };
+      renderKuldEditor();
+    }
+  });
+}
+
+function renderKuldEditor(){
+  const d = kuldDraft;
+  if(!d) return;
+  const mk = (tag, cls, txt) => {
+    const e = document.createElement(tag);
+    if(cls) e.className = cls;
+    if(txt !== undefined) e.textContent = txt;
+    return e;
+  };
+  kuldEdGrid.innerHTML = '';
+  const groupDefs = eligibleKuldGroups();
+
+  d.cols.forEach((c, ci) => {
+    const head = mk('div', 'kuld-ed-colhead');
+    const inp = mk('input');
+    inp.type = 'text';
+    inp.maxLength = 40;
+    inp.value = c.label;
+    inp.placeholder = 'Kategooria ' + (ci + 1);
+    inp.setAttribute('aria-label', 'Kategooria ' + (ci + 1) + ' nimi');
+    inp.addEventListener('input', () => { c.label = inp.value; });
+    const sel = mk('select');
+    sel.title = 'Allikas, millest tühjad lahtrid juhuslikult täidetakse';
+    sel.setAttribute('aria-label', 'Kategooria ' + (ci + 1) + ' allikas');
+    const none = mk('option', '', '— allikas puudub —');
+    none.value = '';
+    sel.appendChild(none);
+    groupDefs.forEach(g => {
+      const o = mk('option', '', g.label + ' (' + getKuldEntries(g.id).length + ')');
+      o.value = g.id;
+      sel.appendChild(o);
+    });
+    sel.value = c.groupId && groupDefs.some(g => g.id === c.groupId) ? c.groupId : '';
+    sel.addEventListener('change', () => {
+      c.groupId = sel.value || null;
+      const def = groupDefs.find(g => g.id === c.groupId);
+      if(def && (!c.label.trim() || /^Kategooria \d+$/.test(c.label.trim()))) c.label = def.label;
+      renderKuldEditor();
+    });
+    head.append(inp, sel);
+    kuldEdGrid.appendChild(head);
+  });
+
+  for(let row = 0; row < 5; row++){
+    d.cols.forEach((c, ci) => {
+      const cell = c.cells[row];
+      const box = mk('div', 'kuld-ed-cell' + (cell ? ' filled' : ''));
+      if(cell){
+        const entry = kuldEntryByCat(cell.cat);
+        const pic = mk('button', 'kuld-ed-pic');
+        pic.type = 'button';
+        pic.title = 'Vaheta pilt';
+        pic.appendChild(window.CuratedTest.thumb(cell.file));
+        pic.addEventListener('click', () => pickKuldCell(ci, row));
+        const name = mk('div', 'kuld-ed-name', entry ? entry.label : cell.cat);
+        name.title = entry ? entry.label : cell.cat;
+        const pts = mk('div', 'kuld-ed-pts');
+        const num = mk('input');
+        num.type = 'number';
+        num.min = '1';
+        num.step = '50';
+        num.value = cell.value;
+        num.setAttribute('aria-label', 'Punktid');
+        num.addEventListener('change', () => {
+          const v = Math.round(Number(num.value));
+          cell.value = v > 0 ? v : kuldDefaultValue(d, row);
+          num.value = cell.value;
+        });
+        const del = mk('button', 'kuld-ed-del', '✕');
+        del.type = 'button';
+        del.title = 'Eemalda küsimus';
+        del.addEventListener('click', () => { c.cells[row] = null; renderKuldEditor(); });
+        pts.append(num, del);
+        box.append(pic, name, pts);
+      }else{
+        const add = mk('button', 'kuld-ed-add', '+ pilt');
+        add.type = 'button';
+        add.addEventListener('click', () => pickKuldCell(ci, row));
+        box.appendChild(add);
+      }
+      kuldEdGrid.appendChild(box);
+    });
+  }
+}
+
+function fillKuldEditorRandom(){
+  const d = kuldDraft;
+  const usedFiles = kuldDraftUsedFiles();
+  const usedCats = new Set();
+  d.cols.forEach(c => c.cells.forEach(x => { if(x) usedCats.add(x.cat); }));
+  let filled = 0, noSource = 0;
+  d.cols.forEach(c => {
+    if(!c.cells.some(x => !x)) return;
+    if(!c.groupId){ noSource++; return; }
+    const pool = shuffleArray(getKuldEntries(c.groupId).slice());
+    c.cells.forEach((cell, row) => {
+      if(cell) return;
+      const pick = pool.find(e => !usedCats.has(e.cat) && e.files.some(f => !usedFiles.has(f)))
+        || pool.find(e => e.files.some(f => !usedFiles.has(f)));
+      if(!pick) return;
+      const free = pick.files.filter(f => !usedFiles.has(f));
+      const file = free[Math.floor(Math.random() * free.length)];
+      usedCats.add(pick.cat);
+      usedFiles.add(file);
+      c.cells[row] = { cat: pick.cat, file, value: kuldDefaultValue(d, row) };
+      filled++;
+    });
+  });
+  kuldEdMsg.textContent = 'Täideti ' + filled + ' lahtrit.' + (noSource ? ' ' + noSource + ' kategooriale pole allikat valitud.' : '');
+  renderKuldEditor();
+}
+
+function setKuldEditorPoints(ladder){
+  const d = kuldDraft;
+  d.ladder = ladder;
+  d.cols.forEach(c => c.cells.forEach((cell, row) => { if(cell) cell.value = kuldDefaultValue(d, row); }));
+  kuldEdMsg.textContent = ladder ? 'Punktid: 100, 200, 300, 400, 500 ridade kaupa.' : 'Punktid: kõigil 100.';
+  renderKuldEditor();
+}
+
+function clearKuldEditor(){
+  const d = kuldDraft;
+  if(d.cols.some(c => c.cells.some(Boolean)) && !confirm('Tühjendada kõik lahtrid?')) return;
+  d.cols.forEach(c => { c.cells = [null, null, null, null, null]; });
+  kuldEdMsg.textContent = '';
+  renderKuldEditor();
+}
+
+function startKuldFromDraft(){
+  const d = kuldDraft;
+  const total = d.cols.reduce((sum, c) => sum + c.cells.filter(Boolean).length, 0);
+  if(!total){ alert('Lisa vähemalt üks küsimus (klõpsa lahtril ja vali pilt).'); return; }
+  const progress = kuldEditorFromGame && kuldGame && kuldGame.groups.some(g => g.questions.some(q => !q.empty && q.state === 'done'));
+  if(progress && !confirm('Muudatused alustavad mängu otsast peale (punktid nullitakse). Jätkata?')) return;
+  kuldGame = buildKuldGameFromDraft(d);
+  showKuldBoard();
+  renderKuldBoard();
+}
+
+function cancelKuldEditor(){
+  if(kuldGame){ showKuldBoard(); renderKuldBoard(); }
+  else goHome();
 }
 
 function startPractice(){
@@ -3710,8 +4078,22 @@ kuldUseSelectedBtn.addEventListener('click', startKuldFromSelection);
 kuldRevealBtn.addEventListener('click', revealKuldAnswer);
 kuldGoodBtn.addEventListener('click', () => finishKuldQuestion(true));
 kuldBadBtn.addEventListener('click', () => finishKuldQuestion(false));
-kuldBackBoardBtn.addEventListener('click', showKuldBoard);
-kuldMenuBtn.addEventListener('click', goHome);
+kuldBackBoardBtn.addEventListener('click', backToKuldBoard);
+document.addEventListener('keydown', ev => {
+  if(ev.key === 'Escape' && kuldQuestion.classList.contains('open') && !document.querySelector('.ct-modal')){
+    ev.preventDefault();
+    backToKuldBoard();
+  }
+});
+kuldCustomBtn.addEventListener('click', () => openKuldEditor(false));
+kuldEditBtn.addEventListener('click', () => openKuldEditor(true));
+document.getElementById('kuldEdFillBtn').addEventListener('click', fillKuldEditorRandom);
+document.getElementById('kuldEdLadderBtn').addEventListener('click', () => setKuldEditorPoints(true));
+document.getElementById('kuldEdFlatBtn').addEventListener('click', () => setKuldEditorPoints(false));
+document.getElementById('kuldEdClearBtn').addEventListener('click', clearKuldEditor);
+document.getElementById('kuldEdStartBtn').addEventListener('click', startKuldFromDraft);
+document.getElementById('kuldEdCancelBtn').addEventListener('click', cancelKuldEditor);
+kuldMenuBtn.addEventListener('click', () => { kuldLoadToken++; if(kuldGame) kuldGame.active = null; hideKuldQuestion(); goHome(); });
 kuldResetBtn.addEventListener('click', resetKuldvillak);
 showModelListBtn.addEventListener('click', showListScreen);
 listBackBtn.addEventListener('click', goHome);
@@ -3805,7 +4187,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc27'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc28'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
