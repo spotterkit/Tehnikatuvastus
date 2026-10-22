@@ -838,6 +838,46 @@ function openPicker(swapIndex){
   const act = search.querySelector('.ct-search-opt.is-active'); if(act) act.scrollIntoView({block: 'center'});
   const inp = search.querySelector('input'); if(inp) setTimeout(() => inp.focus(), 30);
 }
+// Taaskasutatav pildivalija teistele vaadetele (nt kuldvillaku redaktor): valib ÜHE pildi ja sulgub.
+// opts: {title, currentCat, currentFile, used:Set<failinimi>, onPick(entry, file)}
+function pickImageFor(opts){
+  opts = opts || {};
+  closePicker();
+  const used = opts.used instanceof Set ? opts.used : new Set();
+  let activeCat = opts.currentCat && entryOf(opts.currentCat) ? opts.currentCat : null;
+  const imgs = h('div', {class: 'ct-pick-imgs'});
+  const head = h('div', {class: 'ct-pick-imgs-head'});
+  const listWrap = h('div', {class: 'ct-pick-models'});
+  const drawImages = () => {
+    imgs.innerHTML = '';
+    head.innerHTML = '';
+    const e = activeCat ? entryOf(activeCat) : null;
+    if(!e){ head.appendChild(h('span', {class: 'ct-help'}, 'Vali vasakult mudel – siia ilmuvad selle pildid.')); return; }
+    head.append(h('b', null, e.label), h('span', null, e.type || ''));
+    e.files.forEach(f => {
+      const isCur = opts.currentFile === f;
+      const inUse = used.has(f) && !isCur;
+      const b = h('button', {type: 'button', class: 'ct-pick-img' + (isCur ? ' is-current' : '') + (inUse ? ' is-used' : ''), disabled: inUse || isCur},
+        thumb(f), inUse ? h('span', {class: 'ct-badge'}, 'juba laual') : isCur ? h('span', {class: 'ct-badge'}, 'praegune') : null);
+      b.addEventListener('click', () => { closePicker(); if(typeof opts.onPick === 'function') opts.onPick(e, f); });
+      imgs.appendChild(b);
+    });
+  };
+  const search = modelSearch(e => { activeCat = e.cat; drawImages(); search._redraw(); }, 'Otsi mudelit (nt T-72, BM-21)…', {inline: true, get activeCat(){ return activeCat; }});
+  listWrap.appendChild(search);
+  pickerEl = h('div', {class: 'ct-modal', role: 'dialog', 'aria-modal': 'true'},
+    h('div', {class: 'ct-modal-box'},
+      h('div', {class: 'ct-modal-head'},
+        h('b', null, opts.title || 'Vali pilt'),
+        h('button', {type: 'button', onclick: closePicker}, 'Tühista')),
+      h('div', {class: 'ct-modal-body'}, listWrap, h('div', {class: 'ct-pick-right'}, head, imgs))));
+  pickerEl.addEventListener('click', ev => { if(ev.target === pickerEl) closePicker(); });
+  document.body.appendChild(pickerEl);
+  document.addEventListener('keydown', pickerKey, true);
+  drawImages();
+  const act = search.querySelector('.ct-search-opt.is-active'); if(act) act.scrollIntoView({block: 'center'});
+  const inp = search.querySelector('input'); if(inp) setTimeout(() => inp.focus(), 30);
+}
 // ---------------------------------------------------------------------------
 // SAMM 3: kinnitus, salvestamine, lehed (N5, N6, N18, N20, N24–N28)
 // ---------------------------------------------------------------------------
@@ -1412,7 +1452,7 @@ function wireHome(){
   });
 }
 
-window.CuratedTest = {open: openNew, hide, openFile: openFromFile, _state: S, _parse: parseTestText, _load: loadTest};
+window.CuratedTest = {pickImage: pickImageFor, thumb, open: openNew, hide, openFile: openFromFile, _state: S, _parse: parseTestText, _load: loadTest};
 wireHome();
 checkHash();
 window.addEventListener('hashchange', checkHash);
