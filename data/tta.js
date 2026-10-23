@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 15,
+  "version": 16,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -5712,6 +5712,276 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): R-149AKSh-1", "url": "https://armsnet.duckdns.org/equipment/c9d1521c-3120-4d58-e72d-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "9K720 Iskander/SS-26 Stone": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "chassis": "MZKT-79306 ASTROLOG 8×8",
+        "missileLength": 7.3,
+        "missileDiameter": 0.92,
+        "launchWeight": 3800,
+        "warheadMass": 700,
+        "firingRangeMin": 50,
+        "firingRange": 415,
+        "missileSpeed": "Mach 6–7",
+        "accuracy": "5–7 m (lõppfaasi optoelektrooniline DSMAC-sihtimine)",
+        "guidance": "INS + GLONASS + DSMAC",
+        "specialEquipment": "Valmisolek: kuni 4 min kõrgeimast valmidusest, kuni 16 min marsilt; 2 raketti 9P78 stardiseadmel ja 2 raketti 9T250 laadimismasinal; ühetoimeline tahkekütusemootor"
+      },
+      "warnings": {
+        "warheadMass": "Lõhkepea mass 480–700 kg (variandist sõltuvalt). Laskekaugus: kinnitatud 400 km, avaldatud 415 km, kuulduste järgi 500 km. Andmed on ballistilise 9M723 kohta; tiibraketid 9M728 / 9M729 (Iskander-K) vajavad eraldi andmeid."
+      },
+      "sources": [
+        {"name": "Wikipedia: 9K720 Iskander", "url": "https://en.wikipedia.org/wiki/9K720_Iskander", "retrieved": "2026-10-23"}
+      ]
+    },
+    "SS-21 Totška/SS-21 Scarab": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "chassis": "BAZ-5921 ujuv teisaldatav stardiseade",
+        "maxSpeedRoad": 60,
+        "amphibious": true,
+        "missileLength": 6.4,
+        "missileDiameter": 0.65,
+        "launchWeight": 2000,
+        "warheadMass": 420,
+        "firingRangeMin": 15,
+        "firingRange": 120,
+        "missileSpeed": "1,8 km/s (Mach 5,3)",
+        "accuracy": "CEP ca 95 m (Tochka-U); 150 m (Tochka)",
+        "guidance": "Inertsiaalne"
+      },
+      "warnings": {
+        "firingRange": "120 km on Tochka-U, algsel Tochkal 70 km; stardimass 2000 kg (Tochka) / 2010 kg (Tochka-U); 420 kg on 9M123F ühtne lõhkepea."
+      },
+      "sources": [
+        {"name": "Wikipedia: OTR-21 Tochka", "url": "https://en.wikipedia.org/wiki/OTR-21_Tochka", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Krasukha-2": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "chassis": "BAZ-6910-022 8×8",
+        "frequencyRange": "2,3–3,7 GHz (S-riba)",
+        "jammingRange": 250,
+        "ewTargets": "AWACS-lennukid (nt E-3 Sentry) ja muud õhuradarid, sh raketijuhtimisradarid; Iskanderi jt tähtsate liikuvate sihtmärkide kaitse"
+      },
+      "warnings": {
+        "jammingRange": "Wikipedia annab kuni 250 km; COGINT-i tabelis on 850 km, mis on vastuolus."
+      },
+      "sources": [
+        {"name": "Wikipedia: Krasukha", "url": "https://en.wikipedia.org/wiki/Krasukha_(electronic_warfare_system)", "retrieved": "2026-10-23"},
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Krasukha-4": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "chassis": "BAZ-6910-022 4-teljeline (Wikipedia) või kaks KamAZ-6350 veokit (COGINT)",
+        "frequencyRange": "X-riba 8,5–10,7 GHz; Ku-riba 13,4–17,7 GHz",
+        "jammingRange": 300,
+        "ewTargets": "Õhuradarilennukid (nt E-8 JSTARS), madalal orbiidil satelliidid, maa- ja õhuradarid, droonid"
+      },
+      "warnings": {
+        "chassis": "Allikad erinevad šassii osas. Ulatus 150–300 km (kuni 300 km)."
+      },
+      "sources": [
+        {"name": "Wikipedia: Krasukha", "url": "https://en.wikipedia.org/wiki/Krasukha_(electronic_warfare_system)", "retrieved": "2026-10-23"},
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Lejer-2/Leer-2": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 (tabelis), 2 (pildiallkirjas)",
+        "chassis": "Tigr-M (85Ya6)",
+        "frequencyRange": "Häirimine 0,02–2,7 GHz; analüüs 0,0001–18 GHz",
+        "jammingRange": 40,
+        "ewTargets": "Raadioluure ning raadio- ja mobiilside häirimine"
+      },
+      "warnings": {
+        "jammingRange": "COGINT annab raadiosideühenduste häirimise ulatuseks 6–40 km; ainult üks allikas."
+      },
+      "sources": [
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RB-341B Lejer-3/Leer-3": {
+      "status": "unverified",
+      "values": {
+        "crew": "5",
+        "frequencyRange": "0,935–1,785 GHz",
+        "jammingRange": 6,
+        "ewTargets": "GSM / 3G / 4G mobiilsidevõrgud; mobiilseadmete tuvastamine; töötab koos Orlan-10 droonidega; SMS-ide saatmine kuni 30 km kaugusele"
+      },
+      "warnings": {
+        "jammingRange": "6 km on mahasurumisraadius; šassii kohta andmeid pole. Ainult üks allikas (COGINT)."
+      },
+      "sources": [
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Moskva-1": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "chassis": "3 × KamAZ-6350-1335",
+        "frequencyRange": "UHF, L, S, C, X, Ku (täpne vahemik teadmata)",
+        "detectionRange": 400,
+        "ewTargets": "Õhusaatjate passiivne otsing, suunaleidmine ja jälgimine; üks masin teeb aktiivset häirimist"
+      },
+      "warnings": {
+        "detectionRange": "Ainult üks allikas (COGINT)."
+      },
+      "sources": [
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+      ]
+    },
+    "GT-01 Murmansk-BN": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "KamAZ-53501 8×8 (iga antenn eraldi veokil)",
+        "combatWeight": 15,
+        "length": 8.15,
+        "width": 2.4,
+        "height": 34,
+        "mastHeight": 32,
+        "engine": "KamAZ-740.13-260 diisel",
+        "power": 260,
+        "frequencyRange": "3–30 MHz (lühilaine)",
+        "jammingRange": 5000,
+        "ewTargets": "Pikamaa lühilaineside, sh USA globaalne lühilaineside (HFGCS)",
+        "specialEquipment": "Seitsmeastmeline teleskoopmast; neljast antennist koosnevale grupile ca 400 kW generaator (KamAZ-6350 generaatorveok)"
+      },
+      "warnings": {
+        "jammingRange": "5000 km on tootja väide (5000–8000 km); mass tabelis 15 t, tekstis ca 18 t; kõrgus 34 m on kogukõrgus koos mastiga."
+      },
+      "sources": [
+        {"name": "Truck Encyclopedia: Murmansk-BN", "url": "https://truck-encyclopedia.com/modern/russia/Kamaz-Murmansk-BN.php", "retrieved": "2026-10-23"},
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+      ]
+    },
+    "SPR-2M RTUT-BM": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "MT-LB / MT-LBu (pooleldi roomikud)",
+        "combatWeight": 11,
+        "length": 6.45,
+        "width": 2.86,
+        "height": 1.86,
+        "engine": "Diisel",
+        "power": 240,
+        "maxSpeedRoad": 60,
+        "mainArmament": "7,62 mm kuulipilduja",
+        "frequencyRange": "Töösagedus 95–420 MHz; häirimine 80–900 MHz",
+        "jammingRange": 0.4,
+        "jammerPower": 180,
+        "ewTargets": "Lähedussüütega ja raadiojuhitavate sütikutega suurtükimürsud ja raketid (detoneeruvad suuremal kõrgusel); VHF-raadioliinid",
+        "specialEquipment": "Telekaantenn pöörleb ±150°; pidev töö 6 min; paigaldus alla 10 min; kaitse tõenäosus 80%; NBC-kaitse"
+      },
+      "warnings": {
+        "frequencyRange": "Sagedusala allikates 90–420 / 95–420 MHz; impulsivõimsus 180 W (SPR-2M kirjes 250 W). Kate on poolkera raadiusega 400 m (500 000 m²)."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1L262E Rtut-BM", "url": "https://armsnet.duckdns.org/equipment/800da44e-18f8-4424-e698-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+      ]
+    },
+    "R-330Zh Žitel": {
+      "status": "unverified",
+      "values": {
+        "chassis": "Ural-43203 või KamAZ-43114; häirejaam eraldi haagisel",
+        "frequencyRange": "Luure 0,1–2 GHz; häirimine ca 0,1–2 GHz",
+        "jammingRange": 30,
+        "ewTargets": "GPS/NAVSTAR, Inmarsat- ja Iridium-satelliitside, GSM-1900 mobiilid, droonide V/UHF-raadioliinid"
+      },
+      "warnings": {
+        "jammingRange": "30 km on 2019. aasta katse raadius; COGINT annab maapealse ulatuse 20–25 km."
+      },
+      "sources": [
+        {"name": "Wikipedia: R-330Zh Zhitel", "url": "https://en.wikipedia.org/wiki/R-330Zh_Zhitel", "retrieved": "2026-10-23"},
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RB-301B (RB-301B Borisoglebsk-2)": {
+      "status": "unverified",
+      "values": {
+        "chassis": "Peamiselt MT-LB / MT-LBu (komplektis 9 sõidukit)",
+        "frequencyRange": "HF 3–30 MHz; VHF 30–300 MHz; UHF 0,3–3 GHz",
+        "detectionRange": 30,
+        "ewTargets": "HF/VHF-raadiosidesüsteemide automaatne tuvastus, suunaleidmine ja häirimine; GPS-i ja side häirimine"
+      },
+      "warnings": {
+        "chassis": "COGINT tähistab kompleksi RB-310B; Wikipedia andmetel MT-LBu. Tuvastusulatus vähemalt 30 km."
+      },
+      "sources": [
+        {"name": "Wikipedia: Borisoglebsk-2", "url": "https://en.wikipedia.org/wiki/Borisoglebsk-2", "retrieved": "2026-10-23"},
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RB-531B Infauna": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "chassis": "K1Sh1 (BTR-80 alusel)",
+        "driveConfig": "8×8",
+        "amphibious": true,
+        "combatWeight": 13.6,
+        "length": 7.65,
+        "width": 2.9,
+        "height": 2.63,
+        "maxSpeedRoad": 80,
+        "maxSpeedWater": 9,
+        "range": 600,
+        "frequencyRange": "VHF 30–300 MHz; UHF 300–1000 MHz",
+        "jammingRange": 3,
+        "jammerPower": 60,
+        "ewTargets": "Pataljonitaseme raadioside; raadiojuhitavad lõhkekehad ja miinid; laser- ja videojuhitavad relvad (aerosoolsuits optiliste sensorite abil); GSM"
+      },
+      "warnings": {
+        "combatWeight": "ARMSNET annab massi 13 614 kg, COGINT ca 12 t. Häirimisulatus 3 km on ARMSNET-i „disruption range“."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Infauna RB-531B", "url": "https://armsnet.duckdns.org/equipment/e262e2e3-a0f9-443d-e672-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RB-636AM2 Svet-KU": {
+      "status": "unverified",
+      "values": {
+        "chassis": "KamAZ-4350 (ka Ford Transit variant)",
+        "frequencyRange": "0,025–18 GHz",
+        "ewTargets": "Raadio- ja radarisignaalide signaaliluure ning häirimine; GSM, CDMA2000, UMTS",
+        "specialEquipment": "Voolutarve kuni 3 kW"
+      },
+      "warnings": {
+        "chassis": "Ainult üks allikas (COGINT); kirje on RB-636 kohta, AM2 variandi andmeid eraldi ei leitud."
+      },
+      "sources": [
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+      ]
+    },
+    "1RL248-4 SPN-4": {
+      "status": "unverified",
+      "values": {
+        "crew": "5",
+        "frequencyRange": "13,333–17,544 GHz (Ku-riba)",
+        "jammingRange": 130,
+        "jammerPower": 1100,
+        "ewTargets": "Külgvaaderadarid, relvajuhtimisradarid ja navigatsiooniradarid"
+      },
+      "warnings": {
+        "jammingRange": "Relvajuhtimisradarite vastu vähemalt 130–150 km, külgvaaderadarite vastu vähemalt 60 km, madalradarite vastu 50 km. Šassii ei ole täpsustatud. Ainult üks allikas (COGINT)."
+      },
+      "sources": [
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
       ]
     }
   }
