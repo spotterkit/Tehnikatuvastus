@@ -15,8 +15,13 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="icon-192.png" type="image/png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/oswald-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Oswald (SIL OFL, vt fonts/OFL.txt) — hoitakse omas repos, Google Fontsi poole ei pöörduta. */
+@font-face{font-family:'Oswald';font-style:normal;font-display:swap;font-weight:200 700;src:url(fonts/oswald-cyrillic-wght-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+@font-face{font-family:'Oswald';font-style:normal;font-display:swap;font-weight:200 700;src:url(fonts/oswald-latin-ext-wght-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Oswald';font-style:normal;font-display:swap;font-weight:200 700;src:url(fonts/oswald-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+</style>
 <style>
   :root{
     --bg-0:#14170f;
@@ -1186,7 +1191,7 @@ const CATEGORIES = [
   { label: "PRP-3", group: "artillery_recon", type: "STV luure- ja tulejuhtimissoomuk", cat: "PRP-3", weight: 1, files: ["images/artillery_recon/prp3_01.jpg", "images/artillery_recon/prp3_02.jpg"] },
   { label: "PRP-4", group: "artillery_recon", type: "STV luure- ja tulejuhtimissoomuk", cat: "PRP-4", weight: 1, files: ["Russia_Arms_Expo_2013_%28531-22%29.jpg", "Army2016-510.jpg"] },
   { label: "SNAR-10", group: "artillery_recon", type: "STV Luure- ja tulejuhtimissoomuk", cat: "SNAR-10", weight: 1, files: ["MAKS2015part6-08.jpg", "Oboronexpo2014part3-57.jpg"] },
-  { label: "ZOOPARK-1", group: "artillery_recon", type: "STV vastutuleradar", cat: "ZOOPARK-1", weight: 1, files: ["ArtilleryExercise2014-06.jpg", "1L219M_back_view_MAKS2005.jpg", "/9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_02.jpg"] },
+  { label: "ZOOPARK-1", group: "artillery_recon", type: "STV vastutuleradar", cat: "ZOOPARK-1", weight: 1, files: ["ArtilleryExercise2014-06.jpg", "1L219M_back_view_MAKS2005.jpg"] },
   { label: "1V13", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V13", weight: 1, files: ["Engineering_Technologies_2010_Part4_0033_copy.jpg"] },
   { label: "1V18", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V18", weight: 1, files: ["2018._Донецк_N_18_DSC_8191.jpg", "2014-12-06._Площадка_военной_техники_в_парке_Ленинского_комсомола_07.JPG"] },
   { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", weight: 1, files: ["RehearsalTula02052017-05.jpg"] },
@@ -1370,7 +1375,7 @@ const CATEGORIES = [
   { label: "S-400 / S-300", group: "ad", type: "Õhutõrjekompleks", cat: "S-400 / S-300", weight: 2, files: ["Парад_2020_Симферополь_5.jpg"] },
   { label: "Tor/SA-15 Gauntlet", group: "ad", type: "Õhutõrjesoomuk", cat: "Tor", weight: 1, files: ["TOR-2M_%2841072268085%29.jpg", "Tor-M2U_Army-2016.jpg"] },
   { label: "ZSU-23-4 Shilka", group: "ad", type: "Õhutõrjesoomuk", cat: "ZSU-23-4", weight: 1, files: ["Shilka_at_Tula_%282017%29.jpg", "ZSU-23-4M4_Shilka-M4_Armia2018.jpg"] },
-  { label: "2S6 Tunguska/SA-19 Grison", group: "ad", type: "Õhutõrjesoomuk", cat: "2S6 Tunguska", weight: 1, files: ["2S6M1_Tunguska_M1_at_ARMY-2016.JPG", "Самбекские_высоты%2C_Тунгуска.jpg", "2008_Moscow_Victory_Day_Parade_-_9K22_Tunguska.jpg"] },
+  { label: "2S6 Tunguska/SA-19 Grison", group: "ad", type: "Õhutõrjesoomuk", cat: "2S6 Tunguska", weight: 1, files: ["2S6M1_Tunguska_M1_at_ARMY-2016.JPG", "Самбекские_высоты%2C_Тунгуска.jpg"] },
   { label: "SA-8B Gecko", group: "ad", type: "Õhutõrjesoomuk", cat: "SA-8B Gecko", weight: 1, files: ["9K33M3_Osa-AKM_in_VDNKh.jpg", "9K33_Osa_of_the_Russian_Army.jpg"] },
   { label: "9S932-1 Barnaul-T", group: "ad", type: "ÕT juhtimissüsteem", cat: "9S932-1 Barnaul-T", weight: 1, files: ["9S932-1_02.jpg", "images/ad/barnaul-T.jpg"] },
   { label: "92N6 Gravestone", group: "ad", type: "ÕT radar", cat: "92N6 Gravestone", weight: 1, files: ["92N6A_radar_for_S-400.jpg"] },
@@ -4625,7 +4630,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc41'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc42'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
