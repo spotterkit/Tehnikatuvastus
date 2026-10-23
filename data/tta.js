@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 14,
+  "version": 15,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -5592,6 +5592,126 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: VPK-3927 Volk", "url": "https://en.wikipedia.org/wiki/VPK-3927_Volk", "retrieved": "2026-10-23"}
+      ]
+    },
+    "BMP-1Ksh": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 (kirjetes ka „3 + 4“ ja 6)",
+        "combatWeight": 13,
+        "length": 6.74,
+        "width": 2.94,
+        "height": 2.15,
+        "groundClearance": 390,
+        "fuelCapacity": 462,
+        "engine": "UTD-23 diisel",
+        "power": 360,
+        "maxSpeedRoad": 65,
+        "maxSpeedWater": 7,
+        "range": 550,
+        "amphibious": true,
+        "mainArmament": "1 × 7,62 mm PKT (2000 padrunit); põhikahur asendatud fikseeritud tornikesega",
+        "armor": "Terasest kere 19 mm, torn 23 mm; lisasoomus ja reaktiivsoomus võimalik; aktiivkaitse puudub",
+        "specialEquipment": "Raadiod: 2 × R-111, 1 × R-123MT, 1 × R-130M; TNA-3 güroskoopiline navigatsiooniseade; AMU 10 m teleskoopmast"
+      },
+      "warnings": {
+        "crew": "ARMSNET-i kirjes on meeskond ebaselge (3, „3 + 4“ ja 6 eri kohtades)."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BMP-1KSh (BMP M1978)", "url": "https://armsnet.duckdns.org/equipment/9864c5ca-c9e4-4d42-ec3c-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "R-145BM": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "combatWeight": 10.3,
+        "length": 7.56,
+        "width": 2.83,
+        "height": 2.31,
+        "driveConfig": "8×8",
+        "engine": "2 × GAZ-40P 6-silindriline bensiinimootor (90 hj iga)",
+        "power": 180,
+        "maxSpeedRoad": 80,
+        "maxSpeedWater": 10,
+        "range": 500,
+        "amphibious": true,
+        "mainArmament": "1 × 7,62 mm PKT (2500 padrunit); torn ja 14,5 mm kuulipilduja eemaldatud",
+        "armor": "Keevitatud teras 5–9 mm; lisasoomust ei ole; kollektiivne NBC-kaitse",
+        "specialEquipment": "Raadiod: 2 × R-111/171, 1 × R-123/173, 1 × R-145, 1 × R-130M, maa–õhk raadiojaam R-8xx"
+      },
+      "warnings": {
+        "specialEquipment": "ARMSNET-i kirjes on ebakõlasid (kirjelduses R-245, tabelis R-145). Andmed BTR-60 baasil R-145BM kohta."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BTR-60 R-145BM", "url": "https://armsnet.duckdns.org/equipment/4ed15975-229e-4e77-ec39-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "R-149BMR": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 + 7 inimest",
+        "combatWeight": 13.6,
+        "length": 7.7,
+        "width": 2.9,
+        "height": 2.41,
+        "driveConfig": "8×8",
+        "engine": "KamAZ-7403 V8 vedelikjahutusega diisel",
+        "power": 260,
+        "maxSpeedRoad": 80,
+        "maxSpeedOffroad": 60,
+        "maxSpeedWater": 10,
+        "range": 600,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.5,
+        "trench": 2,
+        "mainArmament": "1 × 14,5 mm KPVT (500 padrunit)",
+        "secondaryArmament": "1 × 7,62 mm PKT (2500 padrunit); 6 × 81 mm suitsugraanaadiheitjat",
+        "armor": "Kere esiosa peab vastu 12,7 mm kuulidele; igakülgne kaitse 7,62 mm kuulide ja kildude vastu; torn peab vastu 12,7 mm kuulidele; kollektiivne NBC-kaitse",
+        "specialEquipment": "Raadiod: 3 × R-168-0.1UM, 1 × R-168-5UN-1, 2 × R-168-25U-2 (25–40 km), 2 × R-168-100U-2 (25–60 km), 1 × R-168-100KA lühilaine (25–360 km); R-438M Belozer kaasaskantav satelliitside (5000 km)"
+      },
+      "warnings": {
+        "crew": "ARMSNET-i kirjes on vastuolu: kirjelduse järgi BTR-80, süsteemiosas BTR-70 baasil."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): R-149BMR", "url": "https://armsnet.duckdns.org/equipment/fa9f78bb-61ab-4dbd-e9c5-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "R-441-0 Liven": {
+      "status": "unverified",
+      "values": {
+        "crew": "16 (täismehitus), 11 (osaline)",
+        "driveConfig": "6×6",
+        "specialEquipment": "Liikuv satelliitsidekeskus mitmekanalilise raadioreleeside jaoks; 1,8 m satelliiditaldrik, mis sihtib end ise navigatsioonisüsteemi abil; töötab autonoomselt väljal"
+      },
+      "warnings": {
+        "crew": "Ainult ARMSNET; mass, mõõtmed ja mootor puuduvad. Kirje annab meeskonnaväljal ka „441“, mis on andmeviga. Näidisvõrgu ulatus üle 400 km."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): R-441 Liven", "url": "https://armsnet.duckdns.org/equipment/7ebad717-3302-43e6-ed82-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "R-149AKSh-1": {
+      "status": "unverified",
+      "values": {
+        "crew": "7",
+        "length": 7.85,
+        "width": 2.5,
+        "height": 3.29,
+        "driveConfig": "6×6",
+        "engine": "KamAZ-740.13-260 diisel",
+        "power": 260,
+        "maxSpeedRoad": 100,
+        "range": 1000,
+        "specialEquipment": "Raadiod: 2 × R-168-100U-2 (VHF), 2 × R-168-5KV (lühilaine), 1 × R-168-5UN-2 (kaasaskantav VHF), 1 × R-168-MRA (UHF), 1 × R-612-18 (VHF/UHF, lennuliini sagedus); NBC-kaitse; külmkäivitusseade (kuni −50 °C); rehvirõhu keskreguleerimine"
+      },
+      "warnings": {
+        "crew": "Ainult ARMSNET; täismassi andmed puuduvad (6 t on maksimaalne koormus)."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): R-149AKSh-1", "url": "https://armsnet.duckdns.org/equipment/c9d1521c-3120-4d58-e72d-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     }
   }
