@@ -1517,15 +1517,15 @@ const CATEGORIES = [
   { label: "Strela-3 9K34", group: "weapons", type: "Õhutõrjerakett", cat: "Strela-3 (9K34)", weight: 1, files: ["SA-14_missile_and_launch_tube.jpg"] },
   { label: "Verba 9K333", group: "weapons", type: "Õhutõrjerakett", cat: "Verba (9K333)", weight: 1, files: ["9K333_Verba_MANPAD_at_Military-technical_forum_ARMY-2016_01.jpg"] },
   // Täiendavad relvašabloonid (avalike allikate põhjal, nt Wikipedia „List of equipment of the Russian Ground Forces“) — lisa pildifailid files[] massiividesse.
-  { label: "PM „Makarov“", group: "weapons", type: "Püstol", cat: "PM „Makarov“", weight: 1, files: ["Makarov_%2828034065%29.jpeg"] },
-  { label: "MP-443 „Grach“", group: "weapons", type: "Püstol", cat: "MP-443 „Grach“", weight: 1, files: ["9-мм_Пистолет_Ярыгина_ПЯ_6П35_02.jpg"] },
-  { label: "GSh-18", group: "weapons", type: "Püstol", cat: "GSh-18", weight: 1, files: ["9-мм_Пистолет_Ярыгина_ПЯ_6П35_02.jpg"] },
+  { label: "PM „Makarov“", group: "weapons", type: "Püstol", cat: "PM „Makarov“", weight: 1, files: [] },
+  { label: "MP-443 „Grach“", group: "weapons", type: "Püstol", cat: "MP-443 „Grach“", weight: 1, files: [] },
+  { label: "GSh-18", group: "weapons", type: "Püstol", cat: "GSh-18", weight: 1, files: [] },
   { label: "APS „Stechkin“", group: "weapons", type: "Automaatpüstol", cat: "APS „Stechkin“", weight: 1, files: [] },
   { label: "AKM", group: "weapons", type: "Automaat", cat: "AKM", weight: 1, files: [] },
   { label: "AKS-74U", group: "weapons", type: "Automaatkarabiin", cat: "AKS-74U", weight: 1, files: [] },
   { label: "AK-103", group: "weapons", type: "Automaat", cat: "AK-103", weight: 1, files: [] },
   { label: "AS „Val“", group: "weapons", type: "Summutiga automaat", cat: "AS „Val“", weight: 1, files: [] },
-  { label: "PP-19 „Vityaz“", group: "weapons", type: "Püstolkuulipilduja", cat: "PP-19 „Vityaz“", weight: 1, files: ["PP-19_%28348-08%29.jpg"] },
+  { label: "PP-19 „Vityaz“", group: "weapons", type: "Püstolkuulipilduja", cat: "PP-19 „Vityaz“", weight: 1, files: [] },
   { label: "DShK", group: "weapons", type: "Raskekuulipilduja", cat: "DShK", weight: 1, files: [] },
   { label: "GP-30 „Obuvka“", group: "weapons", type: "Vintrauaalune granaadiheitja", cat: "GP-30 „Obuvka“", weight: 1, files: [] },
   { label: "AGS-30", group: "weapons", type: "Automaatgranaadiheitja", cat: "AGS-30", weight: 1, files: [] },
@@ -1533,6 +1533,10 @@ const CATEGORIES = [
   { label: "RPG-27 „Tavolga“", group: "weapons", type: "TT-ühekordne lask", cat: "RPG-27 „Tavolga“", weight: 1, files: [] },
   { label: "RPG-32 „Hashim“", group: "weapons", type: "Tankitõrjegranaadiheitja", cat: "RPG-32 „Hashim“", weight: 1, files: [] },
   { label: "MRO-A", group: "weapons", type: "Ühekordne leegiheitja", cat: "MRO-A", weight: 1, files: [] },
+  { label: "RShG-1", group: "weapons", type: "Ühekordne termobaariline lask", cat: "RShG-1", weight: 1, files: [] },
+  { label: "MRO-D", group: "weapons", type: "Suitsulaenguga leegiheitja", cat: "MRO-D", weight: 1, files: [] },
+  { label: "MRO-Z", group: "weapons", type: "Süütelaenguga leegiheitja", cat: "MRO-Z", weight: 1, files: [] },
+  { label: "TBG-7V", group: "weapons", type: "Termobaariline lask RPG-7-le", cat: "TBG-7V", weight: 1, files: [] },
 
   // Väeliigid ja üksused — emblemmid ja üldfotod; šabloon, lisa pildifailid files[] massiividesse
   // (nt "images/forces/vdv_embleem.png" või Commonsi failinimi). Pildita read ei kajastu kusagil.
@@ -4504,6 +4508,17 @@ guessInput.addEventListener('input', () => {
 renderHome();
 renderQr();
 showHomeScreen();
+
+// Otselingid (nt SharePointi): <leht>#test või #test50 = 50 küsimuse test, #test25 = 25 küsimuse test.
+// Test algab kohe; # eemaldatakse aadressist, et värskendus või tagasi-nupp ei käivitaks seda uuesti.
+function startFromHash(){
+  const m = /^#test(25|50)?$/i.exec(location.hash || '');
+  if(!m) return;
+  try{ window.history.replaceState(window.history.state, '', location.href.split('#')[0]); }catch(e){}
+  startTest(m[1] ? Number(m[1]) : TEST_SIZE);
+}
+Promise.resolve(refreshOfflineAvailability()).catch(() => {}).then(startFromHash);
+window.addEventListener('hashchange', startFromHash);
 </script>
 <!-- Kureeritud test (õpetajale): eraldi moodul, vt curated-test.js ja Kureeritud_test_nouded.md -->
 <script src="./curated-test.js"></script>
@@ -4583,7 +4598,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc39'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc40'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
