@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 7,
+  "version": 8,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -2108,7 +2108,7 @@ window.TTA_DATA = {
         "caliber": 7.62,
         "mainArmament": "7,62mm kuulipilduja (ainult enesekaitseks)",
         "sensors": "Mastil maapealse seire radar IRL-123 (NATO „Small Fred“, J-sagedusala 10–20GHz): liikuvate ja seisvate sihtmärkide avastuskaugus 20km, jälgimiskaugus 7km; laserkaugusmõõtja 1D6; soojuskaamerat ja arvutatud tulejuhtimist pole",
-        "specialEquipment": "Suurtükiväe luure- ja vaatlusmasin (kasutusel 1972): leiab vastase üksuste asukohad, määrab vastase suurtükiväe positsioonid vastutule jaoks ja annab sihtmärgi koordinaadid suurtükiväe tulejuhtimiseks. Raadiojaamad 2×R-123M, R-124 ja R-108 – jälgib mitut juhtimis- ja tulejuhtimisvõrku. Maha võetav vaatluspost kuni 6km kaugusel sõidukist; KBRT-kaitse ja suitsuseadmed",
+        "specialEquipment": "Suurtükiväe luure- ja vaatlusmasin (kasutusel 1972): leiab vastase üksuste asukohad, määrab vastase suurtükiväe positsioonid vastutule jaoks ja annab sihtmärgi koordinaadid suurtükiväe tulejuhtimiseks. Raadiojaamad 2×R-123M, R-124 ja R-108 – jälgib mitut juhtimis- ja tulejuhtimisvõrku. Maha võetav vaatluspost kuni 6km kaugusel sõidukist; TBK-kaitse ja suitsuseadmed",
         "armor": "Keevitatud valtsitud teras (kere katus 6mm): kaitseb igast küljest 12,7mm kuulide eest, eesmine sektor osaliselt 20mm eest; torn 33mm; lisasoomus saadaval"
       },
       "notes": {
@@ -2136,7 +2136,7 @@ window.TTA_DATA = {
         "caliber": 7.62,
         "mainArmament": "7,62mm PKT kuulipilduja (enesekaitseks)",
         "sensors": "Radar 1RL232 „Leopard“ (NATO „Big Fred“), K-sagedusala 34,55–35,25GHz, parabool-antenn. Algversioon: liikuvad sõidukid 16km (ilma MTI-ta) / 10km (MTI-ga), liikuvad laevad 30km, mürsu löögikohad 10km. SNAR-10M1: sõidukid 40km, isikkoosseis 8–10km, miinipilduja tuli 10km, suurtükitule 15km; jälgib korraga kuni 20 sihtmärki",
-        "specialEquipment": "Lahinguvälja seireradar: avastab ja jälgib liikuvaid maa- ja veepealseid sihtmärke (sõidukid, isikkoosseis, laevad) ning annab suurtükiväele andmeid oma tule korrigeerimiseks. Positsioonile asumine ja kokkupakkimine 5min; autonoomne töö vähemalt 3 ööpäeva (M1). KBRT-kaitse; M1 variandil digitaalne töötlus ja kuvar, satelliitnavigatsioon ja automaatne andmeedastus"
+        "specialEquipment": "Lahinguvälja seireradar: avastab ja jälgib liikuvaid maa- ja veepealseid sihtmärke (sõidukid, isikkoosseis, laevad) ning annab suurtükiväele andmeid oma tule korrigeerimiseks. Positsioonile asumine ja kokkupakkimine 5min; autonoomne töö vähemalt 3 ööpäeva (M1). TBK-kaitse; M1 variandil digitaalne töötlus ja kuvar, satelliitnavigatsioon ja automaatne andmeedastus"
       },
       "warnings": {
         "sensors": "Allikas annab M1 kohta ka koondvahemiku „200m – 40km“; eraldi vahemikud sihtmärgi liigi kaupa on esitatud siin.",
@@ -2244,7 +2244,7 @@ window.TTA_DATA = {
         "amphibious": true,
         "mainArmament": "Torn on relvastamata (ainult vaatlusseadmed)",
         "sensors": "Vaatlusseadmed NNP-21 ja DV, kaugusmõõtja (Wikipedia); ARMSNET: laserkaugusmõõtja 1D15, päeva-/öövaatlus 1PN44, stereokaugusmõõtja DS-1, suunaring PAB-2AM, navigatsioon 1T121-M",
-        "specialEquipment": "„Klen-1“ patarei ülema juhtimis- ja vaatlussoomuk (kuulub komplekti 1V17 „Mašina-B“: 3×1V18 + 1V19): suurtükiväe luure, sihtmärgi koordinaatide määramine ja tule juhtimine järelveetavate suurtükkide ja raketiheitjate patareidele (tulejuhi töökoht). Tulejuhtimine automaatselt 1V520 või käsitsi PUO-7; raadiod 3×R-123M ja R-107M; KBRT-kaitse",
+        "specialEquipment": "„Klen-1“ patarei ülema juhtimis- ja vaatlussoomuk (kuulub komplekti 1V17 „Mašina-B“: 3×1V18 + 1V19): suurtükiväe luure, sihtmärgi koordinaatide määramine ja tule juhtimine järelveetavate suurtükkide ja raketiheitjate patareidele (tulejuhi töökoht). Tulejuhtimine automaatselt 1V520 või käsitsi PUO-7; raadiod 3×R-123M ja R-107M; TBK-kaitse",
         "armor": "Torn eest 12,7mm, torni katus ja kere 7,62mm kuulide eest"
       },
       "warnings": {
@@ -2276,7 +2276,7 @@ window.TTA_DATA = {
         "amphibious": true,
         "airDroppable": true,
         "sensors": "Laserkaugusmõõtja 1D15, kaugusmõõtja DSP-30, päeva-/öövaatlus 1PN44, stereokaugusmõõtja DS-1, suunaring PAB-2AM, navigatsioonisüsteem 1T121-M",
-        "specialEquipment": "Dessandi suurtükiväe juhtimis- ja luuremasin 2S9 „Nona-S“ jaoks (1981): määrab sihtmärgi koordinaadid, arvutab laskeandmed (automaatne tulejuhtimine 1V520, käsitsi PUO-7) ja juhib 2S9 tuld; heidetav langevarjuga koos dessandiga. Raadiod 3×R-123M ja R-107M; KBRT-kaitse. Seadmestik sarnane 1V14-ga",
+        "specialEquipment": "Dessandi suurtükiväe juhtimis- ja luuremasin 2S9 „Nona-S“ jaoks (1981): määrab sihtmärgi koordinaadid, arvutab laskeandmed (automaatne tulejuhtimine 1V520, käsitsi PUO-7) ja juhib 2S9 tuld; heidetav langevarjuga koos dessandiga. Raadiod 3×R-123M ja R-107M; TBK-kaitse. Seadmestik sarnane 1V14-ga",
         "armor": "Kere 15mm"
       },
       "warnings": {
@@ -2305,7 +2305,7 @@ window.TTA_DATA = {
         "maxSpeedOffroad": 30,
         "range": 500,
         "sensors": "3D monopulssradar 1RL239 „Lynx“ (lainepikkus 5cm, H-sagedusala 6–8GHz): miinipildujad 13km, suurtükid 8km, reaktiivmürsud 25km, taktikalised raketid 30km; jälgib kuni 3 sihtmärki minutis",
-        "specialEquipment": "Vastutuleradar (ARK-1 „Rys’“): leiab vastase miinipildujate, suurtükkide, raketiheitjate ja taktikaliste rakettide positsioonid mürsu trajektoori järgi ning annab andmed vastutule jaoks; tavaliselt diviisi luurepatareis. Täisautonoomne – oma navigatsiooni-, orientatsiooni-, topo- ja sidesüsteemid. Positsioonile asumine ja kokkupakkimine 5min; KBRT-kaitse",
+        "specialEquipment": "Vastutuleradar (ARK-1 „Rys’“): leiab vastase miinipildujate, suurtükkide, raketiheitjate ja taktikaliste rakettide positsioonid mürsu trajektoori järgi ning annab andmed vastutule jaoks; tavaliselt diviisi luurepatareis. Täisautonoomne – oma navigatsiooni-, orientatsiooni-, topo- ja sidesüsteemid. Positsioonile asumine ja kokkupakkimine 5min; TBK-kaitse",
         "armor": "Kere 15mm, torn eest 20mm"
       },
       "warnings": {
@@ -2344,7 +2344,7 @@ window.TTA_DATA = {
         "mainArmament": "Põhirelvastust pole (FIST); FDC-variandil KPVT 14,5mm raskekuulipilduja",
         "secondaryArmament": "Suitsugranaadiheitjad: 4 tk torni kummalgi küljel",
         "sensors": "Torni laserkaugusmõõtja, päeva- ja öövaatlusseadmed, käeshoitav laserkaugusmõõtja ja pimenägemisseade, inertsiaalnavigatsioon; täiustatud variandil IR-vaatlusseade (passiivne 1500m, aktiivne 3000m), soojuskaamera, laserindikaator; hilisemad variandid GLONASS",
-        "specialEquipment": "Kapustnik-B automatiseeritud tulejuhtimissüsteemi ühtne juhtimis- ja vaatlussoomuk (1986): tulejuhi (FIST) ja tuletegevuskeskuse (FDC) variandid. Määrab sihtmärgi koordinaadid, arvutab laskeandmed korraga kuni kahele sihtmärgile ja annab need relvadele (suurtükid, miinipildujad, raketiheitjad). Raadiod: 2 kaugraadiot VHF (andmeside), 1 HF, 1 keskmaa- ja 1 lähimaaraadio; 10m teleskoopmast, 4kW generaator, vints 4,5t; kollektiivne KBRT-kaitse",
+        "specialEquipment": "Kapustnik-B automatiseeritud tulejuhtimissüsteemi ühtne juhtimis- ja vaatlussoomuk (1986): tulejuhi (FIST) ja tuletegevuskeskuse (FDC) variandid. Määrab sihtmärgi koordinaadid, arvutab laskeandmed korraga kuni kahele sihtmärgile ja annab need relvadele (suurtükid, miinipildujad, raketiheitjad). Raadiod: 2 kaugraadiot VHF (andmeside), 1 HF, 1 keskmaa- ja 1 lähimaaraadio; 10m teleskoopmast, 4kW generaator, vints 4,5t; kollektiivne TBK-kaitse",
         "armor": "Kere eesosa kaitseb 12,7mm, igast küljest 7,62mm kuulide ja mürsukildude eest; kuulikindlad aknad, lisasoomus saadaval"
       },
       "warnings": {
@@ -2358,6 +2358,497 @@ window.TTA_DATA = {
         {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1V152 FIST Kapustnik-B", "url": "https://armsnet.duckdns.org/equipment/82dbbd09-0916-45f1-e896-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1V152 FDC Kapustnik-B", "url": "https://armsnet.duckdns.org/equipment/1e844717-b936-4bd6-eb18-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-10-23"}
+      ]
+    },
+    "IMR-2": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "T-72 roomikšassii (IMR-2M1: T-72A); torni asemel pöörlev teleskoopkraana",
+        "combatWeight": 44.3,
+        "length": 9.55,
+        "width": 4.35,
+        "height": 3.68,
+        "engine": "V-84MS mitmekütusediisel",
+        "power": 840,
+        "maxSpeedRoad": 50,
+        "range": 500,
+        "caliber": 12.7,
+        "mainArmament": "12,7mm NSVT kuulipilduja juhikabiini katusel (enesekaitseks)",
+        "specialEquipment": "Teepuhastus- ja pioneerisoomuk, mis rajab sõidukitele läbipääsu varemete, metsatõkete ja saastatud alade kaudu. Pöörlev teleskoopne mitmeotstarbeline kraana (haaratsiga, tõstevõime 2t, ulatus 8,4m); eesmine buldooserisae (V-kujuline või sirge, 200–250m³/h; üles tõstetav). Kivitõkete puhastamine 280–350m/h, kraavide ja puutõkete 350–400m³/h. Valmisolek sõidurežiimilt tööasendisse ca 6min. TBK-kaitse ja suitsuseadmed",
+        "armor": "Kaitseb kergrelvade tule ja mürsukildude eest"
+      },
+      "warnings": {
+        "mainArmament": "Allikad lahknevad: Wikipedia 12,7mm NSVT, ARMSNET (IMR-2M) 7,62mm PKT.",
+        "width": "Laius 4,35m (Wikipedia) võib sisaldada saagi/buldooserisae; ARMSNET (IMR-2M): 3,73m.",
+        "specialEquipment": "ARMSNET viitab IMR-2M-le ka miinitraalile KMT; Wikipedia järgi IMR-2M1-l miinitõrjeseadet pole (see kuulub IMR-3M-le)."
+      },
+      "notes": {
+        "chassis": "IMR-2M1 (1982) on lihtsustatud variant ilma miinitõrjeseadmeta; IMR-2M2 (1990) on mõeldud saastatud aladele (kopp haaratsi asemel); IMR-2MA: suurem operaatorikabiin ja 12,7mm NSV; Klin-1: kaugjuhitav IMR-2.",
+        "maxSpeedRoad": "Wikipedia: 50km/h; ARMSNET (IMR-2M): 60km/h."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): IMR-2M", "url": "https://armsnet.duckdns.org/equipment/3da3c004-fbd7-4f7b-ec7a-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: IMR-2", "url": "https://en.wikipedia.org/wiki/IMR-2", "retrieved": "2026-10-23"},
+        {"name": "Stalin Line: Military Engineering Equipment", "url": "https://stalin-line.by/en/?p=4892", "retrieved": "2026-10-23"}
+      ]
+    },
+    "IMR-3": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "T-90A roomikšassii",
+        "combatWeight": 49.5,
+        "length": 9.32,
+        "width": 3.5,
+        "height": 3.42,
+        "engine": "V-84MS mitmekütusediisel",
+        "power": 840,
+        "maxSpeedRoad": 60,
+        "maxSpeedOffroad": 35,
+        "range": 500,
+        "amphibious": false,
+        "gradient": 50,
+        "sideSlope": 30,
+        "verticalStep": 0.8,
+        "fording": 5,
+        "caliber": 12.7,
+        "mainArmament": "12,7mm NSVT kuulipilduja kaugjuhitavas relvajaamas",
+        "mineClearing": "Rööbastee laiune minitraal KMT-R3 koos elektromagnetseadmega EMT (traalib varrasmiine ja magnetsüütega miine)",
+        "specialEquipment": "Uue põlvkonna teepuhastussoomuk: U-kujuline buldooserisae (200–250m³/h), teleskoopkraana (tõstevõime 2t, pöördenurk 360°) kopaga, kiirgus- ja keemialuureseade, suitsugeneraator, automaatne tulekustutus. Võimalik kaugjuhtimine kantavalt pultilt või autonoomne töö programmeeritud marsruudil; TBK-kaitse",
+        "armor": "Kaitseb kergrelvade tule ja mürsukildude eest; lisasoomus saadaval"
+      },
+      "warnings": {
+        "combatWeight": "Allikad lahknevad: Wikipedia 49,5t (KMT-R3-ga), ARMSNET 50,8t.",
+        "maxSpeedRoad": "Wikipedia: 60km/h; ARMSNET tabelis 60km/h ja teises sektsioonis 50km/h."
+      },
+      "notes": {
+        "chassis": "IMR-3M (tootmine alates 2016/2018) kasutab T-90 šassiid; valmistatud Uralvagonzavodis.",
+        "fording": "Läbib veetõkkeid kuni 5m sügavuselt põhja mööda (ettevalmistusega); ettevalmistuseta 2,7m (ARMSNET)."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): IMR-3M", "url": "https://armsnet.duckdns.org/equipment/194bda9d-065d-49f8-ead2-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: IMR-2", "url": "https://en.wikipedia.org/wiki/IMR-2", "retrieved": "2026-10-23"}
+      ]
+    },
+    "BAT-2": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 (kabiinis) + kuni 6 pioneeri (allikas: 8 kohta kokku)",
+        "chassis": "MT-T raske roomikvedur",
+        "combatWeight": 39.7,
+        "length": 9.64,
+        "width": 4.2,
+        "height": 3.69,
+        "engine": "V-64-4 mitmekütusediisel",
+        "power": 710,
+        "maxSpeedRoad": 60,
+        "maxSpeedOffroad": 35,
+        "range": 500,
+        "mainArmament": "Relvastust pole",
+        "specialEquipment": "Raske teede- ja kraavirajaja: eesmine buldooserisae (laius 4,5m buldooserina, 4,2m teepuhastajana; teede puhastamine 350–450m³/h, kraavi kaevamine 200–250m³/h; kallutatav 10°); hüdrokraana (ulatus 7,3m, tõstevõime 2t); hüdrovints (25t, 100m trossi); tagumine kobesti (sügavus 0,5m). Rajab teid ja läbipääse metsas, lumes ja pehmel pinnasel, ehitab pinnasvalle ja kaevab kraave; kasutatakse ka avariide likvideerimisel. TBK-kaitse ülerõhuga",
+        "armor": "Keevitatud terask 14mm"
+      },
+      "warnings": {
+        "power": "ARMSNET: 700hj; Stalin Line: 710hj (V-64-4).",
+        "crew": "ARMSNET: meeskond 2 ja 8 inimest kokku; Stalin Line: kabiinimeeskond + kuue mehe pioneeriüksus."
+      },
+      "notes": {
+        "chassis": "BAT-M on moderniseeritud teedeehituse variant.",
+        "maxSpeedOffroad": "Teede puhastamisel kuni 6,8km/h; maastikul pinnasteel kuni 35km/h."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BAT-2", "url": "https://armsnet.duckdns.org/equipment/675e35dc-6747-4276-ead1-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Stalin Line: Military Engineering Equipment", "url": "https://stalin-line.by/en/?p=4892", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MTU-72": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "T-72 roomikšassii (T-72B/T-72M1 ümberehitus)",
+        "combatWeight": 40,
+        "length": 11.64,
+        "width": 3.46,
+        "height": 3.38,
+        "engine": "V-84-1 mitmekütusediisel",
+        "power": 840,
+        "maxSpeedRoad": 60,
+        "range": 500,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.85,
+        "trench": 2.8,
+        "fording": 1.0,
+        "caliber": 7.62,
+        "mainArmament": "7,62mm PKMB kuulipilduja katusel",
+        "specialEquipment": "Sillatank (1974): paigaldab ühe sillaga kuni 18m laiuse kraavi või veetakistuse ületamiseks (silla pikkus 20m, laius 3,3m, sõiduraja laius 1,0m, kaal 6,4t, kandevõime 50t). Silla paigaldus 3min, äravõtmine 8min; hüdrauliline eesmine tugisae (ka buldooserina). TBK-kaitse ja termosuitsuseade",
+        "armor": "T-72 šassii soomuskere, torni asemel sillaseade"
+      },
+      "warnings": {
+        "armor": "ARMSNET märgib kere kohta „teras ja komposiit, DZ“; see on tõenäoliselt T-72 šassii üldkirjeldus ja siin välja jäetud."
+      },
+      "notes": {
+        "chassis": "Asendas MTU-20 ja MT-55 (T-55 šassii). Toodang lõppes 1990.",
+        "fording": "Ettevalmistusega kuni 4,5m."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MTU-72", "url": "https://armsnet.duckdns.org/equipment/40ab3a3b-b018-4fea-e722-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: MT-55", "url": "https://en.wikipedia.org/wiki/MT-55", "retrieved": "2026-10-23"}
+      ]
+    },
+    "PTS-2": {
+      "status": "unverified",
+      "values": {
+        "chassis": "MT-T raske roomikšassii (T-64 komponendid)",
+        "length": 12,
+        "width": 3.3,
+        "height": 3.17,
+        "engine": "V-64-4 mitmekütusediisel",
+        "power": 710,
+        "maxSpeedRoad": 60,
+        "maxSpeedWater": 12,
+        "range": 500,
+        "amphibious": true,
+        "specialEquipment": "Ujuv roomikvedur (1985) raskete veokite, relvade, varustuse ja laskemoona transpordiks üle veetõkete; kandevõime 12t; tagumine pealelaadimisrambi. Lisavarustus: mitmeotstarbeline kopp, buldooserisae, veejoamootor, kliimaseade, radar ja navigatsioonisüsteem"
+      },
+      "notes": {
+        "chassis": "Eelkäijad: PTS (1965, T-55 šassii, 10t, 350hj) ja PTS-M (1969). PTS-2 on PTS-4 eelkäija.",
+        "specialEquipment": "PTS-2 ja PTS-M on ühtlasi kasutusel UR-83P miinitõrjelaengu veopaatidena."
+      },
+      "sources": [
+        {"name": "Wikipedia: PTS (vehicle)", "url": "https://en.wikipedia.org/wiki/PTS_(vehicle)", "retrieved": "2026-10-23"},
+        {"name": "Cyclowiki: УР-83П", "url": "https://cyclowiki.org/wiki/%D0%A3%D0%A0-83%D0%9F", "retrieved": "2026-10-23"}
+      ]
+    },
+    "PTS-4": {
+      "status": "unverified",
+      "values": {
+        "chassis": "T-80 šassii ja vedrustus",
+        "combatWeight": 33,
+        "engine": "Mitmekütusemootor (võimsus ei ole avaldatud)",
+        "maxSpeedRoad": 60,
+        "maxSpeedWater": 15,
+        "amphibious": true,
+        "caliber": 12.7,
+        "mainArmament": "12,7mm kuulipilduja kaugjuhitavas relvajaamas",
+        "specialEquipment": "Ujuv roomikvedur: kandevõime 12t maismaal ja 18t vees; täielikult suletud kabiin; suuremad sõukruvid. Katsetatud 2011, tootmisse 2014",
+        "armor": "Suletud kabiin kaitseb kergrelvade tule ja mürsukildude eest"
+      },
+      "notes": {
+        "maxSpeedRoad": "Kiirused on projekteeritud/oodatavad väärtused."
+      },
+      "sources": [
+        {"name": "Wikipedia: PTS (vehicle)", "url": "https://en.wikipedia.org/wiki/PTS_(vehicle)", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MTU-90": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "T-90S roomikšassii",
+        "combatWeight": 45.5,
+        "length": 9.6,
+        "width": 3.52,
+        "height": 3.92,
+        "engine": "V-84MS mitmekütusediisel",
+        "power": 840,
+        "maxSpeedRoad": 60,
+        "range": 750,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.85,
+        "trench": 2.8,
+        "fording": 1.2,
+        "mainArmament": "Relvastust pole",
+        "specialEquipment": "Sillatank („Gusenitsa-1“, 1997): paigaldab ühe silla kraavi, kanali või väikese jõe ületamiseks. Silla ulatus 24m (kokku 25m), sõiduraja laius 3,55m, kaal 8,6t, kandevõime 50t; paigaldus ca 2,5min, silla saab paigaldada kabiinist. Kasutatakse koos TMM-6-ga mitmelõivaliste sildade ehitamiseks; võimeline end sisse kaevama. TBK-kaitse ja suitsuseade"
+      },
+      "warnings": {
+        "specialEquipment": "Silla andmed lahknevad ARMSNET-is (kirjeldus 25m, tabel 24m ja 25,01m); MTU-90M andmed (19m, 60t) kuuluvad teise variandi juurde."
+      },
+      "notes": {
+        "chassis": "Variant MTU-90M: silla ulatus 19m, kandevõime 60t, kasutusele 2013–2017."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MTU-90", "url": "https://armsnet.duckdns.org/equipment/75a9399d-d418-4560-eaf7-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MTU-90M", "url": "https://armsnet.duckdns.org/equipment/4fb8229d-7cb7-4817-91a7-08decdca92d5", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MT-55A": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "T-55A roomikšassii",
+        "combatWeight": 36,
+        "length": 9.88,
+        "width": 3.3,
+        "height": 3.35,
+        "engine": "V-55 12-silindriline diisel",
+        "power": 580,
+        "maxSpeedRoad": 50,
+        "range": 580,
+        "mainArmament": "Relvastust pole (torn eemaldatud)",
+        "specialEquipment": "Sillatank: paigaldab 18m silla (kandevõime kuni 50t) kraavide ja veetakistuste ületamiseks"
+      },
+      "notes": {
+        "chassis": "MT-55 oli seeriaeelne mudel (sild MT-34); MT-55A on seeriaversioon. Asendati MTU-72-ga."
+      },
+      "sources": [
+        {"name": "Wikipedia: MT-55", "url": "https://en.wikipedia.org/wiki/MT-55", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MTU-20": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "T-55A roomikšassii",
+        "combatWeight": 37,
+        "length": 11.64,
+        "width": 3.3,
+        "height": 3.4,
+        "engine": "V-55A diisel",
+        "maxSpeedRoad": 48,
+        "range": 500,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.8,
+        "trench": 2.7,
+        "specialEquipment": "Sillatank (valmistati 1963–1977): silla pikkus 20m (ületab kuni 18m laiuse kraavi), laius 3,3m, kaal 7t, kandevõime 50t (üks allikas: 60t); paigaldus 5min, äravõtmine 10min"
+      },
+      "warnings": {
+        "specialEquipment": "Allikad lahknevad kandevõime osas (50t vs 60t küsimärgiga)."
+      },
+      "notes": {
+        "chassis": "Võeti Nõukogude armees kasutusele 1960ndate lõpus; asendati MTU-72-ga."
+      },
+      "sources": [
+        {"name": "Armedconflicts.com: MTU-20", "url": "https://www.armedconflicts.com/topic/view/22720", "retrieved": "2026-10-23"},
+        {"name": "Stalin Line: Military Engineering Equipment", "url": "https://stalin-line.by/en/?p=4892", "retrieved": "2026-10-23"}
+      ]
+    },
+    "UR-83P": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 (laskmine); kokkupanek 6 inimest",
+        "weightKg": 1810,
+        "mineClearing": "Reaktiivne miinitõrjelaeng UZP-83 (UZP-77 modifikatsioon): laengu pikkus 120m, ca 1380kg lõhkeainet PVV-4 (11,5kg/m); kaks raketimootorit DM-70; lastakse 100–440m kaugusele; puhastab vähemalt 6m (tankitõrjemiiniväljas) või 12m (jalaväemiiniväljas) laiuse koridori, pikkus ca 115m",
+        "specialEquipment": "Kantav (osadeks võetav) miinitõrjeseade (1983): laskerakis, ankur, pidurdustross ja mehaaniline süütur VR-04 (plahvatus 60–120s pärast pidurdamist). Kokkupanek 90min; tulepositsioon maapinnal, kaevikus, auto-/haagisekastis, ujuval PTS-M/PTS-2 kandjal või laevatekil. Komplekti mõõtmed lahinguasendis 1,5×1,5×2,6m"
+      },
+      "warnings": {
+        "mineClearing": "Koridori pikkus 115m pärineb meediaartiklist; laengu pikkus (120m) pärineb Cyclowikist."
+      },
+      "notes": {
+        "specialEquipment": "Transporditakse osadeks võetuna, 2 komplekti ühel maastikuveokil (ZIL-131, Ural-4320, KamAZ-53105). Kasutusel ka Ukraina sõjas (meedias „Zmei Gorõnõtš“).",
+        "mineClearing": "Võrdlus: USA M58 MICLIC (106m laeng, ca 8m laiune ja 100m pikk koridor)."
+      },
+      "sources": [
+        {"name": "Cyclowiki: УР-83П", "url": "https://cyclowiki.org/wiki/%D0%A3%D0%A0-83%D0%9F", "retrieved": "2026-10-23"},
+        {"name": "Fenix Insight: UR-83P", "url": "https://metis.fenixinsight.com/munition/demolitionStore/ur-83p", "retrieved": "2026-10-23"},
+        {"name": "Vesti (www1.ru): УР-83П", "url": "https://www1.ru/news/2024/12/04/rodstvennicu-zmeia-gorynyca-zametili-na-fronte-ustanovka-ur-83p-aktivno-ucastvuet-v-boiax.html", "retrieved": "2026-10-23"}
+      ]
+    },
+    "ZRP-2": {
+      "status": "unverified",
+      "values": {
+        "crew": "1–2 pioneeri",
+        "weightKg": 34,
+        "mineClearing": "Miinitõrjelaeng DKR-150 (pikkus 60m) raketimootoriga D-ZRP-2M; lastakse kuni 160m kaugusele; puhastab 0,4m laiuse ja 54–60m pikkuse läbipääsu jalaväemiiniväljas",
+        "specialEquipment": "Seljakotis kantav miinitõrjelaeng „Tropa“ (1974): laeng, raketimootor, ühendustross, süütur, pidurdustross, käivitusseade, ankrud ja kandekott (kokku 34kg). Kokkupanek ca 5min; mehaaniline süütur plahvatab laengu kaugjuhtimisega; sihtimine pidurdustrossiga"
+      },
+      "notes": {
+        "mineClearing": "Tänapäevased miinid võivad olla varustatud süütega, mis on mõeldud selliste laengute vastu."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): ZRP-2", "url": "https://armsnet.duckdns.org/equipment/74cce958-f0c2-4624-e7dd-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Armament Research Services: ZRP-2 (2014)", "url": "https://armamentresearch.com/?p=772", "retrieved": "2026-10-23"}
+      ]
+    },
+    "TMM-3": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 (juht + 1)",
+        "chassis": "KrAZ-255B 6×6",
+        "combatWeight": 19.5,
+        "length": 9.3,
+        "width": 3.2,
+        "height": 3.15,
+        "engine": "YaMZ-238 V8 diisel",
+        "power": 240,
+        "maxSpeedRoad": 71,
+        "range": 825,
+        "amphibious": false,
+        "gradient": 58,
+        "verticalStep": 0.6,
+        "trench": 0.68,
+        "specialEquipment": "Raske mehhaniseeritud sillaauto (1972): kääridega (kokkuklapitav) sild pikkusega 10,5m, laius 3,8m, kaal 7t; laotatakse tagurpidi sõidu suunas. Kandevõime 50t (allika järgi ka 60t). Kuni neli sillaautot ületavad kuni 40m laiuse ja 3m sügavuse tõkke; täielik paigaldus ca 72min. Soomustamata, TBK-kaitset pole",
+        "armor": "Soomustamata"
+      },
+      "warnings": {
+        "specialEquipment": "ARMSNET: TMM-3 kandevõime 60t kirjelduses, 50t variantide loendis."
+      },
+      "notes": {
+        "chassis": "Eelkäijad: TMM-1 (ZIL-157), TMM-2 (KrAZ-214); TMM-4 (60t) samal šassiil; asendaja TMM-6."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): TMM-3", "url": "https://armsnet.duckdns.org/equipment/525f3162-d7c7-4712-eace-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): TMM (Scissors Bridge)", "url": "https://armsnet.duckdns.org/equipment/b12dedb8-87ae-40f3-ec57-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "TMM-6": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "MZKT-7930 8×8",
+        "combatWeight": 42,
+        "length": 14.375,
+        "width": 3.4,
+        "height": 3.76,
+        "engine": "YaMZ-846 diisel",
+        "power": 500,
+        "maxSpeedRoad": 70,
+        "range": 1100,
+        "amphibious": false,
+        "gradient": 45,
+        "sideSlope": 30,
+        "verticalStep": 0.6,
+        "trench": 2,
+        "fording": 1.4,
+        "specialEquipment": "Raske mehhaniseeritud sillaauto („Gusenitsa-2“, 1999): kääridega kokkuklapitav sild pikkusega 17m, laius 4m, kandevõime 60t; veetõkke sügavus 2–5m; kuus sillaautot ehitavad 102m silla. Läbilaskevõime kuni 400 sõidukit tunnis kiirusega 30km/h. Soomustamata, TBK-kaitsega",
+        "armor": "Soomustamata"
+      },
+      "warnings": {
+        "combatWeight": "ARMSNET 42t, Wikipedia 36,4t.",
+        "chassis": "Wikipedia nimetab põhjana MZKT-7930 ja ühes kohas KamAZ-5350; siin MZKT-7930."
+      },
+      "notes": {
+        "chassis": "Töötab koos MTU-90-ga mitmelõivaliste sildade ehitamisel. Wikipedia: TMM-5 oli väikese seeriaga prototüüp."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): TMM-6", "url": "https://armsnet.duckdns.org/equipment/81ec9315-2d58-4843-eacd-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: TMM-6", "url": "https://en.wikipedia.org/wiki/TMM-6", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Pontoonsillapark": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "chassis": "KrAZ-255B 6×6 (pontoonide vedaja)",
+        "fording": 1.2,
+        "specialEquipment": "PMP kokkuvolditav pontoonsildade komplekt (1961): täiskomplekt 32 jõepontooni, 4 kaldapontooni ja 12 sillapaati (pool-komplekt 16+2). Pontoon laotub veele sattudes automaatselt. Silla pikkus kuni 227m (60t) või 382m (20t); sõiduraja laius 6,5m; ehituskiirus kuni 7m/min; max voolukiirus 2m/s. Parvedena: 40t (2 pontooni, 8min) kuni 170t (1+8 pontooni)"
+      },
+      "warnings": {
+        "chassis": "ARMSNET andmetabelis on KrAZ-255B mootori ja kiiruse väärtused vigased (710hj, 55km/h) ja siin välja jäetud."
+      },
+      "notes": {
+        "specialEquipment": "Järeltulijad: PPS-84, PP-91 ja PP-2005."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): PMP", "url": "https://armsnet.duckdns.org/equipment/56ad088c-6973-4ff7-eae2-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: PMP Floating Bridge", "url": "https://en.wikipedia.org/wiki/PMP_Floating_Bridge", "retrieved": "2026-10-23"}
+      ]
+    },
+    "BTM-4M": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "specialEquipment": "BTM-3 täiustatud variant: töökiirus tavalises pinnases 1000m/h ja külmunud pinnases 250m/h. Jäi prototüübiks ja seeriatootmisse ei läinud"
+      },
+      "warnings": {
+        "specialEquipment": "Andmeid on väga vähe (üks allikas); mõõtmed ja mootor puuduvad."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BTM-3 (BTM-4M variant)", "url": "https://armsnet.duckdns.org/equipment/8dbca8bf-6692-4180-e82b-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "BTM-3": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "AT-T raske suurtükikvedur (T-54 šassii alusel)",
+        "combatWeight": 27.5,
+        "length": 7,
+        "width": 3.17,
+        "height": 4.32,
+        "engine": "V-401 diisel",
+        "power": 415,
+        "maxSpeedRoad": 36,
+        "range": 450,
+        "amphibious": false,
+        "trench": 1.8,
+        "fording": 1.1,
+        "specialEquipment": "Kiire kraavikaevur (1957): kaevab kaitse- ja side-kraave kuni IV klassi pinnases. Kopprootor 8 kopaga (á 160 l); kraavi sügavus 1,1m (põhiprofiil) kuni 1,5m; töökiirus 270–810m/h, õhukese (0,4–0,5m) kraavi puhul kuni 1200–1400m/h; min pöörderaadius 25m; üleminek sõidurežiimilt kaevamisele ca 10min; buldooserisae. TBK-kaitse",
+        "armor": "Kaitseb kergrelvade tule ja mürsukildude eest"
+      },
+      "warnings": {
+        "engine": "ARMSNET: A-401 diisel, 305hj; Stalin Line: AT-T šassii 415hj (V-401); siin 415hj.",
+        "maxSpeedRoad": "ARMSNET 36km/h; Stalin Line 35km/h.",
+        "range": "ARMSNET 450km (tekstis 450–500km); Stalin Line 500km."
+      },
+      "notes": {
+        "chassis": "Toodetud Dmitrovi ekskavaatoritehases alates 1957."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BTM-3", "url": "https://armsnet.duckdns.org/equipment/8dbca8bf-6692-4180-e82b-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Stalin Line: Military Engineering Equipment", "url": "https://stalin-line.by/en/?p=4892", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MDK-3": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "MT-T raske roomikvedur",
+        "combatWeight": 39.5,
+        "length": 10.22,
+        "width": 3.23,
+        "height": 4.04,
+        "engine": "V-64-4 diisel",
+        "power": 710,
+        "maxSpeedRoad": 70,
+        "maxSpeedOffroad": 35,
+        "range": 500,
+        "specialEquipment": "Kraavikaevamismasin (1980ndad): kaevab tankitõrjekraave ning auto- ja laskepositsioonide süvendeid. Kaevamisel pikkus 11,75m, laius 4,6m, kõrgus 3,25m; kraavi laius 3,5m, sügavus kuni 3m; tootlikkus 400–500m³/h; buldooserisae; TBK-kaitse ülerõhuga",
+        "armor": "Soomustamata"
+      },
+      "warnings": {
+        "specialEquipment": "Kraavi sügavus: tabelis 3m, kirjelduses 1,7m ühe läbimisega."
+      },
+      "notes": {
+        "chassis": "MDK-2 ja MDK-2M asendaja. Ei ole õhutransporditav ega langevarjuga heidetav."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MDK-3", "url": "https://armsnet.duckdns.org/equipment/e6fae44a-e82e-403b-eacf-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MDK-3 (JRTC VISMOD)", "url": "https://armsnet.duckdns.org/equipment/37cc33a5-3daa-406b-f0ad-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MDK-2M": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "AT-T raske suurtükikvedur (T-54 šassii alusel)",
+        "combatWeight": 28,
+        "length": 8,
+        "width": 3.4,
+        "height": 3.95,
+        "engine": "V-401 V12 diisel",
+        "power": 415,
+        "maxSpeedRoad": 35,
+        "range": 500,
+        "gradient": 80,
+        "sideSlope": 22,
+        "specialEquipment": "Kraavikaevamismasin (1968): kaevab kiiresti suuri alasid ja tankitõrjekraave. Kraavi sügavus kuni 4,5m, laius ülal 4–4,7m ja all 3,5m; töökiirus 387m³/h (üks allikas: 300m³/h). Pikkus kaevamisel 10,23m, kõrgus 3,48m; TBK-kaitse ülerõhuga",
+        "armor": "Soomustamata"
+      },
+      "warnings": {
+        "specialEquipment": "Kraavi laius ülal: tabelis 4,7m, tekstis 4m; töökiirus 387 vs 300m³/h.",
+        "range": "Wikipedia: sõiduulatus 1100km; ARMSNET ja Stalin Line 500km."
+      },
+      "notes": {
+        "chassis": "MDK-2 (1959): sama šassii, 27t, aeglasem tööjõudlus. Asendaja MDK-3."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MDK-2M", "url": "https://armsnet.duckdns.org/equipment/ebe0df4c-39d6-41da-ead0-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MDK-2", "url": "https://armsnet.duckdns.org/equipment/e47e723f-257b-4f05-ec60-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: MDK-2M", "url": "https://en.wikipedia.org/wiki/MDK-2M", "retrieved": "2026-10-23"}
       ]
     }
   }
