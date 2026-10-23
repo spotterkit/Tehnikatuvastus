@@ -5,13 +5,15 @@
 // Sektsiooni comparePriority: väiksem number = võrdluses eespool ja alati nähtav; ilma selleta = "Kõik andmed" all.
 // Sisu hoia puhta JSON-ina (jutumärgid võtmete ümber, lõpukomasid pole) – check_release.js kontrollib.
 window.TTA_FIELDS = {
-  "version": 9,
+  "version": 10,
   "sections": [
     {"id": "general", "label": "Üldandmed"},
     {"id": "mobility", "label": "Liikuvus"},
     {"id": "flight", "label": "Lennuomadused", "comparePriority": 3},
     {"id": "armament", "label": "Relvastus", "comparePriority": 1},
     {"id": "ranges", "label": "Laskekaugused", "comparePriority": 2},
+    {"id": "missile", "label": "Raketi omadused", "comparePriority": 2},
+    {"id": "ew", "label": "Elektrooniline sõjapidamine", "comparePriority": 1},
     {"id": "special", "label": "Eriotstarbeline varustus"},
     {"id": "protection", "label": "Kaitse"}
   ],
@@ -108,6 +110,18 @@ window.TTA_FIELDS = {
     "hardpoints": {"label": "Relvakinnituspunktid", "type": "number", "section": "armament", "order": 32, "unit": "tk", "comparable": true, "better": "higher"},
     "ordnanceLoad": {"label": "Max relvakoormus", "type": "number", "section": "armament", "order": 33, "unit": "kg", "comparable": true, "better": "higher"},
     "warheadMass": {"label": "Lõhkepea mass", "type": "number", "section": "armament", "order": 34, "unit": "kg", "comparable": true, "better": "higher"},
-    "armor": {"label": "Soomus", "type": "text", "section": "protection", "order": 10}
+    "missileLength": {"label": "Raketi pikkus", "type": "number", "section": "missile", "order": 10, "unit": "m", "comparable": true},
+    "missileDiameter": {"label": "Raketi läbimõõt", "type": "number", "section": "missile", "order": 12, "unit": "m", "comparable": true},
+    "launchWeight": {"label": "Raketi stardimass", "type": "number", "section": "missile", "order": 14, "unit": "kg", "comparable": true},
+    "missileSpeed": {"label": "Raketi kiirus", "type": "text", "section": "missile", "order": 16},
+    "accuracy": {"label": "Täpsus (CEP)", "type": "text", "section": "missile", "order": 18},
+    "guidance": {"label": "Juhtimissüsteem", "type": "text", "section": "missile", "order": 20},
+    "armor": {"label": "Soomus", "type": "text", "section": "protection", "order": 10},
+    "frequencyRange": {"label": "Sagedusala", "type": "text", "section": "ew", "order": 10},
+    "jammingRange": {"label": "Häirimisulatus", "type": "number", "section": "ew", "order": 20, "unit": "km", "comparable": true, "better": "higher"},
+    "detectionRange": {"label": "Tuvastusulatus", "type": "number", "section": "ew", "order": 22, "unit": "km", "comparable": true, "better": "higher"},
+    "jammerPower": {"label": "Häirimisvõimsus", "type": "number", "section": "ew", "order": 24, "unit": "W", "comparable": true, "better": "higher"},
+    "ewTargets": {"label": "Sihtmärgid", "type": "text", "section": "ew", "order": 30},
+    "mastHeight": {"label": "Masti kõrgus", "type": "number", "section": "ew", "order": 40, "unit": "m", "comparable": true}
   }
 };
