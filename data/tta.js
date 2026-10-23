@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 16,
+  "version": 17,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -5476,7 +5476,7 @@ window.TTA_DATA = {
         "mainArmament": "14,5 mm KPVT (500 padrunit)",
         "secondaryArmament": "Koaksiaalne 7,62 mm PKT (2000 padrunit)",
         "armor": "Keevitatud teras: kerenina kuni 14 mm; torni esiosa 10 mm; küljed, taga ja katus 7 mm; mujal 2–7 mm",
-        "specialEquipment": "Lisa tugirattad (kraavide ületamiseks); ujub veejoaga"
+        "specialEquipment": "Neli kettajamiga allosa tugirattapaari (kraavide ületamiseks); ujub veejoaga"
       },
       "warnings": {
         "engine": "Põhiandmed kehtivad BRDM-2 kohta; BRDM-2M-l (diisel) on mass, kiirus ja ulatus erinevad (nt BRDM-2MS: 6,9 t, 150 hj, ulatus 1500 km)."
@@ -5982,6 +5982,800 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+      ]
+    },
+    "AK-74M": {
+      "status": "unverified",
+      "values": {
+        "caliber": 5.45,
+        "cartridge": "5,45×39 mm",
+        "weaponMass": 3.4,
+        "weaponLength": 943,
+        "barrelLength": 415,
+        "muzzleVelocity": 900,
+        "rateOfFire": 650,
+        "effectiveRange": 500,
+        "maxRangeM": 3150,
+        "magazine": "30-padruniline salv (ühilduv ka 45- ja 60-padruniliste salvede ning 96-padruniline trumliga)"
+      },
+      "warnings": {
+        "weaponLength": "943 mm tuharik lahti, 700 mm kokkuklapituna; toru pikkus, algkiirus (880–900 m/s) ja max laskekaugus on AK-74 perekonna väärtused; efektiivne laskekaugus 500 m punktsihtmärgile, 800 m pindsihtmärgile."
+      },
+      "sources": [
+        {"name": "Wikipedia: AK-74", "url": "https://en.wikipedia.org/wiki/AK-74", "retrieved": "2026-10-23"}
+      ]
+    },
+    "AK-12": {
+      "status": "unverified",
+      "values": {
+        "caliber": 5.45,
+        "cartridge": "5,45×39 mm",
+        "weaponMass": 3.7,
+        "weaponLength": 922,
+        "barrelLength": 415,
+        "muzzleVelocity": 900,
+        "rateOfFire": 700,
+        "magazine": "30-padruniline salv (ühilduv ka 45-, 60- ja 95-padruniliste salvedega)"
+      },
+      "warnings": {
+        "weaponMass": "Infoboksis 3,7 kg, tekstis 3,5 kg. Pikkus 922 mm (688 mm kokkuklapituna); algkiirus 880–900 m/s; laskerežiimid: 2-lasulised seeriad ja automaat. Efektiivset laskekaugust ei kasutatud (Wikipedia annab „punktsihtmärk 440 m“)."
+      },
+      "sources": [
+        {"name": "Wikipedia: AK-12", "url": "https://en.wikipedia.org/wiki/AK-12", "retrieved": "2026-10-23"}
+      ]
+    },
+    "AK-15": {
+      "status": "unverified",
+      "values": {
+        "caliber": 7.62,
+        "cartridge": "7,62×39 mm",
+        "weaponMass": 3.75,
+        "weaponLength": 940,
+        "barrelLength": 415,
+        "muzzleVelocity": 715,
+        "rateOfFire": 700,
+        "magazine": "30-padruniline salv (ühilduv ka 40- ja 75-padruniliste salvedega)"
+      },
+      "warnings": {
+        "weaponLength": "Wikipedia kirjeldab AK-15 samal lehel kui AK-12; pikkus 940 mm on tekstist."
+      },
+      "sources": [
+        {"name": "Wikipedia: AK-12", "url": "https://en.wikipedia.org/wiki/AK-12", "retrieved": "2026-10-23"}
+      ]
+    },
+    "GP-25": {
+      "status": "unverified",
+      "values": {
+        "caliber": 40,
+        "cartridge": "40 mm VOG-25 / VOG-25P / GRD-50/100/200 suitsugraanaadid",
+        "weaponMass": 1.5,
+        "weaponLength": 323,
+        "barrelLength": 120,
+        "muzzleVelocity": 76.5,
+        "rateOfFire": 20,
+        "effectiveRange": 150,
+        "maxRangeM": 400,
+        "explosiveMass": 48
+      },
+      "warnings": {
+        "rateOfFire": "Kuni 20 lasku/min tulesüsteemiks, 5–6 sihitud lasku/min; algkiirus, toru pikkus ja laskekiirus on GP-25/GP-34 perekonna väärtused. Lõhkeaine 48 g on VOG-25 granaadil (mass 250 g); VOG-25P: 278 g, 37 g TNT. Sihiku skaala 100–400 m; minimaalne kaitsekaugus 10 m."
+      },
+      "sources": [
+        {"name": "Wikipedia: GP-25", "url": "https://en.wikipedia.org/wiki/GP-25", "retrieved": "2026-10-23"}
+      ]
+    },
+    "GP-34": {
+      "status": "unverified",
+      "values": {
+        "caliber": 40,
+        "cartridge": "40 mm VOG-25 / VOG-25P / GRD-50/100/200 suitsugraanaadid",
+        "weaponMass": 1.4,
+        "weaponLength": 315,
+        "barrelLength": 120,
+        "muzzleVelocity": 76.5,
+        "rateOfFire": 20
+      },
+      "warnings": {
+        "barrelLength": "Toru pikkus, algkiirus ja laskekiirus on GP-25/GP-34 perekonna väärtused; efektiivset ja max laskekaugust GP-34 kohta eraldi ei leitud."
+      },
+      "sources": [
+        {"name": "Wikipedia: GP-25", "url": "https://en.wikipedia.org/wiki/GP-25", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RPK-74": {
+      "status": "unverified",
+      "values": {
+        "caliber": 5.45,
+        "cartridge": "5,45×39 mm",
+        "magazine": "45-padruniline salv (ühilduv AK-74 salvedega); 97-padruniline trummel on tootmises"
+      },
+      "warnings": {
+        "cartridge": "Wikipedia annab spetsifikatsioonid ainult 7,62×39 mm RPK kohta; RPK-74 mass, pikkus, algkiirus ja laskekaugus on tühjaks jäetud."
+      },
+      "sources": [
+        {"name": "Wikipedia: RPK", "url": "https://en.wikipedia.org/wiki/RPK", "retrieved": "2026-10-23"}
+      ]
+    },
+    "PKM": {
+      "status": "unverified",
+      "values": {
+        "caliber": 7.62,
+        "cartridge": "7,62×54 mmR",
+        "weaponLength": 1203,
+        "barrelLength": 605,
+        "muzzleVelocity": 825,
+        "rateOfFire": 700,
+        "effectiveRange": 1000,
+        "maxRangeM": 3800,
+        "magazine": "Metallist lenditoide, 100-, 200- või 250-padruniline kast"
+      },
+      "warnings": {
+        "weaponLength": "Wikipedia infoboks kehtib PK perekonnale. Laskekiirus 600–800 lasku/min (praktiline ca 250). Relva massi PKM kohta eraldi ei ole (PK 9 kg, PKM tripodil 12 kg), seetõttu tühi."
+      },
+      "sources": [
+        {"name": "Wikipedia: PK machine gun", "url": "https://en.wikipedia.org/wiki/PK_machine_gun", "retrieved": "2026-10-23"}
+      ]
+    },
+    "PKP „Pecheneg“ (6P41)": {
+      "status": "unverified",
+      "values": {
+        "caliber": 7.62,
+        "cartridge": "7,62×54 mmR",
+        "weaponMass": 8.2,
+        "weaponLength": 1200,
+        "barrelLength": 658,
+        "muzzleVelocity": 900,
+        "rateOfFire": 700,
+        "effectiveRange": 1500,
+        "magazine": "Metallist lenditoide, 100-, 200- või 250-padruniline kast"
+      },
+      "warnings": {
+        "weaponMass": "8,2 kg ilma kahvlita (8,7 kg kahvliga). Laskekiirus 600–800 lasku/min."
+      },
+      "sources": [
+        {"name": "Wikipedia: PKP Pecheneg", "url": "https://en.wikipedia.org/wiki/PKP_Pecheneg", "retrieved": "2026-10-23"}
+      ]
+    },
+    "NSV": {
+      "status": "unverified",
+      "values": {
+        "caliber": 12.7,
+        "cartridge": "12,7×108 mm",
+        "weaponMass": 25,
+        "weaponLength": 1560,
+        "muzzleVelocity": 845,
+        "rateOfFire": 750,
+        "effectiveRange": 2000,
+        "magazine": "50-padruniline lint"
+      },
+      "warnings": {
+        "weaponMass": "25 kg relv ise, 41 kg tripodil. Laskekiirus 700–800 lasku/min; efektiivne kaugus 2000 m maasihtmärgile, 1500 m õhusihtmärgile."
+      },
+      "sources": [
+        {"name": "Wikipedia: NSV machine gun", "url": "https://en.wikipedia.org/wiki/NSV_machine_gun", "retrieved": "2026-10-23"}
+      ]
+    },
+    "NSVT": {
+      "status": "unverified",
+      "values": {
+        "caliber": 12.7,
+        "cartridge": "12,7×108 mm",
+        "weaponMass": 25,
+        "weaponLength": 1560,
+        "muzzleVelocity": 845,
+        "rateOfFire": 750,
+        "effectiveRange": 2000,
+        "magazine": "50-padruniline lint"
+      },
+      "warnings": {
+        "weaponMass": "Wikipedia ei anna NSVT kohta eraldi andmeid; väärtused on NSV kohta."
+      },
+      "sources": [
+        {"name": "Wikipedia: NSV machine gun", "url": "https://en.wikipedia.org/wiki/NSV_machine_gun", "retrieved": "2026-10-23"}
+      ]
+    },
+    "KORD": {
+      "status": "unverified",
+      "values": {
+        "caliber": 12.7,
+        "cartridge": "12,7×108 mm",
+        "weaponMass": 25.5,
+        "weaponLength": 1980,
+        "barrelLength": 1070,
+        "muzzleVelocity": 860,
+        "rateOfFire": 625,
+        "effectiveRange": 2000,
+        "magazine": "50-padruniline lint"
+      },
+      "warnings": {
+        "weaponMass": "Põhimudel 6P50 (25,5 kg); pikkus 1980 mm on 6P50-1/2/3, 6P49 oma 1625 mm. Laskekiirus 600–650 lasku/min."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kord machine gun", "url": "https://en.wikipedia.org/wiki/Kord_machine_gun", "retrieved": "2026-10-23"}
+      ]
+    },
+    "VSS „Vintorez“": {
+      "status": "unverified",
+      "values": {
+        "caliber": 9,
+        "cartridge": "9×39 mm SP-5 (alahelikiirusega)",
+        "weaponMass": 2.6,
+        "weaponLength": 894,
+        "muzzleVelocity": 295,
+        "effectiveRange": 400,
+        "magazine": "10-padruniline salv (ühilduv 30-padruniliste SR-3M salvedega)"
+      },
+      "warnings": {
+        "muzzleVelocity": "Algkiirus 280–310 m/s. Efektiivne laskekaugus 400 m päeval, 300 m öösel. Kasutatakse peamiselt ühelasuliselt."
+      },
+      "sources": [
+        {"name": "Wikipedia: VSS Vintorez", "url": "https://en.wikipedia.org/wiki/VSS_Vintorez", "retrieved": "2026-10-23"}
+      ]
+    },
+    "SVD „Dragunov“": {
+      "status": "unverified",
+      "values": {
+        "caliber": 7.62,
+        "cartridge": "7,62×54 mmR",
+        "weaponMass": 4.3,
+        "weaponLength": 1225,
+        "barrelLength": 620,
+        "muzzleVelocity": 830,
+        "effectiveRange": 600,
+        "magazine": "10-padruniline salv"
+      },
+      "warnings": {
+        "effectiveRange": "Efektiivne laskekaugus 600–1300 m sihtmärgist ja laskemoonast sõltuvalt. Mass koos sihikuga."
+      },
+      "sources": [
+        {"name": "Wikipedia: Dragunov sniper rifle", "url": "https://en.wikipedia.org/wiki/Dragunov_sniper_rifle", "retrieved": "2026-10-23"}
+      ]
+    },
+    "SVDM": {
+      "status": "unverified",
+      "values": {
+        "weaponMass": 5.3,
+        "weaponLength": 1155,
+        "barrelLength": 550
+      },
+      "warnings": {
+        "weaponLength": "Pikkus 1155 mm tuharik lahti (875 mm kokkuklapituna); kirjelduses 1135 / 975 mm, mis on vastuolus. Padrun, algkiirus ja laskekaugus jäetud tühjaks (tekst ei täpsusta)."
+      },
+      "sources": [
+        {"name": "Wikipedia: Dragunov sniper rifle", "url": "https://en.wikipedia.org/wiki/Dragunov_sniper_rifle", "retrieved": "2026-10-23"}
+      ]
+    },
+    "OSV-96": {
+      "status": "unverified",
+      "values": {
+        "caliber": 12.7,
+        "cartridge": "12,7×108 mm",
+        "weaponMass": 12.9,
+        "weaponLength": 1746,
+        "barrelLength": 1000,
+        "muzzleVelocity": 890,
+        "effectiveRange": 2000,
+        "magazine": "5-padruniline salv"
+      },
+      "warnings": {
+        "effectiveRange": "Tabelis 2000 m; tekstis 1800 m jalaväe vastu ja 2500 m tehnika vastu. Algkiirus 870–910 m/s. Mass ilma sihikuta."
+      },
+      "sources": [
+        {"name": "Wikipedia: OSV-96", "url": "https://en.wikipedia.org/wiki/OSV-96", "retrieved": "2026-10-23"}
+      ]
+    },
+    "ASVK KORD": {
+      "status": "unverified",
+      "values": {
+        "caliber": 12.7,
+        "cartridge": "12,7×108 mm",
+        "magazine": "Salv (poltlukuga bullpup-püss)"
+      },
+      "warnings": {
+        "cartridge": "Wikipedia ei anna ASVK mass, pikkus ja laskekaugust eraldi (KSVK väärtused: 12 kg, 1420 mm, efektiivne 1500 m), seetõttu tühjaks jäetud."
+      },
+      "sources": [
+        {"name": "Wikipedia: KSVK 12.7", "url": "https://en.wikipedia.org/wiki/KSVK_12.7", "retrieved": "2026-10-23"}
+      ]
+    },
+    "SV-98": {
+      "status": "unverified",
+      "values": {
+        "cartridge": "7,62×54 mmR, 7,62×51 mm NATO, .338 Lapua Magnum",
+        "weaponMass": 5.8,
+        "weaponLength": 1200,
+        "barrelLength": 650,
+        "muzzleVelocity": 820,
+        "effectiveRange": 1000,
+        "magazine": "10-padruniline salv"
+      },
+      "warnings": {
+        "weaponMass": "5,8 kg ilma sihiku ja summutita (7,8 kg nendega). Efektiivne laskekaugus 600 m mehaanilise sihikuga, 1000 m optilisega."
+      },
+      "sources": [
+        {"name": "Wikipedia: SV-98", "url": "https://en.wikipedia.org/wiki/SV-98", "retrieved": "2026-10-23"}
+      ]
+    },
+    "AGS-17": {
+      "status": "unverified",
+      "values": {
+        "caliber": 30,
+        "cartridge": "30 mm VOG-17 granaat",
+        "weaponMass": 31,
+        "weaponLength": 840,
+        "muzzleVelocity": 185,
+        "rateOfFire": 400,
+        "effectiveRange": 1700,
+        "magazine": "29-padruniline granaadilint"
+      },
+      "warnings": {
+        "effectiveRange": "Wikipedia: efektiivne kaugus 800–1700 m. Mass ilma täpsustuseta, kas koos tripodiga."
+      },
+      "sources": [
+        {"name": "Wikipedia: AGS-17", "url": "https://en.wikipedia.org/wiki/AGS-17", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RGD-5": {
+      "status": "unverified",
+      "values": {
+        "weaponMass": 0.31,
+        "explosiveMass": 110,
+        "fuze": "UZRG / UZRGM, viivitus 3,2–4,2 s",
+        "lethalRadius": 3,
+        "throwRange": 40
+      },
+      "warnings": {
+        "lethalRadius": "Surmav raadius ca 3 m, haavamine kuni 25 m. Viskekaugus 35–45 m. Lõhkeaine: TNT."
+      },
+      "sources": [
+        {"name": "Wikipedia: RGD-5", "url": "https://en.wikipedia.org/wiki/RGD-5", "retrieved": "2026-10-23"}
+      ]
+    },
+    "F-1": {
+      "status": "unverified",
+      "values": {
+        "weaponMass": 0.6,
+        "explosiveMass": 60,
+        "fuze": "UZRGM, viivitus 3,2–4,2 s",
+        "lethalRadius": 30,
+        "throwRange": 38
+      },
+      "warnings": {
+        "lethalRadius": "Efektiivne kildraadius ca 30 m, kildud lendavad kuni 200 m; viskekaugus 30–45 m. Lõhkeaine: TNT."
+      },
+      "sources": [
+        {"name": "Wikipedia: F1 grenade (Russia)", "url": "https://en.wikipedia.org/wiki/F1_grenade_(Russia)", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RGN": {
+      "status": "unverified",
+      "values": {
+        "weaponMass": 0.31,
+        "explosiveMass": 97,
+        "fuze": "UDZS: löögisüütaja (relvastub 1–1,8 s pärast) + ajasüütaja 3,5–4 s",
+        "lethalRadius": 4,
+        "throwRange": 40
+      },
+      "warnings": {
+        "lethalRadius": "Surmav raadius 4 m (max 10 m); viskekaugus 30–50 m allikast sõltuvalt. Lõhkeaine A-IX-1."
+      },
+      "sources": [
+        {"name": "Wikipedia: RGN hand grenade", "url": "https://en.wikipedia.org/wiki/RGN_hand_grenade", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RGO": {
+      "status": "unverified",
+      "values": {
+        "weaponMass": 0.525,
+        "explosiveMass": 90,
+        "fuze": "UDZS: löögisüütaja + ajasüütaja 3,2–4,2 s",
+        "throwRange": 40
+      },
+      "warnings": {
+        "throwRange": "Viskekaugus 30–50 m allikast sõltuvalt. Surmav raadius allikatest sõltuvalt 6–20 m (kildud kuni 100 m), seetõttu tühjaks jäetud. Lõhkeaine A-IX-1."
+      },
+      "sources": [
+        {"name": "Wikipedia: RGO hand grenade", "url": "https://en.wikipedia.org/wiki/RGO_hand_grenade", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RKG-3": {
+      "status": "unverified",
+      "values": {
+        "penetration": "RKG-3: 125–150 mm RHA; RKG-3M: 165 mm; RKG-3T / RKG-3E: 170 mm; RKG-3EM: 220 mm",
+        "throwRange": 20
+      },
+      "warnings": {
+        "throwRange": "Realistlik viskekaugus 15–25 m. Massi ja pikkust Wikipedia ei anna."
+      },
+      "sources": [
+        {"name": "Wikipedia: RKG-3", "url": "https://en.wikipedia.org/wiki/RKG-3", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RPO-A „Shmel“": {
+      "status": "unverified",
+      "values": {
+        "caliber": 93,
+        "cartridge": "93 mm termobaariline rakett",
+        "weaponMass": 11,
+        "weaponLength": 920,
+        "muzzleVelocity": 125,
+        "effectiveRange": 1000,
+        "minRangeM": 20
+      },
+      "warnings": {
+        "weaponMass": "Wikipedia ei täpsusta, kas 11 kg on laetud või ainult stardiseade. Efektiivne laskekaugus 20–1000 m (sihik 600 m); raketi pikkus 700 mm."
+      },
+      "sources": [
+        {"name": "Wikipedia: RPO-A Shmel", "url": "https://en.wikipedia.org/wiki/RPO-A_Shmel", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RShG-2": {
+      "status": "unverified",
+      "values": {
+        "weaponMass": 3.5,
+        "effectiveRange": 115,
+        "cartridge": "Termobaariline lask (RPG-26 alusel)"
+      },
+      "warnings": {
+        "effectiveRange": "115 m on vähendatud otsetule laskekaugus. Termobaarilise segu mass 1,16 kg (ca 3 kg TNT ekvivalent). Kaliiber jäetud tühjaks (Wikipedia ei kinnita)."
+      },
+      "sources": [
+        {"name": "Wikipedia: RShG-2", "url": "https://en.wikipedia.org/wiki/RShG-2", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RPG-7": {
+      "status": "unverified",
+      "values": {
+        "caliber": 40,
+        "cartridge": "PG-7V / PG-7VL / PG-7VR / TBG-7V / OG-7V (granaadi kaliiber 40–105 mm; PG-7V 85 mm)",
+        "weaponMass": 6.3,
+        "weaponLength": 950,
+        "muzzleVelocity": 115,
+        "effectiveRange": 330,
+        "maxRangeM": 700,
+        "penetration": "PG-7VL: üle 500 mm RHA"
+      },
+      "warnings": {
+        "caliber": "40 mm on laskeseadme toru; kaliiber valitud toru järgi. Mass 6,3 kg (7 kg PGO-7 sihikuga). Algkiirus 115 m/s väljapaiskamisel (300 m/s lennul). Efektiivne laskekaugus 330 m (PG-7V); max 700 m (OG-7V, isehävitus ca 920 m)."
+      },
+      "sources": [
+        {"name": "Wikipedia: RPG-7", "url": "https://en.wikipedia.org/wiki/RPG-7", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RPG-22": {
+      "status": "unverified",
+      "values": {
+        "caliber": 72.5,
+        "weaponMass": 2.8,
+        "weaponLength": 850,
+        "muzzleVelocity": 133,
+        "effectiveRange": 200,
+        "penetration": "400 mm RHA, 1000 mm raudbetoon, 1200 mm tellis"
+      },
+      "warnings": {
+        "effectiveRange": "Efektiivne kaugus 150–200 m (max 250 m). Pikkus 785 mm kandeasendis, 850 mm laskevalmis."
+      },
+      "sources": [
+        {"name": "Wikipedia: RPG-22", "url": "https://en.wikipedia.org/wiki/RPG-22", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RPG-26": {
+      "status": "unverified",
+      "values": {
+        "caliber": 72.5,
+        "weaponMass": 2.9,
+        "weaponLength": 770,
+        "muzzleVelocity": 144,
+        "effectiveRange": 250,
+        "penetration": "440 mm RHA, 1000 mm raudbetoon, 1500 mm tellis"
+      },
+      "warnings": {
+        "weaponMass": "2,9 kg laetud (lask 1,8 kg)."
+      },
+      "sources": [
+        {"name": "Wikipedia: RPG-26", "url": "https://en.wikipedia.org/wiki/RPG-26", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RPG-28": {
+      "status": "unverified",
+      "values": {
+        "caliber": 125,
+        "weaponMass": 13.5,
+        "weaponLength": 1200,
+        "muzzleVelocity": 250,
+        "effectiveRange": 300,
+        "penetration": "Üle 1000 mm RHA pärast reaktiivsoomust"
+      },
+      "warnings": {
+        "weaponMass": "Infoboks: 13,5 kg laetud (lask 12 kg); tekstis lask 8,5 kg, mis on vastuolus."
+      },
+      "sources": [
+        {"name": "Wikipedia: RPG-28", "url": "https://en.wikipedia.org/wiki/RPG-28", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RPG-30": {
+      "status": "unverified",
+      "values": {
+        "caliber": 105,
+        "cartridge": "105 mm põhilask (+ 2 × 42 mm simulaatorraketid aktiivkaitse eksitamiseks)",
+        "weaponMass": 10.3,
+        "muzzleVelocity": 120,
+        "effectiveRange": 200,
+        "penetration": "Üle 600 mm RHA (650 mm pärast aktiiv- ja reaktiivkaitset), 1500 mm raudbetoon"
+      },
+      "warnings": {
+        "weaponMass": "Pikkust Wikipedia ei anna. 42 mm simulaatorrakettide osa ei ole lehel kinnitatud."
+      },
+      "sources": [
+        {"name": "Wikipedia: RPG-30", "url": "https://en.wikipedia.org/wiki/RPG-30", "retrieved": "2026-10-23"}
+      ]
+    },
+    "AT-13 Saxhorn-2 (Metis-M1 / 9K115)": {
+      "status": "unverified",
+      "values": {
+        "caliber": 130,
+        "weaponMass": 9.5,
+        "missileLength": 0.98,
+        "missileSpeed": "kuni 200 m/s",
+        "guidance": "SACLOS, juhtmega",
+        "atgmRange": {"min": 80, "max": 2000},
+        "penetration": "900–980 mm reaktiivsoomuse taga"
+      },
+      "warnings": {
+        "weaponMass": "9,5 kg on Metis-M1 stardiseadme mass; termosihik lisaks 6,5 kg. Metis-M (mitte M1): ulatus kuni 1500 m, läbimine 800 mm reaktiivsoomuse taga."
+      },
+      "sources": [
+        {"name": "Wikipedia: 9K115-2 Metis-M", "url": "https://en.wikipedia.org/wiki/9K115-2_Metis-M", "retrieved": "2026-10-23"}
+      ]
+    },
+    "AT-4 Spigot (9K111 Fagot)": {
+      "status": "unverified",
+      "values": {
+        "caliber": 120,
+        "weaponMass": 22.5,
+        "launchWeight": 12.5,
+        "missileLength": 1.1,
+        "warheadMass": 1.7,
+        "missileSpeed": "186 m/s lennul",
+        "guidance": "SACLOS, juhtmega (jälgib raketi infrapunalampi)",
+        "atgmRange": {"min": 70, "max": 2500},
+        "penetration": "9M111: 400 mm RHA; 9M111-2: 460 mm; 9M111M: 600 mm RHA"
+      },
+      "warnings": {
+        "atgmRange": "9M111: 70–2000 m; 9M111M: 75–2500 m. Stardiseadme (9P135) mass 22,5 kg; raketi mass 12,5 kg."
+      },
+      "sources": [
+        {"name": "Wikipedia: 9K111 Fagot", "url": "https://en.wikipedia.org/wiki/9K111_Fagot", "retrieved": "2026-10-23"}
+      ]
+    },
+    "AT-14 Spriggan (Kornet)": {
+      "status": "unverified",
+      "values": {
+        "caliber": 152,
+        "weaponMass": 63.7,
+        "launchWeight": 29,
+        "missileLength": 1.2,
+        "warheadMass": 4.6,
+        "missileSpeed": "üle 250 m/s",
+        "guidance": "SACLOS, laserkiirjuhtimine",
+        "atgmRange": {"min": 100, "max": 5500},
+        "penetration": "Kuni 1000 mm (9M133), 1000–1200 mm (9M133-1), 1100–1300 mm (9M133M-2) RHA reaktiivsoomuse taga"
+      },
+      "warnings": {
+        "atgmRange": "Päevane ulatus 5000–5500 m variandist sõltuvalt; Kornet-EM kuni 8000 m (TT) ja 10 000 m (lõhkepea). Stardimass 29 kg konteineriga (27 kg ilma). Tandem-kumulatiivlõhkepea."
+      },
+      "sources": [
+        {"name": "Wikipedia: 9M133 Kornet", "url": "https://en.wikipedia.org/wiki/9M133_Kornet", "retrieved": "2026-10-23"}
+      ]
+    },
+    "SPG-9M": {
+      "status": "unverified",
+      "values": {
+        "caliber": 73,
+        "cartridge": "PG-9 / PG-9N / PG-9VNT (kumulatiiv), OG-9 (killu-lõhke)",
+        "weaponMass": 47.5,
+        "weaponLength": 2110,
+        "rateOfFire": 6,
+        "effectiveRange": 800,
+        "penetration": "PG-9: 300 mm; PG-9N / PG-9VS: 400 mm; PG-9VNT: 600 mm (450 mm reaktiivsoomuse taga)"
+      },
+      "warnings": {
+        "weaponMass": "47,5 kg ilma tripodita, 59,5 kg tripodiga. Laskekiirus 5–6 lasku/min; algkiirus 250–435 m/s ja max kaugus 1200–6500 m laskemoonast sõltuvalt."
+      },
+      "sources": [
+        {"name": "Wikipedia: SPG-9", "url": "https://en.wikipedia.org/wiki/SPG-9", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MT-12 Rapira": {
+      "status": "unverified",
+      "values": {
+        "caliber": 100,
+        "weaponMass": 2750,
+        "weaponLength": 9160,
+        "barrelLength": 6300,
+        "crew": "6",
+        "rateOfFire": 6,
+        "muzzleVelocity": 1575,
+        "maxRangeM": 8200,
+        "penetration": "3BM-2 APFSDS: 230 mm 500 m kaugusel; 3BK16M HEAT: 400 mm; Kastet juhitav lask: 550–600 mm"
+      },
+      "warnings": {
+        "weaponMass": "Wikipedia annab andmed T-12 (2A19) kohta; MT-12 (2A29) kasutab sama toru ümberehitatud lafeediga. Algkiirus 1575 m/s on APFSDS; max kaugus 8200 m on killu-lõhkelaskega kaudtulega (APFSDS 3000 m, HEAT 1000 m, Kastet 5000 m). Laskekiirus tüüpiliselt 4–6 lasku/min (max 14)."
+      },
+      "sources": [
+        {"name": "Wikipedia: 100 mm anti-tank gun T-12", "url": "https://en.wikipedia.org/wiki/100_mm_anti-tank_gun_T-12", "retrieved": "2026-10-23"}
+      ]
+    },
+    "ZU-23-2 „Sergei“": {
+      "status": "unverified",
+      "values": {
+        "caliber": 23,
+        "cartridge": "23×152B (BZT, OFZ, OFZT)",
+        "weaponMass": 950,
+        "weaponLength": 4570,
+        "barrelLength": 2008,
+        "muzzleVelocity": 970,
+        "rateOfFire": 2000,
+        "effectiveRange": 2500,
+        "magazine": "2 × 50-padruniline lint",
+        "crew": "2 (detailsemates andmetes 6)"
+      },
+      "warnings": {
+        "rateOfFire": "2000 lasku/min on ühe toru teoreetiline kiirus (praktiline 400 lasku/min toru kohta). Efektiivne kaugus 2,5 km õhusihtmärgile, 2 km soomukile; efektiivne kõrgus 1500–2000 m."
+      },
+      "sources": [
+        {"name": "Wikipedia: ZU-23-2", "url": "https://en.wikipedia.org/wiki/ZU-23-2", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Igla (9K38)": {
+      "status": "unverified",
+      "values": {
+        "caliber": 72,
+        "launchWeight": 17.9,
+        "missileLength": 1.574,
+        "warheadMass": 1.17,
+        "missileSpeed": "570 m/s tipp (ca Mach 1,9)",
+        "guidance": "Kahe lainepikkusega infrapunaotsija (Igla-S)",
+        "samRange": {"max": 5200},
+        "samAltitude": {"max": 3500}
+      },
+      "warnings": {
+        "samRange": "Igla 5200 m, Igla-1 5000 m, Igla-S 6000 m; lagi 3500 m on Igla-S, Igla-1 2500 m. Raketi mass 10,8 kg."
+      },
+      "sources": [
+        {"name": "Wikipedia: 9K38 Igla", "url": "https://en.wikipedia.org/wiki/9K38_Igla", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Strela-2M (9K32M)": {
+      "status": "unverified",
+      "values": {
+        "caliber": 72,
+        "launchWeight": 15,
+        "missileLength": 1.44,
+        "warheadMass": 1.15,
+        "missileSpeed": "500 m/s",
+        "guidance": "Passiivne infrapunaotsija (PbS), proportsionaalnavigatsioon",
+        "samRange": {"min": 800, "max": 4200},
+        "samAltitude": {"min": 50, "max": 2300}
+      },
+      "warnings": {
+        "launchWeight": "Raketi mass 9,8 kg; lõhkepea 1,15–1,17 kg (370 g lõhkeainet)."
+      },
+      "sources": [
+        {"name": "Wikipedia: 9K32 Strela-2", "url": "https://en.wikipedia.org/wiki/9K32_Strela-2", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Strela-3 (9K34)": {
+      "status": "unverified",
+      "values": {
+        "launchWeight": 16,
+        "missileLength": 1.47,
+        "warheadMass": 1.17,
+        "missileSpeed": "470 m/s",
+        "guidance": "Infrapunaotsija, FM-modulatsioon, lämmastikuga jahutatud PbS",
+        "samRange": {"max": 4500},
+        "samAltitude": {"min": 30, "max": 3000}
+      },
+      "warnings": {
+        "launchWeight": "Raketi mass 10,3 kg. Kaliiber ei ole Wikipedias kirjas."
+      },
+      "sources": [
+        {"name": "Wikipedia: 9K34 Strela-3", "url": "https://en.wikipedia.org/wiki/9K34_Strela-3", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Verba (9K333)": {
+      "status": "unverified",
+      "values": {
+        "caliber": 72,
+        "launchWeight": 17.25,
+        "warheadMass": 1.5,
+        "missileSpeed": "kuni 500 m/s (Mach 1,5)",
+        "guidance": "Kolmekanaliline optiline otsija (UV, lähi-IR, kesk-IR)",
+        "samRange": {"max": 6500},
+        "samAltitude": {"max": 4500}
+      },
+      "warnings": {
+        "launchWeight": "Wikipedia ei täpsusta, kas 17,25 kg on raketi või kogu kompleksi mass; pikkust ei anta."
+      },
+      "sources": [
+        {"name": "Wikipedia: 9K333 Verba", "url": "https://en.wikipedia.org/wiki/9K333_Verba", "retrieved": "2026-10-23"}
+      ]
+    },
+    "PM „Makarov“": {
+      "status": "unverified",
+      "values": {
+        "caliber": 9,
+        "cartridge": "9×18 mm Makarov",
+        "weaponMass": 0.73,
+        "weaponLength": 161.5,
+        "barrelLength": 93.5,
+        "muzzleVelocity": 315,
+        "effectiveRange": 50,
+        "magazine": "8-padruniline salv"
+      },
+      "warnings": {
+        "weaponMass": "Wikipedia ei täpsusta, kas 730 g on laetud või tühi. PMM: 10 või 12 padrunit."
+      },
+      "sources": [
+        {"name": "Wikipedia: Makarov pistol", "url": "https://en.wikipedia.org/wiki/Makarov_pistol", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MP-443 „Grach“": {
+      "status": "unverified",
+      "values": {
+        "caliber": 9,
+        "cartridge": "9×19 mm Parabellum (7N21, +P+)",
+        "weaponMass": 0.95,
+        "weaponLength": 198,
+        "barrelLength": 112.5,
+        "muzzleVelocity": 450,
+        "effectiveRange": 50,
+        "magazine": "17-padruniline salv (hilisem 18)"
+      },
+      "warnings": {
+        "weaponMass": "Wikipedia ei täpsusta, kas mass on laetud või tühi."
+      },
+      "sources": [
+        {"name": "Wikipedia: MP-443 Grach", "url": "https://en.wikipedia.org/wiki/MP-443_Grach", "retrieved": "2026-10-23"}
+      ]
+    },
+    "GSh-18": {
+      "status": "unverified",
+      "values": {
+        "caliber": 9,
+        "cartridge": "9×19 mm Parabellum (7N21, 7N31)",
+        "weaponMass": 0.59,
+        "weaponLength": 184,
+        "barrelLength": 103,
+        "muzzleVelocity": 550,
+        "effectiveRange": 50,
+        "magazine": "18-padruniline salv"
+      },
+      "warnings": {
+        "muzzleVelocity": "535–570 m/s. Mass ilma täpsustuseta (laetud või tühi)."
+      },
+      "sources": [
+        {"name": "Wikipedia: GSh-18", "url": "https://en.wikipedia.org/wiki/GSh-18", "retrieved": "2026-10-23"}
+      ]
+    },
+    "PP-19 „Vityaz“": {
+      "status": "unverified",
+      "values": {
+        "caliber": 9,
+        "cartridge": "9×19 mm Parabellum (ka 7N31 soomustläbistav)",
+        "weaponMass": 2.9,
+        "weaponLength": 705,
+        "barrelLength": 237.5,
+        "muzzleVelocity": 380,
+        "rateOfFire": 800,
+        "maxRangeM": 200,
+        "magazine": "30-padruniline salv"
+      },
+      "warnings": {
+        "weaponLength": "705 mm tuharik lahti, 480 mm kokkuklapituna. Wikipedia annab 200 m max laskekauguse, efektiivset ei."
+      },
+      "sources": [
+        {"name": "Wikipedia: PP-19 Bizon (PP-19-01 Vityaz)", "url": "https://en.wikipedia.org/wiki/PP-19_Bizon", "retrieved": "2026-10-23"}
       ]
     }
   }
