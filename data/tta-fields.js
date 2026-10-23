@@ -5,7 +5,7 @@
 // Sektsiooni comparePriority: väiksem number = võrdluses eespool ja alati nähtav; ilma selleta = "Kõik andmed" all.
 // Sisu hoia puhta JSON-ina (jutumärgid võtmete ümber, lõpukomasid pole) – check_release.js kontrollib.
 window.TTA_FIELDS = {
-  "version": 11,
+  "version": 12,
   "sections": [
     {"id": "general", "label": "Üldandmed"},
     {"id": "mobility", "label": "Liikuvus"},
@@ -13,6 +13,7 @@ window.TTA_FIELDS = {
     {"id": "armament", "label": "Relvastus", "comparePriority": 1},
     {"id": "ranges", "label": "Laskekaugused", "comparePriority": 2},
     {"id": "weapon", "label": "Relva andmed", "comparePriority": 1},
+    {"id": "mine", "label": "Miini andmed", "comparePriority": 1},
     {"id": "missile", "label": "Raketi omadused", "comparePriority": 2},
     {"id": "ew", "label": "Elektrooniline sõjapidamine", "comparePriority": 1},
     {"id": "special", "label": "Eriotstarbeline varustus"},
@@ -137,6 +138,18 @@ window.TTA_FIELDS = {
     "explosiveMass": {"label": "Lõhkeaine mass", "type": "number", "section": "weapon", "order": 70, "unit": "g", "comparable": true},
     "fuze": {"label": "Süütaja", "type": "text", "section": "weapon", "order": 72},
     "lethalRadius": {"label": "Kahjustusraadius", "type": "number", "section": "weapon", "order": 74, "unit": "m", "comparable": true, "better": "higher"},
-    "throwRange": {"label": "Viskekaugus", "type": "number", "section": "weapon", "order": 76, "unit": "m", "comparable": true, "better": "higher"}
+    "throwRange": {"label": "Viskekaugus", "type": "number", "section": "weapon", "order": 76, "unit": "m", "comparable": true, "better": "higher"},
+    "mineMass": {"label": "Mass", "type": "number", "section": "mine", "order": 10, "unit": "kg", "comparable": true},
+    "mineDiameter": {"label": "Läbimõõt", "type": "number", "section": "mine", "order": 12, "unit": "mm", "comparable": true},
+    "mineLength": {"label": "Pikkus", "type": "number", "section": "mine", "order": 14, "unit": "mm", "comparable": true},
+    "mineWidth": {"label": "Laius", "type": "number", "section": "mine", "order": 16, "unit": "mm", "comparable": true},
+    "mineHeight": {"label": "Kõrgus", "type": "number", "section": "mine", "order": 18, "unit": "mm", "comparable": true},
+    "explosiveType": {"label": "Lõhkeaine liik", "type": "text", "section": "mine", "order": 20},
+    "casing": {"label": "Korpus", "type": "text", "section": "mine", "order": 22},
+    "fragments": {"label": "Kildude arv", "type": "number", "section": "mine", "order": 30, "unit": "tk", "comparable": true, "better": "higher"},
+    "fragmentationAngle": {"label": "Kildude hajumisnurk", "type": "text", "section": "mine", "order": 32},
+    "delivery": {"label": "Paigaldus / kasutus", "type": "text", "section": "mine", "order": 40},
+    "smokeDuration": {"label": "Suitsu kestus", "type": "text", "section": "mine", "order": 50},
+    "smokeScreen": {"label": "Suitsuvarjestus", "type": "text", "section": "mine", "order": 52}
   }
 };
