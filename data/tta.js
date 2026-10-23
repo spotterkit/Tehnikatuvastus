@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 13,
+  "version": 14,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -5427,6 +5427,171 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Militarnyi: Desertcross 1000-3", "url": "https://militarnyi.com/en/articles/how-chinese-golf-carts-help-russian-invaders/", "retrieved": "2026-10-23"}
+      ]
+    },
+    "BRM-1K": {
+      "status": "unverified",
+      "values": {
+        "crew": "6 (ülem, juht, raadiooperaator, navigaator, kaks luureoperaatorit)",
+        "combatWeight": 13.3,
+        "length": 6.74,
+        "width": 2.94,
+        "height": 2.15,
+        "engine": "UTD-20 V6 vedelikjahutusega diisel",
+        "power": 300,
+        "maxSpeedRoad": 65,
+        "maxSpeedOffroad": 40,
+        "maxSpeedWater": 7,
+        "range": 600,
+        "amphibious": true,
+        "mainArmament": "73 mm 2A28 Grom madalrõhu sileraudkahur (40 lasku)",
+        "secondaryArmament": "7,62 mm PK (2000 padrunit); suitsugraanaadiheitjad (hilisematel 6 × 81 mm Tucha)",
+        "atgm": "1 × 9M14 Malyutka (AT-3 Sagger)",
+        "armor": "Kere 19 mm; torn 23 mm eest, 19 mm külgedelt, 13 mm tagant, 6 mm katus; lisasoomus ja reaktiivsoomus võimalik; automaatne ületõukekaitse (NBC)",
+        "sensors": "PSNR-5K luureradar (kuni 10 km), 1RL133-1 radar, 1D8 laserkaugusmõõtja, ERRS-1 raadiosuunaleidja, TNA-4 navigatsioon, 1PN22M/M2 sihik (valikuline Alis või Sanoet termokaamera)"
+      },
+      "warnings": {
+        "maxSpeedOffroad": "ARMSNET annab maastikukiiruseks 40–45 km/h; kirjetes esineb vastuolusid (radari tähistus PSNR-K / PSNR-5K)."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BRM-1K", "url": "https://armsnet.duckdns.org/equipment/592fd1d2-2825-4727-e928-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "BRDM-2 / BRDM-2M": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "combatWeight": 7,
+        "length": 5.75,
+        "width": 2.37,
+        "height": 2.31,
+        "groundClearance": 430,
+        "driveConfig": "4×4",
+        "engine": "GAZ-41 V8 bensiinimootor (BRDM-2M: diisel GAZ-562 175 hj või Steyr D.245-9 136 hj)",
+        "power": 140,
+        "maxSpeedRoad": 100,
+        "maxSpeedWater": 10,
+        "range": 750,
+        "amphibious": true,
+        "mainArmament": "14,5 mm KPVT (500 padrunit)",
+        "secondaryArmament": "Koaksiaalne 7,62 mm PKT (2000 padrunit)",
+        "armor": "Keevitatud teras: kerenina kuni 14 mm; torni esiosa 10 mm; küljed, taga ja katus 7 mm; mujal 2–7 mm",
+        "specialEquipment": "Neli kettajamiga allosa tugirattapaari (kraavide ületamiseks); ujub veejoaga"
+      },
+      "warnings": {
+        "engine": "Põhiandmed kehtivad BRDM-2 kohta; BRDM-2M-l (diisel) on mass, kiirus ja ulatus erinevad (nt BRDM-2MS: 6,9 t, 150 hj, ulatus 1500 km)."
+      },
+      "sources": [
+        {"name": "Wikipedia: BRDM-2", "url": "https://en.wikipedia.org/wiki/BRDM-2", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RKhM-4": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "combatWeight": 13.6,
+        "length": 7.7,
+        "width": 2.9,
+        "height": 2.41,
+        "driveConfig": "8×8",
+        "engine": "KamAZ-7403 V8 vedelikjahutusega diisel",
+        "power": 260,
+        "maxSpeedRoad": 80,
+        "maxSpeedOffroad": 60,
+        "maxSpeedWater": 10,
+        "range": 600,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.5,
+        "trench": 2,
+        "mainArmament": "1 × 14,5 mm KPVT (500 padrunit)",
+        "secondaryArmament": "1 × 7,62 mm PKT (2500 padrunit); 6 × 81 mm suitsugraanaadiheitjat",
+        "armor": "Kere esiosa peab vastu 12,7 mm kuulidele; igakülgne kaitse 7,62 mm kuulide ja kildude vastu; kollektiivne NBC-kaitse",
+        "specialEquipment": "Doosikiiruse mõõturid IMD-21B ja DP-5V, gaasidetektor GSA-13, gaasituvasti PGO-11, proovivõtukomplekt KPO-1, meteokomplekt MK-3M; raadiod R-173 ja R-163; luuresõidu kiirus radioloogilisel 30 km/h, keemilisel 10 km/h"
+      },
+      "warnings": {
+        "crew": "Andmed RKhM-4-01 kohta (ARMSNET). Teine ARMSNET-i kirje (RKhM-4-1) annab meeskonnaks 6 ja massiks 14,5 t, mis on vastuolus."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): RKhM-4-01", "url": "https://armsnet.duckdns.org/equipment/961ec381-afd8-4aa6-eb06-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RKhM-6": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "combatWeight": 13.6,
+        "length": 7.7,
+        "width": 2.9,
+        "height": 2.41,
+        "driveConfig": "8×8",
+        "engine": "KamAZ V8 vedelikjahutusega diisel",
+        "power": 300,
+        "maxSpeedRoad": 80,
+        "maxSpeedOffroad": 60,
+        "maxSpeedWater": 9,
+        "range": 600,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.5,
+        "trench": 2,
+        "mainArmament": "1 × 14,5 mm KPVT (500 padrunit)",
+        "secondaryArmament": "1 × 7,62 mm PKT (2500 padrunit); 6 × 81 mm suitsugraanaadiheitjat",
+        "armor": "Kere esiosa peab vastu 12,7 mm kuulidele; igakülgne kaitse 7,62 mm kuulide ja kildude vastu; tugevdatud katus ja miiniohutu põhi; kollektiivne NBC-kaitse",
+        "sensors": "Termosihikud ülemal ja laskuril, päevasihik 1P3-6, infrapunaprožektor OU-3GA2M",
+        "specialEquipment": "Keemiline detektor GSA-14, doosikiiruse mõõturid IMD-23 ja IMD-2NM, närvigaasi häireseadmed, aerosoolidetektor ASP-13, proovivõtjad KPO-1 ja APSO, meteokomplekt AMK; navigatsioon (GLONASS, inertsiaal); rehvirõhu reguleerimine"
+      },
+      "warnings": {
+        "crew": "ARMSNET-i kirjes on mõned vastuolulised kohad (nt puuduv sügavus, sisseviimise aasta 2014 / 2016)."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): RKhM-6", "url": "https://armsnet.duckdns.org/equipment/3aae43bd-ddec-4a28-eb05-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Taifun-K KAMAZ-63968, 6x6": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 + 16 (kuni, konfiguratsioonist sõltuvalt)",
+        "combatWeight": 21,
+        "length": 8.99,
+        "width": 2.45,
+        "height": 3.32,
+        "driveConfig": "6×6",
+        "engine": "YaMZ-5367 6-silindriline diisel",
+        "power": 450,
+        "maxSpeedRoad": 105,
+        "range": 1200,
+        "armor": "Väidetavalt STANAG 4569 tase 3b; tootja sihtmärk tase IV; keraamiline soomus, miiniohutud istmed"
+      },
+      "warnings": {
+        "combatWeight": "21 t on tühimass, täismass 24 t. Kõrgus 3,32 m kerel, 3,12 m kabiinil. Kaitsetase on tootja/venemaa väide."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kamaz Typhoon", "url": "https://en.wikipedia.org/wiki/Kamaz_Typhoon", "retrieved": "2026-10-23"},
+        {"name": "GlobalSecurity: Taifun", "url": "https://www.globalsecurity.org/military/world/russia/taifun.htm", "retrieved": "2026-10-23"}
+      ]
+    },
+    "VPK-3927-1 Volk-1": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 + 8",
+        "combatWeight": 10.2,
+        "loadCapacity": 4500,
+        "length": 6.976,
+        "width": 2.5,
+        "height": 2.1,
+        "engine": "Diisel: YaMZ-5347 (Euro-4) või Cummins B180",
+        "maxSpeedRoad": 130,
+        "range": 1000,
+        "armor": "STANAG 4569 ballistiline tase 3; miinikaitse tase 1 (tase 2 uuendusega)"
+      },
+      "warnings": {
+        "engine": "Wikipedia andmetes on vastuolu: tabelis Cummins 5,9 l B180 (180 hj), tekstis YaMZ-5347 (240–300 hj); võimsus jäetud tühjaks. Mass ja kandevõime kehtivad soomustatud variandil (soomustamata 7 t / 2,5 t, pikkus 5,71 m)."
+      },
+      "sources": [
+        {"name": "Wikipedia: VPK-3927 Volk", "url": "https://en.wikipedia.org/wiki/VPK-3927_Volk", "retrieved": "2026-10-23"}
       ]
     }
   }
