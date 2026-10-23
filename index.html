@@ -753,7 +753,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
   <header>
     <div>
       <div class="eyebrow"></div>
-      <h1 id="titleHome" class="clickable" title="Tagasi menüüsse">TEHNIKA<span>TUVASTUS</span></h1>
+      <h1 id="titleHome" class="clickable" title="Tagasi avalehele">TEHNIKA<span>TUVASTUS</span></h1>
     </div>
     <div class="scorebox">
       <div class="lbl">Tulemus</div>
@@ -847,8 +847,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
 
   <div id="listScreen" style="display:none;">
     <div class="hist-nav">
-      <button id="listBackBtn" class="nav-btn" aria-label="Tagasi menüüsse" title="Tagasi menüüsse">‹ Menüü</button>
-      <div class="hist-status live">MUDELITE NIMEKIRI</div>
+      <button id="listBackBtn" class="nav-btn" aria-label="Tagasi avalehele" title="Tagasi avalehele">‹ Avalehele</button>
     </div>
     <div class="panel" id="modelListPanel">
       <div class="model-list-summary" id="modelListSummary"></div>
@@ -900,7 +899,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
 
   <div id="kuldScreen" style="display:none;">
     <div class="hist-nav">
-      <button id="kuldMenuBtn" class="nav-btn" aria-label="Tagasi menüüsse" title="Tagasi menüüsse">‹ Menüü</button>
+      <button id="kuldMenuBtn" class="nav-btn" aria-label="Tagasi avalehele" title="Tagasi avalehele">‹ Avalehele</button>
       <div class="hist-status live" id="kuldStatus">KULDVILLAK</div>
       <button id="kuldResetBtn" class="nav-btn" title="Uus kuldvillak">↻</button>
     </div>
@@ -971,7 +970,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
   <div id="runScreen" style="display:none;">
 
     <div class="hist-nav">
-      <button id="menuBtn" class="nav-btn" aria-label="Menüüsse" title="Tagasi menüüsse">☰</button>
+      <button id="menuBtn" class="nav-btn" aria-label="Avalehele" title="Tagasi avalehele">☰</button>
       <button id="histPrev" class="nav-btn" aria-label="Eelmine">‹</button>
       <div class="hist-status live" id="histStatus">LIVE</div>
       <button id="histNext" class="nav-btn" aria-label="Järgmine" disabled>›</button>
@@ -1027,7 +1026,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
       <div class="row" id="endActionsRow" style="display:none;margin-top:12px;">
         <button class="primary" id="endRestartBtn" style="flex:1;">Alusta uuesti</button>
         <button id="endRepeatBtn" style="flex:1;display:none;">Korda vigu</button>
-        <button id="endMenuBtn" style="flex:1;">Tagasi menüüsse</button>
+        <button id="endMenuBtn" style="flex:1;">Tagasi avalehele</button>
       </div>
     </div>
 
@@ -1728,13 +1727,43 @@ function shuffleArray(arr){
   return arr;
 }
 
+// OFFLINE-OHUTU VALIK: kui seade on offline, pakutakse ainult pilte, mis on seadmes päriselt olemas.
+// offlineAvail === null  -> võrk olemas (või pole midagi cache'itud), ei filtreerita.
+let offlineAvail = null;
+async function refreshOfflineAvailability(){
+  if(navigator.onLine !== false || typeof caches === 'undefined'){ offlineAvail = null; return; }
+  try{
+    const have = new Set();
+    for(const name of await caches.keys()){
+      const c = await caches.open(name);
+      for(const req of await c.keys()) have.add(req.url.split('?')[0]);
+    }
+    const ok = new Set();
+    for(const e of CATEGORIES){
+      for(const f of (e.files || [])){
+        if(typeof f !== 'string') continue;
+        if(/^(\.\/)?images\//.test(f.trim())){
+          if(have.has(new URL(f.trim(), window.location.href).href.split('?')[0])) ok.add(f);
+        }else if(await getOfflineCommonsEntry(normalizeFilename(f))) ok.add(f);
+      }
+    }
+    offlineAvail = ok.size ? ok : null;
+  }catch(e){ offlineAvail = null; }
+}
+function usableFiles(entry){
+  const fl = (entry && entry.files) || [];
+  return offlineAvail ? fl.filter(f => offlineAvail.has(f)) : fl;
+}
+window.addEventListener('offline', refreshOfflineAvailability);
+window.addEventListener('online', refreshOfflineAvailability);
+
 // Kõik kureeritud pildid (valikuliselt filtreeritud grupi järgi) — iga pilt kotis
 // täpselt üks kord, ei korrata enne kui kõik läbi (vt drawNextImage).
 function buildImagePool(filterFn){
   const pool = [];
   CATEGORIES.forEach(entry => {
     if(filterFn && !filterFn(entry)) return;
-    (entry.files || []).forEach(filename => {
+    usableFiles(entry).forEach(filename => {
       pool.push({ entry, filename });
     });
   });
@@ -1742,7 +1771,7 @@ function buildImagePool(filterFn){
 }
 
 function buildUniqueVehiclePool(n){
-  const eligible = shuffleArray(CATEGORIES.filter(e => e.files && e.files.length > 0).slice());
+  const eligible = shuffleArray(CATEGORIES.filter(e => usableFiles(e).length > 0).slice());
   const chosen = [];
   const groupCounts = {};
   const subtypeCounts = { bridgeTank: 0, bridgeVehicleOrPontoon: 0, su27Family: 0, adRadar: 0 };
@@ -1787,7 +1816,8 @@ function buildUniqueVehiclePool(n){
   }
 
   return shuffleArray(chosen).map(entry => {
-    const filename = entry.files[Math.floor(Math.random() * entry.files.length)];
+    const fl = usableFiles(entry);
+    const filename = fl[Math.floor(Math.random() * fl.length)];
     return { entry, filename };
   });
 }
@@ -1931,7 +1961,7 @@ async function fetchSpecificFile(filename){
     + '&titles=' + encodeURIComponent(title)
     + '&prop=imageinfo'
     + '&iiprop=url|size|mime|extmetadata'
-    + '&iiurlwidth=1400'
+    + '&iiurlwidth=1280'   // Wikimedia standardsuurus (960/1280/1920); mittestandardne ümardatakse üles
     + '&format=json&origin=*';
 
   let res;
@@ -2223,12 +2253,14 @@ async function loadNext(){
 
   let attempts = 0;
   let bagWasEmpty = false;
+  const triedFiles = new Set();
 
   while(attempts < 8){
     attempts++;
     const draw = drawNextImage();
     if(!draw){ bagWasEmpty = true; break; }
     const { entry, filename } = draw;
+    triedFiles.add(filename);
 
     try{
       const file = await fetchSpecificFile(filename);
@@ -2249,6 +2281,13 @@ async function loadNext(){
       guessInput.focus();
       return;
     }catch(err){
+      // Pilt ei laadinud: proovi sama mudeli mõnda teist pilti, et mudel testist ära ei kaoks.
+      const alt = usableFiles(entry).filter(f => !triedFiles.has(f));
+      if(alt.length){
+        const next = alt[Math.floor(Math.random() * alt.length)];
+        imageBag = imageBag.filter(it => !(it.entry === entry && it.filename === next));
+        imageBag.unshift({ entry, filename: next });
+      }
       continue;
     }
   }
@@ -2366,6 +2405,8 @@ function computeOverallStats(){
   });
   return { totalModels, totalPhotos };
 }
+
+refreshOfflineAvailability();
 
 function renderHome(){
   groupGrid.innerHTML = '';
@@ -4005,13 +4046,14 @@ function startTest(){
 // Uus testivoor, mis sisaldab ainult neid tehnikaühikuid, mis eelmises
 // testis valesti märgiti (üks juhuslik pilt iga sellise masina files[]-ist).
 function startRepeatMistakes(mistakeCats){
-  const entries = CATEGORIES.filter(e => mistakeCats.includes(e.cat) && e.files && e.files.length > 0);
+  const entries = CATEGORIES.filter(e => mistakeCats.includes(e.cat) && usableFiles(e).length > 0);
   if(!entries.length) return;
   appMode = 'test';
   currentGroupId = null;
   resetRunState();
   imageBag = shuffleArray(entries.map(entry => {
-    const filename = entry.files[Math.floor(Math.random() * entry.files.length)];
+    const fl = usableFiles(entry);
+    const filename = fl[Math.floor(Math.random() * fl.length)];
     return { entry, filename };
   }));
   TOTAL_IMAGES = imageBag.length;
@@ -4220,7 +4262,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc29'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc31'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
@@ -4315,7 +4357,7 @@ showHomeScreen();
     const titles = batch.map(name => 'File:' + name).join('|');
     const api = 'https://commons.wikimedia.org/w/api.php?action=query'
       + '&titles=' + encodeURIComponent(titles)
-      + '&redirects=1&prop=imageinfo&iiprop=url|size|mime|canonicaltitle|extmetadata&iiurlwidth=1400&format=json&origin=*';
+      + '&redirects=1&prop=imageinfo&iiprop=url|size|mime|canonicaltitle|extmetadata&iiurlwidth=1280&format=json&origin=*';
     const r = await fetch(api, {cache:'no-store'});
     if(!r.ok) throw new Error('api');
     const data = await r.json();

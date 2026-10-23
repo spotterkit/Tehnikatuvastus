@@ -924,7 +924,7 @@ function renderStep3(){
   panel.appendChild(ol);
   panel.appendChild(h('div', {class: 'ct-actions'},
     h('button', {type: 'button', onclick: () => goStep(2)}, '‹ Muuda pilte'),
-    h('button', {type: 'button', onclick: leave}, 'Valmis, menüüsse'),
+    h('button', {type: 'button', onclick: leave}, 'Valmis, avalehele'),
     h('button', {type: 'button', class: 'primary ct-start', onclick: openProjector}, 'Alusta testi ›')));
   panel.appendChild(h('p', {class: 'ct-help'}, 'Alusta testi avab projektorivaate täisekraanis. Liikumine: ' + (S.settings.mode === 'auto' ? 'automaatne, paus tühikuga.' : 'nool paremale, tühik, PageDown või esitluspult.') + ' Täisekraanist väljub Esc, testi sulgeb ✕.'));
   screen.appendChild(panel);
