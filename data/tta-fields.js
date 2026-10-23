@@ -5,7 +5,7 @@
 // Sektsiooni comparePriority: väiksem number = võrdluses eespool ja alati nähtav; ilma selleta = "Kõik andmed" all.
 // Sisu hoia puhta JSON-ina (jutumärgid võtmete ümber, lõpukomasid pole) – check_release.js kontrollib.
 window.TTA_FIELDS = {
-  "version": 6,
+  "version": 7,
   "sections": [
     {"id": "general", "label": "Üldandmed"},
     {"id": "mobility", "label": "Liikuvus"},
@@ -77,6 +77,7 @@ window.TTA_FIELDS = {
     "serviceCeiling": {"label": "Lennulagi", "type": "number", "section": "flight", "order": 30, "unit": "m", "comparable": true, "better": "higher"},
     "rateOfClimb": {"label": "Tõusukiirus", "type": "number", "section": "flight", "order": 40, "unit": "m/s", "comparable": true, "better": "higher"},
     "combatRadius": {"label": "Lahinguraadius", "type": "number", "section": "flight", "order": 50, "unit": "km", "comparable": true, "better": "higher"},
+    "controlRange": {"label": "Juhtimisulatus", "type": "number", "section": "flight", "order": 55, "unit": "km", "comparable": true, "better": "higher"},
     "ferryRange": {"label": "Lennuulatus", "type": "number", "section": "flight", "order": 60, "unit": "km", "comparable": true, "better": "higher"},
     "endurance": {"label": "Lennu kestus", "type": "number", "section": "flight", "order": 70, "unit": "h", "comparable": true, "better": "higher"},
     "takeoffRun": {"label": "Stardidistants", "type": "number", "section": "flight", "order": 80, "unit": "m", "comparable": true, "better": "lower"},
@@ -88,6 +89,7 @@ window.TTA_FIELDS = {
     "airToGroundWeapons": {"label": "Õhk-maa relvastus", "type": "text", "section": "armament", "order": 24},
     "hardpoints": {"label": "Relvakinnituspunktid", "type": "number", "section": "armament", "order": 32, "unit": "tk", "comparable": true, "better": "higher"},
     "ordnanceLoad": {"label": "Max relvakoormus", "type": "number", "section": "armament", "order": 33, "unit": "kg", "comparable": true, "better": "higher"},
+    "warheadMass": {"label": "Lõhkepea mass", "type": "number", "section": "armament", "order": 34, "unit": "kg", "comparable": true, "better": "higher"},
     "armor": {"label": "Soomus", "type": "text", "section": "protection", "order": 10}
   }
 };

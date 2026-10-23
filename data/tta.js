@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 10,
+  "version": 11,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -4216,6 +4216,377 @@ window.TTA_DATA = {
         {"name": "Migflug: Su-57 Felon", "url": "https://migflug.com/afterburner/aircraft/su-57-felon/", "retrieved": "2026-10-23"},
         {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Su-57", "url": "https://armsnet.duckdns.org/equipment/67a6626c-00fc-4008-f056-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: Sukhoi Su-57", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-57", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Orlan-10": {
+      "status": "unverified",
+      "values": {
+        "maxTakeoffWeight": 0.015,
+        "payload": 6,
+        "engine": "Saito FA-62B kolbmootor (0,71 kW)",
+        "power": 0.95,
+        "maxSpeed": 150,
+        "serviceCeiling": 5000,
+        "endurance": 16,
+        "combatRadius": 110,
+        "ferryRange": 600,
+        "sensors": "Canon EOS 750D/800D kaamera ja termokaamera",
+        "specialEquipment": "Katapultstart, langevarjuga maandumine"
+      },
+      "warnings": {
+        "endurance": "Wikipedia infoboks on märgitud kui viidet vajav; pikkus ja tiibade siruulatus puuduvad."
+      },
+      "sources": [
+        {"name": "Wikipedia: Orlan-10", "url": "https://en.wikipedia.org/wiki/Orlan-10", "retrieved": "2026-10-23"}
+      ]
+    },
+    "ZALA Lancet": {
+      "status": "unverified",
+      "values": {
+        "maxTakeoffWeight": 0.012,
+        "payload": 3,
+        "warheadMass": 3,
+        "engine": "Elektrimootor",
+        "cruiseSpeed": 110,
+        "endurance": 0.67,
+        "range": 40,
+        "specialEquipment": "Katapultstart; optiline telejuhtimine ja sihtimine"
+      },
+      "warnings": {
+        "maxTakeoffWeight": "Andmed on Lancet-3 kohta (Lancet-1: 5 kg, 30 min, 1 kg; Izdeliye-53: kuni 5 kg lõhkepea, ca 1 h). Kiirus 80–110 km/h; ulatus on tootja deklareeritud."
+      },
+      "sources": [
+        {"name": "Wikipedia: ZALA Lancet", "url": "https://en.wikipedia.org/wiki/ZALA_Lancet", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Gerbera": {
+      "status": "unverified",
+      "values": {
+        "length": 2,
+        "wingspan": 2.5,
+        "engine": "Sisepõlemismootor (tavaliselt DLE60, 60 cm³), tõukepropeller",
+        "maxSpeed": 160,
+        "range": 300
+      },
+      "warnings": {
+        "range": "Hinnangud 300–600 km (GUR andmebaas: 600 km); lõhkepea kuni 5 kg ei ole kõigil droonidel (paljud on peibutusdroonid)."
+      },
+      "sources": [
+        {"name": "Wikipedia: Gerbera (drone)", "url": "https://en.wikipedia.org/wiki/Gerbera_(drone)", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Geran-2": {
+      "status": "unverified",
+      "values": {
+        "length": 3.5,
+        "wingspan": 2.5,
+        "maxTakeoffWeight": 0.2,
+        "warheadMass": 50,
+        "engine": "Mado MD-550 kolbmootor (Limbach L550E tuletis)",
+        "maxSpeed": 185,
+        "range": 2500,
+        "specialEquipment": "GNSS/INS-juhtimine (vene versioonil ka GLONASS); start rööbastelt JATO abil"
+      },
+      "warnings": {
+        "range": "Allikates 970–2500 km; 90 kg lõhkepeaga versiooni ulatus ca 650 km."
+      },
+      "sources": [
+        {"name": "Wikipedia: HESA Shahed 136", "url": "https://en.wikipedia.org/wiki/HESA_Shahed_136", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Geran-3/Geran-4": {
+      "status": "unverified",
+      "values": {
+        "maxTakeoffWeight": 0.2,
+        "warheadMass": 50,
+        "cruiseSpeed": 600,
+        "maxSpeed": 800,
+        "range": 1500
+      },
+      "warnings": {
+        "range": "Ainult ARMSNET; kirjelduses 1500–2000 km. Geran-4 kohta andmeid ei leitud, väärtused on Geran-3 kohta."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Geran-3", "url": "https://armsnet.duckdns.org/equipment/589b72e1-e00f-4e2d-9fb1-08decf7cbc1f", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Geran-5": {
+      "status": "unverified",
+      "values": {
+        "maxTakeoffWeight": 0.85,
+        "warheadMass": 90,
+        "engine": "Hiina turboreaktiivmootor TELEFLY TF-TJ2000A",
+        "maxSpeed": 600,
+        "serviceCeiling": 6000,
+        "endurance": 2,
+        "range": 1000
+      },
+      "warnings": {
+        "maxTakeoffWeight": "Ukraina kaitseluure andmed uudisteallika vahendusel; ulatus „peaaegu 1000 km“, lõhkepea 90 kg on pealkirjast."
+      },
+      "sources": [
+        {"name": "Kyiv Post: Geran-5 (HUR)", "url": "https://www.kyivpost.com/amp/post/68327", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Molnja-2": {
+      "status": "unverified",
+      "values": {
+        "wingspan": 1.5,
+        "maxTakeoffWeight": 0.01,
+        "payload": 5,
+        "engine": "Kaks elektrimootorit",
+        "maxSpeed": 120,
+        "cruiseSpeed": 80,
+        "endurance": 0.67,
+        "range": 40
+      },
+      "warnings": {
+        "endurance": "ARMSNET annab vastuolulise kestuse (40 h / 40 min); Wikipedia: ca 40 min. Ulatus 40–60 km."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Molniya-2", "url": "https://armsnet.duckdns.org/equipment/f830bbf4-3eea-4b52-e363-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Molniya drone", "url": "https://en.wikipedia.org/wiki/Molniya_(drone)", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Molnja-1": {
+      "status": "unverified",
+      "values": {
+        "wingspan": 1.5,
+        "maxTakeoffWeight": 0.01,
+        "payload": 5,
+        "engine": "Üks elektrimootor",
+        "maxSpeed": 150,
+        "endurance": 0.67
+      },
+      "warnings": {
+        "maxSpeed": "Wikipedia annab andmed Molnja-perekonna kohta (kiirus 90–150 km/h, lõhkepea 3–5 kg, ulatus 30–50 km), mitte Molnja-1 kohta eraldi."
+      },
+      "sources": [
+        {"name": "Wikipedia: Molniya drone", "url": "https://en.wikipedia.org/wiki/Molniya_(drone)", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Supercam S350": {
+      "status": "unverified",
+      "values": {
+        "wingspan": 3.2,
+        "maxTakeoffWeight": 0.0155,
+        "payload": 2.5,
+        "engine": "Elektrimootor",
+        "maxSpeed": 120,
+        "endurance": 4.5,
+        "range": 240,
+        "controlRange": 100,
+        "specialEquipment": "Start elastse või pneumaatilise katapuldiga, maandumine langevarjuga"
+      },
+      "warnings": {
+        "range": "Tootja deklareeritud andmed; sideulatus 100 km, videokanal 70 km, kiirus 65–120 km/h."
+      },
+      "sources": [
+        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Supercam S350", "url": "https://war-sanctions.gur.gov.ua/en/uav/217", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Eleron-3": {
+      "status": "unverified",
+      "values": {
+        "length": 0.6,
+        "wingspan": 1.47,
+        "maxTakeoffWeight": 0.0053,
+        "payload": 1,
+        "engine": "Elektrimootor",
+        "maxSpeed": 130,
+        "endurance": 1.67,
+        "range": 60,
+        "serviceCeiling": 4000,
+        "controlRange": 25,
+        "specialEquipment": "Katapultstart, maandumine langevarjuga; GPS/GLONASS"
+      },
+      "warnings": {
+        "length": "Mõõdud ja väärtused on Eleron-3SW kohta; põhimudel: 4,9 kg, 90 min, 3500 m, sideulatus 20 km."
+      },
+      "sources": [
+        {"name": "Wikipedia: ENICS Eleron-3", "url": "https://en.wikipedia.org/wiki/ENICS_Eleron-3", "retrieved": "2026-10-23"},
+        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Eleron-3", "url": "https://war-sanctions.gur.gov.ua/en/uav/227", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Orion": {
+      "status": "unverified",
+      "values": {
+        "length": 8,
+        "wingspan": 16,
+        "maxTakeoffWeight": 1.15,
+        "payload": 250,
+        "maxSpeed": 200,
+        "cruiseSpeed": 120,
+        "serviceCeiling": 7500,
+        "endurance": 24,
+        "range": 1440,
+        "airToGroundWeapons": "Vikhr-1V tankitõrjerakett, Banderol (S8000) tiibrakett"
+      },
+      "warnings": {
+        "endurance": "24 h kehtib 60 kg kasuliku koormusega."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kronshtadt Orion", "url": "https://en.wikipedia.org/wiki/Kronshtadt_Orion", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Zala KUB-2": {
+      "status": "unverified",
+      "values": {
+        "length": 0.95,
+        "wingspan": 1.21,
+        "maxSpeed": 130,
+        "endurance": 0.5,
+        "payload": 3
+      },
+      "warnings": {
+        "length": "Wikipedia annab andmed KUB-BLA perekonna kohta, mitte KUB-2 eraldi."
+      },
+      "sources": [
+        {"name": "Wikipedia: ZALA KUB-BLA", "url": "https://en.wikipedia.org/wiki/ZALA_Kub-BLA", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Zala KUB": {
+      "status": "unverified",
+      "values": {
+        "length": 0.95,
+        "wingspan": 1.21,
+        "maxSpeed": 130,
+        "endurance": 0.5,
+        "payload": 3
+      },
+      "warnings": {
+        "length": "Wikipedia annab andmed KUB-BLA perekonna kohta."
+      },
+      "sources": [
+        {"name": "Wikipedia: ZALA KUB-BLA", "url": "https://en.wikipedia.org/wiki/ZALA_Kub-BLA", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Skalpel": {
+      "status": "unverified",
+      "values": {
+        "maxTakeoffWeight": 0.0105,
+        "warheadMass": 5,
+        "cruiseSpeed": 120,
+        "range": 40
+      },
+      "warnings": {
+        "warheadMass": "Kuni 5 kg; muud andmed puuduvad."
+      },
+      "sources": [
+        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Scalpel", "url": "https://war-sanctions.gur.gov.ua/en/page-skalpel", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Knijaz Veši Oleg": {
+      "status": "unverified",
+      "values": {
+        "length": 0.82,
+        "wingspan": 2.8,
+        "maxTakeoffWeight": 0.011,
+        "payload": 0.6,
+        "maxSpeed": 130,
+        "cruiseSpeed": 80,
+        "serviceCeiling": 3000,
+        "endurance": 3.5,
+        "combatRadius": 45,
+        "sensors": "Kolmeteljeline stabilisaator: lai Full HD kaamera ja 10× optilise suumiga kaamera"
+      },
+      "sources": [
+        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Knyaz Veschyi Oleg", "url": "https://war-sanctions.gur.gov.ua/en/page-knyaz-oleg", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Privet-82": {
+      "status": "unverified",
+      "values": {
+        "maxTakeoffWeight": 0.0085,
+        "payload": 5.5,
+        "maxSpeed": 140,
+        "cruiseSpeed": 90,
+        "serviceCeiling": 2000,
+        "endurance": 0.33,
+        "combatRadius": 30
+      },
+      "warnings": {
+        "payload": "Lõhkepea paigaldatakse üksuse äranägemisel (nt RPG-laskemoon)."
+      },
+      "sources": [
+        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Privet-82", "url": "https://war-sanctions.gur.gov.ua/en/uav/448", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Albatros-M5": {
+      "status": "unverified",
+      "values": {
+        "wingspan": 3.3,
+        "maxTakeoffWeight": 0.015,
+        "payload": 5,
+        "engine": "Elektrimootor",
+        "maxSpeed": 120,
+        "cruiseSpeed": 72,
+        "serviceCeiling": 5000,
+        "endurance": 4.5,
+        "range": 300,
+        "specialEquipment": "Start elastse või pneumaatilise katapuldiga, maandumine langevarjuga"
+      },
+      "warnings": {
+        "range": "Tootja deklareeritud andmed."
+      },
+      "sources": [
+        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Albatros M5", "url": "https://war-sanctions.gur.gov.ua/en/uav/355", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Zala Z-20": {
+      "status": "unverified",
+      "values": {
+        "wingspan": 4,
+        "maxTakeoffWeight": 0.017,
+        "payload": 2.5,
+        "engine": "Elektrimootor",
+        "maxSpeed": 110,
+        "serviceCeiling": 5000,
+        "endurance": 6,
+        "controlRange": 100,
+        "specialEquipment": "Pneumaatiline katapult, maandumine langevarjuga"
+      },
+      "warnings": {
+        "endurance": "Tootja deklareeritud andmed; kiirus 65–110 km/h."
+      },
+      "sources": [
+        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Zala Z-20", "url": "https://war-sanctions.gur.gov.ua/en/uav/371", "retrieved": "2026-10-23"},
+        {"name": "EDR Magazine: ZALA T-20", "url": "https://www.edrmagazine.eu/interpolitex-2024-zala-aero-unveils-its-t-20-uav", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Zala Z-16": {
+      "status": "unverified",
+      "values": {
+        "wingspan": 2.815,
+        "maxTakeoffWeight": 0.0105,
+        "payload": 1.8,
+        "engine": "Elektrimootor",
+        "maxSpeed": 110,
+        "serviceCeiling": 5000,
+        "endurance": 4,
+        "controlRange": 75,
+        "specialEquipment": "Pneumaatiline start, maandumine langevarjuga"
+      },
+      "warnings": {
+        "endurance": "Tootja deklareeritud andmed: kestus vähemalt 4 h, sideulatus vähemalt 75 km, kiirus 65–110 km/h."
+      },
+      "sources": [
+        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Zala Z-16 (421-16E)", "url": "https://war-sanctions.gur.gov.ua/en/uav/272", "retrieved": "2026-10-23"}
+      ]
+    },
+    "V2U AI": {
+      "status": "unverified",
+      "values": {
+        "warheadMass": 2.9,
+        "engine": "Elektrimootor (kaubanduslik Hiina)",
+        "sensors": "Kaamera ja Nvidia Jetson Orin tehisintellektimoodul (Leetop A603)",
+        "specialEquipment": "Katapultstart; autonoomne sihtimine pildi võrdlemisega, INS/satelliitjuhtimine"
+      },
+      "warnings": {
+        "warheadMass": "Ukraina kaitseluure andmed (Long War Journal vahendusel); ulatus hinnanguliselt 40–80 km, gaasimootoriga versioon vähemalt 100 km. Mõõtmed puuduvad."
+      },
+      "sources": [
+        {"name": "Long War Journal: V2U", "url": "https://www.longwarjournal.org/archives/2025/06/ukrainian-intelligence-details-russias-new-v2u-autonomous-loitering-munition.php", "retrieved": "2026-10-23"}
       ]
     }
   }
