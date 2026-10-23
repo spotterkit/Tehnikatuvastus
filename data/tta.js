@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 6,
+  "version": 7,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -2084,6 +2084,277 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 9P162 Kornet-T", "url": "https://odin.t2com.army.mil/WEG/Asset/223bc869ffda3e31fc9dd6f14997d978", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 9M133 Kornet", "url": "https://en.wikipedia.org/wiki/9M133_Kornet", "retrieved": "2026-10-08"}
+      ]
+    },
+    "PRP-3": {
+      "status": "unverified",
+      "values": {
+        "crew": "5",
+        "chassis": "BMP-1 šassii",
+        "combatWeight": 13.8,
+        "length": 6.74,
+        "width": 2.94,
+        "height": 2.15,
+        "engine": "UTD-20 V6 diisel",
+        "power": 300,
+        "maxSpeedRoad": 65,
+        "maxSpeedWater": 7,
+        "range": 550,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.7,
+        "trench": 2.2,
+        "caliber": 7.62,
+        "mainArmament": "7,62mm kuulipilduja (ainult enesekaitseks)",
+        "sensors": "Mastil maapealse seire radar IRL-123 (NATO „Small Fred“, J-sagedusala 10–20GHz): liikuvate ja seisvate sihtmärkide avastuskaugus 20km, jälgimiskaugus 7km; laserkaugusmõõtja 1D6; soojuskaamerat ja arvutatud tulejuhtimist pole",
+        "specialEquipment": "Suurtükiväe luure- ja vaatlusmasin (kasutusel 1972): leiab vastase üksuste asukohad, määrab vastase suurtükiväe positsioonid vasturelvalaskmiseks ja annab sihtmärgi koordinaadid suurtükiväe tulejuhtimiseks. Raadiojaamad 2×R-123M, R-124 ja R-108 – jälgib mitut juhtimis- ja tulejuhtimisvõrku. Maha võetav vaatluspost kuni 6km kaugusel sõidukist; NBC-kaitse ja suitsuseadmed",
+        "armor": "Keevitatud valtsitud teras (kere katus 6mm): kaitseb igast küljest 12,7mm kuulide eest, eesmine sektor osaliselt 20mm eest; torn 33mm; lisasoomus saadaval"
+      },
+      "notes": {
+        "chassis": "PRP-3 „Val“ on PRP-4 eelkäija: sama BMP-1 šassii ja sama põhimõte, kuid vanem radar. PRP-4 võttis tootmisliinil selle üle.",
+        "sensors": "ARMSNET kirjeldab ka „optilis-elektroonilise seire ulatust 20–40m“ – tõenäoliselt viga, seetõttu siin välja jäetud."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): PRP-3 (Val)", "url": "https://armsnet.duckdns.org/equipment/d655736f-af61-4e18-ecf1-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "SNAR-10": {
+      "status": "unverified",
+      "values": {
+        "crew": "5 (allika kirjelduses 4–5)",
+        "chassis": "MT-LB (6 tugirullikut külje kohta)",
+        "combatWeight": 12.6,
+        "length": 7.62,
+        "width": 2.86,
+        "height": 2.72,
+        "engine": "YaMZ-238 diisel",
+        "power": 240,
+        "maxSpeedRoad": 60,
+        "range": 500,
+        "caliber": 7.62,
+        "mainArmament": "7,62mm PKT kuulipilduja (enesekaitseks)",
+        "sensors": "Radar 1RL232 „Leopard“ (NATO „Big Fred“), K-sagedusala 34,55–35,25GHz, parabool-antenn. Algversioon: liikuvad sõidukid 16km (ilma MTI-ta) / 10km (MTI-ga), liikuvad laevad 30km, mürsu löögikohad 10km. SNAR-10M1: sõidukid 40km, isikkoosseis 8–10km, miinipilduja tuli 10km, suurtükitule 15km; jälgib korraga kuni 20 sihtmärki",
+        "specialEquipment": "Lahinguvälja seireradar: avastab ja jälgib liikuvaid maa- ja veepealseid sihtmärke (sõidukid, isikkoosseis, laevad) ning annab suurtükiväele andmeid oma tule korrigeerimiseks. Positsioonile asumine ja kokkupakkimine 5min; autonoomne töö vähemalt 3 ööpäeva (M1). NBC-kaitse; M1 variandil digitaalne töötlus ja kuvar, satelliitnavigatsioon ja automaatne andmeedastus"
+      },
+      "warnings": {
+        "sensors": "Allikas annab M1 kohta ka koondvahemiku „200m – 40km“; eraldi vahemikud sihtmärgi liigi kaupa on esitatud siin.",
+        "crew": "Meeskond on allikas 5 ja kirjelduses 4–5."
+      },
+      "notes": {
+        "chassis": "Radar asub MT-LB tüüpi šassiil (SNAR-10 võeti kasutusele 1975).",
+        "sensors": "SNAR-10M (1RL232-1): radar asendatud Kredo-1E-ga, 40km sõidukitele, lisaks digitaalne kuvar ja side. SNAR-10M1 (1RL232-2): laiemalt kasutusel."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): SNAR-10 (Big Fred)", "url": "https://armsnet.duckdns.org/equipment/99167e4c-2e65-4b33-eac3-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "1V13": {
+      "status": "unverified",
+      "values": {
+        "crew": "6 (allika tekstis 5: ülem, operaator-arvutaja, vanemraadist, raadist, mehaanik-juht)",
+        "chassis": "MT-LBu",
+        "combatWeight": 15,
+        "length": 7.19,
+        "width": 2.85,
+        "height": 3.01,
+        "engine": "YaMZ-238N diisel",
+        "power": 295,
+        "maxSpeedRoad": 60,
+        "maxSpeedOffroad": 30,
+        "range": 500,
+        "gradient": 58,
+        "sideSlope": 47,
+        "verticalStep": 0.7,
+        "trench": 2.7,
+        "caliber": 7.62,
+        "mainArmament": "Põhirelvastust pole",
+        "secondaryArmament": "7,62mm PKMB kuulipilduja ja RPG-7VN (5 lasku); varasemates versioonides DShK-M, hilisemates NSVT",
+        "sensors": "Suurtükiväe kompassi- ja kaugusmõõteseadmed: topograafiline instrument 1G-121-1, güroskoop 1G-25-1, kaugusmõõtja DSP-30, vaatlusseade PV-1, suunaring PAB-2AM",
+        "specialEquipment": "Patarei vanemohvitseri juhtimissoomuk (komplektis 3 tk): juhib patarei tuleplatooneid, määrab lahingupositsioonide koordinaadid, orienteerib relvad põhisuunda, võtab arvutilt vastu laskeelemendid ja hoiab sidet staabi ja relvaülematega. Seadmed: laskeelementide arvuti PUO-9M, raadio R-123M (3 tk), automaatne käsuvastuvõtja 9Sh34, välitelefonid, kaabliratas (3×500m), kiirgus-/keemialuure GO-27, miiniindikaator IMP, generaator GIV-8/6000; filter-ventilatsioon, soojendus ja saastest puhastus"
+      },
+      "warnings": {
+        "secondaryArmament": "Allikad lahknevad: ARMSNET tabelis DShKM, tekstis 7,62mm PKMB ja RPG-7VN; Wikipedia: varasemates DShK-M, hilisemates NSVT.",
+        "crew": "Tabelis 6, tekstis 5 inimest."
+      },
+      "notes": {
+        "chassis": "1V13 kuulub 1V12 „Mašina-S“ tulejuhtimiskomplekti (prototüüp 1970, tootmine alates 1973), mis teenindab liikursuurtükke 2S1, 2S3, 2S5 ja 2S19.",
+        "gradient": "Allika 30° ≈ 58%; külgkalle 25° ≈ 47%.",
+        "power": "220kW (295 hj)."
+      },
+      "sources": [
+        {"name": "Armedconflicts.com / valka.cz: 1V13 (velitelské stanoviště)", "url": "https://www.armedconflicts.com/topic/view/32009", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: MT-LBu", "url": "https://en.wikipedia.org/wiki/MT-LBu", "retrieved": "2026-10-23"}
+      ]
+    },
+    "1V15": {
+      "status": "unverified",
+      "values": {
+        "crew": "6",
+        "chassis": "MT-LBu",
+        "combatWeight": 15,
+        "length": 7.19,
+        "width": 2.85,
+        "height": 3.01,
+        "engine": "YaMZ-238N diisel",
+        "power": 295,
+        "maxSpeedRoad": 60,
+        "maxSpeedOffroad": 30,
+        "range": 500,
+        "gradient": 58,
+        "sideSlope": 47,
+        "verticalStep": 0.7,
+        "trench": 2.7,
+        "caliber": 7.62,
+        "mainArmament": "Põhirelvastust pole",
+        "secondaryArmament": "7,62mm PKMB kuulipilduja ja RPG-7VN (5 lasku)",
+        "sensors": "Laserkaugusmõõtja 1D8, kombineeritud vaatlusseade 1PN44, stereokaugusmõõtja DS-1, tankivaatlusseadmed TNPO-170, koordinaatide teisendi 1T804, kaugusmõõtja DSP-30, güroskoop 1G-25-1, topograafiline instrument 1G-121-1, suunaring PAB-2AM",
+        "specialEquipment": "Suurtükiväedivisjoni ülema juhtimis- ja vaatlussoomuk (1V12 „Mašina-S“ komplektis): luure, sihtmärgi koordinaatide määramine, tule juhtimine ja korrigeerimine ning side ülemate ja toetatavate üksustega. Laskeelementide arvuti PUO-9M; raadiod 2×R-123(M), R-111, R-130M (teleskoopmast), R-107; välitelefonikeskjaam P-19M, 2×TA-57, kaabliratas; kiirgus-/keemialuure GO-27; generaator GIV-8/6000; filter-ventilatsioon, soojendus ja saastest puhastus"
+      },
+      "warnings": {
+        "gradient": "Allika tekstis on maksimaalne tõusunurk 35° (≈ 70%), tabelis 30°; tabeliväärtus siin."
+      },
+      "notes": {
+        "chassis": "Sarnane 1V14-le, kuid pikk antennimast raadiojaamale R-130M ja üks R-123M asendatud R-111-ga. Mõõtmed ja kiirus on MT-LBu omad.",
+        "gradient": "Allika 30° ≈ 58%; külgkalle 25° ≈ 47%."
+      },
+      "sources": [
+        {"name": "Armedconflicts.com: 1V15 (velitelské stanoviště)", "url": "https://www.armedconflicts.com/topic/view/85330", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: MT-LBu", "url": "https://en.wikipedia.org/wiki/MT-LBu", "retrieved": "2026-10-23"}
+      ]
+    },
+    "1V18": {
+      "status": "unverified",
+      "values": {
+        "crew": "6",
+        "chassis": "BTR-60PB (8x8 ratassoomuk)",
+        "combatWeight": 10.1,
+        "length": 7.22,
+        "width": 2.82,
+        "height": 2.06,
+        "engine": "2×GAZ-49B bensiinimootor (2×90hj)",
+        "power": 180,
+        "maxSpeedRoad": 80,
+        "maxSpeedOffroad": 60,
+        "maxSpeedWater": 10,
+        "range": 500,
+        "amphibious": true,
+        "mainArmament": "Torn on relvastamata (ainult vaatlusseadmed)",
+        "sensors": "Vaatlusseadmed NNP-21 ja DV, kaugusmõõtja (Wikipedia); ARMSNET: laserkaugusmõõtja 1D15, päeva-/öövaatlus 1PN44, stereokaugusmõõtja DS-1, suunaring PAB-2AM, navigatsioon 1T121-M",
+        "specialEquipment": "„Klen-1“ patarei ülema juhtimis- ja ettevaatlussoomuk (kuulub komplekti 1V17 „Mašina-B“: 3×1V18 + 1V19): suurtükiväe luure, sihtmärgi koordinaatide määramine ja tule juhtimine järelveetavate suurtükkide ja raketiheitjate patareidele. Tulejuhtimine automaatselt 1V520 või käsitsi PUO-7; raadiod 3×R-123M ja R-107M; NBC-kaitse",
+        "armor": "Torn eest 12,7mm, torni katus ja kere 7,62mm kuulide eest"
+      },
+      "warnings": {
+        "sensors": "ARMSNET-i seadmeloend on identne 1V119 omaga ja võib olla kopeeritud; Wikipedia nimetab vaatlusseadmeteks NNP-21 ja DV."
+      },
+      "notes": {
+        "chassis": "BTR-60PB, mille relvastatud torn on asendatud relvastamata vaatlustorniga. 1V19 „Klen-2“ on divisjoni ülema tulejuhtimiskeskus samal šassiil (lisaraadio R-130M); 1V18-1 on moderniseeritud versioon.",
+        "power": "Kaks mootorit kokku 180hj."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1V18", "url": "https://armsnet.duckdns.org/equipment/c25abf45-6419-402f-ec3f-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: BTR-60", "url": "https://en.wikipedia.org/wiki/BTR-60", "retrieved": "2026-10-23"}
+      ]
+    },
+    "1V119": {
+      "status": "unverified",
+      "values": {
+        "crew": "6",
+        "chassis": "BMD-1",
+        "combatWeight": 6.7,
+        "length": 5.88,
+        "width": 2.63,
+        "height": 1.97,
+        "engine": "5D20 V6 diisel",
+        "power": 240,
+        "maxSpeedRoad": 61,
+        "maxSpeedOffroad": 35,
+        "maxSpeedWater": 10,
+        "amphibious": true,
+        "airDroppable": true,
+        "sensors": "Laserkaugusmõõtja 1D15, kaugusmõõtja DSP-30, päeva-/öövaatlus 1PN44, stereokaugusmõõtja DS-1, suunaring PAB-2AM, navigatsioonisüsteem 1T121-M",
+        "specialEquipment": "Dessandi suurtükiväe juhtimis- ja luuremasin 2S9 „Nona-S“ jaoks (1981): määrab sihtmärgi koordinaadid, arvutab laskeelemendid (automaatne tulejuhtimine 1V520, käsitsi PUO-7) ja juhib 2S9 tuld; heidetav langevarjuga koos dessandiga. Raadiod 3×R-123M ja R-107M; NBC-kaitse. Seadmestik sarnane 1V14-ga",
+        "armor": "Kere 15mm"
+      },
+      "warnings": {
+        "specialEquipment": "ARMSNET lehel on relvastuse all 120mm kahur – see kuulub seotud 2S9 Nona-S-le, mitte juhtimismasinale, ja on siit välja jäetud."
+      },
+      "notes": {
+        "chassis": "BMD-1 šassii, sama mis 2S9 „Nona-S“ kandjal – juhtimismasin liigub dessandiga kaasas.",
+        "specialEquipment": "ARMSNET nimetab masinat ka „1V119 Spektr“."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1V119", "url": "https://armsnet.duckdns.org/equipment/7b9001dd-a727-4c99-ec40-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "ARK-1": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "chassis": "MT-LBu",
+        "combatWeight": 15.7,
+        "length": 7.61,
+        "width": 2.85,
+        "height": 2.72,
+        "engine": "YaMZ-238N V8 diisel",
+        "power": 300,
+        "maxSpeedRoad": 61,
+        "maxSpeedOffroad": 30,
+        "range": 500,
+        "sensors": "3D monopulssradar 1RL239 „Lynx“ (lainepikkus 5cm, H-sagedusala 6–8GHz): miinipildujad 13km, suurtükid 8km, reaktiivmürsud 25km, taktikalised raketid 30km; jälgib kuni 3 sihtmärki minutis",
+        "specialEquipment": "Vastutuleradar (ARK-1 „Rys’“): leiab vastase miinipildujate, suurtükkide, raketiheitjate ja taktikaliste rakettide positsioonid mürsu trajektoori järgi ning annab andmed vasturelvalaskmiseks; tavaliselt diviisi luurepatareis. Täisautonoomne – oma navigatsiooni-, orientatsiooni-, topo- ja sidesüsteemid. Positsioonile asumine ja kokkupakkimine 5min; NBC-kaitse",
+        "armor": "Kere 15mm, torn eest 20mm"
+      },
+      "warnings": {
+        "chassis": "Kasutuselevõtu aasta lahkneb: ARMSNET 1986, Militarnyi 1977 (NSVL teenistusse). ARMSNET kirjeldab ARK-1M varianti.",
+        "sensors": "Militarnyi: radar jääb tänapäevastele ulatus- ja täpsusnõuetele alla, kuid arvandmeid ei anta."
+      },
+      "notes": {
+        "chassis": "Radari kaks kiirgurit ja vastuvõtuantennid on kere peal, ülejäänud seadmed kere sees.",
+        "sensors": "Selle sõiduki järeltulija on 1L219 Zoopark-1 (ZOOPARK-1)."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): ARK-1M Rys (1RL239 Lynx)", "url": "https://armsnet.duckdns.org/equipment/adc3dbf2-d483-42ce-eac0-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Russian ARK-1 Rys’ radar neutralized in the Kherson region", "url": "https://militarnyi.com/en/news/russian-ark-1-rys-radar-neutralized-in-the-kherson-region/", "retrieved": "2026-10-23"}
+      ]
+    },
+    "1V152": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 (kokku kuni 7 inimest)",
+        "chassis": "BTR-80 (8x8 ratassoomuk)",
+        "combatWeight": 13.6,
+        "length": 7.7,
+        "width": 2.9,
+        "height": 2.41,
+        "engine": "KamAZ-7403 V8 diisel",
+        "power": 260,
+        "maxSpeedRoad": 80,
+        "maxSpeedOffroad": 60,
+        "maxSpeedWater": 10,
+        "range": 600,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.5,
+        "trench": 2.0,
+        "mainArmament": "Põhirelvastust pole (FIST); FDC-variandil KPVT 14,5mm raskekuulipilduja",
+        "secondaryArmament": "Suitsugranaadiheitjad: 4 tk torni kummalgi küljel",
+        "sensors": "Torni laserkaugusmõõtja, päeva- ja öövaatlusseadmed, käeshoitav laserkaugusmõõtja ja pimenägemisseade, inertsiaalnavigatsioon; täiustatud variandil IR-vaatlusseade (passiivne 1500m, aktiivne 3000m), soojuskaamera, laserindikaator; hilisemad variandid GLONASS",
+        "specialEquipment": "Kapustnik-B automatiseeritud tulejuhtimissüsteemi ühtne juhtimis- ja vaatlussoomuk (1986): ettevaatleja ja tulejuhtimiskeskuse variandid. Määrab sihtmärgi koordinaadid, arvutab laskeelemendid korraga kuni kahele sihtmärgile ja annab need relvadele (suurtükid, miinipildujad, raketiheitjad). Raadiod: 2 kaugraadiot VHF (andmeside), 1 HF, 1 keskmaa- ja 1 lähimaaraadio; 10m teleskoopmast, 4kW generaator, vints 4,5t; kollektiivne NBC-kaitse",
+        "armor": "Kere eesosa kaitseb 12,7mm, igast küljest 7,62mm kuulide ja mürsukildude eest; kuulikindlad aknad, lisasoomus saadaval"
+      },
+      "warnings": {
+        "mainArmament": "Allikad lahknevad: ARMSNET „FIST“ variandil põhirelva pole, „FDC“ variandil KPVT 14,5mm; ARMSNET tabelis PKT, märkmetes selle puudumine."
+      },
+      "notes": {
+        "chassis": "Kapustnik-B komplekti kuulub ka veoautol Ural-4320 põhinev 1V153. 1V152 on suurtükiväe ettevaatleja ja tulejuhtimiskeskus ühes šassiis.",
+        "crew": "ARMSNET: meeskond 3, kokku 7 inimest."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1V152 FIST Kapustnik-B", "url": "https://armsnet.duckdns.org/equipment/82dbbd09-0916-45f1-e896-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1V152 FDC Kapustnik-B", "url": "https://armsnet.duckdns.org/equipment/1e844717-b936-4bd6-eb18-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-10-23"}
       ]
     }
   }
