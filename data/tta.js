@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 9,
+  "version": 10,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -3387,6 +3387,835 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Wikipedia: Kornet-D", "url": "https://en.wikipedia.org/wiki/Kornet-D", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: 9M133 Kornet", "url": "https://en.wikipedia.org/wiki/9M133_Kornet", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Mi-8": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 (kaks piloti ja pardamehaanik)",
+        "length": 18.4,
+        "rotorDiameter": 21.29,
+        "height": 5.5,
+        "emptyWeight": 7.1,
+        "maxTakeoffWeight": 13,
+        "engine": "2 × Klimov TV3-117MT turbovõllmootor (1950hj iga); Mi-8T: 2 × TV2-117A (1677hj iga)",
+        "power": 3900,
+        "maxSpeed": 250,
+        "cruiseSpeed": 240,
+        "serviceCeiling": 5000,
+        "ferryRange": 960,
+        "payload": 4000,
+        "troops": "24 dessantvägelast või 12 kanderaami + 1 meditsiinitöötaja",
+        "caliber": 7.62,
+        "mainArmament": "1–2 külgmist PK kuulipildujat (valikuline)",
+        "hardpoints": 6,
+        "ordnanceLoad": 4000,
+        "airToGroundWeapons": "Rakettplokid UV-16-57 (S-5, 57mm), pommid, ATGM 9M17 Phalanga (Mi-8TV)",
+        "specialEquipment": "Mitmeotstarbeline transpordi- ja dessantkopter; kasutatakse väe- ja lastiveoks, tuletoetuseks (relvastatud Mi-8TV)"
+      },
+      "warnings": {
+        "engine": "Wikipedia lehel on üldine spetsifikatsioon, mis ei ole seotud kindla variandiga (Mi-8MTV-5 ja Mi-8AMTSh andmeid lehel pole)."
+      },
+      "notes": {
+        "maxSpeed": "Tegevusraadius umbes 495km (ilma lisapaakideta); kütusemaht 3700 l."
+      },
+      "sources": [
+        {"name": "Wikipedia: Mil Mi-8", "url": "https://en.wikipedia.org/wiki/Mil_Mi-8", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Mi-24/Mi-35": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 (piloot ja relvaoperaator) + valikuliselt tehnik",
+        "length": 17.5,
+        "rotorDiameter": 17.2,
+        "height": 6.5,
+        "emptyWeight": 8.5,
+        "maxTakeoffWeight": 12,
+        "engine": "2 × Izotov TV3-117 turbovõllmootor (2200hj iga)",
+        "power": 4400,
+        "maxSpeed": 320,
+        "cruiseSpeed": 270,
+        "serviceCeiling": 5750,
+        "rateOfClimb": 15,
+        "payload": 2400,
+        "troops": "8 dessantvägelast või 4 kanderaami",
+        "caliber": 23,
+        "mainArmament": "Mi-24V/VP/VM, Mi-35M: painduv kaksiktoruline 23mm GSh-23L (450 lasku); Mi-24P: fikseeritud 30mm GSh-30K",
+        "airToAirMissiles": "R-60 / R-60M (1–2 tk pülooni kohta)",
+        "airToGroundWeapons": "ATGM 9K114 Shturm; rakettplokid UB-32 (S-5), B-8V20 (S-8), S-24 (240mm); pommid kuni 500kg, kassettpommid KGMU-2V",
+        "hardpoints": 6,
+        "specialEquipment": "Ründe- ja dessantkopter („lendav jalaväe lahingumasin“): kannab ründeoperatsioonil ka dessanti, kuigi Afganistanis lendas sageli kergelt laaditult. Mi-35M on eksportvariant (alles tootmises)",
+        "armor": "Titaanist soomustatud kabiin ja kuulikindlad tuuleklaasid; pealerõhuga kabiin TBK-kaitseks; rootorilabad vastavad väidetavalt 12,7mm kuulidele"
+      },
+      "warnings": {
+        "mainArmament": "Wikipedia ei täpsusta variandi kohta YakB-12,7mm ega GSh-30-2 relvastust; esitatud on lehel nimetatud variandid."
+      },
+      "notes": {
+        "hardpoints": "Sisemised punktid kuni 500kg, välimised kuni 250kg (kolm punkti mõlemal tiival).",
+        "maxSpeed": "Tegevusraadius ligikaudu 450km."
+      },
+      "sources": [
+        {"name": "Wikipedia: Mil Mi-24", "url": "https://en.wikipedia.org/wiki/Mil_Mi-24", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Mi-28": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 (piloot ja relvaoperaator)",
+        "length": 17.01,
+        "rotorDiameter": 17.2,
+        "height": 3.82,
+        "emptyWeight": 8.59,
+        "maxTakeoffWeight": 11.5,
+        "engine": "2 × Klimov VK-2500 turbovõllmootor (ca 2200hj iga)",
+        "power": 4400,
+        "maxSpeed": 320,
+        "cruiseSpeed": 270,
+        "serviceCeiling": 5700,
+        "rateOfClimb": 13.6,
+        "ferryRange": 1100,
+        "gLimit": 3,
+        "caliber": 30,
+        "mainArmament": "30mm automaatkahur 2A42 (250 lasku, kaal ±110° horisontaalselt)",
+        "airToAirMissiles": "R-73",
+        "airToGroundWeapons": "ATGM Ataka-V (kuni 16); rakettplokid S-8 (40) või S-13 (10); Kh-25; pommid kuni 500kg",
+        "hardpoints": 4,
+        "sensors": "Mi-28N: millimeeterlaineradar rootori mastil, termokaamera/TV-kaamera (FLIR) ja laserkaugusmõõtja",
+        "troops": "Päästekabiin 3 inimesele allatulistatud meeskonna päästmiseks",
+        "armor": "Täielikult soomustatud kabiin ja tuuleklaas: peab vastu 7,62 ja 12,7mm soomustläbistavatele kuulidele ning 20mm kildudele; energiat neelav telik ja istmed (kukkumine kuni 12m/s)"
+      },
+      "warnings": {
+        "power": "Wikipedia: VK-2500 1636kW (2194hj) ja ühes kohas 2699hj; siin ligikaudu 2200hj."
+      },
+      "notes": {
+        "maxSpeed": "Tegevusraadius ca 435km; ferry 1100km nelja lisapaagiga."
+      },
+      "sources": [
+        {"name": "Wikipedia: Mil Mi-28", "url": "https://en.wikipedia.org/wiki/Mil_Mi-28", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Ka-52": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 (kõrvuti istmed)",
+        "length": 16,
+        "rotorDiameter": 14.5,
+        "height": 4.93,
+        "emptyWeight": 7.7,
+        "maxTakeoffWeight": 10.8,
+        "engine": "2 × Klimov VK-2500 turbovõllmootor (2400hj iga); koaksiaalsed vastassuunas pöörlevad rootorid",
+        "power": 4800,
+        "maxSpeed": 315,
+        "cruiseSpeed": 270,
+        "serviceCeiling": 5500,
+        "rateOfClimb": 8,
+        "ferryRange": 1160,
+        "caliber": 30,
+        "mainArmament": "30mm automaatkahur 2A42 (460 lasku, kaksiktoide)",
+        "airToAirMissiles": "Igla (4 tk tiivaotstel)",
+        "airToGroundWeapons": "ATGM Vikhr (kuni 12, 2 × APU-6) ja Ataka; LMUR; rakettplokid S-8 (80) ja S-13 (20); pommid 4 × 250kg või 2 × 500kg; kahurikonteinerid UPK-23-250",
+        "hardpoints": 6,
+        "ordnanceLoad": 2000,
+        "sensors": "Radar Arbalet-52 (kaardistus 32km, maasihtmärgid 25km, õhusihtmärgid 15km); optilis-elektrooniline sihtimissüsteem OES-52 (soojuskaamera ja laserindikaator)",
+        "specialEquipment": "Ründekopter (kasutusel 2011): Ka-52M uuendus kaasaegsema sihtimisturetiga ja LMUR-ühilduvusega; eksportvariant Ka-52E (Egiptus). Lisakütusepaagid 500l",
+        "armor": "Kabiin peab vastu 12,7mm soomustläbistavatele kuulidele ja 23mm kildudele; katapult-iste K-37-800 koos rootorilabade pürotehnilise äralaskmisega"
+      },
+      "warnings": {
+        "rateOfClimb": "Wikipedia infoboksis 12m/s, tekstis 8m/s (Ka-52 tõusukiirus langes Ka-50-ga võrreldes 10-lt 8-le).",
+        "length": "Mõõtmed ja massid on Ka-50/Ka-52 ühisest infokastist."
+      },
+      "notes": {
+        "hardpoints": "Lisaks 6 tiivaaluse punktile 2 tiivaotsa punkti (õhk-õhk raketid või vastumeetmed).",
+        "maxSpeed": "Tegevusraadius 470km; max lennuulatus 545km."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kamov Ka-52", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-52", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Ka-29": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 (piloodid)",
+        "length": 11.3,
+        "rotorDiameter": 15.8,
+        "height": 5.5,
+        "emptyWeight": 6.5,
+        "maxTakeoffWeight": 12,
+        "engine": "2 × Izotov TV3-117V turbovõllmootor (2230hj iga); koaksiaalsed rootorid",
+        "power": 4460,
+        "maxSpeed": 270,
+        "cruiseSpeed": 205,
+        "serviceCeiling": 5000,
+        "ferryRange": 980,
+        "troops": "Kuni 16 dessantvägelast",
+        "caliber": 7.62,
+        "mainArmament": "Fikseeritud 7,62mm GShG kuulipilduja (1800 lasku); 30mm kahur 2A42 (250 lasku) painduval kinnitusel (eemaldatav)",
+        "hardpoints": 4,
+        "airToGroundWeapons": "Pommid, rakettplokid, kahurikonteinerid, kassettpommid ja neljakordsed stardiseadmed ATGM 9K114 Shturm jaoks",
+        "specialEquipment": "Mereväe ründe-transpordikopter (Ka-29TB, kasutusel 1987): opereerib dessantlaevadelt ja lennukikandjatelt, toetab dessanti; üle 60 ehitatud; uuendatud mootorite ja relvadega"
+      },
+      "warnings": {
+        "emptyWeight": "Wikipedia andmed pärinevad Ka-27 perekonna üldspetsifikatsioonist, Ka-29-l võivad väärtused erineda.",
+        "ferryRange": "Väärtus 980km on Wikipedia „range“."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kamov Ka-29", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-29", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Ka-27": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 (piloot, navigaator, hüdroakustik) + 2–3 spetsialisti",
+        "length": 11.3,
+        "rotorDiameter": 15.8,
+        "height": 5.5,
+        "emptyWeight": 6.5,
+        "maxTakeoffWeight": 12,
+        "engine": "2 × Izotov TV3-117V turbovõllmootor (2230hj iga); koaksiaalsed rootorid",
+        "power": 4460,
+        "maxSpeed": 270,
+        "cruiseSpeed": 205,
+        "serviceCeiling": 5000,
+        "ferryRange": 980,
+        "airToGroundWeapons": "1 torpeedo (AT-1M, VTT-1, UMGT-1 Orlan, APR-2 Yastreb) ja 6–8 allveelaevatõrjesügavuspommi (või 1 tuumasügavuspomm); kuni 36 hüdroakustilist poid RGB-NM",
+        "sensors": "Radar ning kas laskuv hüdrolokaator (sonar) või magnetilise anomaalia detektor (MAD)",
+        "specialEquipment": "Allveelaevatõrje helikopter (Ka-27PL, kasutusel 1981): kasutab tavaliselt paaris kui jahtija-tapja meeskond; kütusemaht 2940 l; tagarootorit pole (koaksiaalsed rootorid); kaks täispuhutavat ujukit vette maandumiseks"
+      },
+      "warnings": {
+        "maxTakeoffWeight": "12 000kg on seotud Ka-28 ekspordiversiooniga ja ei pruugi kehtida Ka-27PL kohta."
+      },
+      "notes": {
+        "sensors": "Ka-27M uuendus lisab AESA-radari."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kamov Ka-27", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-27", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Ka-31": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "length": 11.25,
+        "rotorDiameter": 15.9,
+        "height": 5.6,
+        "maxTakeoffWeight": 12.5,
+        "engine": "2 × TV3-117VMA turbovõllmootor (2500hj iga); koaksiaalsed rootorid",
+        "power": 5000,
+        "maxSpeed": 250,
+        "cruiseSpeed": 205,
+        "endurance": 2.5,
+        "ferryRange": 600,
+        "sensors": "Radar E-801 „Oko“ (L-sagedusala): antenn ca 6m × 1m pöörleb 6 p/min, alla kokkuklapitav; avastab hävitaja ca 110km, laeva ca 200km kauguselt; jälgib kuni 40 sihtmärki kõrgusel 5–3500m",
+        "specialEquipment": "Eelhoiatus- ja õhuruumi juhtimise helikopter (laevastiku radarpiketi ülesanne): ei suuda andmeid ise töödelda, vaid edastab neid laevadele; allveelaevatõrjevõimet pole; telik tõmmatakse sisse, et mitte radarit segada; ehitatud 28 tk"
+      },
+      "warnings": {
+        "maxTakeoffWeight": "Wikipedia „gross weight“ 12,5t, mis ei pruugi olla max stardimass; tühimass puudub.",
+        "length": "11,25m on kere pikkus; pikkus kokkuklapitud rootoritega 12,5m."
+      },
+      "notes": {
+        "endurance": "2h 30min patrullimine kõrgusel 3500m."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kamov Ka-31", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-31", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Mi-26": {
+      "status": "unverified",
+      "values": {
+        "crew": "5 (kaks piloodi, navigaator, pardamehaanik, pardatehnik)",
+        "length": 40.025,
+        "rotorDiameter": 32,
+        "height": 8.145,
+        "emptyWeight": 28.2,
+        "maxTakeoffWeight": 56,
+        "engine": "2 × ZMKB Progress D-136 turbovõllmootor (11 400hj iga); 8-labaline peamine rootor",
+        "power": 22800,
+        "maxSpeed": 295,
+        "cruiseSpeed": 255,
+        "serviceCeiling": 4600,
+        "ferryRange": 1920,
+        "payload": 20000,
+        "troops": "90 dessantvägelast või 60 kanderaami",
+        "specialEquipment": "Maailma suurim seeriavalmistatud transpordikopter: 7,7t lastiga tegevusraadius 500km; kütusemaht 12 000 l; FAI rekord: 56 768,8kg tõstetud 2000m kõrgusele (1982)"
+      },
+      "notes": {
+        "maxSpeed": "Hõljumine maapinnamõjuta max massiga kuni 1524m."
+      },
+      "sources": [
+        {"name": "Wikipedia: Mil Mi-26", "url": "https://en.wikipedia.org/wiki/Mil_Mi-26", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Su-25": {
+      "status": "unverified",
+      "values": {
+        "crew": "1",
+        "length": 15.53,
+        "wingspan": 14.36,
+        "height": 4.8,
+        "emptyWeight": 9.8,
+        "maxTakeoffWeight": 19.3,
+        "engine": "2 × Tumanski/Sojuz R-195 turboreaktiivmootor (44,2kN iga)",
+        "thrust": 88.4,
+        "maxSpeed": 975,
+        "serviceCeiling": 7000,
+        "rateOfClimb": 58,
+        "combatRadius": 750,
+        "gLimit": 6.5,
+        "caliber": 30,
+        "mainArmament": "30mm automaatkahur GSh-30-2 (250 lasku)",
+        "hardpoints": 11,
+        "ordnanceLoad": 4000,
+        "airToAirMissiles": "R-73 (Su-25SM)",
+        "airToGroundWeapons": "Rakettplokid UB-16 / UB-32A (S-5), B-8M1 (S-8), S-24, S-25, S-13T (SM); pommid (FAB-500); Vikhr (Su-25T); Kh-25ML, Kh-29L (SM)",
+        "sensors": "Laserkaugusmõõtja ninas, Doppler-radar DISS-7 navigeerimiseks, IFF SO-69, radarhoiatus SPO-15 (SM: L150 Pastel), soojus- ja radarpüünised (kuni 250); Su-25SM: navigeerimiskompleks Bars PRNK-25SM, HUD ja MFD, GPS/GLONASS",
+        "armor": "Keevitatud titaanist „vanni“ kabiin; peatugi 6mm teras"
+      },
+      "warnings": {
+        "airToAirMissiles": "Wikipedia ei nimeta R-60 ega Atakat; R-73 on mainitud ainult Su-25SM puhul."
+      },
+      "notes": {
+        "combatRadius": "Tegevusraadius merepinna lähedal 4400kg relvadega ja kahe lisapaagiga; lennuulatus kõrgel 1000km.",
+        "maxSpeed": "Väärtused kehtivad Su-25K ekspordivariandi kohta."
+      },
+      "sources": [
+        {"name": "Wikipedia: Sukhoi Su-25", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-25", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Su-34": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 (kõrvuti istmed)",
+        "length": 23.34,
+        "wingspan": 14.7,
+        "height": 6.09,
+        "emptyWeight": 22.5,
+        "maxTakeoffWeight": 45.1,
+        "engine": "2 × Saturn AL-31FM1 järelpõletiga turboventilaatormootor (132kN järelpõletiga)",
+        "thrust": 264,
+        "maxSpeed": 1900,
+        "cruiseSpeed": 1300,
+        "serviceCeiling": 17000,
+        "combatRadius": 1100,
+        "ferryRange": 4500,
+        "gLimit": 9,
+        "caliber": 30,
+        "mainArmament": "30mm automaatkahur GSh-30-1 (180 lasku)",
+        "hardpoints": 12,
+        "ordnanceLoad": 12000,
+        "airToAirMissiles": "Kuni 6 × R-77 või R-73 (enesekaitseks)",
+        "airToGroundWeapons": "Juhitavad pommid KAB-500, KAB-1500; vabalangevad ja libisevad pommid FAB (UMPK kuni FAB-3000); kassettpommid RBK-500; BETAB-500; õhk-maa ja laevatõrjeraketid (nt Kh-31, Kh-35)",
+        "sensors": "Faasantennradar (PESA) Leninets V004",
+        "specialEquipment": "Rinde-pommitaja / ründelennuk: kuni 4000kg ühekordse laskemoona kaal",
+        "armor": "Titaanist soomuskapsel kabiini ümber (17mm)"
+      },
+      "warnings": {
+        "thrust": "Wikipedia annab 132kN järelpõletiga, ilma et täpsustaks, kas see on ühe mootori kohta; siin on arvutatud kahe mootori summa.",
+        "airToGroundWeapons": "Wikipedia õhk-maa rakettide loend on ebaselge, seetõttu on esitatud ainult kindlad tüübid."
+      },
+      "notes": {
+        "combatRadius": "1100km 12 000kg relvakoormaga (Wikipedia); max lennuulatus täiskoormaga 4000km."
+      },
+      "sources": [
+        {"name": "Wikipedia: Sukhoi Su-34", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-34", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Su-24": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 (piloot ja relvaoperaator)",
+        "length": 22.53,
+        "wingspan": 17.64,
+        "height": 6.19,
+        "emptyWeight": 22.3,
+        "maxTakeoffWeight": 43.755,
+        "engine": "2 × Lyulka AL-21F-3A turboreaktiivmootor (109,8kN järelpõletiga iga)",
+        "thrust": 219.6,
+        "maxSpeed": 1654,
+        "serviceCeiling": 11000,
+        "rateOfClimb": 150,
+        "ferryRange": 2775,
+        "gLimit": 6,
+        "caliber": 23,
+        "mainArmament": "23mm kuuetoruline automaatkahur GSh-6-23M (500 lasku)",
+        "hardpoints": 9,
+        "ordnanceLoad": 8000,
+        "airToAirMissiles": "R-60 (enesekaitseks)",
+        "airToGroundWeapons": "Kh-25, Kh-29, Kh-31, Kh-58, Kh-59; juhitavad pommid KAB-500KR/L/OD, KAB-1500KR/L; ODAB-500, RBK-250, RBK-500, BETAB-500",
+        "sensors": "Navigeerimis- ja ründeradar Orion-A (kaks üksteise peale asetatud skannerit), maastikuradar Relyef; sihtimiskompleks SVP-24",
+        "specialEquipment": "Muutuva tiivageomeetriaga rinde-pommitaja (Su-24M); tiib: 17,64m laiali, 10,37m tagasi keeratud"
+      },
+      "warnings": {
+        "length": "Wikipedia spetsifikatsioon on Su-24 perekonna kohta, mitte ainult Su-24M-i."
+      },
+      "notes": {
+        "maxSpeed": "Merepinna lähedal 1315km/h (Mach 1,06).",
+        "ferryRange": "Lahinguulatus 615km madalal lennul (3000kg relvakoormaga ja lisapaakidega)."
+      },
+      "sources": [
+        {"name": "Wikipedia: Sukhoi Su-24", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-24", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Su-27": {
+      "status": "unverified",
+      "values": {
+        "crew": "1 (Su-27UB: 2)",
+        "length": 21.94,
+        "wingspan": 14.7,
+        "height": 5.93,
+        "emptyWeight": 16.38,
+        "maxTakeoffWeight": 33,
+        "engine": "2 × Saturn / Lyulka AL-31F turboventilaatormootor (122,6kN järelpõletiga iga)",
+        "thrust": 245.2,
+        "maxSpeed": 2500,
+        "serviceCeiling": 18500,
+        "rateOfClimb": 300,
+        "ferryRange": 3530,
+        "takeoffRun": 650,
+        "gLimit": 9,
+        "caliber": 30,
+        "mainArmament": "30mm automaatkahur GSh-30-1 (150 lasku) parempoolses tiivajuures",
+        "hardpoints": 10,
+        "ordnanceLoad": 4430,
+        "airToAirMissiles": "R-27 ja R-73",
+        "sensors": "Impulss-Doppler-radar Phazotron N001 „Myech“ (ca 100km otse, 40km tagant hävitaja vastu; jälgib 10, tabab 1)"
+      },
+      "warnings": {
+        "ferryRange": "Wikipedia annab vahemiku 3530km „lendamisel ristluskõrgusel“ (kui 2×R-27R1 ja 2×R-73E), 1340km merepinna lähedal; Migflug nimetab 1340km lahinguraadiuseks."
+      },
+      "notes": {
+        "maxSpeed": "Merepinna lähedal 1400km/h (Mach 1,13).",
+        "maxTakeoffWeight": "Su-27S ca 30,45t; Su-27SK/SM 33t.",
+        "ordnanceLoad": "Su-27SM dokumentides kuni 8000kg."
+      },
+      "sources": [
+        {"name": "Wikipedia: Sukhoi Su-27", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-27", "retrieved": "2026-10-23"},
+        {"name": "Migflug: Su-27 Flanker", "url": "https://migflug.com/afterburner/aircraft/su-27-flanker/", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Sukhoi Su-35": {
+      "status": "unverified",
+      "values": {
+        "crew": "1",
+        "length": 21.9,
+        "wingspan": 15.3,
+        "height": 5.9,
+        "emptyWeight": 19,
+        "maxTakeoffWeight": 34.5,
+        "engine": "2 × Saturn AL-41F1S turboventilaatormootor tõukevektoriga (137,3kN järelpõletiga iga)",
+        "thrust": 274.6,
+        "maxSpeed": 2390,
+        "serviceCeiling": 18000,
+        "rateOfClimb": 280,
+        "ferryRange": 4500,
+        "gLimit": 9,
+        "caliber": 30,
+        "mainArmament": "30mm automaatkahur GSh-30-1 (150 lasku)",
+        "hardpoints": 12,
+        "ordnanceLoad": 8000,
+        "airToAirMissiles": "R-27R1/ER1 (kuni 8), R-27T1/ET1 (8), R-73 (6), R-77 (kuni 12)",
+        "airToGroundWeapons": "Kh-59MK (5), Kh-31A/P (6), KAB-500Kr (8), KAB-1500Kr (3), S-25LD (4), FAB-500 (10), FAB-250 (32), rakettplokid B-8M1 (6)",
+        "sensors": "Passiivne faasantennradar Irbis-E (N035): õhusihtmärgid kuni 400km, jälgib 30 õhusihtmärki ja tabab 8 korraga; sünteesapertuuriga maapinnapilt",
+        "specialEquipment": "Mitmeotstarbeline hävitaja (4++ põlvkond): tõukevektoriga mootorid (düüsid pööratavad tõusu- ja kaldumise tasapinnas) tagavad ülimanööverdusvõime"
+      },
+      "warnings": {
+        "wingspan": "Wikipedia 15,3m, ARMSNET-ga võrdlev Armedconflicts 14,7m.",
+        "emptyWeight": "Wikipedia 19,0t, Armedconflicts 18,4t.",
+        "mainArmament": "Armedconflicts nimetab relva „GSh-301“."
+      },
+      "notes": {
+        "maxSpeed": "Max Mach-arv 2,25; merepinna kiirus allikas puudub.",
+        "ferryRange": "Tavaline lennuulatus 3600km."
+      },
+      "sources": [
+        {"name": "Wikipedia: Sukhoi Su-35", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-35", "retrieved": "2026-10-23"},
+        {"name": "Armedconflicts.com: Su-35S", "url": "https://origin.armedconflicts.com/topic/view/112697", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Sukhoi Su-33": {
+      "status": "unverified",
+      "values": {
+        "crew": "1",
+        "length": 21.19,
+        "wingspan": 14.7,
+        "height": 5.93,
+        "emptyWeight": 18.4,
+        "maxTakeoffWeight": 33,
+        "engine": "2 × Saturn AL-31F3 turboventilaatormootor (125,5kN järelpõletiga iga)",
+        "thrust": 251,
+        "maxSpeed": 2300,
+        "serviceCeiling": 17000,
+        "rateOfClimb": 246,
+        "ferryRange": 3000,
+        "gLimit": 8,
+        "caliber": 30,
+        "mainArmament": "30mm automaatkahur GSh-30-1 (150 lasku)",
+        "hardpoints": 12,
+        "ordnanceLoad": 6500,
+        "airToAirMissiles": "R-73 (4) ja R-27E (6); R-27EM tabab ka laevatõrjerakette",
+        "airToGroundWeapons": "Pommid kuni 500kg, sh kassettpommid RBK-500",
+        "sensors": "Radar N001",
+        "specialEquipment": "Lennukikandja hävitaja (Su-27 mereväe variant): kokkuklapitavad tiivad (laius kokkuklapitult 7,4m)"
+      },
+      "notes": {
+        "maxSpeed": "Max kiirus 2300km/h kõrgusel 10 000m (Mach 2,17)."
+      },
+      "sources": [
+        {"name": "Wikipedia: Sukhoi Su-33", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-33", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MiG-31": {
+      "status": "unverified",
+      "values": {
+        "crew": "2 (piloot ja relvaoperaator)",
+        "length": 22.62,
+        "wingspan": 13.456,
+        "height": 6.456,
+        "emptyWeight": 21.82,
+        "maxTakeoffWeight": 46.2,
+        "engine": "2 × Solovjov D-30F6 turboventilaatormootor (152kN järelpõletiga iga)",
+        "thrust": 304,
+        "maxSpeed": 3000,
+        "serviceCeiling": 25000,
+        "rateOfClimb": 288,
+        "combatRadius": 1450,
+        "ferryRange": 3000,
+        "gLimit": 5,
+        "caliber": 23,
+        "mainArmament": "23mm kuuetoruline automaatkahur GSh-6-23 (260 lasku)",
+        "hardpoints": 8,
+        "ordnanceLoad": 9000,
+        "airToAirMissiles": "R-33 (4; 120–160km), R-37 (6; 280–400km), R-40TD1 (2–4; 50–80km), R-60 (4), R-73 (4), R-77 (4; 100km)",
+        "airToGroundWeapons": "MiG-31K: hüperhelikiirusega ballistiline rakett Kh-47M2 „Kinzhal“ (ca 2000km, Mach 10); lennuk ei kanna õhk-õhk relvi",
+        "sensors": "Faasantennradar Zaslon (200km 19m² sihtmärk, jälgib 10 ja tabab 4); Zaslon-M (400km, jälgib 24 ja tabab 6)",
+        "specialEquipment": "Kauglennu-püüdurhävitaja: 4 poolsüvistatud punkti kere all ja 4 tiivapülooni"
+      },
+      "warnings": {
+        "sensors": "MiG-31BM radari avastuskaugus Wikipedias 320km ja 400km."
+      },
+      "notes": {
+        "maxSpeed": "Kiirus kõrgusel 21 500m; merepinna lähedal 1500km/h (Mach 1,23).",
+        "combatRadius": "1450km kiirusel Mach 0,8 ja 10 000m kõrgusel; 720km kiirusel Mach 2,35 ja 18 000m kõrgusel.",
+        "ferryRange": "3000km 4 × R-33E ja kahe lisapaagiga; 5400km ühe õhutankimisega."
+      },
+      "sources": [
+        {"name": "Wikipedia: Mikoyan MiG-31", "url": "https://en.wikipedia.org/wiki/Mikoyan_MiG-31", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MiG-29": {
+      "status": "unverified",
+      "values": {
+        "crew": "1 (MiG-29UB: 2)",
+        "length": 17.37,
+        "wingspan": 11.36,
+        "height": 4.73,
+        "emptyWeight": 11,
+        "maxTakeoffWeight": 18,
+        "engine": "2 × Klimov RD-33 turboventilaatormootor (81,4kN järelpõletiga iga)",
+        "thrust": 162.8,
+        "maxSpeed": 2400,
+        "serviceCeiling": 18000,
+        "rateOfClimb": 330,
+        "combatRadius": 700,
+        "ferryRange": 2100,
+        "takeoffRun": 260,
+        "gLimit": 9,
+        "caliber": 30,
+        "mainArmament": "30mm automaatkahur GSh-30-1 (150, hiljem 100 lasku)",
+        "hardpoints": 6,
+        "ordnanceLoad": 3500,
+        "airToAirMissiles": "R-73, R-27, R-60 (vanematel), R-77 (uuematel)",
+        "sensors": "Radar N019 „Rubin“ (9.12), N019M „Topaz“ (9.13/S), N010 „Zhuk-M“ (SMT, M/M2)"
+      },
+      "warnings": {
+        "maxTakeoffWeight": "Väärtus kehtib 9.12 puhul; 9.13, SMT ja M/K lubavad suuremat massi.",
+        "maxSpeed": "Migflug: tabelis 2400km/h, tekstis ca 2450km/h."
+      },
+      "notes": {
+        "ordnanceLoad": "4000kg MiG-29S puhul (tugevdatud kere); uuematel mudelitel 7–9 punkti.",
+        "maxSpeed": "Merepinna lähedal 1500km/h (Mach 1,22).",
+        "ferryRange": "2100km keskpaagiga; ainult sisepaagiga ca 1400–1500km."
+      },
+      "sources": [
+        {"name": "Migflug: MiG-29 Fulcrum", "url": "https://migflug.com/afterburner/aircraft/mig-29-fulcrum/", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Mikoyan MiG-29", "url": "https://en.wikipedia.org/wiki/Mikoyan_MiG-29", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Tu-95": {
+      "status": "unverified",
+      "values": {
+        "crew": "6–7",
+        "length": 46.2,
+        "wingspan": 50.1,
+        "height": 12.12,
+        "emptyWeight": 90,
+        "maxTakeoffWeight": 188,
+        "engine": "4 × Kuznetsov NK-12 turbopropellermootor (allikas: 15 000hj; täpsustamata, kas ühe mootori kohta)",
+        "maxSpeed": 925,
+        "cruiseSpeed": 710,
+        "serviceCeiling": 13716,
+        "rateOfClimb": 10,
+        "ferryRange": 15000,
+        "ordnanceLoad": 15000,
+        "caliber": 23,
+        "mainArmament": "2 × 23mm GSh-23 automaatkahur sabatornis",
+        "airToGroundWeapons": "Tiibraketid Kh-55 (kuni 16 Tu-95MS16 puhul; 6 pöördpesas Tu-95MS6), Kh-101/102 (8 tiiva alla), vanemad Kh-20, Kh-22",
+        "specialEquipment": "Strateegiline turbopropeller-pommitaja (Tu-95MS): kauglennu tiibrakettide kandja; lennuulatus ca 15 000km"
+      },
+      "warnings": {
+        "engine": "Wikipedia NK-12 võimsus 15 000PS (allikas ebaselge) ja ajaloolises osas 12 000hj."
+      },
+      "sources": [
+        {"name": "Wikipedia: Tupolev Tu-95", "url": "https://en.wikipedia.org/wiki/Tupolev_Tu-95", "retrieved": "2026-10-23"}
+      ]
+    },
+    "IL-76": {
+      "status": "unverified",
+      "values": {
+        "crew": "5",
+        "length": 46.6,
+        "wingspan": 50.5,
+        "height": 14.42,
+        "emptyWeight": 92.5,
+        "maxTakeoffWeight": 210,
+        "engine": "4 × turboventilaatormootor (D-30KP 117,7kN iga A-50 baasil; Il-76MD-90A: PS-90A-76 156,9kN iga)",
+        "cruiseSpeed": 775,
+        "serviceCeiling": 12200,
+        "ferryRange": 9700,
+        "payload": 48000,
+        "cargoHold": "20 × 3,4 × 3,4m (MF/TF variantide kaubaruum)",
+        "caliber": 23,
+        "mainArmament": "Mõnel sõjalisel variandil 2 × 23mm kahur radarjuhitaval tagatornil",
+        "specialEquipment": "Sõjaväe transpordilennuk (Il-76MD) kaupade, tehnika ja dessandi (langevarjurid) veoks; mõnel sõjalisel mudelil pommipunktid välistiibade all; tagurdusseade lühikeseks maandumiseks (min maandumisdistants 450m)"
+      },
+      "warnings": {
+        "emptyWeight": "Wikipedia ei anna MD-variandi kohta eraldi tabelit: tühimass 92,5t (Il-76TD-90) ja max stardimass 210t (Il-76MD-90A) ei pruugi kehtida Il-76MD kohta.",
+        "payload": "48 000kg on Wikipedia üldine kandevõime."
+      },
+      "notes": {
+        "ferryRange": "9700km ilma lastita (Il-76MD-90A); 5000km 52t lastiga."
+      },
+      "sources": [
+        {"name": "Wikipedia: Ilyushin Il-76", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-76", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Antonov An-26": {
+      "status": "unverified",
+      "values": {
+        "crew": "5 (kaks piloodi, raadist, pardamehaanik, navigaator)",
+        "length": 23.8,
+        "wingspan": 29.3,
+        "height": 8.58,
+        "emptyWeight": 15.02,
+        "maxTakeoffWeight": 24,
+        "engine": "2 × Progress AI-24VT turbopropellermootor (2820hj iga) + abireaktiivmootor RU19A-300 (7,85kN)",
+        "power": 5640,
+        "thrust": 7.85,
+        "cruiseSpeed": 440,
+        "serviceCeiling": 7500,
+        "ferryRange": 2500,
+        "payload": 5500,
+        "troops": "40 reisijat",
+        "specialEquipment": "Väike sõjaväe transpordilennuk: lennuulatus 2500km maksimaalse kütusega, 1100km maksimaalse kasuliku koormaga"
+      },
+      "warnings": {
+        "ferryRange": "Wikipedia 2500km on „vahemaa maksimaalse kütusega“, mitte klassikaline ferry-ulatus."
+      },
+      "sources": [
+        {"name": "Wikipedia: Antonov An-26", "url": "https://en.wikipedia.org/wiki/Antonov_An-26", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Antonov An-124": {
+      "status": "unverified",
+      "values": {
+        "crew": "8",
+        "length": 69.1,
+        "wingspan": 73.3,
+        "height": 21.08,
+        "emptyWeight": 181,
+        "maxTakeoffWeight": 402,
+        "engine": "4 × Progress D-18T turboventilaatormootor (226,8kN iga)",
+        "thrust": 907.2,
+        "maxSpeed": 865,
+        "cruiseSpeed": 825,
+        "serviceCeiling": 12000,
+        "takeoffRun": 3000,
+        "ferryRange": 14000,
+        "payload": 120000,
+        "cargoHold": "36 × 6,4 × 4,4m",
+        "specialEquipment": "Raske strateegiline transpordilennuk: lennuulatus 3700km täiskoormaga, 8400km 80t lastiga, 11 500km 40t lastiga; sõjaväeline standardkoormus kuni 150t"
+      },
+      "warnings": {
+        "thrust": "Wikipedia: 226,8kN iga, tekstis 238–250kN."
+      },
+      "sources": [
+        {"name": "Wikipedia: Antonov An-124 Ruslan", "url": "https://en.wikipedia.org/wiki/Antonov_An-124_Ruslan", "retrieved": "2026-10-23"}
+      ]
+    },
+    "A-50": {
+      "status": "unverified",
+      "values": {
+        "crew": "15 (5 lennumeeskonda + 10 operaatorit)",
+        "length": 46.6,
+        "wingspan": 50.6,
+        "height": 14.8,
+        "emptyWeight": 61,
+        "maxTakeoffWeight": 190,
+        "engine": "4 × Solovjov D-30KP turboventilaatormootor (117,7kN iga)",
+        "thrust": 470.7,
+        "maxSpeed": 850,
+        "cruiseSpeed": 775,
+        "serviceCeiling": 15500,
+        "endurance": 4,
+        "ferryRange": 7500,
+        "sensors": "Radar „Shmel“ (A-50U: Shmel-M) 9m läbimõõduga radaarkuplis: avastab õhusihtmärke kuni 650km ja maapealseid kuni 300km; jälgib kuni 150 sihtmärki kuni 230km raadiuses",
+        "specialEquipment": "Õhust seire- ja lahingujuhtimislennuk (AWACS, Il-76 baasil): juhib kuni 10 hävitajat püüdmis- või ründemissioonidel; lennuaeg 4h täiskoormusel"
+      },
+      "warnings": {
+        "sensors": "Wikipedia ei seo avastus- ja jälgimisväärtusi üheselt radariga (Liana, Vega-M, Shmel).",
+        "emptyWeight": "Väärtus 61t on Wikipedia tabelis märgitud tühimassina."
+      },
+      "notes": {
+        "maxTakeoffWeight": "170t (Il-76M baasil), 190t (Il-76MD baasil)."
+      },
+      "sources": [
+        {"name": "Wikipedia: Beriev A-50", "url": "https://en.wikipedia.org/wiki/Beriev_A-50", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Tu-22M": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "length": 42.46,
+        "wingspan": 34.28,
+        "height": 11.05,
+        "emptyWeight": 58,
+        "maxTakeoffWeight": 126,
+        "engine": "2 × Kuznetsov NK-25 turboventilaatormootor järelpõletiga (247,9kN)",
+        "thrust": 495.8,
+        "maxSpeed": 1997,
+        "serviceCeiling": 13300,
+        "rateOfClimb": 15,
+        "combatRadius": 2500,
+        "ferryRange": 7000,
+        "caliber": 23,
+        "mainArmament": "23mm GSh-23 automaatkahur kaugjuhitaval sabatornil",
+        "ordnanceLoad": 24000,
+        "airToGroundWeapons": "Laevatõrjeraketid Kh-22/Kh-32 (kuni 3), Kh-15 (kuni 10: 6 pöördpesas + 4 tiiva alla)",
+        "specialEquipment": "Muutuva tiivageomeetriaga kauglennu raketikandja ja pommitaja (Tu-22M3): tiivalaius 34,28m laiali, 23,3m tagasi pööratud"
+      },
+      "warnings": {
+        "thrust": "Wikipedia 247,9kN on märgitud jõuseadme kohta tervikuna; NK-25 kohta tavaliselt öeldakse 245kN ühe mootori kohta – seetõttu on siin kahe mootori summa 495,8kN."
+      },
+      "notes": {
+        "combatRadius": "2500km ca 10 000kg relvakoormaga; lennuulatus 6800km."
+      },
+      "sources": [
+        {"name": "Wikipedia: Tupolev Tu-22M", "url": "https://en.wikipedia.org/wiki/Tupolev_Tu-22M", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Tu-160": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "length": 54.1,
+        "wingspan": 55.7,
+        "height": 13.1,
+        "emptyWeight": 110,
+        "maxTakeoffWeight": 275,
+        "engine": "4 × Samara NK-32-1 turboventilaatormootor (245kN järelpõletiga iga)",
+        "thrust": 980,
+        "maxSpeed": 2220,
+        "cruiseSpeed": 960,
+        "serviceCeiling": 16000,
+        "rateOfClimb": 70,
+        "combatRadius": 7300,
+        "ferryRange": 12300,
+        "ordnanceLoad": 45000,
+        "airToGroundWeapons": "Kaks sisemist laskekambrit (kuni 22 500kg kumbki) või 2 pöördpesa: 6 × Kh-55SM/101/102/555 tiibraketti kummaski, või 12 × Kh-15; Kh-BD ulatus kuni 6500km",
+        "specialEquipment": "Muutuva tiivageomeetriaga strateegiline pommitaja: tiivalaius 55,7m laiali, 35,6m tagasi; lennuulatus ilma õhutankimiseta 12 300km; kaitserelvi pole"
+      },
+      "warnings": {
+        "emptyWeight": "Wikipedia andmed pärinevad Jane's 2003–2004; Tu-160M kohta eraldi väärtusi pole."
+      },
+      "notes": {
+        "combatRadius": "Lahinguraadius 2000km kiirusel Mach 1,5 või 7300km alahelikiirusel.",
+        "maxSpeed": "Kõrgusel 12 200m (Mach 2,05)."
+      },
+      "sources": [
+        {"name": "Wikipedia: Tupolev Tu-160", "url": "https://en.wikipedia.org/wiki/Tupolev_Tu-160", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Su-30": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "length": 21.935,
+        "wingspan": 14.7,
+        "height": 6.36,
+        "emptyWeight": 17.7,
+        "maxTakeoffWeight": 34.5,
+        "engine": "2 × Saturn AL-31FL/FP tõukevektoriga turboventilaatormootor (122,58kN järelpõletiga iga)",
+        "thrust": 245.2,
+        "maxSpeed": 2120,
+        "serviceCeiling": 17300,
+        "rateOfClimb": 230,
+        "ferryRange": 3000,
+        "gLimit": 9,
+        "caliber": 30,
+        "mainArmament": "30mm automaatkahur GSh-30-1 (150 lasku)",
+        "hardpoints": 12,
+        "ordnanceLoad": 8000,
+        "airToGroundWeapons": "Juhitavad pommid KAB-500KR, KAB-1500L; FAB-500T; kassettpommid RBK-500",
+        "sensors": "Passiivne faasantennradar N011M „Bars“ (avastuskaugus kuni 400km, otsing 200km)",
+        "specialEquipment": "Kahekohaline mitmeotstarbeline hävitaja (Su-30SM): tõukevektoriga düüsid; lennuulatus õhutankimisega 5200km"
+      },
+      "warnings": {
+        "length": "Wikipedia spetsifikatsioon on Su-30 perekonna kohta, mitte ainult Su-30SM-i."
+      },
+      "sources": [
+        {"name": "Wikipedia: Sukhoi Su-30", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-30", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Su-57": {
+      "status": "unverified",
+      "values": {
+        "crew": "1 (Su-57D: 2)",
+        "length": 20.1,
+        "wingspan": 14.1,
+        "height": 4.6,
+        "emptyWeight": 18.5,
+        "maxTakeoffWeight": 34,
+        "engine": "2 × Saturn AL-41F1 (izdeliye 117) tõukevektoriga turboventilaatormootor (142,2kN järelpõletiga iga; hädarežiimil 147,1kN)",
+        "thrust": 284.4,
+        "maxSpeed": 2135,
+        "serviceCeiling": 18800,
+        "combatRadius": 1250,
+        "ferryRange": 4500,
+        "gLimit": 9,
+        "caliber": 30,
+        "mainArmament": "30mm automaatkahur 9A1-4071K / GSh-30-1 (150 lasku) parempoolses tiivajuures",
+        "hardpoints": 12,
+        "ordnanceLoad": 7500,
+        "airToAirMissiles": "R-77M ja R-74M2 laskekambrites; arenduses izdeliye 810 (R-37M lühendatud variant)",
+        "airToGroundWeapons": "Kh-69, Kh-38M, Kh-58UShK, Kh-35U, välisel Kh-31; juhitavad pommid KAB-250 ja KAB-500",
+        "sensors": "AESA-radar N036 „Byelka“: ninaantenn X-sagedusalas, kaks külgantenni ja L-sagedusala IFF/EW antennid; väidetavalt jälgib 60 ja tabab 16 sihtmärki (ARMSNET: 400km)",
+        "specialEquipment": "Viienda põlvkonna varjatud mitmeotstarbeline hävitaja: sisemised laskekambrid (2 põhi- ja 2 külgkambrit), varjatud antennid, serpentiinsisselaskekanalid ja radarineelav kate; üliheli ristlus (Mach 1,3) on väidetud, aga sõltumatult kinnitamata"
+      },
+      "warnings": {
+        "maxSpeed": "ARMSNET 2450km/h (Mach 2,0); Migflug 2135km/h. Tõusukiirust ei ole avaldatud (ARMSNET märgib 350m/s).",
+        "maxTakeoffWeight": "Migflug 34t, ARMSNET 35t.",
+        "length": "Mõõtmed ja massid on tootja- ja ekspordibrošüüri väärtused, sõltumatult kontrollimata."
+      },
+      "notes": {
+        "ferryRange": "4500km kahe lisapaagiga; 3500km alahelikiirusel sisepaagiga.",
+        "combatRadius": "Missiooniprofiil teadmata.",
+        "serviceCeiling": "ARMSNET: 20 000m."
+      },
+      "sources": [
+        {"name": "Migflug: Su-57 Felon", "url": "https://migflug.com/afterburner/aircraft/su-57-felon/", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Su-57", "url": "https://armsnet.duckdns.org/equipment/67a6626c-00fc-4008-f056-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Sukhoi Su-57", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-57", "retrieved": "2026-10-23"}
       ]
     }
   }
