@@ -427,6 +427,21 @@
   .group-btn .cnt{font-size:12px;color:var(--bone-soft);letter-spacing:0.08em;}
 
   .home-select-actions{display:flex;gap:8px;margin-bottom:10px;}
+  #refinePanel .home-select-actions button{min-width:0;padding:10px 6px;font-size:11px;}
+  .refine-filter{width:100%;box-sizing:border-box;margin-bottom:8px;padding:9px 10px;font-size:13px;background:var(--bg-0);color:var(--bone);border:1px solid var(--line);}
+  .refine-list{max-height:340px;overflow-y:auto;border:1px solid var(--line);margin-bottom:12px;background:var(--panel-2);}
+  .refine-grp{position:sticky;top:0;z-index:1;padding:6px 10px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-soft);background:var(--bg-0);border-bottom:1px solid var(--line);}
+  .refine-item{display:flex;align-items:center;gap:10px;padding:7px 10px;font-size:13px;cursor:pointer;border-bottom:1px solid var(--line);}
+  .refine-item:hover{background:rgba(255,255,255,.04);}
+  .refine-item input{width:17px;height:17px;accent-color:var(--olive);flex:0 0 auto;}
+  .refine-item span{color:var(--bone-dim);font-size:11px;margin-left:auto;text-align:right;}
+  .refine-empty{padding:12px;font-size:12px;color:var(--bone-dim);}
+  .refine-summary{margin:-2px 0 10px;font-size:12px;color:var(--amber);}
+  .refine-summary button{margin-left:8px;padding:2px 8px;font-size:11px;}
+  .count-row{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+  .count-row .lbl{font-size:12px;color:var(--bone-soft);letter-spacing:.08em;text-transform:uppercase;margin-right:2px;}
+  .count-row .seg{flex:1;padding:9px 6px;font-size:12px;}
+  .count-row .seg.is-on{border-color:var(--amber);color:var(--amber);}
   .home-select-actions button{flex:1;}
   .group-check{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;border:1px solid var(--line);background:var(--panel-2);cursor:pointer;}
   .group-check:hover{border-color:var(--olive);}
@@ -785,6 +800,24 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
             <button type="button" class="primary" id="clearAllBtn">Tühista kõik</button>
           </div>
           <div class="home-group-grid" id="groupGrid"></div>
+        </div>
+        <div class="row" style="margin-bottom:10px;">
+          <button type="button" class="primary" id="refineToggleBtn" style="flex:1;" aria-expanded="false" aria-controls="refinePanel">Täpsusta valikut <span class="btn-caret" aria-hidden="true">▾</span></button>
+        </div>
+        <div id="refinePanel" hidden>
+          <div class="home-select-actions">
+            <button type="button" class="primary" id="refineAllBtn">Vali kõik mudelid</button>
+            <button type="button" class="primary" id="refineNoneBtn">Tühista kõik mudelid</button>
+          </div>
+          <input type="search" id="refineFilter" class="refine-filter" placeholder="Filtreeri mudeleid (nt T-72)…" autocomplete="off">
+          <div class="refine-list" id="refineList"></div>
+        </div>
+        <div class="refine-summary" id="refineSummary" hidden></div>
+        <div class="count-row" id="countRow">
+          <span class="lbl">Pilte:</span>
+          <button type="button" class="seg" data-n="10">10</button>
+          <button type="button" class="seg" data-n="25">25</button>
+          <button type="button" class="seg is-on" data-n="0">Kõik</button>
         </div>
         <div class="row">
           <button class="primary" id="startPracticeBtn" style="flex:1;">Harjuta valitud kategooriaid</button>
@@ -1710,6 +1743,8 @@ const TEST_GROUP_CHANCE = { mines: 0.3 };
 // appMode: 'practice' | 'test' — valitakse menüüst (kuldvillakul on oma olek kuldGame).
 let appMode = 'test';
 let selectedGroupIds = new Set();
+let practiceExcluded = new Set();   // harjutusest välja jäetud mudelid (cat); tühjendub lehe uuendamisel
+let practiceLimit = 0;              // 0 = kõik pildid, muidu max N pilti
 let kuldSelectedGroupIds = new Set();
 let kuldGame = null;
 let currentGroupId = null; // praeguse harjutuskategooria id (ainult 'practice' režiimis)
@@ -3541,13 +3576,91 @@ function renderQr(){
   }
 }
 
-function updatePracticeButton(){
+// Mudelid, mis praeguse valiku järgi harjutusse lähevad.
+function practiceEntries(){
+  const ids = new Set([...selectedGroupIds].filter(id => countEligible(id) > 0));
+  return CATEGORIES.filter(e => ids.has(e.group) && e.files && e.files.length > 0);
+}
+
+function renderRefine(){
+  const list = document.getElementById('refineList');
+  const summary = document.getElementById('refineSummary');
+  const all = practiceEntries();
+  const cats = new Set(all.map(e => e.cat));
+  practiceExcluded.forEach(c => { if(!cats.has(c)) practiceExcluded.delete(c); });   // mahavõetud kategooriate valikud kustuvad
+
+  const included = all.filter(e => !practiceExcluded.has(e.cat)).length;
+  if(practiceExcluded.size){
+    summary.hidden = false;
+    summary.textContent = 'Täpsustatud: ' + included + ' / ' + all.length + ' mudelit valitud';
+    const b = document.createElement('button');
+    b.type = 'button'; b.textContent = 'Tühista täpsustus';
+    b.addEventListener('click', () => { practiceExcluded.clear(); updatePracticeButton(); });
+    summary.appendChild(b);
+  }else summary.hidden = true;
+
+  if(document.getElementById('refinePanel').hidden) return;
+  const q = document.getElementById('refineFilter').value.trim().toLocaleLowerCase('et');
+  const norm = t => String(t || '').toLocaleLowerCase('et').replace(/[\s\-–_.,]+/g, '');
+  const qn = norm(q);
+  list.innerHTML = '';
+  if(!all.length){
+    const d = document.createElement('div'); d.className = 'refine-empty'; d.textContent = 'Vali enne vähemalt üks kategooria.'; list.appendChild(d); return;
+  }
+  GROUPS.forEach(g => {
+    const items = all.filter(e => e.group === g.id && (!qn || [e.label, e.type, e.cat].some(t => norm(t).includes(qn))))
+      .sort((a, b) => a.label.localeCompare(b.label, 'et'));
+    if(!items.length) return;
+    const h = document.createElement('div'); h.className = 'refine-grp'; h.textContent = g.label; list.appendChild(h);
+    items.forEach(e => {
+      const row = document.createElement('label'); row.className = 'refine-item';
+      const cb = document.createElement('input'); cb.type = 'checkbox'; cb.checked = !practiceExcluded.has(e.cat);
+      cb.addEventListener('change', () => { if(cb.checked) practiceExcluded.delete(e.cat); else practiceExcluded.add(e.cat); updatePracticeButton(true); });
+      const name = document.createElement('b'); name.style.fontWeight = '500'; name.textContent = e.label;
+      const meta = document.createElement('span'); meta.textContent = (e.type ? e.type + ' · ' : '') + e.files.length + (e.files.length === 1 ? ' pilt' : ' pilti');
+      row.append(cb, name, meta); list.appendChild(row);
+    });
+  });
+  if(!list.children.length){ const d = document.createElement('div'); d.className = 'refine-empty'; d.textContent = 'Ühtegi mudelit ei leitud.'; list.appendChild(d); }
+}
+
+function updatePracticeButton(keepList){
   const selectedEligible = [...selectedGroupIds].filter(id => countEligible(id) > 0);
-  startPracticeBtn.disabled = selectedEligible.length === 0;
+  const modelsLeft = practiceEntries().filter(e => !practiceExcluded.has(e.cat)).length;
+  if(keepList === true){
+    // linnukese muutus: ära ehita nimekirja uuesti (kerimine jääb), uuenda ainult kokkuvõtet
+    const hold = document.getElementById('refinePanel').hidden; 
+    if(!hold){ const sc = document.getElementById('refineList').scrollTop; renderRefine(); document.getElementById('refineList').scrollTop = sc; }
+    else renderRefine();
+  }else renderRefine();
+  startPracticeBtn.disabled = selectedEligible.length === 0 || modelsLeft === 0;
   startPracticeBtn.textContent = selectedEligible.length
     ? 'Harjuta valitud kategooriaid (' + selectedEligible.length + ')'
     : 'Vali vähemalt üks kategooria';
+  if(selectedEligible.length && modelsLeft === 0) startPracticeBtn.textContent = 'Vali vähemalt üks mudel';
 }
+
+// Täpsustuse paneel ja piltide hulk (avalehe harjutuse juures)
+(function(){
+  const toggle = document.getElementById('refineToggleBtn');
+  const panel = document.getElementById('refinePanel');
+  toggle.addEventListener('click', () => {
+    const open = panel.hidden;
+    panel.hidden = !open;
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.textContent = 'Täpsusta valikut ';
+    const caret = document.createElement('span'); caret.className = 'btn-caret'; caret.setAttribute('aria-hidden', 'true'); caret.textContent = open ? '▴' : '▾';
+    toggle.appendChild(caret);
+    renderRefine();
+  });
+  document.getElementById('refineFilter').addEventListener('input', renderRefine);
+  document.getElementById('refineAllBtn').addEventListener('click', () => { practiceExcluded.clear(); updatePracticeButton(); });
+  document.getElementById('refineNoneBtn').addEventListener('click', () => { practiceEntries().forEach(e => practiceExcluded.add(e.cat)); updatePracticeButton(); });
+  document.querySelectorAll('#countRow .seg').forEach(b => b.addEventListener('click', () => {
+    practiceLimit = Number(b.dataset.n) || 0;
+    document.querySelectorAll('#countRow .seg').forEach(x => x.classList.toggle('is-on', x === b));
+  }));
+})();
 
 function selectAllGroups(){
   selectedGroupIds = new Set(GROUPS.filter(g => countEligible(g.id) > 0).map(g => g.id));
@@ -4145,7 +4258,9 @@ function startPractice(){
   appMode = 'practice';
   currentGroupId = ids.length === 1 ? ids[0] : null;
   resetRunState();
-  imageBag = buildImagePool(e => ids.includes(e.group));
+  imageBag = buildImagePool(e => ids.includes(e.group) && !practiceExcluded.has(e.cat));
+  if(practiceLimit > 0) imageBag = imageBag.slice(0, practiceLimit);
+  if(!imageBag.length) return;
   TOTAL_IMAGES = imageBag.length;
   updateScoreUI();
   showRunScreen();
@@ -4401,7 +4516,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc33'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc34'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
