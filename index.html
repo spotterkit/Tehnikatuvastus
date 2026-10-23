@@ -2095,11 +2095,6 @@ function updateRunProgress(){
 function renderEndSummary(){
   if(!endSummary) return;
   if(liveState.phase !== 'end'){ endSummary.style.display='none'; endSummary.innerHTML=''; return; }
-  if(appMode !== 'test'){
-    endSummary.style.display='block';
-    endSummary.innerHTML='<h3>Sessiooni kokkuvõte</h3><div class="end-summary-grid"><div class="end-summary-item">Näidatud <b>'+shownCount+'</b> pilti</div></div>';
-    return;
-  }
   const total=score.total, correct=score.correct, wrong=Math.max(0,total-correct), pct=total?Math.round(correct/total*100):0;
   const byGroup={};
   history.forEach(h=>{
@@ -2117,7 +2112,7 @@ function renderEndSummary(){
   const mistakeIdx=new Map(); history.forEach((h,i)=>{ if(h.isCorrect===false&&h.current) mistakeIdx.set(h.current.label,i); });
   const mistakes=[...mistakeIdx.entries()].map(([label,i])=>'<button type="button" class="end-mistake-chip" data-i="'+i+'" title="Võrdle õigega">'+label.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</button>');
   endSummary.style.display='block';
-  endSummary.innerHTML='<h3>Testi kokkuvõte</h3>'+
+  endSummary.innerHTML='<h3>'+(appMode==='practice'?'Harjutuse kokkuvõte':'Testi kokkuvõte')+'</h3>'+
     '<div class="end-score-panel"><div class="end-score-main">Tulemus <b>'+correct+'/'+total+'</b></div>'+
     '<div class="end-score-stats"><div class="end-score-stat">Õige <b>'+correct+'</b></div><div class="end-score-stat">Vale <b>'+wrong+'</b></div><div class="end-score-stat">Täpsus <b>'+pct+'%</b></div></div></div>'+
     (groupHtml?'<div class="end-groups-title">Tulemused kategooriate kaupa</div><div class="end-summary-grid">'+groupHtml+'</div>':'')+
@@ -2127,12 +2122,7 @@ function renderEndSummary(){
 
 function updateScoreUI(){
   const scoreLbl = document.querySelector('.scorebox .lbl');
-  if(appMode === 'practice'){
-    scoreLbl.textContent = 'Näidatud';
-    scoreCorrectEl.textContent = shownCount;
-    scoreTotalEl.textContent = TOTAL_IMAGES;
-    scorePctEl.textContent = '';
-  } else {
+  {
     scoreLbl.textContent = 'Tulemus';
     scoreCorrectEl.textContent = score.correct;
     scoreTotalEl.textContent = score.total;
@@ -2157,9 +2147,10 @@ function setEndActions(){
   endRepeatBtn.style.display = 'none';
   endRepeatBtn.onclick = null;
 
-  if(appMode === 'test'){
-    endRestartBtn.textContent = 'Uus test';
-    endRestartBtn.onclick = () => startTest(lastTestSize);
+  {
+    const isTest = appMode === 'test';
+    endRestartBtn.textContent = isTest ? 'Uus test' : 'Sega uuesti';
+    endRestartBtn.onclick = isTest ? () => startTest(lastTestSize) : () => startPractice(currentGroupId);
 
     // Õigesti/valesti hindamine toimub ainult testis, seega ka "Korda vigu"
     // pakutakse ainult testi lõpus, ja ainult siis, kui midagi valesti läks.
@@ -2169,15 +2160,12 @@ function setEndActions(){
       endRepeatBtn.textContent = 'Korda vigu (' + mistakes.length + ')';
       endRepeatBtn.onclick = () => startRepeatMistakes(mistakes);
     }
-  } else {
-    endRestartBtn.textContent = 'Sega uuesti';
-    endRestartBtn.onclick = () => startPractice(currentGroupId);
   }
   endMenuBtn.onclick = goHome;
 }
 
 function renderLive(){
-  const isPractice = appMode === 'practice';
+  const isPractice = false;   // harjutuses hinnatakse nüüd vastuseid samamoodi nagu testis
   verdictRow.style.display = isPractice ? 'none' : 'flex';
   practiceNextRow.style.display = 'none';
   verdictBadge.style.display = 'none';
@@ -2313,11 +2301,8 @@ function endMessage(){
     return 'TEST LÄBI — tulemus: ' + score.correct + ' / ' + score.total + ' (' + pct + '%).';
   }
   if(appMode === 'practice'){
-    const g = GROUPS.find(g => g.id === currentGroupId);
-    if(currentGroupId){
-      return 'Kategooria läbi — kõik "' + (g ? g.label : currentGroupId) + '" pildid on selles ringis näidatud (' + shownCount + ' kokku).';
-    }
-    return 'Valitud kategooriad läbi — kõik valitud pildid on selles ringis näidatud (' + shownCount + ' kokku).';
+    const pctP = score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0;
+    return 'HARJUTUS LÄBI — tulemus: ' + score.correct + ' / ' + score.total + ' (' + pctP + '%).';
   }
   return 'LÕPP — kõik kureeritud pildid on selles ringis näidatud (' + shownCount + ' kokku).';
 }
@@ -4393,18 +4378,14 @@ document.addEventListener('keydown', e => {
   if(e.key === 'Enter'){
     // Harjutusrežiimis: kui vastus on juba näidatud, viib teine Enter otse
     // järgmise pildi juurde (ei pea hiirega "Järgmine" peale klõpsama).
-    if(appMode === 'practice' && liveState.phase === 'revealed'){
-      practiceAdvance();
-    } else {
-      reveal();
-    }
+    reveal();
     return;
   }
 
   // Klaviatuuriga hindamine (ainult testis, kus vastust üldse
   // hinnatakse — harjutuses õigsust ei märgita, seal on ainult "Järgmine"):
   // 1 = "Läks täppi", 2 = "Ei läinud täppi".
-  if(appMode !== 'practice' && liveState.phase === 'revealed'){
+  if(liveState.phase === 'revealed'){
     if(e.key === '1') markResult(true);
     else if(e.key === '2') markResult(false);
   }
@@ -4573,7 +4554,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc36'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc37'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
