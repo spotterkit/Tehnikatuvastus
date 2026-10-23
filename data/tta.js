@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 8,
+  "version": 9,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -2849,6 +2849,544 @@ window.TTA_DATA = {
         {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MDK-2M", "url": "https://armsnet.duckdns.org/equipment/ebe0df4c-39d6-41da-ead0-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MDK-2", "url": "https://armsnet.duckdns.org/equipment/e47e723f-257b-4f05-ec60-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: MDK-2M", "url": "https://en.wikipedia.org/wiki/MDK-2M", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Pantsir-S1/SA-22 Greyhound": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "chassis": "KamAZ-6560 8×8",
+        "combatWeight": 20,
+        "length": 10.3,
+        "width": 2.5,
+        "height": 3.27,
+        "engine": "KamAZ-740.35-400 diisel",
+        "power": 400,
+        "maxSpeedRoad": 90,
+        "range": 1000,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.6,
+        "trench": 2,
+        "fording": 1.8,
+        "caliber": 30,
+        "mainArmament": "2 × kaksiktoruline 30mm automaatkahur 2A38M (kokku 4 toru), 1400 lasku",
+        "samMissiles": "12 × 57E6 / 57E6-E (kahes kuue toruga blokis; kahe astmega, raadio- ja optiline käsujuhtimine, 75–76kg, lõhkepea 16–20kg)",
+        "rateOfFire": 5000,
+        "sensors": "Avastusradar 2RL80 (S-sagedusala; avastab kuni 40 sihtmärki, avastuskaugus 32–36km, maks 45km); jälgimis- ja juhtimisradar 1RS2-1E (24–28km); optilis-elektrooniline kanal (soojuskaamera ja IR-suunamõõtja, 17–26km); reaktsiooniaeg 4–6s; kuni 4 raketti korraga 4 sihtmärgile; 10–12 sihtmärki minutis",
+        "samRange": {"min": 1200, "max": 20000},
+        "samAltitude": {"min": 5, "max": 15000},
+        "cannonRangeAir": 4000,
+        "cannonAltitudeAir": 3000,
+        "specialEquipment": "Lähitõrje õhutõrjekahur- ja raketikompleks (96K6): tegutseb autonoomselt või patarei koosseisus. Valmisolek ca 5min; TBK-kaitse",
+        "armor": "Soomustamata, kerge kaitse killustike eest"
+      },
+      "warnings": {
+        "samRange": "Rakett 57E6: 1,2–12km, 57E6-E: 1,2–20km (ARMSNET); Wikipedia annab kogu kompleksi laskeulatuseks 0,2–20km.",
+        "samAltitude": "Wikipedia: kompleksi laskekõrgus 5–15 000m; ARMSNET: 57E6-E 5–6000m, 57E6 15–15 000m.",
+        "rateOfFire": "2 × 2500 lasku/min (Wikipedia); ARMSNET toob ka 1950–2500 lasku/min toru kohta."
+      },
+      "notes": {
+        "chassis": "Pantsir-SM (uuem variant) on soomustatud kabiiniga.",
+        "combatWeight": "ARMSNET: tühimass 14,85t, max koormus 20t."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Pantsir-S1", "url": "https://armsnet.duckdns.org/equipment/6c3b1e79-5c62-4aaa-e5c6-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Pantsir-S1 (Deagel)", "url": "https://armsnet.duckdns.org/equipment/e8bcc3ec-cc2c-44eb-9295-08decdca92d5", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Pantsir missile system", "url": "https://en.wikipedia.org/wiki/Pantsir_missile_system", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Buk-M1/SA-11 Gadfly": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "chassis": "GM-569 roomikšassii",
+        "combatWeight": 34,
+        "length": 9.3,
+        "width": 3.25,
+        "height": 3.8,
+        "engine": "Diisel",
+        "power": 710,
+        "maxSpeedRoad": 65,
+        "range": 500,
+        "samMissiles": "4 × 9M38M1 (685–690kg, lõhkepea 70kg, kiirus 850m/s, poolaktiivne radarsihtimine)",
+        "samRange": {"min": 3000, "max": 35000},
+        "samAltitude": {"min": 15, "max": 22000},
+        "sensors": "Avastusradar 9S18M1 „Snow Drift“ (avastuskaugus kuni 85km); tulejuhtimis- ja valgustusradar 9S35 „Fire Dome“ TELARil; reaktsiooniaeg 15–18s; sihtmärgi tabamistõenäosus 0,8–0,95 (õhusõiduk)",
+        "specialEquipment": "Iseliikuv õhutõrjeraketi laskeseade 9A310M1 (TELAR): avastab, jälgib ja tabab sihtmärke ise; kuulub pataljoni 9K37M1 koosseisu koos avastusradari 9S18M1-ga. Valmisolek 5min",
+        "armor": "Kerge soomus kaitseb kergrelvade tule ja mürsukildude eest"
+      },
+      "notes": {
+        "chassis": "Buk-M1-2 on moderniseeritud versioon (rakett 9M317)."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Buk-M1 (9K37M1)", "url": "https://armsnet.duckdns.org/equipment/86c6f664-e702-415e-e5d4-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Buk missile system", "url": "https://en.wikipedia.org/wiki/Buk_missile_system", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Buk-M3/SA-27 Gollum": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "chassis": "GM-5955 roomikšassii",
+        "combatWeight": 34,
+        "length": 7.5,
+        "width": 3.3,
+        "height": 5.1,
+        "engine": "Diisel",
+        "power": 710,
+        "maxSpeedRoad": 65,
+        "range": 500,
+        "samMissiles": "6 × 9M317M (581kg, lõhkepea 62kg, kiirus kuni 1550m/s); täiskoormusega 9M317M/9R31M raketid",
+        "samRange": {"min": 2500, "max": 70000},
+        "samAltitude": {"min": 15, "max": 35000},
+        "sensors": "Masti-radar 9S36M (mast 22m; avastab tiibrakette 5m kõrgusel kuni 70km kauguselt); ülevaaderadar 9S38 (avastuskaugus kuni 160km); reaktsiooniaeg ca 8–10s; kuni 36 sihtmärki korraga pataljonis, jälgib kuni 300 sihtmärki; max sihtmärgi kiirus 3000m/s",
+        "specialEquipment": "Iseliikuv õhutõrjeraketi laskeseade 9A316M (TELAR) pataljonis koos laadimismasinaga 9A317M ja juhtimispunktiga 9S510M. Tabab õhusõidukeid, tiibrakette, taktikalisi ballistilisi rakette ja täppismoona",
+        "armor": "Kerge soomus kaitseb kergrelvade tule ja mürsukildude eest"
+      },
+      "warnings": {
+        "chassis": "ARMSNET nimetab šassiina GM-5955 ja ühes kohas GM-5969.",
+        "samMissiles": "ARMSNET toob kokku 48 + 48 raketti pataljoni kohta; 6 raketti TELAR kohta."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Buk-M3", "url": "https://armsnet.duckdns.org/equipment/ed137070-bdee-4ecf-e5d9-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Buk-M3 (Deagel)", "url": "https://armsnet.duckdns.org/equipment/98def0e2-0588-4dd2-57b7-08ded044b36a", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Buk missile system", "url": "https://en.wikipedia.org/wiki/Buk_missile_system", "retrieved": "2026-10-23"}
+      ]
+    },
+    "S-400 / S-300": {
+      "status": "unverified",
+      "values": {
+        "chassis": "Radarid ja juhtimispunkt MZKT-7930 8×8 šassiil; laskeseade 5P85TE2 poolhaagisena BAZ-64022 6×6 veokil (või MAZ-543M)",
+        "samMissiles": "S-400: 40N6E (380–400km), 48N6DM/E3 (240km), 48N6E2 (200km), 9M96E2 (120km), 9M96E (40km); S-300P: 5V55K 47km, 5V55R 75km, 5V55U 150km, 48N6 150km. Ühel laskeseadmel kuni 4 raketti (40N6E puhul 2–3)",
+        "samRange": {"min": 2000, "max": 380000},
+        "samAltitude": {"min": 10, "max": 30000},
+        "sensors": "S-400: avastusradar 91N6E (S-sagedusala, kuni 600km, 300 sihtmärki), kõrgusradar 96L6E (kuni 300km), tulejuhtimisradar 92N6E (kuni 340–400km, jälgib 20 sihtmärki); lisaks Nebo-M, Protivnik-GE, Gamma-S1E. S-300: 30N6 „Flap Lid“, 64N6 „Big Bird“, 96L6, 36D6 „Tin Shield“, 76N6 „Clam Shell“",
+        "specialEquipment": "Pika- ja keskmaa õhutõrjeraketikompleks (S-300P alates 1978, S-400 alates 2007). Üks pataljon: 6–12 laskeseadet, juhtimispunkt 55K6E (Ural-532301), 5T58-2 transpordimasinad, 22T6-2 laadimiskraana ja radarid. Patarei 3 laskeseadet. Kogu süsteem (8 pataljoni) juhib kuni 72 laskeseadet ja 384 raketti; samaaegselt kuni 36 sihtmärki ja 72 raketti (kuni 2 raketti sihtmärgi kohta). Valmisolek: 5min marsist (35s ooterežiimist). Ründab õhusõidukeid, tiibrakette ja ballistilisi rakette"
+      },
+      "warnings": {
+        "samRange": "40N6E laskekaugus: tabelis 380km, tekstis 400km (Wikipedia); ARMSNET: 250km.",
+        "samAltitude": "Maksimaalne kõrgus 27–30km sõltuvalt raketist; minimaalne kõrgus on ligikaudne."
+      },
+      "notes": {
+        "samRange": "Kompleksi miinimumkaugus aerodünaamilistele sihtmärkidele 2km ja ballistilistele 5km."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): S-400 Triumf", "url": "https://armsnet.duckdns.org/equipment/cda7cd82-2822-42cd-e40b-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: S-300 missile system", "url": "https://en.wikipedia.org/wiki/S-300_missile_system", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Tor": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "chassis": "GM-5955 roomikšassii (algne Tor: GM-355)",
+        "combatWeight": 34,
+        "length": 7.5,
+        "width": 3.3,
+        "height": 5.1,
+        "engine": "V-12 diisel",
+        "power": 829,
+        "maxSpeedRoad": 65,
+        "range": 580,
+        "amphibious": false,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 1,
+        "trench": 2,
+        "fording": 1,
+        "samMissiles": "8 × 9M330 (165–167kg, lõhkepea 15kg, kiirus kuni Mach 2,8–3, raadiokäsujuhtimine; hoitakse vertikaalselt kahes neljases grupis)",
+        "samRange": {"min": 1500, "max": 12000},
+        "samAltitude": {"min": 10, "max": 6000},
+        "sensors": "Avastusradar „Scrum Half“ (3D, G/H-sagedusala): õhusõidukid 25–27km, helikopterid 12km, droonid 9–15km, jälgib kuni 48 sihtmärki; sihtmärgi jälgimisradar (J/K-sagedusala, kuni 20km); reaktsiooniaeg 5–12s; 2 sihtmärki ja 4 raketti korraga",
+        "specialEquipment": "Iseliikuv lühimaa õhutõrjeraketikompleks (Tor-M1): otsib sihtmärke liikvel olles, tulistab seisatuselt; täielik ümberlaadimine 18min; kuni 4 raketti korraga; TBK-kaitse",
+        "armor": "Täielikult keevitatud teras"
+      },
+      "warnings": {
+        "power": "Wikipedia 829hj, ARMSNET 780hj (V-46-2S1).",
+        "samAltitude": "Wikipedia: tõhus kõrgus 6–10 000m; ARMSNET: 10–6000m.",
+        "crew": "Wikipedia: tabelis 3, tekstis 4 (juht + 3 operaatorit)."
+      },
+      "notes": {
+        "chassis": "Algne Tor (9K330, 1986) kasutas šassiid GM-355; ARMSNET andmed (32t, 780hj, 8,0×3,2×4,0m) kirjeldavad seda varianti."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Tor (9K330)", "url": "https://armsnet.duckdns.org/equipment/e8562d50-948e-463a-e62b-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Tor missile system", "url": "https://en.wikipedia.org/wiki/Tor_missile_system", "retrieved": "2026-10-23"}
+      ]
+    },
+    "ZSU-23-4": {
+      "status": "unverified",
+      "values": {
+        "crew": "4 (ülem, juht, laskur, radarioperaator)",
+        "chassis": "GM-575 roomikšassii",
+        "combatWeight": 20.5,
+        "length": 6.54,
+        "width": 3.13,
+        "height": 2.58,
+        "engine": "V-6R-1 diisel",
+        "power": 280,
+        "maxSpeedRoad": 50,
+        "maxSpeedOffroad": 30,
+        "range": 450,
+        "amphibious": false,
+        "gradient": 58,
+        "sideSlope": 30,
+        "verticalStep": 0.7,
+        "trench": 2.5,
+        "fording": 1,
+        "caliber": 23,
+        "mainArmament": "4 × 23mm 2A7 automaatkahur (AZP-23 „Amur“), 2000 lasku",
+        "rateOfFire": 3400,
+        "cannonRangeAir": 2500,
+        "cannonAltitudeAir": 1500,
+        "cannonRangeArmored": 2000,
+        "sensors": "Radar RPK-2 „Tobol“ / 1RL33 (Ku-sagedusala, NATO „Gun Dish“): avastab õhusihtmärke kuni 20km, jälgib kuni 13km; reaktsiooniaeg 12–18s; kõrgusnurk −4…+85°",
+        "specialEquipment": "Iseliikuv õhutõrjekahur (1962), tuld saab anda liikvel olles; TBK-kaitse ja 81mm suitsugranaadiheitjad",
+        "armor": "Keevitatud teras: kere kuni 15mm, torn 9,2mm"
+      },
+      "warnings": {
+        "power": "Wikipedia 280hj, ARMSNET 290hj.",
+        "width": "Wikipedia 3,125m, ARMSNET 3,3m.",
+        "verticalStep": "Wikipedia 0,7m, ARMSNET 1,1m.",
+        "trench": "Wikipedia 2,5m, ARMSNET 2,8m.",
+        "cannonRangeAir": "Wikipedia: max horisontaalne 7km, max vertikaalne 5,1km, efektiivne 2,5km; ARMSNET: max efektiivne 2,5km."
+      },
+      "notes": {
+        "rateOfFire": "Üks toru 850–1000 lasku/min; praktiline kiirus 400 lasku/min.",
+        "gradient": "Wikipedia: 30° ≈ 58%.",
+        "height": "Radar üles tõstetud 3,57–3,75m."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): ZSU-23-4 Shilka", "url": "https://armsnet.duckdns.org/equipment/d744b9f0-ebe8-4e90-e624-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): ZSU-23-4 Shilka (JRTC)", "url": "https://armsnet.duckdns.org/equipment/da1c7404-10ef-4862-f094-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: ZSU-23-4 Shilka", "url": "https://en.wikipedia.org/wiki/ZSU-23-4_Shilka", "retrieved": "2026-10-23"}
+      ]
+    },
+    "SA-8B Gecko": {
+      "status": "unverified",
+      "values": {
+        "crew": "5",
+        "chassis": "BAZ-5937 6×6 (ujuv)",
+        "combatWeight": 17.5,
+        "length": 9.14,
+        "width": 2.75,
+        "height": 4.2,
+        "engine": "2D20B diisel",
+        "power": 300,
+        "maxSpeedRoad": 80,
+        "maxSpeedWater": 8,
+        "range": 500,
+        "amphibious": true,
+        "verticalStep": 0.5,
+        "trench": 1.2,
+        "samMissiles": "6 × 9M33 (9M33M2 / M3; 126–170kg, lõhkepea 19–40kg, raadiokäsujuhtimine)",
+        "samRange": {"min": 1500, "max": 10000},
+        "samAltitude": {"min": 25, "max": 5000},
+        "sensors": "Radar „Land Roll“ 1S51M3: otsing (G/H-sagedusala) 30–35km, jälgimine (J) 25–30km, raketijuhtimine (I) 20–25km; reaktsiooniaeg ca 26s",
+        "specialEquipment": "Iseliikuv lühimaa õhutõrjeraketikompleks (9K33 Osa, 1971): sihtmärke otsitakse ja jälgitakse liikvel, tulistatakse seisatuselt; patarei: 4 lahingumasinat + 2 laadimismasinat, ümberlaadimine 5min; TBK-kaitse",
+        "armor": "Kerge soomus"
+      },
+      "warnings": {
+        "maxSpeedRoad": "Wikipedia 80km/h, ARMSNET 50km/h.",
+        "combatWeight": "ARMSNET märgib massiks eksikombel 18kg; Wikipedia 17,5t.",
+        "power": "Wikipedia nimetab mootori D20K300, ARMSNET 2D20B (300hj)."
+      },
+      "notes": {
+        "samRange": "9M33M3 laskekaugus kuni 15km ja kõrgus 10–12 000m."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 9K33 Osa", "url": "https://armsnet.duckdns.org/equipment/ca689b53-9171-4fc2-e5f2-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 9K33 Osa (JMRC)", "url": "https://armsnet.duckdns.org/equipment/981b1a75-5520-45ad-f0e8-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: 9K33 Osa", "url": "https://en.wikipedia.org/wiki/9K33_Osa", "retrieved": "2026-10-23"}
+      ]
+    },
+    "9S932-1 Barnaul-T": {
+      "status": "unverified",
+      "values": {
+        "chassis": "MT-LBu roomikšassii (9S932-2: BTR-MD; BMP-3 põhine MRU-B näidati 2017)",
+        "sensors": "Radar 1L122-1; saab andmeid radaritelt 9S18M, 35N6, P-18M, P-19M või sidekeskuste R-166, R-166-0,5 ja MP-1IM kaudu",
+        "specialEquipment": "Barnaul-T lühi- ja lähitõrje juhtimismoodul MRU-B (9S932-1): juhib õhutõrjepatareid, jagab sihtmärgi andmeid platoonitasemel õhutõrjevahenditele (Tunguska, Tor, Osa, Strela-10M3, Igla)"
+      },
+      "warnings": {
+        "chassis": "Meeskonna, massi, mõõtmete ja radari ulatuse kohta avalikke andmeid ei leitud."
+      },
+      "sources": [
+        {"name": "Armedconflicts.com: Barnaul-T", "url": "https://www.armedconflicts.com/-t217337", "retrieved": "2026-10-23"}
+      ]
+    },
+    "92N6 Gravestone": {
+      "status": "unverified",
+      "values": {
+        "chassis": "MZKT-7930 8×8",
+        "sensors": "Mitmefunktsiooniline faasantennradar (I/J-sagedusala, 8,5–10,5GHz); antenn 4×2m; avastus- ja jälgimiskaugus kuni 340–400km; jälgib 20 sihtmärki; juhib kuni 12 raketti 40N6 kuni 6 sihtmärgi vastu",
+        "specialEquipment": "S-400 komplekti mitmefunktsiooniline tulejuhtimisradar 92N6E (alates 2007): jälgib sihtmärke, juhib raketilaskeid ja edastab andmeid laskeseadmetele; töötab koos avastusradaritega 91N6E ja 96L6E"
+      },
+      "warnings": {
+        "sensors": "Ulatus: ARMSNET 400km, Wikipedia (S-400) 340km."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 92N6E Grave Stone", "url": "https://armsnet.duckdns.org/equipment/c8ef2dcf-1f5b-44bd-2a1f-08de7ebf1f0c", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-10-23"}
+      ]
+    },
+    "64N6 Big Bird": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "chassis": "MAZ-74106 veok-poolhaagis (MAZ-543 perekond, 8×8)",
+        "combatWeight": 60,
+        "sensors": "Faasantennradar (S-sagedusala, 2,9–3,3GHz): õhu- ja tiibraketisihtmärgid kuni 300km, ballistiliste rakettide stardid kuni 1000km; avastab kuni 300 sihtmärki korraga; antenni pöörlemine 12s/tiir; sihtmärgi kiirus kuni 2788m/s; valmisolek marsist 5min",
+        "specialEquipment": "S-300P / S-300PM ühe pataljoni või polgu üldavastusradar (NATO „Big Bird“, Venemaa 64N6E, 1979); annab sihtmärgi andmeid juhtimispunktile 54K6 ja tulejuhtimisradarile 30N6"
+      },
+      "warnings": {
+        "sensors": "ARMSNET: avastuskaugus 140–150 meremiili ≈ 260–280km ja kuni 200 sihtmärki; antenn pöörleb 6 või 12 tiiru minutis.",
+        "chassis": "Wikipedia/GlobalSecurity: MAZ-543 perekond; ARMSNET ei nimeta šassiid."
+      },
+      "notes": {
+        "sensors": "Uuem 91N6E („Big Bird“ / „Tombstone“, MZKT-7930): avastuskaugus kuni 600km, 300 sihtmärki."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 64N6E", "url": "https://armsnet.duckdns.org/equipment/ef92b2fd-d8a5-4ce3-e895-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 64N6E (tehnilised andmed)", "url": "https://armsnet.duckdns.org/equipment/29787feb-437a-4bc7-89e8-08decb838d08", "retrieved": "2026-10-23"},
+        {"name": "GlobalSecurity: 64N6 / 91N6E Tombstone / Big Bird", "url": "https://www.globalsecurity.org/military/world/russia/tombstone.htm", "retrieved": "2026-10-23"}
+      ]
+    },
+    "35N6 Kasta-2E": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "sensors": "Madalõhu (madalal kõrgusel lendavate sihtmärkide) avastusradar: Kasta 2E1 (UHF 830–882MHz, 32km 100m kõrgusel 5,4/14m antenniga, 58km 50m mastiga), Kasta 2E2 (41km, mastiga 55km; 50 jälge ja 200 märki)",
+        "specialEquipment": "Mobiilne madala lennukõrgusega sihtmärkide avastusradar (S-300/S-400 jt õhutõrjesüsteemide lisaradar). Pööretega 6–12 p/min. 2E1: kaks masinat, 2E2: kolm masinat (antenn, juhtimispunkt, diiselgeneraator) ja kaks haagist. Püsti 20min, sisselülitus 3,3min, kokkupakkimine 20min; võimsustarve 1kW keskmiselt (2E1) ja kuni 23kW (2E2)"
+      },
+      "warnings": {
+        "sensors": "Wikipedia kirjeldab radareid 51U6 (2E1) ja 39N6E (2E2); tähist „35N6“ allikad ei kinnita, seetõttu kasutati Wikipedia nimetusi."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kasta 2E", "url": "https://en.wikipedia.org/wiki/Kasta_2E", "retrieved": "2026-10-23"}
+      ]
+    },
+    "30N6 Tombstone": {
+      "status": "unverified",
+      "values": {
+        "chassis": "Flap Lid A: haagis (veab Ural-375, KrAZ-255 või KrAZ-260); Flap Lid B: veokil MZKT-7930",
+        "sensors": "Tulejuhtimisradar 30N6E „Flap Lid“ (I/J-sagedusala): instrumentaalulatus 300km, jälgib 6 sihtmärki, igaühele 2 raketti; elevatsioon 0–50° (võimalik 75°); faasantenn ca 10 000 elemendiga; sihtmärki jälgitakse raketi kaudu (track-via-missile)",
+        "specialEquipment": "S-300P / S-300PMU tulejuhtimisradar, mis juhib raketilaskeid; 30N6E1/E2 avastuskaugus 200km ja jälgib 6 sihtmärki"
+      },
+      "warnings": {
+        "chassis": "Nimetus „Tombstone“ viitab tavaliselt radarile 64N6 / 91N6E; 30N6 NATO nimetus on „Flap Lid“."
+      },
+      "sources": [
+        {"name": "RadarTutorial: 30N6E Flap Lid", "url": "https://www.radartutorial.eu/19.kartei/06.missile/karte005.en.html", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: S-300 missile system", "url": "https://en.wikipedia.org/wiki/S-300_missile_system", "retrieved": "2026-10-23"}
+      ]
+    },
+    "96L6 Cheese Board": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 operaatorit",
+        "chassis": "MAZ-7930 (MZKT-7930) 8×8",
+        "length": 11.7,
+        "width": 3.07,
+        "height": 2.92,
+        "maxSpeedRoad": 65,
+        "range": 650,
+        "sensors": "3D ülevaaderadar (C-sagedusala, 2,9–3,2GHz): avastuskaugus 300km, jälgib 100 sihtmärki; antenn 5,5×2,5m ja 96 kiirgavat rida; pöörlemine 5 (madalad kõrgused) või 10 p/min (kõik kõrgused); kõrgusnurk −3…+1,5° / −1,5…+20°",
+        "specialEquipment": "Õhusihtmärkide, helikopterite, droonide ja rakettide avastusradar (S-300/S-400): töökorda kuni 5min, TBK-kaitse; sagedushüpe, kõrge mürakindlus; MTBCF 10 000h"
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 96L6E Cheese Board", "url": "https://armsnet.duckdns.org/equipment/2cbcd710-89d6-42d2-eab6-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 96L6E (tehnilised andmed)", "url": "https://armsnet.duckdns.org/equipment/c6b3e528-c327-4dcc-89f4-08decb838d08", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-10-23"}
+      ]
+    },
+    "PPRU-1": {
+      "status": "unverified",
+      "values": {
+        "crew": "5",
+        "chassis": "MT-LBu roomikšassii",
+        "combatWeight": 15.5,
+        "length": 7.21,
+        "width": 2.85,
+        "height": 1.9,
+        "engine": "YaMZ-238N V8 diisel",
+        "power": 300,
+        "maxSpeedRoad": 61.5,
+        "maxSpeedOffroad": 30,
+        "maxSpeedWater": 6,
+        "amphibious": true,
+        "sensors": "Radar 9S80 „Ovod-M-SV“ (X-sagedusala, digitaalne): õhusihtmärkide avastuskaugus 40km (ARMSNET 25–30km), värskendus 5s; jälgib kuni 99 sihtmärki (ARMSNET: ca 35 automaatselt, kuni 8 samaaegselt juhitavat); IFF-päringu seade",
+        "specialEquipment": "Õhutõrje luure- ja juhtimismasin (1985): patarei/polgu õhutõrjeülema juhtimispunkt, mis juhib õhutõrjesoomukeid ZSU-23-4 „Shilka“, Strela-10, Tunguska, Strela-1M ning kaudselt Igla taskuraketid. Raadiod R-123MT ja R-111; sihtmärgi andmed edastatakse 2–3s jooksul; töökorda 5min; pidev töö 24h",
+        "armor": "Keevitatud alumiiniumkere"
+      },
+      "warnings": {
+        "sensors": "Wikipedia: avastuskaugus 40km, 99 sihtmärki; ARMSNET (PPRU-M1): 25–30km, ca 35 sihtmärki."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): PPRU-M1", "url": "https://armsnet.duckdns.org/equipment/49d53e5a-b138-429a-e5ca-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: PPRU-1", "url": "https://en.wikipedia.org/wiki/PPRU-1", "retrieved": "2026-10-23"},
+        {"name": "Air Power Australia: Air Defence Command Posts", "url": "https://www.ausairpower.net/APA-Rus-ADCP-CP.html", "retrieved": "2026-10-23"}
+      ]
+    },
+    "1L119 NEBO-SVU": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "chassis": "Ural või KamAZ veok (diiselgeneraatorid ED 2×30-T400); antenniseade poolhaagisel ChMZAP-9907.2 (2 masinat)",
+        "sensors": "VHF-radar (150–180MHz, vertikaalne polarisatsioon), AESA-antenn 16×6m (84 Yagi-elementi): avastuskaugus kuni 380–500km, jälgimiskaugus kuni 200km; 1m² sihtmärk 20km kõrgusel 380km, 10km kõrgusel 270km; hävitaja (2,5m²) 10km kõrgusel 250km; ballistilised sihtmärgid kuni 180km kõrgusel; jälgib kuni 100 sihtmärki",
+        "specialEquipment": "Mobiilne meetrilaine radar varjatud (stealth) sihtmärkide avastamiseks (NATO „Box Spring“, 1997/2001): kasutatakse S-300 ja S-400 tulejuhtimise kaugavastuseks; paigaldus ca 20min; võimsus 30kW"
+      },
+      "warnings": {
+        "sensors": "Avastuskaugus: Wikipedia infoboksis 380km, ARMSNET 500km.",
+        "chassis": "ARMSNET märgib radari pikkuseks 60m ja laiuseks 6m, mis on tõenäoliselt väljaulatuva antenniseadme mõõt."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1L119 Nebo-SVU", "url": "https://armsnet.duckdns.org/equipment/0d0cf008-1e0c-4b06-e6ab-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Nebo-SVU", "url": "https://en.wikipedia.org/wiki/Nebo-SVU", "retrieved": "2026-10-23"}
+      ]
+    },
+    "9M337 Sosna-R": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "chassis": "MT-LB roomikšassii",
+        "length": 6.45,
+        "width": 2.85,
+        "height": 1.87,
+        "engine": "YaMZ-238V V8 diisel",
+        "power": 240,
+        "maxSpeedRoad": 62,
+        "maxSpeedWater": 6,
+        "range": 500,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.7,
+        "trench": 2.7,
+        "samMissiles": "12 × 9M337 Sosna-R (kahes kuue toruga konteinerblokis; 30,6kg, koos konteineriga 42kg; tandem-lõhkepea 7,2kg; kiirus ca 900m/s; optiline laserkiirega juhtimine)",
+        "samRange": {"min": 1300, "max": 10000},
+        "samAltitude": {"min": 2, "max": 5000},
+        "secondaryArmament": "Sosna-variant: kaksiktoruline 30mm automaatkahur 2A38M (laskekaugus 4km)",
+        "sensors": "Optilis-elektrooniline sihtimissüsteem (soojuskaamera, TV-kaamera, laserkaugusmõõtja), passiivne avastus 360°; jälgib kuni 50 sihtmärki; reaktsiooniaeg 5–8s; tuli liikvel olles",
+        "specialEquipment": "Iseliikuv lähitõrje õhutõrjeraketikompleks (alates 2019): raketid juhitakse laserkiirega, vastupidav raadiosegamisele; ümberlaadimine 10min; TBK-kaitse",
+        "armor": "Keevitatud teras 7–14mm; lisasoomus saadaval"
+      },
+      "warnings": {
+        "samAltitude": "Maksimaalne kõrgus: 5000m (spetsifikatsioon), 3500m (kirjeldus) ja 10 000m (ARMSNET šassii kirjelduses).",
+        "samRange": "Maksimaalne laskekaugus: 10km (spetsifikatsioon), 8km (kirjeldus).",
+        "secondaryArmament": "Kahur kuulub ühe variandi juurde (Sosna); tavaline Sosna-R kannab ainult rakette."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 9M337 Sosna-R", "url": "https://armsnet.duckdns.org/equipment/25e248d1-03df-45d4-ea9d-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Sosna-R (rakett)", "url": "https://armsnet.duckdns.org/equipment/7f5e6a5f-8e21-49ed-a174-08decf7cbc1f", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: 9M337 Sosna-R", "url": "https://en.wikipedia.org/wiki/9M337_Sosna-R", "retrieved": "2026-10-23"}
+      ]
+    },
+    "2S25 Sprut-SD": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "chassis": "Ujuv roomikšassii, hüdropneumaatiline vedrustus (kliirens 190–590mm)",
+        "combatWeight": 18,
+        "length": 9.77,
+        "width": 3.15,
+        "height": 2.72,
+        "engine": "2V-06-2S diisel",
+        "power": 510,
+        "maxSpeedRoad": 70,
+        "maxSpeedOffroad": 45,
+        "maxSpeedWater": 10,
+        "range": 500,
+        "amphibious": true,
+        "airDroppable": true,
+        "verticalStep": 0.8,
+        "trench": 2.8,
+        "caliber": 125,
+        "mainArmament": "125mm sileraudne kahur 2A75 (autolaadur 22 lasku, kokku 40 lasku; APFSDS, HE-Frag, HEAT ja juhitav rakett 9M119 Svir)",
+        "atgm": "9M119 Svir (laserkiirega juhitav, tulistatakse kahurist)",
+        "rateOfFire": 8,
+        "secondaryArmament": "Koaksiaalne 7,62mm PKT (2000 lasku); hilisemates versioonides kaugjuhitav relvajaam",
+        "sensors": "Stabiliseeritud kahur ja ülema sihik, laserkaugusmõõtja, ballistiline arvuti; igal meeskonnaliikmel päeva- ja öövaatlusseade",
+        "specialEquipment": "Dessandi tankitõrjekahur (laskekaugus raketiga ca 4km): ujub veejoamootoritega, kuni merelaine 3 ballini; saab langevarjuga heita koos meeskonnaga; TBK-kaitse",
+        "armor": "Alumiiniumkere komposiitkattega; ees ±40° kaitseb 23mm mürsu eest 500m kauguselt"
+      },
+      "warnings": {
+        "chassis": "Allikas ei täpsusta šassii päritolu; siin üldine kirjeldus."
+      },
+      "notes": {
+        "rateOfFire": "6–8 lasku/min autolaaduriga; käsitsi laadimine on tunduvalt aeglasem.",
+        "armor": "Sprut-SDM1: täiustatud tulejuhtimissüsteem ja kaugjuhitav relvajaam."
+      },
+      "sources": [
+        {"name": "Wikipedia: 2S25 Sprut-SD", "url": "https://en.wikipedia.org/wiki/2S25_Sprut-SD", "retrieved": "2026-10-23"}
+      ]
+    },
+    "BTR-RD": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 + tankitõrjemeeskond (BTR-D põhjal)",
+        "chassis": "BTR-D (õhudessandi roomikšassii)",
+        "combatWeight": 8.2,
+        "length": 5.88,
+        "width": 2.63,
+        "height": 2.05,
+        "engine": "5D20 V6 diisel",
+        "power": 240,
+        "maxSpeedRoad": 61,
+        "maxSpeedWater": 10,
+        "range": 450,
+        "amphibious": true,
+        "airDroppable": true,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.7,
+        "trench": 2.5,
+        "caliber": 7.62,
+        "mainArmament": "2 × 7,62mm PKT esikuulipilduja (2000 lasku)",
+        "atgm": "9M113 Konkurs / 9M113M Konkurs-M, valikuliselt 9M111 Fagot; kaks stardiseadet 9P135M-1 (katusel parempoolses küljes); vähemalt 4, kuni 12 raketti",
+        "atgmPenetration": "Konkurs: kuni 600mm RHA; Konkurs-M: 750–800mm DZ taga",
+        "atgmRange": {"min": 70, "max": 4000},
+        "specialEquipment": "Dessandi tankitõrjesoomuk „Robot“ (1983): kannab ATGM-meeskonda ja tulistada võib soomukilt või maha võetud stardiseadmega. Võib heita langevarjuga; 2019. aastal lisati Kornet (9K135)",
+        "armor": "Alumiiniumkere: piiratud kaitse raskekuulipildujate tule eest; stardiseadme operaator on osaliselt kaitsmata"
+      },
+      "warnings": {
+        "combatWeight": "BTR-RD-l puudub eraldi tehniline kirjeldus; mõõtmed ja mass on BTR-D omad (ARMSNET).",
+        "atgm": "Wikipedia: kaks stardiseadet 9P135M-1; Army Recognition: üks 9P135M kere katusel."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BTR-D (BMD M1979)", "url": "https://armsnet.duckdns.org/equipment/f1bc8497-188b-4d97-e623-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: BTR-D", "url": "https://en.wikipedia.org/wiki/BTR-D", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: 9M113 Konkurs", "url": "https://en.wikipedia.org/wiki/9M113_Konkurs", "retrieved": "2026-10-23"},
+        {"name": "Army Recognition: BTR-RD", "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/russian-paratroopers-receive-refurbished-bmd-2-and-btr-rd-armored-vehicles", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Kornet-D": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "AMS 233144 Tigr-M 4×4 (soomustatud maastur)",
+        "length": 4.61,
+        "engine": "GAZ-562 või Cummins B180/B215 diisel",
+        "power": 215,
+        "maxSpeedRoad": 140,
+        "maxSpeedOffroad": 80,
+        "range": 1000,
+        "atgm": "8 × 9M133M Kornet-EM (tandem-HEAT või termobaarilise lõhkepeaga); tulistab kaks raketti alla 1s vahega samale või kahele sihtmärgile",
+        "atgmRange": {"min": 150, "max": 8000},
+        "atgmPenetration": "9M133M-2: 1100–1300mm RHA DZ taga; 3–3,5m betooni",
+        "specialEquipment": "Tankitõrjeraketikompleks (kasutuses 2015): laskemeeskond saab juhtida laskmist kuni 50m kauguselt; laserkiirega juhtimine (SACLOS), automaatjälgija; Kornet-D1 on õhudessandi variant"
+      },
+      "warnings": {
+        "atgmRange": "Wikipedia Kornet-D lehel laskekaugust pole; väärtus pärineb Kornet-EM raketi kohta."
+      },
+      "notes": {
+        "atgmRange": "9M133F-3 (killu-lõhkepea) kuni 10km; öösel lühem.",
+        "engine": "Võimsus 197–215hj sõltuvalt mootorist."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kornet-D", "url": "https://en.wikipedia.org/wiki/Kornet-D", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: 9M133 Kornet", "url": "https://en.wikipedia.org/wiki/9M133_Kornet", "retrieved": "2026-10-23"}
       ]
     }
   }
