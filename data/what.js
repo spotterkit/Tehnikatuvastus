@@ -165,11 +165,9 @@ window.WHAT_DATA = {
           "label": "Näiteks kasutavad BMP-1 alusplatvormi",
           "models": [
             {"name": "BMP-1KSh", "cat": "BMP-1Ksh"},
-            {"name": "BMP-1AM"},
             {"name": "BRM-1K", "cat": "BRM-1K"},
             {"name": "PRP-4A", "cat": "PRP-4"},
             {"name": "PRP-3", "cat": "PRP-3"},
-            {"name": "BMP-1P"},
             {"name": "BREM-2", "cat": "BREM-2"}
           ]
         }
@@ -197,15 +195,6 @@ window.WHAT_DATA = {
         {"n": 11, "text": "Torn suur ja 2-kohaline (sihtur vasakul, ülem paremal)."},
         {"text": "Torni peal JTTRK laskealus."},
         {"text": "Suitsugranaadiheitjad üldjuhul tornil."}
-      ],
-      "related": [
-        {
-          "label": "Näiteks kasutavad BMP-2 alusplatvormi",
-          "models": [
-            {"name": "BMP-2M"},
-            {"name": "BMP-2K"}
-          ]
-        }
       ]
     },
     "BMP-3": {
@@ -235,8 +224,6 @@ window.WHAT_DATA = {
           "label": "Näiteks kasutavad BMP-3 alusplatvormi",
           "models": [
             {"name": "9P157-2 „KRIZANTEMA-S“", "cat": "9P157-2 Krizantema-S"},
-            {"name": "BREM-L"},
-            {"name": "BMP-3F"},
             {"name": "9P162 „KORNET-T“", "cat": "9P162 Kornet-T"}
           ]
         }
@@ -271,7 +258,6 @@ window.WHAT_DATA = {
           "models": [
             {"name": "RKhM-6", "cat": "RKhM-6"},
             {"name": "RKhM-4", "cat": "RKhM-4"},
-            {"name": "BTR-80K"},
             {"name": "2S23", "cat": "2S23 NONA-SVK"},
             {"name": "BREM-K", "cat": "BREM-K"}
           ]
@@ -340,15 +326,11 @@ window.WHAT_DATA = {
         {
           "label": "Näiteks kasutavad MT-LB alusplatvormi",
           "models": [
-            {"name": "MT-LBVMK"},
-            {"name": "MT-LBV"},
-            {"name": "MT-LBMA"},
             {"name": "SNAR-10", "cat": "SNAR-10"},
             {"name": "UR-77", "cat": "UR-77"},
             {"name": "2S1", "cat": "2S1 Gvozdika"},
             {"name": "9P149", "cat": "9P149 Shturm-S"},
-            {"name": "STRELA-10", "cat": "STRELA-10/SA-13 Gopher"},
-            {"name": "MT-LBMB"}
+            {"name": "STRELA-10", "cat": "STRELA-10/SA-13 Gopher"}
           ]
         }
       ]
@@ -405,7 +387,6 @@ window.WHAT_DATA = {
             {"name": "R-934BMV", "cat": "R-934BMV (RB-301B Borisoglebsk-2)"},
             {"name": "SPR-2M „RTUT-BM“", "cat": "SPR-2M RTUT-BM"},
             {"name": "ARK-1M", "cat": "ARK-1"},
-            {"name": "1V12"},
             {"name": "1V13", "cat": "1V13"},
             {"name": "1V15", "cat": "1V15"}
           ]
@@ -462,16 +443,6 @@ window.WHAT_DATA = {
       ],
       "turret": [
         {"n": 8, "text": "Väike ühekohaline torn."}
-      ],
-      "related": [
-        {
-          "label": "Näiteks kasutavad BMD-2 alusplatvormi",
-          "models": [
-            {"name": "BMD-2K-AU"},
-            {"name": "BMD-2K"},
-            {"name": "BMD-2M"}
-          ]
-        }
       ]
     },
     "BMD-4M": {
@@ -521,9 +492,7 @@ window.WHAT_DATA = {
             {"name": "BTR-RD", "cat": "BTR-RD"},
             {"name": "BMD-1KSh", "cat": "BMD-1Ksh"},
             {"name": "2S9", "cat": "2S9 Nona"},
-            {"name": "BMRD R-149"},
             {"name": "R-440 ODB", "cat": "R-440 ODB"},
-            {"name": "BMD-1R"},
             {"name": "1V119", "cat": "1V119"},
             {"name": "BREM-D", "cat": "BREM-D"}
           ]
