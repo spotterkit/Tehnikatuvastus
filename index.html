@@ -237,6 +237,7 @@
   }
   button:hover{border-color:var(--olive);color:var(--olive);}
   button:disabled{opacity:0.4;cursor:not-allowed;}
+  .home-main .row > button{white-space:normal;min-width:0;}
   button.primary{background:var(--olive-dim);border-color:var(--olive-dim);color:var(--bone);}
   button.primary:hover{background:var(--olive);border-color:var(--olive);color:#12140c;}
   button.good{border-color:var(--green);color:var(--green);}
@@ -1239,7 +1240,7 @@ const CATEGORIES = [
   { label: "Nanuchka klass", group: "ships", type: "Korvett/väike raketilaev", cat: "Nanuchka klass", weight: 1, files: ["Sevastopol_Nanuchka_Class_Corvette_%28231434875%29.jpeg"] },
   { label: "Ondatra klass", group: "ships", type: "Dessantkaater", cat: "Ondatra klass", weight: 1, files: ["ДКА_Д-704_в_Амурском_заливе_2010.07.25.JPG"] },
   { label: "Serna klass", group: "ships", type: "Dessantkaater", cat: "Serna klass", weight: 1, files: ["«Д-156».jpg"] },
-  { label: "Sonya klass", group: "ships", type: "Miinitraaler", cat: "Serna klass", weight: 1, files: ["«Герман_Угрюмов»1.jpg"] },
+  { label: "Sonya klass", group: "ships", type: "Miinitraaler", cat: "Sonya klass", weight: 1, files: ["«Герман_Угрюмов»1.jpg"] },
   { label: "Grachonok klass", group: "ships", type: "Diversioonivastane kaater", cat: "Grachonok klass", weight: 1, files: ["День_ВМФ-2019_Санкт_Петербург_%286%29.jpg"] },
   { label: "Lida klass", group: "ships", type: "Miinitraaler", cat: "Lida klass", weight: 1, files: ["«РТ-233».jpg"] },
   { label: "Raptor klass", group: "ships", type: "Diversioonivastane paat", cat: "Raptor klass", weight: 1, files: ["Russian_Navy_Raptor_near_Kronstadt.jpg"] },
@@ -1515,6 +1516,23 @@ const CATEGORIES = [
   { label: "Strela-2M 9K32M", group: "weapons", type: "Õhutõrjerakett", cat: "Strela-2M (9K32M)", weight: 1, files: ["SA-7.jpg"] },
   { label: "Strela-3 9K34", group: "weapons", type: "Õhutõrjerakett", cat: "Strela-3 (9K34)", weight: 1, files: ["SA-14_missile_and_launch_tube.jpg"] },
   { label: "Verba 9K333", group: "weapons", type: "Õhutõrjerakett", cat: "Verba (9K333)", weight: 1, files: ["9K333_Verba_MANPAD_at_Military-technical_forum_ARMY-2016_01.jpg"] },
+  // Täiendavad relvašabloonid (avalike allikate põhjal, nt Wikipedia „List of equipment of the Russian Ground Forces“) — lisa pildifailid files[] massiividesse.
+  { label: "PM „Makarov“", group: "weapons", type: "Püstol", cat: "PM „Makarov“", weight: 1, files: [] },
+  { label: "MP-443 „Grach“", group: "weapons", type: "Püstol", cat: "MP-443 „Grach“", weight: 1, files: [] },
+  { label: "GSh-18", group: "weapons", type: "Püstol", cat: "GSh-18", weight: 1, files: [] },
+  { label: "APS „Stechkin“", group: "weapons", type: "Automaatpüstol", cat: "APS „Stechkin“", weight: 1, files: [] },
+  { label: "AKM", group: "weapons", type: "Automaat", cat: "AKM", weight: 1, files: [] },
+  { label: "AKS-74U", group: "weapons", type: "Automaatkarabiin", cat: "AKS-74U", weight: 1, files: [] },
+  { label: "AK-103", group: "weapons", type: "Automaat", cat: "AK-103", weight: 1, files: [] },
+  { label: "AS „Val“", group: "weapons", type: "Summutiga automaat", cat: "AS „Val“", weight: 1, files: [] },
+  { label: "PP-19 „Vityaz“", group: "weapons", type: "Püstolkuulipilduja", cat: "PP-19 „Vityaz“", weight: 1, files: [] },
+  { label: "DShK", group: "weapons", type: "Raskekuulipilduja", cat: "DShK", weight: 1, files: [] },
+  { label: "GP-30 „Obuvka“", group: "weapons", type: "Vintrauaalune granaadiheitja", cat: "GP-30 „Obuvka“", weight: 1, files: [] },
+  { label: "AGS-30", group: "weapons", type: "Automaatgranaadiheitja", cat: "AGS-30", weight: 1, files: [] },
+  { label: "RPG-18 „Mukha“", group: "weapons", type: "TT-ühekordne lask", cat: "RPG-18 „Mukha“", weight: 1, files: [] },
+  { label: "RPG-27 „Tavolga“", group: "weapons", type: "TT-ühekordne lask", cat: "RPG-27 „Tavolga“", weight: 1, files: [] },
+  { label: "RPG-32 „Hashim“", group: "weapons", type: "Tankitõrjegranaadiheitja", cat: "RPG-32 „Hashim“", weight: 1, files: [] },
+  { label: "MRO-A", group: "weapons", type: "Ühekordne leegiheitja", cat: "MRO-A", weight: 1, files: [] },
 
   // Väeliigid ja üksused — emblemmid ja üldfotod; šabloon, lisa pildifailid files[] massiividesse
   // (nt "images/forces/vdv_embleem.png" või Commonsi failinimi). Pildita read ei kajastu kusagil.
@@ -2065,7 +2083,7 @@ async function fetchSpecificFile(filename){
 // ============================================================================
 function fillAnswerBlock(cur, guessText){
   yourGuess.innerHTML = guessText
-    ? 'Sinu vastus: <b>' + guessText.replace(/</g,'&lt;') + '</b>'
+    ? 'Sinu vastus: <b>' + guessText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</b>'
     : 'Vastus jäeti tühjaks.';
   correctValue.textContent = (cur.type ? cur.type + ' ' : '') + cur.label;
   fileLine.innerHTML = 'Failinimi: ' + cur.filename
@@ -4565,7 +4583,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc38'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc39'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
