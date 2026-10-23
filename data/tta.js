@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 18,
+  "version": 19,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -7136,6 +7136,232 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: RDG-2", "url": "https://en.wikipedia.org/wiki/RDG-2", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MS-3": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 0.66,
+        "mineDiameter": 110,
+        "mineHeight": 65,
+        "explosiveMass": 340,
+        "explosiveType": "TNT",
+        "casing": "Plastkorpus, pruun, must kate keskse eendiga",
+        "delivery": "Rõhu vabastamisel (koormuse eemaldamisel) töötav lõksmiin. Ehituselt PMN-i sarnane, kuid süttib koormuse kadumisel (min 5 kg). Kasutatakse tõstmisvastase seadmena miinidel, millel seda pole, või eraldi lõksuna. Kasutusiga piiramatu, isehävitust pole."
+      },
+      "warnings": {
+        "explosiveMass": "Sappers.org: 0,34 kg TNT, läbimõõt 110 mm; NoLandmines: 310 g, läbimõõt 112 mm (autor ei kaalunud). Allikas viitab süütele ise vastuoluliselt (MD-3 / MD-9)."
+      },
+      "sources": [
+        {"name": "Sappers.org: MS-3", "url": "https://sappers.org/uk/dovidnyk/miny/syurpryzy-i-pastky/ms-3", "retrieved": "2026-10-23"},
+        {"name": "NoLandmines: MS-3", "url": "https://nolandmines.com/explosive_hazards/minesMS3.htm", "retrieved": "2026-10-23"},
+        {"name": "Metis (Fenix Insight): MS-3", "url": "https://metis.fenixinsight.com/munition/boobyTrap/ms-3-booby-trap", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MS-4": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 0.41,
+        "mineLength": 155,
+        "mineWidth": 92,
+        "mineHeight": 31,
+        "explosiveMass": 120,
+        "explosiveType": "TNT",
+        "casing": "Metall, matt oliivroheline",
+        "delivery": "Mitmeotstarbeline lõhkelõks: kasutatav asjade lõksustamiseks, miinide tõstmisvastase seadmena, raudtee-/transpordimiinina või objektimiini süütena. Anduriteks kalde- (20°) ja vibratsiooniandur ning taimer 15 min – 360 h. Süüde MD-9. Lahtimuutmine keelatud."
+      },
+      "warnings": {
+        "mineMass": "Üks allikas (Sappers.org). Garanteeritud lahinguiga 3–4 kuud, sageli üle aasta."
+      },
+      "sources": [
+        {"name": "Sappers.org: MS-4", "url": "https://sappers.org/uk/dovidnyk/miny/syurpryzy-i-pastky/ms-4", "retrieved": "2026-10-23"}
+      ]
+    },
+    "ML-8": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 0.37,
+        "mineLength": 114,
+        "mineWidth": 60,
+        "mineHeight": 40,
+        "explosiveMass": 80,
+        "casing": "Plast, roheline",
+        "delivery": "Koormuse vabastamisel töötav lõksmiin. Tõstmisvastane seade PMN, PMN-2, PMN-4, PMD-6M, OZM-72 ja TM-62 sarja miinide all või lõks relvade/varustuse all. Sensori tundlikkus üle 0,25 kg; aktiveerimine 2–2,5 min pärast paigaldust. Lahtimuutmine keelatud."
+      },
+      "warnings": {
+        "explosiveMass": "Sappers.org märgib lõhkeaine 0,08 kg (liiki ei nimeta)."
+      },
+      "sources": [
+        {"name": "Sappers.org: ML-8", "url": "https://sappers.org/uk/dovidnyk/miny/syurpryzy-i-pastky/ml-8", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Ukraine Unveils Most Common Russian Mines", "url": "https://militarnyi.com/en/news/ukraine-unveils-most-common-russian-mines-with-presidential-brigade-s-sappers/", "retrieved": "2026-10-23"}
+      ]
+    },
+    "PMP": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 0.145,
+        "mineLength": 120,
+        "mineDiameter": 36,
+        "casing": "Teras",
+        "delivery": "Rõhutoimeline kuulmiin (kineetiline): rõhu all laseb 7,62×25 mm TT padruni, kuul (5,52 g) vigastab jalga. Tundlikkus 7–30 kgf. Sileraudne toru, kummikate ülaosas."
+      },
+      "warnings": {
+        "mineMass": "Läbimõõt 36 mm on mõõdetud löögimutri kohalt. Ära sega PMP-71-ga (100 g TNT)."
+      },
+      "sources": [
+        {"name": "Sappers.org: PMP", "url": "https://sappers.org/uk/dovidnyk/miny/protypihotni-natysknoyi-diyi/pmp", "retrieved": "2026-10-23"},
+        {"name": "Metis (Fenix Insight): PMP", "url": "https://metis.fenixinsight.com/munition/mine/pmp", "retrieved": "2026-10-23"}
+      ]
+    },
+    "POB Pilka": {
+      "status": "unverified",
+      "values": {
+        "mineDiameter": 90,
+        "mineHeight": 170,
+        "explosiveMass": 510,
+        "explosiveType": "TG-40",
+        "casing": "Plast; sees terasrõngastest killud (samad siseläbimõõdud, erinevad välisläbimõõdud)",
+        "lethalRadius": 20,
+        "delivery": "Hüppav killumiin, tõmbetraadiga (20 m) või käsu alusel (NM süütur, NVU-P/NVU-P2). Võeti kasutusele 2005. OZM-72 asendajana. Detoneerib 0,4–0,6 m kõrgusel. Süüted MUV-2/3/4, MVE-72, MVE-NS, MVE-92. Isehävitust ega tõstmisvastast kaitset pole."
+      },
+      "warnings": {
+        "lethalRadius": "Sappers.org: pideva kahjustuse raadius 20 m. Allika massiväli (23 kg) on ebausutav, seetõttu massi ei kuvata."
+      },
+      "sources": [
+        {"name": "Sappers.org: POB Pilka", "url": "https://sappers.org/uk/dovidnyk/miny/protypihotni-natyazhnoyi-diyi/pob-pilka", "retrieved": "2026-10-23"},
+        {"name": "ARMSNET: POB-Pilka", "url": "https://armsnet.duckdns.org/equipment/5a2c9de3-7e03-4fd8-ed68-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Vkladysh": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 0.83,
+        "mineDiameter": 61.5,
+        "mineHeight": 170,
+        "explosiveMass": 50,
+        "explosiveType": "A-IX-1",
+        "casing": "Teras (killud moodustuvad rõngastest)",
+        "delivery": "Jalaväevastane kildmiin-käsigranaat ringlöögiga, tõmbetoimeline (4 andurit, kuni 10 m). Võeti kasutusele 2007. Asetatakse ainult käsitsi maapinnale; granaadina viivitus 3–5 s. Isehävitus 3–100 h pärast paigaldust, isetühistus kuni 120 päeva."
+      },
+      "warnings": {
+        "mineMass": "Üks allikas; kahjustusraadiust allikas ei anna."
+      },
+      "sources": [
+        {"name": "Sappers.org: MIB Vkladysh", "url": "https://sappers.org/uk/dovidnyk/miny/protypihotni-natyazhnoyi-diyi/mib-vkladysh", "retrieved": "2026-10-23"}
+      ]
+    },
+    "OZ-1": {
+      "status": "unverified",
+      "values": {
+        "delivery": "Lõhkelaeng üksikinimese kaevikupesa rajamiseks külmunud või kõvas pinnases. Järgnevate laengutega saab pesa laiendada mitmele võitlejale. Komplektis ≈96 mm plastkorpusega KZ-OZ-1."
+      },
+      "warnings": {
+        "delivery": "Tasuta osa; mass ja laengu andmed puuduvad."
+      },
+      "sources": [
+        {"name": "Metis (Fenix Insight): OZ-1", "url": "https://metis.fenixinsight.com/munition/demolitionStore/oz-1", "retrieved": "2026-10-23"}
+      ]
+    },
+    "KZU-2": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 0.9,
+        "mineLength": 150,
+        "mineWidth": 105,
+        "mineHeight": 85,
+        "explosiveMass": 320,
+        "explosiveType": "TG-40 (TNT ja heksogeeni sulam)",
+        "delivery": "Kumulatiivlaeng raudbetoon- ja metallkonstruktsioonide (sillad, toed, torustikud) lõhkamiseks; töötab igas ilmas ja vee all; elektriline süütamine. Kinnitus eemaldatavate magnetite ja köiega. Läbistus ≈3,6 cm terast / 30 cm raudbetooni."
+      },
+      "warnings": {
+        "mineMass": "Kollektsionääride foorumi postitus, mis viitab vene käsiraamatule; sõltumatult kontrollimata."
+      },
+      "sources": [
+        {"name": "BOCN forum: KZU-2 demolition charge", "url": "https://www.bocn.co.uk/threads/kzu-2-demolition-charge-russia.110648/", "retrieved": "2026-10-23"}
+      ]
+    },
+    "SPM": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 3,
+        "mineLength": 280,
+        "mineWidth": 115,
+        "mineHeight": 75,
+        "explosiveMass": 1000,
+        "explosiveType": "MS",
+        "casing": "Bakeliit (fenoolplast)",
+        "delivery": "Keskmine magnetmiin (ajastatud objektimiin) metallosadega sihtmärkide vastu (kütusepaagid, torustikud, sõidukid, õhusõidukid, laevad). Kinnitub kahe kaarja magnetiga (hoiujõud 40–60 kg); kasutatav ka vee all kuni 10 m. Viitsüüde VZD-1M või VZD-20M. Kasutavad peamiselt mereväe lahingujuubijad ja merejalavägi."
+      },
+      "warnings": {
+        "mineMass": "Sappers.org: läbistus 400×350 mm 30 mm terasplaadis."
+      },
+      "sources": [
+        {"name": "Sappers.org: SPM", "url": "https://sappers.org/uk/dovidnyk/miny/obyektni/spm", "retrieved": "2026-10-23"},
+        {"name": "Metis (Fenix Insight): SPM", "url": "https://metis.fenixinsight.com/munition/mine/spm", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MPM": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 0.77,
+        "mineLength": 150,
+        "mineWidth": 75,
+        "mineHeight": 50,
+        "explosiveMass": 300,
+        "explosiveType": "TG-50",
+        "casing": "Bakeliit (fenoolplast), tumepruun",
+        "delivery": "Väike magnetmiin (ajastatud objektimiin, ilma killuefektita). Nõukogude konstruktsioon, kuulub kinnitusmiinide perre BPM / SPM / UPM."
+      },
+      "warnings": {
+        "mineMass": "Süüte ja viiteseaded jäid siia lisamata."
+      },
+      "sources": [
+        {"name": "Sappers.org: MPM", "url": "https://sappers.org/uk/dovidnyk/miny/obyektni/mpm", "retrieved": "2026-10-23"},
+        {"name": "Metis (Fenix Insight): MPM", "url": "https://metis.fenixinsight.com/munition/mine/mpm", "retrieved": "2026-10-23"}
+      ]
+    },
+    "SM": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 0.4,
+        "mineDiameter": 25,
+        "mineHeight": 278,
+        "casing": "Teras, roheline",
+        "delivery": "Tõmbetraadiga signaalmiin: heli- ja valgussignaal (valju vile kuni 500 m, 12–15 valgusrakett, põlemine 10–12 s, tõus 5–15 m). Kasutati valvepostidel ja positsioonidel Afganistanis ja Tšetšeenias. Isehävitust ega tõstmisvastast kaitset pole."
+      },
+      "warnings": {
+        "mineMass": "Rakettide värv on märgitud miini alumise otsa värviga (valge, roheline, punane)."
+      },
+      "sources": [
+        {"name": "Sappers.org: SM", "url": "https://sappers.org/uk/dovidnyk/miny/syhnalni/sm", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MSK-40": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 1,
+        "mineDiameter": 40,
+        "mineHeight": 350,
+        "casing": "Teras, roheline",
+        "delivery": "Kombineeritud signaal- ja valgustusmiin (MSK-40P lisab kaks valgus-heli tähte). Neli värvilist signaalitähte (punane, roheline, valge, sinine) ja kümme valgustustähte tõusevad ≈30 m; valgustab 170–200 m raadiuses 23–28 s; vile kuuldav 500–800 m. Kasutusiga 10 aastat."
+      },
+      "warnings": {
+        "mineMass": "Andurite tundlikkus 1–17 kg (MUV-süütega); laengu liiki allikas ei täpsusta."
+      },
+      "sources": [
+        {"name": "Sappers.org: MSK-40", "url": "https://sappers.org/uk/dovidnyk/miny/syhnalni/msk-40", "retrieved": "2026-10-23"}
+      ]
+    },
+    "UDSh": {
+      "status": "unverified",
+      "values": {
+        "delivery": "Universaalne suitsuseade (suitsuküünal), mis võeti Venemaa kaitsevägedes kasutusele pärast 1975. aastat; kasutab RKhBZ (kiirguse-, keemia- ja bioloogilise kaitse) väed. Seotud DM-11 ja NDSh silindriliste suitsupottidega."
+      },
+      "warnings": {
+        "delivery": "Ainult möödaminev viide DM-11 kirjes; põlemisaeg, mass ja suitsu hulk puuduvad."
+      },
+      "sources": [
+        {"name": "Metis (Fenix Insight): DM-11 smoke pot", "url": "https://metis.fenixinsight.com/munition/miscellaneous/dm-11-smoke-pot", "retrieved": "2026-10-23"}
       ]
     }
   }
