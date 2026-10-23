@@ -412,14 +412,16 @@ window.WHAT_DATA = {
             {"name": "PPRU-M1", "cat": "PPRU-1"},
             {"name": "ZOOPARK-1", "cat": "ZOOPARK-1"},
             {"name": "1RL243 „RUBIKON“", "cat": "1RL243 Rubikon (MASRR)"},
-            {"name": "R-330BM", "cat": "R-330B"},
-            {"name": "SPRM-2M"},
-            {"name": "R-166-1B"},
+            {"name": "R-330BM", "cat": "R-330BM (R-330 Mandat)"},
+            {"name": "R-330BMV", "cat": "RB-301B (RB-301B Borisoglebsk-2)"},
+            {"name": "R-300KMV", "cat": "R-300KMV (RB-301B Borisoglebsk-2)"},
+            {"name": "R-378BMV", "cat": "R-378BMV (RB-301B Borisoglebsk-2)"},
+            {"name": "R-934BMV", "cat": "R-934BMV (RB-301B Borisoglebsk-2)"},
+            {"name": "SPR-2M „RTUT-BM“", "cat": "SPR-2M RTUT-BM"},
             {"name": "ARK-1M", "cat": "ARK-1"},
             {"name": "1V12"},
             {"name": "1V13", "cat": "1V13"},
-            {"name": "1V15", "cat": "1V15"},
-            {"name": "RB-301B „BORISOGLEBSK-2“", "cat": "RB-301B Borisoglebsk-2"}
+            {"name": "1V15", "cat": "1V15"}
           ]
         }
       ]
