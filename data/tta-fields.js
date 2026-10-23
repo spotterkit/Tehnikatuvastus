@@ -5,10 +5,11 @@
 // Sektsiooni comparePriority: väiksem number = võrdluses eespool ja alati nähtav; ilma selleta = "Kõik andmed" all.
 // Sisu hoia puhta JSON-ina (jutumärgid võtmete ümber, lõpukomasid pole) – check_release.js kontrollib.
 window.TTA_FIELDS = {
-  "version": 5,
+  "version": 6,
   "sections": [
     {"id": "general", "label": "Üldandmed"},
     {"id": "mobility", "label": "Liikuvus"},
+    {"id": "flight", "label": "Lennuomadused", "comparePriority": 3},
     {"id": "armament", "label": "Relvastus", "comparePriority": 1},
     {"id": "ranges", "label": "Laskekaugused", "comparePriority": 2},
     {"id": "special", "label": "Eriotstarbeline varustus"},
@@ -66,6 +67,27 @@ window.TTA_FIELDS = {
     "mineCapacity": {"label": "Miinide arv", "type": "text", "section": "special", "order": 15},
     "mineClearing": {"label": "Demineerimine", "type": "text", "section": "special", "order": 20},
     "specialEquipment": {"label": "Eriseadmed", "type": "text", "section": "special", "order": 30},
+    "wingspan": {"label": "Tiibade siruulatus", "type": "number", "section": "general", "order": 60, "unit": "m", "comparable": true},
+    "rotorDiameter": {"label": "Peamise rootori läbimõõt", "type": "number", "section": "general", "order": 62, "unit": "m", "comparable": true},
+    "emptyWeight": {"label": "Tühimass", "type": "number", "section": "general", "order": 21, "unit": "t", "comparable": true},
+    "maxTakeoffWeight": {"label": "Max stardimass", "type": "number", "section": "general", "order": 23, "unit": "t", "comparable": true},
+    "thrust": {"label": "Mootorite tõukejõud kokku", "type": "number", "section": "flight", "order": 5, "unit": "kN", "comparable": true, "better": "higher"},
+    "maxSpeed": {"label": "Max kiirus", "type": "number", "section": "flight", "order": 10, "unit": "km/h", "comparable": true, "better": "higher"},
+    "cruiseSpeed": {"label": "Reisikiirus", "type": "number", "section": "flight", "order": 20, "unit": "km/h", "comparable": true, "better": "higher"},
+    "serviceCeiling": {"label": "Lennulagi", "type": "number", "section": "flight", "order": 30, "unit": "m", "comparable": true, "better": "higher"},
+    "rateOfClimb": {"label": "Tõusukiirus", "type": "number", "section": "flight", "order": 40, "unit": "m/s", "comparable": true, "better": "higher"},
+    "combatRadius": {"label": "Lahinguraadius", "type": "number", "section": "flight", "order": 50, "unit": "km", "comparable": true, "better": "higher"},
+    "ferryRange": {"label": "Lennuulatus", "type": "number", "section": "flight", "order": 60, "unit": "km", "comparable": true, "better": "higher"},
+    "endurance": {"label": "Lennu kestus", "type": "number", "section": "flight", "order": 70, "unit": "h", "comparable": true, "better": "higher"},
+    "takeoffRun": {"label": "Stardidistants", "type": "number", "section": "flight", "order": 80, "unit": "m", "comparable": true, "better": "lower"},
+    "gLimit": {"label": "Max ülekoormus", "type": "number", "section": "flight", "order": 90, "unit": "g", "comparable": true, "better": "higher"},
+    "payload": {"label": "Kasulik koormus", "type": "number", "section": "flight", "order": 100, "unit": "kg", "comparable": true, "better": "higher"},
+    "cargoHold": {"label": "Lastiruum", "type": "text", "section": "flight", "order": 110},
+    "troops": {"label": "Vägede / reisijate arv", "type": "text", "section": "flight", "order": 120},
+    "airToAirMissiles": {"label": "Õhk-õhk raketid", "type": "text", "section": "armament", "order": 23},
+    "airToGroundWeapons": {"label": "Õhk-maa relvastus", "type": "text", "section": "armament", "order": 24},
+    "hardpoints": {"label": "Relvakinnituspunktid", "type": "number", "section": "armament", "order": 32, "unit": "tk", "comparable": true, "better": "higher"},
+    "ordnanceLoad": {"label": "Max relvakoormus", "type": "number", "section": "armament", "order": 33, "unit": "kg", "comparable": true, "better": "higher"},
     "armor": {"label": "Soomus", "type": "text", "section": "protection", "order": 10}
   }
 };
