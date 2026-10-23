@@ -5,13 +5,14 @@
 // Sektsiooni comparePriority: väiksem number = võrdluses eespool ja alati nähtav; ilma selleta = "Kõik andmed" all.
 // Sisu hoia puhta JSON-ina (jutumärgid võtmete ümber, lõpukomasid pole) – check_release.js kontrollib.
 window.TTA_FIELDS = {
-  "version": 10,
+  "version": 11,
   "sections": [
     {"id": "general", "label": "Üldandmed"},
     {"id": "mobility", "label": "Liikuvus"},
     {"id": "flight", "label": "Lennuomadused", "comparePriority": 3},
     {"id": "armament", "label": "Relvastus", "comparePriority": 1},
     {"id": "ranges", "label": "Laskekaugused", "comparePriority": 2},
+    {"id": "weapon", "label": "Relva andmed", "comparePriority": 1},
     {"id": "missile", "label": "Raketi omadused", "comparePriority": 2},
     {"id": "ew", "label": "Elektrooniline sõjapidamine", "comparePriority": 1},
     {"id": "special", "label": "Eriotstarbeline varustus"},
@@ -122,6 +123,20 @@ window.TTA_FIELDS = {
     "detectionRange": {"label": "Tuvastusulatus", "type": "number", "section": "ew", "order": 22, "unit": "km", "comparable": true, "better": "higher"},
     "jammerPower": {"label": "Häirimisvõimsus", "type": "number", "section": "ew", "order": 24, "unit": "W", "comparable": true, "better": "higher"},
     "ewTargets": {"label": "Sihtmärgid", "type": "text", "section": "ew", "order": 30},
-    "mastHeight": {"label": "Masti kõrgus", "type": "number", "section": "ew", "order": 40, "unit": "m", "comparable": true}
+    "mastHeight": {"label": "Masti kõrgus", "type": "number", "section": "ew", "order": 40, "unit": "m", "comparable": true},
+    "cartridge": {"label": "Padrun / laskemoon", "type": "text", "section": "weapon", "order": 10},
+    "weaponMass": {"label": "Relva mass", "type": "number", "section": "weapon", "order": 20, "unit": "kg", "comparable": true},
+    "weaponLength": {"label": "Relva pikkus", "type": "number", "section": "weapon", "order": 22, "unit": "mm", "comparable": true},
+    "barrelLength": {"label": "Toru pikkus", "type": "number", "section": "weapon", "order": 24, "unit": "mm", "comparable": true},
+    "muzzleVelocity": {"label": "Algkiirus", "type": "number", "section": "weapon", "order": 30, "unit": "m/s", "comparable": true, "better": "higher"},
+    "effectiveRange": {"label": "Efektiivne laskekaugus", "type": "number", "section": "weapon", "order": 40, "unit": "m", "comparable": true, "better": "higher"},
+    "maxRangeM": {"label": "Max laskekaugus", "type": "number", "section": "weapon", "order": 42, "unit": "m", "comparable": true, "better": "higher"},
+    "minRangeM": {"label": "Min laskekaugus", "type": "number", "section": "weapon", "order": 44, "unit": "m", "comparable": true},
+    "magazine": {"label": "Salv / toide", "type": "text", "section": "weapon", "order": 50},
+    "penetration": {"label": "Soomuseläbivus", "type": "text", "section": "weapon", "order": 60},
+    "explosiveMass": {"label": "Lõhkeaine mass", "type": "number", "section": "weapon", "order": 70, "unit": "g", "comparable": true},
+    "fuze": {"label": "Süütaja", "type": "text", "section": "weapon", "order": 72},
+    "lethalRadius": {"label": "Kahjustusraadius", "type": "number", "section": "weapon", "order": 74, "unit": "m", "comparable": true, "better": "higher"},
+    "throwRange": {"label": "Viskekaugus", "type": "number", "section": "weapon", "order": 76, "unit": "m", "comparable": true, "better": "higher"}
   }
 };
