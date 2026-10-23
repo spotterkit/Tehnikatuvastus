@@ -809,6 +809,12 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
           <button type="button" class="primary" id="refineToggleBtn" style="flex:1;" aria-expanded="false" aria-controls="refinePanel">Täpsusta valikut <span class="btn-caret" aria-hidden="true">▾</span></button>
         </div>
         <div id="refinePanel" hidden>
+          <div class="count-row" id="countRow">
+            <span class="lbl">Pilte:</span>
+            <button type="button" class="seg" data-n="10">10</button>
+            <button type="button" class="seg" data-n="25">25</button>
+            <button type="button" class="seg is-on" data-n="0">Kõik</button>
+          </div>
           <div class="home-select-actions">
             <button type="button" class="primary" id="refineAllBtn">Vali kõik mudelid</button>
             <button type="button" class="primary" id="refineNoneBtn">Tühista kõik mudelid</button>
@@ -817,12 +823,6 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
           <div class="refine-list" id="refineList"></div>
         </div>
         <div class="refine-summary" id="refineSummary" hidden></div>
-        <div class="count-row" id="countRow" style="display:none;">
-          <span class="lbl">Pilte:</span>
-          <button type="button" class="seg" data-n="10">10</button>
-          <button type="button" class="seg" data-n="25">25</button>
-          <button type="button" class="seg is-on" data-n="0">Kõik</button>
-        </div>
         <div class="row">
           <button class="primary" id="startPracticeBtn" style="flex:1;">Harjuta valitud kategooriaid</button>
         </div>
@@ -3611,7 +3611,6 @@ function renderRefine(){
   // Täpsustus ja piltide hulk on nähtavad alles siis, kui vähemalt üks kategooria on valitud.
   const hasSel = all.length > 0;
   document.getElementById('refineRow').style.display = hasSel ? 'flex' : 'none';
-  document.getElementById('countRow').style.display = hasSel ? 'flex' : 'none';
   if(!hasSel){
     const pn = document.getElementById('refinePanel');
     if(!pn.hidden){
@@ -3628,12 +3627,17 @@ function renderRefine(){
   practiceExcluded.forEach(c => { if(!cats.has(c)) practiceExcluded.delete(c); });   // mahavõetud kategooriate valikud kustuvad
 
   const included = all.filter(e => !practiceExcluded.has(e.cat)).length;
-  if(practiceExcluded.size){
+  if(practiceExcluded.size || practiceLimit > 0){
     summary.hidden = false;
-    summary.textContent = 'Täpsustatud: ' + included + ' / ' + all.length + ' mudelit valitud';
+    summary.textContent = 'Täpsustatud: ' + (practiceExcluded.size ? included + ' / ' + all.length + ' mudelit valitud' : '') +
+      (practiceExcluded.size && practiceLimit > 0 ? ' · ' : '') + (practiceLimit > 0 ? practiceLimit + ' pilti' : '');
     const b = document.createElement('button');
     b.type = 'button'; b.textContent = 'Tühista täpsustus';
-    b.addEventListener('click', () => { practiceExcluded.clear(); updatePracticeButton(); });
+    b.addEventListener('click', () => {
+      practiceExcluded.clear(); practiceLimit = 0;
+      document.querySelectorAll('#countRow .seg').forEach(x => x.classList.toggle('is-on', !(Number(x.dataset.n) || 0)));
+      updatePracticeButton();
+    });
     summary.appendChild(b);
   }else summary.hidden = true;
 
@@ -3710,6 +3714,7 @@ function updatePracticeButton(keepList){
   document.querySelectorAll('#countRow .seg').forEach(b => b.addEventListener('click', () => {
     practiceLimit = Number(b.dataset.n) || 0;
     document.querySelectorAll('#countRow .seg').forEach(x => x.classList.toggle('is-on', x === b));
+    updatePracticeButton(true);
   }));
 })();
 
@@ -4568,7 +4573,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc35'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc36'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
