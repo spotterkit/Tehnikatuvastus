@@ -838,6 +838,9 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
           <button class="primary" id="startTest25Btn" style="flex:1;">Genereeri test (25 küsimust)</button>
         </div>
         <div class="row" style="margin-top:8px;">
+          <button class="primary" id="startTest10Btn" style="flex:1;" title="Iga küsimus erinevast kategooriast, mudelid ei kordu">Genereeri test (10 küsimust)</button>
+        </div>
+        <div class="row" style="margin-top:8px;">
           <button class="primary" id="startKuldvillakBtn" style="flex:1;" aria-expanded="false" aria-controls="kuldConfig">Genereeri kuldvillak <span class="btn-caret" aria-hidden="true">▾</span></button>
         </div>
         <div id="kuldConfig" class="kuld-config" style="display:none;">
@@ -1683,6 +1686,7 @@ const selectAllBtn = document.getElementById('selectAllBtn');
 const clearAllBtn = document.getElementById('clearAllBtn');
 const startTestBtn = document.getElementById('startTestBtn');
 const startTest25Btn = document.getElementById('startTest25Btn');
+const startTest10Btn = document.getElementById('startTest10Btn');
 const showModelListBtn = document.getElementById('showModelListBtn');
 const listBackBtn = document.getElementById('listBackBtn');
 const modelListSummary = document.getElementById('modelListSummary');
@@ -1742,7 +1746,9 @@ const kuldEdMsg = document.getElementById('kuldEdMsg');
 
 const TEST_SIZE = 50;
 const TEST_SIZE_SHORT = 25;   // lühike test: sama valikuloogika ja piirangud nagu 50 küsimuse testil
+const TEST_SIZE_CATS = 10;    // kategooriatest: üks küsimus igast kategooriast, ei kordu ei mudelid ega kategooriad
 let lastTestSize = TEST_SIZE;
+let lastTestMode = 'mix';     // 'mix' (50/25) või 'cats' (10)
 
 // ============================================================================
 // TESTI KATEGOORIATE PIIRANGUD — SIIT SAAB KÄSITSI MUUTA
@@ -1903,6 +1909,21 @@ function buildUniqueVehiclePool(n){
     const fl = usableFiles(entry);
     const filename = fl[Math.floor(Math.random() * fl.length)];
     return { entry, filename };
+  });
+}
+
+// Kategooriatest: n küsimust n ERINEVAST kategooriast (grupist), igast täpselt üks juhuslik mudel.
+// Mudelid ega kategooriad ei kordu. Kehtib sama TEST_GROUP_CHANCE (nt miinid ei ole alati sees).
+function buildCategoryPool(n){
+  const skipped = new Set(Object.keys(TEST_GROUP_CHANCE).filter(g => Math.random() >= TEST_GROUP_CHANCE[g]));
+  let groups = GROUPS.filter(g => CATEGORIES.some(e => e.group === g.id && usableFiles(e).length > 0));
+  let pick = shuffleArray(groups.filter(g => !skipped.has(g.id)));
+  if(pick.length < n) pick = pick.concat(shuffleArray(groups.filter(g => skipped.has(g.id))));   // vaja täita: võta vahelejäetud grupid siiski
+  return shuffleArray(pick.slice(0, n)).map(g => {
+    const entries = CATEGORIES.filter(e => e.group === g.id && usableFiles(e).length > 0);
+    const entry = entries[Math.floor(Math.random() * entries.length)];
+    const fl = usableFiles(entry);
+    return { entry, filename: fl[Math.floor(Math.random() * fl.length)] };
   });
 }
 
@@ -2180,7 +2201,7 @@ function setEndActions(){
   {
     const isTest = appMode === 'test';
     endRestartBtn.textContent = isTest ? 'Uus test' : 'Sega uuesti';
-    endRestartBtn.onclick = isTest ? () => startTest(lastTestSize) : () => startPractice(currentGroupId);
+    endRestartBtn.onclick = isTest ? () => startTest(lastTestSize, lastTestMode) : () => startPractice(currentGroupId);
 
     // Õigesti/valesti hindamine toimub ainult testis, seega ka "Korda vigu"
     // pakutakse ainult testi lõpus, ja ainult siis, kui midagi valesti läks.
@@ -2556,6 +2577,9 @@ function renderHome(){
   startTestBtn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE, totalEligible) + ' küsimust)';
   startTest25Btn.disabled = totalEligible === 0;
   startTest25Btn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE_SHORT, totalEligible) + ' küsimust)';
+  const catsEligible = GROUPS.filter(g => countEligible(g.id) > 0).length;
+  startTest10Btn.disabled = catsEligible === 0;
+  startTest10Btn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE_CATS, catsEligible) + ' küsimust)';
 
   const stats = computeOverallStats();
   const withPhotosAll = CATEGORIES.filter(e => e.files && e.files.length > 0);
@@ -4341,12 +4365,13 @@ function startPractice(){
   loadNext();
 }
 
-function startTest(size){
+function startTest(size, mode){
   lastTestSize = (typeof size === 'number' && size > 0) ? size : TEST_SIZE;
+  lastTestMode = mode === 'cats' ? 'cats' : 'mix';
   appMode = 'test';
   currentGroupId = null;
   resetRunState();
-  imageBag = buildUniqueVehiclePool(lastTestSize);
+  imageBag = lastTestMode === 'cats' ? buildCategoryPool(lastTestSize) : buildUniqueVehiclePool(lastTestSize);
   TOTAL_IMAGES = imageBag.length;
   updateScoreUI();
   showRunScreen();
@@ -4455,6 +4480,7 @@ selectAllBtn.addEventListener('click', selectAllGroups);
 clearAllBtn.addEventListener('click', clearAllGroups);
 startTestBtn.addEventListener('click', () => startTest(TEST_SIZE));
 startTest25Btn.addEventListener('click', () => startTest(TEST_SIZE_SHORT));
+startTest10Btn.addEventListener('click', () => startTest(TEST_SIZE_CATS, 'cats'));
 startKuldvillakBtn.addEventListener('click', openKuldConfig);
 (function(){
   const sync = () => {
@@ -4509,13 +4535,14 @@ renderHome();
 renderQr();
 showHomeScreen();
 
-// Otselingid (nt SharePointi): <leht>#test või #test50 = 50 küsimuse test, #test25 = 25 küsimuse test.
+// Otselingid (nt SharePointi): <leht>#test või #test50 = 50 küsimuse test, #test25 = 25 küsimuse test, #test10 = 10 küsimuse kategooriatest (iga kategooriast üks).
 // Test algab kohe; # eemaldatakse aadressist, et värskendus või tagasi-nupp ei käivitaks seda uuesti.
 function startFromHash(){
-  const m = /^#test(25|50)?$/i.exec(location.hash || '');
+  const m = /^#test(10|25|50)?$/i.exec(location.hash || '');
   if(!m) return;
   try{ window.history.replaceState(window.history.state, '', location.href.split('#')[0]); }catch(e){}
-  startTest(m[1] ? Number(m[1]) : TEST_SIZE);
+  const n = m[1] ? Number(m[1]) : TEST_SIZE;
+  if(n === TEST_SIZE_CATS) startTest(n, 'cats'); else startTest(n);
 }
 Promise.resolve(refreshOfflineAvailability()).catch(() => {}).then(startFromHash);
 window.addEventListener('hashchange', startFromHash);
@@ -4598,7 +4625,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc40'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc41'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
