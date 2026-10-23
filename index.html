@@ -1364,7 +1364,7 @@ const CATEGORIES = [
   { label: "R-145BM1", group: "comms", type: "Juhtimissoomuk", cat: "R-145BM1", weight: 1, files: ["Interpolitex2015part3-32.jpg", "R-145BM1_command_vehicle_on_BTR-60_base.jpg"] },
   { label: "R-416GM Granit-M", group: "comms", type: "Raadioreleejaam", cat: "R-416GM Granit-M", weight: 1, files: ["images/comms/R461.jpg"] },
   { label: "R-419L1", group: "comms", type: "Raadioreleejaam", cat: "R-419L1", weight: 1, files: ["images/comms/R419L1.jpg"] },
-  { label: "R-142NMR", group: "comms", type: "Kombineeritud raadiojaam", cat: "R-419L1", weight: 1, files: ["R-142NMR_radistation_-_TVM2012ch2p4photo050.jpg"] },
+  { label: "R-142NMR", group: "comms", type: "Kombineeritud raadiojaam", cat: "R-142NMR", weight: 1, files: ["R-142NMR_radistation_-_TVM2012ch2p4photo050.jpg"] },
   { label: "R-149AKSh-1", group: "comms", type: "Juhtimis- ja staabimasin", cat: "R-149AKSh-1", weight: 1, files: ["images/comms/r2ksh.jpg"] },
 
   // Pind-pind tüüpi juhitavad raketid
@@ -4220,7 +4220,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc28'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc29'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
