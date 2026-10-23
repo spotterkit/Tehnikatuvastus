@@ -739,6 +739,10 @@
   .end-summary-item{padding:9px 10px;border:1px solid var(--line);border-radius:8px;}
   .end-summary-item .group-result{display:block;margin-top:4px;font-size:12px;color:var(--bone-dim);}
   .end-mistakes{margin-top:14px;font-size:13px;line-height:1.55;}
+  .end-mistake-chip{display:inline-block;margin:2px 4px 2px 0;padding:3px 9px;font-size:12px;letter-spacing:0;text-transform:none;
+    border:1px solid var(--line);background:var(--panel-2);color:var(--bone);cursor:pointer;}
+  .end-mistake-chip:hover{border-color:var(--amber);color:var(--amber);}
+  .cmp-mistake-btn{margin-top:8px;padding:8px 12px;font-size:12px;}
   @media(max-width:560px){.end-score-stats{grid-template-columns:1fr;}.end-score-main b{font-size:28px;}}
 </style>
 </head>
@@ -791,7 +795,10 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
           <button class="primary" id="startTestBtn" style="flex:1;">Genereeri test (50 küsimust)</button>
         </div>
         <div class="row" style="margin-top:8px;">
-          <button class="primary" id="startKuldvillakBtn" style="flex:1;">Genereeri kuldvillak</button>
+          <button class="primary" id="startTest25Btn" style="flex:1;">Genereeri test (25 küsimust)</button>
+        </div>
+        <div class="row" style="margin-top:8px;">
+          <button class="primary" id="startKuldvillakBtn" style="flex:1;" aria-expanded="false" aria-controls="kuldConfig">Genereeri kuldvillak <span class="btn-caret" aria-hidden="true">▾</span></button>
         </div>
         <div id="kuldConfig" class="kuld-config" style="display:none;">
           <div class="kuld-config-title">Kuldvillaku kategooriad</div>
@@ -800,6 +807,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
             <button type="button" id="kuldRandomBtn" class="primary">Juhuslikud 5</button>
             <button type="button" id="kuldUseSelectedBtn" class="primary">Kasuta valitud 5</button>
             <button type="button" id="kuldCustomBtn" class="primary">Koosta ise</button>
+            <button type="button" id="kuldOpenBtn">📂 Ava salvestatud laud</button>
           </div>
           <div class="kuld-config-count" id="kuldConfigCount"></div>
           <div class="kuld-group-grid" id="kuldGroupGrid"></div>
@@ -911,6 +919,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
           <div class="kuld-title">KULDVILLAK</div>
         </div>
         <div class="kuld-head-right">
+          <button type="button" id="kuldSaveBtn" class="nav-btn kuld-edit-btn" title="Salvesta laud failina (.json)">💾 Salvesta</button>
           <button type="button" id="kuldEditBtn" class="nav-btn kuld-edit-btn" title="Muuda pilte, punkte ja kategooriaid">✎ Muuda</button>
           <div class="kuld-score">
             <span>PUNKTID</span>
@@ -930,6 +939,9 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
         <button type="button" id="kuldEdLadderBtn">Punktid 100–500</button>
         <button type="button" id="kuldEdFlatBtn">Punktid kõik 100</button>
         <button type="button" id="kuldEdClearBtn">Tühjenda kõik</button>
+        <button type="button" id="kuldEdSaveBtn">💾 Salvesta laud</button>
+        <button type="button" id="kuldEdOpenBtn">📂 Ava laud</button>
+        <input type="file" id="kuldFileInput" accept=".json,application/json" style="display:none;">
       </div>
       <div class="kuld-ed-msg" id="kuldEdMsg"></div>
       <div class="kuld-ed-wrap"><div class="kuld-ed-grid" id="kuldEdGrid"></div></div>
@@ -1187,7 +1199,7 @@ const CATEGORIES = [
   { label: "Nanuchka klass", group: "ships", type: "Korvett/väike raketilaev", cat: "Nanuchka klass", weight: 1, files: ["Sevastopol_Nanuchka_Class_Corvette_%28231434875%29.jpeg"] },
   { label: "Ondatra klass", group: "ships", type: "Dessantkaater", cat: "Ondatra klass", weight: 1, files: ["ДКА_Д-704_в_Амурском_заливе_2010.07.25.JPG"] },
   { label: "Serna klass", group: "ships", type: "Dessantkaater", cat: "Serna klass", weight: 1, files: ["«Д-156».jpg"] },
-  { label: "Sonya klass", group: "ships", type: "Miinitraaler", cat: "Sonya klass", weight: 1, files: ["«Герман_Угрюмов»1.jpg"] },
+  { label: "Sonya klass", group: "ships", type: "Miinitraaler", cat: "Serna klass", weight: 1, files: ["«Герман_Угрюмов»1.jpg"] },
   { label: "Grachonok klass", group: "ships", type: "Diversioonivastane kaater", cat: "Grachonok klass", weight: 1, files: ["День_ВМФ-2019_Санкт_Петербург_%286%29.jpg"] },
   { label: "Lida klass", group: "ships", type: "Miinitraaler", cat: "Lida klass", weight: 1, files: ["«РТ-233».jpg"] },
   { label: "Raptor klass", group: "ships", type: "Diversioonivastane paat", cat: "Raptor klass", weight: 1, files: ["Russian_Navy_Raptor_near_Kronstadt.jpg"] },
@@ -1603,6 +1615,7 @@ const startPracticeBtn = document.getElementById('startPracticeBtn');
 const selectAllBtn = document.getElementById('selectAllBtn');
 const clearAllBtn = document.getElementById('clearAllBtn');
 const startTestBtn = document.getElementById('startTestBtn');
+const startTest25Btn = document.getElementById('startTest25Btn');
 const showModelListBtn = document.getElementById('showModelListBtn');
 const listBackBtn = document.getElementById('listBackBtn');
 const modelListSummary = document.getElementById('modelListSummary');
@@ -1661,6 +1674,8 @@ const kuldEdGrid = document.getElementById('kuldEdGrid');
 const kuldEdMsg = document.getElementById('kuldEdMsg');
 
 const TEST_SIZE = 50;
+const TEST_SIZE_SHORT = 25;   // lühike test: sama valikuloogika ja piirangud nagu 50 küsimuse testil
+let lastTestSize = TEST_SIZE;
 
 // ============================================================================
 // TESTI KATEGOORIATE PIIRANGUD — SIIT SAAB KÄSITSI MUUTA
@@ -2060,13 +2075,15 @@ function renderEndSummary(){
     const groupWrong=Math.max(0,v.total-v.correct);
     return '<div class="end-summary-item"><b>'+(g?g.label:gid)+'</b><span class="group-result">Õige '+v.correct+' · Vale '+groupWrong+' · Kokku '+v.total+'</span></div>';
   }).join('');
-  const mistakes=[...new Set(history.filter(h=>h.isCorrect===false&&h.current).map(h=>h.current.label))];
+  const mistakeIdx=new Map(); history.forEach((h,i)=>{ if(h.isCorrect===false&&h.current) mistakeIdx.set(h.current.label,i); });
+  const mistakes=[...mistakeIdx.entries()].map(([label,i])=>'<button type="button" class="end-mistake-chip" data-i="'+i+'" title="Võrdle õigega">'+label.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</button>');
   endSummary.style.display='block';
   endSummary.innerHTML='<h3>Testi kokkuvõte</h3>'+
     '<div class="end-score-panel"><div class="end-score-main">Tulemus <b>'+correct+'/'+total+'</b></div>'+
     '<div class="end-score-stats"><div class="end-score-stat">Õige <b>'+correct+'</b></div><div class="end-score-stat">Vale <b>'+wrong+'</b></div><div class="end-score-stat">Täpsus <b>'+pct+'%</b></div></div></div>'+
     (groupHtml?'<div class="end-groups-title">Tulemused kategooriate kaupa</div><div class="end-summary-grid">'+groupHtml+'</div>':'')+
-    (mistakes.length?'<div class="end-mistakes"><b>Eksitud:</b> '+mistakes.join(', ')+'</div>':'');
+    (mistakes.length?'<div class="end-mistakes"><b>Eksitud:</b> '+mistakes.join('')+'</div>':'');
+  endSummary.querySelectorAll('.end-mistake-chip').forEach(b => b.addEventListener('click', () => openCompareForMistake(history[Number(b.dataset.i)])));
 }
 
 function updateScoreUI(){
@@ -2103,7 +2120,7 @@ function setEndActions(){
 
   if(appMode === 'test'){
     endRestartBtn.textContent = 'Uus test';
-    endRestartBtn.onclick = startTest;
+    endRestartBtn.onclick = () => startTest(lastTestSize);
 
     // Õigesti/valesti hindamine toimub ainult testis, seega ka "Korda vigu"
     // pakutakse ainult testi lõpus, ja ainult siis, kui midagi valesti läks.
@@ -2181,6 +2198,32 @@ function renderLive(){
   }
 }
 
+// "Võrdle õigega": ainult valesti märgitud vastuse juures. Kui kirjutatud vastus tuvastub täpselt ühe
+// mudelina, võrreldakse seda õigega; muidu avaneb õige mudel ja teise mudeli valib õppija ise.
+async function openCompareForMistake(h){
+  if(!h || !h.current) return;
+  const correct = CATEGORIES.find(e => e.cat === h.current.cat);
+  if(!correct) return;
+  let guessed = h.guess ? entryByRelatedName(h.guess) : null;
+  if(guessed && guessed.cat === correct.cat) guessed = null;
+  await openModelGallery(correct, 'photos');
+  if(guessed && guessed.files && guessed.files.length) showPhotosCompare(correct, guessed);
+}
+let cmpMistakeBtn = null;
+function updateMistakeCompareBtn(entry){
+  if(!cmpMistakeBtn){
+    cmpMistakeBtn = document.createElement('button');
+    cmpMistakeBtn.type = 'button';
+    cmpMistakeBtn.className = 'cmp-mistake-btn';
+    cmpMistakeBtn.textContent = 'Võrdle õigega';
+    cmpMistakeBtn.title = 'Ava õige mudeli pildid ja võrdle neid oma vastusega';
+    verdictBadge.insertAdjacentElement('afterend', cmpMistakeBtn);
+  }
+  cmpMistakeBtn._entry = entry || null;
+  cmpMistakeBtn.onclick = () => openCompareForMistake(cmpMistakeBtn._entry);
+  cmpMistakeBtn.style.display = (entry && entry.isCorrect === false) ? 'inline-block' : 'none';
+}
+
 function renderHistory(entry){
   photo.src = entry.current.url;
   photo.style.display = 'block';
@@ -2218,6 +2261,7 @@ function render(){
   } else {
     renderHistory(history[viewIndex]);
   }
+  updateMistakeCompareBtn(viewIndex === null ? null : history[viewIndex]);
   updateNavControls();
 }
 
@@ -2435,6 +2479,8 @@ function renderHome(){
   const totalEligible = CATEGORIES.filter(e => e.files && e.files.length > 0).length;
   startTestBtn.disabled = totalEligible === 0;
   startTestBtn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE, totalEligible) + ' küsimust)';
+  startTest25Btn.disabled = totalEligible === 0;
+  startTest25Btn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE_SHORT, totalEligible) + ' küsimust)';
 
   const stats = computeOverallStats();
   const withPhotosAll = CATEGORIES.filter(e => e.files && e.files.length > 0);
@@ -4014,6 +4060,80 @@ function startKuldFromDraft(){
   renderKuldBoard();
 }
 
+// --- Laua salvestus failina (.json): brauserisse ei salvestata midagi ---
+function kuldDraftToFile(draft, name){
+  const data = {
+    app: 'tehnikatuvastus-kuldvillak', version: 1,
+    saved: new Date().toISOString().slice(0, 10),
+    ladder: !!draft.ladder,
+    columns: draft.cols.map(c => ({
+      label: c.label, source: c.groupId || null,
+      cells: c.cells.map(x => x ? { cat: x.cat, file: x.file, value: x.value } : null)
+    }))
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = (name || 'kuldvillak') + '_' + data.saved + '.json';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+
+// Loeb faili ja kontrollib iga lahtri: mudel peab äpis olemas olema ja pilt selle mudeli oma.
+function kuldDraftFromText(text){
+  let data;
+  try{ data = JSON.parse(text); }catch(e){ throw new Error('See ei ole kehtiv kuldvillaku fail.'); }
+  if(!data || data.app !== 'tehnikatuvastus-kuldvillak' || !Array.isArray(data.columns)) throw new Error('See ei ole kuldvillaku laua fail.');
+  const groupIds = new Set(eligibleKuldGroups().map(g => g.id));
+  let skipped = 0;
+  const cols = data.columns.slice(0, 5).map((c, i) => ({
+    label: String((c && c.label) || ('Kategooria ' + (i + 1))).slice(0, 40),
+    groupId: c && groupIds.has(c.source) ? c.source : null,
+    cells: Array.from({ length: 5 }, (_, row) => {
+      const x = c && Array.isArray(c.cells) ? c.cells[row] : null;
+      if(!x) return null;
+      const e = kuldEntryByCat(x.cat);
+      const v = Math.round(Number(x.value));
+      if(!e || !e.files || !e.files.includes(x.file) || !(v > 0)){ skipped++; return null; }
+      return { cat: e.cat, file: x.file, value: Math.min(v, 100000) };
+    })
+  }));
+  while(cols.length < 5) cols.push({ label: 'Kategooria ' + (cols.length + 1), groupId: null, cells: [null, null, null, null, null] });
+  return { draft: { ladder: !!data.ladder, cols }, skipped };
+}
+
+function pickKuldFile(onText){
+  const inp = document.getElementById('kuldFileInput');
+  inp.value = '';
+  inp.onchange = () => {
+    const f = inp.files && inp.files[0]; if(!f) return;
+    const rd = new FileReader();
+    rd.onload = () => { try{ onText(String(rd.result)); }catch(e){ alert(e.message || 'Faili avamine ebaõnnestus.'); } };
+    rd.readAsText(f);
+  };
+  inp.click();
+}
+
+function openKuldFromFileAsGame(){
+  pickKuldFile(text => {
+    const { draft, skipped } = kuldDraftFromText(text);
+    if(!draft.cols.some(c => c.cells.some(Boolean))) throw new Error('Failis pole ühtegi kasutatavat küsimust.');
+    kuldGame = buildKuldGameFromDraft(draft);
+    kuldConfig.style.display = 'none';
+    showKuldScreen(); showKuldBoard(); renderKuldBoard();
+    if(skipped) alert(skipped + ' lahtrit jäeti vahele (mudelit või pilti ei ole äpis enam).');
+  });
+}
+
+function openKuldFromFileInEditor(){
+  pickKuldFile(text => {
+    const { draft, skipped } = kuldDraftFromText(text);
+    kuldDraft = draft;
+    kuldEdMsg.textContent = 'Laud avatud failist.' + (skipped ? ' ' + skipped + ' lahtrit jäeti vahele (mudelit või pilti pole äpis enam).' : '');
+    renderKuldEditor();
+  });
+}
+
 function cancelKuldEditor(){
   if(kuldGame){ showKuldBoard(); renderKuldBoard(); }
   else goHome();
@@ -4032,11 +4152,12 @@ function startPractice(){
   loadNext();
 }
 
-function startTest(){
+function startTest(size){
+  lastTestSize = (typeof size === 'number' && size > 0) ? size : TEST_SIZE;
   appMode = 'test';
   currentGroupId = null;
   resetRunState();
-  imageBag = buildUniqueVehiclePool(TEST_SIZE);
+  imageBag = buildUniqueVehiclePool(lastTestSize);
   TOTAL_IMAGES = imageBag.length;
   updateScoreUI();
   showRunScreen();
@@ -4146,8 +4267,19 @@ startPracticeBtn.addEventListener('click', startPractice);
 })();
 selectAllBtn.addEventListener('click', selectAllGroups);
 clearAllBtn.addEventListener('click', clearAllGroups);
-startTestBtn.addEventListener('click', startTest);
+startTestBtn.addEventListener('click', () => startTest(TEST_SIZE));
+startTest25Btn.addEventListener('click', () => startTest(TEST_SIZE_SHORT));
 startKuldvillakBtn.addEventListener('click', openKuldConfig);
+(function(){
+  const sync = () => {
+    const open = kuldConfig.style.display !== 'none';
+    startKuldvillakBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    const caret = startKuldvillakBtn.querySelector('.btn-caret');
+    if(caret) caret.textContent = open ? '▴' : '▾';
+  };
+  new MutationObserver(sync).observe(kuldConfig, {attributes: true, attributeFilter: ['style']});
+  sync();
+})();
 kuldRandomBtn.addEventListener('click', randomKuldGroups);
 kuldUseSelectedBtn.addEventListener('click', startKuldFromSelection);
 kuldRevealBtn.addEventListener('click', revealKuldAnswer);
@@ -4167,6 +4299,13 @@ document.getElementById('kuldEdLadderBtn').addEventListener('click', () => setKu
 document.getElementById('kuldEdFlatBtn').addEventListener('click', () => setKuldEditorPoints(false));
 document.getElementById('kuldEdClearBtn').addEventListener('click', clearKuldEditor);
 document.getElementById('kuldEdStartBtn').addEventListener('click', startKuldFromDraft);
+document.getElementById('kuldSaveBtn').addEventListener('click', () => { if(kuldGame) kuldDraftToFile(kuldGame.custom ? kuldGame.draft : draftFromKuldGame(kuldGame)); });
+document.getElementById('kuldEdSaveBtn').addEventListener('click', () => {
+  if(!kuldDraft.cols.some(c => c.cells.some(Boolean))){ kuldEdMsg.textContent = 'Lisa enne vähemalt üks küsimus.'; return; }
+  kuldDraftToFile(kuldDraft); kuldEdMsg.textContent = 'Laud salvestatud failina.';
+});
+document.getElementById('kuldEdOpenBtn').addEventListener('click', openKuldFromFileInEditor);
+document.getElementById('kuldOpenBtn').addEventListener('click', openKuldFromFileAsGame);
 document.getElementById('kuldEdCancelBtn').addEventListener('click', cancelKuldEditor);
 kuldMenuBtn.addEventListener('click', () => { kuldLoadToken++; if(kuldGame) kuldGame.active = null; hideKuldQuestion(); goHome(); });
 kuldResetBtn.addEventListener('click', resetKuldvillak);
@@ -4262,7 +4401,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc31'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc33'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
