@@ -442,6 +442,10 @@
   .count-row .lbl{font-size:12px;color:var(--bone-soft);letter-spacing:.08em;text-transform:uppercase;margin-right:2px;}
   .count-row .seg{flex:1;padding:9px 6px;font-size:12px;}
   .count-row .seg.is-on{border-color:var(--amber);color:var(--amber);}
+  .count-row .seg:disabled{opacity:.4;cursor:not-allowed;}
+  .cmp-toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:8px;background:#1d2420;border:1px solid var(--amber);color:var(--text,#eee);padding:8px 10px 8px 14px;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.5);font-size:13px;max-width:92vw;}
+  .cmp-toast button{padding:8px 12px;font-size:12px;}
+  .cmp-toast .cmp-x{background:none;border:0;color:inherit;font-size:16px;padding:4px 8px;}
   .home-select-actions button{flex:1;}
   .group-check{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;border:1px solid var(--line);background:var(--panel-2);cursor:pointer;}
   .group-check:hover{border-color:var(--olive);}
@@ -801,7 +805,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
           </div>
           <div class="home-group-grid" id="groupGrid"></div>
         </div>
-        <div class="row" style="margin-bottom:10px;">
+        <div class="row" id="refineRow" style="margin-bottom:10px;display:none;">
           <button type="button" class="primary" id="refineToggleBtn" style="flex:1;" aria-expanded="false" aria-controls="refinePanel">Täpsusta valikut <span class="btn-caret" aria-hidden="true">▾</span></button>
         </div>
         <div id="refinePanel" hidden>
@@ -813,7 +817,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
           <div class="refine-list" id="refineList"></div>
         </div>
         <div class="refine-summary" id="refineSummary" hidden></div>
-        <div class="count-row" id="countRow">
+        <div class="count-row" id="countRow" style="display:none;">
           <span class="lbl">Pilte:</span>
           <button type="button" class="seg" data-n="10">10</button>
           <button type="button" class="seg" data-n="25">25</button>
@@ -2389,7 +2393,27 @@ function reveal(){
   if(!liveState.current || liveState.phase !== 'ready') return;
   liveState.guessText = guessInput.value.trim();
   liveState.phase = 'revealed';
+  hideCompareToast();
   render();
+}
+
+let cmpToastEl = null, cmpToastTimer = null;
+function hideCompareToast(){
+  clearTimeout(cmpToastTimer);
+  if(cmpToastEl){ cmpToastEl.remove(); cmpToastEl = null; }
+}
+function showCompareToast(h){
+  hideCompareToast();
+  const t = document.createElement('div'); t.className = 'cmp-toast';
+  const msg = document.createElement('span'); msg.textContent = 'Vale vastus';
+  const b = document.createElement('button'); b.type = 'button'; b.textContent = 'Võrdle õigega';
+  b.addEventListener('click', () => { hideCompareToast(); openCompareForMistake(h); });
+  const x = document.createElement('button'); x.type = 'button'; x.className = 'cmp-x'; x.setAttribute('aria-label', 'Sulge'); x.textContent = '✕';
+  x.addEventListener('click', hideCompareToast);
+  t.append(msg, b, x);
+  document.body.appendChild(t);
+  cmpToastEl = t;
+  cmpToastTimer = setTimeout(hideCompareToast, 8000);
 }
 
 function markResult(isCorrect){
@@ -2400,13 +2424,11 @@ function markResult(isCorrect){
   if(isCorrect) score.correct++;
   updateScoreUI();
 
-  history.push({
-    current: liveState.current,
-    guess: liveState.guessText,
-    isCorrect
-  });
+  const entry = { current: liveState.current, guess: liveState.guessText, isCorrect };
+  history.push(entry);
 
   loadNext();
+  if(isCorrect === false) showCompareToast(entry); else hideCompareToast();
 }
 
 // Harjutusrežiim: "Näita vastust" järel Enter (või nupp) viib kohe järgmise
@@ -3586,6 +3608,22 @@ function renderRefine(){
   const list = document.getElementById('refineList');
   const summary = document.getElementById('refineSummary');
   const all = practiceEntries();
+  // Täpsustus ja piltide hulk on nähtavad alles siis, kui vähemalt üks kategooria on valitud.
+  const hasSel = all.length > 0;
+  document.getElementById('refineRow').style.display = hasSel ? 'flex' : 'none';
+  document.getElementById('countRow').style.display = hasSel ? 'flex' : 'none';
+  if(!hasSel){
+    const pn = document.getElementById('refinePanel');
+    if(!pn.hidden){
+      pn.hidden = true;
+      const t = document.getElementById('refineToggleBtn');
+      t.setAttribute('aria-expanded', 'false');
+      const c = t.querySelector('.btn-caret'); if(c) c.textContent = '▾';
+    }
+    practiceExcluded.clear();
+    document.getElementById('refineSummary').hidden = true;
+    return;
+  }
   const cats = new Set(all.map(e => e.cat));
   practiceExcluded.forEach(c => { if(!cats.has(c)) practiceExcluded.delete(c); });   // mahavõetud kategooriate valikud kustuvad
 
@@ -3633,6 +3671,19 @@ function updatePracticeButton(keepList){
     if(!hold){ const sc = document.getElementById('refineList').scrollTop; renderRefine(); document.getElementById('refineList').scrollTop = sc; }
     else renderRefine();
   }else renderRefine();
+  // Piltide arvu nupud: ära paku suuremat arvu, kui valitud mudelitel pilte on (pilte ei korrata)
+  const availPics = selectedEligible.length ? buildImagePool(e => selectedEligible.includes(e.group) && !practiceExcluded.has(e.cat)).length : 0;
+  const segs = document.querySelectorAll('#countRow .seg');
+  segs.forEach(b => {
+    const n = Number(b.dataset.n) || 0;
+    b.disabled = n > 0 && n >= availPics;
+    b.title = b.disabled ? 'Valitud mudelitel on pilte ainult ' + availPics : '';
+  });
+  const onBtn = [...segs].find(b => b.classList.contains('is-on'));
+  if(onBtn && onBtn.disabled){
+    practiceLimit = 0;
+    segs.forEach(b => b.classList.toggle('is-on', !(Number(b.dataset.n) || 0)));
+  }
   startPracticeBtn.disabled = selectedEligible.length === 0 || modelsLeft === 0;
   startPracticeBtn.textContent = selectedEligible.length
     ? 'Harjuta valitud kategooriaid (' + selectedEligible.length + ')'
@@ -4299,6 +4350,7 @@ function startRepeatMistakes(mistakeCats){
 }
 
 function goHome(){
+  hideCompareToast();
   renderHome();
   showHomeScreen();
 }
@@ -4516,7 +4568,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc34'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc35'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
