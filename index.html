@@ -438,6 +438,8 @@
   .refine-empty{padding:12px;font-size:12px;color:var(--bone-dim);}
   .refine-summary{margin:-2px 0 10px;font-size:12px;color:var(--amber);}
   .refine-summary button{margin-left:8px;padding:2px 8px;font-size:11px;}
+  .q-prompt{font-family:var(--font-display);font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin:0 0 8px;}
+  .q-prompt[hidden]{display:none;}
   .count-row{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
   .count-row .lbl{font-size:12px;color:var(--bone-soft);letter-spacing:.08em;text-transform:uppercase;margin-right:2px;}
   .count-row .seg{flex:1;padding:9px 6px;font-size:12px;}
@@ -1043,6 +1045,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
     </div>
 
     <div class="panel">
+      <div class="q-prompt" id="qPrompt" hidden></div>
       <div class="row">
         <input type="text" id="guessInput" placeholder="Kirjuta oma vastus (nt T-72, Su-25...)" autocomplete="off">
         <button class="primary" id="revealBtn">Näita vastust</button>
@@ -1611,6 +1614,9 @@ const GROUPS = [
 ];
 
 // Kategooriad, mis EI ole masinad: loendurites ja siltides kasutatakse nende oma sõna.
+// Täpsustav küsimus pildi juures: auastmete ja väeliikide puhul ei pruugi olla ilmne, mida vastata.
+const GROUP_QUESTION = { ranks: 'Mis auaste?', forces: 'Mis väeliik/üksus?' };
+window.groupQuestion = cat => { const e = CATEGORIES.find(x => x.cat === cat); return (e && GROUP_QUESTION[e.group]) || ''; };
 const GROUP_COUNT_WORD = { ranks: 'auastet', weapons: 'relva', forces: 'väeliiki/üksust', mines: 'miini' };   // "5 väeliiki/üksust"
 const GROUP_STATS_WORD = { ranks: 'Auastmeid', weapons: 'Relvi', forces: 'Väeliike ja üksusi', mines: 'Miine' }; // avalehe kokkuvõte
 const GROUP_ENTRY_NOUN = { ranks: 'Auaste', weapons: 'Relv', forces: 'Väeliik/üksus', mines: 'Miin' };      // mudeli akna üldsilt, kui type puudub
@@ -1623,6 +1629,8 @@ const stateMsg = document.getElementById('stateMsg');
 const hudCat = document.getElementById('hudCat');
 const hudStatus = document.getElementById('hudStatus');
 const guessInput = document.getElementById('guessInput');
+const qPrompt = document.getElementById('qPrompt');
+function setQPrompt(cat){ const q = cat ? window.groupQuestion(cat) : ''; qPrompt.textContent = q; qPrompt.hidden = !q; }
 const revealBtn = document.getElementById('revealBtn');
 const answerBlock = document.getElementById('answerBlock');
 const yourGuess = document.getElementById('yourGuess');
@@ -2176,6 +2184,7 @@ function renderLive(){
     setStateMsg(liveState.message, liveState.phase === 'loading');
     answerBlock.style.display = 'none';
     guessInput.value = '';
+    setQPrompt(null);
     hudCat.textContent = liveState.phase === 'end' ? 'LÄBI' : '—';
     hudStatus.textContent = liveState.phase === 'end' ? 'LÕPP' : (liveState.phase === 'error' ? 'VIGA' : 'OTSIN...');
 
@@ -2202,6 +2211,7 @@ function renderLive(){
   scope.classList.add('ready');
   hudCat.textContent = 'SIHTMÄRK #' + shownCount + ' / ' + TOTAL_IMAGES;
   guessInput.value = liveState.guessText;
+  setQPrompt(cur.cat);
   skipBtn.disabled = false;
 
   if(liveState.phase === 'ready'){
@@ -2259,6 +2269,7 @@ function renderHistory(entry){
   hudCat.textContent = 'AJALUGU';
 
   guessInput.value = entry.guess;
+  setQPrompt(entry.current && entry.current.cat);
   guessInput.disabled = true;
   revealBtn.disabled = true;
   skipBtn.disabled = true;
@@ -4554,7 +4565,7 @@ showHomeScreen();
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc37'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc38'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');

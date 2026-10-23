@@ -200,6 +200,8 @@ body.ct-proj-open{overflow:hidden;}
 .ct-proj-num{font-family:var(--font-display);line-height:1;}
 .ct-proj-num b{font-size:10vh;color:#ffd24a;font-weight:700;}
 .ct-proj-num span{font-size:5vh;color:#b9bca5;}
+.ct-proj-q{font-family:var(--font-display);font-size:6vh;letter-spacing:.06em;text-transform:uppercase;color:#ffd24a;text-align:center;flex:1;padding:0 2vw;}
+.ct-proj-q[hidden]{display:none;}
 .ct-proj-pause{font-size:3.2vh;letter-spacing:.2em;color:#000;background:#ffd24a;padding:.6vh 1.4vh;}
 .ct-proj-pause[hidden]{display:none;}
 .ct-proj-stage{flex:1;position:relative;min-height:0;display:flex;align-items:center;justify-content:center;}
@@ -1135,7 +1137,7 @@ function openProjector(){
   P.phase = 'start'; P.i = 0; P.urls = new Array(n).fill(null); P.loaded = 0; P.failed = 0; P.paused = false;
   const el = h('div', {class: 'ct-proj', id: 'ctProj', tabindex: '-1'});
   el.innerHTML =
-    '<div class="ct-proj-top"><div class="ct-proj-num"></div><div class="ct-proj-pause" hidden>PAUS</div></div>'
+    '<div class="ct-proj-top"><div class="ct-proj-num"></div><div class="ct-proj-q" hidden></div><div class="ct-proj-pause" hidden>PAUS</div></div>'
     + '<div class="ct-proj-stage">'
     +   '<img class="ct-proj-img" alt="" draggable="false">'
     +   '<div class="ct-proj-write" hidden><div class="ct-proj-write-nr"></div><div class="ct-proj-write-msg">Kirjuta vastus</div></div>'
@@ -1269,6 +1271,9 @@ function draw(){
   const end = el.querySelector('.ct-proj-end');
   const bar = el.querySelector('.ct-proj-bar');
   const showNum = P.phase === 'view' || P.phase === 'write';
+  const qEl = el.querySelector('.ct-proj-q');
+  const qTxt = showNum && typeof window.groupQuestion === 'function' ? window.groupQuestion(S.questions[P.i].cat) : '';
+  qEl.textContent = qTxt; qEl.hidden = !qTxt;
   num.innerHTML = showNum ? '<b>' + (P.i + 1) + '</b><span> / ' + n + '</span>' : '';
   el.querySelector('.ct-proj-top').classList.toggle('is-empty', !showNum);
   el.querySelector('.ct-proj-top').hidden = P.phase === 'answers';
