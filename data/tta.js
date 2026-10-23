@@ -5476,7 +5476,7 @@ window.TTA_DATA = {
         "mainArmament": "14,5 mm KPVT (500 padrunit)",
         "secondaryArmament": "Koaksiaalne 7,62 mm PKT (2000 padrunit)",
         "armor": "Keevitatud teras: kerenina kuni 14 mm; torni esiosa 10 mm; küljed, taga ja katus 7 mm; mujal 2–7 mm",
-        "specialEquipment": "Neli kettajamiga allosa tugirattapaari (kraavide ületamiseks); ujub veejoaga"
+        "specialEquipment": "Lisa tugirattad (kraavide ületamiseks); ujub veejoaga"
       },
       "warnings": {
         "engine": "Põhiandmed kehtivad BRDM-2 kohta; BRDM-2M-l (diisel) on mass, kiirus ja ulatus erinevad (nt BRDM-2MS: 6,9 t, 150 hj, ulatus 1500 km)."
