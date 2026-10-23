@@ -2027,6 +2027,21 @@ async function getOfflineCommonsEntry(filename){
   return {...entry, url: virtualUrl};
 }
 
+// Commonsi päring koos kahe kordusega (ajutine võrguviga, 429 "liiga palju päringuid", 5xx).
+let lastImageError = '';
+async function fetchRetry(url){
+  const waits = [700, 1800];
+  for(let i = 0; ; i++){
+    try{
+      const r = await fetch(url);
+      if(r.ok || (r.status !== 429 && r.status < 500) || i >= waits.length) return r;
+    }catch(e){
+      if(i >= waits.length) throw e;
+    }
+    await new Promise(res => setTimeout(res, waits[i]));
+  }
+}
+
 async function fetchSpecificFile(filename){
   // Repo sees olevad kohalikud pildid (nt images/ranks/...).
   if(typeof filename === 'string' && (filename.startsWith('images/') || filename.startsWith('./images/'))){
@@ -2076,7 +2091,7 @@ async function fetchSpecificFile(filename){
 
   let res;
   try{
-    res = await fetch(url);
+    res = await fetchRetry(url);
   }catch(e){
     const offlineEntry = await getOfflineCommonsEntry(normalizedName);
     if(offlineEntry) return {...offlineEntry, filename: cleanTitle('File:' + normalizedName), rawTitle: 'File:' + normalizedName, isOffline: true};
@@ -2085,7 +2100,7 @@ async function fetchSpecificFile(filename){
   if(!res.ok){
     const offlineEntry = await getOfflineCommonsEntry(normalizedName);
     if(offlineEntry) return {...offlineEntry, filename: cleanTitle('File:' + normalizedName), rawTitle: 'File:' + normalizedName, isOffline: true};
-    throw new Error('network');
+    throw new Error('Commons API HTTP ' + res.status);
   }
   const data = await res.json();
   const pages = data.query && data.query.pages;
@@ -2393,12 +2408,14 @@ async function loadNext(){
       const file = await fetchSpecificFile(filename);
       const cur = { label: entry.label, type: entry.type || '', cat: entry.cat, ...file };
 
-      await new Promise((resolve, reject) => {
+      const tryImg = () => new Promise((resolve, reject) => {
         const img = new Image();
         img.onload = resolve;
-        img.onerror = reject;
+        img.onerror = () => reject(new Error('pildi laadimine ebaõnnestus (' + String(file.url).slice(0, 80) + ')'));
         img.src = file.url;
       });
+      try{ await tryImg(); }
+      catch(e1){ await new Promise(r => setTimeout(r, 800)); await tryImg(); }
 
       lastShownCat = entry.cat;
       shownCount++;
@@ -2408,6 +2425,7 @@ async function loadNext(){
       guessInput.focus();
       return;
     }catch(err){
+      lastImageError = String((err && err.message) || err);
       // Pilt ei laadinud: proovi sama mudeli mõnda teist pilti, et mudel testist ära ei kaoks.
       const alt = usableFiles(entry).filter(f => !triedFiles.has(f));
       if(alt.length){
@@ -2428,7 +2446,7 @@ async function loadNext(){
   }
 
   liveState = { phase: 'error', current: null, guessText: '',
-    message: 'Mitut pilti järjest ei õnnestunud laadida (vale failinimi või võrguprobleem). Kontrolli konsooli (F12) või failinimesid.' };
+    message: 'Mitut pilti järjest ei õnnestunud laadida (vale failinimi või võrguprobleem). Kontrolli konsooli (F12) või failinimesid.' + (lastImageError ? ' Viimane viga: ' + lastImageError.replace(/</g, '&lt;') : '') };
   render();
 }
 
@@ -4630,7 +4648,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc42'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc44'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
