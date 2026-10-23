@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 11,
+  "version": 13,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -4587,6 +4587,846 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Long War Journal: V2U", "url": "https://www.longwarjournal.org/archives/2025/06/ukrainian-intelligence-details-russias-new-v2u-autonomous-loitering-munition.php", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Ropucha II / III klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 3450,
+        "fullDisplacement": 4080,
+        "length": 112.5,
+        "width": 15,
+        "draft": 3.7,
+        "engine": "2 × Zgoda-Sulzer 16ZVB40/48 diislit (9600 hj iga); 3 × 750 kW diiselgeneraatorit",
+        "power": 19200,
+        "maxSpeedKn": 18,
+        "range": 11297,
+        "autonomy": 30,
+        "crew": "87–98",
+        "landingCapacity": "10 lahingutanki ja 340 dessantväelast; või 12 soomustransportööri ja 340 dessantväelast; või 500 t lasti (artikli tekstis 450 t)",
+        "mainArmament": "1 × 76 mm AK-176 (Ropucha II); Ropucha I: 2 × 57 mm AK-725",
+        "secondaryArmament": "2 × 30 mm AK-630; 2 × 122 mm A-215 Grad-M raketiheitjat",
+        "samMissiles": "Strela-2 (SA-N-5), 4 stardiseadet"
+      },
+      "warnings": {
+        "standardDisplacement": "Wikipedia annab 775 / 775M kohta ühised andmed; „775III“ kohta eraldi andmeid ei leitud. Sõiduulatus 6100 nmi 15 sõlmel."
+      },
+      "sources": [
+        {"name": "Wikipedia: Ropucha-class landing ship", "url": "https://en.wikipedia.org/wiki/Ropucha-class_landing_ship", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Buyan-M klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 850,
+        "fullDisplacement": 949,
+        "length": 75,
+        "width": 11,
+        "draft": 2.5,
+        "engine": "CODAD, 2 võlli: 4 × Zvezda M520 diislit, joa-propulsioon",
+        "power": 14584,
+        "maxSpeedKn": 26,
+        "range": 4260,
+        "autonomy": 15,
+        "crew": "52",
+        "mainArmament": "1 × 100 mm A-190-01",
+        "antiShipMissiles": "2 × 4 UKSK VLS-kärge: Kalibr või Oniks",
+        "samMissiles": "2 × 4 Komar",
+        "secondaryArmament": "1 × 2 AK-630M2 (30 mm); 10-toruline 55 mm DP-65 granaadiheitja; 2 × 14,5 mm KPV",
+        "sensors": "Pozitiv-M1 faasantennradar, MP-231-2 navigatsioonradar, Laska tulejuhtimisradar, Anapa-M sukeldujatõrje sonar"
+      },
+      "warnings": {
+        "standardDisplacement": "Wikipedia klassileht hõlmab Buyani (21630) ja Buyan-M (21631); väärtused on Buyan-M kohta. Sõiduulatus 2300 nmi 12 sõlmel; Stavropoli laeval lisaks Pantsir-M."
+      },
+      "sources": [
+        {"name": "Wikipedia: Buyan-class corvette", "url": "https://en.wikipedia.org/wiki/Buyan-class_corvette", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Vishnya klass": {
+      "status": "unverified",
+      "values": {
+        "fullDisplacement": 3470,
+        "length": 91.5,
+        "width": 14.6,
+        "draft": 4.5,
+        "engine": "2 × Zgoda Sulzer 12AV 25/30 diislit",
+        "power": 4400,
+        "maxSpeedKn": 16,
+        "crew": "146 (sh 6 reisijat)",
+        "secondaryArmament": "2 × 30 mm AK-630",
+        "samMissiles": "2 × SA-N-8 stardiseadet",
+        "sensors": "Radar MR-212/201 (Palm Frond); sonarid MG-349 ja MGP-303"
+      },
+      "sources": [
+        {"name": "Wikipedia: Vishnya-class intelligence ship", "url": "https://en.wikipedia.org/wiki/Vishnya-class_intelligence_ship", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Parchim II klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 800,
+        "fullDisplacement": 950,
+        "length": 72,
+        "width": 9.4,
+        "draft": 4.6,
+        "engine": "3 võlli, M504 diislid",
+        "power": 14250,
+        "maxSpeedKn": 24.7,
+        "range": 3889,
+        "crew": "80",
+        "mainArmament": "1 × 2 57 mm AK-725",
+        "secondaryArmament": "1 × 2 30 mm AK-230; 2 × RBU-6000 allveelaevatõrje raketiheitjat; 12 sügavuspommi",
+        "samMissiles": "2 × SA-N-5 (Strela-2) kohta",
+        "torpedoes": "4 × 400 mm torpeedotoru",
+        "sensors": "Positive-E ja Spin Trough radarid; Bass Tilt sonar"
+      },
+      "warnings": {
+        "standardDisplacement": "Wikipedia infoboks kehtib kogu Parchim-klassile (nõukogude Project 1331M). Sõiduulatus 2100 nmi 14 sõlmel."
+      },
+      "sources": [
+        {"name": "Wikipedia: Parchim-class corvette", "url": "https://en.wikipedia.org/wiki/Parchim-class_corvette", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Neustrashimyy klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 3800,
+        "fullDisplacement": 4400,
+        "length": 129,
+        "width": 15.6,
+        "draft": 5.6,
+        "engine": "COGAG, 2 võlli: kaks M70 või D090 sõidugaasiturbiini ja kaks M90 kiirendusturbiini",
+        "power": 110000,
+        "maxSpeedKn": 30,
+        "crew": "210",
+        "mainArmament": "1 × 100 mm",
+        "antiShipMissiles": "2 × 4 SS-N-25 (Kh-35) (ainult Yaroslav Mudry)",
+        "samMissiles": "4 × 8 VLS-kärge SA-N-9",
+        "aswWeapons": "1 × 12-toruline RBU-6000",
+        "torpedoes": "6 × 533 mm torud (SS-N-15 / SS-N-16 raketid või Type 53 torpeedod)",
+        "secondaryArmament": "2 × Kashtan CIWS",
+        "aviation": "1 Ka-27 kopter, kopteriplatvorm ja angaar"
+      },
+      "sources": [
+        {"name": "Wikipedia: Neustrashimy-class frigate", "url": "https://en.wikipedia.org/wiki/Neustrashimy-class_frigate", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Steregushchiy klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 1800,
+        "fullDisplacement": 2200,
+        "length": 104.5,
+        "width": 13,
+        "draft": 3.7,
+        "engine": "CODAD, 2 võlli: 4 × Kolomna 16D49 diislit",
+        "power": 23664,
+        "maxSpeedKn": 27,
+        "range": 7038,
+        "autonomy": 15,
+        "crew": "90",
+        "mainArmament": "1 × 100 mm A-190 või 130 mm A-192",
+        "antiShipMissiles": "2 × 4 Kh-35 (SS-N-25)",
+        "samMissiles": "12 Redut VLS-kärge (ainult Project 20381), 9M100 raketid",
+        "secondaryArmament": "2 × 30 mm AK-630M (20381); 2 × 14,5 mm MTPU",
+        "aswWeapons": "2 × 4 330 mm Paket-NK (allveelaeva- ja torpeedotõrje)",
+        "aviation": "Angaar 1 Ka-27 koptrile; Orlan-10 drooni stardiplatvorm",
+        "sensors": "Furke-2, Garpun-B, Monument; Zarya-M kerelisonar ja Vinyetka tõmmatav sonar"
+      },
+      "warnings": {
+        "standardDisplacement": "Andmed Project 20380/20381 kohta; Project 20385 (Gremyashchiy) on suurem ja kannab Kalibrit, selle kohta eraldi väärtusi ei leitud. Sõiduulatus 3800 nmi 14 sõlmel."
+      },
+      "sources": [
+        {"name": "Wikipedia: Steregushchiy-class corvette", "url": "https://en.wikipedia.org/wiki/Steregushchiy-class_corvette", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Pomornik klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 415,
+        "fullDisplacement": 555,
+        "length": 57,
+        "width": 25.6,
+        "draft": 1.6,
+        "engine": "3 gaasiturbiini, igaüks ca 10 000 hj",
+        "power": 30000,
+        "maxSpeedKn": 63,
+        "range": 556,
+        "crew": "31",
+        "landingCapacity": "3 lahingutanki (kuni 150 t); või 10 soomukit ja 230 dessantväelast; või kuni 500 dessantväelast",
+        "secondaryArmament": "2 × 30 mm AK-630; 2 × 140 mm Ogon raketiheitjat (22 raketti iga) või 2 × 122 mm",
+        "samMissiles": "4 × Strela-3 MANPADS või 2 × 4 Strela-2",
+        "mineLaying": "Eemaldatav komplekt 20–80 miini paigaldamiseks"
+      },
+      "warnings": {
+        "standardDisplacement": "Wikipedia annab 340 t (tühi), 415 t (tavaline), 555 t (täis); sõiduulatus 300 nmi 55 sõlmel; püsikiirus 55 sõlme."
+      },
+      "sources": [
+        {"name": "Wikipedia: Zubr-class LCAC", "url": "https://en.wikipedia.org/wiki/Zubr-class_LCAC", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Uragan/Karakurt klass": {
+      "status": "unverified",
+      "values": {
+        "fullDisplacement": 800,
+        "length": 67,
+        "width": 11,
+        "draft": 3.3,
+        "engine": "CODAD: 3 × Zvezda M-507D1 või 16D49/16D500 turbodiislit; 3 × DGAS-315 diiselgeneraatorit",
+        "maxSpeedKn": 30,
+        "range": 4630,
+        "autonomy": 15,
+        "crew": "50–70",
+        "mainArmament": "1 × 76,2 mm AK-176MA või 100 mm A-190",
+        "antiShipMissiles": "2 × 4 UKSK VLS-kärge: Kalibr või Oniks",
+        "samMissiles": "Pantsir-M (Hermes-K) või Palma (Sosna-R, 8 raketti) või Tor (kaks esimest laeva)",
+        "secondaryArmament": "2 × 12,7 mm Kord; kaks esimest laeva: 2 × AK-630M-2",
+        "aviation": "Orlan-10 drooni stardiseade",
+        "sensors": "Mineral-M, Pozitiv-M 1.2, Laska tulejuhtimisradar"
+      },
+      "warnings": {
+        "fullDisplacement": "Wikipedia annab 800 t (860 t pärast kahte esimest laeva) ilma täpsustuseta, kas see on standard- või täismass. Project 22800."
+      },
+      "sources": [
+        {"name": "Wikipedia: Karakurt-class corvette", "url": "https://en.wikipedia.org/wiki/Karakurt-class_corvette", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Tarantul klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 488,
+        "fullDisplacement": 549,
+        "length": 56,
+        "width": 10.5,
+        "draft": 2.5,
+        "engine": "COGAG/COGOG gaasiturbiinid (11 000 hj turbiini kohta + 2 sõidumootorit 4000 hj)",
+        "range": 4445,
+        "autonomy": 10,
+        "crew": "50",
+        "mainArmament": "1 × 76 mm AK-176",
+        "antiShipMissiles": "4 × P-15 Termit või 4 × P-270 Moskit või 16 × Kh-35 või 4 × BrahMos (variandist sõltuvalt)",
+        "samMissiles": "1 × SA-N-5 nelikstardiseade",
+        "secondaryArmament": "2 × 30 mm AK-630 või 1 × Kashtan",
+        "sensors": "Spin Trough, Bass Tilt, Peel Pair, Pop Group"
+      },
+      "warnings": {
+        "standardDisplacement": "Wikipedia infoboks kehtib kogu klassile; veeväljasurve on ümber arvestatud pikkadest tonnidest (480 / 540). Max kiirus on vastuoluline (infoboks 42, Project 1241.1 tekstis 38 sõlme), jäetud tühjaks. Sõiduulatus 2400 nmi 12 sõlmel."
+      },
+      "sources": [
+        {"name": "Wikipedia: Tarantul-class corvette", "url": "https://en.wikipedia.org/wiki/Tarantul-class_corvette", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Aleksandrit klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 620,
+        "fullDisplacement": 890,
+        "length": 61,
+        "width": 10.2,
+        "draft": 2.68,
+        "engine": "2 × Zvezda M503 diislit",
+        "maxSpeedKn": 16.5,
+        "range": 2963,
+        "autonomy": 10,
+        "crew": "45",
+        "secondaryArmament": "1 × AK-306 (30 mm CIWS); 1 × 14,5 mm MTPU",
+        "samMissiles": "Igla või Verba MANPADS",
+        "mineLaying": "Miinid",
+        "mineClearing": "Trallid ning telejuhitavad ja autonoomsed veealused ja pealveesõidukid"
+      },
+      "warnings": {
+        "standardDisplacement": "Project 12700; sõiduulatus 1600 nmi 10 sõlmel."
+      },
+      "sources": [
+        {"name": "Wikipedia: Alexandrit-class minesweeper", "url": "https://en.wikipedia.org/wiki/Alexandrit-class_minesweeper", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Dyugon klass": {
+      "status": "unverified",
+      "values": {
+        "fullDisplacement": 280,
+        "length": 45,
+        "width": 8.6,
+        "draft": 1.9,
+        "engine": "2 × M507A-2D diislit (9000 hj iga)",
+        "power": 18000,
+        "maxSpeedKn": 35,
+        "range": 926,
+        "crew": "7",
+        "landingCapacity": "120–140 t lasti; 3 lahingutanki või 5 soomustransportööri; kuni 100 dessantväelast",
+        "secondaryArmament": "2 × 14,5 mm KPV"
+      },
+      "warnings": {
+        "fullDisplacement": "Wikipedia ei täpsusta, millist veeväljasurvet 280 t tähistab. Project 21820."
+      },
+      "sources": [
+        {"name": "Wikipedia: Dyugon-class landing craft", "url": "https://en.wikipedia.org/wiki/Dyugon-class_landing_craft", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Sovremenny klass": {
+      "status": "unverified",
+      "values": {
+        "fullDisplacement": 7940,
+        "length": 156.5,
+        "width": 17.2,
+        "draft": 5.2,
+        "engine": "2 auruturbiini (37 000 kW iga), 4 kõrgrõhukatelt",
+        "power": 100000,
+        "maxSpeedKn": 32,
+        "range": 9260,
+        "mainArmament": "2 × 2 130 mm AK-130",
+        "antiShipMissiles": "8 × Moskit (SS-N-22), 2 × 4 stardiseadet",
+        "samMissiles": "48 × SA-N-7 (Shtil)",
+        "secondaryArmament": "4 × 30 mm AK-630",
+        "aswWeapons": "2 × RBU-1000 (6-toruline, 48 raketti)",
+        "torpedoes": "4 × 533 mm torud (2 × 2)",
+        "aviation": "1 Ka-27 kopter, platvorm ja teleskoopangaar",
+        "sensors": "Fregat-MP, Mineral-ME, Ehkran, Orekh, MGK-355 Platina sonar"
+      },
+      "warnings": {
+        "maxSpeedKn": "Wikipedia: „veidi alla 32 sõlme“. Sõiduulatus 5000 nmi 18 sõlmel. Wikipedia lehel on ka Hiina moderniseeringud; siin on vene versiooni väärtused."
+      },
+      "sources": [
+        {"name": "Wikipedia: Sovremennyy-class destroyer", "url": "https://en.wikipedia.org/wiki/Sovremennyy-class_destroyer", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Kilo-2 klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 2350,
+        "fullDisplacement": 3950,
+        "length": 73.8,
+        "width": 9.9,
+        "draft": 6.2,
+        "engine": "Diisel-elekter: 2 × 1000 kW diiselgeneraatorit, 1 elektrimootor (4100–5100 kW), seitseterapropeller",
+        "maxSpeedKn": 17,
+        "submergedSpeed": 20,
+        "range": 13890,
+        "autonomy": 45,
+        "diveDepth": 240,
+        "crew": "52",
+        "torpedoes": "6 × 533 mm torpeedotoru, 18 torpeedot",
+        "antiShipMissiles": "Kalibr (ca 4 raketti, väljalaskmine kahe toru kaudu)",
+        "mineLaying": "24 miini"
+      },
+      "warnings": {
+        "standardDisplacement": "Project 636.3. Kiirus, ulatus, sukeldumissügavus (240 m töö-, 300 m maksimum) ja autonoomia on Wikipedia klassiülesed andmed. Ulatus 7500 nmi 7 sõlmel snorkliga; allveesõidul 400 nmi 3 sõlmel."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kilo-class submarine", "url": "https://en.wikipedia.org/wiki/Kilo-class_submarine", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Lada klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 1793,
+        "fullDisplacement": 2743,
+        "length": 72,
+        "width": 7.1,
+        "draft": 6.5,
+        "engine": "Püsimagnetiga elektrimootor, 1 võll, akud",
+        "power": 2700,
+        "maxSpeedKn": 10,
+        "submergedSpeed": 21,
+        "range": 13890,
+        "autonomy": 45,
+        "diveDepth": 300,
+        "crew": "35",
+        "torpedoes": "6 × 533 mm torpeedotoru; kuni 16 torpeedot või raketti",
+        "antiShipMissiles": "Kuni 10 Kalibr/Club raketti (osadel versioonidel)",
+        "aswWeapons": "RPK-6 (SS-N-16 Vodopad) allveelaevatõrjerakett",
+        "mineLaying": "Kuni 44 miini"
+      },
+      "warnings": {
+        "maxSpeedKn": "Wikipedia märgib mõlemad kiirused (10 sõlme pinnal, 21 allveesõidul) kui viidet vajavad. Ulatus 7500 nmi 3 sõlmel sukeldunult."
+      },
+      "sources": [
+        {"name": "Wikipedia: Lada-class submarine", "url": "https://en.wikipedia.org/wiki/Lada-class_submarine", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Nanuchka klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 569,
+        "fullDisplacement": 671,
+        "length": 59.3,
+        "width": 12.6,
+        "draft": 2.7,
+        "engine": "3 võlli, diislid",
+        "power": 30000,
+        "maxSpeedKn": 32,
+        "range": 4630,
+        "crew": "60",
+        "mainArmament": "Nanuchka I: 2 × 57 mm AK-257; Nanuchka III: 1 × 76 mm AK-176",
+        "antiShipMissiles": "6 × P-120 Malahhit (SS-N-9), 2 × 3 stardiseadet; Nanuchka III: 16 × Kh-35 (Wikipedia andmetel)",
+        "samMissiles": "20 × 4K33 Osa-M (SA-N-4)",
+        "secondaryArmament": "Nanuchka III: 30 mm AK-630",
+        "sensors": "Band Stand, Bass Tilt, Peel Pair, Pop Group"
+      },
+      "warnings": {
+        "standardDisplacement": "Wikipedia infoboks kogu klassile (veeväljasurve ümber arvestatud pikkadest tonnidest); sõiduulatus 2500 nmi 12 sõlmel, 900 nmi 30 sõlmel. Raketiandmed varieeruvad varianditi."
+      },
+      "sources": [
+        {"name": "Wikipedia: Nanuchka-class corvette", "url": "https://en.wikipedia.org/wiki/Nanuchka-class_corvette", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Ondatra klass": {
+      "status": "unverified",
+      "values": {
+        "fullDisplacement": 107.3,
+        "length": 24.5,
+        "width": 5.2,
+        "draft": 1.55,
+        "engine": "2 diislit, kokku 600 hj",
+        "power": 600,
+        "maxSpeedKn": 11.5,
+        "range": 611,
+        "crew": "5",
+        "landingCapacity": "1 T-72 tank või 22 dessantväelast või 50 t lasti"
+      },
+      "warnings": {
+        "range": "330 nmi 10 sõlmel."
+      },
+      "sources": [
+        {"name": "Wikipedia: Ondatra-class landing craft", "url": "https://en.wikipedia.org/wiki/Ondatra-class_landing_craft", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Serna klass": {
+      "status": "unverified",
+      "values": {
+        "emptyWeight": 61,
+        "length": 25.65,
+        "width": 5.66,
+        "draft": 1.52,
+        "engine": "2 × M-503A-3 diislit (3300 hj iga); osadel paatidel 2 × MTU 16V2000 M90 (2000 hj iga)",
+        "power": 6600,
+        "maxSpeedKn": 30,
+        "range": 1111,
+        "crew": "5",
+        "landingCapacity": "1 lahingutank või 2 soomukit või 45 t lasti; 92 dessantväelast"
+      },
+      "warnings": {
+        "emptyWeight": "Wikipedia annab ainult tühimassi (61 t). Sõiduulatus 600 nmi 12 sõlmel (100 nmi 30 sõlmel)."
+      },
+      "sources": [
+        {"name": "Wikipedia: Serna-class landing craft", "url": "https://en.wikipedia.org/wiki/Serna-class_landing_craft", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Sonya klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 400,
+        "fullDisplacement": 450,
+        "length": 48.8,
+        "width": 8.8,
+        "draft": 2.1,
+        "engine": "2 võlli diislid",
+        "power": 2400,
+        "maxSpeedKn": 15,
+        "range": 5556,
+        "crew": "43",
+        "secondaryArmament": "1 × 2 30 mm; 1 × 2 25 mm",
+        "mineClearing": "Trallid GKT, PEMT-2, ST-2"
+      },
+      "warnings": {
+        "range": "3000 nmi 10 sõlmel. Project 1265."
+      },
+      "sources": [
+        {"name": "Wikipedia: Sonya-class minesweeper", "url": "https://en.wikipedia.org/wiki/Sonya-class_minesweeper", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Grachonok klass": {
+      "status": "unverified",
+      "values": {
+        "fullDisplacement": 138,
+        "length": 31.04,
+        "width": 7.4,
+        "draft": 1.85,
+        "engine": "2 diislit (MTU, MWM-Deutz TBD620V12 või kohalik/muu Euroopa mudel)",
+        "maxSpeedKn": 23,
+        "autonomy": 5,
+        "crew": "8",
+        "secondaryArmament": "1 × 14,5 mm MTPU; 1 × DP-64 sukeldujatõrje granaadiheitja; 1 × DP-65 kaugjuhitav granaadiheitja",
+        "samMissiles": "Igla MANPADS (4 raketti)",
+        "sensors": "Kalmar sonar; MG-757 Anapa-M sukeldujatõrje tõmmatav sonar"
+      },
+      "warnings": {
+        "fullDisplacement": "Wikipedia ei täpsusta veeväljasurve tüüpi (138 t). Project 21980."
+      },
+      "sources": [
+        {"name": "Wikipedia: Grachonok-class patrol boat", "url": "https://en.wikipedia.org/wiki/Grachonok-class_patrol_boat", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Lida klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 131,
+        "fullDisplacement": 135,
+        "length": 31.5,
+        "width": 6.5,
+        "draft": 1.53,
+        "engine": "3 × 300 hj 3D12M diislit",
+        "power": 900,
+        "maxSpeedKn": 12,
+        "range": 741,
+        "crew": "14",
+        "secondaryArmament": "1 × 30 mm AK-630 (6-toruline)",
+        "samMissiles": "2 × Strela-2 (9K32)",
+        "mineLaying": "4 miini"
+      },
+      "warnings": {
+        "range": "400 nmi 10 sõlmel."
+      },
+      "sources": [
+        {"name": "Wikipedia: Lida-class minesweeper", "url": "https://en.wikipedia.org/wiki/Lida-class_minesweeper", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Raptor klass": {
+      "status": "unverified",
+      "values": {
+        "fullDisplacement": 23,
+        "length": 16.9,
+        "width": 4.1,
+        "draft": 0.9,
+        "engine": "2 × Caterpillar C18 ACERT diislit (845 kW / 1133 hj iga), 2 Kamewa 36A3 HS veejoa",
+        "power": 2266,
+        "maxSpeedKn": 48,
+        "range": 556,
+        "crew": "3",
+        "landingCapacity": "20 dessantväelast",
+        "secondaryArmament": "1 × 12,7 mm Kord; 2 × 7,62 mm PKP Pecheneg",
+        "atgm": "8 × 9M133 Kornet"
+      },
+      "warnings": {
+        "fullDisplacement": "Wikipedia annab 23 t ilma tüübita. Kiirus 48 sõlme täiskiirusel (28 sõlme 2,5 m lainetuses). Ulatus 300 nmi 20 sõlmel."
+      },
+      "sources": [
+        {"name": "Wikipedia: Raptor-class patrol boat", "url": "https://en.wikipedia.org/wiki/Raptor-class_patrol_boat", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Moma klass": {
+      "status": "unverified",
+      "values": {
+        "standardDisplacement": 1200,
+        "fullDisplacement": 1542,
+        "length": 73.3,
+        "width": 10.8,
+        "draft": 3.85,
+        "maxSpeedKn": 17,
+        "range": 16483,
+        "autonomy": 20,
+        "crew": "45 + 10 uurijat",
+        "mainArmament": "Puudub (laevad algselt relvastamata)"
+      },
+      "warnings": {
+        "standardDisplacement": "Ainult ARMSNET (Ukraina laeva leht). Luurelaevaks ümberehitatud versioonil (nt Liman) on Igla MANPADS."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Moma", "url": "https://armsnet.duckdns.org/equipment/3ba31106-a726-4bf3-ea0b-08de6e3c1543", "retrieved": "2026-10-23"},
+        {"name": "GlobalSecurity: Moma class", "url": "https://www.globalsecurity.org/military/world/russia/moma-class.htm", "retrieved": "2026-10-23"}
+      ]
+    },
+    "BREM-D": {
+      "status": "unverified",
+      "values": {
+        "crew": "1",
+        "combatWeight": 8,
+        "length": 5.88,
+        "width": 2.63,
+        "height": 2,
+        "engine": "5D20 V6 diisel",
+        "power": 240,
+        "maxSpeedRoad": 62,
+        "maxSpeedWater": 10,
+        "range": 500,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 30,
+        "verticalStep": 0.7,
+        "trench": 2,
+        "mainArmament": "1 × 7,62 mm PKT (2000 padrunit)",
+        "armor": "Keevitatud alumiiniumkere: kaitse kergrelvade ja suurtükikildude vastu; lisasoomus võimalik, dünaamiline kaitse puudub",
+        "specialEquipment": "Kerge kokkupandav kraana vägede ruumi katusel (pööre 180°); päästevints (võimsus teadmata)"
+      },
+      "warnings": {
+        "crew": "ARMSNET annab meeskonnaks 1; kontrolli täpsemast allikast."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BREM-D", "url": "https://armsnet.duckdns.org/equipment/d85ca3e3-b120-4688-eaef-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "BREM-1": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 (ülem, mehaanik-juht, insener)",
+        "combatWeight": 41,
+        "length": 7.98,
+        "width": 3.46,
+        "height": 2.43,
+        "groundClearance": 470,
+        "engine": "V-46-6 12-silindriline vedelikjahutusega diisel",
+        "power": 770,
+        "maxSpeedRoad": 60,
+        "range": 700,
+        "mainArmament": "1 × 12,7 mm NSVT (840 padrunit)",
+        "specialEquipment": "Kraana: 19 t lühikesel väljaulatusel, 3 t maksimaalsel (4,4 m); põhivints 25 t (taljega kuni 100 t), 220 m tross; abivints 530 kg, 400 m tross"
+      },
+      "warnings": {
+        "range": "700 km maanteel (220 km haakimisel), 500 km maastikul. Allikas: Armedconflicts (T-72 alusel BREM-1)."
+      },
+      "sources": [
+        {"name": "Armedconflicts: BREM-1", "url": "https://www.armedconflicts.com/topic/view/13729", "retrieved": "2026-10-23"}
+      ]
+    },
+    "BREM-2": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "combatWeight": 14,
+        "length": 7.68,
+        "width": 3.16,
+        "height": 2.27,
+        "engine": "UTD-20 diisel",
+        "power": 300,
+        "maxSpeedRoad": 65,
+        "maxSpeedWater": 7,
+        "range": 560,
+        "amphibious": true,
+        "mainArmament": "1 × 7,62 mm PKMB (1000 padrunit)",
+        "armor": "Keevitatud terasest kere: kaitse kergrelvade ja kildude vastu",
+        "specialEquipment": "Kraana (pööre 270°, kandevõime 1500 kg); vints 6,5 t, 150 m tross"
+      },
+      "warnings": {
+        "crew": "ARMSNET annab meeskonnaks 4 (süsteemitabelis 4–5)."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BREM-2", "url": "https://armsnet.duckdns.org/equipment/4ab5da20-cec6-406d-ead8-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "BREM-K": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "combatWeight": 13.6,
+        "length": 7.7,
+        "width": 3,
+        "height": 2.8,
+        "driveConfig": "8×8",
+        "engine": "Turbodiisel (mudel teadmata)",
+        "power": 260,
+        "maxSpeedRoad": 80,
+        "maxSpeedOffroad": 40,
+        "maxSpeedWater": 9,
+        "range": 600,
+        "amphibious": true,
+        "trench": 2,
+        "mainArmament": "7,62 mm kuulipilduja (1500 padrunit)",
+        "specialEquipment": "Kraana kuni 1,5 t; buldooseritera; elektrikeevitusseadmed"
+      },
+      "warnings": {
+        "mainArmament": "ARMSNET annab samas kaliibriks ka „8 mm“, mis on vastuolus 7,62 mm-ga."
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BREM-K", "url": "https://armsnet.duckdns.org/equipment/f2a00258-9df0-4d5f-91e7-08decdca92d5", "retrieved": "2026-10-23"}
+      ]
+    },
+    "BMM-3": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "combatWeight": 13.6,
+        "length": 7.7,
+        "width": 2.9,
+        "height": 2.41,
+        "driveConfig": "8×8",
+        "engine": "KamAZ-7403 V8 vedelikjahutusega diisel",
+        "power": 260,
+        "maxSpeedRoad": 80,
+        "maxSpeedOffroad": 60,
+        "maxSpeedWater": 10,
+        "range": 600,
+        "amphibious": true,
+        "gradient": 60,
+        "sideSlope": 40,
+        "verticalStep": 0.5,
+        "trench": 2,
+        "mainArmament": "1 × 14,5 mm KPVT (500 padrunit)",
+        "secondaryArmament": "1 × 7,62 mm PKT (2500 padrunit); 6 × 81 mm suitsugraanaadiheitjat",
+        "armor": "Kere esiosa peab vastu 12,7 mm kuulidele; igakülgne kaitse 7,62 mm kuulide ja kildude vastu",
+        "specialEquipment": "Kandevõime: 4 raskelt haavatut kanderaamil sees, 2 kanderaami mootoriruumi katusel ja kuni 12 inimest kokkupandavas telgis"
+      },
+      "sources": [
+        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BMM-3", "url": "https://armsnet.duckdns.org/equipment/32e88f11-73cd-474e-eacb-08de6e3c1543", "retrieved": "2026-10-23"}
+      ]
+    },
+    "URAL-43206": {
+      "status": "unverified",
+      "values": {
+        "driveConfig": "4×4",
+        "loadCapacity": 4200,
+        "engine": "YaMZ-236 diisel",
+        "power": 180
+      },
+      "warnings": {
+        "loadCapacity": "Wikipedia lehe põhiandmed (6×6, 6000 kg, 240 PS YaMZ-238) on Ural-4320 kohta; siin on ainult 43206 (4×4) variandi andmed. 43206-41: 230 hj turbodiisel; 43206-0551: 3600 kg."
+      },
+      "sources": [
+        {"name": "Wikipedia: Ural-4320", "url": "https://en.wikipedia.org/wiki/Ural-4320", "retrieved": "2026-10-23"}
+      ]
+    },
+    "KAMAZ-5350": {
+      "status": "unverified",
+      "values": {
+        "driveConfig": "6×6",
+        "loadCapacity": 6000,
+        "engine": "KamAZ-740.13.260 turbodiisel",
+        "power": 250,
+        "seats": "3 (kabiin magamiskohaga)"
+      },
+      "warnings": {
+        "loadCapacity": "KamAZ-53501 variandil 10 000 kg. Mõõte, kiirust ja ulatust Wikipedia ei anna."
+      },
+      "sources": [
+        {"name": "Wikipedia: KamAZ-5350", "url": "https://en.wikipedia.org/wiki/KamAZ-5350", "retrieved": "2026-10-23"}
+      ]
+    },
+    "KRAZ-260": {
+      "status": "unverified",
+      "values": {
+        "driveConfig": "6×6",
+        "loadCapacity": 9000,
+        "towingCapacity": 30000,
+        "combatWeight": 22,
+        "length": 9.03,
+        "width": 2.72,
+        "height": 2.985,
+        "engine": "YaMZ-238L 14,86 l V8 diisel",
+        "power": 300,
+        "maxSpeedRoad": 80,
+        "range": 1000,
+        "fording": 1.2,
+        "gradient": 58,
+        "groundClearance": 370,
+        "fuelCapacity": 380
+      },
+      "warnings": {
+        "towingCapacity": "30 t maanteel, 10 t maastikul.",
+        "combatWeight": "Lubatud täismass 22 t (tühimass 12,775 t).",
+        "fuelCapacity": "2 × 165 l + 50 l reserv.",
+        "engine": "Wikipedia infoboks ja tekst erinevad käigukasti ja mootori tähistuse osas."
+      },
+      "sources": [
+        {"name": "Wikipedia: KrAZ-260", "url": "https://en.wikipedia.org/wiki/KrAZ-260", "retrieved": "2026-10-23"}
+      ]
+    },
+    "UAZ-469": {
+      "status": "unverified",
+      "values": {
+        "driveConfig": "4×4",
+        "combatWeight": 2.45,
+        "length": 4.025,
+        "width": 1.785,
+        "height": 2.05,
+        "groundClearance": 300,
+        "engine": "2,45 l 4-silindriline karburaatorbensiinimootor",
+        "power": 75,
+        "fuelCapacity": 78,
+        "seats": "7 (sõjaväeversioon)"
+      },
+      "warnings": {
+        "combatWeight": "Lubatud täismass 2450 kg; tühimass kütusega 1650 kg. Maapind: 300 mm sõjaväeversioon, 220 mm tsiviil. 2010–2013 oli saadaval 2,7 l 112 hj mootor."
+      },
+      "sources": [
+        {"name": "Wikipedia: UAZ-469", "url": "https://en.wikipedia.org/wiki/UAZ-469", "retrieved": "2026-10-23"}
+      ]
+    },
+    "GAZ-66": {
+      "status": "unverified",
+      "values": {
+        "driveConfig": "4×4",
+        "loadCapacity": 2000,
+        "towingCapacity": 2000,
+        "length": 5.805,
+        "width": 2.322,
+        "height": 2.49,
+        "engine": "ZMZ-66-06 V8 karburaatorbensiinimootor, 4,25 l",
+        "power": 120,
+        "maxSpeedRoad": 90,
+        "fording": 1,
+        "groundClearance": 315,
+        "fuelCapacity": 210,
+        "seats": "2 kabiinis + kuni 21 kastis"
+      },
+      "warnings": {
+        "loadCapacity": "GAZ-66-11 variant; haagise mass 2000 kg on Wikipedia hinnang (eraldi vedamisandmeid pole)."
+      },
+      "sources": [
+        {"name": "Wikipedia: GAZ-66", "url": "https://en.wikipedia.org/wiki/GAZ-66", "retrieved": "2026-10-23"}
+      ]
+    },
+    "UAZ-452": {
+      "status": "unverified",
+      "values": {
+        "driveConfig": "4×4",
+        "length": 4.44,
+        "width": 2.1,
+        "height": 2.101,
+        "engine": "2,7 l 4-silindriline bensiinimootor",
+        "power": 112,
+        "maxSpeedRoad": 127,
+        "fording": 0.5,
+        "groundClearance": 220,
+        "fuelCapacity": 77,
+        "seats": "2–11 (varianditi)"
+      },
+      "warnings": {
+        "length": "Väärtused kehtivad kaasaegsetel variantidel (nt UAZ-3741, 3962); kandevõime 850–1225 kg varianditi. Infoboks annab vanema UAZ-450 andmed."
+      },
+      "sources": [
+        {"name": "Wikipedia: UAZ-452", "url": "https://en.wikipedia.org/wiki/UAZ-452", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Kamaz 65225": {
+      "status": "unverified",
+      "values": {
+        "driveConfig": "6×6",
+        "loadCapacity": 17000,
+        "towingCapacity": 70000,
+        "engine": "KamAZ-740.37-400 V8 diisel",
+        "power": 400
+      },
+      "warnings": {
+        "loadCapacity": "Koormus sadulale 17 t; haagise (poolhaagise) täismass kuni 70 t. Allikas: GlobalSecurity."
+      },
+      "sources": [
+        {"name": "GlobalSecurity: KAMAZ trucks", "url": "https://www.globalsecurity.org/military/world/russia/kamaz-trucks.htm", "retrieved": "2026-10-23"}
+      ]
+    },
+    "Desertcross 1000-3": {
+      "status": "unverified",
+      "values": {
+        "driveConfig": "Tagavedu või nelikvedu",
+        "combatWeight": 1.05,
+        "loadCapacity": 550,
+        "towingCapacity": 300,
+        "length": 3.4,
+        "width": 1.8,
+        "height": 1.9,
+        "groundClearance": 305,
+        "engine": "2-silindriline V-mootor, vedelikjahutusega bensiin",
+        "power": 87,
+        "maxSpeedRoad": 80,
+        "range": 250,
+        "fording": 0.4,
+        "fuelCapacity": 48,
+        "seats": "3 kabiinis; 2 äravõetavat istet kastis",
+        "specialEquipment": "Vints (tõmbejõud üle 2 t vene armee versioonil)"
+      },
+      "warnings": {
+        "combatWeight": "Allikas on uudisteväljaanne (Militarnyi); vene armee konfiguratsioon: 1050 kg, koormus 550 kg; põhimudel 850 kg ja 300 kg."
+      },
+      "sources": [
+        {"name": "Militarnyi: Desertcross 1000-3", "url": "https://militarnyi.com/en/articles/how-chinese-golf-carts-help-russian-invaders/", "retrieved": "2026-10-23"}
       ]
     }
   }
