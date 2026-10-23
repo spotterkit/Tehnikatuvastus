@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 17,
+  "version": 18,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -6776,6 +6776,366 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: PP-19 Bizon (PP-19-01 Vityaz)", "url": "https://en.wikipedia.org/wiki/PP-19_Bizon", "retrieved": "2026-10-23"}
+      ]
+    },
+    "PMN": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 0.55,
+        "mineDiameter": 110,
+        "mineHeight": 53,
+        "explosiveMass": 200,
+        "explosiveType": "TNT (tetrüüli süütelaeng)",
+        "casing": "Bakeliit, must kummist surveplaat"
+      },
+      "warnings": {
+        "mineMass": "PMN-1 (1950ndate konstruktsioon)."
+      },
+      "sources": [
+        {"name": "Wikipedia: PMN mine", "url": "https://en.wikipedia.org/wiki/PMN_mine", "retrieved": "2026-10-23"}
+      ]
+    },
+    "PMN-2": {
+      "status": "unverified",
+      "values": {
+        "explosiveType": "RDX/TNT-põhine segu (sarnane Composition B)",
+        "casing": "Survevormitud plast (tavaliselt roheline), must kummist X-kujuline surveplaat"
+      },
+      "warnings": {
+        "explosiveType": "Mõõtmeid ja massi Wikipedia PMN-2 kohta ei anna (lehel olev mass 0,6 kg / 122 mm kuulub PMN-3-le). Konstruktsioon 1970ndate keskelt."
+      },
+      "sources": [
+        {"name": "Wikipedia: PMN mine", "url": "https://en.wikipedia.org/wiki/PMN_mine", "retrieved": "2026-10-23"}
+      ]
+    },
+    "PMN-4": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 0.3,
+        "mineDiameter": 95,
+        "mineHeight": 42,
+        "explosiveMass": 50,
+        "explosiveType": "TNT",
+        "casing": "Punakaspruun või khaki korpus, must kummist surveplaat"
+      },
+      "warnings": {
+        "mineMass": "Sisaldab olulisel määral metalli ja on miinidetektoriga tuvastatav. Konstruktsioon 1980ndate algusest."
+      },
+      "sources": [
+        {"name": "Wikipedia: PMN mine", "url": "https://en.wikipedia.org/wiki/PMN_mine", "retrieved": "2026-10-23"}
+      ]
+    },
+    "PFM-1": {
+      "status": "unverified",
+      "values": {
+        "mineLength": 119,
+        "mineWidth": 64,
+        "mineHeight": 20,
+        "explosiveMass": 37,
+        "explosiveType": "Vedel lõhkeaine VS-6D või VS-60D",
+        "casing": "Polüetüleenist plastkorpus",
+        "delivery": "Kassettides (nt KSF-1S: 64 PFM-1S), laotakse raketiheitjate, miinipildujate, helikopterite ja lennukitega või UMZ-miinilaoturiga"
+      },
+      "warnings": {
+        "mineLength": "Mõõtmed 119 × 64 × 20 mm (tiibade kogulaius 120 mm). Mass Wikipedias puudub. PFM-1S on isehävituv variant."
+      },
+      "sources": [
+        {"name": "Wikipedia: PFM-1 mine", "url": "https://en.wikipedia.org/wiki/PFM-1_mine", "retrieved": "2026-10-23"}
+      ]
+    },
+    "POM-2S": {
+      "status": "unverified",
+      "values": {
+        "mineDiameter": 63,
+        "mineHeight": 180,
+        "lethalRadius": 16,
+        "delivery": "Kassettidega BM-21 / BM-27 raketiheitjatest, helikopterite VSM-1 süsteemiga, UMZ-miinilaoturiga või PKM-komplektiga"
+      },
+      "warnings": {
+        "mineDiameter": "Wikipedia kirjeldab ainult POM-2; POM-2S kohta eraldi andmeid ei anna. Kildraadius 16 m."
+      },
+      "sources": [
+        {"name": "Wikipedia: POM-2 mine", "url": "https://en.wikipedia.org/wiki/POM-2_mine", "retrieved": "2026-10-23"}
+      ]
+    },
+    "POM-3": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 1.3,
+        "lethalRadius": 16,
+        "delivery": "Hajutatav (nt ISDM Zemledelie, 5–15 km); laskub langevarjuga ja seisab kuue vedruga jala peal"
+      },
+      "warnings": {
+        "mineMass": "Seismiline andur tuvastab samme; mõõtmed ja lõhkeaine mass puuduvad."
+      },
+      "sources": [
+        {"name": "Wikipedia: POM-3 mine", "url": "https://en.wikipedia.org/wiki/POM-3_mine", "retrieved": "2026-10-23"}
+      ]
+    },
+    "POMZ-2M": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 1.8,
+        "mineDiameter": 60,
+        "mineHeight": 107,
+        "explosiveMass": 75,
+        "explosiveType": "TNT",
+        "lethalRadius": 4
+      },
+      "warnings": {
+        "lethalRadius": "„Neli meetrit 360° ulatuses“; üksikud suured killud võivad olla surmavad palju kaugemal. POMZ-2: 2,3 kg, kõrgus 130 mm."
+      },
+      "sources": [
+        {"name": "Wikipedia: POMZ-2", "url": "https://en.wikipedia.org/wiki/POMZ-2", "retrieved": "2026-10-23"}
+      ]
+    },
+    "OZM-3": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 3.2,
+        "mineDiameter": 76,
+        "mineHeight": 130,
+        "explosiveMass": 75,
+        "explosiveType": "TNT",
+        "casing": "Malmist kildkorpus",
+        "lethalRadius": 9
+      },
+      "warnings": {
+        "mineMass": "Wikipedia tabelid on sildistamata; OZM-3 / OZM-4 / OZM-72 väärtused seostati tabelite järjekorra alusel."
+      },
+      "sources": [
+        {"name": "Wikipedia: OZM", "url": "https://en.wikipedia.org/wiki/OZM", "retrieved": "2026-10-23"}
+      ]
+    },
+    "OZM-4": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 5.4,
+        "mineDiameter": 90,
+        "mineHeight": 170,
+        "explosiveMass": 170,
+        "explosiveType": "TNT",
+        "casing": "Malmist kildkorpus",
+        "lethalRadius": 13
+      },
+      "warnings": {
+        "mineMass": "Wikipedia tabelid on sildistamata; väärtused seostati tabelite järjekorra alusel."
+      },
+      "sources": [
+        {"name": "Wikipedia: OZM", "url": "https://en.wikipedia.org/wiki/OZM", "retrieved": "2026-10-23"}
+      ]
+    },
+    "OZM-72": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 5,
+        "mineDiameter": 108,
+        "mineHeight": 172,
+        "explosiveMass": 660,
+        "explosiveType": "TNT",
+        "casing": "Raudkorpus, 2400 eelvormitud terasklilu",
+        "fragments": 2400,
+        "lethalRadius": 25
+      },
+      "warnings": {
+        "mineMass": "Wikipedia tabelid on sildistamata; väärtused seostati tabelite järjekorra alusel. Kildude kandekaugus 50 m; tõusukõrgus ca 0,5 m."
+      },
+      "sources": [
+        {"name": "Wikipedia: OZM", "url": "https://en.wikipedia.org/wiki/OZM", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MON-50": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 2,
+        "mineLength": 226,
+        "mineWidth": 35,
+        "mineHeight": 155,
+        "explosiveMass": 700,
+        "explosiveType": "RDX (PVV-5A)",
+        "fragments": 540,
+        "lethalRadius": 50,
+        "fragmentationAngle": "54° horisontaalselt"
+      },
+      "warnings": {
+        "fragments": "Ca 540 terasgraanulit või ca 485 terassilindrit variandist sõltuvalt. Tüüpiline ulatus 40–60 m, otse ees võib oht ulatuda 300 m-ni."
+      },
+      "sources": [
+        {"name": "Wikipedia: MON-50", "url": "https://en.wikipedia.org/wiki/MON-50", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MON-90": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 12.1,
+        "mineLength": 345,
+        "mineWidth": 153,
+        "mineHeight": 202,
+        "explosiveMass": 6200,
+        "explosiveType": "RDX",
+        "fragments": 2000,
+        "lethalRadius": 90,
+        "fragmentationAngle": "54° horisontaalselt"
+      },
+      "warnings": {
+        "explosiveType": "Tekstis RDX (PVV-5A), andmelehel PVV-5L (vastuolu). Ca 2000 eelvormitud 7 mm kuuli või rulli (rullidega 99 m). Oht ulatub otse ees kuni 300 m-ni."
+      },
+      "sources": [
+        {"name": "Wikipedia: MON-90", "url": "https://en.wikipedia.org/wiki/MON-90", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MON-100": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 5,
+        "mineDiameter": 236,
+        "explosiveMass": 2000,
+        "explosiveType": "TNT",
+        "fragments": 450,
+        "lethalRadius": 100
+      },
+      "warnings": {
+        "mineMass": "5 kg ilma kinnitusosadeta; 7,53 kg koos kinnitusklambri ja piiga. Laius 82,5 mm. 450 terasvarda."
+      },
+      "sources": [
+        {"name": "Wikipedia: MON-100", "url": "https://en.wikipedia.org/wiki/MON-100", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MON-200": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 25,
+        "mineDiameter": 434,
+        "explosiveMass": 12000,
+        "explosiveType": "TNT",
+        "lethalRadius": 200
+      },
+      "warnings": {
+        "lethalRadius": "200 m tuleneb tähisest ja tähendab kaugust inimeste tõsiseks kahjustamiseks. Laius 130 mm; killuarvu ei ole."
+      },
+      "sources": [
+        {"name": "Wikipedia: MON-200", "url": "https://en.wikipedia.org/wiki/MON-200", "retrieved": "2026-10-23"}
+      ]
+    },
+    "TM-62M": {
+      "status": "unverified",
+      "values": {
+        "explosiveMass": 7500,
+        "casing": "Ümmargune metallkorpus"
+      },
+      "warnings": {
+        "explosiveMass": "7,5 kg on TM-62 seeria tüüpiline lõhkeainekogus, mitte variandispetsiifiline. Massi ja mõõtmeid Wikipedia ei anna. Kõige laialdasemalt kasutatav variant."
+      },
+      "sources": [
+        {"name": "Wikipedia: TM-62", "url": "https://en.wikipedia.org/wiki/TM-62", "retrieved": "2026-10-23"}
+      ]
+    },
+    "TM-62P3": {
+      "status": "unverified",
+      "values": {
+        "explosiveMass": 7500,
+        "casing": "Plastkorpus, sile külg"
+      },
+      "warnings": {
+        "explosiveMass": "7,5 kg on TM-62 seeria tüüpiline lõhkeainekogus, mitte variandispetsiifiline. P ja P2 on ribilised, P3 sile korpus."
+      },
+      "sources": [
+        {"name": "Wikipedia: TM-62", "url": "https://en.wikipedia.org/wiki/TM-62", "retrieved": "2026-10-23"}
+      ]
+    },
+    "TM-72": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 6,
+        "mineDiameter": 250,
+        "mineHeight": 80,
+        "explosiveMass": 2500,
+        "explosiveType": "TNT/RDX segu, kumulatiivlaeng",
+        "casing": "Silindriline metallkorpus",
+        "fuze": "Magnetiline mõjusüütaja (täislaiuse kahjustus)"
+      },
+      "sources": [
+        {"name": "Wikipedia: TM-72 mine", "url": "https://en.wikipedia.org/wiki/TM-72_mine", "retrieved": "2026-10-23"}
+      ]
+    },
+    "TM-83": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 28.1,
+        "mineLength": 455,
+        "mineWidth": 377,
+        "mineHeight": 440,
+        "explosiveMass": 9600,
+        "explosiveType": "TG 40/60",
+        "penetration": "100 mm soomust 30° nurga all, 80 mm auk (5–30 m kaugusel)",
+        "fuze": "Seismiline ja infrapunaandur"
+      },
+      "warnings": {
+        "mineMass": "28,1 kg kogu komplekt (miini keha 20,4 kg). Andurite ulatus tanki vastu: seismiline 200–250 m, infrapuna 90–120 m."
+      },
+      "sources": [
+        {"name": "Wikipedia: TM-83 mine", "url": "https://en.wikipedia.org/wiki/TM-83_mine", "retrieved": "2026-10-23"}
+      ]
+    },
+    "TM-89": {
+      "status": "unverified",
+      "values": {
+        "penetration": "200 mm soomust 0,45 m kaugusel",
+        "fuze": "Kahekanaliline magnetiline mõjusüütaja",
+        "explosiveType": "Misznay-Schardini efekti lõhkepea"
+      },
+      "warnings": {
+        "penetration": "Esmakordselt avalikult näidatud 1993. Massi, mõõtmeid ja lõhkeainekogust Wikipedia ei anna."
+      },
+      "sources": [
+        {"name": "Wikipedia: TM-89 mine", "url": "https://en.wikipedia.org/wiki/TM-89_mine", "retrieved": "2026-10-23"}
+      ]
+    },
+    "TMK-2": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 12.5,
+        "mineDiameter": 307,
+        "mineHeight": 265,
+        "explosiveMass": 6500,
+        "explosiveType": "TG-50 (6,5 kg) või TNT (6 kg)",
+        "casing": "Teras",
+        "penetration": "60–110 mm (TG-50 suurem, TNT väiksem)",
+        "fuze": "Kaldvarda süütaja (1,13 m kaldvardaga)"
+      },
+      "warnings": {
+        "mineMass": "Konstrueeritud 1955, vananenud; kumulatiivlaeng mõjub sõiduki põhja."
+      },
+      "sources": [
+        {"name": "Wikipedia: TMK-2 mine", "url": "https://en.wikipedia.org/wiki/TMK-2_mine", "retrieved": "2026-10-23"}
+      ]
+    },
+    "MOB": {
+      "status": "unverified",
+      "values": {
+        "casing": "Plastkorpus",
+        "delivery": "Käsitsi paigaldatav suunatud kildmiin, komplektis kuni neli miini (käsuga või ohvri poolt käivitatav)"
+      },
+      "warnings": {
+        "casing": "Kasutuses alates 2022 Venemaa–Ukraina sõjas. Massi, mõõtmeid, lõhkeainet ega kilde Wikipedia ei anna; moodulite arv komplektis varieerub."
+      },
+      "sources": [
+        {"name": "Wikipedia: MOB (landmine)", "url": "https://en.wikipedia.org/wiki/MOB_(landmine)", "retrieved": "2026-10-23"}
+      ]
+    },
+    "RDG-2": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 0.5,
+        "smokeDuration": "60–90 s",
+        "smokeScreen": "Kuni 30 m pikk ja 5–8 m lai",
+        "casing": "Silindriline korpus"
+      },
+      "warnings": {
+        "mineMass": "RDG-2M: ca 600 g, suits 50–70 s, 50 × 10 m, heksakloroetaan-põhine segu. Suits valge või must."
+      },
+      "sources": [
+        {"name": "Wikipedia: RDG-2", "url": "https://en.wikipedia.org/wiki/RDG-2", "retrieved": "2026-10-23"}
       ]
     }
   }
