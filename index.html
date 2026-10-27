@@ -4874,6 +4874,208 @@ window.addEventListener('hashchange', startFromHash);
   };
 })();
 </script>
+<style id="runFsStyles">
+  /* Testi/harjutuse täisekraan: pilt nii suur kui mahub, tulemus ja küsimuse nr alati ülal näha,
+     pildi suurendus otse vaates (vastuse väli ja hindamisnupud jäävad nähtavaks). */
+  .run-fs-btn{font-size:17px;padding:7px 12px;}
+  .fs-score{display:none;font-size:13px;letter-spacing:.06em;color:var(--bone);white-space:nowrap;}
+  .fs-score b{color:var(--olive);font-size:16px;}
+  .fs-score .fs-pct{color:var(--amber);font-weight:700;font-size:16px;}
+  .scope-zoom{display:none;position:absolute;right:8px;bottom:8px;z-index:3;gap:4px;}
+  .scope-zoom button{min-width:40px;min-height:40px;padding:0;font-size:18px;border:1px solid var(--line);background:rgba(13,15,10,.8);color:var(--bone);cursor:pointer;}
+  .scope-zoom button:hover{border-color:var(--olive);color:var(--olive);}
+  /* HUD (sildid, nurgad) jääb suurendatud pildi peale */
+  .scope .hud-tag,.scope .hud-status,.scope .corner,.scope .crosshair{z-index:2;}
+  #photo.zoomable{transform-origin:0 0;-webkit-user-drag:none;user-select:none;-webkit-user-select:none;}
+  body.run-fs{padding:0;min-height:0;}
+  body.run-fs .wrap{max-width:none;height:100vh;height:100dvh;display:flex;flex-direction:column;padding:8px 12px;box-sizing:border-box;}
+  body.run-fs header, body.run-fs footer{display:none;}
+  body.run-fs #runScreen{flex:1;min-height:0;display:flex !important;flex-direction:column;}
+  body.run-fs .hist-nav{margin-bottom:6px;flex-wrap:wrap;}
+  body.run-fs .fs-score{display:block;}
+  body.run-fs .hist-status{flex:0 1 auto;}
+  body.run-fs .run-progress{margin-bottom:6px;flex:none;}
+  body.run-fs .scope{flex:1;height:auto;min-height:160px;touch-action:none;cursor:grab;}
+  body.run-fs .scope.dragging{cursor:grabbing;}
+  body.run-fs .scope-zoom{display:flex;}
+  body.run-fs #runScreen > .panel{flex:none;max-height:42vh;overflow:auto;margin-top:6px;}
+  body.run-fs .hud-tag, body.run-fs .hud-status{font-size:12px;}
+  @media(max-width:600px){
+    body.run-fs .wrap{padding:6px;}
+    .fs-score{font-size:11px;letter-spacing:.02em;} .fs-score b,.fs-score .fs-pct{font-size:14px;}
+    body.run-fs .hist-nav .nav-btn{padding:7px 10px;}
+  }
+</style>
+<script id="runFsScript">
+// ============================================================================
+// TESTI TÄISEKRAAN (⛶ nupp testi/harjutuse ülemisel ribal).
+// - Lehe paigutus: pilt võtab kogu vaba kõrguse, päis peidetakse, ribal on alati
+//   „Tulemus õiged / vastatud · % · Küsimus n / N“; vastuse väli ja hindamisnupud jäävad alla.
+// - Kus brauser lubab (arvuti, Android), läheb ka päris täisekraanile; iPhone'is ainult paigutus.
+// - Pildi suurendus vaates: rullik / pinch / topeltklõps / − ⤢ + nupud, lohistamine.
+//   Klahvid + − 0 töötavad, kui kirjutamise väli pole aktiivne (mudelinimedes on sidekriipsud).
+//   Uue pildiga suurendus nullitakse.
+// - Esc (päris täisekraanist väljumine), ☰ avalehele või ⛶ uuesti lõpetab režiimi.
+// ============================================================================
+(function(){
+  const runScreen = document.getElementById('runScreen');
+  const nav = runScreen && runScreen.querySelector('.hist-nav');
+  const scope = document.getElementById('scope');
+  const photo = document.getElementById('photo');
+  if(!nav || !scope || !photo) return;
+
+  const canFull = !!(document.documentElement.requestFullscreen && document.exitFullscreen);
+  let fsOn = false, usedApi = false;
+
+  const scoreEl = document.createElement('div');
+  scoreEl.className = 'fs-score';
+  scoreEl.setAttribute('aria-live', 'polite');
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'nav-btn run-fs-btn';
+  btn.id = 'runFsBtn';
+  btn.textContent = '⛶';
+  btn.title = 'Täisekraan: suurem pilt, tulemus jääb nähtavaks, pilti saab suurendada';
+  btn.setAttribute('aria-label', 'Täisekraan');
+  btn.setAttribute('aria-pressed', 'false');
+  nav.append(scoreEl, btn);
+
+  const zoomBar = document.createElement('div');
+  zoomBar.className = 'scope-zoom';
+  const zb = (txt, title, fn) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = txt; b.title = title; b.setAttribute('aria-label', title); b.addEventListener('click', ev => { ev.stopPropagation(); fn(); }); b.addEventListener('pointerdown', ev => ev.stopPropagation()); return b; };
+  zoomBar.append(zb('−', 'Vähenda (-)', () => zoomBy(1 / 1.4)), zb('⤢', 'Sobita (0)', resetZoom), zb('+', 'Suurenda (+)', () => zoomBy(1.4)));
+  scope.appendChild(zoomBar);
+
+  // ---- tulemus ribal ----
+  function updateScoreLine(){
+    if(typeof score === 'undefined') return;
+    const t = score.total, c = score.correct;
+    const pct = t > 0 ? Math.round(c / t * 100) + '%' : '—';
+    const n = typeof shownCount !== 'undefined' ? shownCount : 0, N = typeof TOTAL_IMAGES !== 'undefined' ? TOTAL_IMAGES : 0;
+    scoreEl.innerHTML = 'Tulemus <b>' + c + ' / ' + t + '</b> · <span class="fs-pct">' + pct + '</span>'
+      + (N ? ' · Küsimus <b>' + Math.min(n, N) + ' / ' + N + '</b>' : '');
+  }
+  const _updateScoreUI = updateScoreUI;
+  updateScoreUI = function(){ _updateScoreUI.apply(this, arguments); updateScoreLine(); };
+
+  // ---- suurendus ----
+  let s = 1, x = 0, y = 0;
+  const MAX = 8;
+  function apply(){
+    photo.style.transform = s > 1.001 ? 'translate(' + x + 'px,' + y + 'px) scale(' + s + ')' : '';
+  }
+  function clamp(){
+    const W = scope.clientWidth, H = scope.clientHeight;
+    x = Math.min(0, Math.max(W - W * s, x));
+    y = Math.min(0, Math.max(H - H * s, y));
+  }
+  function zoomTo(s2, px, py){
+    s2 = Math.min(MAX, Math.max(1, s2));
+    const k = s2 / s;
+    x = px - (px - x) * k; y = py - (py - y) * k; s = s2;
+    clamp(); apply();
+  }
+  function zoomBy(f){ zoomTo(s * f, scope.clientWidth / 2, scope.clientHeight / 2); }
+  function resetZoom(){ s = 1; x = 0; y = 0; apply(); }
+  photo.classList.add('zoomable');
+  photo.draggable = false;   // muidu alustab brauser pildi lohistamist ja katkestab liigutuse
+  scope.addEventListener('dragstart', ev => ev.preventDefault());
+  new MutationObserver(resetZoom).observe(photo, {attributes: true, attributeFilter: ['src']});
+
+  const ptrs = new Map(); let pinch = null, lastTap = null, moved = false;
+  const dist = () => { const a = Array.from(ptrs.values()); return Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y); };
+  const mid = () => { const a = Array.from(ptrs.values()); return {x: (a[0].x + a[1].x) / 2, y: (a[0].y + a[1].y) / 2}; };
+  scope.addEventListener('wheel', ev => {
+    if(!fsOn) return;
+    ev.preventDefault();
+    const r = scope.getBoundingClientRect();
+    const dy = ev.deltaMode === 1 ? ev.deltaY * 16 : ev.deltaY;
+    zoomTo(s * Math.exp(-dy * (ev.ctrlKey ? 0.01 : 0.0015)), ev.clientX - r.left, ev.clientY - r.top);
+  }, {passive: false});
+  scope.addEventListener('pointerdown', ev => {
+    if(!fsOn) return;
+    try{ scope.setPointerCapture(ev.pointerId); }catch(e){}
+    const r = scope.getBoundingClientRect();
+    ptrs.set(ev.pointerId, {x: ev.clientX - r.left, y: ev.clientY - r.top, sx: ev.clientX, sy: ev.clientY});
+    moved = false; scope.classList.add('dragging');
+    if(ptrs.size === 2){ const m = mid(); pinch = {d: dist(), s, mx: m.x, my: m.y}; lastTap = null; }
+  });
+  scope.addEventListener('pointermove', ev => {
+    const q = ptrs.get(ev.pointerId); if(!q) return;
+    const r = scope.getBoundingClientRect(), nx = ev.clientX - r.left, ny = ev.clientY - r.top;
+    if(Math.hypot(ev.clientX - q.sx, ev.clientY - q.sy) > 6) moved = true;
+    if(ptrs.size === 2 && pinch){
+      q.x = nx; q.y = ny; const m = mid();
+      x += m.x - pinch.mx; y += m.y - pinch.my; pinch.mx = m.x; pinch.my = m.y;
+      zoomTo(pinch.s * (dist() / pinch.d), m.x, m.y);
+    }else if(ptrs.size === 1 && s > 1.001){
+      x += nx - q.x; y += ny - q.y; q.x = nx; q.y = ny; clamp(); apply();
+    }else{ q.x = nx; q.y = ny; }
+  });
+  const end = ev => {
+    const q = ptrs.get(ev.pointerId); if(!q) return;
+    ptrs.delete(ev.pointerId);
+    if(ptrs.size < 2) pinch = null;
+    if(!ptrs.size) scope.classList.remove('dragging');
+    if(ev.type === 'pointerup' && !moved && !ptrs.size){
+      const now = Date.now();
+      if(lastTap && now - lastTap.t < 320 && Math.hypot(q.x - lastTap.x, q.y - lastTap.y) < 30){
+        if(s > 1.02) resetZoom(); else zoomTo(2.5, q.x, q.y);
+        lastTap = null;
+      }else lastTap = {t: now, x: q.x, y: q.y};
+    }
+  };
+  scope.addEventListener('pointerup', end);
+  scope.addEventListener('pointercancel', end);
+
+  // ---- režiim sisse/välja ----
+  function setFs(on){
+    if(on === fsOn) return;
+    fsOn = on;
+    document.body.classList.toggle('run-fs', on);
+    btn.setAttribute('aria-pressed', String(on));
+    btn.title = on ? 'Välju täisekraanist' : 'Täisekraan: suurem pilt, tulemus jääb nähtavaks, pilti saab suurendada';
+    resetZoom(); ptrs.clear(); pinch = null;
+    if(on){
+      updateScoreLine();
+      if(canFull && !document.fullscreenElement){
+        usedApi = true;
+        try{ document.documentElement.requestFullscreen().catch(() => { usedApi = false; }); }catch(e){ usedApi = false; }
+      }
+    }else if(usedApi){
+      usedApi = false;
+      try{ if(document.fullscreenElement === document.documentElement) document.exitFullscreen().catch(() => {}); }catch(e){}
+    }
+  }
+  btn.addEventListener('click', () => setFs(!fsOn));
+  document.addEventListener('fullscreenchange', () => {
+    // Esc brauseri täisekraanist lõpetab ka paigutuse; suurusmuutusel nulli suurendus.
+    if(fsOn && usedApi && !document.fullscreenElement){ usedApi = false; setFs(false); }
+    else resetZoom();
+  });
+  window.addEventListener('resize', () => { if(fsOn){ clamp(); apply(); } });
+  // Testivaatest lahkumisel (avaleht, Kuldvillak jne) lülitu välja.
+  new MutationObserver(() => { if(fsOn && runScreen.style.display === 'none') setFs(false); })
+    .observe(runScreen, {attributes: true, attributeFilter: ['style']});
+
+  document.addEventListener('keydown', ev => {
+    if(!fsOn || runScreen.style.display === 'none') return;
+    const t = ev.target;
+    if(t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+    if(document.querySelector('.lightbox.open, .cmpv.open, .model-gallery.open')) return;
+    const k = ev.key;
+    let handled = true;
+    if(k === 'Escape' && !document.fullscreenElement) setFs(false);   // iPhone jms: ainult paigutus
+    else if(k === '+' || k === '=') zoomBy(1.4);
+    else if(k === '-' || k === '_') zoomBy(1 / 1.4);
+    else if(k === '0') resetZoom();
+    else handled = false;
+    if(handled) ev.preventDefault();
+  });
+
+  updateScoreLine();
+})();
+</script>
 <!-- Kureeritud test (õpetajale): eraldi moodul, vt curated-test.js ja Kureeritud_test_nouded.md -->
 <script src="./curated-test.js"></script>
 <style id="imageDiagStyles">
