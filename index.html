@@ -3371,6 +3371,7 @@ function loadGalleryCards(entry, container, withLabel){
 
 function closeModelGallery(fromHistory){
   const wasOpen = modelGallery.classList.contains('open');
+  if(window.__cmpView && window.__cmpView.isOpen()) window.__cmpView.close(fromHistory === true);
   if(lbOpen) closeLightbox(false, fromHistory === true);
   if(wasOpen && fromHistory !== true){
     popLayers(galleryStack.length + 1);   // mudelilt-mudelile tasemed + galerii ise
@@ -3420,7 +3421,8 @@ window.addEventListener('popstate', () => {
   if(ignorePops > 0){ ignorePops--; return; }
   if(layerDepth <= 0) return;
   layerDepth--;
-  if(lbOpen) closeLightbox(true, true);
+  if(window.__cmpView && window.__cmpView.isOpen()) window.__cmpView.close(true);
+  else if(lbOpen) closeLightbox(true, true);
   else if(modelGallery.classList.contains('open') && galleryStack.length) galleryGoBack(true);
   else if(modelGallery.classList.contains('open')) closeModelGallery(true);
 });
@@ -3483,6 +3485,8 @@ function lbShow(i){
   document.getElementById('lbPrev').disabled = document.getElementById('lbNext').disabled = lbItems.length < 2;
 }
 function openLightbox(clickedImg){
+  // Piltide ja WHAT-võrdluses avab klõps mõlemad mudelid korraga täisekraanil (vt splitCompareScript).
+  if(window.__cmpView && (clickedImg.closest('.pcmp') || clickedImg.closest('.wcmp')) && window.__cmpView.openFrom(clickedImg)) return;
   const lbScope = clickedImg.closest('.mg-panel') || modelGalleryGrid; // pildid või WHAT-pilt
   lbItems = Array.from(lbScope.querySelectorAll('img'))
     .filter(im => !im.closest('[hidden]'))   // piltide võrdluses on mudeli enda galerii peidus
@@ -4569,6 +4573,306 @@ function startFromHash(){
 }
 Promise.resolve(refreshOfflineAvailability()).catch(() => {}).then(startFromHash);
 window.addEventListener('hashchange', startFromHash);
+</script>
+<style id="splitCompareStyles">
+  /* Võrdlus täisekraanil: kaks mudelit kõrvuti (püstises vaates üksteise all), kummalgi oma suum ja pildivahetus */
+  .cmpv{display:none;position:fixed;inset:0;z-index:10001;background:#050603;flex-direction:column;}
+  .cmpv.open{display:flex;}
+  .cmpv-bar{display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:1px solid var(--line);}
+  .cmpv-bar button{min-width:44px;min-height:44px;font-size:18px;}
+  .cmpv-title{flex:1;min-width:0;font-size:11px;color:var(--bone-dim);letter-spacing:.04em;}
+  .cmpv-grid{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2px;background:var(--line);}
+  @media (orientation:portrait){.cmpv-grid{grid-template-columns:none;grid-template-rows:minmax(0,1fr) minmax(0,1fr);}}
+  .cmpv-pane{position:relative;display:flex;flex-direction:column;min-width:0;min-height:0;background:#050603;}
+  .cmpv-pane.active{box-shadow:inset 0 0 0 2px var(--amber);}
+  .cmpv-head{display:flex;align-items:center;gap:6px;padding:4px 6px 4px 10px;border-bottom:1px solid var(--line);}
+  .cmpv-head b{flex:1;min-width:0;font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--amber);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .cmpv-count{font-size:11px;color:var(--bone-dim);white-space:nowrap;}
+  .cmpv-head button{min-width:40px;min-height:40px;font-size:18px;padding:0;}
+  .cmpv-stage{position:relative;flex:1;min-height:0;overflow:hidden;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none;}
+  .cmpv-stage.dragging{cursor:grabbing;}
+  .cmpv-stage img{position:absolute;left:0;top:0;max-width:none;max-height:none;transform-origin:0 0;will-change:transform;-webkit-user-drag:none;visibility:hidden;}
+  .cmpv-stage img.ready{visibility:visible;}
+  .cmpv-msg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--bone-dim);font-size:13px;pointer-events:none;}
+  .cmpv-open{white-space:nowrap;}
+  @media(max-width:600px){.cmpv-title{visibility:hidden;}.cmpv-head b{font-size:14px;}.cmpv-bar button{min-width:40px;min-height:40px;}}
+</style>
+<div id="cmpView" class="cmpv" role="dialog" aria-modal="true" aria-label="Võrdlus täisekraanil" aria-hidden="true">
+  <div class="cmpv-bar">
+    <div class="cmpv-title" id="cmpvTitle">Võrdlus · lohista ja suurenda kumbagi pilti eraldi · topeltklõps = suurendus ↔ sobita</div>
+    <button type="button" id="cmpvFit" aria-label="Sobita mõlemad" title="Sobita mõlemad (0)">⤢</button>
+    <button type="button" id="cmpvFull" aria-label="Täisekraan" title="Täisekraan (F)">⛶</button>
+    <button type="button" id="cmpvClose" aria-label="Sulge" title="Sulge (Esc)">✕</button>
+  </div>
+  <div class="cmpv-grid" id="cmpvGrid"></div>
+</div>
+<script id="splitCompareScript">
+// ============================================================================
+// VÕRDLUS TÄISEKRAANIL. Piltide ja WHAT-võrdluses avab pildile klõps (või nupp „⛶ Täisekraanil“)
+// mõlemad mudelid korraga: kummalgi poolel oma ‹ › pildivahetus, suum (rullik, pinch, +/−,
+// topeltklõps) ja lohistamine. Kasutab galeriis juba laaditud pilte (sama src), uusi päringuid ei tee.
+// Klahvid: ← → ja + − mõjuvad aktiivsele poolele (kollase raamiga; klõpsa poolt),
+// 0 sobitab mõlemad, F täisekraan, Esc sulgeb.
+// ============================================================================
+(function(){
+  const view = document.getElementById('cmpView');
+  const grid = document.getElementById('cmpvGrid');
+  const fullBtn = document.getElementById('cmpvFull');
+  let open = false, panes = [], active = 0, opener = null;
+
+  const canFull = !!(view.requestFullscreen && document.exitFullscreen);
+  if(!canFull) fullBtn.style.display = 'none';
+
+  function loadedImgs(root){
+    return Array.from(root.querySelectorAll('img'))
+      .filter(im => im.complete && im.naturalWidth > 0 && (im.currentSrc || im.src))
+      .map(im => ({src: im.currentSrc || im.src, alt: im.alt, el: im}));
+  }
+
+  function makePane(side, label, root, startIdx){
+    const pane = document.createElement('div');
+    pane.className = 'cmpv-pane';
+    const head = document.createElement('div');
+    head.className = 'cmpv-head';
+    const b = document.createElement('b'); b.textContent = label;
+    const count = document.createElement('span'); count.className = 'cmpv-count';
+    const mk = (txt, aria, fn) => { const x = document.createElement('button'); x.type = 'button'; x.textContent = txt; x.setAttribute('aria-label', aria); x.title = aria; x.addEventListener('click', ev => { ev.stopPropagation(); setActive(side); fn(); }); return x; };
+    const prev = mk('‹', 'Eelmine pilt', () => p.show(p.index - 1));
+    const next = mk('›', 'Järgmine pilt', () => p.show(p.index + 1));
+    const out = mk('−', 'Vähenda', () => p.zoomBy(1 / 1.4));
+    const inn = mk('+', 'Suurenda', () => p.zoomBy(1.4));
+    head.append(b, count, prev, next, out, inn);
+    const stage = document.createElement('div'); stage.className = 'cmpv-stage';
+    const img = document.createElement('img'); img.draggable = false; img.alt = '';
+    const msg = document.createElement('div'); msg.className = 'cmpv-msg';
+    stage.append(img, msg);
+    pane.append(head, stage);
+    pane.addEventListener('pointerdown', () => setActive(side), true);
+
+    const p = {el: pane, root, index: 0, scale: 1, fit: 1, x: 0, y: 0, img, stage,
+      items(){ return loadedImgs(root); },
+      apply(){ img.style.transform = 'translate(' + p.x + 'px,' + p.y + 'px) scale(' + p.scale + ')'; },
+      clamp(){
+        const sw = stage.clientWidth, sh = stage.clientHeight, iw = img.naturalWidth * p.scale, ih = img.naturalHeight * p.scale;
+        p.x = iw <= sw ? (sw - iw) / 2 : Math.min(0, Math.max(sw - iw, p.x));
+        p.y = ih <= sh ? (sh - ih) / 2 : Math.min(0, Math.max(sh - ih, p.y));
+      },
+      setFit(){
+        const sw = stage.clientWidth, sh = stage.clientHeight;
+        if(!img.naturalWidth || !sw || !sh) return;
+        p.fit = Math.min(sw / img.naturalWidth, sh / img.naturalHeight);
+        p.scale = p.fit; p.x = 0; p.y = 0; p.clamp(); p.apply();
+      },
+      zoomTo(s2, px, py){
+        s2 = Math.min(Math.max(p.fit * 8, 4), Math.max(p.fit, s2));
+        const k = s2 / p.scale;
+        p.x = px - (px - p.x) * k; p.y = py - (py - p.y) * k; p.scale = s2;
+        p.clamp(); p.apply();
+      },
+      zoomBy(f){ p.zoomTo(p.scale * f, stage.clientWidth / 2, stage.clientHeight / 2); },
+      show(i){
+        const list = p.items();
+        prev.disabled = next.disabled = list.length < 2;
+        if(!list.length){ count.textContent = ''; msg.textContent = 'Pilte pole (veel) laaditud'; img.classList.remove('ready'); return; }
+        p.index = (i + list.length) % list.length;
+        const it = list[p.index];
+        count.textContent = (p.index + 1) + ' / ' + list.length;
+        img.classList.remove('ready'); msg.textContent = 'Laen pilti...';
+        img.alt = it.alt || label;
+        img.onload = () => { msg.textContent = ''; p.setFit(); img.classList.add('ready'); };
+        img.onerror = () => { msg.textContent = 'Pildi laadimine ebaõnnestus'; };
+        img.src = it.src;
+      }
+    };
+
+    // Rullik, lohistamine, pinch ja topeltklõps – sama loogika nagu ühe pildi suurenduses.
+    const ptrs = new Map(); let pinch = null, lastTap = null, moved = false;
+    const dist = () => { const a = Array.from(ptrs.values()); return Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y); };
+    const mid = () => { const a = Array.from(ptrs.values()); return {x: (a[0].x + a[1].x) / 2, y: (a[0].y + a[1].y) / 2}; };
+    stage.addEventListener('wheel', ev => {
+      ev.preventDefault();
+      const r = stage.getBoundingClientRect();
+      const dy = ev.deltaMode === 1 ? ev.deltaY * 16 : ev.deltaY;
+      p.zoomTo(p.scale * Math.exp(-dy * (ev.ctrlKey ? 0.01 : 0.0015)), ev.clientX - r.left, ev.clientY - r.top);
+    }, {passive: false});
+    stage.addEventListener('pointerdown', ev => {
+      try{ stage.setPointerCapture(ev.pointerId); }catch(e){}
+      const r = stage.getBoundingClientRect();
+      ptrs.set(ev.pointerId, {x: ev.clientX - r.left, y: ev.clientY - r.top, sx: ev.clientX, sy: ev.clientY});
+      moved = false; stage.classList.add('dragging');
+      if(ptrs.size === 2){ const m = mid(); pinch = {d: dist(), scale: p.scale, mx: m.x, my: m.y}; lastTap = null; }
+    });
+    stage.addEventListener('pointermove', ev => {
+      const q = ptrs.get(ev.pointerId); if(!q) return;
+      const r = stage.getBoundingClientRect(), nx = ev.clientX - r.left, ny = ev.clientY - r.top;
+      if(Math.hypot(ev.clientX - q.sx, ev.clientY - q.sy) > 6) moved = true;
+      if(ptrs.size === 2 && pinch){
+        q.x = nx; q.y = ny; const m = mid();
+        p.x += m.x - pinch.mx; p.y += m.y - pinch.my; pinch.mx = m.x; pinch.my = m.y;
+        p.zoomTo(pinch.scale * (dist() / pinch.d), m.x, m.y);
+      }else if(ptrs.size === 1){
+        p.x += nx - q.x; p.y += ny - q.y; q.x = nx; q.y = ny; p.clamp(); p.apply();
+      }
+    });
+    const end = ev => {
+      const q = ptrs.get(ev.pointerId); if(!q) return;
+      ptrs.delete(ev.pointerId);
+      if(ptrs.size < 2) pinch = null;
+      if(!ptrs.size) stage.classList.remove('dragging');
+      if(ev.type === 'pointerup' && !moved && !ptrs.size){
+        const now = Date.now();
+        if(lastTap && now - lastTap.t < 320 && Math.hypot(q.x - lastTap.x, q.y - lastTap.y) < 30){
+          p.zoomTo(p.scale <= p.fit * 1.02 ? Math.max(1, p.fit * 2.5) : p.fit, q.x, q.y); lastTap = null;
+        }else lastTap = {t: now, x: q.x, y: q.y};
+      }
+    };
+    stage.addEventListener('pointerup', end);
+    stage.addEventListener('pointercancel', end);
+
+    p.startIdx = startIdx;
+    return p;
+  }
+
+  function setActive(i){
+    active = i;
+    panes.forEach((p, k) => p.el.classList.toggle('active', k === i));
+  }
+
+  // Leia klõpsatud pildi järgi võrdluse kaks poolt: piltide võrdlus (.pcmp-col) või WHAT (.wcmp-img).
+  function sidesFor(img){
+    const pc = img.closest('.pcmp');
+    if(pc){
+      return Array.from(pc.querySelectorAll('.pcmp-col')).map(col => {
+        const h = col.querySelector('.wcmp-head b');
+        return {label: h ? h.textContent : '', root: col};
+      });
+    }
+    const wc = img.closest('.wcmp');
+    if(wc){
+      const heads = Array.from(wc.querySelectorAll('.wcmp-head b'));
+      return Array.from(wc.querySelectorAll('.wcmp-img')).map((cell, i) => ({label: heads[i] ? heads[i].textContent : '', root: cell}));
+    }
+    return null;
+  }
+
+  function openView(sides, clickedImg){
+    if(!sides || sides.length < 2) return false;
+    if(typeof lbOpen !== 'undefined' && lbOpen) closeLightbox(false);
+    grid.innerHTML = '';
+    panes = sides.slice(0, 2).map((s, i) => {
+      let idx = 0;
+      if(clickedImg && s.root.contains(clickedImg)) idx = Math.max(0, loadedImgs(s.root).findIndex(it => it.el === clickedImg));
+      return makePane(i, s.label, s.root, idx);
+    });
+    panes.forEach(p => grid.appendChild(p.el));
+    const side = clickedImg ? Math.max(0, sides.findIndex(s => s.root.contains(clickedImg))) : 0;
+    opener = clickedImg || document.activeElement;
+    open = true;
+    pushLayer();
+    view.classList.add('open');
+    view.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setActive(side);
+    // Layout peab paigas olema enne sobitamist.
+    requestAnimationFrame(() => panes.forEach(p => p.show(p.startIdx)));
+    document.getElementById('cmpvClose').focus();
+    return true;
+  }
+
+  function close(fromHistory){
+    if(!open) return;
+    open = false;
+    if(fromHistory !== true) popLayer();
+    try{ if(document.fullscreenElement === view) document.exitFullscreen().catch(() => {}); }catch(e){}
+    view.classList.remove('open');
+    view.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    panes.forEach(p => { p.img.onload = p.img.onerror = null; p.img.removeAttribute('src'); });
+    panes = []; grid.innerHTML = '';
+    if(opener && document.contains(opener)){ try{ opener.focus(); }catch(e){} }
+    opener = null;
+  }
+
+  function toggleFull(){
+    if(!canFull) return;
+    try{
+      if(document.fullscreenElement) document.exitFullscreen().catch(() => {});
+      else view.requestFullscreen().catch(() => {});
+    }catch(e){}
+  }
+  const refit = () => { if(open) panes.forEach(p => { if(p.img.naturalWidth) p.setFit(); }); };
+
+  document.getElementById('cmpvClose').addEventListener('click', () => close());
+  document.getElementById('cmpvFit').addEventListener('click', refit);
+  fullBtn.addEventListener('click', toggleFull);
+  document.addEventListener('fullscreenchange', () => setTimeout(refit, 120));
+  window.addEventListener('resize', refit);
+
+  // Klaviatuur: kinni püütud enne teisi kuulajaid (capture), et Esc ei sulgeks galeriid.
+  window.addEventListener('keydown', ev => {
+    if(!open) return;
+    const p = panes[active], k = ev.key;
+    let handled = true;
+    if(k === 'Escape') close();
+    else if(k === 'ArrowLeft' && p) p.show(p.index - 1);
+    else if(k === 'ArrowRight' && p) p.show(p.index + 1);
+    else if((k === '+' || k === '=') && p) p.zoomBy(1.4);
+    else if((k === '-' || k === '_') && p) p.zoomBy(1 / 1.4);
+    else if(k === '0') refit();
+    else if(k === 'f' || k === 'F') toggleFull();
+    else if(k === 'Tab'){
+      // fookus jääb vaate nuppudesse (nagu suurenduses)
+      const f = Array.from(view.querySelectorAll('button:not([disabled])'));
+      handled = false;
+      if(f.length){
+        const first = f[0], last = f[f.length - 1], cur = document.activeElement;
+        if(!view.contains(cur)){ ev.preventDefault(); first.focus(); }
+        else if(ev.shiftKey && cur === first){ ev.preventDefault(); last.focus(); }
+        else if(!ev.shiftKey && cur === last){ ev.preventDefault(); first.focus(); }
+      }
+      return;
+    }
+    else handled = false;
+    if(handled){ ev.preventDefault(); ev.stopImmediatePropagation(); }
+  }, true);
+
+  // Nupp „⛶ Täisekraanil“ võrdluse päisesse (piltide ja WHAT-võrdlus).
+  function addOpenButton(head, getRoot){
+    if(!head || head.querySelector('.cmpv-open')) return;
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'tta-back cmpv-open';
+    b.textContent = '⛶ Täisekraanil';
+    b.title = 'Võrdle mõlemat mudelit korraga täisekraanil';
+    b.addEventListener('click', () => {
+      const root = getRoot();
+      const any = root && root.querySelector('img');
+      const sides = any ? sidesFor(any) : null;
+      if(!sides || !openView(sides, null)){
+        b.textContent = '⛶ Pildid alles laevad…';
+        setTimeout(() => { b.textContent = '⛶ Täisekraanil'; }, 1500);
+      }
+    });
+    head.appendChild(b);
+  }
+  const _showPhotosCompare = showPhotosCompare;
+  showPhotosCompare = function(a, b){
+    _showPhotosCompare(a, b);
+    if(!mgPhotosCompare.hidden) addOpenButton(mgPhotosHead, () => mgPhotosCompare);
+  };
+  const _showWHATCompare = showWHATCompare;
+  showWHATCompare = function(a, b){
+    _showWHATCompare(a, b);
+    const panel = mgPanels.what.querySelector('.what-compare');
+    if(panel) addOpenButton(panel.querySelector('.tta-head'), () => panel.querySelector('.wcmp'));
+  };
+
+  window.__cmpView = {
+    isOpen: () => open,
+    close,
+    // Võrdluses avab pildile klõps jagatud vaate (tavalise suurenduse asemel).
+    openFrom(img){ return openView(sidesFor(img), img); }
+  };
+})();
 </script>
 <!-- Kureeritud test (õpetajale): eraldi moodul, vt curated-test.js ja Kureeritud_test_nouded.md -->
 <script src="./curated-test.js"></script>
