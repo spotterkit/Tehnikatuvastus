@@ -4599,7 +4599,7 @@ window.addEventListener('hashchange', startFromHash);
 </style>
 <div id="cmpView" class="cmpv" role="dialog" aria-modal="true" aria-label="Võrdlus täisekraanil" aria-hidden="true">
   <div class="cmpv-bar">
-    <div class="cmpv-title" id="cmpvTitle">Võrdlus · lohista ja suurenda kumbagi pilti eraldi · topeltklõps = suurendus ↔ sobita</div>
+    <div class="cmpv-title" id="cmpvTitle"></div>
     <button type="button" id="cmpvFit" aria-label="Sobita mõlemad" title="Sobita mõlemad (0)">⤢</button>
     <button type="button" id="cmpvFull" aria-label="Täisekraan" title="Täisekraan (F)">⛶</button>
     <button type="button" id="cmpvClose" aria-label="Sulge" title="Sulge (Esc)">✕</button>
@@ -5158,7 +5158,7 @@ window.addEventListener('hashchange', startFromHash);
   if(!controls || !select || !progress || !results) return;
 
   const canPickFolder = typeof window.showDirectoryPicker === 'function';
-  const BTN_LABEL = canPickFolder ? 'Laadi kõik pildid kausta' : 'Laadi kõik pildid ZIP-ina';
+  const BTN_LABEL = 'Lae pildid seadmesse';
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.id = 'diagBackup';
