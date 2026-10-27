@@ -3392,6 +3392,78 @@ function closeModelGallery(fromHistory){
 }
 
 // ============================================================================
+// ÜHINE SUURENDAMISE ŽESTIDE LOOGIKA – kasutavad pildi suurendus (lightbox), võrdlus täisekraanil
+// ja testi täisekraan. Hiirerullik (Ctrl = kiirem), lohistamine, kahe sõrmega pinch, topeltklõps/-puude.
+// Geomeetria (sobitamine, piirid) jääb iga vaate enda teha; siin on ainult sisend.
+//   ctl.scale()              praegune skaala
+//   ctl.zoomTo(s, px, py)    suurenda skaalani s nii, et punkt (px, py) jääb paigale (vaade piirab ise)
+//   ctl.pan(dx, dy, settle)  nihuta; settle = true → piira ja joonista kohe (pinch'i ajal false)
+//   ctl.toggle(px, py)       topeltklõps: sobita ↔ suurendus
+//   ctl.enabled()            (valikuline) kas žestid on praegu aktiivsed
+// Tagastab {reset()} – katkestab pooleli žesti (nt vaate sulgemisel).
+// ============================================================================
+function attachZoomGestures(stage, ctl){
+  const ptrs = new Map();
+  let pinch = null, lastTap = null, moved = false;
+  const on = () => !ctl.enabled || ctl.enabled();
+  const dist = () => { const a = Array.from(ptrs.values()); return Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y); };
+  const mid = () => { const a = Array.from(ptrs.values()); return {x: (a[0].x + a[1].x) / 2, y: (a[0].y + a[1].y) / 2}; };
+  stage.addEventListener('dragstart', ev => ev.preventDefault());   // brauseri pildi-lohistus katkestaks liigutuse
+  stage.addEventListener('wheel', ev => {
+    if(!on()) return;
+    ev.preventDefault();
+    const r = stage.getBoundingClientRect();
+    const dy = ev.deltaMode === 1 ? ev.deltaY * 16 : ev.deltaY;
+    ctl.zoomTo(ctl.scale() * Math.exp(-dy * (ev.ctrlKey ? 0.01 : 0.0015)), ev.clientX - r.left, ev.clientY - r.top);
+  }, {passive: false});
+  stage.addEventListener('pointerdown', ev => {
+    if(!on()) return;
+    try{ stage.setPointerCapture(ev.pointerId); }catch(e){}
+    const r = stage.getBoundingClientRect();
+    ptrs.set(ev.pointerId, {x: ev.clientX - r.left, y: ev.clientY - r.top, sx: ev.clientX, sy: ev.clientY});
+    moved = false;
+    stage.classList.add('dragging');
+    if(ptrs.size === 2){ const m = mid(); pinch = {d: dist(), scale: ctl.scale(), mx: m.x, my: m.y}; lastTap = null; }
+  });
+  stage.addEventListener('pointermove', ev => {
+    const p = ptrs.get(ev.pointerId);
+    if(!p) return;
+    const r = stage.getBoundingClientRect();
+    const nx = ev.clientX - r.left, ny = ev.clientY - r.top;
+    if(Math.hypot(ev.clientX - p.sx, ev.clientY - p.sy) > 6) moved = true;
+    if(ptrs.size === 2 && pinch){
+      p.x = nx; p.y = ny;
+      const m = mid();
+      ctl.pan(m.x - pinch.mx, m.y - pinch.my, false);   // pinch: skaala järgi + keskpunkti liikumine
+      pinch.mx = m.x; pinch.my = m.y;
+      ctl.zoomTo(pinch.scale * (dist() / pinch.d), m.x, m.y);
+    }else if(ptrs.size === 1){
+      ctl.pan(nx - p.x, ny - p.y, true);
+      p.x = nx; p.y = ny;
+    }
+  });
+  function end(ev){
+    const p = ptrs.get(ev.pointerId);
+    if(!p) return;
+    ptrs.delete(ev.pointerId);
+    if(ptrs.size < 2) pinch = null;
+    if(!ptrs.size) stage.classList.remove('dragging');
+    if(ev.type === 'pointerup' && !moved && ptrs.size === 0){
+      const now = Date.now();
+      if(lastTap && now - lastTap.t < 320 && Math.hypot(p.x - lastTap.x, p.y - lastTap.y) < 30){
+        ctl.toggle(p.x, p.y);
+        lastTap = null;
+      }else{
+        lastTap = {t: now, x: p.x, y: p.y};
+      }
+    }
+  }
+  stage.addEventListener('pointerup', end);
+  stage.addEventListener('pointercancel', end);
+  return {reset(){ ptrs.clear(); pinch = null; lastTap = null; moved = false; stage.classList.remove('dragging'); }};
+}
+
+// ============================================================================
 // PILDI SUURENDUS (lightbox). Kasutab TÄPSELT sama src-i, mille galerii juba laadis
 // (img.currentSrc): ei tee uut fetchSpecificFile kutset, API-päringut ega küsi teist suurust.
 // Hiirerullik/pinch suurendab, lohistamine liigutab, topeltklõps/-puude vahetab sobita ↔ suurendus.
@@ -3434,8 +3506,6 @@ const lbMsg = document.getElementById('lbMsg');
 const lbInfo = document.getElementById('lbInfo');
 let lbOpen = false, lbItems = [], lbIndex = 0, lbOpener = null;
 let lbScale = 1, lbFit = 1, lbX = 0, lbY = 0;
-const lbPointers = new Map();
-let lbPinch = null, lbLastTap = null, lbMoved = false;
 
 function lbMaxScale(){ return Math.max(lbFit * 8, 4); }
 function lbApply(){
@@ -3507,7 +3577,7 @@ function closeLightbox(restoreFocus, fromHistory){
   if(!lbOpen) return;
   lbOpen = false;
   if(fromHistory !== true) popLayer();
-  lbPointers.clear(); lbPinch = null; lbLastTap = null;
+  lbGestures.reset();
   try{ if(document.fullscreenElement) document.exitFullscreen().catch(() => {}); }catch(e){}
   lightbox.classList.remove('open');
   lightbox.setAttribute('aria-hidden', 'true');
@@ -3541,65 +3611,12 @@ document.addEventListener('fullscreenchange', () => {
   setTimeout(() => { if(lbOpen && lbImg.naturalWidth) lbSetFit(); }, 120);
 });
 
-lbStage.addEventListener('wheel', ev => {
-  ev.preventDefault();
-  const r = lbStage.getBoundingClientRect();
-  const dy = ev.deltaMode === 1 ? ev.deltaY * 16 : ev.deltaY;
-  lbZoomTo(lbScale * Math.exp(-dy * (ev.ctrlKey ? 0.01 : 0.0015)), ev.clientX - r.left, ev.clientY - r.top);
-}, {passive:false});
-
-function lbDist(){ const p = Array.from(lbPointers.values()); return Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y); }
-function lbMid(){ const p = Array.from(lbPointers.values()); return {x:(p[0].x + p[1].x) / 2, y:(p[0].y + p[1].y) / 2}; }
-
-lbStage.addEventListener('pointerdown', ev => {
-  try{ lbStage.setPointerCapture(ev.pointerId); }catch(e){}
-  const r = lbStage.getBoundingClientRect();
-  lbPointers.set(ev.pointerId, {x:ev.clientX - r.left, y:ev.clientY - r.top, sx:ev.clientX, sy:ev.clientY});
-  lbMoved = false;
-  lbStage.classList.add('dragging');
-  if(lbPointers.size === 2){
-    const m = lbMid();
-    lbPinch = {d:lbDist(), scale:lbScale, mx:m.x, my:m.y};
-    lbLastTap = null;
-  }
+const lbGestures = attachZoomGestures(lbStage, {
+  scale: () => lbScale,
+  zoomTo: lbZoomTo,
+  pan(dx, dy, settle){ lbX += dx; lbY += dy; if(settle){ lbClamp(); lbApply(); } },
+  toggle: lbToggleZoom
 });
-lbStage.addEventListener('pointermove', ev => {
-  const p = lbPointers.get(ev.pointerId);
-  if(!p) return;
-  const r = lbStage.getBoundingClientRect();
-  const nx = ev.clientX - r.left, ny = ev.clientY - r.top;
-  if(Math.hypot(ev.clientX - p.sx, ev.clientY - p.sy) > 6) lbMoved = true;
-  if(lbPointers.size === 2 && lbPinch){
-    p.x = nx; p.y = ny;
-    const m = lbMid();
-    // pinch: skaala järgi + keskpunkti liikumine
-    lbX += m.x - lbPinch.mx; lbY += m.y - lbPinch.my;
-    lbPinch.mx = m.x; lbPinch.my = m.y;
-    lbZoomTo(lbPinch.scale * (lbDist() / lbPinch.d), m.x, m.y);
-  }else if(lbPointers.size === 1){
-    lbX += nx - p.x; lbY += ny - p.y;
-    p.x = nx; p.y = ny;
-    lbClamp(); lbApply();
-  }
-});
-function lbPointerEnd(ev){
-  const p = lbPointers.get(ev.pointerId);
-  if(!p) return;
-  lbPointers.delete(ev.pointerId);
-  if(lbPointers.size < 2) lbPinch = null;
-  if(!lbPointers.size) lbStage.classList.remove('dragging');
-  if(ev.type === 'pointerup' && !lbMoved && lbPointers.size === 0){
-    const now = Date.now();
-    if(lbLastTap && now - lbLastTap.t < 320 && Math.hypot(p.x - lbLastTap.x, p.y - lbLastTap.y) < 30){
-      lbToggleZoom(p.x, p.y);
-      lbLastTap = null;
-    }else{
-      lbLastTap = {t:now, x:p.x, y:p.y};
-    }
-  }
-}
-lbStage.addEventListener('pointerup', lbPointerEnd);
-lbStage.addEventListener('pointercancel', lbPointerEnd);
 window.addEventListener('resize', () => { if(lbOpen && lbImg.naturalWidth){ const atFit = lbScale <= lbFit * 1.02; const old = lbScale; lbSetFit(); if(!atFit) lbZoomTo(old, lbStage.clientWidth/2, lbStage.clientHeight/2); } });
 
 // Esc ja klaviatuur: Esc sulgeb alati KÕIGE ÜLEMISE kihi, ühe sammu korraga
@@ -4685,49 +4702,13 @@ window.addEventListener('hashchange', startFromHash);
       }
     };
 
-    // Rullik, lohistamine, pinch ja topeltklõps – sama loogika nagu ühe pildi suurenduses.
-    const ptrs = new Map(); let pinch = null, lastTap = null, moved = false;
-    const dist = () => { const a = Array.from(ptrs.values()); return Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y); };
-    const mid = () => { const a = Array.from(ptrs.values()); return {x: (a[0].x + a[1].x) / 2, y: (a[0].y + a[1].y) / 2}; };
-    stage.addEventListener('wheel', ev => {
-      ev.preventDefault();
-      const r = stage.getBoundingClientRect();
-      const dy = ev.deltaMode === 1 ? ev.deltaY * 16 : ev.deltaY;
-      p.zoomTo(p.scale * Math.exp(-dy * (ev.ctrlKey ? 0.01 : 0.0015)), ev.clientX - r.left, ev.clientY - r.top);
-    }, {passive: false});
-    stage.addEventListener('pointerdown', ev => {
-      try{ stage.setPointerCapture(ev.pointerId); }catch(e){}
-      const r = stage.getBoundingClientRect();
-      ptrs.set(ev.pointerId, {x: ev.clientX - r.left, y: ev.clientY - r.top, sx: ev.clientX, sy: ev.clientY});
-      moved = false; stage.classList.add('dragging');
-      if(ptrs.size === 2){ const m = mid(); pinch = {d: dist(), scale: p.scale, mx: m.x, my: m.y}; lastTap = null; }
+    // Rullik, lohistamine, pinch ja topeltklõps: ühine loogika (attachZoomGestures).
+    attachZoomGestures(stage, {
+      scale: () => p.scale,
+      zoomTo: (s2, px, py) => p.zoomTo(s2, px, py),
+      pan(dx, dy, settle){ p.x += dx; p.y += dy; if(settle){ p.clamp(); p.apply(); } },
+      toggle: (px, py) => p.zoomTo(p.scale <= p.fit * 1.02 ? Math.max(1, p.fit * 2.5) : p.fit, px, py)
     });
-    stage.addEventListener('pointermove', ev => {
-      const q = ptrs.get(ev.pointerId); if(!q) return;
-      const r = stage.getBoundingClientRect(), nx = ev.clientX - r.left, ny = ev.clientY - r.top;
-      if(Math.hypot(ev.clientX - q.sx, ev.clientY - q.sy) > 6) moved = true;
-      if(ptrs.size === 2 && pinch){
-        q.x = nx; q.y = ny; const m = mid();
-        p.x += m.x - pinch.mx; p.y += m.y - pinch.my; pinch.mx = m.x; pinch.my = m.y;
-        p.zoomTo(pinch.scale * (dist() / pinch.d), m.x, m.y);
-      }else if(ptrs.size === 1){
-        p.x += nx - q.x; p.y += ny - q.y; q.x = nx; q.y = ny; p.clamp(); p.apply();
-      }
-    });
-    const end = ev => {
-      const q = ptrs.get(ev.pointerId); if(!q) return;
-      ptrs.delete(ev.pointerId);
-      if(ptrs.size < 2) pinch = null;
-      if(!ptrs.size) stage.classList.remove('dragging');
-      if(ev.type === 'pointerup' && !moved && !ptrs.size){
-        const now = Date.now();
-        if(lastTap && now - lastTap.t < 320 && Math.hypot(q.x - lastTap.x, q.y - lastTap.y) < 30){
-          p.zoomTo(p.scale <= p.fit * 1.02 ? Math.max(1, p.fit * 2.5) : p.fit, q.x, q.y); lastTap = null;
-        }else lastTap = {t: now, x: q.x, y: q.y};
-      }
-    };
-    stage.addEventListener('pointerup', end);
-    stage.addEventListener('pointercancel', end);
 
     p.startIdx = startIdx;
     return p;
@@ -4979,54 +4960,16 @@ window.addEventListener('hashchange', startFromHash);
   function resetZoom(){ s = 1; x = 0; y = 0; apply(); }
   photo.classList.add('zoomable');
   photo.draggable = false;   // muidu alustab brauser pildi lohistamist ja katkestab liigutuse
-  scope.addEventListener('dragstart', ev => ev.preventDefault());
   new MutationObserver(resetZoom).observe(photo, {attributes: true, attributeFilter: ['src']});
 
-  const ptrs = new Map(); let pinch = null, lastTap = null, moved = false;
-  const dist = () => { const a = Array.from(ptrs.values()); return Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y); };
-  const mid = () => { const a = Array.from(ptrs.values()); return {x: (a[0].x + a[1].x) / 2, y: (a[0].y + a[1].y) / 2}; };
-  scope.addEventListener('wheel', ev => {
-    if(!fsOn) return;
-    ev.preventDefault();
-    const r = scope.getBoundingClientRect();
-    const dy = ev.deltaMode === 1 ? ev.deltaY * 16 : ev.deltaY;
-    zoomTo(s * Math.exp(-dy * (ev.ctrlKey ? 0.01 : 0.0015)), ev.clientX - r.left, ev.clientY - r.top);
-  }, {passive: false});
-  scope.addEventListener('pointerdown', ev => {
-    if(!fsOn) return;
-    try{ scope.setPointerCapture(ev.pointerId); }catch(e){}
-    const r = scope.getBoundingClientRect();
-    ptrs.set(ev.pointerId, {x: ev.clientX - r.left, y: ev.clientY - r.top, sx: ev.clientX, sy: ev.clientY});
-    moved = false; scope.classList.add('dragging');
-    if(ptrs.size === 2){ const m = mid(); pinch = {d: dist(), s, mx: m.x, my: m.y}; lastTap = null; }
+  // Žestid ainult täisekraanis (tavavaates jääb lehe kerimine puutumata): ühine loogika (attachZoomGestures).
+  const gestures = attachZoomGestures(scope, {
+    enabled: () => fsOn,
+    scale: () => s,
+    zoomTo,
+    pan(dx, dy, settle){ x += dx; y += dy; if(settle){ clamp(); apply(); } },
+    toggle(px, py){ if(s > 1.02) resetZoom(); else zoomTo(2.5, px, py); }
   });
-  scope.addEventListener('pointermove', ev => {
-    const q = ptrs.get(ev.pointerId); if(!q) return;
-    const r = scope.getBoundingClientRect(), nx = ev.clientX - r.left, ny = ev.clientY - r.top;
-    if(Math.hypot(ev.clientX - q.sx, ev.clientY - q.sy) > 6) moved = true;
-    if(ptrs.size === 2 && pinch){
-      q.x = nx; q.y = ny; const m = mid();
-      x += m.x - pinch.mx; y += m.y - pinch.my; pinch.mx = m.x; pinch.my = m.y;
-      zoomTo(pinch.s * (dist() / pinch.d), m.x, m.y);
-    }else if(ptrs.size === 1 && s > 1.001){
-      x += nx - q.x; y += ny - q.y; q.x = nx; q.y = ny; clamp(); apply();
-    }else{ q.x = nx; q.y = ny; }
-  });
-  const end = ev => {
-    const q = ptrs.get(ev.pointerId); if(!q) return;
-    ptrs.delete(ev.pointerId);
-    if(ptrs.size < 2) pinch = null;
-    if(!ptrs.size) scope.classList.remove('dragging');
-    if(ev.type === 'pointerup' && !moved && !ptrs.size){
-      const now = Date.now();
-      if(lastTap && now - lastTap.t < 320 && Math.hypot(q.x - lastTap.x, q.y - lastTap.y) < 30){
-        if(s > 1.02) resetZoom(); else zoomTo(2.5, q.x, q.y);
-        lastTap = null;
-      }else lastTap = {t: now, x: q.x, y: q.y};
-    }
-  };
-  scope.addEventListener('pointerup', end);
-  scope.addEventListener('pointercancel', end);
 
   // ---- režiim sisse/välja ----
   function setFs(on){
@@ -5035,7 +4978,7 @@ window.addEventListener('hashchange', startFromHash);
     document.body.classList.toggle('run-fs', on);
     btn.setAttribute('aria-pressed', String(on));
     btn.title = on ? 'Välju täisekraanist' : 'Täisekraan: suurem pilt, tulemus jääb nähtavaks, pilti saab suurendada';
-    resetZoom(); ptrs.clear(); pinch = null;
+    resetZoom(); gestures.reset();
     if(on){
       updateScoreLine();
       if(canFull && !document.fullscreenElement){
@@ -5487,7 +5430,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc58'; // tõsta iga release'iga koos SW_VERSION-iga ('offline-' + APP_BUILD); kuvatakse oleku real
+  const APP_BUILD = 'rc59'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
