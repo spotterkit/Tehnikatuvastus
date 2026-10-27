@@ -1311,7 +1311,7 @@ const CATEGORIES = [
   { label: "IMR-3", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-3", weight: 1, files: ["Army2016demo-100.jpg"] },
   { label: "TMM-3", group: "engineer", type: "Sillamasin", cat: "TMM-3", weight: 1, files: ["ТММ-3_тяжёлый_механизированный_мост.jpg"] },
   { label: "TMM-6", group: "engineer", type: "Sillamasin", cat: "TMM-6", weight: 1, files: ["TMM-6_bridgelayer_01.jpg"] },
-  { label: "Pontoonsillapark", group: "engineer", type: "", cat: "Pontoonsillapark", weight: 1, files: ["KrAZ-255_PMP_Pontoon_Bridge.jpg"] },
+  { label: "Pontoonsillapark", group: "engineer", type: "Pontoonsillapark", cat: "Pontoonsillapark", weight: 1, files: ["KrAZ-255_PMP_Pontoon_Bridge.jpg"] },
   { label: "UMZ", group: "engineer", type: "Universaalne miinilaotur", cat: "UMZ", weight: 1, files: ["images/engineer/umz_01.jpeg"] },
   { label: "GMZ-3", group: "engineer", type: "Mineerimissoomuk", cat: "GMZ-3", weight: 1, files: ["GMZ-3_minelayer_vehicle_at_Engineering_Technologies_2012.jpg", "Engineering_Technologies_-_2012_%285-43%29.jpg"] },
   { label: "BTM-4M", group: "engineer", type: "Tranžeemasin", cat: "BTM-4M", weight: 1, files: ["images/engineer/BTM4M.jpg"] },
@@ -5301,12 +5301,30 @@ window.addEventListener('hashchange', startFromHash);
       label: root.name,
       async exists(p){
         const [d, f] = split(p);
-        try{ const fh = await (await dir(d)).getFileHandle(f); return (await fh.getFile()).size > 0; }catch(e){ return false; }
+        for(let attempt = 0; attempt < 2; attempt++){
+          try{ const fh = await (await dir(d)).getFileHandle(f); return (await fh.getFile()).size > 0; }
+          catch(e){ if(e && e.name === 'NotFoundError') return false; dirs.clear(); }
+        }
+        return false;
       },
+      // Kordus: OneDrive/viirusetõrje jms võib kausta samal ajal puutuda ("state had changed since it
+      // was read from disk" = InvalidStateError). Siis loetakse kaust uuesti ja proovitakse kuni 4 korda.
       async write(p, blob){
         const [d, f] = split(p);
-        const fh = await (await dir(d)).getFileHandle(f, {create: true});
-        const w = await fh.createWritable(); await w.write(blob); await w.close();
+        for(let attempt = 0; ; attempt++){
+          let w = null;
+          try{
+            if(attempt) dirs.clear();
+            const fh = await (await dir(d)).getFileHandle(f, {create: true});
+            w = await fh.createWritable(); await w.write(blob); await w.close();
+            return;
+          }catch(e){
+            if(w) try{ await w.abort(); }catch(e2){}
+            const retryable = e && /InvalidState|NoModificationAllowed|InvalidModification|NotReadable|Abort/.test(e.name || '');
+            if(!retryable || attempt >= 3) throw e;
+            await sleep(500 * (attempt + 1) * (attempt + 1));
+          }
+        }
       },
       async finish(){}
     };
@@ -5382,6 +5400,16 @@ window.addEventListener('hashchange', startFromHash);
         try{ await resolveBatch(commonsJobs.slice(i, i + API_BATCH)); }
         catch(e){ commonsJobs.slice(i, i + API_BATCH).forEach(j => { if(!j.url) j.error = 'API: ' + (e.message || e); }); }
         await sleep(250);
+      }
+
+      // Windows ei erista suur- ja väiketähti: kui Commonsi fail satuks repo pildiga samale teele
+      // (nt images/mines/ozm3.jpg vs OZM3.jpg), saab Commonsi fail nimelõpu _commons.
+      const taken = new Set(jobs.filter(j => j.local).map(j => j.path.toLowerCase()));
+      for(const j of jobs){
+        if(j.local || !j.path) continue;
+        let p = j.path;
+        for(let k = 1; taken.has(p.toLowerCase()); k++) p = j.path.replace(/(\.[^./]+)?$/, m => '_commons' + (k > 1 ? k : '') + m);
+        j.path = p; taken.add(p.toLowerCase());
       }
 
       for(const j of jobs){
