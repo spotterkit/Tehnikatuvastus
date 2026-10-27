@@ -5,7 +5,7 @@
 //
 // Eraldi moodul: ei muuda olemasolevat testi, harjutamist ega kuldvillakut.
 // Kasutab index.html globaale: CATEGORIES, GROUPS, fetchSpecificFile, goHome.
-// Nõuded: Kureeritud_test_nouded.md (N1–N28).
+// Nõuded: Kureeritud_test_nouded.md (N1–N41).
 //
 // Testifail (.html): sees on testi andmed (JSON) ja suunamine äppi kujul <äpi URL>#kureeritud=<base64url JSON>.
 // Topeltklõps → brauser avab äpi → see moodul loeb räsi ja avab testi. Varuvariant: avalehe "Ava salvestatud test".
@@ -19,7 +19,7 @@ const FILE_KIND = 'tehnikatuvastus-kureeritud-test';
 const FILE_VERSION = 1;
 const HASH_KEY = '#kureeritud=';
 const MAX_Q = 100;
-const DEFAULTS = {count: 20, mode: 'manual', viewSec: 15, writeSec: 15, name: ''};
+const DEFAULTS = {count: 20, mode: 'manual', viewSec: 15, writeSec: 15, name: '', showAnswer: false, answerSec: 5};
 
 const screen = document.getElementById('curatedScreen');
 if(!screen || typeof CATEGORIES === 'undefined') return;
@@ -208,6 +208,13 @@ body.ct-proj-open{overflow:hidden;}
 .ct-proj-img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;display:block;user-select:none;-webkit-user-drag:none;}
 .ct-proj-img[hidden]{display:none;}
 .ct-proj-img.is-err{visibility:hidden;}
+.ct-proj-stage.is-reveal{flex-direction:column;align-items:stretch;}
+.ct-proj-stage.is-reveal .ct-proj-img{flex:1;min-height:0;height:auto;}
+.ct-proj-reveal{position:relative;flex:none;padding:2vh 3vw 2.4vh;background:rgba(0,0,0,.82);border-top:3px solid #ffd24a;text-align:center;}
+.ct-proj-reveal[hidden]{display:none;}
+.ct-proj-reveal-lbl{font-size:2.4vh;letter-spacing:.2em;text-transform:uppercase;color:#b9bca5;margin-bottom:.6vh;}
+.ct-proj-reveal-txt{font-family:var(--font-display);font-size:6.4vh;line-height:1.1;color:#ffd24a;font-weight:600;}
+.ct-proj-reveal-type{font-size:3.4vh;color:#f2f2e6;margin-top:.6vh;}
 .ct-proj-write,.ct-proj-start,.ct-proj-end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:2vh;}
 .ct-proj-write[hidden],.ct-proj-start[hidden],.ct-proj-end[hidden]{display:none;}
 .ct-proj-write-nr{font-family:var(--font-display);font-size:30vh;line-height:1;color:#ffd24a;font-weight:700;}
@@ -307,13 +314,14 @@ function clampInt(v, lo, hi, dflt){ const n = parseInt(v, 10); return isNaN(n) ?
 function answerText(q){ return q.type ? q.label + ' – ' + q.type : q.label; }
 function modeText(){
   const s = S.settings;
-  return s.mode === 'auto' ? 'Automaatne (pilt ' + s.viewSec + ' s, vastus ' + s.writeSec + ' s)' : 'Käsitsi (õpetaja liigub edasi)';
+  const base = s.mode === 'auto' ? 'Automaatne (pilt ' + s.viewSec + ' s, vastus ' + s.writeSec + ' s' + (s.showAnswer ? ', õige vastus ' + s.answerSec + ' s' : '') + ')' : 'Käsitsi (õpetaja liigub edasi)';
+  return base + (s.showAnswer ? ' · õige vastus näidatakse pärast iga küsimust' : '');
 }
 function testTitle(){ return (S.settings.name || '').trim() || ('Tehnikatest ' + isoToEt(S.created || todayISO())); }
 function testName(){ return testTitle() + ' · ' + S.questions.length + ' küsimust'; }
 function sig(){
   const st = S.settings;
-  return JSON.stringify([(st.name || '').trim(), st.mode, st.viewSec, st.writeSec, S.questions.map(q => q.cat + '|' + q.file)]);
+  return JSON.stringify([(st.name || '').trim(), st.mode, st.viewSec, st.writeSec, !!st.showAnswer, st.showAnswer ? st.answerSec : 0, S.questions.map(q => q.cat + '|' + q.file)]);
 }
 function isDone(k){ return k === 'test' ? S.savedSig === sig() : S.doneSig[k] === sig(); }
 function isDirty(){ return S.questions.length > 0 && S.savedSig !== sig(); }
@@ -441,6 +449,15 @@ function renderStep1(){
     r.addEventListener('change', () => { s.mode = val; times.hidden = val !== 'auto'; });
     return h('label', {class: 'ct-mode'}, r, h('div', null, h('b', null, title), h('span', null, text)));
   };
+  // Valikuline: õige vastus pärast iga küsimust (N41; vaikimisi väljas – siis kehtib N3).
+  const ansSec = h('input', {type: 'number', min: 1, max: 600, value: s.answerSec, class: 'ct-num', id: 'ctAnsSec'});
+  ansSec.addEventListener('input', () => { s.answerSec = clampInt(ansSec.value, 1, 600, DEFAULTS.answerSec); });
+  const ansTime = h('div', {class: 'ct-times'}, h('label', {for: 'ctAnsSec'}, 'Õige vastuse näitamine', h('span', null, ansSec, ' s')));
+  const syncAns = () => { ansTime.hidden = !(s.showAnswer && s.mode === 'auto'); };
+  const ansCb = h('input', {type: 'checkbox', checked: !!s.showAnswer, id: 'ctShowAns'});
+  ansCb.addEventListener('change', () => { s.showAnswer = ansCb.checked; syncAns(); });
+  panel.addEventListener('change', ev => { if(ev.target && ev.target.name === 'ctMode') syncAns(); });
+  syncAns();
   times.hidden = s.mode !== 'auto';
   panel.append(
     h('div', {class: 'ct-field'}, h('label', {for: 'ctName'}, 'Testi nimi'), name,
@@ -449,7 +466,11 @@ function renderStep1(){
       h('div', {class: 'ct-modes'},
         modeCard('manual', 'Käsitsi', 'Iga küsimus: pilt → „Kirjuta vastus“ → järgmine. Õpetaja liigub edasi noole, tühiku või esitluspuldiga.'),
         modeCard('auto', 'Automaatne', 'Pilt on ekraanil vaatamisaja, siis kaob ja algab kirjutamisaeg. Ajariba näitab aega.')),
-      times)
+      times),
+    h('div', {class: 'ct-field'},
+      h('label', {class: 'ct-check', for: 'ctShowAns', style: 'text-transform:none;letter-spacing:0;font-size:14px;color:var(--bone);'}, ansCb, ' Näita õiget vastust pärast iga küsimust'),
+      h('div', {class: 'ct-help'}, 'Vaikimisi väljas. Sisse lülitatuna: pilt → „Kirjuta vastus“ → pilt koos õige vastusega → järgmine küsimus. Sobib harjutamiseks ja koos läbiarutamiseks.'),
+      ansTime)
   );
   panel.appendChild(h('div', {class: 'ct-actions'}, h('span'),
     h('button', {class: 'primary', type: 'button', onclick: () => goStep(2)}, 'Edasi: vali pildid ›')));
@@ -943,7 +964,7 @@ function testData(){
     created: S.created || todayISO(),
     name: (S.settings.name || '').trim(),
     app: (typeof window !== 'undefined' && window.__appBuild) || '',
-    settings: {mode: S.settings.mode, viewSec: S.settings.viewSec, writeSec: S.settings.writeSec},
+    settings: {mode: S.settings.mode, viewSec: S.settings.viewSec, writeSec: S.settings.writeSec, showAnswer: !!S.settings.showAnswer, answerSec: S.settings.answerSec},
     questions: S.questions.map(x => ({cat: x.cat, file: x.file, label: x.label, type: x.type}))
   };
 }
@@ -1056,7 +1077,9 @@ function loadTest(data, source){
     mode: st.mode === 'auto' ? 'auto' : 'manual',
     viewSec: clampInt(st.viewSec, 1, 600, DEFAULTS.viewSec),
     writeSec: clampInt(st.writeSec, 1, 600, DEFAULTS.writeSec),
-    name: typeof data.name === 'string' ? data.name.slice(0, 80) : ''
+    name: typeof data.name === 'string' ? data.name.slice(0, 80) : '',
+    showAnswer: st.showAnswer === true,                       // vanemates failides puudub → väljas
+    answerSec: clampInt(st.answerSec, 1, 600, DEFAULTS.answerSec)
   };
   S.questions = data.questions.slice(0, MAX_Q).map(x => {
     const e = entryOf(x.cat);
@@ -1125,6 +1148,7 @@ function openNew(){
 // ---------------------------------------------------------------------------
 // PROJEKTORIVAADE (N3, N4, N15–N17, N21–N23)
 // Iga küsimus: 'view' (pilt + number) → 'write' (pilt kadunud, number + "Kirjuta vastus") → järgmine.
+// Valikuliselt (S.settings.showAnswer, vaikimisi väljas): pärast 'write' tuleb 'answer' – pilt uuesti koos õige vastusega.
 // Ekraanil ei ole failinime, allikat ega vihjeid; pildi alt on tühi (katkise pildi korral ei ilmu tekst).
 // ---------------------------------------------------------------------------
 const P = {el: null, phase: 'start', i: 0, urls: [], loaded: 0, failed: 0, paused: false,
@@ -1140,6 +1164,7 @@ function openProjector(){
     '<div class="ct-proj-top"><div class="ct-proj-num"></div><div class="ct-proj-q" hidden></div><div class="ct-proj-pause" hidden>PAUS</div></div>'
     + '<div class="ct-proj-stage">'
     +   '<img class="ct-proj-img" alt="" draggable="false">'
+    +   '<div class="ct-proj-reveal" hidden><div class="ct-proj-reveal-lbl">Õige vastus</div><div class="ct-proj-reveal-txt"></div><div class="ct-proj-reveal-type"></div></div>'
     +   '<div class="ct-proj-write" hidden><div class="ct-proj-write-nr"></div><div class="ct-proj-write-msg">Kirjuta vastus</div></div>'
     +   '<div class="ct-proj-start" hidden></div>'
     +   '<div class="ct-proj-end" hidden><div class="ct-proj-end-msg">Test läbi</div><div class="ct-proj-end-btns">'
@@ -1251,6 +1276,7 @@ function drawStart(){
     h('div', {class: 'ct-proj-start-title'}, testTitle()),
     h('div', {class: 'ct-proj-start-sub'}, n + ' küsimust'),
     h('div', {class: 'ct-proj-start-sub'}, S.settings.mode === 'auto' ? 'Iga pilt ' + S.settings.viewSec + ' s, vastuse kirjutamiseks ' + S.settings.writeSec + ' s.' : 'Kirjuta vastus paberile küsimuse numbri juurde.'),
+    S.settings.showAnswer ? h('div', {class: 'ct-proj-start-sub'}, 'Pärast iga küsimust näidatakse õiget vastust.') : null,
     h('div', {class: 'ct-proj-load'}, ready ? (P.failed ? 'Pildid valmis (' + P.failed + ' ei laadinud)' : 'Pildid valmis') : 'Laen pilte… ' + doneCount + ' / ' + n),
     h('button', {type: 'button', class: 'primary ct-proj-go', disabled: !ready, onclick: () => { P.i = 0; setPhase('view'); }}, 'Alusta'));
 }
@@ -1258,7 +1284,7 @@ function setPhase(ph){
   P.phase = ph;
   P.paused = false;
   draw();
-  if(S.settings.mode === 'auto' && (ph === 'view' || ph === 'write')) startTimer((ph === 'view' ? S.settings.viewSec : S.settings.writeSec) * 1000);
+  if(S.settings.mode === 'auto' && (ph === 'view' || ph === 'write' || ph === 'answer')) startTimer((ph === 'view' ? S.settings.viewSec : ph === 'write' ? S.settings.writeSec : S.settings.answerSec) * 1000);
   else stopTimer();
 }
 function draw(){
@@ -1270,7 +1296,16 @@ function draw(){
   const start = el.querySelector('.ct-proj-start');
   const end = el.querySelector('.ct-proj-end');
   const bar = el.querySelector('.ct-proj-bar');
-  const showNum = P.phase === 'view' || P.phase === 'write';
+  const showNum = P.phase === 'view' || P.phase === 'write' || P.phase === 'answer';
+  const reveal = el.querySelector('.ct-proj-reveal');
+  reveal.hidden = P.phase !== 'answer';
+  el.querySelector('.ct-proj-stage').classList.toggle('is-reveal', P.phase === 'answer');
+  if(P.phase === 'answer'){
+    const q = S.questions[P.i];
+    reveal.querySelector('.ct-proj-reveal-txt').textContent = q.label;
+    const t = reveal.querySelector('.ct-proj-reveal-type');
+    t.textContent = q.type || ''; t.hidden = !q.type;
+  }
   const qEl = el.querySelector('.ct-proj-q');
   const qTxt = showNum && typeof window.groupQuestion === 'function' ? window.groupQuestion(S.questions[P.i].cat) : '';
   qEl.textContent = qTxt; qEl.hidden = !qTxt;
@@ -1285,14 +1320,14 @@ function draw(){
   if(P.phase === 'answers') drawAnswers(ans.querySelector('.ct-proj-ans-list'));
   write.hidden = P.phase !== 'write';
   if(P.phase === 'write') write.querySelector('.ct-proj-write-nr').textContent = String(P.i + 1);
-  if(P.phase === 'view'){
+  if(P.phase === 'view' || P.phase === 'answer'){
     const u = P.urls[P.i];
     img.hidden = false;
     if(u){ if(img.getAttribute('src') !== u) img.src = u; img.classList.remove('is-err'); }
     else{
       img.removeAttribute('src');
       img.classList.add('is-err');
-      imageUrl(S.questions[P.i].file).then(x => { if(P.el && P.phase === 'view' && P.urls[P.i] == null){ P.urls[P.i] = x; img.src = x; img.classList.remove('is-err'); } }).catch(() => {});
+      imageUrl(S.questions[P.i].file).then(x => { if(P.el && (P.phase === 'view' || P.phase === 'answer') && P.urls[P.i] == null){ P.urls[P.i] = x; img.src = x; img.classList.remove('is-err'); } }).catch(() => {});
     }
   }else{
     img.hidden = true;
@@ -1328,16 +1363,19 @@ function next(){
   if(P.phase === 'end' || P.phase === 'answers') return;
   if(P.phase === 'start'){ if(P.loaded + P.failed >= n){ P.i = 0; setPhase('view'); } return; }
   if(P.phase === 'view') return setPhase('write');
-  if(P.phase === 'write'){
+  if(P.phase === 'write' && S.settings.showAnswer) return setPhase('answer');
+  if(P.phase === 'write' || P.phase === 'answer'){
     if(P.i + 1 < n){ P.i++; return setPhase('view'); }
     return setPhase('end');
   }
 }
 function prev(){
   if(P.phase === 'answers') return setPhase('end');
-  if(P.phase === 'end'){ P.i = S.questions.length - 1; return setPhase('write'); }
+  const after = S.settings.showAnswer ? 'answer' : 'write';   // küsimuse viimane etapp
+  if(P.phase === 'end'){ P.i = S.questions.length - 1; return setPhase(after); }
+  if(P.phase === 'answer') return setPhase('write');
   if(P.phase === 'write') return setPhase('view');
-  if(P.phase === 'view' && P.i > 0){ P.i--; return setPhase('write'); }
+  if(P.phase === 'view' && P.i > 0){ P.i--; return setPhase(after); }
 }
 
 // --- Taimer ja ajariba (ainult automaatrežiim) ---
@@ -1357,7 +1395,7 @@ function tick(){
   P.raf = requestAnimationFrame(tick);
 }
 function pauseTimer(force){
-  if(S.settings.mode !== 'auto' || !(P.phase === 'view' || P.phase === 'write') || P.paused) return;
+  if(S.settings.mode !== 'auto' || !(P.phase === 'view' || P.phase === 'write' || P.phase === 'answer') || P.paused) return;
   P.remaining = Math.max(0, P.remaining - (performance.now() - P.phaseStart));
   P.paused = true;
   stopTimer();
@@ -1381,7 +1419,7 @@ function projKey(ev){
   let handled = true;
   if(k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || k === 'Enter') next();
   else if(k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || k === 'Backspace') prev();
-  else if(k === ' ' || k === 'Spacebar') { if(auto && (P.phase === 'view' || P.phase === 'write')) togglePause(); else next(); }
+  else if(k === ' ' || k === 'Spacebar') { if(auto && (P.phase === 'view' || P.phase === 'write' || P.phase === 'answer')) togglePause(); else next(); }
   else if(k === 'p' || k === 'P') togglePause();
   else if(k === 'f' || k === 'F') toggleFs();
   else if(k === 'Escape') { handled = false; }     // brauser väljub täisekraanist; test jääb alles
