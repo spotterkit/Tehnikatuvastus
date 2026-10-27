@@ -5139,11 +5139,12 @@ window.addEventListener('hashchange', startFromHash);
 </script>
 <script id="commonsBackupScript">
 // ============================================================================
-// COMMONSI PILTIDE VARUKOOPIA (Pildidiagnostika paneelis)
-// Tõmbab kõik CATEGORIES-is viidatud Wikimedia Commonsi pildid (1280 px, sama
-// suurus mida äpp näitab) ja paigutab need sama kaustapuu järgi nagu repo
-// kohalikud pildid: images/<kaust>/<failinimi>. Kaasa tuleb
-// images/commons-credits.json (autor, litsents, Commonsi link).
+// PILTIDE VARUKOOPIA (Pildidiagnostika paneelis)
+// 1) Wikimedia Commonsi pildid (1280 px, sama suurus mida äpp näitab) paigutatakse sama
+//    kaustapuu järgi nagu repo kohalikud pildid: images/<kaust>/<failinimi>.
+// 2) Repo enda pildid (images/...: CATEGORIES, WHAT-pildid, offline-assets.json) samadele
+//    teedele. Need tulevad samalt saidilt; offline-paketi olemasolul seadme vahemälust.
+// Kaasa tuleb images/commons-credits.json (Commonsi autor, litsents, link + kohalike piltide nimekiri).
 // Chrome/Edge: kirjutab otse valitud kausta, olemasolevad failid jäetakse vahele.
 // Muud brauserid: üks ZIP-fail.
 // Äpi tööd see ei muuda – failid lähevad ainult kasutaja arvutisse.
@@ -5157,11 +5158,12 @@ window.addEventListener('hashchange', startFromHash);
   if(!controls || !select || !progress || !results) return;
 
   const canPickFolder = typeof window.showDirectoryPicker === 'function';
+  const BTN_LABEL = canPickFolder ? 'Laadi kõik pildid kausta' : 'Laadi kõik pildid ZIP-ina';
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.id = 'diagBackup';
-  btn.textContent = canPickFolder ? 'Laadi Commonsi pildid kausta' : 'Laadi Commonsi pildid ZIP-ina';
-  btn.title = 'Varukoopia arvutisse: Commonsi pildid images/<kaust>/ puusse, sama struktuur nagu repo kohalikel piltidel. Arvestab valitud kategooriat.';
+  btn.textContent = BTN_LABEL;
+  btn.title = 'Varukoopia arvutisse: Commonsi pildid ja repo enda pildid images/<kaust>/ puusse (sama struktuur nagu GitHubis). Arvestab valitud kategooriat.';
   controls.insertBefore(btn, closeBtn || null);
 
   const API_BATCH = 40;
@@ -5198,16 +5200,28 @@ window.addEventListener('hashchange', startFromHash);
     return out;
   }
 
-  // Commonsi failid koos esimese grupi/kausta ja kõigi kategooriatega, kus neid kasutatakse.
-  function collectJobs(){
+  // Commonsi ja repo enda failid koos esimese grupi/kausta ja kõigi kategooriatega, kus neid kasutatakse.
+  async function collectJobs(){
     const folders = groupFolders();
+    const all = select.value === '__all__';
     const byKey = new Map();
+    const addLocal = (raw, label) => {
+      const path = String(raw || '').trim().replace(/^\.\//, '');
+      if(!path.startsWith('images/') || path.endsWith('/')) return;
+      const key = 'local:' + path.toLowerCase();
+      if(!byKey.has(key)) byKey.set(key, {local: true, name: path, path, url: './' + encodeURI(path), categories: []});
+      const j = byKey.get(key);
+      if(label && !j.categories.includes(label)) j.categories.push(label);
+    };
     for(const e of CATEGORIES){
-      if(select.value !== '__all__' && e.group !== select.value) continue;
+      if(!all && e.group !== select.value) continue;
+      const w = (typeof WHAT_MODELS !== 'undefined') && WHAT_MODELS[e.cat];
+      if(w && w.image) addLocal(w.image, e.label + ' (WHAT)');
       for(const f of (e.files || [])){
         if(typeof f !== 'string') continue;
         const t = f.trim();
-        if(!t || t.startsWith('images/') || t.startsWith('./images/')) continue;
+        if(!t) continue;
+        if(t.startsWith('images/') || t.startsWith('./images/')){ addLocal(t, e.label); continue; }
         const name = normalizeFilename(t);
         const key = name.toLowerCase();
         if(!byKey.has(key)) byKey.set(key, {name, folder: folders[e.group] || e.group, categories: []});
@@ -5215,7 +5229,14 @@ window.addEventListener('hashchange', startFromHash);
         if(!j.categories.includes(e.label)) j.categories.push(e.label);
       }
     }
-    return [...byKey.values()];
+    // Kõik pildid: lisaks offline-assets.json-i pildid (nt TTA/WHAT andmetes viidatud).
+    if(all){
+      try{
+        const r = await fetch('./offline-assets.json', {cache: 'no-cache'});
+        if(r.ok) for(const p of await r.json()) if(/\.(jpe?g|png|webp|gif|avif|svg)$/i.test(p)) addLocal(p, '');
+      }catch(e){}
+    }
+    return [...byKey.values()].map(j => (j.categories.length ? j : {...j, categories: ['Repo pilt']}));
   }
 
   // Failinimi kettale: tühikud -> alakriips (nagu Commonsi URL-is), Windowsis keelatud märgid välja.
@@ -5338,8 +5359,9 @@ window.addEventListener('hashchange', startFromHash);
 
   btn.onclick = async () => {
     if(running){ cancelled = true; btn.textContent = 'Peatan…'; return; }
-    const jobs = collectJobs();
-    if(!jobs.length){ progress.textContent = 'Valitud kategoorias pole Commonsi pilte.'; return; }
+    const jobs = await collectJobs();
+    if(!jobs.length){ progress.textContent = 'Valitud kategoorias pole pilte.'; return; }
+    const commonsJobs = jobs.filter(j => !j.local);
 
     let out;
     try{ out = canPickFolder ? await folderWriter() : zipWriter(); }
@@ -5351,14 +5373,14 @@ window.addEventListener('hashchange', startFromHash);
     btn.textContent = 'Peata allalaadimine';
     results.innerHTML = '';
     let saved = 0, skipped = 0, failed = 0, bytes = 0;
-    const status = () => `Commonsi varukoopia → ${out.label} · ${saved + skipped + failed} / ${jobs.length} · salvestatud ${saved}`
+    const status = () => `Piltide varukoopia → ${out.label} · ${saved + skipped + failed} / ${jobs.length} · salvestatud ${saved}`
       + (skipped ? ` · juba olemas ${skipped}` : '') + ` · VIGA ${failed} · ${(bytes / 1048576).toFixed(1)} MB`;
 
     try{
-      progress.textContent = `Küsin Commonsist pildiinfot (${jobs.length} faili)…`;
-      for(let i = 0; i < jobs.length && !cancelled; i += API_BATCH){
-        try{ await resolveBatch(jobs.slice(i, i + API_BATCH)); }
-        catch(e){ jobs.slice(i, i + API_BATCH).forEach(j => { if(!j.url) j.error = 'API: ' + (e.message || e); }); }
+      progress.textContent = `Küsin Commonsist pildiinfot (${commonsJobs.length} Commonsi + ${jobs.length - commonsJobs.length} repo pilti)…`;
+      for(let i = 0; i < commonsJobs.length && !cancelled; i += API_BATCH){
+        try{ await resolveBatch(commonsJobs.slice(i, i + API_BATCH)); }
+        catch(e){ commonsJobs.slice(i, i + API_BATCH).forEach(j => { if(!j.url) j.error = 'API: ' + (e.message || e); }); }
         await sleep(250);
       }
 
@@ -5389,20 +5411,21 @@ window.addEventListener('hashchange', startFromHash);
           r.children[2].textContent = j.path + ' — ' + j.error;
         }
         progress.textContent = status();
-        await sleep(120); // viisakas tempo Wikimedia suhtes
+        if(!j.local) await sleep(120); // viisakas tempo Wikimedia suhtes
       }
 
       // Autorid ja litsentsid (CC BY-SA jms nõuab autori nimetamist ka koopia puhul).
       const credits = {
         generated: new Date().toISOString(),
         appBuild: window.__appBuild || '',
-        note: 'Wikimedia Commonsi piltide varukoopia. Iga pildi kasutamisel nimeta autor ja litsents.',
+        note: 'Piltide varukoopia. Commonsi piltide kasutamisel nimeta autor ja litsents (images). localImages = repo enda pildid.',
         scope: select.value === '__all__' ? 'kõik' : select.value,
-        images: jobs.filter(j => j.path && !j.error).map(j => ({
+        localImages: jobs.filter(j => j.local && !j.error).map(j => ({path: j.path, categories: j.categories})),
+        images: jobs.filter(j => !j.local && j.path && !j.error).map(j => ({
           path: j.path, commonsFile: j.name, commonsTitle: j.commonsTitle, source: j.source,
           author: j.author, license: j.license, licenseUrl: j.licenseUrl, categories: j.categories
         })),
-        failed: jobs.filter(j => j.error).map(j => ({commonsFile: j.name, error: j.error, categories: j.categories}))
+        failed: jobs.filter(j => j.error).map(j => (j.local ? {path: j.path, error: j.error, categories: j.categories} : {commonsFile: j.name, error: j.error, categories: j.categories}))
       };
       const creditsName = select.value === '__all__' ? 'images/commons-credits.json' : 'images/commons-credits-' + select.value + '.json';
       await out.write(creditsName, new Blob([JSON.stringify(credits, null, 2) + '\n'], {type: 'application/json'}));
@@ -5412,7 +5435,7 @@ window.addEventListener('hashchange', startFromHash);
       progress.textContent = status() + ' · KATKES: ' + (e.message || e);
     }finally{
       running = false;
-      btn.textContent = canPickFolder ? 'Laadi Commonsi pildid kausta' : 'Laadi Commonsi pildid ZIP-ina';
+      btn.textContent = BTN_LABEL;
       if(startBtn) startBtn.disabled = false;
       select.disabled = false;
     }
