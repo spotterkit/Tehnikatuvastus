@@ -9,6 +9,7 @@ Mida kontrollitakse:
   - avaleht laeb ilma skriptivigadeta, versioon (APP_BUILD = SW_VERSION) klapib
   - „Genereeri test“: vastamine, hindamine, tulemus; täisekraan, suurendus, lohistamine
   - mudeli galerii: pildi suurendus (lightbox) – suurendus, lohistamine, sulgemine
+  - mudelite vahetamine ↑/↓ galeriis ja suurenduses (nimekirja järjekorras)
   - piltide võrdlus ja WHAT-võrdlus täisekraanil
   - kureeritud test: salvestamine → avamine (ka õige vastuse näitamisega), vana testifail
   - Kuldvillaku laua fail: salvestamine → avamine
@@ -191,6 +192,33 @@ def main():
             check("Esc sulgeb suurenduse, galerii jääb", not ev("() => document.getElementById('lightbox').classList.contains('open')")
                   and ev("() => document.getElementById('modelGallery').classList.contains('open')"))
         step("Galerii: pildi suurendus", t_lightbox)
+
+        # 3b) mudelite vahetamine ↑/↓ (galerii ja suurendus), nimekirja järjekorras
+        def t_model_nav():
+            home()
+            p.click("#showModelListBtn")
+            order = ev("() => modelListOrder('').map(e => e.label)")
+            on_screen = ev("() => [...document.querySelectorAll('#modelListContent .m-name')].map(x => x.textContent)")
+            check("järjekord = nimekiri ekraanil", order == on_screen, f"{len(order)} mudelit")
+            ev("() => window.scrollTo(0, 600)")
+            p.click("#modelListContent .m-photos >> nth=1")
+            p.wait_for_selector("#modelGalleryGrid img")
+            y0 = ev("() => scrollY")
+            p.keyboard.press("ArrowDown")
+            check("galerii ↓ = järgmine mudel", p.text_content("#modelGalleryTitle") == order[2])
+            check("taustal nimekiri ei keri", ev("() => scrollY") == y0)
+            p.click("#mgModelUp")
+            check("galerii ▲ nupp = eelmine mudel", p.text_content("#modelGalleryTitle") == order[1])
+            p.wait_for_function("() => [...document.querySelectorAll('#modelGalleryGrid img')].some(i => i.complete && i.naturalWidth)")
+            p.click("#modelGalleryGrid img >> nth=0")
+            p.wait_for_selector("#lbImg.ready")
+            p.keyboard.press("ArrowDown")
+            p.wait_for_function("l => document.getElementById('lbInfo').textContent.includes(l) && document.getElementById('lbImg').classList.contains('ready')", arg=order[2])
+            check("suurenduses ↓ = järgmise mudeli pilt", p.text_content("#modelGalleryTitle") == order[2])
+            p.keyboard.press("Escape")
+            check("suurendusest väljudes on galeriis uus mudel", p.text_content("#modelGalleryTitle") == order[2]
+                  and not ev("() => lbOpen"))
+        step("Mudelite vahetamine ↑/↓", t_model_nav)
 
         # 4) võrdlus täisekraanil
         def t_compare():
