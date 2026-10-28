@@ -732,6 +732,15 @@
   .mg-model-nav{min-width:44px;font-size:18px;line-height:1;padding-left:0;padding-right:0;}
   .lightbox:not(.model-nav) .lb-model-nav{display:none;}
   .lightbox-info{flex:1;min-width:120px;font-size:11px;color:var(--bone-dim);word-break:break-word;}
+  /* Mudeli nimi ja täpsustus nagu galerii päises: täpsustus väikeste suurtähtedega, nimi suurelt kollasega */
+  .lb-type{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-soft);line-height:1.3;}
+  .lb-name{font-family:var(--font-display);font-size:24px;line-height:1.15;color:var(--amber);font-weight:600;}
+  .lb-count{font-family:var(--font-body);font-size:12px;font-weight:400;color:var(--bone-dim);margin-left:10px;letter-spacing:.04em;white-space:nowrap;}
+  .lb-cmp:empty{display:none;}
+  .lb-cmp .tta-compare-pick{flex-wrap:nowrap;}
+  .lb-cmp .cmp-pick-box{width:260px;}
+  .lb-cmp .cmp-pick-list{max-height:min(60vh,420px);}
+  @media(max-width:600px){.lb-name{font-size:19px;}.lb-cmp{order:9;flex:1 1 100%;}.lb-cmp .cmp-pick-box{flex:1;width:auto;}}
   .lightbox-stage{position:relative;flex:1;overflow:hidden;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none;}
   .lightbox-stage.dragging{cursor:grabbing;}
   .lightbox-stage img{position:absolute;left:0;top:0;max-width:none;max-height:none;transform-origin:0 0;will-change:transform;-webkit-user-drag:none;visibility:hidden;}
@@ -951,6 +960,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
       <button type="button" id="lbOut" aria-label="Vähenda" title="Vähenda (-)">−</button>
       <button type="button" id="lbIn" aria-label="Suurenda" title="Suurenda (+)">+</button>
       <button type="button" id="lbFull" aria-label="Täisekraan" title="Täisekraan (F)">⛶</button>
+      <div class="lb-cmp" id="lbCmp"></div>
       <div class="lightbox-info" id="lbInfo"></div>
       <button type="button" id="lbClose" aria-label="Sulge" title="Sulge (Esc)">✕</button>
     </div>
@@ -2882,7 +2892,7 @@ function entryByRelatedName(name){
 // Hiir/puude: vali nimekirjast. Klaviatuur: ↑ ↓ liiguvad, Enter valib, Esc sulgeb.
 function cmpNorm(t){ return String(t || '').toLocaleLowerCase('et').replace(/[\s\-–_\/.,()„“"]+/g, ''); }
 
-function makeComparePicker(entry, selectedCat, kind){
+function makeComparePicker(entry, selectedCat, kind, onChoose){
   kind = kind || 'tta';
   let others;
   if(kind === 'photos'){
@@ -2924,6 +2934,7 @@ function makeComparePicker(entry, selectedCat, kind){
   function choose(target){
     input.value = target.label;
     close();
+    if(typeof onChoose === 'function'){ input.value = ''; input.blur(); onChoose(target); return; }
     if(kind === 'what') showWHATCompare(entry, target);
     else if(kind === 'photos') showPhotosCompare(entry, target);
     else showTTACompare(entry, target);
@@ -3084,6 +3095,7 @@ function makeWhatFigure(entry, record){
   const img = document.createElement('img');
   img.alt = entry.label + ' WHAT-analüüs';
   img.dataset.caption = entry.label + ' · WHAT-analüüs';
+  img.dataset.label = entry.label; img.dataset.type = 'WHAT-analüüs';
   img.tabIndex = 0;
   img.setAttribute('role', 'button');
   img.setAttribute('aria-label', 'Suurenda: ' + entry.label + ' WHAT-analüüs');
@@ -3379,6 +3391,7 @@ function loadGalleryCards(entry, container, withLabel){
       img.setAttribute('role', 'button');
       img.setAttribute('aria-label', 'Suurenda: ' + sourceFilename);
       img.dataset.caption = entry.label + (entry.type ? ' – ' + entry.type : '');   // suurenduses mudel ja täpsustus, mitte failinimi
+      img.dataset.label = entry.label; img.dataset.type = entry.type || '';
       img.addEventListener('click', () => openLightbox(img));
       img.addEventListener('keydown', ev => {
         if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); openLightbox(img); }
@@ -3569,7 +3582,7 @@ function lbToggleZoom(px, py){
 function lbGalleryItems(){
   return Array.from(modelGalleryGrid.querySelectorAll('img'))
     .filter(im => im.complete && im.naturalWidth > 0 && (im.currentSrc || im.src))
-    .map(im => ({src: im.currentSrc || im.src, alt: im.alt, caption: im.dataset.caption || '', el: im}));
+    .map(im => ({src: im.currentSrc || im.src, alt: im.alt, caption: im.dataset.caption || '', label: im.dataset.label || '', type: im.dataset.type || '', el: im}));
 }
 function lbShow(i){
   if(lbModelNav){
@@ -3584,7 +3597,7 @@ function lbShow(i){
   const item = lbItems[lbIndex];
   lbImg.classList.remove('ready');
   lbMsg.textContent = 'Laen pilti...';
-  lbInfo.textContent = (lbIndex + 1) + ' / ' + lbItems.length + ' · ' + item.caption;
+  lbRenderInfo(item, (lbIndex + 1) + ' / ' + lbItems.length);
   lbImg.alt = item.alt;
   lbImg.onload = () => { lbMsg.textContent = ''; lbSetFit(); lbImg.classList.add('ready'); };
   lbImg.onerror = () => { lbMsg.textContent = 'Pildi laadimine ebaõnnestus'; };
@@ -3593,6 +3606,53 @@ function lbShow(i){
 }
 // ↑/↓: eelmine/järgmine mudel nimekirja järjekorras (otsingu korral otsingu tulemuste sees).
 // Galerii taga vahetub samuti, nii et suurendusest väljudes oled selle mudeli juures.
+// Suurenduse ülemine riba: täpsustus (väike, suurtähed) + mudeli nimi (suur, kollane) + pildi number.
+function lbRenderInfo(item, countText){
+  lbInfo.innerHTML = '';
+  const label = item.label || item.caption || '';
+  if(item.type) lbInfo.appendChild(el('div', 'lb-type', item.type));
+  const name = el('div', 'lb-name', label);
+  if(countText) name.appendChild(el('span', 'lb-count', countText));
+  lbInfo.appendChild(name);
+}
+// „Võrdle:“ otsing suurenduses (ainult mudeli fotodelt avatud suurendus): valik avab võrdluse täisekraanil,
+// vasakul praegune pilt, paremal valitud mudel.
+const lbCmp = document.getElementById('lbCmp');
+function lbRenderPicker(){
+  lbCmp.innerHTML = '';
+  if(!lbModelNav || !galleryCurrent) return;
+  const pk = makeComparePicker(galleryCurrent, null, 'photos', lbCompareTo);
+  if(pk) lbCmp.appendChild(pk);
+}
+function lbCompareTo(target){
+  const a = galleryCurrent;
+  if(!a || !target) return;
+  const cur = lbItems[lbIndex];
+  const curSrc = cur ? cur.src : '';
+  const wasFull = document.fullscreenElement === lightbox;
+  closeLightbox(false);
+  showPhotosCompare(a, target);
+  const started = Date.now();
+  (function wait(){
+    if(!modelGallery.classList.contains('open') || mgPhotosCompare.hidden) return;
+    const cols = mgPhotosCompare.querySelectorAll('.pcmp-col');
+    const ready = col => Array.from(col.querySelectorAll('img')).filter(im => im.complete && im.naturalWidth > 0);
+    const left = cols[0] ? ready(cols[0]) : [], right = cols[1] ? ready(cols[1]) : [];
+    const pick = left.find(im => (im.currentSrc || im.src) === curSrc);
+    const timeUp = Date.now() - started > 15000;
+    // väike ooteaeg: suurenduse history-kirje eemaldamine (history.back) jõuab enne uue kihi lisamist lõpule
+    const settled = col => col && !Array.from(col.querySelectorAll('.model-gallery-state')).some(s => /Laen/.test(s.textContent));
+    if(Date.now() - started > 150 && (pick || timeUp || (left.length && settled(cols[0]))) && (right.length || timeUp || settled(cols[1]))){
+      const img = pick || left[0];
+      if(img && window.__cmpView && window.__cmpView.openFrom(img) && wasFull){
+        const v = document.getElementById('cmpView');
+        try{ if(v.requestFullscreen) v.requestFullscreen().catch(() => {}); }catch(e){}
+      }
+      return;
+    }
+    setTimeout(wait, 80);
+  })();
+}
 // Naabermudel nimekirja järjekorras (otsingu korral otsingu tulemuste sees); ringiratast.
 function neighbourModel(entry, d){
   if(!entry) return null;
@@ -3618,7 +3678,8 @@ function lbModelStep(d){
   lbImg.classList.remove('ready');
   lbImg.removeAttribute('src');
   lbMsg.textContent = 'Laen pilti...';
-  lbInfo.textContent = target.label + (target.type ? ' – ' + target.type : '');
+  lbRenderInfo({label: target.label, type: target.type || ''}, '');
+  lbRenderPicker();
   const started = Date.now();
   (function wait(){
     if(!lbOpen || token !== lbModelToken) return;
@@ -3645,11 +3706,12 @@ function openLightbox(clickedImg){
   lbItems = Array.from(lbScope.querySelectorAll('img'))
     .filter(im => !im.closest('[hidden]'))   // piltide võrdluses on mudeli enda galerii peidus
     .filter(im => im.complete && im.naturalWidth > 0 && (im.currentSrc || im.src))
-    .map(im => ({src: im.currentSrc || im.src, alt: im.alt, caption: im.dataset.caption || '', el: im}));
+    .map(im => ({src: im.currentSrc || im.src, alt: im.alt, caption: im.dataset.caption || '', label: im.dataset.label || '', type: im.dataset.type || '', el: im}));
   const idx = lbItems.findIndex(it => it.el === clickedImg);
   if(idx < 0) return;
   lbModelNav = !!clickedImg.closest('#modelGalleryGrid') && !!galleryCurrent;
   lightbox.classList.toggle('model-nav', lbModelNav);
+  lbRenderPicker();
   lbOpener = clickedImg;
   lbOpen = true;
   pushLayer();
@@ -3716,6 +3778,8 @@ window.addEventListener('resize', () => { if(lbOpen && lbImg.naturalWidth){ cons
 document.addEventListener('keydown', ev => {
   if(lbOpen){
     const k = ev.key;
+    const tg = ev.target;
+    if(tg && tg.tagName === 'INPUT' && k !== 'Escape' && k !== 'Tab') return;   // „Võrdle:“ otsinguväli
     let handled = true;
     if(k === 'Escape') closeLightbox();
     else if(k === '+' || k === '=') lbZoomBy(1.4);
@@ -5532,7 +5596,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc60'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc61'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
