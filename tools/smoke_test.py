@@ -9,7 +9,7 @@ Mida kontrollitakse:
   - avaleht laeb ilma skriptivigadeta, versioon (APP_BUILD = SW_VERSION) klapib
   - „Genereeri test“: vastamine, hindamine, tulemus; täisekraan, suurendus, lohistamine
   - mudeli galerii: pildi suurendus (lightbox) – suurendus, lohistamine, sulgemine
-  - mudelite vahetamine ↑/↓ galeriis ja suurenduses (nimekirja järjekorras)
+  - mudelite vahetamine ↑/↓ galeriis ja suurenduses (nimekirja järjekorras), „Võrdle:“ suurendusest
   - piltide võrdlus ja WHAT-võrdlus täisekraanil
   - kureeritud test: salvestamine → avamine (ka õige vastuse näitamisega), vana testifail
   - Kuldvillaku laua fail: salvestamine → avamine
@@ -218,6 +218,20 @@ def main():
             p.keyboard.press("Escape")
             check("suurendusest väljudes on galeriis uus mudel", p.text_content("#modelGalleryTitle") == order[2]
                   and not ev("() => lbOpen"))
+            # võrdlus otse suurendusest („Võrdle:“ otsing ribal)
+            p.click("#modelGalleryGrid img >> nth=0")
+            p.wait_for_selector("#lbImg.ready")
+            check("suurenduses on mudeli nimi suurelt", p.text_content("#lbInfo .lb-name").startswith(order[2])
+                  and ev("() => parseFloat(getComputedStyle(document.querySelector('#lbInfo .lb-name')).fontSize)") >= 18)
+            src = ev("() => lbImg.src")
+            p.click("#lbCmp .cmp-pick-input")
+            p.keyboard.type(order[5][:3])
+            check("otsingusse kirjutamine ei vaheta pilti", ev("() => lbImg.src") == src and p.text_content("#modelGalleryTitle") == order[2])
+            p.click("#lbCmp .cmp-pick-opt >> nth=0")
+            p.wait_for_function("() => document.getElementById('cmpView').classList.contains('open') && document.querySelectorAll('.cmpv-pane img.ready').length === 2")
+            check("valik avab võrdluse täisekraanil, vasakul sama pilt", ev("() => document.querySelector('.cmpv-pane img').src") == src
+                  and p.text_content(".cmpv-pane >> nth=0").startswith(order[2]))
+            p.keyboard.press("Escape")
         step("Mudelite vahetamine ↑/↓", t_model_nav)
 
         # 4) võrdlus täisekraanil
