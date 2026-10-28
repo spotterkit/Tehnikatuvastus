@@ -726,6 +726,11 @@
   .lightbox.open{display:flex;}
   .lightbox-bar{display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:1px solid var(--line);flex-wrap:wrap;}
   .lightbox-bar button{min-width:44px;min-height:44px;font-size:18px;}
+  .lb-rot-up,.lb-rot-down{display:inline-block;}
+  .lb-rot-up{transform:rotate(90deg);}
+  .lb-rot-down{transform:rotate(-90deg);}
+  .mg-model-nav{min-width:44px;font-size:18px;line-height:1;padding-left:0;padding-right:0;}
+  .lightbox:not(.model-nav) .lb-model-nav{display:none;}
   .lightbox-info{flex:1;min-width:120px;font-size:11px;color:var(--bone-dim);word-break:break-word;}
   .lightbox-stage{position:relative;flex:1;overflow:hidden;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none;}
   .lightbox-stage.dragging{cursor:grabbing;}
@@ -921,6 +926,8 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
         <div class="model-gallery-title" id="modelGalleryTitle">—</div>
       </div>
       <div class="model-gallery-actions">
+        <button type="button" id="mgModelUp" class="mg-model-nav" aria-label="Eelmine mudel" title="Eelmine mudel (↑)"><span class="lb-rot-up">‹</span></button>
+        <button type="button" id="mgModelDown" class="mg-model-nav" aria-label="Järgmine mudel" title="Järgmine mudel (↓)"><span class="lb-rot-down">‹</span></button>
         <button type="button" id="modelGalleryBack" class="mg-back" hidden></button>
         <button type="button" id="modelGalleryClose">Sulge</button>
       </div>
@@ -939,6 +946,8 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
     <div class="lightbox-bar">
       <button type="button" id="lbPrev" aria-label="Eelmine pilt" title="Eelmine (←)">‹</button>
       <button type="button" id="lbNext" aria-label="Järgmine pilt" title="Järgmine (→)">›</button>
+      <button type="button" id="lbUp" class="lb-model-nav" aria-label="Eelmine mudel" title="Eelmine mudel (↑)"><span class="lb-rot-up">‹</span></button>
+      <button type="button" id="lbDown" class="lb-model-nav" aria-label="Järgmine mudel" title="Järgmine mudel (↓)"><span class="lb-rot-down">‹</span></button>
       <button type="button" id="lbOut" aria-label="Vähenda" title="Vähenda (-)">−</button>
       <button type="button" id="lbIn" aria-label="Suurenda" title="Suurenda (+)">+</button>
       <button type="button" id="lbFull" aria-label="Täisekraan" title="Täisekraan (F)">⛶</button>
@@ -2624,6 +2633,32 @@ function renderHome(){
 // hilisemaks täiendamiseks olemas olevad kirjed) EI kajastu siin kuskil —
 // uueneb automaatselt, kui mõnele reale files[] sisu lisatakse.
 // ============================================================================
+// Nimekirja järjekord (üks koht): rühmad GROUPS järjekorras, rühma sees tähestiku järgi, lõpus grupeerimata.
+// Sama järjekorda kasutab pildi suurenduse ↑/↓ – uued mudelid lähevad automaatselt õigesse kohta.
+function groupModelsForList(query){
+  query = String(query || '').trim().toLocaleLowerCase('et');
+  const byGroup = new Map();
+  GROUPS.forEach(g => byGroup.set(g.id, []));
+  const ungrouped = [];
+  CATEGORIES.forEach(e => {
+    if(!e.files || e.files.length === 0) return; // pildita read jäetakse nimekirjast täiesti välja
+    if(query){
+      const haystack = [e.label, e.type, e.cat].filter(Boolean).join(' ').toLocaleLowerCase('et');
+      if(!haystack.includes(query)) return;
+    }
+    if(byGroup.has(e.group)) byGroup.get(e.group).push(e);
+    else ungrouped.push(e);
+  });
+  const byLabel = (a, b) => a.label.localeCompare(b.label, 'et');
+  byGroup.forEach(list => list.sort(byLabel));
+  ungrouped.sort(byLabel);
+  return {byGroup, ungrouped};
+}
+function modelListOrder(query){
+  const {byGroup, ungrouped} = groupModelsForList(query);
+  return GROUPS.flatMap(g => byGroup.get(g.id)).concat(ungrouped);
+}
+
 function renderModelList(filterText = ''){
   const stats = computeOverallStats();
   const query = String(filterText || '').trim().toLocaleLowerCase('et');
@@ -2640,18 +2675,7 @@ function renderModelList(filterText = ''){
 
   modelListContent.innerHTML = '';
 
-  const byGroup = new Map();
-  GROUPS.forEach(g => byGroup.set(g.id, []));
-  const ungrouped = [];
-  CATEGORIES.forEach(e => {
-    if(!e.files || e.files.length === 0) return; // pildita read jäetakse nimekirjast täiesti välja
-    if(query){
-      const haystack = [e.label, e.type, e.cat].filter(Boolean).join(' ').toLocaleLowerCase('et');
-      if(!haystack.includes(query)) return;
-    }
-    if(byGroup.has(e.group)) byGroup.get(e.group).push(e);
-    else ungrouped.push(e);
-  });
+  const {byGroup, ungrouped} = groupModelsForList(query);
 
   function renderSection(title, entries, groupId){
     if(!entries.length) return;
@@ -3505,6 +3529,7 @@ const lbImg = document.getElementById('lbImg');
 const lbMsg = document.getElementById('lbMsg');
 const lbInfo = document.getElementById('lbInfo');
 let lbOpen = false, lbItems = [], lbIndex = 0, lbOpener = null;
+let lbModelNav = false, lbModelToken = 0;   // ↑/↓ mudelite vahel: ainult mudeli galerii fotodelt avatud suurenduses
 let lbScale = 1, lbFit = 1, lbX = 0, lbY = 0;
 
 function lbMaxScale(){ return Math.max(lbFit * 8, 4); }
@@ -3541,7 +3566,19 @@ function lbToggleZoom(px, py){
   const target = atFit ? Math.max(1, lbFit * 2.5) : lbFit;
   lbZoomTo(target, px, py);
 }
+function lbGalleryItems(){
+  return Array.from(modelGalleryGrid.querySelectorAll('img'))
+    .filter(im => im.complete && im.naturalWidth > 0 && (im.currentSrc || im.src))
+    .map(im => ({src: im.currentSrc || im.src, alt: im.alt, caption: im.dataset.caption || '', el: im}));
+}
 function lbShow(i){
+  if(lbModelNav){
+    // Mudeli pildid laevad järk-järgult: võta värske nimekiri, säilita asukoht praeguse pildi järgi.
+    const cur = lbItems[lbIndex] && lbItems[lbIndex].el;
+    const fresh = lbGalleryItems();
+    const k = fresh.findIndex(it => it.el === cur);
+    if(fresh.length && k >= 0){ i = k + (i - lbIndex); lbItems = fresh; lbIndex = k; }
+  }
   if(!lbItems.length) return;
   lbIndex = (i + lbItems.length) % lbItems.length;
   const item = lbItems[lbIndex];
@@ -3554,6 +3591,53 @@ function lbShow(i){
   lbImg.src = item.src;
   document.getElementById('lbPrev').disabled = document.getElementById('lbNext').disabled = lbItems.length < 2;
 }
+// ↑/↓: eelmine/järgmine mudel nimekirja järjekorras (otsingu korral otsingu tulemuste sees).
+// Galerii taga vahetub samuti, nii et suurendusest väljudes oled selle mudeli juures.
+// Naabermudel nimekirja järjekorras (otsingu korral otsingu tulemuste sees); ringiratast.
+function neighbourModel(entry, d){
+  if(!entry) return null;
+  const search = document.getElementById('modelListSearch');
+  let order = modelListOrder(search ? search.value : '');
+  if(!order.includes(entry)) order = modelListOrder('');
+  if(order.length < 2) return null;
+  const k = order.indexOf(entry);
+  return order[((k < 0 ? 0 : k) + d + order.length) % order.length];
+}
+// Galerii vaates ↑/↓ (nupud päises ja nooleklahvid): sama vahekaart (Pildid/TTA/WHAT) järgmisel mudelil.
+function galleryModelStep(d){
+  if(!modelGallery.classList.contains('open') || lbOpen) return;
+  const target = neighbourModel(galleryCurrent, d);
+  if(target) openModelGallery(target, currentGalleryTab());
+}
+function lbModelStep(d){
+  if(!lbOpen || !lbModelNav || !galleryCurrent) return;
+  const target = neighbourModel(galleryCurrent, d);
+  if(!target) return;
+  const token = ++lbModelToken;
+  openModelGallery(target, 'photos');
+  lbImg.classList.remove('ready');
+  lbImg.removeAttribute('src');
+  lbMsg.textContent = 'Laen pilti...';
+  lbInfo.textContent = target.label + (target.type ? ' – ' + target.type : '');
+  const started = Date.now();
+  (function wait(){
+    if(!lbOpen || token !== lbModelToken) return;
+    const cards = modelGalleryGrid.querySelectorAll('.model-gallery-card');
+    const first = cards[0] && cards[0].querySelector('img');
+    const firstReady = first && first.complete && first.naturalWidth > 0;
+    const firstFailed = cards[0] && !first && /ebaõnnestus/.test(cards[0].textContent);
+    const items = lbGalleryItems();
+    if(firstReady || ((firstFailed || Date.now() - started > 15000) && items.length)){
+      lbItems = items; lbIndex = 0;
+      lbOpener = items[0].el;
+      lbShow(0);
+      return;
+    }
+    if(Date.now() - started > 15000){ lbMsg.textContent = 'Pildi laadimine ebaõnnestus'; return; }
+    setTimeout(wait, 80);
+  })();
+}
+
 function openLightbox(clickedImg){
   // Piltide ja WHAT-võrdluses avab klõps mõlemad mudelid korraga täisekraanil (vt splitCompareScript).
   if(window.__cmpView && (clickedImg.closest('.pcmp') || clickedImg.closest('.wcmp')) && window.__cmpView.openFrom(clickedImg)) return;
@@ -3564,6 +3648,8 @@ function openLightbox(clickedImg){
     .map(im => ({src: im.currentSrc || im.src, alt: im.alt, caption: im.dataset.caption || '', el: im}));
   const idx = lbItems.findIndex(it => it.el === clickedImg);
   if(idx < 0) return;
+  lbModelNav = !!clickedImg.closest('#modelGalleryGrid') && !!galleryCurrent;
+  lightbox.classList.toggle('model-nav', lbModelNav);
   lbOpener = clickedImg;
   lbOpen = true;
   pushLayer();
@@ -3576,6 +3662,7 @@ function openLightbox(clickedImg){
 function closeLightbox(restoreFocus, fromHistory){
   if(!lbOpen) return;
   lbOpen = false;
+  lbModelToken++;
   if(fromHistory !== true) popLayer();
   lbGestures.reset();
   try{ if(document.fullscreenElement) document.exitFullscreen().catch(() => {}); }catch(e){}
@@ -3592,6 +3679,10 @@ function closeLightbox(restoreFocus, fromHistory){
 document.getElementById('lbClose').addEventListener('click', () => closeLightbox());
 document.getElementById('lbPrev').addEventListener('click', () => lbShow(lbIndex - 1));
 document.getElementById('lbNext').addEventListener('click', () => lbShow(lbIndex + 1));
+document.getElementById('lbUp').addEventListener('click', () => lbModelStep(-1));
+document.getElementById('mgModelUp').addEventListener('click', () => galleryModelStep(-1));
+document.getElementById('mgModelDown').addEventListener('click', () => galleryModelStep(1));
+document.getElementById('lbDown').addEventListener('click', () => lbModelStep(1));
 document.getElementById('lbIn').addEventListener('click', () => lbZoomBy(1.4));
 document.getElementById('lbOut').addEventListener('click', () => lbZoomBy(1 / 1.4));
 // Täisekraan (Fullscreen API). Peidetud seal, kus brauser seda elementidele ei toeta (nt iPhone Safari).
@@ -3633,6 +3724,8 @@ document.addEventListener('keydown', ev => {
     else if(k === 'f' || k === 'F') lbToggleFullscreen();
     else if(k === 'ArrowLeft') lbShow(lbIndex - 1);
     else if(k === 'ArrowRight') lbShow(lbIndex + 1);
+    else if(k === 'ArrowUp' && lbModelNav) lbModelStep(-1);
+    else if(k === 'ArrowDown' && lbModelNav) lbModelStep(1);
     else if(k === 'Home') lbShow(0);
     else if(k === 'End') lbShow(lbItems.length - 1);
     else if(k === 'Tab'){
@@ -3649,6 +3742,15 @@ document.addEventListener('keydown', ev => {
     else handled = false;
     if(handled){ ev.preventDefault(); ev.stopImmediatePropagation(); }
     return;
+  }
+  if((ev.key === 'ArrowUp' || ev.key === 'ArrowDown') && modelGallery.classList.contains('open')
+     && !(window.__cmpView && window.__cmpView.isOpen()) && !ev.altKey && !ev.ctrlKey && !ev.metaKey){
+    const t = ev.target;
+    if(!(t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable))){
+      ev.preventDefault(); ev.stopImmediatePropagation();
+      galleryModelStep(ev.key === 'ArrowUp' ? -1 : 1);
+      return;
+    }
   }
   if(ev.key !== 'Escape') return;
   if(modelGallery.classList.contains('open')){
@@ -5430,7 +5532,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc59'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc60'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
