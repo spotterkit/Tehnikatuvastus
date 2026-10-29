@@ -5,7 +5,7 @@
 // Sektsiooni comparePriority: väiksem number = võrdluses eespool ja alati nähtav; ilma selleta = "Kõik andmed" all.
 // Sisu hoia puhta JSON-ina (jutumärgid võtmete ümber, lõpukomasid pole) – check_release.js kontrollib.
 window.TTA_FIELDS = {
-  "version": 12,
+  "version": 13,
   "sections": [
     {"id": "general", "label": "Üldandmed"},
     {"id": "mobility", "label": "Liikuvus"},
@@ -93,6 +93,7 @@ window.TTA_FIELDS = {
     "rotorDiameter": {"label": "Peamise rootori läbimõõt", "type": "number", "section": "general", "order": 62, "unit": "m", "comparable": true},
     "emptyWeight": {"label": "Tühimass", "type": "number", "section": "general", "order": 21, "unit": "t", "comparable": true},
     "maxTakeoffWeight": {"label": "Max stardimass", "type": "number", "section": "general", "order": 23, "unit": "t", "comparable": true},
+    "maxTakeoffWeightKg": {"label": "Max stardimass", "type": "number", "section": "general", "order": 23, "unit": "kg", "comparable": true},
     "thrust": {"label": "Mootorite tõukejõud kokku", "type": "number", "section": "flight", "order": 5, "unit": "kN", "comparable": true, "better": "higher"},
     "maxSpeed": {"label": "Max kiirus", "type": "number", "section": "flight", "order": 10, "unit": "km/h", "comparable": true, "better": "higher"},
     "cruiseSpeed": {"label": "Reisikiirus", "type": "number", "section": "flight", "order": 20, "unit": "km/h", "comparable": true, "better": "higher"},
