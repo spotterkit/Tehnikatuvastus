@@ -1,15 +1,63 @@
 // Service Worker lifecycle release. SW_VERSION on ainult versioonimärk (peab klappima APP_BUILD-iga; tõsta: python tools/bump_version.py --apply).
-const SW_VERSION = 'offline-rc63';
+const SW_VERSION = 'offline-rc64';
 const APP_CACHE = 'tehnikatuvastus-app-' + SW_VERSION;
 // MEDIA nime EI TOHI muuta: olemasolevad Commonsi offline-pildid peavad release'ide vahel säilima.
 const MEDIA_CACHE = 'tehnikatuvastus-offline-final-v13';
 
 // Ainult index.html on installi jaoks kriitiline. SW ise ei kuulu precache'i.
 const CRITICAL_ASSET = './index.html';
+// NATO tingmärgid (~200 KB): moodul, andmed ja kõik SVG osad kuuluvad app shelli juurde, et töötaksid offline
+// ka ilma offline-paketita. Loendi kirjutab tools/build_symbols.py – ära muuda markerite vahel käsitsi.
+// SYMBOL_ASSETS:START
+const SYMBOL_ASSETS = [
+  './symbol-practice.js',
+  './data/symbols.js',
+  './images/symbols/ech_12.svg',
+  './images/symbols/ech_14.svg',
+  './images/symbols/ech_15.svg',
+  './images/symbols/ech_16.svg',
+  './images/symbols/ech_17.svg',
+  './images/symbols/ech_18.svg',
+  './images/symbols/ech_21.svg',
+  './images/symbols/ech_23.svg',
+  './images/symbols/frame_hostile.svg',
+  './images/symbols/icon_10111000_3.svg',
+  './images/symbols/icon_10120500.svg',
+  './images/symbols/icon_10120600.svg',
+  './images/symbols/icon_10120800.svg',
+  './images/symbols/icon_10121100_3.svg',
+  './images/symbols/icon_10121102_3.svg',
+  './images/symbols/icon_10121300_3.svg',
+  './images/symbols/icon_10121500.svg',
+  './images/symbols/icon_10121800.svg',
+  './images/symbols/icon_10130102_3.svg',
+  './images/symbols/icon_10130300.svg',
+  './images/symbols/icon_10130301.svg',
+  './images/symbols/icon_10130302_3.svg',
+  './images/symbols/icon_10130800.svg',
+  './images/symbols/icon_10140100.svg',
+  './images/symbols/icon_10140700.svg',
+  './images/symbols/icon_10150500.svg',
+  './images/symbols/icon_10161100.svg',
+  './images/symbols/icon_10161300_3.svg',
+  './images/symbols/icon_10163400_3.svg',
+  './images/symbols/icon_10163600.svg',
+  './images/symbols/mod1_10031.svg',
+  './images/symbols/mod1_10411.svg',
+  './images/symbols/ovr_10120400_3.svg',
+  './images/symbols/ovr_10130700.svg',
+  './images/symbols/ovr_UxS.svg',
+  './images/symbols/ovr_juhtimine_joon.svg',
+  './images/symbols/ovr_mod1_F.svg',
+  './images/symbols/ovr_mod2_10012.svg',
+  './images/symbols/LICENSE.txt',
+];
+// SYMBOL_ASSETS:END
 // data/*.js = lokaalsed TTA/WHAT andmestikud (väikesed, kuuluvad app shelli juurde).
 const OPTIONAL_APP_ASSETS = ['./', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png',
   './data/tta-fields.js', './data/tta.js', './data/what.js', './curated-test.js',
-  './fonts/oswald-latin-wght-normal.woff2', './fonts/oswald-latin-ext-wght-normal.woff2', './fonts/oswald-cyrillic-wght-normal.woff2'];
+  './fonts/oswald-latin-wght-normal.woff2', './fonts/oswald-latin-ext-wght-normal.woff2', './fonts/oswald-cyrillic-wght-normal.woff2',
+  ...SYMBOL_ASSETS];
 const NAV_TIMEOUT_MS = 3500;
 
 // Last-known-good shell:
