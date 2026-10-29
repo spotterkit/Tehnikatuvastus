@@ -4753,7 +4753,7 @@ renderHome();
 renderQr();
 showHomeScreen();
 
-// Otselingid (nt SharePointi): <leht>#test või #test50 = 50 küsimuse test, #test25 = 25 küsimuse test, #test10 = 10 küsimuse kategooriatest (iga kategooriast üks).
+// Otselingid: <leht>#test või #test50 = 50 küsimuse test, #test25 = 25 küsimuse test, #test10 = 10 küsimuse kategooriatest (iga kategooriast üks).
 // Test algab kohe; # eemaldatakse aadressist, et värskendus või tagasi-nupp ei käivitaks seda uuesti.
 function startFromHash(){
   const m = /^#test(10|25|50)?$/i.exec(location.hash || '');
@@ -5607,7 +5607,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc64'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc65'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
