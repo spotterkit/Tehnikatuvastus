@@ -9,7 +9,7 @@ Mida --apply teeb iga .png / .jpg / .jpeg pildiga kaustas images/what/:
   1. vähendab laiuse kuni MAX_WIDTH pikslini (väiksemat pilti ei suurendata);
   2. salvestab WebP-na (kvaliteet QUALITY) sama nimega: BMD-2_what.png -> BMD-2_what.webp;
   3. uuendab viited failides data/what.js ja offline-assets.json;
-  4. kustutab originaali (PowerPointi originaal jääb sinu arvutisse alles).
+  4. kustutab originaali (algne fail jääb sinu arvutisse alles).
 Kui WebP tuleks originaalist suurem, jäetakse originaal puutumata.
 
 Vajab Pillow't:  pip install pillow
