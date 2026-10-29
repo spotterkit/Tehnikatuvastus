@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rakett (Fires / Missile). DISA 10130700.svg kontuur muutmata + keskjoon raketi sees nagu APP-6(E)-s
+     (kasutaja otsus 29.10.2026: ühtne stiil teiste märkidega, aga lisajoon peab olema). -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="612px" height="792px" viewBox="0 0 612 792">
+<path fill="none" stroke="#000000" stroke-width="5" d="M287.814,445.697v-80.824c0-6.695,5.428-12.124,12.124-12.124
+		h12.124c6.695,0,12.124,5.428,12.124,12.124v79.813"/>
+<line fill="none" stroke="#000000" stroke-width="5" x1="306" y1="352.749" x2="306" y2="445.697"/>
+</svg>
