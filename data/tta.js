@@ -2086,11 +2086,9 @@ window.TTA_DATA = {
         "armor": "Keevitatud valtsitud teras (kere katus 6mm): kaitseb igast küljest 12,7mm kuulide eest, eesmine sektor osaliselt 20mm eest; torn 33mm; lisasoomus saadaval"
       },
       "notes": {
-        "chassis": "PRP-3 „Val“ on PRP-4 eelkäija: sama BMP-1 šassii ja sama põhimõte, kuid vanem radar. PRP-4 võttis tootmisliinil selle üle (Wikipedia: PRP-3 ehitas Tšeljabinski traktoritehas ChTZ, PRP-4 Rubtsovski masinaehitustehas).",
-        "sensors": "ARMSNET kirjeldab ka „optilis-elektroonilise seire ulatust 20–40m“ – tõenäoliselt viga, seetõttu siin välja jäetud."
+        "chassis": "PRP-3 „Val“ on PRP-4 eelkäija: sama BMP-1 šassii ja sama põhimõte, kuid vanem radar. PRP-4 võttis tootmisliinil selle üle (Wikipedia: PRP-3 ehitas Tšeljabinski traktoritehas ChTZ, PRP-4 Rubtsovski masinaehitustehas)."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): PRP-3 (Val)", "url": "https://armsnet.duckdns.org/equipment/d655736f-af61-4e18-ecf1-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: BMP-1", "url": "https://en.wikipedia.org/wiki/BMP-1", "retrieved": "2026-10-23"}
       ]
     },
@@ -2117,7 +2115,6 @@ window.TTA_DATA = {
         "sensors": "SNAR-10M (1RL232-1): radar asendatud Kredo-1E-ga, 40km sõidukitele, lisaks digitaalne kuvar ja side. SNAR-10M1 (1RL232-2): laiemalt kasutusel. Wikipedia loetleb Venemaa maaväe varustuses M1 varianti nime all „SANR-10M Pantera“ (tootmises)."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): SNAR-10 (Big Fred)", "url": "https://armsnet.duckdns.org/equipment/99167e4c-2e65-4b33-eac3-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: MT-LB", "url": "https://en.wikipedia.org/wiki/MT-LB", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: List of equipment of the Russian Ground Forces", "url": "https://en.wikipedia.org/wiki/List_of_equipment_of_the_Russian_Ground_Forces", "retrieved": "2026-10-23"}
       ]
@@ -2210,7 +2207,7 @@ window.TTA_DATA = {
         "range": 500,
         "amphibious": true,
         "mainArmament": "Torn on relvastamata (ainult vaatlusseadmed)",
-        "sensors": "Vaatlusseadmed NNP-21 ja DV, kaugusmõõtja (Wikipedia); ARMSNET: laserkaugusmõõtja 1D15, päeva-/öövaatlus 1PN44, stereokaugusmõõtja DS-1, suunaring PAB-2AM, navigatsioon 1T121-M",
+        "sensors": "Vaatlusseadmed NNP-21 ja DV, kaugusmõõtja; lisaks laserkaugusmõõtja 1D15, päeva-/öövaatlus 1PN44, stereokaugusmõõtja DS-1, suunaring PAB-2AM, navigatsioon 1T121-M",
         "specialEquipment": "„Klen-1“ patarei ülema juhtimis- ja vaatlussoomuk (kuulub komplekti 1V17 „Mašina-B“: 3×1V18 + 1V19): suurtükiväe luure, sihtmärgi koordinaatide määramine ja tule juhtimine järelveetavate suurtükkide ja raketiheitjate patareidele (tulejuhi töökoht). Tulejuhtimine automaatselt 1V520 või käsitsi PUO-7; raadiod 3×R-123M ja R-107M; TBK-kaitse",
         "armor": "Torn eest 12,7mm, torni katus ja kere 7,62mm kuulide eest"
       },
@@ -2219,7 +2216,6 @@ window.TTA_DATA = {
         "power": "Kaks mootorit kokku 180hj."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1V18", "url": "https://armsnet.duckdns.org/equipment/c25abf45-6419-402f-ec3f-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: BTR-60", "url": "https://en.wikipedia.org/wiki/BTR-60", "retrieved": "2026-10-23"}
       ]
     },
@@ -2246,11 +2242,10 @@ window.TTA_DATA = {
       },
       "notes": {
         "chassis": "BMD-1 šassii, sama mis 2S9 „Nona-S“ kandjal – juhtimismasin liigub dessandiga kaasas.",
-        "specialEquipment": "ARMSNET nimetab masinat ka „1V119 Spektr“."
+        "specialEquipment": "Masinat nimetatakse ka „1V119 Spektr“."
       },
       "sources": [
-        {"name": "U.S. Army ODIN / WEG: 1V119", "url": "https://odin.t2com.army.mil/WEG/Asset/ecd7ac12bd7b5f88de0735878b6be95d", "retrieved": "2026-10-28"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1V119", "url": "https://armsnet.duckdns.org/equipment/7b9001dd-a727-4c99-ec40-08de6e3c1543", "retrieved": "2026-10-23"}
+        {"name": "U.S. Army ODIN / WEG: 1V119", "url": "https://odin.t2com.army.mil/WEG/Asset/ecd7ac12bd7b5f88de0735878b6be95d", "retrieved": "2026-10-28"}
       ]
     },
     "ARK-1": {
@@ -2276,7 +2271,6 @@ window.TTA_DATA = {
         "sensors": "Selle sõiduki järeltulija on 1L219 Zoopark-1 (ZOOPARK-1)."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): ARK-1M Rys (1RL239 Lynx)", "url": "https://armsnet.duckdns.org/equipment/adc3dbf2-d483-42ce-eac0-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Militarnyi: Russian ARK-1 Rys’ radar neutralized in the Kherson region", "url": "https://militarnyi.com/en/news/russian-ark-1-rys-radar-neutralized-in-the-kherson-region/", "retrieved": "2026-10-23"}
       ]
     },
@@ -2307,12 +2301,9 @@ window.TTA_DATA = {
         "armor": "Kere eesosa kaitseb 12,7mm, igast küljest 7,62mm kuulide ja mürsukildude eest; kuulikindlad aknad, lisasoomus saadaval"
       },
       "notes": {
-        "chassis": "Kapustnik-B komplekti kuulub ka veoautol Ural-4320 põhinev 1V153. FIST (tulejuht) ja FDC (tuletegevuskeskus) on kaks varianti samal BTR-80 šassiil.",
-        "crew": "ARMSNET: meeskond 3, kokku 7 inimest."
+        "chassis": "Kapustnik-B komplekti kuulub ka veoautol Ural-4320 põhinev 1V153. FIST (tulejuht) ja FDC (tuletegevuskeskus) on kaks varianti samal BTR-80 šassiil."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1V152 FIST Kapustnik-B", "url": "https://armsnet.duckdns.org/equipment/82dbbd09-0916-45f1-e896-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1V152 FDC Kapustnik-B", "url": "https://armsnet.duckdns.org/equipment/1e844717-b936-4bd6-eb18-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-10-23"}
       ]
     },
@@ -2339,13 +2330,11 @@ window.TTA_DATA = {
       },
       "notes": {
         "chassis": "IMR-2M1 (1982) on lihtsustatud variant ilma miinitõrjeseadmeta; IMR-2M2 (1990) on mõeldud saastatud aladele (kopp haaratsi asemel); IMR-2MA: suurem operaatorikabiin ja 12,7mm NSV; Klin-1: kaugjuhitav IMR-2.",
-        "maxSpeedRoad": "Wikipedia: 50km/h; ARMSNET (IMR-2M): 60km/h."
+        "maxSpeedRoad": "Wikipedia: 50km/h; IMR-2M puhul on avaldatud ka 60km/h."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: IMR-2", "url": "https://odin.t2com.army.mil/WEG/Asset/77349ebd70a8b979d06d4b83e429da8d", "retrieved": "2026-10-28"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): IMR-2M", "url": "https://armsnet.duckdns.org/equipment/3da3c004-fbd7-4f7b-ec7a-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "Wikipedia: IMR-2", "url": "https://en.wikipedia.org/wiki/IMR-2", "retrieved": "2026-10-23"},
-        {"name": "Stalin Line: Military Engineering Equipment", "url": "https://stalin-line.by/en/?p=4892", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: IMR-2", "url": "https://en.wikipedia.org/wiki/IMR-2", "retrieved": "2026-10-23"}
       ]
     },
     "IMR-3": {
@@ -2375,10 +2364,9 @@ window.TTA_DATA = {
       },
       "notes": {
         "chassis": "IMR-3M (tootmine alates 2016/2018) kasutab T-90 šassiid; valmistatud Uralvagonzavodis.",
-        "fording": "Läbib veetõkkeid kuni 5m sügavuselt põhja mööda (ettevalmistusega); ettevalmistuseta 2,7m (ARMSNET)."
+        "fording": "Läbib veetõkkeid kuni 5m sügavuselt põhja mööda (ettevalmistusega); ettevalmistuseta 2,7m."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): IMR-3M", "url": "https://armsnet.duckdns.org/equipment/194bda9d-065d-49f8-ead2-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: IMR-2", "url": "https://en.wikipedia.org/wiki/IMR-2", "retrieved": "2026-10-23"}
       ]
     },
@@ -2405,8 +2393,6 @@ window.TTA_DATA = {
         "maxSpeedOffroad": "Teede puhastamisel kuni 6,8km/h; maastikul pinnasteel kuni 35km/h."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BAT-2", "url": "https://armsnet.duckdns.org/equipment/675e35dc-6747-4276-ead1-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "Stalin Line: Military Engineering Equipment", "url": "https://stalin-line.by/en/?p=4892", "retrieved": "2026-10-23"}
       ]
     },
     "MTU-72": {
@@ -2437,7 +2423,6 @@ window.TTA_DATA = {
         "fording": "Ettevalmistusega kuni 4,5m."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MTU-72", "url": "https://armsnet.duckdns.org/equipment/40ab3a3b-b018-4fea-e722-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: MT-55", "url": "https://en.wikipedia.org/wiki/MT-55", "retrieved": "2026-10-23"}
       ]
     },
@@ -2461,8 +2446,7 @@ window.TTA_DATA = {
         "specialEquipment": "PTS-2 ja PTS-M on ühtlasi kasutusel UR-83P miinitõrjelaengu veopaatidena."
       },
       "sources": [
-        {"name": "Wikipedia: PTS (vehicle)", "url": "https://en.wikipedia.org/wiki/PTS_(vehicle)", "retrieved": "2026-10-23"},
-        {"name": "Cyclowiki: УР-83П", "url": "https://cyclowiki.org/wiki/%D0%A3%D0%A0-83%D0%9F", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: PTS (vehicle)", "url": "https://en.wikipedia.org/wiki/PTS_(vehicle)", "retrieved": "2026-10-23"}
       ]
     },
     "PTS-4": {
@@ -2521,8 +2505,6 @@ window.TTA_DATA = {
         "chassis": "Variant MTU-90M: silla ulatus 19m, kandevõime 60t, kasutusele 2013–2017."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MTU-90", "url": "https://armsnet.duckdns.org/equipment/75a9399d-d418-4560-eaf7-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MTU-90M", "url": "https://armsnet.duckdns.org/equipment/4fb8229d-7cb7-4817-91a7-08decdca92d5", "retrieved": "2026-10-23"}
       ]
     },
     "MT-55A": {
@@ -2576,8 +2558,7 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: MTU-20", "url": "https://odin.t2com.army.mil/WEG/Asset/59d9d1b2924ba8b7d43f2f78cc521f20", "retrieved": "2026-10-28"},
-        {"name": "Armedconflicts.com: MTU-20", "url": "https://www.armedconflicts.com/topic/view/22720", "retrieved": "2026-10-23"},
-        {"name": "Stalin Line: Military Engineering Equipment", "url": "https://stalin-line.by/en/?p=4892", "retrieved": "2026-10-23"}
+        {"name": "Armedconflicts.com: MTU-20", "url": "https://www.armedconflicts.com/topic/view/22720", "retrieved": "2026-10-23"}
       ]
     },
     "UR-83P": {
@@ -2593,7 +2574,6 @@ window.TTA_DATA = {
         "mineClearing": "Võrdlus: USA M58 MICLIC (106m laeng, ca 8m laiune ja 100m pikk koridor)."
       },
       "sources": [
-        {"name": "Cyclowiki: УР-83П", "url": "https://cyclowiki.org/wiki/%D0%A3%D0%A0-83%D0%9F", "retrieved": "2026-10-23"},
         {"name": "Fenix Insight: UR-83P", "url": "https://metis.fenixinsight.com/munition/demolitionStore/ur-83p", "retrieved": "2026-10-23"}
       ]
     },
@@ -2611,7 +2591,6 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: ZRP-2", "url": "https://odin.t2com.army.mil/WEG/Asset/b4323a16ec2e1e2ba2a6f1cc4270758b", "retrieved": "2026-10-28"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): ZRP-2", "url": "https://armsnet.duckdns.org/equipment/74cce958-f0c2-4624-e7dd-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Armament Research Services: ZRP-2 (2014)", "url": "https://armamentresearch.com/?p=772", "retrieved": "2026-10-23"}
       ]
     },
@@ -2639,8 +2618,6 @@ window.TTA_DATA = {
         "chassis": "Eelkäijad: TMM-1 (ZIL-157), TMM-2 (KrAZ-214); TMM-4 (60t) samal šassiil; asendaja TMM-6."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): TMM-3", "url": "https://armsnet.duckdns.org/equipment/525f3162-d7c7-4712-eace-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): TMM (Scissors Bridge)", "url": "https://armsnet.duckdns.org/equipment/b12dedb8-87ae-40f3-ec57-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "TMM-6": {
@@ -2669,7 +2646,6 @@ window.TTA_DATA = {
         "chassis": "Töötab koos MTU-90-ga mitmelõivaliste sildade ehitamisel. Wikipedia: TMM-5 oli väikese seeriaga prototüüp."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): TMM-6", "url": "https://armsnet.duckdns.org/equipment/81ec9315-2d58-4843-eacd-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: TMM-6", "url": "https://en.wikipedia.org/wiki/TMM-6", "retrieved": "2026-10-23"}
       ]
     },
@@ -2685,7 +2661,6 @@ window.TTA_DATA = {
         "specialEquipment": "Järeltulijad: PPS-84, PP-91 ja PP-2005."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): PMP", "url": "https://armsnet.duckdns.org/equipment/56ad088c-6973-4ff7-eae2-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: PMP Floating Bridge", "url": "https://en.wikipedia.org/wiki/PMP_Floating_Bridge", "retrieved": "2026-10-23"}
       ]
     },
@@ -2696,7 +2671,6 @@ window.TTA_DATA = {
         "specialEquipment": "BTM-3 täiustatud variant: töökiirus tavalises pinnases 1000m/h ja külmunud pinnases 250m/h. Jäi prototüübiks ja seeriatootmisse ei läinud"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BTM-3 (BTM-4M variant)", "url": "https://armsnet.duckdns.org/equipment/8dbca8bf-6692-4180-e82b-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "BTM-3": {
@@ -2722,9 +2696,7 @@ window.TTA_DATA = {
         "chassis": "Toodetud Dmitrovi ekskavaatoritehases alates 1957."
       },
       "sources": [
-        {"name": "U.S. Army ODIN / WEG: BTM-3", "url": "https://odin.t2com.army.mil/WEG/Asset/41714363385ece02178899f40f23b494", "retrieved": "2026-10-28"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BTM-3", "url": "https://armsnet.duckdns.org/equipment/8dbca8bf-6692-4180-e82b-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "Stalin Line: Military Engineering Equipment", "url": "https://stalin-line.by/en/?p=4892", "retrieved": "2026-10-23"}
+        {"name": "U.S. Army ODIN / WEG: BTM-3", "url": "https://odin.t2com.army.mil/WEG/Asset/41714363385ece02178899f40f23b494", "retrieved": "2026-10-28"}
       ]
     },
     "MDK-3": {
@@ -2748,8 +2720,6 @@ window.TTA_DATA = {
         "chassis": "MDK-2 ja MDK-2M asendaja. Ei ole õhutransporditav ega langevarjuga heidetav."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MDK-3", "url": "https://armsnet.duckdns.org/equipment/e6fae44a-e82e-403b-eacf-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MDK-3 (JRTC VISMOD)", "url": "https://armsnet.duckdns.org/equipment/37cc33a5-3daa-406b-f0ad-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "MDK-2M": {
@@ -2774,8 +2744,6 @@ window.TTA_DATA = {
         "chassis": "MDK-2 (1959): sama šassii, 27t, aeglasem tööjõudlus. Asendaja MDK-3."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MDK-2M", "url": "https://armsnet.duckdns.org/equipment/ebe0df4c-39d6-41da-ead0-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): MDK-2", "url": "https://armsnet.duckdns.org/equipment/e47e723f-257b-4f05-ec60-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: MDK-2M", "url": "https://en.wikipedia.org/wiki/MDK-2M", "retrieved": "2026-10-23"}
       ]
     },
@@ -2811,11 +2779,9 @@ window.TTA_DATA = {
       },
       "notes": {
         "chassis": "Pantsir-SM (uuem variant) on soomustatud kabiiniga.",
-        "combatWeight": "ARMSNET: tühimass 14,85t, max koormus 20t."
+        "combatWeight": "Tühimass 14,85t, max koormus 20t."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Pantsir-S1", "url": "https://armsnet.duckdns.org/equipment/6c3b1e79-5c62-4aaa-e5c6-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Pantsir-S1 (Deagel)", "url": "https://armsnet.duckdns.org/equipment/e8bcc3ec-cc2c-44eb-9295-08decdca92d5", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: Pantsir missile system", "url": "https://en.wikipedia.org/wiki/Pantsir_missile_system", "retrieved": "2026-10-23"}
       ]
     },
@@ -2848,7 +2814,6 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Buk-M1/SA-11 Gadfly", "url": "https://odin.t2com.army.mil/WEG/Asset/8d22cfba26b96eb3700ef45e5c234d76", "retrieved": "2026-10-28"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Buk-M1 (9K37M1)", "url": "https://armsnet.duckdns.org/equipment/86c6f664-e702-415e-e5d4-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: Buk missile system", "url": "https://en.wikipedia.org/wiki/Buk_missile_system", "retrieved": "2026-10-23"}
       ]
     },
@@ -2873,8 +2838,6 @@ window.TTA_DATA = {
         "armor": "Kerge soomus kaitseb kergrelvade tule ja mürsukildude eest"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Buk-M3", "url": "https://armsnet.duckdns.org/equipment/ed137070-bdee-4ecf-e5d9-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Buk-M3 (Deagel)", "url": "https://armsnet.duckdns.org/equipment/98def0e2-0588-4dd2-57b7-08ded044b36a", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: Buk missile system", "url": "https://en.wikipedia.org/wiki/Buk_missile_system", "retrieved": "2026-10-23"}
       ]
     },
@@ -2892,7 +2855,6 @@ window.TTA_DATA = {
         "samRange": "Kompleksi miinimumkaugus aerodünaamilistele sihtmärkidele 2km ja ballistilistele 5km."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): S-400 Triumf", "url": "https://armsnet.duckdns.org/equipment/cda7cd82-2822-42cd-e40b-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: S-300 missile system", "url": "https://en.wikipedia.org/wiki/S-300_missile_system", "retrieved": "2026-10-23"}
       ]
@@ -2924,11 +2886,10 @@ window.TTA_DATA = {
         "armor": "Täielikult keevitatud teras"
       },
       "notes": {
-        "chassis": "Algne Tor (9K330, 1986) kasutas šassiid GM-355; ARMSNET andmed (32t, 780hj, 8,0×3,2×4,0m) kirjeldavad seda varianti."
+        "chassis": "Algne Tor (9K330, 1986) kasutas šassiid GM-355; osa allikate andmed (32t, 780hj, 8,0×3,2×4,0m) kirjeldavad seda varianti."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Tor", "url": "https://odin.t2com.army.mil/WEG/Asset/5bcf872fc08701649d8de5b1fbd87aee", "retrieved": "2026-10-28"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Tor (9K330)", "url": "https://armsnet.duckdns.org/equipment/e8562d50-948e-463a-e62b-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: Tor missile system", "url": "https://en.wikipedia.org/wiki/Tor_missile_system", "retrieved": "2026-10-23"}
       ]
     },
@@ -2969,8 +2930,6 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: ZSU-23-4", "url": "https://odin.t2com.army.mil/WEG/Asset/d4cb684d59fa9e42f8fbc8224c92972a", "retrieved": "2026-10-28"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): ZSU-23-4 Shilka", "url": "https://armsnet.duckdns.org/equipment/d744b9f0-ebe8-4e90-e624-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): ZSU-23-4 Shilka (JRTC)", "url": "https://armsnet.duckdns.org/equipment/da1c7404-10ef-4862-f094-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: ZSU-23-4 Shilka", "url": "https://en.wikipedia.org/wiki/ZSU-23-4_Shilka", "retrieved": "2026-10-23"}
       ]
     },
@@ -3002,8 +2961,6 @@ window.TTA_DATA = {
         "samRange": "9M33M3 laskekaugus kuni 15km ja kõrgus 10–12 000m."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 9K33 Osa", "url": "https://armsnet.duckdns.org/equipment/ca689b53-9171-4fc2-e5f2-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 9K33 Osa (JMRC)", "url": "https://armsnet.duckdns.org/equipment/981b1a75-5520-45ad-f0e8-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: 9K33 Osa", "url": "https://en.wikipedia.org/wiki/9K33_Osa", "retrieved": "2026-10-23"}
       ]
     },
@@ -3026,7 +2983,6 @@ window.TTA_DATA = {
         "specialEquipment": "S-400 komplekti mitmefunktsiooniline tulejuhtimisradar 92N6E (alates 2007): jälgib sihtmärke, juhib raketilaskeid ja edastab andmeid laskeseadmetele; töötab koos avastusradaritega 91N6E ja 96L6E"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 92N6E Grave Stone", "url": "https://armsnet.duckdns.org/equipment/c8ef2dcf-1f5b-44bd-2a1f-08de7ebf1f0c", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-10-23"}
       ]
     },
@@ -3043,8 +2999,6 @@ window.TTA_DATA = {
         "sensors": "Uuem 91N6E („Big Bird“ / „Tombstone“, MZKT-7930): avastuskaugus kuni 600km, 300 sihtmärki."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 64N6E", "url": "https://armsnet.duckdns.org/equipment/ef92b2fd-d8a5-4ce3-e895-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 64N6E (tehnilised andmed)", "url": "https://armsnet.duckdns.org/equipment/29787feb-437a-4bc7-89e8-08decb838d08", "retrieved": "2026-10-23"},
         {"name": "GlobalSecurity: 64N6 / 91N6E Tombstone / Big Bird", "url": "https://www.globalsecurity.org/military/world/russia/tombstone.htm", "retrieved": "2026-10-23"}
       ]
     },
@@ -3085,8 +3039,6 @@ window.TTA_DATA = {
         "specialEquipment": "Õhusihtmärkide, helikopterite, droonide ja rakettide avastusradar (S-300/S-400): töökorda kuni 5min, TBK-kaitse; sagedushüpe, kõrge mürakindlus; MTBCF 10 000h"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 96L6E Cheese Board", "url": "https://armsnet.duckdns.org/equipment/2cbcd710-89d6-42d2-eab6-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 96L6E (tehnilised andmed)", "url": "https://armsnet.duckdns.org/equipment/c6b3e528-c327-4dcc-89f4-08decb838d08", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-10-23"}
       ]
     },
@@ -3105,12 +3057,11 @@ window.TTA_DATA = {
         "maxSpeedOffroad": 30,
         "maxSpeedWater": 6,
         "amphibious": true,
-        "sensors": "Radar 9S80 „Ovod-M-SV“ (X-sagedusala, digitaalne): õhusihtmärkide avastuskaugus 40km (ARMSNET 25–30km), värskendus 5s; jälgib kuni 99 sihtmärki (ARMSNET: ca 35 automaatselt, kuni 8 samaaegselt juhitavat); IFF-päringu seade",
+        "sensors": "Radar 9S80 „Ovod-M-SV“ (X-sagedusala, digitaalne): õhusihtmärkide avastuskaugus 40km (teistel andmetel 25–30km), värskendus 5s; jälgib kuni 99 sihtmärki (teistel andmetel ca 35 automaatselt, kuni 8 samaaegselt juhitavat); IFF-päringu seade",
         "specialEquipment": "Õhutõrje luure- ja juhtimismasin (1985): patarei/polgu õhutõrjeülema juhtimispunkt, mis juhib õhutõrjesoomukeid ZSU-23-4 „Shilka“, Strela-10, Tunguska, Strela-1M ning kaudselt Igla taskuraketid. Raadiod R-123MT ja R-111; sihtmärgi andmed edastatakse 2–3s jooksul; töökorda 5min; pidev töö 24h",
         "armor": "Keevitatud alumiiniumkere"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): PPRU-M1", "url": "https://armsnet.duckdns.org/equipment/49d53e5a-b138-429a-e5ca-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: PPRU-1", "url": "https://en.wikipedia.org/wiki/PPRU-1", "retrieved": "2026-10-23"},
         {"name": "Air Power Australia: Air Defence Command Posts", "url": "https://www.ausairpower.net/APA-Rus-ADCP-CP.html", "retrieved": "2026-10-23"}
       ]
@@ -3124,7 +3075,6 @@ window.TTA_DATA = {
         "specialEquipment": "Mobiilne meetrilaine radar varjatud (stealth) sihtmärkide avastamiseks (NATO „Box Spring“, 1997/2001): kasutatakse S-300 ja S-400 tulejuhtimise kaugavastuseks; paigaldus ca 20min; võimsus 30kW"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1L119 Nebo-SVU", "url": "https://armsnet.duckdns.org/equipment/0d0cf008-1e0c-4b06-e6ab-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: Nebo-SVU", "url": "https://en.wikipedia.org/wiki/Nebo-SVU", "retrieved": "2026-10-23"}
       ]
     },
@@ -3155,8 +3105,6 @@ window.TTA_DATA = {
         "armor": "Keevitatud teras 7–14mm; lisasoomus saadaval"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 9M337 Sosna-R", "url": "https://armsnet.duckdns.org/equipment/25e248d1-03df-45d4-ea9d-08de6e3c1543", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Sosna-R (rakett)", "url": "https://armsnet.duckdns.org/equipment/7f5e6a5f-8e21-49ed-a174-08decf7cbc1f", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: 9M337 Sosna-R", "url": "https://en.wikipedia.org/wiki/9M337_Sosna-R", "retrieved": "2026-10-23"}
       ]
     },
@@ -3228,7 +3176,6 @@ window.TTA_DATA = {
         "armor": "Alumiiniumkere: piiratud kaitse raskekuulipildujate tule eest; stardiseadme operaator on osaliselt kaitsmata"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BTR-D (BMD M1979)", "url": "https://armsnet.duckdns.org/equipment/f1bc8497-188b-4d97-e623-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: BTR-D", "url": "https://en.wikipedia.org/wiki/BTR-D", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: 9M113 Konkurs", "url": "https://en.wikipedia.org/wiki/9M113_Konkurs", "retrieved": "2026-10-23"},
         {"name": "Army Recognition: BTR-RD", "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/russian-paratroopers-receive-refurbished-bmd-2-and-btr-rd-armored-vehicles", "retrieved": "2026-10-23"}
@@ -4010,18 +3957,16 @@ window.TTA_DATA = {
         "ordnanceLoad": 7500,
         "airToAirMissiles": "R-77M ja R-74M2 laskekambrites; arenduses izdeliye 810 (R-37M lühendatud variant)",
         "airToGroundWeapons": "Kh-69, Kh-38M, Kh-58UShK, Kh-35U, välisel Kh-31; juhitavad pommid KAB-250 ja KAB-500",
-        "sensors": "AESA-radar N036 „Byelka“: ninaantenn X-sagedusalas, kaks külgantenni ja L-sagedusala IFF/EW antennid; väidetavalt jälgib 60 ja tabab 16 sihtmärki (ARMSNET: 400km)",
+        "sensors": "AESA-radar N036 „Byelka“: ninaantenn X-sagedusalas, kaks külgantenni ja L-sagedusala IFF/EW antennid; väidetavalt jälgib 60 ja tabab 16 sihtmärki (avastuskaugus väidetavalt kuni 400km)",
         "specialEquipment": "Viienda põlvkonna varjatud mitmeotstarbeline hävitaja: sisemised laskekambrid (2 põhi- ja 2 külgkambrit), varjatud antennid, serpentiinsisselaskekanalid ja radarineelav kate; üliheli ristlus (Mach 1,3) on väidetud, aga sõltumatult kinnitamata"
       },
       "notes": {
         "ferryRange": "4500km kahe lisapaagiga; 3500km alahelikiirusel sisepaagiga.",
-        "combatRadius": "Missiooniprofiil teadmata.",
-        "serviceCeiling": "ARMSNET: 20 000m."
+        "combatRadius": "Missiooniprofiil teadmata."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Su-57", "url": "https://odin.t2com.army.mil/WEG/Asset/0dabf5bc7b5370a11075350ea11f38aa", "retrieved": "2026-10-28"},
         {"name": "Migflug: Su-57 Felon", "url": "https://migflug.com/afterburner/aircraft/su-57-felon/", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Su-57", "url": "https://armsnet.duckdns.org/equipment/67a6626c-00fc-4008-f056-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: Sukhoi Su-57", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-57", "retrieved": "2026-10-23"}
       ]
     },
@@ -4108,7 +4053,6 @@ window.TTA_DATA = {
         "maxTakeoffWeightKg": "Väärtused on Geran-3 kohta; Geran-4 kohta andmeid ei leitud."
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Geran-3", "url": "https://armsnet.duckdns.org/equipment/589b72e1-e00f-4e2d-9fb1-08decf7cbc1f", "retrieved": "2026-10-23"}
       ]
     },
     "Geran-5": {
@@ -4144,7 +4088,6 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Molnja-2", "url": "https://odin.t2com.army.mil/WEG/Asset/5fac868e9ad10594815bbea7c2291c11", "retrieved": "2026-10-28"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Molniya-2", "url": "https://armsnet.duckdns.org/equipment/f830bbf4-3eea-4b52-e363-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: Molniya drone", "url": "https://en.wikipedia.org/wiki/Molniya_(drone)", "retrieved": "2026-10-23"}
       ]
     },
@@ -4450,9 +4393,7 @@ window.TTA_DATA = {
         "specialEquipment": "Katapultstart; lendab eelnevalt määratud koordinaatidele GNSS-i abil; töökõrgus 100–2500 m"
       },
       "sources": [
-        {"name": "Defence Industry Europe: Kalashnikov KUB-10E", "url": "https://defence-industry.eu/kalashnikov-group-introduces-new-kub-10e-loitering-munition-system/", "retrieved": "2026-10-28"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): KUB-10", "url": "https://armsnet.duckdns.org/equipment/a70cb552-a4d5-45f8-9fbd-08decf7cbc1f", "retrieved": "2026-10-28"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): KUB-10M", "url": "https://armsnet.duckdns.org/equipment/22bd9e61-5c91-4aba-9fbf-08decf7cbc1f", "retrieved": "2026-10-28"}
+        {"name": "Defence Industry Europe: Kalashnikov KUB-10E", "url": "https://defence-industry.eu/kalashnikov-group-introduces-new-kub-10e-loitering-munition-system/", "retrieved": "2026-10-28"}
       ]
     },
     "Granat-4": {
@@ -4471,7 +4412,6 @@ window.TTA_DATA = {
         "specialEquipment": "Katapultstart, automaatne maandumine langevarjuga"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Granat-4-E", "url": "https://armsnet.duckdns.org/equipment/9ad6741c-af85-4786-e3e9-08de6e3c1543", "retrieved": "2026-10-28"}
       ]
     },
     "Sokol-l": {
@@ -5067,7 +5007,6 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Moma klass", "url": "https://odin.t2com.army.mil/WEG/Asset/02dad9bc3c0051fd649f73a0c5f6a940", "retrieved": "2026-10-28"},
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Moma", "url": "https://armsnet.duckdns.org/equipment/3ba31106-a726-4bf3-ea0b-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "GlobalSecurity: Moma class", "url": "https://www.globalsecurity.org/military/world/russia/moma-class.htm", "retrieved": "2026-10-23"}
       ]
     },
@@ -5094,7 +5033,6 @@ window.TTA_DATA = {
         "specialEquipment": "Kerge kokkupandav kraana vägede ruumi katusel (pööre 180°); päästevints (võimsus teadmata)"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BREM-D", "url": "https://armsnet.duckdns.org/equipment/d85ca3e3-b120-4688-eaef-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "BREM-1": {
@@ -5137,7 +5075,6 @@ window.TTA_DATA = {
         "specialEquipment": "Kraana (pööre 270°, kandevõime 1500 kg); vints 6,5 t, 150 m tross"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BREM-2", "url": "https://armsnet.duckdns.org/equipment/4ab5da20-cec6-406d-ead8-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "BREM-K": {
@@ -5161,7 +5098,6 @@ window.TTA_DATA = {
         "specialEquipment": "Kraana kuni 1,5 t; buldooseritera; elektrikeevitusseadmed"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BREM-K", "url": "https://armsnet.duckdns.org/equipment/f2a00258-9df0-4d5f-91e7-08decdca92d5", "retrieved": "2026-10-23"}
       ]
     },
     "BMM-3": {
@@ -5190,7 +5126,6 @@ window.TTA_DATA = {
         "specialEquipment": "Kandevõime: 4 raskelt haavatut kanderaamil sees, 2 kanderaami mootoriruumi katusel ja kuni 12 inimest kokkupandavas telgis"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BMM-3", "url": "https://armsnet.duckdns.org/equipment/32e88f11-73cd-474e-eacb-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "URAL-43206": {
@@ -5378,7 +5313,6 @@ window.TTA_DATA = {
         "sensors": "PSNR-5K luureradar (kuni 10 km), 1RL133-1 radar, 1D8 laserkaugusmõõtja, ERRS-1 raadiosuunaleidja, TNA-4 navigatsioon, 1PN22M/M2 sihik (valikuline Alis või Sanoet termokaamera)"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BRM-1K", "url": "https://armsnet.duckdns.org/equipment/592fd1d2-2825-4727-e928-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "BRDM-2 / BRDM-2M": {
@@ -5437,7 +5371,6 @@ window.TTA_DATA = {
         "specialEquipment": "Doosikiiruse mõõturid IMD-21B ja DP-5V, gaasidetektor GSA-13, gaasituvasti PGO-11, proovivõtukomplekt KPO-1, meteokomplekt MK-3M; raadiod R-173 ja R-163; luuresõidu kiirus radioloogilisel 30 km/h, keemilisel 10 km/h"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): RKhM-4-01", "url": "https://armsnet.duckdns.org/equipment/961ec381-afd8-4aa6-eb06-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "RKhM-6": {
@@ -5467,7 +5400,6 @@ window.TTA_DATA = {
         "specialEquipment": "Keemiline detektor GSA-14, doosikiiruse mõõturid IMD-23 ja IMD-2NM, närvigaasi häireseadmed, aerosoolidetektor ASP-13, proovivõtjad KPO-1 ja APSO, meteokomplekt AMK; navigatsioon (GLONASS, inertsiaal); rehvirõhu reguleerimine"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): RKhM-6", "url": "https://armsnet.duckdns.org/equipment/3aae43bd-ddec-4a28-eb05-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "Taifun-K KAMAZ-63968, 6x6": {
@@ -5559,7 +5491,6 @@ window.TTA_DATA = {
         "specialEquipment": "Raadiod: 2 × R-111, 1 × R-123MT, 1 × R-130M; TNA-3 güroskoopiline navigatsiooniseade; AMU 10 m teleskoopmast"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BMP-1KSh (BMP M1978)", "url": "https://armsnet.duckdns.org/equipment/9864c5ca-c9e4-4d42-ec3c-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "R-145BM": {
@@ -5582,7 +5513,6 @@ window.TTA_DATA = {
         "specialEquipment": "Raadiod: 2 × R-111/171, 1 × R-123/173, 1 × R-145, 1 × R-130M, maa–õhk raadiojaam R-8xx"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): BTR-60 R-145BM", "url": "https://armsnet.duckdns.org/equipment/4ed15975-229e-4e77-ec39-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "R-149BMR": {
@@ -5611,7 +5541,6 @@ window.TTA_DATA = {
         "specialEquipment": "Raadiod: 3 × R-168-0.1UM, 1 × R-168-5UN-1, 2 × R-168-25U-2 (25–40 km), 2 × R-168-100U-2 (25–60 km), 1 × R-168-100KA lühilaine (25–360 km); R-438M Belozer kaasaskantav satelliitside (5000 km)"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): R-149BMR", "url": "https://armsnet.duckdns.org/equipment/fa9f78bb-61ab-4dbd-e9c5-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "R-441-0 Liven": {
@@ -5622,7 +5551,6 @@ window.TTA_DATA = {
         "specialEquipment": "Liikuv satelliitsidekeskus mitmekanalilise raadioreleeside jaoks; 1,8 m satelliiditaldrik, mis sihtib end ise navigatsioonisüsteemi abil; töötab autonoomselt väljal"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): R-441 Liven", "url": "https://armsnet.duckdns.org/equipment/7ebad717-3302-43e6-ed82-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "R-149AKSh-1": {
@@ -5640,7 +5568,6 @@ window.TTA_DATA = {
         "specialEquipment": "Raadiod: 2 × R-168-100U-2 (VHF), 2 × R-168-5KV (lühilaine), 1 × R-168-5UN-2 (kaasaskantav VHF), 1 × R-168-MRA (UHF), 1 × R-612-18 (VHF/UHF, lennuliini sagedus); NBC-kaitse; külmkäivitusseade (kuni −50 °C); rehvirõhu keskreguleerimine"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): R-149AKSh-1", "url": "https://armsnet.duckdns.org/equipment/c9d1521c-3120-4d58-e72d-08de6e3c1543", "retrieved": "2026-10-23"}
       ]
     },
     "R-149MA1": {
@@ -5822,7 +5749,6 @@ window.TTA_DATA = {
         "specialEquipment": "Telekaantenn pöörleb ±150°; pidev töö 6 min; paigaldus alla 10 min; kaitse tõenäosus 80%; NBC-kaitse"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): 1L262E Rtut-BM", "url": "https://armsnet.duckdns.org/equipment/800da44e-18f8-4424-e698-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
       ]
     },
@@ -5872,7 +5798,6 @@ window.TTA_DATA = {
         "ewTargets": "Pataljonitaseme raadioside; raadiojuhitavad lõhkekehad ja miinid; laser- ja videojuhitavad relvad (aerosoolsuits optiliste sensorite abil); GSM"
       },
       "sources": [
-        {"name": "ARMSNET Military Equipment Database (kogukonna toimetatud): Infauna RB-531B", "url": "https://armsnet.duckdns.org/equipment/e262e2e3-a0f9-443d-e672-08de6e3c1543", "retrieved": "2026-10-23"},
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
       ]
     },
@@ -7221,8 +7146,7 @@ window.TTA_DATA = {
         "delivery": "Hüppav killumiin, tõmbetraadiga (20 m) või käsu alusel (NM süütur, NVU-P/NVU-P2). Võeti kasutusele 2005. OZM-72 asendajana. Detoneerib 0,4–0,6 m kõrgusel. Süüted MUV-2/3/4, MVE-72, MVE-NS, MVE-92. Isehävitust ega tõstmisvastast kaitset pole."
       },
       "sources": [
-        {"name": "Sappers.org: POB Pilka", "url": "https://sappers.org/uk/dovidnyk/miny/protypihotni-natyazhnoyi-diyi/pob-pilka", "retrieved": "2026-10-23"},
-        {"name": "ARMSNET: POB-Pilka", "url": "https://armsnet.duckdns.org/equipment/5a2c9de3-7e03-4fd8-ed68-08de6e3c1543", "retrieved": "2026-10-23"}
+        {"name": "Sappers.org: POB Pilka", "url": "https://sappers.org/uk/dovidnyk/miny/protypihotni-natyazhnoyi-diyi/pob-pilka", "retrieved": "2026-10-23"}
       ]
     },
     "Vkladysh": {
