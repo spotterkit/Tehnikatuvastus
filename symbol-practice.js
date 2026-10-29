@@ -109,7 +109,7 @@ const S = {view: 'menu', list: [], i: 0, phase: 'ready', guess: '', results: [],
 screen.innerHTML = `
   <div class="hist-nav">
     <button type="button" class="nav-btn" id="syBack" title="Tagasi">‹ Avalehele</button>
-    <div class="hist-status live">NATO TINGMÄRGID</div>
+    <div class="hist-status live">TINGMÄRGID</div>
     <button type="button" class="nav-btn" id="syRestart" title="Uus voor">↻</button>
   </div>
   <div class="panel sy-panel" id="syPanel"></div>`;
@@ -294,7 +294,7 @@ function printSheet(list){
   const cells = list.map(s => `<div class="c"><div class="sym">${s.layers.map(src => `<img src="${base + src}" alt="">`).join('')}</div>
       <div class="a">${esc(s.name)}</div></div>`).join('');
   const filt = [S.cat, S.q && '„' + S.q + '“'].filter(Boolean).join(', ');
-  const html = `<!DOCTYPE html><html lang="et"><head><meta charset="utf-8"><title>NATO tingmärgid</title>
+  const html = `<!DOCTYPE html><html lang="et"><head><meta charset="utf-8"><title>Tingmärgid</title>
   <style>
     body{font-family:system-ui,Arial,sans-serif;margin:24px;color:#111;}
     h1{font-size:20px;margin:0 0 4px;} p{font-size:13px;margin:0 0 14px;}
@@ -305,7 +305,7 @@ function printSheet(list){
     .a{font-size:11px;line-height:1.3;margin-top:3px;overflow-wrap:anywhere;hyphens:auto;}
     button{margin-bottom:12px;padding:6px 12px;} @media print{button{display:none;} body{margin:8mm;}}
   </style></head><body>
-  <h1>NATO tingmärgid (vastase üksused)</h1>
+  <h1>Tingmärgid (vastase üksused)</h1>
   <p>${list.length} märki${filt ? ' · filter: ' + esc(filt) : ''}. Joonised: DISA MIL-STD-2525D (APP-6(D)).</p>
   <button onclick="print()">Prindi / salvesta PDF</button>
   <div class="g">${cells}</div>
