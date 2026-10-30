@@ -1478,7 +1478,7 @@ const CATEGORIES = [
   { label: "Krasukha-4", group: "ew", type: "Elektroonilise sõjapidamise eriseadme kompleks", cat: "Krasukha-4", weight: 1, files: ["1RL257E_Krasukha-4.jpg", "1RL257E_Krasukha-4_%281%29.jpg"] },
   { label: "Krasukha-2", group: "ew", type: "Elektroonilise sõjapidamise eriseadme kompleks", cat: "Krasukha-2", weight: 1, files: ["Krasukha-2_%28Красуха-2%29_Unloaded.jpg"] },
   { label: "Moskva-1", group: "ew", type: "Raadioelektroonilise luure ja EV kompleks", cat: "Moskva-1", weight: 1, files: ["MAKS2015part6-39.jpg"] },
-  { label: "SPR-2M RTUT-BM", group: "ew", type: "Sensorsütikutega laskemoona segaja", cat: "SPR-2M RTUT-BM", weight: 1, files: ["images/ew/spr2m_01.jpg", "MAKS2015part6-55.jpg"] },
+  { label: "SPR-2M RTUT-BM", group: "ew", type: "Sensorsütikutega laskemoonasegaja", cat: "SPR-2M RTUT-BM", weight: 1, files: ["images/ew/spr2m_01.jpg", "MAKS2015part6-55.jpg"] },
   { label: "R-934BMV (RB-301B Borisoglebsk-2)", group: "ew", type: "Raadiohäirete jaam", cat: "R-934BMV (RB-301B Borisoglebsk-2)", weight: 1, files: ["images/ew/r943.jpg"] },
   { label: "R-325UMV (RB-301B Borisoglebsk-2)", group: "ew", type: "Raadiohäirete jaam", cat: "R-325UMV (RB-301B Borisoglebsk-2)", weight: 1, files: ["images/ew/r325.jpg"] },
   { label: "R-378B (R-330 Mandat)", group: "ew", type: "Raadiohäirete jaam", cat: "R-378B (R-330 Mandat)", weight: 1, files: ["images/ew/r378.jpg"] },
@@ -2781,8 +2781,29 @@ function getTTA(entry){
   const r = TTA_MODELS[entry.cat];
   return r && r.values && Object.keys(r.values).length ? r : null;
 }
+// WHAT-kirjel võib olla "base": "<alusmudeli cat>" (nt BMP-1AM → BMP-1). Siis kuvatakse alusmudeli
+// analüüs (pilt, W/H/A/T); variandi enda read lisatakse veergude lõppu ja "note" kuvatakse üleval.
+function resolveWHAT(cat, seen){
+  const r = WHAT_MODELS[cat];
+  if(!r || !r.base) return r || null;
+  seen = seen || new Set([cat]);
+  if(seen.has(r.base)) return null;
+  seen.add(r.base);
+  const b = resolveWHAT(r.base, seen);
+  if(!b) return null;
+  const merged = Object.assign({}, b, r, {_baseCat: r.base});
+  WHAT_COLUMNS.forEach(([k]) => {
+    merged[k] = [].concat(Array.isArray(b[k]) ? b[k] : [], Array.isArray(r[k]) ? r[k] : []);
+  });
+  if(!r.image) merged.image = b.image;
+  if(!r.note) merged.note = b.note;
+  if(!r.related) merged.related = b.related;
+  merged.related = (merged.related || []).map(g => g && Array.isArray(g.models)
+    ? Object.assign({}, g, {models: g.models.filter(m => m.cat !== cat)}) : g);
+  return merged;
+}
 function getWHAT(entry){
-  const r = WHAT_MODELS[entry.cat];
+  const r = resolveWHAT(entry.cat);
   return r && WHAT_COLUMNS.some(([k]) => Array.isArray(r[k]) && r[k].length) ? r : null;
 }
 
@@ -3111,12 +3132,14 @@ function makeWhatFigure(entry, record){
   if(!record.image) return null;
   const fig = el('figure', 'what-figure');
   const img = document.createElement('img');
-  img.alt = entry.label + ' WHAT-analüüs';
-  img.dataset.caption = entry.label + ' · WHAT-analüüs';
-  img.dataset.label = entry.label; img.dataset.type = 'WHAT-analüüs';
+  const baseEntry = record._baseCat ? entryByCat(record._baseCat) : null;
+  const imgLabel = baseEntry ? baseEntry.label : (record._baseCat || entry.label);
+  img.alt = imgLabel + ' WHAT-analüüs';
+  img.dataset.caption = imgLabel + ' · WHAT-analüüs' + (record._baseCat ? ' (' + entry.label + ' alusmudel)' : '');
+  img.dataset.label = imgLabel; img.dataset.type = 'WHAT-analüüs';
   img.tabIndex = 0;
   img.setAttribute('role', 'button');
-  img.setAttribute('aria-label', 'Suurenda: ' + entry.label + ' WHAT-analüüs');
+  img.setAttribute('aria-label', 'Suurenda: ' + imgLabel + ' WHAT-analüüs');
   img.addEventListener('click', () => openLightbox(img));
   img.addEventListener('keydown', ev => {
     if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); openLightbox(img); }
@@ -5618,7 +5641,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc65'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc69'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
