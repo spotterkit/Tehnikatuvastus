@@ -1,6 +1,7 @@
 // WHAT-analüüs (Wheels / Hull / Armament / Turret). Võti = mudeli `cat` väärtus (nt "BMD-2").
 // `n` = number annoteeritud pildil (images/what/...). Mitu numbrit: "3/4". Ilma numbrita tunnusel jäta `n` ära.
 // "note" = üldmärkus masina kohta. "related" = alusplatvormi kasutavad mudelid; "cat" olemas → klikitav.
+// "base": "<cat>" = variant kasutab alusmudeli WHAT-analüüsi (pilt + W/H/A/T); oma read lisanduvad lõppu.
 // "draft": true = mustand (kuvatakse kollase märkega "kontrollimata").
 // Pilt on lokaalne ja kuulub offline-assets.json-i. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.WHAT_DATA = {
@@ -154,13 +155,21 @@ window.WHAT_DATA = {
       ],
       "armament": [
         {"n": 10, "text": "73mm kahur 2A28 „GROM“"},
-        {"n": "10a", "text": "Uuematel versioonidel AT-4 JTTRK kinnitus tornil."}
+        {"n": "10a", "text": "Uuematel versioonidel AT-4 JTTRK kinnitus tornil."},
+        {"text": "BMP-1AM: 73mm kahuri asemel pikk ja peenike 30mm 2A72 automaatkahur, koaksiaalne 7,62mm PKTM. JTTRK kinnitust tornil pole."}
       ],
       "turret": [
         {"n": 11, "text": "Väike ühekohaline torn."},
-        {"text": "BRM-1K mudel kasutab suuremat torni, millel on luure- ja vaatlusseadmed. Torn asub kerel rohkem taga pool. Torni taga on radar."}
+        {"text": "BRM-1K mudel kasutab suuremat torni, millel on luure- ja vaatlusseadmed. Torn asub kerel rohkem taga pool. Torni taga on radar."},
+        {"text": "BMP-1AM: BTR-82A ühekohaline torn (madal, kaldus külgedega), tornil suitsugranaadiheitjad 902V „Tutša“."}
       ],
       "related": [
+        {
+          "label": "Moderniseeritud versioon",
+          "models": [
+            {"name": "BMP-1AM „BASURMANIN“", "cat": "BMP-1AM Basurmanin"}
+          ]
+        },
         {
           "label": "Näiteks kasutavad BMP-1 alusplatvormi",
           "models": [
@@ -195,6 +204,36 @@ window.WHAT_DATA = {
         {"n": 11, "text": "Torn suur ja 2-kohaline (sihtur vasakul, ülem paremal)."},
         {"text": "Torni peal JTTRK laskealus."},
         {"text": "Suitsugranaadiheitjad üldjuhul tornil."}
+      ],
+      "related": [
+        {
+          "label": "Moderniseeritud versioon",
+          "models": [
+            {"name": "BMP-2M „BEREŽOK“", "cat": "BMP-2M Berežok"}
+          ]
+        }
+      ]
+    },
+    "BMP-1AM Basurmanin": {
+      "base": "BMP-1",
+      "related": [
+        {
+          "label": "Alusmudel",
+          "models": [
+            {"name": "BMP-1", "cat": "BMP-1"}
+          ]
+        }
+      ]
+    },
+    "BMP-2M Berežok": {
+      "base": "BMP-2",
+      "related": [
+        {
+          "label": "Alusmudel",
+          "models": [
+            {"name": "BMP-2", "cat": "BMP-2"}
+          ]
+        }
       ]
     },
     "BMP-3": {
