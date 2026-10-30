@@ -1238,6 +1238,7 @@ const CATEGORIES = [
 
   // Mitmikraketiheitjad (reaktiivsuurtükid)
   { label: "BM-21 Grad", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-21 Grad", weight: 2, files: ["BM_-_21_Grad.jpg", "BM-21_Grad_%2803%29.jpg", "images/mlrs/bm21_01.jpg"] },
+  { label: "BM-21 Tornado-G", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-21 Tornado-G", weight: 1, files: [] },   // šabloon: lisa pildid (images/mlrs/)
   { label: "BM-27 Uragan", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-27 Uragan", weight: 1, files: ["BM-27_Uragan.jpg", "Uragan_MLRS_of_the_52nd_Artillery_Brigade_%282%29.png", "165th_Artillery_Brigade%27s_9K57_Uragan_MLRS_06.jpg"] },
   { label: "BM-30 Smertš", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-30 Smertš", weight: 1, files: ["BM-30_Smerch%2C_2010.jpg", "9A52_Smerch_2017-12-24.jpg", "9A52_of_300-mm_multiple_rocket_launching_system_9K58_«Smerch»%2C_Artillery_museum%2C_Saint-Petersburg_pic4.JPG"] },
   { label: "TOS-1A", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-1A", weight: 2, files: ["TZM-T_of_the_TOS-1A_system_%281%29.jpg", "TOS-1A_MRL_during_the_the_May_Parade_2010.jpeg", "TOS-1A_before_firing.jpg"] },
@@ -1478,7 +1479,7 @@ const CATEGORIES = [
   { label: "Krasukha-4", group: "ew", type: "Elektroonilise sõjapidamise eriseadme kompleks", cat: "Krasukha-4", weight: 1, files: ["1RL257E_Krasukha-4.jpg", "1RL257E_Krasukha-4_%281%29.jpg"] },
   { label: "Krasukha-2", group: "ew", type: "Elektroonilise sõjapidamise eriseadme kompleks", cat: "Krasukha-2", weight: 1, files: ["Krasukha-2_%28Красуха-2%29_Unloaded.jpg"] },
   { label: "Moskva-1", group: "ew", type: "Raadioelektroonilise luure ja EV kompleks", cat: "Moskva-1", weight: 1, files: ["MAKS2015part6-39.jpg"] },
-  { label: "SPR-2M RTUT-BM", group: "ew", type: "Sensorsütikutega laskemoonasegaja", cat: "SPR-2M RTUT-BM", weight: 1, files: ["images/ew/spr2m_01.jpg", "MAKS2015part6-55.jpg"] },
+  { label: "SPR-2M RTUT-BM", group: "ew", type: "Sensorsütikutega laskemoona segaja", cat: "SPR-2M RTUT-BM", weight: 1, files: ["images/ew/spr2m_01.jpg", "MAKS2015part6-55.jpg"] },
   { label: "R-934BMV (RB-301B Borisoglebsk-2)", group: "ew", type: "Raadiohäirete jaam", cat: "R-934BMV (RB-301B Borisoglebsk-2)", weight: 1, files: ["images/ew/r943.jpg"] },
   { label: "R-325UMV (RB-301B Borisoglebsk-2)", group: "ew", type: "Raadiohäirete jaam", cat: "R-325UMV (RB-301B Borisoglebsk-2)", weight: 1, files: ["images/ew/r325.jpg"] },
   { label: "R-378B (R-330 Mandat)", group: "ew", type: "Raadiohäirete jaam", cat: "R-378B (R-330 Mandat)", weight: 1, files: ["images/ew/r378.jpg"] },
@@ -1646,6 +1647,41 @@ const CATEGORIES = [
   { label: "Dsh-MM ja DM-11", group: "mines", type: "Suitsuküünal", cat: "Dsh-MM ja DM-11", weight: 1, files: ["ShD-MM_and_DM-11_-_4thTankDivisionOpenDay17p2-61.jpg"] },
   { label: "ShD-P", group: "mines", type: "Suitsuküünal", cat: "ShD-P", weight: 1, files: ["images/mines/shdp.jpg"] },
   { label: "UDSh", group: "mines", type: "Suitsuküünal", cat: "UDSh", weight: 1, files: ["UDSh_-_4thTankDivisionOpenDay17p2-62.jpg"] },
+
+  // Mehitamata maismaasõidukid (UGV) — šabloon; lisa pildifailid files[] massiividesse (kaust images/ugv/).
+  // Pildita read ei kajastu kusagil.
+  { label: "Kurjer", group: "ugv", type: "Logistikarobot", cat: "Kurjer", weight: 1, files: [] },
+  { label: "Varan", group: "ugv", type: "Mitmeotstarbeline robot", cat: "Varan", weight: 1, files: [] },
+  { label: "Impuls", group: "ugv", type: "Mitmeotstarbeline robot", cat: "Impuls", weight: 1, files: [] },
+  { label: "Omitš-2", group: "ugv", type: "Logistika- ja evakuatsioonirobot", cat: "Omitš-2", weight: 1, files: [] },
+  { label: "Ljaguška", group: "ugv", type: "Logistikarobot", cat: "Ljaguška", weight: 1, files: [] },
+  { label: "Tšelnok", group: "ugv", type: "Logistika- ja demineerimisrobot", cat: "Tšelnok", weight: 1, files: [] },
+  { label: "Bogomol V5", group: "ugv", type: "Mitmeotstarbeline robot", cat: "Bogomol V5", weight: 1, files: [] },
+  { label: "Uran-9", group: "ugv", type: "Lahingurobot", cat: "Uran-9", weight: 1, files: [] },
+  { label: "Uran-6", group: "ugv", type: "Demineerimisrobot", cat: "Uran-6", weight: 1, files: [] },
+  { label: "Prohod-1", group: "ugv", type: "Demineerimisrobot", cat: "Prohod-1", weight: 1, files: [] },
+  { label: "Šturm", group: "ugv", type: "Raske lahingurobot", cat: "Šturm", weight: 1, files: [] },
+  { label: "Platforma-M", group: "ugv", type: "Lahingurobot", cat: "Platforma-M", weight: 1, files: [] },
+  { label: "Nerehta", group: "ugv", type: "Lahingurobot", cat: "Nerehta", weight: 1, files: [] },
+  { label: "Marker", group: "ugv", type: "Lahingurobot", cat: "Marker", weight: 1, files: [] },
+  { label: "Argus", group: "ugv", type: "FPV-droonide kanderobot", cat: "Argus", weight: 1, files: [] },
+
+  // Mehitamata pinnasõidukid / droonpaadid (USV) — šabloon; lisa pildifailid files[] massiividesse (kaust images/usv/).
+  // Pildita read ei kajastu kusagil.
+  { label: "Katran", group: "usv", type: "Mehitamata patrull- ja ründepaat", cat: "Katran", weight: 1, files: [] },
+  { label: "Murena-300S", group: "usv", type: "Mehitamata luure- ja ründepaat", cat: "Murena-300S", weight: 1, files: [] },
+  { label: "Vizir-700", group: "usv", type: "Mehitamata ründepaat", cat: "Vizir-700", weight: 1, files: [] },
+  { label: "Zefir / Orkan", group: "usv", type: "Mehitamata ründepaat", cat: "Orkan", weight: 1, files: [] },
+  { label: "Oduvantšik", group: "usv", type: "Mehitamata ründepaat", cat: "Oduvantšik", weight: 1, files: [] },
+  { label: "BEK-1000", group: "usv", type: "Mehitamata ründepaat", cat: "BEK-1000", weight: 1, files: [] },
+  { label: "Bandit", group: "usv", type: "Mehitamata ründe- ja transpordipaat", cat: "Bandit", weight: 1, files: [] },
+  { label: "Kama", group: "usv", type: "Mehitamata patrullpaat", cat: "Kama", weight: 1, files: [] },
+  { label: "Afalina", group: "usv", type: "Mehitamata patrull- ja ründepaat", cat: "Afalina", weight: 1, files: [] },
+  { label: "Trezubets", group: "usv", type: "Mehitamata patrull- ja miinitõrjepaat", cat: "Trezubets", weight: 1, files: [] },
+  { label: "Iskatel", group: "usv", type: "Mehitamata miinitõrjepaat", cat: "Iskatel", weight: 1, files: [] },
+  { label: "Skanda", group: "usv", type: "Mehitamata miinitõrjepaat", cat: "Skanda", weight: 1, files: [] },
+  { label: "Farvater", group: "usv", type: "Mehitamata uurimis- ja transpordipaat", cat: "Farvater", weight: 1, files: [] },
+  { label: "Strekoza", group: "usv", type: "Mehitamata pääste- ja transpordipaat", cat: "Strekoza", weight: 1, files: [] },
   
   
 
@@ -1661,6 +1697,8 @@ const GROUPS = [
   { id: "towed_artillery", label: "Järelveetavad suurtükid ja miinipildujad" },
   { id: "ships", label: "Laevad" },
   { id: "drones", label: "Droonid" },
+  { id: "ugv", label: "Mehitamata maismaasõidukid (UGV)" },
+  { id: "usv", label: "Mehitamata pinnasõidukid (USV)" },
   { id: "engineer", label: "Pioneerisoomukid ja tehnika" },
   { id: "helicopters", label: "Helikopterid" },
   { id: "planes", label: "Lennukid" },
@@ -1809,7 +1847,9 @@ const TEST_GROUP_LIMITS = {
   ranks: 2,
   weapons: 2,
   forces: 2,  // väeliigid ja üksused (embleemid/üldfotod): max 2 pilti 50 küsimuse testis
-  mines: 1    // maamiinid: MAKSIMUM 1 miin testis (võib ka 0)
+  mines: 1,   // maamiinid: MAKSIMUM 1 miin testis (võib ka 0)
+  ugv: 1,
+  usv: 1
 };
 
 // Tõenäosus, et kategooria üldse testi satub (muidu puudub see testist täielikult).
@@ -1817,6 +1857,20 @@ const TEST_GROUP_LIMITS = {
 // Vajalik, sest suur kategooria satuks juhusliku valiku tõttu peaaegu igasse testi.
 // Maamiinid: ~50% testidest sisaldavad ühe miini, ülejäänud ei sisalda ühtegi. Muuda arvu vabalt.
 const TEST_GROUP_CHANCE = { mines: 0.3 };
+
+// Kategooriate komplektid, millel on ÜHINE piirang ja ühine tõenäosus.
+// UGV + USV: ~30% testidest sisaldab kokku täpselt ühe kirje (kas 1 UGV või 1 USV), ülejäänud mitte ühtegi.
+const TEST_GROUP_SETS = [
+  { groups: ['ugv', 'usv'], max: 1, chance: 0.3 }
+];
+
+// Veeretab, millised kategooriad sellest testist välja jäävad (TEST_GROUP_CHANCE + TEST_GROUP_SETS).
+function rollTestSkips(){
+  const skipped = new Set(Object.keys(TEST_GROUP_CHANCE).filter(g => Math.random() >= TEST_GROUP_CHANCE[g]));
+  TEST_GROUP_SETS.forEach(set => { if(Math.random() >= set.chance) set.groups.forEach(g => skipped.add(g)); });
+  return skipped;
+}
+function testSetOf(groupId){ return TEST_GROUP_SETS.find(set => set.groups.includes(groupId)) || null; }
 
 
 // appMode: 'practice' | 'test' — valitakse menüüst (kuldvillakul on oma olek kuldGame).
@@ -1905,7 +1959,8 @@ function buildUniqueVehiclePool(n){
   const groupCounts = {};
   const subtypeCounts = { bridgeTank: 0, bridgeVehicleOrPontoon: 0, su27Family: 0, adRadar: 0 };
   const target = Math.min(n, eligible.length);
-  const skippedGroups = new Set(Object.keys(TEST_GROUP_CHANCE).filter(g => Math.random() >= TEST_GROUP_CHANCE[g]));
+  const skippedGroups = rollTestSkips();
+  const setCounts = new Map();
 
   // Kõik pildiga mudelid osalevad ühes juhuslikus valikus.
   // TEST_GROUP_LIMITS väärtused on ainult MAKSIMUMID, mitte kohustuslikud kogused.
@@ -1921,6 +1976,8 @@ function buildUniqueVehiclePool(n){
     const limit = TEST_GROUP_LIMITS[entry.group];
     const used = groupCounts[entry.group] || 0;
     if(limit !== undefined && used >= limit) continue;
+    const set = testSetOf(entry.group);
+    if(set && (setCounts.get(set) || 0) >= set.max) continue;
 
     if(entry.group === 'engineer'){
       if(entry.type === 'Sillatank' && subtypeCounts.bridgeTank >= 1) continue;
@@ -1935,6 +1992,7 @@ function buildUniqueVehiclePool(n){
 
     chosen.push(entry);
     groupCounts[entry.group] = used + 1;
+    if(set) setCounts.set(set, (setCounts.get(set) || 0) + 1);
 
     if(entry.group === 'engineer'){
       if(entry.type === 'Sillatank') subtypeCounts.bridgeTank++;
@@ -1954,10 +2012,19 @@ function buildUniqueVehiclePool(n){
 // Kategooriatest: n küsimust n ERINEVAST kategooriast (grupist), igast täpselt üks juhuslik mudel.
 // Mudelid ega kategooriad ei kordu. Kehtib sama TEST_GROUP_CHANCE (nt miinid ei ole alati sees).
 function buildCategoryPool(n){
-  const skipped = new Set(Object.keys(TEST_GROUP_CHANCE).filter(g => Math.random() >= TEST_GROUP_CHANCE[g]));
+  const skipped = rollTestSkips();
   let groups = GROUPS.filter(g => CATEGORIES.some(e => e.group === g.id && usableFiles(e).length > 0));
   let pick = shuffleArray(groups.filter(g => !skipped.has(g.id)));
   if(pick.length < n) pick = pick.concat(shuffleArray(groups.filter(g => skipped.has(g.id))));   // vaja täita: võta vahelejäetud grupid siiski
+  const setUse = new Map();   // ühine piirang (nt UGV + USV kokku max 1)
+  pick = pick.filter(g => {
+    const set = testSetOf(g.id);
+    if(!set) return true;
+    const u = setUse.get(set) || 0;
+    if(u >= set.max) return false;
+    setUse.set(set, u + 1);
+    return true;
+  });
   return shuffleArray(pick.slice(0, n)).map(g => {
     const entries = CATEGORIES.filter(e => e.group === g.id && usableFiles(e).length > 0);
     const entry = entries[Math.floor(Math.random() * entries.length)];
@@ -5641,7 +5708,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc69'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc71'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
