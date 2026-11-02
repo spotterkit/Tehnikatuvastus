@@ -214,28 +214,6 @@ window.WHAT_DATA = {
         }
       ]
     },
-    "BMP-1AM Basurmanin": {
-      "base": "BMP-1",
-      "related": [
-        {
-          "label": "Alusmudel",
-          "models": [
-            {"name": "BMP-1", "cat": "BMP-1"}
-          ]
-        }
-      ]
-    },
-    "BMP-2M Berežok": {
-      "base": "BMP-2",
-      "related": [
-        {
-          "label": "Alusmudel",
-          "models": [
-            {"name": "BMP-2", "cat": "BMP-2"}
-          ]
-        }
-      ]
-    },
     "BMP-3": {
       "image": "images/what/BMP-3_what.webp",
       "wheels": [
