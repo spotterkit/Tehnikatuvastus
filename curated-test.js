@@ -340,8 +340,8 @@ function imageUrl(file){
   }
   return urlCache.get(file);
 }
-// Pisipilt: Commonsi 1400px thumb → 320px (sama URL-muster). Kohalikud pildid jäävad samaks.
-function thumbUrl(url){ return /\/thumb\//.test(url) ? url.replace(/\/1400px-/, '/320px-') : url; }
+// Pisipilt: Commonsi eelvaade (mis tahes laius, nt 1920px) → 320px (sama URL-muster). Kohalikud pildid jäävad samaks.
+function thumbUrl(url){ return /\/thumb\//.test(url) ? url.replace(/\/\d+px-([^/]*)$/, '/320px-$1') : url; }
 function thumb(file){
   const box = h('div', {class: 'ct-thumb'});
   imageUrl(file).then(u => {
