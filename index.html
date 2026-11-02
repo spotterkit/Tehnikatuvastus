@@ -527,6 +527,14 @@
     border-bottom:1px solid var(--line);
   }
   .model-list-heading:first-child{margin-top:0;}
+  .model-list-cat{
+    display:block;width:100%;margin-top:8px;
+    background:var(--bg-0);border:1px solid var(--line);color:var(--bone);
+    font-family:var(--font-body);font-size:15px;padding:10px 8px;cursor:pointer;outline:none;
+  }
+  .model-list-cat:focus{border-color:var(--olive);}
+  .model-list-cat.is-on{border-color:var(--olive);color:var(--amber);}
+  .model-list-all{margin-top:10px;font-size:12px;letter-spacing:0;text-transform:none;padding:7px 11px;}
   .model-list-heading .grp-cnt{
     color:var(--bone-dim);font-family:var(--font-body);
     font-size:11px;text-transform:none;letter-spacing:0.02em;
@@ -926,6 +934,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
       <div class="model-list-summary" id="modelListSummary"></div>
       <div class="model-list-search" style="margin-bottom:14px;">
         <input type="text" id="modelListSearch" placeholder="Otsi mudelit (nt T-72, Su-...)" autocomplete="off" style="width:100%;">
+        <select id="modelListCat" class="model-list-cat" aria-label="Filtreeri kategooria järgi"></select>
       </div>
       <div id="modelListContent"></div>
     </div>
@@ -2734,13 +2743,26 @@ function renderHome(){
 // ============================================================================
 // Nimekirja järjekord (üks koht): rühmad GROUPS järjekorras, rühma sees tähestiku järgi, lõpus grupeerimata.
 // Sama järjekorda kasutab pildi suurenduse ↑/↓ – uued mudelid lähevad automaatselt õigesse kohta.
-function groupModelsForList(query){
+// Kategooria filter (otsingu all): '' = kõik, muidu GROUPS id või MODEL_LIST_UNGROUPED.
+const MODEL_LIST_UNGROUPED = '__ungrouped';
+function modelListCatValue(){
+  const sel = document.getElementById('modelListCat');
+  return sel ? sel.value : '';
+}
+function modelInListCat(e, cat){
+  if(!cat) return true;
+  const known = GROUPS.some(g => g.id === e.group);
+  return cat === MODEL_LIST_UNGROUPED ? !known : e.group === cat;
+}
+function groupModelsForList(query, cat){
   query = String(query || '').trim().toLocaleLowerCase('et');
+  if(cat === undefined) cat = modelListCatValue();
   const byGroup = new Map();
   GROUPS.forEach(g => byGroup.set(g.id, []));
   const ungrouped = [];
   CATEGORIES.forEach(e => {
     if(!e.files || e.files.length === 0) return; // pildita read jäetakse nimekirjast täiesti välja
+    if(!modelInListCat(e, cat)) return;
     if(query){
       const haystack = [e.label, e.type, e.cat].filter(Boolean).join(' ').toLocaleLowerCase('et');
       if(!haystack.includes(query)) return;
@@ -2753,8 +2775,8 @@ function groupModelsForList(query){
   ungrouped.sort(byLabel);
   return {byGroup, ungrouped};
 }
-function modelListOrder(query){
-  const {byGroup, ungrouped} = groupModelsForList(query);
+function modelListOrder(query, cat){
+  const {byGroup, ungrouped} = groupModelsForList(query, cat);
   return GROUPS.flatMap(g => byGroup.get(g.id)).concat(ungrouped);
 }
 
@@ -2773,8 +2795,10 @@ function renderModelList(filterText = ''){
     + stats.totalPhotos + '</b> pilti. TTA: <b>' + ttaCount + '</b> · WHAT: <b>' + whatCount + '</b> mudelil.';
 
   modelListContent.innerHTML = '';
+  fillModelListCat(withPhotos);
+  const cat = modelListCatValue();
 
-  const {byGroup, ungrouped} = groupModelsForList(query);
+  const {byGroup, ungrouped} = groupModelsForList(query, cat);
 
   function renderSection(title, entries, groupId){
     if(!entries.length) return;
@@ -2823,14 +2847,59 @@ function renderModelList(filterText = ''){
   GROUPS.forEach(g => renderSection(g.label, byGroup.get(g.id), g.id));
   renderSection('Grupeerimata', ungrouped, null);
 
-  if(query && !modelListContent.children.length){
-    modelListContent.innerHTML = '<div class="model-list-summary">Otsingule sobivaid mudeleid ei leitud.</div>';
+  if(!modelListContent.children.length){
+    const box = document.createElement('div');
+    box.className = 'model-list-summary';
+    box.textContent = cat ? 'Selles kategoorias otsingule sobivaid mudeleid ei leitud.' : 'Otsingule sobivaid mudeleid ei leitud.';
+    // Mujal kategooriates on vasteid – paku otsida kõigist.
+    const outside = cat && query ? groupModelsForList(query, '') : null;
+    const n = outside ? GROUPS.reduce((a, g) => a + outside.byGroup.get(g.id).length, outside.ungrouped.length) : 0;
+    if(n){
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'model-list-all';
+      btn.textContent = 'Otsi kõigist kategooriatest (' + n + ')';
+      btn.addEventListener('click', () => {
+        document.getElementById('modelListCat').value = '';
+        renderModelList(query);
+        const inp = document.getElementById('modelListSearch');
+        if(inp) inp.focus();
+      });
+      box.appendChild(document.createElement('br'));
+      box.appendChild(btn);
+    }
+    modelListContent.appendChild(box);
   }
+}
+
+// Kategooria rippmenüü: kõik kategooriad, millel on vähemalt üks pildiga mudel. Valik säilib.
+function fillModelListCat(withPhotos){
+  const sel = document.getElementById('modelListCat');
+  if(!sel) return;
+  const prev = sel.value;
+  sel.innerHTML = '';
+  const add = (value, text) => { const o = document.createElement('option'); o.value = value; o.textContent = text; sel.appendChild(o); };
+  add('', 'Kõik kategooriad (' + withPhotos.length + ')');
+  GROUPS.forEach(g => {
+    const k = withPhotos.filter(e => e.group === g.id).length;
+    if(k) add(g.id, g.label + ' (' + k + ')');
+  });
+  const ung = withPhotos.filter(e => modelInListCat(e, MODEL_LIST_UNGROUPED)).length;
+  if(ung) add(MODEL_LIST_UNGROUPED, 'Grupeerimata (' + ung + ')');
+  sel.value = [...sel.options].some(o => o.value === prev) ? prev : '';
+  sel.classList.toggle('is-on', !!sel.value);
 }
 
 const modelListSearch = document.getElementById('modelListSearch');
 if(modelListSearch){
   modelListSearch.addEventListener('input', () => renderModelList(modelListSearch.value));
+}
+const modelListCatSel = document.getElementById('modelListCat');
+if(modelListCatSel){
+  modelListCatSel.addEventListener('change', () => {
+    renderModelList(modelListSearch ? modelListSearch.value : '');
+    window.scrollTo({top: 0});
+  });
 }
 
 // ============================================================================
@@ -3770,7 +3839,7 @@ function neighbourModel(entry, d){
   if(!entry) return null;
   const search = document.getElementById('modelListSearch');
   let order = modelListOrder(search ? search.value : '');
-  if(!order.includes(entry)) order = modelListOrder('');
+  if(!order.includes(entry)) order = modelListOrder('', '');
   if(order.length < 2) return null;
   const k = order.indexOf(entry);
   return order[((k < 0 ? 0 : k) + d + order.length) % order.length];
@@ -5725,7 +5794,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc76'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc77'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
