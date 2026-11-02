@@ -441,6 +441,34 @@ window.WHAT_DATA = {
         }
       ]
     },
+    "BTR-70": {
+      "image": "images/what/BTR-70_what.webp",
+      "note": "Baasversioon üldiselt enam kasutuses ei ole. BTR-70 on aga alusplatvormiks mitmetele kasutuses olevatele erisoomukitele.",
+      "wheels": [
+        {"n": 1, "text": "Neljateljeline ratasmasin."}
+      ],
+      "hull": [
+        {"n": 2, "text": "Nina teravam kui BTR-60, lainemurdja nina peal."},
+        {"n": 3, "text": "Jalastumisluugid kere keskel all rataste vahel."},
+        {"n": 4, "text": "Kaks summutit taga mõlemal küljel suunatud 60-kraadise nurgaga alla."},
+        {"n": 5, "text": "Mõlemal küljel 2× U-kujulist jalatuge rataste vahel."},
+        {"text": "Tilgakujuline üheosaline sõukruvikate."}
+      ],
+      "armament": [
+        {"n": 7, "text": "7,62mm või 14,5mm kuulipilduja."}
+      ],
+      "turret": [
+        {"n": 6, "text": "Ühekohaline väike torn."}
+      ],
+      "related": [
+        {
+          "label": "Näiteks kasutavad BTR-70 alusplatvormi",
+          "models": [
+            {"name": "SPR-2", "cat": "SPR-2"}
+          ]
+        }
+      ]
+    },
     "BMD-2": {
       "image": "images/what/BMD-2_what.webp",
       "wheels": [
