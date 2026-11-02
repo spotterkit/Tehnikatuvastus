@@ -4440,6 +4440,18 @@ function openKuldEditor(fromGame){
   renderKuldEditor();
 }
 
+// Pildivalija kategooriafilter tulba allika järgi (Varia = kõik väikesed kategooriad koos).
+function kuldPickerFilter(groupId){
+  if(!groupId) return null;
+  const def = eligibleKuldGroups().find(g => g.id === groupId);
+  if(!def) return null;
+  if(groupId === KULD_VARIA_ID){
+    const ids = [...new Set(getKuldEntries(groupId).map(e => e.group))];
+    return ids.length ? { label: def.label, groupIds: ids } : null;
+  }
+  return { label: def.label, groupIds: [groupId] };
+}
+
 function pickKuldCell(ci, row){
   const d = kuldDraft;
   const cur = d.cols[ci].cells[row];
@@ -4448,6 +4460,7 @@ function pickKuldCell(ci, row){
     currentCat: cur ? cur.cat : null,
     currentFile: cur ? cur.file : null,
     used: kuldDraftUsedFiles(),
+    filter: kuldPickerFilter(d.cols[ci].groupId),
     onPick: (entry, file) => {
       d.cols[ci].cells[row] = { cat: entry.cat, file, value: cur ? cur.value : kuldDefaultValue(d, row) };
       renderKuldEditor();
@@ -5712,7 +5725,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc75'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc76'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');

@@ -146,6 +146,9 @@ const CSS = `
 .ct-pick-models{border-right:1px solid var(--line);padding:10px;display:flex;flex-direction:column;min-height:0;}
 .ct-pick-models .ct-search{display:flex;flex-direction:column;min-height:0;flex:1;}
 .ct-pick-models .ct-search input{flex:0 0 auto;}
+.ct-search-cat{flex:0 0 auto;width:100%;min-width:0;margin-bottom:8px;font:inherit;font-size:14px;padding:9px 8px;background:var(--bg-0);color:var(--bone);border:1px solid var(--olive);cursor:pointer;}
+.ct-search-cat:focus{outline:1px solid var(--amber);outline-offset:0;}
+.ct-search-all{display:block;width:calc(100% - 20px);margin:4px 10px 8px;font-size:12px;letter-spacing:0;text-transform:none;padding:6px 9px;}
 .ct-pick-models .ct-search > .ct-search-list{position:static;box-shadow:none;}
 .ct-pick-models .ct-search-list{flex:1 1 0;min-height:0;max-height:none;margin-top:8px;border-color:var(--line);}
 .ct-pick-right{padding:12px;overflow-y:auto;min-height:0;}
@@ -754,12 +757,46 @@ function modelSearch(onPick, placeholder, opts){
   const input = h('input', {type: 'text', placeholder: placeholder || 'Otsi mudelit…', autocomplete: 'off'});
   const list = h('ul', {class: 'ct-search-list', role: 'listbox'});
   list.hidden = !opts.inline;
+  // Kategooria filter (ainult pildivalijas): rippmenüü „Kõik kategooriad“ + iga kategooria eraldi.
+  // opts.filter = {label, groupIds} lisab kohandatud valiku (nt Kuldvillaku „Varia“) ja valib selle kohe.
+  let catSel = null;
+  const filters = new Map();   // select value -> Set<groupId>
+  if(opts.inline && opts.categoryFilter !== false){
+    const all = eligible();
+    const countIn = ids => all.filter(e => ids.has(e.group)).length;
+    catSel = h('select', {class: 'ct-search-cat', 'aria-label': 'Kategooria'});
+    catSel.appendChild(h('option', {value: ''}, 'Kõik kategooriad (' + all.length + ')'));
+    let initial = '';
+    const f = opts.filter && Array.isArray(opts.filter.groupIds) ? opts.filter.groupIds.filter(Boolean) : [];
+    const single = f.length === 1 && GROUPS.some(g => g.id === f[0]) ? f[0] : null;
+    if(f.length && !single){
+      const ids = new Set(f);
+      if(countIn(ids)){
+        filters.set('custom', ids);
+        catSel.appendChild(h('option', {value: 'custom'}, (opts.filter.label || 'Valitud') + ' (' + countIn(ids) + ')'));
+        initial = 'custom';
+      }
+    }
+    GROUPS.forEach(g => {
+      const ids = new Set([g.id]);
+      const n = countIn(ids);
+      if(!n) return;
+      filters.set('g:' + g.id, ids);
+      catSel.appendChild(h('option', {value: 'g:' + g.id}, g.label + ' (' + n + ')'));
+      if(single === g.id) initial = 'g:' + g.id;
+    });
+    catSel.value = initial;
+    catSel.addEventListener('change', () => { draw(); list.scrollTop = 0; input.focus(); });
+  }
+  const matches = (e, qv) => !qv || [e.label, e.type, e.cat].some(t => norm(t).includes(qv));
   const draw = () => {
     const qv = norm(input.value);
     list.innerHTML = '';
     if(!qv && !opts.inline){ list.hidden = true; return; }
-    const hits = eligible().filter(e => !qv || [e.label, e.type, e.cat].some(t => norm(t).includes(qv)))
+    const groupSet = catSel && catSel.value ? filters.get(catSel.value) : null;
+    const hits = eligible().filter(e => (!groupSet || groupSet.has(e.group)) && matches(e, qv))
       .sort((a, b) => a.label.localeCompare(b.label, 'et'));
+    input.placeholder = groupSet ? 'Otsi sellest kategooriast…' : (placeholder || 'Otsi mudelit…');
     const addOpt = (e, grouped) => {
       const sub = grouped ? (e.type ? e.type + ' · ' : '') + e.files.length + ' pilti' : (e.type || groupLabel(e.group)) + ' · ' + e.files.length + ' pilti';
       const li = h('li', {class: 'ct-search-opt' + (opts.activeCat === e.cat ? ' is-active' : ''), role: 'option', tabindex: 0},
@@ -786,7 +823,19 @@ function modelSearch(onPick, placeholder, opts){
     }else{
       hits.slice(0, 40).forEach(e => addOpt(e, false));
     }
-    if(!hits.length) list.appendChild(h('li', {class: 'ct-search-empty'}, 'Ei leitud'));
+    if(!hits.length) list.appendChild(h('li', {class: 'ct-search-empty'}, groupSet ? 'Selles kategoorias ei leitud' : 'Ei leitud'));
+    if(groupSet && qv){
+      // Filtrist väljaspool leidub veel vasteid – paku otsida kõigist kategooriatest.
+      const outside = eligible().filter(e => !groupSet.has(e.group) && matches(e, qv)).length;
+      if(outside){
+        const li = h('li', {role: 'presentation'});
+        const btn = h('button', {type: 'button', class: 'ct-search-all'}, 'Otsi kõigist kategooriatest (+' + outside + ')');
+        btn.addEventListener('mousedown', ev => ev.preventDefault());
+        btn.addEventListener('click', () => { catSel.value = ''; draw(); input.focus(); });
+        li.appendChild(btn);
+        list.appendChild(li);
+      }
+    }
     list.hidden = false;
   };
   input.addEventListener('input', draw);
@@ -795,6 +844,7 @@ function modelSearch(onPick, placeholder, opts){
   input.addEventListener('keydown', ev => {
     if(ev.key === 'Enter'){ const first = list.querySelector('.ct-search-opt'); if(first){ ev.preventDefault(); first.click(); } }
   });
+  if(catSel) wrap.appendChild(catSel);
   wrap.append(input, list);
   wrap._redraw = draw;
   if(opts.inline) draw();
@@ -862,7 +912,8 @@ function openPicker(swapIndex){
   const inp = search.querySelector('input'); if(inp) setTimeout(() => inp.focus(), 30);
 }
 // Taaskasutatav pildivalija teistele vaadetele (nt kuldvillaku redaktor): valib ÜHE pildi ja sulgub.
-// opts: {title, currentCat, currentFile, used:Set<failinimi>, onPick(entry, file)}
+// opts: {title, currentCat, currentFile, used:Set<failinimi>, filter:{label, groupIds}, onPick(entry, file)}
+// filter: kategooria(d), millega nimekiri kohe filtreeritakse (rippmenüüst saab muuta).
 function pickImageFor(opts){
   opts = opts || {};
   closePicker();
@@ -886,7 +937,7 @@ function pickImageFor(opts){
       imgs.appendChild(b);
     });
   };
-  const search = modelSearch(e => { activeCat = e.cat; drawImages(); search._redraw(); }, 'Otsi mudelit (nt T-72, BM-21)…', {inline: true, get activeCat(){ return activeCat; }});
+  const search = modelSearch(e => { activeCat = e.cat; drawImages(); search._redraw(); }, 'Otsi mudelit (nt T-72, BM-21)…', {inline: true, filter: opts.filter, get activeCat(){ return activeCat; }});
   listWrap.appendChild(search);
   pickerEl = h('div', {class: 'ct-modal', role: 'dialog', 'aria-modal': 'true'},
     h('div', {class: 'ct-modal-box'},
