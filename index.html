@@ -727,7 +727,9 @@
   .model-gallery-imgwrap{height:280px;background:#0a0c07;display:flex;align-items:center;justify-content:center;overflow:hidden;}
   .model-gallery-imgwrap img{width:100%;height:100%;object-fit:contain;display:block;}
   .model-gallery-state{padding:16px;color:var(--bone-dim);font-size:11px;text-align:center;}
-  .model-gallery-file{padding:8px 10px;font-size:10px;color:var(--bone-dim);word-break:break-word;border-top:1px solid var(--line);}
+  .model-gallery-file{padding:8px 10px;font-size:10px;color:var(--bone-dim);word-break:break-word;border-top:1px solid var(--line);min-height:12px;}
+  .model-gallery-file a{color:var(--olive);text-decoration:none;border-bottom:1px dotted var(--olive-dim);}
+  .model-gallery-file a:hover{color:var(--amber);}
   .model-gallery-imgwrap img{cursor:zoom-in;}
   /* Pildi suurendus (lightbox) */
   .lightbox{display:none;position:fixed;inset:0;z-index:10000;background:rgba(5,6,3,.96);flex-direction:column;}
@@ -1080,7 +1082,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
             <div class="your-guess" id="kuldYourGuess"></div>
             <div class="lbl">Õige vastus</div>
             <div class="value" id="kuldCorrectValue">—</div>
-            <div class="filename" id="kuldFileLine"></div>
+            <div class="filename" id="kuldFileLine" hidden></div>
             <div class="verdict-row" id="kuldVerdictRow"></div>
           </div>
         </div>
@@ -2373,6 +2375,24 @@ async function fetchSpecificFile(filename){
   };
 }
 
+// Pildi allika rida. Commonsi pilt: „Allikas: Wikimedia Commons“ (link faili lehele, kus on autor ja
+// litsents) failinime asemel. Repo pilt (images/...): esialgu failinimi (allikate fail tuleb hiljem).
+// Kasutavad: testi/harjutuse vastus ja galerii. Kuldvillakus ja suurenduses allikat ei kuvata.
+function sourceLinkLine(info){
+  const frag = document.createDocumentFragment();
+  if(info && info.filepageUrl){
+    frag.append('Allikas: ');
+    const a = document.createElement('a');
+    a.href = info.filepageUrl; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    a.textContent = 'Wikimedia Commons';
+    a.title = 'Ava pildi leht Wikimedia Commonsis (autor ja litsents)';
+    frag.appendChild(a);
+  }else if(info && info.filename){
+    frag.append('Failinimi: ' + info.filename);
+  }
+  return frag;
+}
+
 // ============================================================================
 // RENDER — kuvab kas LIVE vooru (praegune/pooleliolev) või AJALOO kirje (loetav)
 // ============================================================================
@@ -2381,8 +2401,8 @@ function fillAnswerBlock(cur, guessText){
     ? 'Sinu vastus: <b>' + guessText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</b>'
     : 'Vastus jäeti tühjaks.';
   correctValue.textContent = (cur.type ? cur.type + ' ' : '') + cur.label;
-  fileLine.innerHTML = 'Failinimi: ' + cur.filename
-    + (cur.filepageUrl ? ' — <a href="' + cur.filepageUrl + '" target="_blank" rel="noopener">vaata Commonsis</a>' : '');
+  fileLine.innerHTML = '';
+  fileLine.appendChild(sourceLinkLine(cur));
 
   let creditText = '';
   if(cur.artist) creditText += 'Autor: ' + cur.artist + '. ';
@@ -3688,8 +3708,7 @@ function loadGalleryCards(entry, container, withLabel){
     state.className = 'model-gallery-state';
     state.textContent = 'Laen pilti...';
     const file = document.createElement('div');
-    file.className = 'model-gallery-file';
-    file.textContent = sourceFilename;
+    file.className = 'model-gallery-file';   // allikas (sourceLinkLine) pärast laadimist
     wrap.appendChild(state);
     card.append(wrap, file);
     container.appendChild(card);
@@ -3698,6 +3717,8 @@ function loadGalleryCards(entry, container, withLabel){
       const info = await fetchSpecificFile(sourceFilename);
       if(!info || !info.url) throw new Error('Pildi URL-i ei saadud');
       if(!card.isConnected) return;   // vahepeal vahetati mudelit / võrdlust
+      file.textContent = '';
+      file.appendChild(sourceLinkLine(info));
       const img = document.createElement('img');
       img.alt = entry.label;
       img.tabIndex = 0;
@@ -4750,7 +4771,7 @@ async function openKuldQuestion(col, row){
   kuldRevealBtn.disabled = true;
   // Vastus ja hindamisnupud pannakse paika kohe (nähtamatuna), et vastuse näitamine ei muudaks paigutust.
   kuldCorrectValue.textContent = (q.entry.type ? q.entry.type + ' ' : '') + q.entry.label;
-  kuldFileLine.textContent = 'Failinimi: ' + q.filename;
+  kuldFileLine.textContent = '';   // Kuldvillakus pildi allikat ei kuvata (vt sourceLinkLine)
   document.getElementById('kuldYourGuess').textContent = review ? 'Vali uus hinnang või tühista see.' : ' ';
   buildKuldVerdicts(q, review);
   kuldStateMsg.style.display = 'flex';
@@ -4761,14 +4782,6 @@ async function openKuldQuestion(col, row){
     const file = await fetchSpecificFile(q.filename);
     if(token !== kuldLoadToken) return;
     q.current = { label:q.entry.label, type:q.entry.type || '', cat:q.entry.cat, ...file };
-    kuldFileLine.innerHTML = '';
-    kuldFileLine.append('Failinimi: ' + q.current.filename);
-    if(q.current.filepageUrl){
-      const a = document.createElement('a');
-      a.href = q.current.filepageUrl; a.target = '_blank'; a.rel = 'noopener';
-      a.textContent = 'vaata Commonsis';
-      kuldFileLine.append(' — ', a);
-    }
     kuldPhoto.src = file.url;
     await new Promise((resolve,reject) => {
       const img = new Image();
@@ -6818,7 +6831,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc79'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc81'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
