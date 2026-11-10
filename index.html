@@ -867,6 +867,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
         </div>
         <div class="row" style="margin-top:8px;">
           <button class="primary" id="startTest25Btn" style="flex:1;">Genereeri test (25 küsimust)</button>
+          <button type="button" id="testRules25Btn" class="test-rules-btn" title="Testi reeglid (25 ja 50 küsimust)" aria-label="Testi reeglid" aria-expanded="false" aria-controls="testRulesPanel">⚙</button>
         </div>
         <div class="test-rules-status" id="testRulesStatus" hidden></div>
         <div id="testRulesPanel" class="kuld-config test-rules-panel" hidden></div>
@@ -1879,10 +1880,10 @@ let lastTestMode = 'mix';     // 'mix' (50/25) või 'cats' (10)
 //
 // Näide: drones: 5 tähendab, et testis võib olla kuni 5 erinevat drooni.
 const TEST_GROUP_LIMITS = {
-  drones: 3,
+  drones: 2,
   ships: 2,
-  planes: 5,
-  helicopters: 5,
+  planes: 4,
+  helicopters: 4,
   comms: 3,
   ew: 2,
   recon_special: 4,
@@ -1892,7 +1893,8 @@ const TEST_GROUP_LIMITS = {
   forces: 2,  // väeliigid ja üksused (embleemid/üldfotod): max 2 pilti 50 küsimuse testis
   mines: 1,   // maamiinid: MAKSIMUM 1 miin testis (võib ka 0)
   ugv: 1,
-  usv: 1
+  usv: 1,
+  guided_ground_rockets: 1   // pind-pind tüüpi juhitavad raketid
 };
 
 // Tõenäosus, et kategooria üldse testi satub (muidu puudub see testist täielikult).
@@ -1931,17 +1933,40 @@ function loadTestRules(){
     if(!d || d.v !== 1 || !d.limits || typeof d.limits !== 'object') return {};
     const out = {};
     Object.entries(d.limits).forEach(([g, v]) => {
+      const dflt = TEST_GROUP_LIMITS[g] === undefined ? null : TEST_GROUP_LIMITS[g];
+      if(v === dflt) return;   // vaikeväärtusega võrdne (nt vaikeväärtus muutus hiljem) – pole enam muudatus
       if(v === null || (Number.isInteger(v) && v >= 0 && v <= TEST_RULE_MAX)) out[g] = v;
     });
     return out;
   }catch(e){ return {}; }
 }
 let testRuleOverrides = loadTestRules();
+// Kasutaja välja jäetud mudelid (cat) 50/25 testist. Meelde jäetakse ainult välja jäetud –
+// hiljem äppi lisatud mudelid on testis automaatselt.
+function loadTestExclusions(){
+  try{
+    const d = JSON.parse(localStorage.getItem(TEST_RULES_KEY) || 'null');
+    return new Set(d && d.v === 1 && Array.isArray(d.excluded) ? d.excluded.filter(c => typeof c === 'string') : []);
+  }catch(e){ return new Set(); }
+}
+let testExcluded = loadTestExclusions();
 function saveTestRules(){
   try{
-    if(Object.keys(testRuleOverrides).length) localStorage.setItem(TEST_RULES_KEY, JSON.stringify({ v: 1, limits: testRuleOverrides }));
+    const excluded = [...testExcluded];
+    if(Object.keys(testRuleOverrides).length || excluded.length)
+      localStorage.setItem(TEST_RULES_KEY, JSON.stringify({ v: 1, limits: testRuleOverrides, excluded }));
     else localStorage.removeItem(TEST_RULES_KEY);
   }catch(e){ /* privaatrežiim vms: reeglid kehtivad selle lehe eluea jooksul */ }
+}
+function testModelsOf(g){
+  return CATEGORIES.filter(e => e.group === g && e.files && e.files.length > 0)
+    .sort((a, b) => a.label.localeCompare(b.label, 'et'));
+}
+function testGroupExcludedCount(g){ return testModelsOf(g).filter(e => testExcluded.has(e.cat)).length; }
+function testExcludedCount(){ return CATEGORIES.filter(e => e.files && e.files.length > 0 && testExcluded.has(e.cat)).length; }
+function setTestModelsIncluded(cats, on){
+  cats.forEach(c => { if(on) testExcluded.delete(c); else testExcluded.add(c); });
+  saveTestRules();
 }
 function hasTestRuleOverride(g){ return Object.prototype.hasOwnProperty.call(testRuleOverrides, g) && GROUPS.some(x => x.id === g); }
 function defaultTestLimit(g){ return TEST_GROUP_LIMITS[g] === undefined ? null : TEST_GROUP_LIMITS[g]; }
@@ -1952,8 +1977,8 @@ function setTestRule(g, v){
   saveTestRules();
 }
 // Mitu mudelit grupist saab testi tulla, arvestades erireegleid (vt buildUniqueVehiclePool).
-function testGroupModelCap(g){
-  const es = CATEGORIES.filter(e => e.group === g && e.files && e.files.length > 0);
+function testGroupModelCap(g, all){
+  const es = CATEGORIES.filter(e => e.group === g && e.files && e.files.length > 0 && (all || !testExcluded.has(e.cat)));
   let n = es.length;
   const capTo1 = pred => { const k = es.filter(pred).length; if(k > 1) n -= k - 1; };
   if(g === 'engineer'){
@@ -2074,7 +2099,8 @@ function buildImagePool(filterFn){
 }
 
 function buildUniqueVehiclePool(n){
-  const eligible = shuffleArray(CATEGORIES.filter(e => usableFiles(e).length > 0).slice());
+  // kasutaja välja jäetud mudelid (⚙ testi reeglid) ei tule testi
+  const eligible = shuffleArray(CATEGORIES.filter(e => usableFiles(e).length > 0 && !testExcluded.has(e.cat)).slice());
   const chosen = [];
   const groupCounts = {};
   const subtypeCounts = { bridgeTank: 0, bridgeVehicleOrPontoon: 0, su27Family: 0, adRadar: 0 };
@@ -6102,7 +6128,7 @@ window.addEventListener('hashchange', startFromHash);
 })();
 </script>
 <style id="testRulesStyles">
-  /* Testi reeglid (50/25): ⚙ nupp 50 küsimuse nupu kõrval, paneel ja „oma reeglid“ rida. */
+  /* Testi reeglid (50/25): ⚙ nupp 50 ja 25 küsimuse nupu kõrval, paneel ja „oma reeglid“ rida. */
   .home-main .row.test50-row{flex-direction:row;}
   .home-main .row > button.test-rules-btn{flex:0 0 auto;min-width:48px;padding:0 12px;font-size:19px;letter-spacing:0;line-height:1;}
   .test-rules-btn[aria-expanded="true"]{border-color:var(--olive);color:var(--olive);}
@@ -6111,42 +6137,65 @@ window.addEventListener('hashchange', startFromHash);
   .test-rules-status[hidden],.test-rules-panel[hidden]{display:none;}
   .test-rules-status button{padding:4px 8px;font-size:10px;}
   .test-rules-panel{margin-top:8px;}
-  .tr-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 14px;}
-  .tr-row{display:grid;grid-template-columns:minmax(0,1fr) 64px 26px;align-items:center;gap:8px;padding:5px 6px;border-left:3px solid transparent;}
-  .tr-row.changed{border-left-color:var(--amber);background:rgba(212,167,44,.07);}
-  .tr-name{font-size:12px;line-height:1.25;min-width:0;hyphens:manual;-webkit-hyphens:manual;overflow-wrap:normal;}
+  .tr-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 14px;align-items:start;}
+  .tr-item{min-width:0;border-left:3px solid transparent;}
+  .tr-item.changed{border-left-color:var(--amber);background:rgba(212,167,44,.07);}
+  .tr-item.open{grid-column:1 / -1;background:var(--bg-0);border-left-color:var(--olive);}
+  .tr-item.open.changed{border-left-color:var(--amber);}
+  .tr-row{display:grid;grid-template-columns:minmax(0,1fr) 64px 26px;align-items:center;gap:8px;padding:5px 6px;}
+  .tr-name{display:flex;gap:6px;align-items:flex-start;min-width:0;padding:0;border:0;background:transparent;color:var(--bone);text-align:left;cursor:pointer;
+    font-family:var(--font-body);font-size:12px;line-height:1.25;letter-spacing:0;text-transform:none;white-space:normal;hyphens:manual;-webkit-hyphens:manual;overflow-wrap:normal;}
+  .tr-name:hover{color:var(--olive);border:0;}
+  .tr-caret{flex:none;width:10px;color:var(--amber);}
+  .tr-name-txt{min-width:0;}
   .tr-name small{display:block;font-size:10px;color:var(--bone-dim);}
   .tr-row input{width:100%;min-width:0;padding:5px 6px;font-size:14px;background:var(--bg-0);color:var(--bone);border:1px solid var(--line);text-align:center;}
-  .tr-row.changed input{border-color:var(--amber);color:var(--amber);}
+  .tr-item.lim-changed input{border-color:var(--amber);color:var(--amber);}
   .tr-row input::placeholder{color:var(--bone-dim);}
   .tr-meta{display:block;font-size:10px;line-height:1.3;color:var(--bone-dim);}
   .tr-meta .tr-chance{color:var(--olive);}
+  .tr-meta .tr-ex{color:var(--amber);}
   .tr-reset{padding:2px 0;font-size:13px;letter-spacing:0;visibility:hidden;}
-  .tr-row.changed .tr-reset{visibility:visible;}
+  .tr-item.changed .tr-reset{visibility:visible;}
+  .tr-models{padding:2px 8px 10px 22px;}
+  .tr-models-tools{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:2px 0 6px;font-size:12px;color:var(--bone-dim);}
+  .tr-models-tools b{color:var(--bone);}
+  .tr-models-tools span{margin-right:4px;}
+  .tr-models-tools button{font-size:10px;letter-spacing:.06em;padding:5px 7px;}
+  .tr-models ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:2px 16px;}
+  .tr-models label{display:flex;align-items:baseline;gap:6px;font-size:13px;cursor:pointer;padding:3px 0;}
+  .tr-models input{accent-color:var(--olive);flex:none;transform:translateY(2px);}
+  .tr-models label span{color:var(--bone-dim);font-size:11px;}
+  .tr-models label.off{opacity:.5;}
+  .tr-models label.off b{text-decoration:line-through;}
   .tr-foot{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px;}
   .tr-cap{flex:1 1 220px;font-size:12px;color:var(--bone-dim);}
   .tr-cap b{color:var(--bone);}
   .tr-cap.is-warn{color:var(--amber);}
-  @media(max-width:700px){ .tr-grid{grid-template-columns:1fr;} }
+  @media(max-width:700px){ .tr-grid{grid-template-columns:1fr;} .tr-models{padding-left:10px;} .tr-models ul{grid-template-columns:1fr;} }
 </style>
 <script id="testRulesScript">
 // ============================================================================
 // TESTI REEGLID (ainult 50/25 küsimust). Vaikimisi kiire kasutus ei muutu: ⚙ avab paneeli.
-// Iga kategooria: maksimaalne mudelite arv testis (0 = välja, tühi = piiranguta). Muudetud
-// read esile tõstetud; miinide ja UGV/USV juures „30% testidest“ (kaob, kui maksimumi muuta).
-// Salvestatakse brauserisse (loogika: testRuleOverrides / setTestRule põhiskriptis).
+// Iga kategooria: maksimaalne mudelite arv testis (0 = välja, tühi = piiranguta) ja – rea nimele
+// klõpsates – mudelite linnukesed (välja jäetud mudelid ei tule testi). Muudetud read esile
+// tõstetud; miinide ja UGV/USV juures „30% testidest“ (kaob, kui maksimumi muuta).
+// Salvestatakse brauserisse (loogika: testRuleOverrides / testExcluded põhiskriptis).
 // ============================================================================
 (function(){
-  const btn = document.getElementById('testRulesBtn');
+  // ⚙ nii 50 kui 25 küsimuse nupu kõrval; mõlemad avavad sama paneeli (reeglid on ühised).
+  const btns = [document.getElementById('testRulesBtn'), document.getElementById('testRules25Btn')].filter(Boolean);
   const panel = document.getElementById('testRulesPanel');
   const status = document.getElementById('testRulesStatus');
-  if(!btn || !panel || !status) return;
-  btn.closest('.row').classList.add('test50-row');
+  if(!btns.length || !panel || !status) return;
+  btns.forEach(b => b.closest('.row').classList.add('test50-row'));
 
   const pct = x => Math.round(x * 100) + '%';
   const limTxt = v => v === null ? '∞' : String(v);
   const el = (tag, cls, txt) => { const e = document.createElement(tag); if(cls) e.className = cls; if(txt !== undefined) e.textContent = txt; return e; };
-  let rows = [];        // [{g, row, inp, meta}]
+  const plural = (n, one, many) => n + ' ' + (n === 1 ? one : many);
+  const items = new Map();   // grupiId -> {item, inp, meta, caret, models}
+  const expanded = new Set();
   let capEl = null, resetAllBtn = null;
 
   function chanceNote(g){
@@ -6160,58 +6209,119 @@ window.addEventListener('hashchange', startFromHash);
     }
     return '';
   }
+  const groupChanged = g => hasTestRuleOverride(g) || testGroupExcludedCount(g) > 0;
+
+  function changed(){ updateTestButtons(); }   // nupusildid + refresh()
 
   function resetAll(){
-    if(!testRuleChangeCount()) return;
-    if(!confirm('Taastada vaikereeglid? Sinu muudetud maksimumid kustutatakse.')) return;
+    if(!testRuleChangeCount() && !testExcludedCount()) return;
+    if(!confirm('Taastada vaikereeglid? Sinu muudetud maksimumid ja välja jäetud mudelid kustutatakse.')) return;
     GROUPS.forEach(g => { if(hasTestRuleOverride(g.id)) delete testRuleOverrides[g.id]; });
+    testExcluded.clear();
     saveTestRules();
     if(!panel.hidden) build();
-    updateTestButtons();
+    changed();
+  }
+
+  // Avatud kategooria mudelite nimekiri: linnukesed + „Vali kõik“ / „Eemalda kõik“ (nagu kureeritud testis).
+  function renderModels(g, box){
+    box.innerHTML = '';
+    const models = testModelsOf(g);
+    const off = models.filter(e => testExcluded.has(e.cat)).length;
+    const setAll = on => { setTestModelsIncluded(models.map(e => e.cat), on); renderModels(g, box); changed(); };
+    const all = el('button', '', 'Vali kõik'); all.type = 'button'; all.disabled = off === 0;
+    all.title = 'Pane linnuke kõigile selle kategooria mudelitele';
+    all.addEventListener('click', () => setAll(true));
+    const none = el('button', '', 'Eemalda kõik'); none.type = 'button'; none.disabled = off === models.length;
+    none.title = 'Võta linnuke ära kõigilt selle kategooria mudelitelt';
+    none.addEventListener('click', () => setAll(false));
+    const info = el('span');
+    info.append('Testis ');
+    info.appendChild(el('b', '', (models.length - off) + ' / ' + models.length));
+    info.append(' mudelit');
+    const tools = el('div', 'tr-models-tools');
+    tools.append(info, all, none);
+    const ul = el('ul');
+    models.forEach(e => {
+      const on = !testExcluded.has(e.cat);
+      const cb = el('input'); cb.type = 'checkbox'; cb.checked = on;
+      const lab = el('label', on ? '' : 'off');
+      const n = (e.files || []).length;
+      lab.append(cb, el('b', '', e.label), el('span', '', (e.type ? e.type + ' · ' : '') + plural(n, 'pilt', 'pilti')));
+      cb.addEventListener('change', () => { setTestModelsIncluded([e.cat], cb.checked); renderModels(g, box); changed(); });
+      const li = el('li'); li.appendChild(lab); ul.appendChild(li);
+    });
+    box.append(tools, ul);
+  }
+
+  function buildItem(g){
+    const item = el('div', 'tr-item');
+    const row = el('div', 'tr-row');
+    // pikad liitsõnad poolituvad silbipiirilt; sõna alguse kriips jääb sõna külge („ja -radarid“)
+    const nameTxt = g.label.replace(/\p{L}{12,}/gu, w => typeof kuldHyphenateWord === 'function' ? kuldHyphenateWord(w) : w)
+      .replace(/(^|\s)-(?=\p{L})/gu, '$1-⁠');
+    const name = el('button', 'tr-name');
+    name.type = 'button';
+    name.lang = 'et';
+    name.title = 'Näita mudeleid (saad mudeleid testist välja jätta)';
+    const caret = el('span', 'tr-caret', '▸');
+    const txt = el('span', 'tr-name-txt', nameTxt);
+    const meta = el('small', 'tr-meta');
+    txt.appendChild(meta);
+    name.append(caret, txt);
+    const inp = el('input');
+    inp.type = 'number'; inp.min = '0'; inp.max = String(TEST_RULE_MAX); inp.step = '1'; inp.inputMode = 'numeric';
+    inp.placeholder = '∞';
+    inp.setAttribute('aria-label', g.label + ': maksimum testis');
+    const reset = el('button', 'tr-reset', '↺');
+    reset.type = 'button';
+    reset.title = 'Taasta selle kategooria vaikimisi maksimum ja kõik mudelid';
+    reset.setAttribute('aria-label', g.label + ': taasta vaikimisi');
+    inp.addEventListener('input', () => {
+      const raw = inp.value.trim();
+      if(raw !== '' && !Number.isFinite(Number(raw))) return;
+      setTestRule(g.id, raw === '' ? null : Math.min(TEST_RULE_MAX, Math.max(0, Math.round(Number(raw)))));
+      changed();
+    });
+    inp.addEventListener('change', () => refresh());
+    inp.addEventListener('keydown', ev => { if(ev.key === 'Enter'){ ev.preventDefault(); inp.blur(); } });
+    reset.addEventListener('click', () => {
+      delete testRuleOverrides[g.id];
+      setTestModelsIncluded(testModelsOf(g.id).map(e => e.cat), true);
+      const st = items.get(g.id);
+      if(st && st.models) renderModels(g.id, st.models);
+      changed();
+    });
+    const models = el('div', 'tr-models');
+    models.hidden = true;
+    name.addEventListener('click', () => {
+      const open = !expanded.has(g.id);
+      if(open) expanded.add(g.id); else expanded.delete(g.id);
+      item.classList.toggle('open', open);
+      caret.textContent = open ? '▾' : '▸';
+      name.setAttribute('aria-expanded', String(open));
+      models.hidden = !open;
+      if(open) renderModels(g.id, models);
+    });
+    name.setAttribute('aria-expanded', 'false');
+    row.append(name, inp, reset);
+    item.append(row, models);
+    items.set(g.id, { item, inp, meta, caret, models, name, countTxt: '' });
+    if(expanded.has(g.id)){
+      item.classList.add('open'); caret.textContent = '▾'; name.setAttribute('aria-expanded', 'true');
+      models.hidden = false; renderModels(g.id, models);
+    }
+    return item;
   }
 
   function build(){
     panel.innerHTML = '';
+    items.clear();
     panel.appendChild(el('div', 'kuld-config-title', 'Testi reeglid'));
     panel.appendChild(el('div', 'kuld-config-help',
-      'Kehtivad 50 ja 25 küsimusega testile (10 küsimuse test ei muutu). Number = mitu mudelit kategooriast võib testi tulla: 0 jätab kategooria välja, tühi = piiranguta. Sinu reeglid jäävad selles brauseris meelde.'));
+      'Kehtivad 50 ja 25 küsimusega testile (10 küsimuse test ei muutu). Number = mitu mudelit kategooriast võib testi tulla: 0 jätab kategooria välja, tühi = piiranguta. Klõpsa kategooria nimel, et üksikuid mudeleid testist välja jätta. Sinu reeglid jäävad selles brauseris meelde.'));
     const grid = el('div', 'tr-grid');
-    rows = [];
-    GROUPS.forEach(g => {
-      const models = testGroupModelCap(g.id);
-      if(!models) return;
-      const row = el('div', 'tr-row');
-      // pikad liitsõnad poolituvad silbipiirilt; sõna alguse kriips jääb sõna külge („ja -radarid“)
-      const nameTxt = g.label.replace(/\p{L}{12,}/gu, w => typeof kuldHyphenateWord === 'function' ? kuldHyphenateWord(w) : w)
-        .replace(/(^|\s)-(?=\p{L})/gu, '$1-\u2060');
-      const name = el('div', 'tr-name', nameTxt);
-      name.lang = 'et';
-      const meta = el('small', 'tr-meta');
-      const countTxt = groupCountLabel(g.id, models);
-      name.appendChild(meta);
-      const inp = el('input');
-      inp.type = 'number'; inp.min = '0'; inp.max = String(TEST_RULE_MAX); inp.step = '1'; inp.inputMode = 'numeric';
-      inp.placeholder = '∞';
-      inp.setAttribute('aria-label', g.label + ': maksimum testis');
-      const reset = el('button', 'tr-reset', '↺');
-      reset.type = 'button';
-      reset.title = 'Taasta vaikimisi väärtus';
-      reset.setAttribute('aria-label', g.label + ': taasta vaikimisi');
-      const apply = () => {
-        const raw = inp.value.trim();
-        const v = raw === '' ? null : Math.min(TEST_RULE_MAX, Math.max(0, Math.round(Number(raw))));
-        if(raw !== '' && !Number.isFinite(Number(raw))) return;
-        setTestRule(g.id, v);
-        updateTestButtons();
-      };
-      inp.addEventListener('input', apply);
-      inp.addEventListener('change', () => { refresh(); });
-      inp.addEventListener('keydown', ev => { if(ev.key === 'Enter'){ ev.preventDefault(); inp.blur(); } });
-      reset.addEventListener('click', () => { delete testRuleOverrides[g.id]; saveTestRules(); updateTestButtons(); });
-      row.append(name, inp, reset);
-      grid.appendChild(row);
-      rows.push({ g: g.id, row, inp, meta, countTxt });
-    });
+    GROUPS.forEach(g => { if(testGroupModelCap(g.id, true)) grid.appendChild(buildItem(g)); });
     panel.appendChild(grid);
     const foot = el('div', 'tr-foot');
     capEl = el('div', 'tr-cap');
@@ -6226,31 +6336,46 @@ window.addEventListener('hashchange', startFromHash);
     refresh();
   }
 
-  // Uuendab olekut kohapeal (fookus väljal jääb alles).
+  // Uuendab olekut kohapeal (fookus väljal ja avatud nimekirjad jäävad alles).
   function refresh(){
     const n = testRuleChangeCount();
-    btn.classList.toggle('has-custom', n > 0);
-    btn.title = n ? 'Testi reeglid: kehtivad oma reeglid (' + n + ')' : 'Testi reeglid (25 ja 50 küsimust)';
-    status.hidden = n === 0;
+    const x = testExcludedCount();
+    const any = n + x > 0;
+    btns.forEach(b => {
+      b.classList.toggle('has-custom', any);
+      b.title = any ? 'Testi reeglid: kehtivad oma reeglid' : 'Testi reeglid (25 ja 50 küsimust)';
+    });
+    status.hidden = !any;
     status.innerHTML = '';
-    if(n){
-      status.append('● Kehtivad oma reeglid (' + n + (n === 1 ? ' muudatus' : ' muudatust') + ')');
+    if(any){
+      const parts = [];
+      if(n) parts.push(plural(n, 'muudatus', 'muudatust'));
+      if(x) parts.push(plural(x, 'mudel', 'mudelit') + ' välja jäetud');
+      status.append('● Kehtivad oma reeglid (' + parts.join(' · ') + ')');
       const r = el('button', '', 'Taasta vaikereeglid');
       r.type = 'button';
       r.addEventListener('click', resetAll);
       status.appendChild(r);
     }
     if(panel.hidden) return;
-    rows.forEach(({ g, row, inp, meta, countTxt }) => {
-      const changed = hasTestRuleOverride(g);
-      row.classList.toggle('changed', changed);
-      if(document.activeElement !== inp){
+    items.forEach((st, g) => {
+      const limCh = hasTestRuleOverride(g);
+      const total = testModelsOf(g).length;
+      const off = testGroupExcludedCount(g);
+      st.item.classList.toggle('changed', limCh || off > 0);
+      st.item.classList.toggle('lim-changed', limCh);
+      if(document.activeElement !== st.inp){
         const v = testLimitFor(g, true);
-        inp.value = v === null ? '' : String(v);
+        st.inp.value = v === null ? '' : String(v);
       }
-      meta.textContent = countTxt + ' · vaikimisi ' + limTxt(defaultTestLimit(g));
+      st.meta.innerHTML = '';
+      st.meta.append(off
+        ? (total - off) + ' / ' + total + ' ' + (GROUP_COUNT_WORD[g] || 'masinat')
+        : groupCountLabel(g, total));
+      st.meta.append(' · vaikimisi ' + limTxt(defaultTestLimit(g)));
+      if(off){ st.meta.append(' · '); st.meta.appendChild(el('span', 'tr-ex', off + ' välja jäetud')); }
       const c = chanceNote(g);
-      if(c){ meta.append(' · '); meta.appendChild(el('span', 'tr-chance', c)); }
+      if(c){ st.meta.append(' · '); st.meta.appendChild(el('span', 'tr-chance', c)); }
     });
     const cap = testCapacity();
     capEl.classList.toggle('is-warn', cap < TEST_SIZE);
@@ -6264,16 +6389,16 @@ window.addEventListener('hashchange', startFromHash);
       capEl.appendChild(el('b', '', String(cap)));
       capEl.append(' erinevat mudelit.');
     }
-    resetAllBtn.disabled = n === 0;
+    resetAllBtn.disabled = !any;
   }
 
   function setOpen(open){
     panel.hidden = !open;
-    btn.setAttribute('aria-expanded', String(open));
+    btns.forEach(b => b.setAttribute('aria-expanded', String(open)));
     if(open) build();
     else refresh();
   }
-  btn.addEventListener('click', () => setOpen(panel.hidden));
+  btns.forEach(b => b.addEventListener('click', () => setOpen(panel.hidden)));
 
   window.TestRules = { refresh, open: () => setOpen(true), close: () => setOpen(false) };
   refresh();
@@ -6693,7 +6818,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc78'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc79'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');

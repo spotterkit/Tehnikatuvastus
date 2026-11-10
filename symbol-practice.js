@@ -56,7 +56,6 @@ const CSS = `
 .sy-card .sy-stage{padding:6px;margin-bottom:6px;}
 .sy-card .sy-sym{width:100%;}
 .sy-card .n{font-size:12px;line-height:1.3;color:var(--bone);overflow-wrap:anywhere;hyphens:auto;}
-.sy-card .c{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--bone-dim);margin-top:2px;}
 .sy-empty{font-size:13px;color:var(--bone-dim);padding:12px 0;}
 `;
 const st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
@@ -282,8 +281,7 @@ function drawGrid(){
     const card = document.createElement('div'); card.className = 'sy-card';
     const stg = document.createElement('div'); stg.className = 'sy-stage'; stg.appendChild(symbolEl(s));
     const n = document.createElement('div'); n.className = 'n'; n.textContent = s.name;
-    const c = document.createElement('div'); c.className = 'c'; c.textContent = s.cat;
-    card.append(stg, n, c); grid.appendChild(card);
+    card.append(stg, n); grid.appendChild(card);
   }
 }
 
