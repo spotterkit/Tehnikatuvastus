@@ -7,6 +7,7 @@
 
 <!-- "Lisa avaekraanile" seaded — käivitub täisekraanil, ilma brauseri ribata -->
 <link rel="manifest" href="manifest.json">
+<meta name="robots" content="noindex, noimageindex">
 <meta name="theme-color" content="#14170f">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -6507,6 +6508,7 @@ window.addEventListener('hashchange', startFromHash);
 
     <h3>Tehnilised andmed (TTA)</h3>
     <p>TTA andmed on kogutud avalikest allikatest ja tõlgitud masintõlkega. Iga mudeli allikad on loetletud tema TTA vaate all. Peamised allikad: <a href="https://odin.t2com.army.mil/WEG" target="_blank" rel="noopener noreferrer">U.S. Army ODIN / WEG</a>, Wikipedia (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>) ning Ukraina kaitseluure (HUR) portaal <a href="https://war-sanctions.gur.gov.ua/en" target="_blank" rel="noopener noreferrer">War&amp;Sanctions</a>.</p>
+    <p>Wikipediast pärit ja tõlgitud tekstid on kasutatavad litsentsi <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.et" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> alusel.</p>
 
     <h3>Tingmärgid</h3>
     <p>Tingmärgid põhinevad standardil DISA MIL-STD-2525D (vastab maaväe üksustel APP-6(D)-le). SVG-osad pärinevad hoidlast <a href="https://github.com/Esri/joint-military-symbology-xml" target="_blank" rel="noopener noreferrer">Esri joint-military-symbology-xml</a> – <a href="images/symbols/LICENSE.txt" target="_blank" rel="noopener">Apache License 2.0</a>. Failid <code>images/symbols/ovr_*</code> on äpi jaoks tehtud asendused.</p>
@@ -6516,6 +6518,9 @@ window.addEventListener('hashchange', startFromHash);
       <li>Font <b>Oswald</b> – © The Oswald Project Authors, <a href="fonts/OFL.txt" target="_blank" rel="noopener">SIL Open Font License 1.1</a>.</li>
       <li>QR-koodi generaator <b>qrcode-generator</b> – © 2009 Kazuhiko Arase, <a href="https://github.com/kazuhikoarase/qrcode-generator" target="_blank" rel="noopener noreferrer">MIT litsents</a>.</li>
     </ul>
+
+    <h3>Kontakt</h3>
+    <p>Kui oled mõne pildi või teksti autor ja soovid viite parandamist või materjali eemaldamist, kirjuta aadressil <a href="mailto:koerakoonlased@protonmail.com">koerakoonlased@protonmail.com</a>. Eemaldame materjali viivitamata.</p>
   </div>
 </div>
 <script id="licScript">
@@ -6961,7 +6966,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc83'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc84'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
