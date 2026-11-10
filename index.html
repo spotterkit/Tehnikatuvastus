@@ -863,10 +863,13 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
         <div class="home-divider">Testid</div>
         <div class="row">
           <button class="primary" id="startTestBtn" style="flex:1;">Genereeri test (50 küsimust)</button>
+          <button type="button" id="testRulesBtn" class="test-rules-btn" title="Testi reeglid (25 ja 50 küsimust)" aria-label="Testi reeglid" aria-expanded="false" aria-controls="testRulesPanel">⚙</button>
         </div>
         <div class="row" style="margin-top:8px;">
           <button class="primary" id="startTest25Btn" style="flex:1;">Genereeri test (25 küsimust)</button>
         </div>
+        <div class="test-rules-status" id="testRulesStatus" hidden></div>
+        <div id="testRulesPanel" class="kuld-config test-rules-panel" hidden></div>
         <div class="row" style="margin-top:8px;">
           <button class="primary" id="startTest10Btn" style="flex:1;" title="Iga küsimus erinevast kategooriast, mudelid ei kordu">Genereeri test (10 küsimust)</button>
         </div>
@@ -1001,10 +1004,22 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
         <div class="kuld-head-right">
           <button type="button" id="kuldSaveBtn" class="nav-btn kuld-edit-btn" title="Salvesta laud failina (.json)">💾 Salvesta</button>
           <button type="button" id="kuldEditBtn" class="nav-btn kuld-edit-btn" title="Muuda pilte, punkte ja kategooriaid">✎ Muuda</button>
-          <div class="kuld-score">
+          <button type="button" id="kuldTeamsBtn" class="nav-btn kuld-edit-btn" title="Lisa, nimeta või eemalda võistkondi" aria-expanded="false" aria-controls="kuldTeamsPanel">👥 Võistkonnad</button>
+          <div class="kuld-score" id="kuldScoreBox">
             <span>PUNKTID</span>
             <b id="kuldScore">0</b>
           </div>
+        </div>
+      </div>
+      <div class="kuld-team-scores" id="kuldTeamScores" hidden></div>
+      <div class="kuld-teams-panel" id="kuldTeamsPanel" hidden>
+        <div class="kuld-config-title">Võistkonnad</div>
+        <div class="kuld-config-help">Igal võistkonnal on oma punktid. Pärast vastuse näitamist vali, milline võistkond vastas õigesti (klahvid 1–6, 0 = keegi ei vastanud). Ilma võistkondadeta on üks ühine punktiseis.</div>
+        <div class="kuld-teams-list" id="kuldTeamsList"></div>
+        <div class="kuld-teams-actions">
+          <button type="button" id="kuldTeamAddBtn">+ Lisa võistkond</button>
+          <button type="button" id="kuldTeamNoneBtn">Ilma võistkondadeta</button>
+          <button type="button" id="kuldTeamsDoneBtn" class="primary">Valmis</button>
         </div>
       </div>
       <div class="kuld-board" id="kuldBoard"></div>
@@ -1032,29 +1047,42 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
     </div>
 
     <div class="kuld-question" id="kuldQuestion" role="dialog" aria-modal="true" aria-label="Kuldvillaku küsimus">
-      <div class="kuld-question-top">
-        <div class="kuld-question-cat" id="kuldQuestionCat">—</div>
-        <div class="kuld-question-value" id="kuldQuestionValue">100</div>
+      <div class="hist-nav kq-nav">
+        <button type="button" id="kuldBackBoardBtn" class="nav-btn" title="Tagasi mängulauale (Esc)">‹ Mängulauale</button>
+        <div class="hist-status live" id="kuldQuestionCat">—</div>
+        <div class="kq-scores" id="kuldQScores" aria-live="polite"></div>
+        <button type="button" id="kuldQFsBtn" class="nav-btn kuld-fs-btn" aria-label="Täisekraan" aria-pressed="false">⛶</button>
       </div>
       <div class="scope kuld-scope" id="kuldScope">
+        <div class="crosshair"></div>
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+        <div class="hud-tag kq-value" id="kuldQuestionValue">100</div>
+        <div class="hud-status" id="kuldHudStatus">OOTEL</div>
         <img id="kuldPhoto" alt="" style="display:none;">
         <div class="state-msg" id="kuldStateMsg">
           <div class="spinner"></div>
           <div>Laen pilti...</div>
         </div>
       </div>
-      <div class="kuld-answer" id="kuldAnswer" style="display:none;">
-        <div class="lbl">Õige vastus</div>
-        <div class="value" id="kuldCorrectValue">—</div>
-        <div class="filename" id="kuldFileLine"></div>
-      </div>
-      <div class="verdict-row">
-        <button class="good" id="kuldGoodBtn">✓ Läks täppi (+100)</button>
-        <button class="bad" id="kuldBadBtn">✗ Ei läinud täppi</button>
-      </div>
-      <div class="row">
-        <button id="kuldRevealBtn" class="primary" style="flex:1;">Näita vastust</button>
-        <button id="kuldBackBoardBtn" style="flex:1;">Tagasi mängulauale</button>
+      <div class="panel kq-panel">
+        <div class="kq-slot">
+          <div class="kq-pre">
+            <div class="row">
+              <input type="text" id="kuldGuess" placeholder="Vastus (valikuline)" autocomplete="off" aria-label="Vastus">
+              <button type="button" class="primary" id="kuldRevealBtn">Näita vastust</button>
+            </div>
+          </div>
+          <div class="kq-post answer-block" id="kuldAnswer">
+            <div class="your-guess" id="kuldYourGuess"></div>
+            <div class="lbl">Õige vastus</div>
+            <div class="value" id="kuldCorrectValue">—</div>
+            <div class="filename" id="kuldFileLine"></div>
+            <div class="verdict-row" id="kuldVerdictRow"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1818,8 +1846,7 @@ const kuldCorrectValue = document.getElementById('kuldCorrectValue');
 const kuldFileLine = document.getElementById('kuldFileLine');
 const kuldAnswer = document.getElementById('kuldAnswer');
 const kuldRevealBtn = document.getElementById('kuldRevealBtn');
-const kuldGoodBtn = document.getElementById('kuldGoodBtn');
-const kuldBadBtn = document.getElementById('kuldBadBtn');
+const kuldScope = document.getElementById('kuldScope');
 const kuldBackBoardBtn = document.getElementById('kuldBackBoardBtn');
 const kuldMenuBtn = document.getElementById('kuldMenuBtn');
 const kuldResetBtn = document.getElementById('kuldResetBtn');
@@ -1881,12 +1908,89 @@ const TEST_GROUP_SETS = [
 ];
 
 // Veeretab, millised kategooriad sellest testist välja jäävad (TEST_GROUP_CHANCE + TEST_GROUP_SETS).
-function rollTestSkips(){
-  const skipped = new Set(Object.keys(TEST_GROUP_CHANCE).filter(g => Math.random() >= TEST_GROUP_CHANCE[g]));
-  TEST_GROUP_SETS.forEach(set => { if(Math.random() >= set.chance) set.groups.forEach(g => skipped.add(g)); });
+// custom = true: kasutaja oma reeglid (50/25 test) – muudetud kategooriatel tõenäosust ega komplekti pole.
+function rollTestSkips(custom){
+  const skipped = new Set(Object.keys(TEST_GROUP_CHANCE).filter(g => !(custom && hasTestRuleOverride(g)) && Math.random() >= TEST_GROUP_CHANCE[g]));
+  TEST_GROUP_SETS.forEach(set => { if(!testSetDissolved(set, custom) && Math.random() >= set.chance) set.groups.forEach(g => skipped.add(g)); });
   return skipped;
 }
-function testSetOf(groupId){ return TEST_GROUP_SETS.find(set => set.groups.includes(groupId)) || null; }
+function testSetOf(groupId, custom){
+  const set = TEST_GROUP_SETS.find(x => x.groups.includes(groupId)) || null;
+  return set && !testSetDissolved(set, custom) ? set : null;
+}
+// --- Kasutaja oma testireeglid (ainult 50/25 küsimuse testid; 10 küsimuse test kasutab alati vaikereegleid) ---
+// Salvestatakse selles brauseris (localStorage): „Genereeri test“ on õppija enesekontroll tema enda seadmes.
+// Ülekirjutus: {grupiId: arv | null}; arv = maksimum (0 = välja), null = piiranguta. Hoitakse ainult vaikimisi
+// väärtusest erinevaid. Kui kategooria maksimumi on muudetud, ei kehti sellele enam tõenäosus (TEST_GROUP_CHANCE)
+// ega ühine komplekt (TEST_GROUP_SETS) – kehtib ainult kasutaja number.
+const TEST_RULES_KEY = 'tehnikatuvastus.testRules.v1';
+const TEST_RULE_MAX = 999;
+function loadTestRules(){
+  try{
+    const d = JSON.parse(localStorage.getItem(TEST_RULES_KEY) || 'null');
+    if(!d || d.v !== 1 || !d.limits || typeof d.limits !== 'object') return {};
+    const out = {};
+    Object.entries(d.limits).forEach(([g, v]) => {
+      if(v === null || (Number.isInteger(v) && v >= 0 && v <= TEST_RULE_MAX)) out[g] = v;
+    });
+    return out;
+  }catch(e){ return {}; }
+}
+let testRuleOverrides = loadTestRules();
+function saveTestRules(){
+  try{
+    if(Object.keys(testRuleOverrides).length) localStorage.setItem(TEST_RULES_KEY, JSON.stringify({ v: 1, limits: testRuleOverrides }));
+    else localStorage.removeItem(TEST_RULES_KEY);
+  }catch(e){ /* privaatrežiim vms: reeglid kehtivad selle lehe eluea jooksul */ }
+}
+function hasTestRuleOverride(g){ return Object.prototype.hasOwnProperty.call(testRuleOverrides, g) && GROUPS.some(x => x.id === g); }
+function defaultTestLimit(g){ return TEST_GROUP_LIMITS[g] === undefined ? null : TEST_GROUP_LIMITS[g]; }
+function testLimitFor(g, custom){ return custom && hasTestRuleOverride(g) ? testRuleOverrides[g] : defaultTestLimit(g); }
+function setTestRule(g, v){
+  if(v === defaultTestLimit(g)) delete testRuleOverrides[g];
+  else testRuleOverrides[g] = v;
+  saveTestRules();
+}
+// Mitu mudelit grupist saab testi tulla, arvestades erireegleid (vt buildUniqueVehiclePool).
+function testGroupModelCap(g){
+  const es = CATEGORIES.filter(e => e.group === g && e.files && e.files.length > 0);
+  let n = es.length;
+  const capTo1 = pred => { const k = es.filter(pred).length; if(k > 1) n -= k - 1; };
+  if(g === 'engineer'){
+    capTo1(e => e.type === 'Sillatank');
+    capTo1(e => e.type === 'Sillamasin' || e.type === 'Pontoonsillapark');
+  }
+  if(g === 'planes') capTo1(e => ['Su-27', 'Su-30', 'Su-33', 'Su-35'].includes(e.label));
+  if(g === 'ad') capTo1(e => e.type === 'ÕT radar');
+  return n;
+}
+// Mitu küsimust 50/25 test reeglite järgi maksimaalselt saab (mudelid ei kordu; komplekti ühine max).
+function testCapacity(){
+  let cap = 0;
+  const setCaps = new Map();
+  GROUPS.forEach(g => {
+    const m = testGroupModelCap(g.id);
+    if(!m) return;
+    const lim = testLimitFor(g.id, true);
+    const c = lim === null ? m : Math.min(lim, m);
+    const set = testSetOf(g.id, true);
+    if(set) setCaps.set(set, (setCaps.get(set) || 0) + c);
+    else cap += c;
+  });
+  setCaps.forEach((c, set) => { cap += Math.min(c, set.max); });
+  return cap;
+}
+function updateTestButtons(){
+  const cap = testCapacity();
+  startTestBtn.disabled = cap === 0;
+  startTestBtn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE, cap) + ' küsimust)';
+  startTest25Btn.disabled = cap === 0;
+  startTest25Btn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE_SHORT, cap) + ' küsimust)';
+  if(window.TestRules) window.TestRules.refresh();
+}
+function testRuleChangeCount(){ return GROUPS.filter(g => hasTestRuleOverride(g.id)).length; }
+function testSetDissolved(set, custom){ return !!custom && set.groups.some(hasTestRuleOverride); }
+
 
 
 // appMode: 'practice' | 'test' — valitakse menüüst (kuldvillakul on oma olek kuldGame).
@@ -1975,7 +2079,7 @@ function buildUniqueVehiclePool(n){
   const groupCounts = {};
   const subtypeCounts = { bridgeTank: 0, bridgeVehicleOrPontoon: 0, su27Family: 0, adRadar: 0 };
   const target = Math.min(n, eligible.length);
-  const skippedGroups = rollTestSkips();
+  const skippedGroups = rollTestSkips(true);
   const setCounts = new Map();
 
   // Kõik pildiga mudelid osalevad ühes juhuslikus valikus.
@@ -1989,10 +2093,10 @@ function buildUniqueVehiclePool(n){
     if(chosen.length >= target) break;
 
     if(skippedGroups.has(entry.group)) continue;
-    const limit = TEST_GROUP_LIMITS[entry.group];
+    const limit = testLimitFor(entry.group, true);   // vaikereeglid või kasutaja oma (null = piiranguta)
     const used = groupCounts[entry.group] || 0;
-    if(limit !== undefined && used >= limit) continue;
-    const set = testSetOf(entry.group);
+    if(limit !== null && used >= limit) continue;
+    const set = testSetOf(entry.group, true);
     if(set && (setCounts.get(set) || 0) >= set.max) continue;
 
     if(entry.group === 'engineer'){
@@ -2718,11 +2822,7 @@ function renderHome(){
     label.append(checkbox, name, cnt);
     groupGrid.appendChild(label);
   });
-  const totalEligible = CATEGORIES.filter(e => e.files && e.files.length > 0).length;
-  startTestBtn.disabled = totalEligible === 0;
-  startTestBtn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE, totalEligible) + ' küsimust)';
-  startTest25Btn.disabled = totalEligible === 0;
-  startTest25Btn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE_SHORT, totalEligible) + ' küsimust)';
+  updateTestButtons();
   const catsEligible = GROUPS.filter(g => countEligible(g.id) > 0).length;
   startTest10Btn.disabled = catsEligible === 0;
   startTest10Btn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE_CATS, catsEligible) + ' küsimust)';
@@ -4265,6 +4365,7 @@ function buildKuldGame(groupIds){
           filename: entry.files[Math.floor(Math.random() * entry.files.length)],
           value: 100,
           state: 'open',
+          result: null,
           current: null
         }))
       };
@@ -4276,7 +4377,7 @@ function buildKuldGame(groupIds){
 }
 
 // --- Oma laud: redaktori mustand -> mäng ---
-const kuldEmptyQ = () => ({ empty: true, entry: null, filename: null, value: 0, state: 'done', current: null });
+const kuldEmptyQ = () => ({ empty: true, entry: null, filename: null, value: 0, state: 'done', result: null, current: null });
 function kuldEntryByCat(cat){ return CATEGORIES.find(e => e.cat === cat) || null; }
 function kuldDefaultValue(draft, row){ return draft.ladder ? 100 * (row + 1) : 100; }
 
@@ -4307,7 +4408,7 @@ function buildKuldGameFromDraft(draft){
       questions: c.cells.map(cell => {
         const entry = cell ? kuldEntryByCat(cell.cat) : null;
         if(!entry) return kuldEmptyQ();
-        return { entry, filename: cell.file, value: cell.value, state: 'open', current: null };
+        return { entry, filename: cell.file, value: cell.value, state: 'open', result: null, current: null };
       })
     })),
     score: 0,
@@ -4316,6 +4417,152 @@ function buildKuldGameFromDraft(draft){
     draft: JSON.parse(JSON.stringify(draft))
   };
 }
+
+// --- Võistkonnad: püsivad mängude vahel (seansi jooksul), punktid arvutatakse vastustest ---
+const KULD_TEAM_COLORS = ['#d4a72c', '#7fb069', '#5fa8d3', '#e07a5f', '#b48ead', '#4fb3a9'];
+const KULD_MAX_TEAMS = 6;
+let kuldTeams = [];          // [{id, name, color}]
+let kuldTeamSeq = 0;
+
+function kuldTeamById(id){ return kuldTeams.find(t => t.id === id) || null; }
+
+// Iga küsimuse tulemus: q.result = null (vastamata) | {ok: true|false, team: id|null}
+function kuldScores(){
+  const by = new Map(kuldTeams.map(t => [t.id, 0]));
+  let total = 0;
+  if(kuldGame) kuldGame.groups.forEach(g => g.questions.forEach(q => {
+    if(!q.result || !q.result.ok) return;
+    total += q.value;
+    if(q.result.team != null && by.has(q.result.team)) by.set(q.result.team, by.get(q.result.team) + q.value);
+  }));
+  if(kuldGame) kuldGame.score = total;
+  return { total, by };
+}
+
+function kuldHasProgress(){
+  return !!(kuldGame && kuldGame.groups.some(g => g.questions.some(q => !q.empty && q.result)));
+}
+
+function kuldIsFinished(){
+  return !!(kuldGame && kuldGame.groups.some(g => g.questions.some(q => !q.empty))
+    && kuldGame.groups.every(g => g.questions.every(q => q.empty || q.result)));
+}
+
+// Punktiseis: laua päises (üks kast või võistkondade kastid) ja küsimuse vaate ribal.
+function renderKuldScores(){
+  const { total, by } = kuldScores();
+  kuldScoreEl.textContent = total;
+  const scoreBox = document.getElementById('kuldScoreBox');
+  const teamBox = document.getElementById('kuldTeamScores');
+  const qScores = document.getElementById('kuldQScores');
+  const hasTeams = kuldTeams.length > 0;
+  scoreBox.style.display = hasTeams ? 'none' : '';
+  teamBox.hidden = !hasTeams;
+  teamBox.innerHTML = '';
+  qScores.innerHTML = '';
+  if(!hasTeams){
+    qScores.innerHTML = 'Punktid <b>' + total + '</b>';
+    return;
+  }
+  const best = Math.max(...kuldTeams.map(t => by.get(t.id)));
+  kuldTeams.forEach((t, i) => {
+    const pts = by.get(t.id);
+    const box = document.createElement('div');
+    box.className = 'kuld-team-score' + (best > 0 && pts === best ? ' leader' : '');
+    box.style.setProperty('--tc', t.color);
+    const name = document.createElement('span'); name.textContent = t.name;
+    const b = document.createElement('b'); b.textContent = pts;
+    box.append(name, b);
+    teamBox.appendChild(box);
+    const part = document.createElement('span');
+    part.className = 'kq-team';
+    part.style.setProperty('--tc', t.color);
+    const pn = document.createElement('span'); pn.textContent = t.name + ' ';
+    const pb = document.createElement('b'); pb.textContent = pts;
+    part.append(pn, pb);
+    if(i) qScores.append(' · ');
+    qScores.appendChild(part);
+  });
+}
+
+function updateKuldStatus(){
+  if(kuldEditor.style.display !== 'none') return;
+  if(!kuldIsFinished()){ kuldStatus.textContent = 'KULDVILLAK'; return; }
+  const { total, by } = kuldScores();
+  if(!kuldTeams.length){ kuldStatus.textContent = 'LÕPP — ' + total + ' PUNKTI'; return; }
+  const best = Math.max(...kuldTeams.map(t => by.get(t.id)));
+  const winners = kuldTeams.filter(t => by.get(t.id) === best);
+  kuldStatus.textContent = winners.length === 1
+    ? 'LÕPP — VÕITIS ' + winners[0].name + ' (' + best + ')'
+    : 'LÕPP — VIIK (' + best + ')';
+}
+
+// --- Kategooriate nimed laual: eestikeelne poolitamine (pehmed sidekriipsud) + ühtne kirjasuurus ---
+// Silbipiir: kaashäälikuühendist läheb järgmisse silpi viimane kaashäälik (juh·ti·mis, soo·mu·kid);
+// ühendis s + p/t/k + r/l jääb s eelmisse silpi (soo·mus·trans, Aus·traa·lia). Täishäälikute vahelt ei poolitata.
+// Igast servast jääb vähemalt 2 tähte.
+const KULD_VOWELS = 'aeiouõäöüyAEIOUÕÄÖÜY';
+function kuldHyphenateWord(w){
+  const isV = c => KULD_VOWELS.includes(c);
+  const isL = c => /\p{L}/u.test(c);
+  const breaks = [];
+  for(let j = 1; j < w.length; j++){
+    if(!isV(w[j]) || isV(w[j - 1]) || !isL(w[j - 1])) continue;
+    let k = j - 1;
+    while(k - 1 >= 0 && isL(w[k - 1]) && !isV(w[k - 1])) k--;
+    if(k === 0 || !isV(w[k - 1])) continue;          // ühend sõna alguses või mitte-tähe järel
+    let pos = j - 1;
+    const cl = w.slice(k, j).toLowerCase();
+    if(cl.length >= 3 && /s[ptk][rl]$/.test(cl)) pos = j - 2;
+    if(pos >= 2 && w.length - pos >= 2) breaks.push(pos);
+  }
+  let out = '';
+  for(let i = 0; i < w.length; i++) out += (breaks.includes(i) ? '­' : '') + w[i];
+  return out;
+}
+function kuldHyphenate(text){
+  return String(text).replace(/[\p{L}]{6,}/gu, kuldHyphenateWord);
+}
+
+// Kõik kategooriapäised ühe suurusega: nii suur kui võimalik, et pikim sõna mahub poolitamata
+// (vähendatakse kuni 85%-ni). Sõnad, mis ka siis ei mahu, poolitatakse silbipiirilt; teised jäävad terveks.
+let kuldMeasureEl = null;
+function fitKuldCats(){
+  const cats = [...kuldBoard.querySelectorAll('.kuld-cat')];
+  if(!cats.length || kuldScreen.style.display === 'none' || !kuldBoard.offsetParent) return;
+  cats.forEach(c => { c.style.fontSize = ''; c.textContent = c.dataset.label || ''; });
+  const cs = getComputedStyle(cats[0]);
+  const base = parseFloat(cs.fontSize) || 14;
+  const avail = cats[0].clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 3;
+  if(avail <= 0) return;
+  if(!kuldMeasureEl){
+    kuldMeasureEl = document.createElement('span');
+    kuldMeasureEl.style.cssText = 'position:absolute;left:-9999px;top:0;visibility:hidden;white-space:nowrap;';
+    document.body.appendChild(kuldMeasureEl);
+  }
+  kuldMeasureEl.style.font = cs.font;
+  kuldMeasureEl.style.letterSpacing = cs.letterSpacing;
+  kuldMeasureEl.style.textTransform = cs.textTransform;
+  const widths = new Map();
+  const widthAtBase = word => {
+    if(!widths.has(word)){ kuldMeasureEl.textContent = word; widths.set(word, kuldMeasureEl.getBoundingClientRect().width); }
+    return widths.get(word);
+  };
+  const words = label => label.split(/\s+/).filter(Boolean);   // sõna koos kirjavahemärkidega (nt „-radarid,“)
+  let widest = 0;
+  cats.forEach(c => words(c.dataset.label || '').forEach(w => { widest = Math.max(widest, widthAtBase(w)); }));
+  const size = widest <= avail ? base : Math.max(base * 0.85, base * avail / widest);
+  const k = size / base;
+  cats.forEach(c => {
+    if(size !== base) c.style.fontSize = size.toFixed(1) + 'px';
+    c.textContent = (c.dataset.label || '').replace(/\S+/g, w => widthAtBase(w) * k > avail ? kuldHyphenate(w) : w)
+      .replace(/(^|\s)-(?=\p{L})/gu, '$1-\u2060');      // „ja -radarid“: kriips jääb sõna külge, rida ei lõpe „-“-ga
+  });
+}
+window.fitKuldCats = fitKuldCats;
+let kuldFitRaf = 0;
+window.addEventListener('resize', () => { cancelAnimationFrame(kuldFitRaf); kuldFitRaf = requestAnimationFrame(fitKuldCats); });
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(() => fitKuldCats());
 
 function renderKuldBoard(){
   kuldBoard.innerHTML = '';
@@ -4326,7 +4573,10 @@ function renderKuldBoard(){
   kuldGame.groups.forEach(group => {
     const cat = document.createElement('div');
     cat.className = 'kuld-cat';
-    cat.textContent = group.label;
+    cat.lang = 'et';
+    cat.dataset.label = group.label;
+    cat.title = group.label;
+    cat.textContent = group.label;           // poolitus ja suurus: fitKuldCats
     kuldBoard.appendChild(cat);
   });
 
@@ -4341,9 +4591,27 @@ function renderKuldBoard(){
         btn.disabled = true;
         btn.setAttribute('aria-hidden', 'true');
         btn.tabIndex = -1;
+      }else if(q.result){
+        // Vastatud: „+punktid“ (ja võistkond) või „−“; klõps avab paranduse.
+        const team = q.result.ok && q.result.team != null ? kuldTeamById(q.result.team) : null;
+        btn.classList.add('answered', q.result.ok ? 'res-good' : 'res-bad');
+        if(team){ btn.classList.add('has-team'); btn.style.setProperty('--tc', team.color); }
+        const pts = document.createElement('span');
+        pts.className = 'kc-pts';
+        pts.textContent = q.result.ok ? '+' + q.value : '−';
+        btn.appendChild(pts);
+        if(team){
+          const tn = document.createElement('span');
+          tn.className = 'kc-team';
+          tn.textContent = team.name;
+          btn.appendChild(tn);
+        }
+        const who = q.result.ok ? (team ? team.name + ' vastas õigesti' : 'Läks täppi') : (kuldTeams.length ? 'Keegi ei vastanud õigesti' : 'Ei läinud täppi');
+        btn.title = group.label + ' — ' + q.value + ' punkti: ' + who + '. Klõpsa, et parandada.';
+        btn.setAttribute('aria-label', btn.title);
+        btn.addEventListener('click', () => openKuldQuestion(col, row));
       }else{
-        btn.textContent = q.state === 'done' ? '—' : String(q.value);
-        btn.disabled = q.state === 'done';
+        btn.textContent = String(q.value);
         btn.title = group.label + ' — ' + q.value + ' punkti';
         btn.addEventListener('click', () => openKuldQuestion(col, row));
       }
@@ -4353,7 +4621,9 @@ function renderKuldBoard(){
   const total = kuldGame.groups.reduce((sum, g) => sum + g.questions.filter(q => !q.empty).length, 0);
   kuldEyebrow.textContent = total + ' küsimust' + (kuldGame.custom ? ' · oma laud' : '');
   kuldResetBtn.title = kuldGame.custom ? 'Alusta sama lauda uuesti' : 'Uus kuldvillak';
-  kuldScoreEl.textContent = kuldGame.score;
+  renderKuldScores();
+  updateKuldStatus();
+  requestAnimationFrame(fitKuldCats);
 }
 
 function showKuldScreen(){
@@ -4369,7 +4639,7 @@ function showKuldScreen(){
 // Küsimuse täisekraanvaade: lukustab lehe kerimise, kuni küsimus on avatud.
 let kuldLoadToken = 0;
 function hideKuldQuestion(){
-  kuldQuestion.classList.remove('open');
+  kuldQuestion.classList.remove('open', 'revealed', 'review');
   document.body.style.overflow = '';
 }
 
@@ -4378,40 +4648,101 @@ function showKuldBoard(){
   kuldEditor.style.display = 'none';
   kuldPanel.style.display = 'block';
   kuldStatus.textContent = 'KULDVILLAK';
+  updateKuldStatus();
+  requestAnimationFrame(fitKuldCats);
 }
 
 // „Tagasi mängulauale" ilma vastamata: küsimus jääb lauale avatuks (saab hiljem uuesti avada).
-// Varem jäi kuldGame.active seadmata tagasi, mistõttu ükski lahter enam ei avanenud ("laud külmus").
 function backToKuldBoard(){
   kuldLoadToken++;                     // pooleli pildilaadimine ei tohi enam midagi kuvada
   if(kuldGame) kuldGame.active = null;
   showKuldBoard();
 }
 
+// Hindamisnupud (nagu testis): ilma võistkondadeta ✓ (1) / ✗ (2);
+// võistkondadega iga võistkond (1…6) ja „Keegi ei vastanud“ (0). Parandamisel ka „Vastamata“.
+function buildKuldVerdicts(q, review){
+  const row = document.getElementById('kuldVerdictRow');
+  row.innerHTML = '';
+  const cur = q.result;
+  const mk = (cls, text, key, result, id) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = cls;
+    b.textContent = text + (key ? ' (' + key + ')' : '');
+    if(key) b.dataset.key = key;
+    if(id) b.id = id;
+    b.addEventListener('click', () => setKuldResult(result));
+    row.appendChild(b);
+    return b;
+  };
+  const same = (r) => !!(cur && r && cur.ok === r.ok && (cur.team ?? null) === (r.team ?? null));
+  if(!kuldTeams.length){
+    const g = mk('good', '✓ Läks täppi +' + q.value, '1', { ok: true, team: null }, 'kuldGoodBtn');
+    const b = mk('bad', '✗ Ei läinud täppi', '2', { ok: false, team: null }, 'kuldBadBtn');
+    if(same({ ok: true, team: null })) g.classList.add('chosen');
+    if(same({ ok: false, team: null })) b.classList.add('chosen');
+  }else{
+    kuldTeams.forEach((t, i) => {
+      const r = { ok: true, team: t.id };
+      const b = mk('good kuld-team-btn', '✓ ' + t.name, String(i + 1), r);
+      b.style.setProperty('--tc', t.color);
+      b.title = t.name + ' vastas õigesti: +' + q.value;
+      if(same(r)) b.classList.add('chosen');
+    });
+    const none = mk('bad', '✗ Keegi ei vastanud', '0', { ok: false, team: null }, 'kuldBadBtn');
+    if(cur && !cur.ok) none.classList.add('chosen');
+  }
+  if(review){
+    const u = mk('kuld-undo-btn', '↺ Vastamata', '', null);
+    u.title = 'Tühista hinnang: küsimus muutub laual uuesti avatuks';
+  }
+}
+
 async function openKuldQuestion(col, row){
   if(!kuldGame || kuldGame.active) return;
   const q = kuldGame.groups[col].questions[row];
-  if(q.empty || q.state === 'done') return;
+  if(q.empty) return;
+  const review = !!q.result;
 
   const token = ++kuldLoadToken;
-  kuldGame.active = { col, row };
+  kuldGame.active = { col, row, review };
+  kuldQuestion.classList.remove('revealed', 'review');
   kuldQuestion.classList.add('open');
+  if(review) kuldQuestion.classList.add('review');
   document.body.style.overflow = 'hidden';
   kuldQuestionCat.textContent = kuldGame.groups[col].label;
-  kuldQuestionValue.textContent = q.value;
-  kuldGoodBtn.textContent = '✓ Läks täppi (+' + q.value + ')';
+  kuldQuestionCat.title = kuldGame.groups[col].label;
+  kuldQuestionValue.textContent = q.value + ' punkti';
+  const hud = document.getElementById('kuldHudStatus');
+  hud.textContent = review ? 'PARANDUS' : 'LAEN...';
+  kuldScope.classList.remove('ready');
   kuldPhoto.style.display = 'none';
-  kuldAnswer.style.display = 'none';
+  const guess = document.getElementById('kuldGuess');
+  guess.value = '';
+  guess.disabled = true;
   kuldRevealBtn.disabled = true;
-  kuldGoodBtn.disabled = true;
-  kuldBadBtn.disabled = true;
+  // Vastus ja hindamisnupud pannakse paika kohe (nähtamatuna), et vastuse näitamine ei muudaks paigutust.
+  kuldCorrectValue.textContent = (q.entry.type ? q.entry.type + ' ' : '') + q.entry.label;
+  kuldFileLine.textContent = 'Failinimi: ' + q.filename;
+  document.getElementById('kuldYourGuess').textContent = review ? 'Vali uus hinnang või tühista see.' : ' ';
+  buildKuldVerdicts(q, review);
   kuldStateMsg.style.display = 'flex';
   kuldStateMsg.innerHTML = '<div class="spinner"></div><div>Laen pilti...</div>';
+  renderKuldScores();
 
   try{
     const file = await fetchSpecificFile(q.filename);
     if(token !== kuldLoadToken) return;
     q.current = { label:q.entry.label, type:q.entry.type || '', cat:q.entry.cat, ...file };
+    kuldFileLine.innerHTML = '';
+    kuldFileLine.append('Failinimi: ' + q.current.filename);
+    if(q.current.filepageUrl){
+      const a = document.createElement('a');
+      a.href = q.current.filepageUrl; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = 'vaata Commonsis';
+      kuldFileLine.append(' — ', a);
+    }
     kuldPhoto.src = file.url;
     await new Promise((resolve,reject) => {
       const img = new Image();
@@ -4422,46 +4753,54 @@ async function openKuldQuestion(col, row){
     if(token !== kuldLoadToken) return;
     kuldStateMsg.style.display = 'none';
     kuldPhoto.style.display = 'block';
-    kuldRevealBtn.disabled = false;
+    kuldScope.classList.add('ready');
+    if(review){
+      kuldQuestion.classList.add('revealed');
+    }else{
+      hud.textContent = 'OOTAN VASTUST';
+      guess.disabled = false;
+      kuldRevealBtn.disabled = false;
+    }
   }catch(err){
     if(token !== kuldLoadToken) return;
     kuldStateMsg.innerHTML = '<div>Pilti ei õnnestunud laadida.</div>';
+    hud.textContent = 'VIGA';
     q.current = null;
     kuldGame.active = null;
   }
 }
 
 function revealKuldAnswer(){
-  if(!kuldGame || !kuldGame.active) return;
+  if(!kuldGame || !kuldGame.active || kuldQuestion.classList.contains('revealed')) return;
   const {col,row} = kuldGame.active;
   const q = kuldGame.groups[col].questions[row];
   if(!q.current) return;
-  kuldCorrectValue.textContent = (q.current.type ? q.current.type + ' ' : '') + q.current.label;
-  kuldFileLine.innerHTML = 'Failinimi: ' + q.current.filename
-    + (q.current.filepageUrl ? ' — <a href="' + q.current.filepageUrl + '" target="_blank" rel="noopener">vaata Commonsis</a>' : '');
-  kuldAnswer.style.display = 'block';
+  const guess = document.getElementById('kuldGuess');
+  const g = guess.value.trim();
+  const yg = document.getElementById('kuldYourGuess');
+  yg.textContent = '';
+  if(g){ yg.append('Sinu vastus: '); const b = document.createElement('b'); b.textContent = g; yg.appendChild(b); }
+  else yg.textContent = 'Vastust ei kirjutatud.';
+  guess.blur();
   kuldRevealBtn.disabled = true;
-  kuldGoodBtn.disabled = false;
-  kuldBadBtn.disabled = false;
+  document.getElementById('kuldHudStatus').textContent = 'VASTUS NÄHTAV';
+  kuldQuestion.classList.add('revealed');
 }
 
-function finishKuldQuestion(isCorrect){
+// Hinnang (või parandus): result = {ok, team} või null (tagasi vastamata).
+function setKuldResult(result){
   if(!kuldGame || !kuldGame.active) return;
-  const {col,row} = kuldGame.active;
+  const {col,row,review} = kuldGame.active;
   const q = kuldGame.groups[col].questions[row];
-  if(!q.current) return;
-
-  if(isCorrect) kuldGame.score += q.value;
-  q.state = 'done';
+  if(!q.current && !review) return;
+  q.result = result ? { ok: !!result.ok, team: result.ok ? (result.team ?? null) : null } : null;
+  q.state = q.result ? 'done' : 'open';
   kuldGame.active = null;
+  kuldLoadToken++;
   renderKuldBoard();
   showKuldBoard();
-
-  const done = kuldGame.groups.every(g => g.questions.every(x => x.state === 'done'));
-  if(done){
-    kuldStatus.textContent = 'LÕPP — ' + kuldGame.score + ' PUNKTI';
-  }
 }
+function finishKuldQuestion(isCorrect){ setKuldResult({ ok: !!isCorrect, team: null }); }
 
 function startKuldvillak(groupIds){
   if(!groupIds || groupIds.length !== 5) return;
@@ -4479,6 +4818,9 @@ function openKuldConfig(){
 
 function resetKuldvillak(){
   if(!kuldGame) return;
+  if(kuldHasProgress() && !confirm(kuldGame.custom
+      ? 'Alustada sama lauda otsast peale? Praegune seis ja punktid kustuvad.'
+      : 'Alustada uus kuldvillak (uued pildid)? Praegune laud, seis ja punktid kustuvad.')) return;
   if(kuldGame.custom){
     kuldGame = buildKuldGameFromDraft(kuldGame.draft);   // sama laud otsast peale
     showKuldBoard();
@@ -4868,7 +5210,7 @@ skipBtn.addEventListener('click', () => {
 });
 
 menuBtn.addEventListener('click', goHome);
-titleHome.addEventListener('click', goHome);
+titleHome.addEventListener('click', () => { if(kuldScreen.style.display !== 'none') leaveKuldToHome(); else goHome(); });
 startPracticeBtn.addEventListener('click', startPractice);
 (function(){
   // Harjutuskategooriate nimekiri on vaikimisi suletud; nupp avab/sulgeb selle. Valik säilib sulgemisel.
@@ -4906,15 +5248,123 @@ startKuldvillakBtn.addEventListener('click', openKuldConfig);
 kuldRandomBtn.addEventListener('click', randomKuldGroups);
 kuldUseSelectedBtn.addEventListener('click', startKuldFromSelection);
 kuldRevealBtn.addEventListener('click', revealKuldAnswer);
-kuldGoodBtn.addEventListener('click', () => finishKuldQuestion(true));
-kuldBadBtn.addEventListener('click', () => finishKuldQuestion(false));
 kuldBackBoardBtn.addEventListener('click', backToKuldBoard);
+// Klaviatuur küsimuse vaates (nagu testis): Enter näitab vastust; seejärel 1 = läks täppi, 2 = ei läinud
+// (võistkondadega 1…6 = võistkond, 0 = keegi ei vastanud). Esc viib mängulauale.
 document.addEventListener('keydown', ev => {
-  if(ev.key === 'Escape' && kuldQuestion.classList.contains('open') && !document.querySelector('.ct-modal')){
-    ev.preventDefault();
-    backToKuldBoard();
+  if(!kuldQuestion.classList.contains('open') || document.querySelector('.ct-modal')) return;
+  if(ev.ctrlKey || ev.metaKey || ev.altKey) return;
+  if(ev.key === 'Escape'){ ev.preventDefault(); backToKuldBoard(); return; }
+  const t = ev.target;
+  const typing = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+  if(ev.key === 'Enter'){
+    if(t && t.tagName === 'BUTTON' && !typing && t !== kuldRevealBtn && kuldQuestion.contains(t)) return;   // fookusega nupp
+    if(!kuldQuestion.classList.contains('revealed')){ ev.preventDefault(); revealKuldAnswer(); }
+    return;
   }
+  if(typing || !kuldQuestion.classList.contains('revealed')) return;
+  const b = document.querySelector('#kuldVerdictRow button[data-key="' + ev.key + '"]');
+  if(b){ ev.preventDefault(); b.click(); }
 });
+// --- Võistkondade paneel (👥 mängulaual) ---
+(function(){
+  const btn = document.getElementById('kuldTeamsBtn');
+  const panel = document.getElementById('kuldTeamsPanel');
+  const list = document.getElementById('kuldTeamsList');
+  const addBtn = document.getElementById('kuldTeamAddBtn');
+  const noneBtn = document.getElementById('kuldTeamNoneBtn');
+  const doneBtn = document.getElementById('kuldTeamsDoneBtn');
+  if(!btn || !panel) return;
+
+  const teamHasPoints = id => !!(kuldGame && kuldGame.groups.some(g => g.questions.some(q => q.result && q.result.ok && q.result.team === id)));
+  const nextColor = () => KULD_TEAM_COLORS.find(c => !kuldTeams.some(t => t.color === c)) || KULD_TEAM_COLORS[kuldTeams.length % KULD_TEAM_COLORS.length];
+
+  function addTeam(){
+    if(kuldTeams.length >= KULD_MAX_TEAMS) return;
+    kuldTeamSeq++;
+    kuldTeams.push({ id: 't' + kuldTeamSeq, name: 'Võistkond ' + (kuldTeams.length + 1), color: nextColor() });
+  }
+  // Eemaldatud võistkonna õiged vastused jäävad laual alles ilma võistkonnata (saab parandada).
+  function dropTeamResults(id){
+    if(kuldGame) kuldGame.groups.forEach(g => g.questions.forEach(q => { if(q.result && q.result.team === id) q.result.team = null; }));
+  }
+
+  function refreshGame(){ if(kuldGame) renderKuldBoard(); else renderKuldScores(); }
+
+  function render(){
+    list.innerHTML = '';
+    const { by } = kuldScores();
+    kuldTeams.forEach((t, i) => {
+      const row = document.createElement('div');
+      row.className = 'kuld-team-row';
+      row.style.setProperty('--tc', t.color);
+      const key = document.createElement('span');
+      key.className = 'kt-key';
+      key.textContent = i + 1;
+      key.title = 'Klahv ' + (i + 1);
+      const inp = document.createElement('input');
+      inp.type = 'text';
+      inp.maxLength = 24;
+      inp.value = t.name;
+      inp.setAttribute('aria-label', 'Võistkonna ' + (i + 1) + ' nimi');
+      inp.addEventListener('input', () => { t.name = inp.value.trim() || ('Võistkond ' + (i + 1)); refreshGame(); });
+      inp.addEventListener('blur', () => { inp.value = t.name; });
+      inp.addEventListener('keydown', ev => { if(ev.key === 'Enter'){ ev.preventDefault(); inp.blur(); } });
+      const pts = document.createElement('span');
+      pts.className = 'kt-pts';
+      pts.textContent = by.get(t.id) + ' p';
+      const del = document.createElement('button');
+      del.type = 'button';
+      del.className = 'kuld-ed-del';
+      del.textContent = '✕';
+      del.title = 'Eemalda võistkond';
+      del.setAttribute('aria-label', 'Eemalda ' + t.name);
+      del.addEventListener('click', () => {
+        if(teamHasPoints(t.id) && !confirm('Eemaldada „' + t.name + '“? Selle võistkonna punktid kaovad (vastused jäävad laual alles ilma võistkonnata).')) return;
+        dropTeamResults(t.id);
+        kuldTeams = kuldTeams.filter(x => x !== t);
+        render(); refreshGame();
+      });
+      row.append(key, inp, pts, del);
+      list.appendChild(row);
+    });
+    if(!kuldTeams.length){
+      const e = document.createElement('div');
+      e.className = 'kuld-teams-empty';
+      e.textContent = 'Võistkondi pole: kõik punktid lähevad ühisesse seisu.';
+      list.appendChild(e);
+    }
+    addBtn.disabled = kuldTeams.length >= KULD_MAX_TEAMS;
+    noneBtn.disabled = !kuldTeams.length;
+  }
+
+  function setOpen(open){
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.classList.toggle('active', open);
+    if(open) render();
+    requestAnimationFrame(() => window.fitKuldCats && window.fitKuldCats());
+  }
+  btn.addEventListener('click', () => {
+    if(panel.hidden && !kuldTeams.length){ addTeam(); addTeam(); refreshGame(); }   // esimesel avamisel kaks võistkonda valmis
+    setOpen(panel.hidden);
+  });
+  addBtn.addEventListener('click', () => {
+    addTeam(); render(); refreshGame();
+    const inputs = list.querySelectorAll('input');
+    if(inputs.length){ const last = inputs[inputs.length - 1]; last.focus(); last.select(); }
+  });
+  noneBtn.addEventListener('click', () => {
+    if(kuldTeams.some(t => teamHasPoints(t.id)) && !confirm('Mängida ilma võistkondadeta? Võistkondade punktid liidetakse ühiseks seisuks.')) return;
+    kuldTeams.forEach(t => dropTeamResults(t.id));
+    kuldTeams = [];
+    render(); refreshGame();
+  });
+  doneBtn.addEventListener('click', () => setOpen(false));
+  // Uus mäng või laualt lahkumine sulgeb paneeli.
+  new MutationObserver(() => { if(kuldPanel.style.display === 'none' || kuldScreen.style.display === 'none') setOpen(false); })
+    .observe(kuldPanel, {attributes: true, attributeFilter: ['style']});
+})();
 kuldCustomBtn.addEventListener('click', () => openKuldEditor(false));
 kuldEditBtn.addEventListener('click', () => openKuldEditor(true));
 document.getElementById('kuldEdFillBtn').addEventListener('click', fillKuldEditorRandom);
@@ -4930,7 +5380,25 @@ document.getElementById('kuldEdSaveBtn').addEventListener('click', () => {
 document.getElementById('kuldEdOpenBtn').addEventListener('click', openKuldFromFileInEditor);
 document.getElementById('kuldOpenBtn').addEventListener('click', openKuldFromFileAsGame);
 document.getElementById('kuldEdCancelBtn').addEventListener('click', cancelKuldEditor);
-kuldMenuBtn.addEventListener('click', () => { kuldLoadToken++; if(kuldGame) kuldGame.active = null; hideKuldQuestion(); goHome(); });
+// Kuldvillakust avalehele: küsi kinnitust, kui laud kaoks (pooleli/lõppenud mäng, oma koostatud laud
+// või redaktoris pooleli mustand). Kehtib nii „‹ Avalehele“ nupule kui pealkirjale klõpsamisele.
+function kuldConfirmLeave(){
+  if(kuldScreen.style.display === 'none') return true;
+  let msg = '';
+  if(kuldEditor.style.display !== 'none'){
+    if(kuldDraft && kuldDraft.cols.some(c => c.cells.some(Boolean))) msg = 'Minna avalehele? Redaktoris koostatud laud kaob (kui sa pole seda salvestanud).';
+  }else if(kuldHasProgress()){
+    msg = 'Minna avalehele? Praegune mäng koos seisu ja punktidega kaob.';
+  }else if(kuldGame && kuldGame.custom){
+    msg = 'Minna avalehele? Koostatud laud kaob (kui sa pole seda salvestanud).';
+  }
+  return !msg || confirm(msg);
+}
+function leaveKuldToHome(){
+  if(!kuldConfirmLeave()) return;
+  kuldLoadToken++; if(kuldGame) kuldGame.active = null; hideKuldQuestion(); goHome();
+}
+kuldMenuBtn.addEventListener('click', leaveKuldToHome);
 kuldResetBtn.addEventListener('click', resetKuldvillak);
 showModelListBtn.addEventListener('click', showListScreen);
 listBackBtn.addEventListener('click', goHome);
@@ -5386,6 +5854,431 @@ window.addEventListener('hashchange', startFromHash);
   updateScoreLine();
 })();
 </script>
+<style id="kuldFsStyles">
+  /* Kuldvillak: küsimuse vaade nagu testis, võistkonnad, vastatud lahtrid, täisekraan. */
+  body.kuld-active .scorebox{display:none;}          /* testi „Tulemus“ ei puutu Kuldvillakusse */
+  .kuld-head{flex-wrap:wrap;}
+  .kuld-head-right{flex-wrap:wrap;justify-content:flex-end;}
+  .kuld-fs-btn{font-size:17px;padding:7px 12px;}
+  .kuld-hist-right{display:flex;gap:6px;}
+  #kuldTeamsBtn.active{border-color:var(--olive);color:var(--olive);}
+
+  /* kategooriate päised: poolitus ainult silbipiirilt (pehmed sidekriipsud), mitte suvalisest kohast */
+  .kuld-cat{overflow-wrap:normal;word-break:normal;hyphens:manual;-webkit-hyphens:manual;}
+
+  /* vastatud lahtrid: +punktid (roheline / võistkonna värv) või − (punane); klõps avab paranduse */
+  .kuld-cell.answered{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:0;overflow:hidden;}
+  .kuld-cell.answered .kc-pts{font-size:.8em;line-height:1;}
+  .kuld-cell.res-bad .kc-pts{font-size:1.15em;}
+  .kuld-cell.res-good{color:var(--green);border-color:var(--green);background:rgba(111,154,74,.10);}
+  .kuld-cell.res-bad{color:var(--red);border-color:rgba(176,67,47,.6);background:rgba(176,67,47,.07);}
+  .kuld-cell.has-team{color:var(--tc);border-color:var(--tc);background:color-mix(in srgb, var(--tc) 12%, transparent);box-shadow:inset 0 4px 0 var(--tc);}
+  .kuld-cell.answered:hover{filter:brightness(1.25);}
+  .kc-team{font-family:var(--font-body);font-size:max(9px,.3em);font-weight:600;letter-spacing:.05em;text-transform:uppercase;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 4px;}
+
+  /* võistkondade punktid ja seadistus */
+  .kuld-team-scores{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+  .kuld-team-scores[hidden],.kuld-teams-panel[hidden]{display:none;}
+  .kuld-team-score{flex:1 1 120px;min-width:0;display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:6px 12px;background:var(--bg-0);border:1px solid var(--line);border-top:4px solid var(--tc);}
+  .kuld-team-score span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .kuld-team-score b{font-family:var(--font-display);font-size:24px;color:var(--tc);}
+  .kuld-team-score.leader{border-color:var(--tc);}
+  .kuld-teams-panel{border:1px solid var(--line);background:var(--panel-2);padding:12px 14px;margin-bottom:12px;}
+  .kuld-team-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+  .kuld-team-row input[type=text]{min-width:0;padding:7px 10px;font-size:14px;border-left:4px solid var(--tc);}
+  .kt-key{flex:none;width:26px;height:26px;display:flex;align-items:center;justify-content:center;background:var(--tc);color:#0d0f0a;font-weight:700;font-size:13px;}
+  .kt-pts{flex:none;min-width:54px;text-align:right;color:var(--tc);font-size:13px;}
+  .kuld-teams-empty{font-size:12px;color:var(--bone-dim);margin-bottom:6px;}
+  .kuld-teams-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .kuld-teams-actions button{flex:1 1 auto;}
+
+  /* küsimuse vaade (nagu testi täisekraan): riba, sihik, vastuse väli; vastus + hindamine samas kohas */
+  .kuld-question{gap:6px;}
+  .kq-nav{flex:none;margin-bottom:0;flex-wrap:wrap;}
+  .kq-nav .hist-status{flex:1 1 0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;}
+  .kq-scores{font-size:13px;letter-spacing:.06em;color:var(--bone);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+  .kq-scores b{color:var(--olive);font-size:16px;}
+  .kq-team b{color:var(--tc);}
+  .kuld-question .kuld-scope{touch-action:none;cursor:grab;}
+  .kuld-question .kuld-scope.dragging{cursor:grabbing;}
+  .kuld-scope .hud-tag.kq-value{font-family:var(--font-display);font-size:16px;letter-spacing:.06em;color:var(--amber);padding:4px 9px;}
+  .kuld-scope .scope-zoom{display:flex;}
+  #kuldPhoto.zoomable{transform-origin:0 0;-webkit-user-drag:none;user-select:none;-webkit-user-select:none;}
+  .kq-panel{flex:none;border-top:1px solid var(--line);padding:12px 14px;}
+  .kq-slot{display:grid;}
+  .kq-slot > *{grid-area:1 / 1;min-width:0;}
+  #kuldAnswer.kq-post{margin:0;padding:0;border:0;visibility:hidden;}
+  .kuld-question.revealed #kuldAnswer{visibility:visible;}
+  .kuld-question.revealed .kq-pre{visibility:hidden;}
+  .kq-post .your-guess{margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .kq-post .value{margin-bottom:2px;}
+  .kq-post .filename{margin-bottom:10px;}
+  .kq-post .verdict-row{margin-bottom:0;}
+  .kuld-question .verdict-row button.good.chosen{background:var(--green);color:#0d0f0a;}
+  .kuld-question .verdict-row button.bad.chosen{background:var(--red);color:#0d0f0a;}
+  .kuld-question .verdict-row button.kuld-team-btn{border-color:var(--tc);color:var(--tc);}
+  .kuld-question .verdict-row button.kuld-team-btn:hover,.kuld-question .verdict-row button.kuld-team-btn.chosen{background:var(--tc);color:#0d0f0a;}
+  .kuld-question .verdict-row button.kuld-undo-btn{flex:0 0 auto;}
+
+  /* täisekraan */
+  body.kuld-fs{padding:0;min-height:0;}
+  body.kuld-fs .wrap{max-width:none;height:100vh;height:100dvh;display:flex;flex-direction:column;padding:8px 12px;box-sizing:border-box;}
+  body.kuld-fs header, body.kuld-fs footer{display:none;}
+  body.kuld-fs #kuldScreen{flex:1;min-height:0;display:flex !important;flex-direction:column;}
+  body.kuld-fs #kuldScreen > .hist-nav{margin-bottom:6px;}
+  body.kuld-fs #kuldPanel{flex:1;min-height:0;display:flex !important;flex-direction:column;padding:10px 14px;}
+  body.kuld-fs .kuld-head{margin-bottom:10px;flex:none;}
+  body.kuld-fs .kuld-team-scores,body.kuld-fs .kuld-teams-panel{flex:none;}
+  body.kuld-fs .kuld-title{font-size:clamp(28px,4.5vh,48px);}
+  body.kuld-fs .kuld-score{padding:6px 16px;}
+  body.kuld-fs .kuld-score span{font-size:11px;}
+  body.kuld-fs .kuld-score b{font-size:clamp(26px,5vh,52px);}
+  body.kuld-fs .kuld-team-score{padding:8px 16px;}
+  body.kuld-fs .kuld-team-score span{font-size:clamp(12px,2vh,22px);}
+  body.kuld-fs .kuld-team-score b{font-size:clamp(24px,4.5vh,48px);}
+  body.kuld-fs .kuld-board{flex:1;min-height:0;grid-template-rows:minmax(0,auto) repeat(5,minmax(0,1fr));gap:clamp(4px,1vh,10px);}
+  body.kuld-fs .kuld-cat{min-height:0;font-size:clamp(13px,2.6vh,26px);padding:clamp(6px,1.2vh,14px) 8px;}
+  body.kuld-fs .kuld-cell{min-height:0;font-size:clamp(18px,min(7vh,5.5vw),72px);}
+  body.kuld-fs .kq-scores{font-size:15px;}
+  body.kuld-fs .kq-scores b{font-size:19px;}
+  body.kuld-fs .kuld-scope .hud-tag.kq-value{font-size:22px;}
+  @media(max-width:600px){
+    .kuld-cat{font-size:10px;padding:5px 3px;}
+    .kuld-team-scores{gap:6px;}
+    .kuld-team-score{flex:1 1 0;flex-direction:column;align-items:stretch;gap:0;padding:4px 8px;}
+    .kuld-team-score span{font-size:10px;letter-spacing:.04em;}
+    .kuld-team-score b{font-size:20px;line-height:1.1;}
+    .kc-team{display:none;}
+    body.kuld-fs .wrap{padding:6px;}
+    body.kuld-fs #kuldPanel{padding:8px;}
+    body.kuld-fs .kuld-cat{font-size:10px;padding:4px 2px;}
+    .kq-nav .hist-status{order:3;flex-basis:100%;text-align:left;}
+    .kq-scores{font-size:11px;letter-spacing:.02em;} .kq-scores b{font-size:14px;}
+  }
+  /* Telefonis: vastuse rida ja hindamisnupud kõrvuti, et pilt ja nupud mahuksid ekraanile */
+  @media(max-width:480px){
+    .kuld-question .row,.kuld-question .verdict-row{flex-direction:row;flex-wrap:wrap;}
+    .kuld-question .row input{min-width:0;}
+    .kuld-question .verdict-row button,.kuld-question .row button{padding-left:8px;padding-right:8px;font-size:11px;}
+    .kq-panel{padding:10px;}
+    .kq-post .filename{display:none;}
+  }
+</style>
+<script id="kuldFsScript">
+// ============================================================================
+// KULDVILLAKU TÄISEKRAAN (⛶ nupp Kuldvillaku ülemisel ribal ja küsimuse vaate ribal; klahv F).
+// - Lehe paigutus: päis peidetakse, mängulaud täidab kogu ekraani, numbrid ja punktid suured.
+// - Kus brauser lubab (arvuti, Android), läheb ka päris täisekraanile; iPhone'is ainult paigutus.
+// - Küsimuse pilti saab alati suurendada: rullik / pinch / topeltklõps / − ⤢ + nupud, lohistamine;
+//   klahvid + − 0. Uue küsimusega suurendus nullitakse.
+// - Redaktori avamine, avalehele minek või ⛶ uuesti lõpetab režiimi.
+// ============================================================================
+(function(){
+  const screen = document.getElementById('kuldScreen');
+  const nav = screen && screen.querySelector('.hist-nav');
+  const resetBtn = document.getElementById('kuldResetBtn');
+  const editor = document.getElementById('kuldEditor');
+  const question = document.getElementById('kuldQuestion');
+  const scope = document.getElementById('kuldScope');
+  const photo = document.getElementById('kuldPhoto');
+  if(!nav || !resetBtn || !scope || !photo || !question || !document.getElementById('kuldQFsBtn')) return;
+
+  const canFull = !!(document.documentElement.requestFullscreen && document.exitFullscreen);
+  let fsOn = false, usedApi = false;
+  const TITLE_ON = 'Välju täisekraanist (F)';
+  const TITLE_OFF = 'Täisekraan: mängulaud kogu ekraanil (F)';
+
+  // ⛶ ribal ↻ kõrval
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'nav-btn kuld-fs-btn';
+  btn.id = 'kuldFsBtn';
+  btn.textContent = '⛶';
+  btn.title = TITLE_OFF;
+  btn.setAttribute('aria-label', 'Täisekraan');
+  btn.setAttribute('aria-pressed', 'false');
+  const right = document.createElement('div');
+  right.className = 'kuld-hist-right';
+  resetBtn.replaceWith(right);
+  right.append(resetBtn, btn);
+
+  // ⛶ ka küsimuse vaate ribal (HTML-is)
+  const qBtn = document.getElementById('kuldQFsBtn');
+  qBtn.title = TITLE_OFF;
+
+  // ---- režiim sisse/välja ----
+  function setFs(on){
+    if(on === fsOn) return;
+    fsOn = on;
+    document.body.classList.toggle('kuld-fs', on);
+    [btn, qBtn].forEach(b => { b.setAttribute('aria-pressed', String(on)); b.title = on ? TITLE_ON : TITLE_OFF; });
+    requestAnimationFrame(() => { if(window.fitKuldCats) window.fitKuldCats(); });
+    if(on){
+      if(canFull && !document.fullscreenElement){
+        usedApi = true;
+        try{ document.documentElement.requestFullscreen().catch(() => { usedApi = false; }); }catch(e){ usedApi = false; }
+      }
+    }else if(usedApi){
+      usedApi = false;
+      try{ if(document.fullscreenElement === document.documentElement) document.exitFullscreen().catch(() => {}); }catch(e){}
+    }
+  }
+  const toggle = () => setFs(!fsOn);
+  btn.addEventListener('click', toggle);
+  qBtn.addEventListener('click', toggle);
+  document.addEventListener('fullscreenchange', () => {
+    // Esc brauseri täisekraanist lõpetab ka paigutuse.
+    if(fsOn && usedApi && !document.fullscreenElement){ usedApi = false; setFs(false); }
+    resetZoom();
+  });
+
+  // Kuldvillaku vaate jälgimine: testi „Tulemus“ peitmine, väljumine avalehele/redaktorisse minnes.
+  const visible = () => screen.style.display !== 'none';
+  function syncScreen(){
+    document.body.classList.toggle('kuld-active', visible());
+    if(fsOn && (!visible() || editor.style.display !== 'none')) setFs(false);
+    btn.style.display = editor.style.display !== 'none' ? 'none' : '';
+  }
+  const mo = new MutationObserver(syncScreen);
+  mo.observe(screen, {attributes: true, attributeFilter: ['style']});
+  if(editor) mo.observe(editor, {attributes: true, attributeFilter: ['style']});
+  syncScreen();
+
+  // ---- küsimuse pildi suurendus ----
+  const zoomBar = document.createElement('div');
+  zoomBar.className = 'scope-zoom';
+  const zb = (txt, title, fn) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = txt; b.title = title; b.setAttribute('aria-label', title); b.addEventListener('click', ev => { ev.stopPropagation(); fn(); }); b.addEventListener('pointerdown', ev => ev.stopPropagation()); return b; };
+  zoomBar.append(zb('−', 'Vähenda (-)', () => zoomBy(1 / 1.4)), zb('⤢', 'Sobita (0)', resetZoom), zb('+', 'Suurenda (+)', () => zoomBy(1.4)));
+  scope.appendChild(zoomBar);
+
+  let s = 1, x = 0, y = 0;
+  const MAX = 8;
+  function apply(){ photo.style.transform = s > 1.001 ? 'translate(' + x + 'px,' + y + 'px) scale(' + s + ')' : ''; }
+  function clamp(){
+    const W = scope.clientWidth, H = scope.clientHeight;
+    x = Math.min(0, Math.max(W - W * s, x));
+    y = Math.min(0, Math.max(H - H * s, y));
+  }
+  function zoomTo(s2, px, py){
+    s2 = Math.min(MAX, Math.max(1, s2));
+    const k = s2 / s;
+    x = px - (px - x) * k; y = py - (py - y) * k; s = s2;
+    clamp(); apply();
+  }
+  function zoomBy(f){ zoomTo(s * f, scope.clientWidth / 2, scope.clientHeight / 2); }
+  function resetZoom(){ s = 1; x = 0; y = 0; apply(); if(gestures) gestures.reset(); }
+  photo.classList.add('zoomable');
+  photo.draggable = false;
+  const qOpen = () => question.classList.contains('open');
+  let gestures = null;
+  gestures = attachZoomGestures(scope, {
+    enabled: () => qOpen() && photo.style.display !== 'none',
+    scale: () => s,
+    zoomTo,
+    pan(dx, dy, settle){ x += dx; y += dy; if(settle){ clamp(); apply(); } },
+    toggle(px, py){ if(s > 1.02) resetZoom(); else zoomTo(2.5, px, py); }
+  });
+  new MutationObserver(resetZoom).observe(photo, {attributes: true, attributeFilter: ['src']});
+  new MutationObserver(() => { if(!qOpen()) resetZoom(); }).observe(question, {attributes: true, attributeFilter: ['class']});
+  // Vastuse näitamine muudab pildi kõrgust: hoia suurendus piires.
+  if(window.ResizeObserver) new ResizeObserver(() => { if(s > 1.001){ clamp(); apply(); } }).observe(scope);
+  window.addEventListener('resize', () => { if(s > 1.001){ clamp(); apply(); } });
+
+  document.addEventListener('keydown', ev => {
+    if(!visible() || editor.style.display !== 'none') return;
+    const t = ev.target;
+    if(t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return;
+    if(ev.ctrlKey || ev.metaKey || ev.altKey) return;
+    if(document.querySelector('.lightbox.open, .cmpv.open, .model-gallery.open, .ct-modal')) return;
+    const k = ev.key;
+    let handled = true;
+    if(k === 'f' || k === 'F') toggle();
+    else if(qOpen() && (k === '+' || k === '=')) zoomBy(1.4);
+    else if(qOpen() && (k === '-' || k === '_')) zoomBy(1 / 1.4);
+    else if(qOpen() && k === '0' && !(question.classList.contains('revealed') && document.querySelector('#kuldVerdictRow [data-key="0"]'))) resetZoom();   // võistkondadega on 0 = „keegi ei vastanud“
+    else handled = false;
+    if(handled) ev.preventDefault();
+  });
+})();
+</script>
+<style id="testRulesStyles">
+  /* Testi reeglid (50/25): ⚙ nupp 50 küsimuse nupu kõrval, paneel ja „oma reeglid“ rida. */
+  .home-main .row.test50-row{flex-direction:row;}
+  .home-main .row > button.test-rules-btn{flex:0 0 auto;min-width:48px;padding:0 12px;font-size:19px;letter-spacing:0;line-height:1;}
+  .test-rules-btn[aria-expanded="true"]{border-color:var(--olive);color:var(--olive);}
+  .test-rules-btn.has-custom{border-color:var(--amber);color:var(--amber);}
+  .test-rules-status{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin-top:8px;font-size:12px;color:var(--amber);}
+  .test-rules-status[hidden],.test-rules-panel[hidden]{display:none;}
+  .test-rules-status button{padding:4px 8px;font-size:10px;}
+  .test-rules-panel{margin-top:8px;}
+  .tr-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 14px;}
+  .tr-row{display:grid;grid-template-columns:minmax(0,1fr) 64px 26px;align-items:center;gap:8px;padding:5px 6px;border-left:3px solid transparent;}
+  .tr-row.changed{border-left-color:var(--amber);background:rgba(212,167,44,.07);}
+  .tr-name{font-size:12px;line-height:1.25;min-width:0;hyphens:manual;-webkit-hyphens:manual;overflow-wrap:normal;}
+  .tr-name small{display:block;font-size:10px;color:var(--bone-dim);}
+  .tr-row input{width:100%;min-width:0;padding:5px 6px;font-size:14px;background:var(--bg-0);color:var(--bone);border:1px solid var(--line);text-align:center;}
+  .tr-row.changed input{border-color:var(--amber);color:var(--amber);}
+  .tr-row input::placeholder{color:var(--bone-dim);}
+  .tr-meta{display:block;font-size:10px;line-height:1.3;color:var(--bone-dim);}
+  .tr-meta .tr-chance{color:var(--olive);}
+  .tr-reset{padding:2px 0;font-size:13px;letter-spacing:0;visibility:hidden;}
+  .tr-row.changed .tr-reset{visibility:visible;}
+  .tr-foot{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px;}
+  .tr-cap{flex:1 1 220px;font-size:12px;color:var(--bone-dim);}
+  .tr-cap b{color:var(--bone);}
+  .tr-cap.is-warn{color:var(--amber);}
+  @media(max-width:700px){ .tr-grid{grid-template-columns:1fr;} }
+</style>
+<script id="testRulesScript">
+// ============================================================================
+// TESTI REEGLID (ainult 50/25 küsimust). Vaikimisi kiire kasutus ei muutu: ⚙ avab paneeli.
+// Iga kategooria: maksimaalne mudelite arv testis (0 = välja, tühi = piiranguta). Muudetud
+// read esile tõstetud; miinide ja UGV/USV juures „30% testidest“ (kaob, kui maksimumi muuta).
+// Salvestatakse brauserisse (loogika: testRuleOverrides / setTestRule põhiskriptis).
+// ============================================================================
+(function(){
+  const btn = document.getElementById('testRulesBtn');
+  const panel = document.getElementById('testRulesPanel');
+  const status = document.getElementById('testRulesStatus');
+  if(!btn || !panel || !status) return;
+  btn.closest('.row').classList.add('test50-row');
+
+  const pct = x => Math.round(x * 100) + '%';
+  const limTxt = v => v === null ? '∞' : String(v);
+  const el = (tag, cls, txt) => { const e = document.createElement(tag); if(cls) e.className = cls; if(txt !== undefined) e.textContent = txt; return e; };
+  let rows = [];        // [{g, row, inp, meta}]
+  let capEl = null, resetAllBtn = null;
+
+  function chanceNote(g){
+    if(hasTestRuleOverride(g)) return '';
+    if(TEST_GROUP_CHANCE[g] !== undefined) return pct(TEST_GROUP_CHANCE[g]) + ' testidest';
+    const set = TEST_GROUP_SETS.find(x => x.groups.includes(g));
+    if(set && !testSetDissolved(set, true)){
+      // lühend sulgudest, kui on (nt „Mehitamata maismaasõidukid (UGV)“ → „UGV“)
+      const names = set.groups.map(id => { const l = (GROUPS.find(x => x.id === id) || {label: id}).label; const m = /\(([^)]+)\)\s*$/.exec(l); return m ? m[1] : l; });
+      return names.join(' + ') + ' kokku ' + set.max + ', ' + pct(set.chance) + ' testidest';
+    }
+    return '';
+  }
+
+  function resetAll(){
+    if(!testRuleChangeCount()) return;
+    if(!confirm('Taastada vaikereeglid? Sinu muudetud maksimumid kustutatakse.')) return;
+    GROUPS.forEach(g => { if(hasTestRuleOverride(g.id)) delete testRuleOverrides[g.id]; });
+    saveTestRules();
+    if(!panel.hidden) build();
+    updateTestButtons();
+  }
+
+  function build(){
+    panel.innerHTML = '';
+    panel.appendChild(el('div', 'kuld-config-title', 'Testi reeglid'));
+    panel.appendChild(el('div', 'kuld-config-help',
+      'Kehtivad 50 ja 25 küsimusega testile (10 küsimuse test ei muutu). Number = mitu mudelit kategooriast võib testi tulla: 0 jätab kategooria välja, tühi = piiranguta. Sinu reeglid jäävad selles brauseris meelde.'));
+    const grid = el('div', 'tr-grid');
+    rows = [];
+    GROUPS.forEach(g => {
+      const models = testGroupModelCap(g.id);
+      if(!models) return;
+      const row = el('div', 'tr-row');
+      // pikad liitsõnad poolituvad silbipiirilt; sõna alguse kriips jääb sõna külge („ja -radarid“)
+      const nameTxt = g.label.replace(/\p{L}{12,}/gu, w => typeof kuldHyphenateWord === 'function' ? kuldHyphenateWord(w) : w)
+        .replace(/(^|\s)-(?=\p{L})/gu, '$1-\u2060');
+      const name = el('div', 'tr-name', nameTxt);
+      name.lang = 'et';
+      const meta = el('small', 'tr-meta');
+      const countTxt = groupCountLabel(g.id, models);
+      name.appendChild(meta);
+      const inp = el('input');
+      inp.type = 'number'; inp.min = '0'; inp.max = String(TEST_RULE_MAX); inp.step = '1'; inp.inputMode = 'numeric';
+      inp.placeholder = '∞';
+      inp.setAttribute('aria-label', g.label + ': maksimum testis');
+      const reset = el('button', 'tr-reset', '↺');
+      reset.type = 'button';
+      reset.title = 'Taasta vaikimisi väärtus';
+      reset.setAttribute('aria-label', g.label + ': taasta vaikimisi');
+      const apply = () => {
+        const raw = inp.value.trim();
+        const v = raw === '' ? null : Math.min(TEST_RULE_MAX, Math.max(0, Math.round(Number(raw))));
+        if(raw !== '' && !Number.isFinite(Number(raw))) return;
+        setTestRule(g.id, v);
+        updateTestButtons();
+      };
+      inp.addEventListener('input', apply);
+      inp.addEventListener('change', () => { refresh(); });
+      inp.addEventListener('keydown', ev => { if(ev.key === 'Enter'){ ev.preventDefault(); inp.blur(); } });
+      reset.addEventListener('click', () => { delete testRuleOverrides[g.id]; saveTestRules(); updateTestButtons(); });
+      row.append(name, inp, reset);
+      grid.appendChild(row);
+      rows.push({ g: g.id, row, inp, meta, countTxt });
+    });
+    panel.appendChild(grid);
+    const foot = el('div', 'tr-foot');
+    capEl = el('div', 'tr-cap');
+    resetAllBtn = el('button', '', 'Taasta vaikereeglid');
+    resetAllBtn.type = 'button';
+    resetAllBtn.addEventListener('click', resetAll);
+    const done = el('button', 'primary', 'Valmis');
+    done.type = 'button';
+    done.addEventListener('click', () => setOpen(false));
+    foot.append(capEl, resetAllBtn, done);
+    panel.appendChild(foot);
+    refresh();
+  }
+
+  // Uuendab olekut kohapeal (fookus väljal jääb alles).
+  function refresh(){
+    const n = testRuleChangeCount();
+    btn.classList.toggle('has-custom', n > 0);
+    btn.title = n ? 'Testi reeglid: kehtivad oma reeglid (' + n + ')' : 'Testi reeglid (25 ja 50 küsimust)';
+    status.hidden = n === 0;
+    status.innerHTML = '';
+    if(n){
+      status.append('● Kehtivad oma reeglid (' + n + (n === 1 ? ' muudatus' : ' muudatust') + ')');
+      const r = el('button', '', 'Taasta vaikereeglid');
+      r.type = 'button';
+      r.addEventListener('click', resetAll);
+      status.appendChild(r);
+    }
+    if(panel.hidden) return;
+    rows.forEach(({ g, row, inp, meta, countTxt }) => {
+      const changed = hasTestRuleOverride(g);
+      row.classList.toggle('changed', changed);
+      if(document.activeElement !== inp){
+        const v = testLimitFor(g, true);
+        inp.value = v === null ? '' : String(v);
+      }
+      meta.textContent = countTxt + ' · vaikimisi ' + limTxt(defaultTestLimit(g));
+      const c = chanceNote(g);
+      if(c){ meta.append(' · '); meta.appendChild(el('span', 'tr-chance', c)); }
+    });
+    const cap = testCapacity();
+    capEl.classList.toggle('is-warn', cap < TEST_SIZE);
+    capEl.innerHTML = '';
+    if(cap < TEST_SIZE){
+      capEl.append('Nende reeglitega mahub testi kuni ');
+      capEl.appendChild(el('b', '', String(cap)));
+      capEl.append(' küsimust' + (cap < TEST_SIZE_SHORT ? ' (ka 25 küsimuse test jääb lühemaks).' : ', 50 küsimuse test jääb lühemaks.'));
+    }else{
+      capEl.append('Testi mahub kuni ');
+      capEl.appendChild(el('b', '', String(cap)));
+      capEl.append(' erinevat mudelit.');
+    }
+    resetAllBtn.disabled = n === 0;
+  }
+
+  function setOpen(open){
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    if(open) build();
+    else refresh();
+  }
+  btn.addEventListener('click', () => setOpen(panel.hidden));
+
+  window.TestRules = { refresh, open: () => setOpen(true), close: () => setOpen(false) };
+  refresh();
+})();
+</script>
 <!-- Kureeritud test (õpetajale): eraldi moodul, vt curated-test.js ja Kureeritud_test_nouded.md -->
 <script src="./curated-test.js"></script>
 <!-- NATO tingmärkide harjutus: eraldi moodul, vt symbol-practice.js ja tools/build_symbols.py -->
@@ -5800,7 +6693,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc77'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc78'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');

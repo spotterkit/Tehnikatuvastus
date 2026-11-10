@@ -76,6 +76,9 @@ const CSS = `
 .ct-rule-toggle:hover{color:var(--amber);}
 .ct-caret{color:var(--amber);width:12px;flex:0 0 auto;}
 .ct-rule-ex{color:var(--amber);font-size:11px;}
+.ct-rule-models-tools{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:8px 0 2px;font-size:12px;color:var(--bone-dim);}
+.ct-rule-models-tools b{color:var(--bone);}
+.ct-rule-models-tools span{margin-right:4px;}
 .ct-rule-models{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:4px 16px;}
 .ct-rule-models label{display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:3px 0;}
 .ct-rule-models input{accent-color:var(--olive);}
@@ -541,6 +544,17 @@ function renderStep2(){
       h('button', {type: 'button', class: 'ct-rule-btn', title: 'Kogu kategooria (' + avail + ' ' + unit + ')', onclick: () => setTo(avail)}, 'Kõik'),
       h('button', {type: 'button', class: 'ct-rule-btn', title: 'Tühjenda', onclick: () => setTo(0)}, '0')));
     if(open){
+      // Kõik mudelid korraga: linnukesed maha või tagasi (nagu „Kõik“ / „0“ arvu juures).
+      const cats = new Set(models.map(e => e.cat));
+      const setAll = on => {
+        S.rules.excluded = S.rules.excluded.filter(c => !cats.has(c));
+        if(!on) S.rules.excluded = S.rules.excluded.concat(models.map(e => e.cat));
+        clampCounts(); render();
+      };
+      block.appendChild(h('div', {class: 'ct-rule-models-tools'},
+        h('span', null, 'Valitud ', h('b', null, (models.length - exN) + ' / ' + models.length), ' mudelit'),
+        h('button', {type: 'button', class: 'ct-rule-btn', title: 'Pane linnuke kõigile selle kategooria mudelitele', disabled: exN === 0, onclick: () => setAll(true)}, 'Vali kõik'),
+        h('button', {type: 'button', class: 'ct-rule-btn', title: 'Võta linnuke ära kõigilt selle kategooria mudelitelt', disabled: exN === models.length, onclick: () => setAll(false)}, 'Eemalda kõik')));
       const list = h('ul', {class: 'ct-rule-models'});
       models.forEach(e => {
         const cb = h('input', {type: 'checkbox', checked: !excl.has(e.cat)});
