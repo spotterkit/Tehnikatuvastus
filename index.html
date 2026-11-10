@@ -1657,7 +1657,7 @@ const CATEGORIES = [
   { label: "TBG-7V", group: "weapons", type: "Termobaariline lask RPG-7-le", cat: "TBG-7V", weight: 1, files: [] },
 
   // Väeliigid ja üksused — emblemmid ja üldfotod; šabloon, lisa pildifailid files[] massiividesse
-  // (nt "images/forces/vdv_embleem.png" või Commonsi failinimi). Pildita read ei kajastu kusagil.
+  // (nt "images/forces/navy.jpg" või Commonsi failinimi). Pildita read ei kajastu kusagil.
   { label: "Maavägi / Сухопутные войска", group: "forces", type: "", cat: "Maavägi", weight: 1, files: ["Russian_soldier_with_a_RPK-74.jpg", "Indra2018-27.jpg", "Проводы_призванных_в_рамках_мобилизации_на_площади_Нахимова%2C_2022%2C_14.jpg"] },
   { label: "Õhu- ja kosmosejõud (VKS) / Воздушно-космические силы", group: "forces", type: "", cat: "Õhu- ja kosmosejõud (VKS)", weight: 1, files: ["65th_anniversary_of_Radio-Technical_Troops_14.jpg"] },
   { label: "Merevägi (VMF) / Военно-морской флот", group: "forces", type: "", cat: "Merevägi (VMF)", weight: 1, files: ["Joint_exercises_of_Northern_and_Black_Sea_fleets_%282020-01-09%29_02.jpg", "images/forces/navy.jpg"] },
@@ -2404,19 +2404,44 @@ async function fetchSpecificFile(filename){
 }
 
 // Pildi allika rida. Commonsi pilt: „Allikas: Wikimedia Commons“ (link faili lehele, kus on autor ja
-// litsents) failinime asemel. Repo pilt (images/...): esialgu failinimi (allikate fail tuleb hiljem).
+// litsents) failinime asemel. Repo pilt (images/...): LOCAL_IMAGE_SOURCES järgi või ei midagi.
 // Kasutavad: testi/harjutuse vastus ja galerii. Kuldvillakus ja suurenduses allikat ei kuvata.
+// Repo piltide (images/...) allikad, kus see on teada. Ülejäänud repo piltide kohta on üldmärge
+// „Litsentsid ja allikad“ lehel; pildi all neil allikarida ei ole.
+const LOCAL_IMAGE_SOURCE_COMBAT = 'kaader Ukraina kaitsejõudude avalikust videost';
+const LOCAL_IMAGE_SOURCES = {
+  'images/artillery/2a36_01.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/artillery/2s19_01.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/artillery/2s19_02.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/artillery/2s1_02.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/artillery/2s3_01.webp': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/artillery/2s43_01.webp': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/artillery/2s7_01.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/ifv/bmp2_01.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/ifv/bmp2_02.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/ifv/bmp3_01.webp': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/tanks/t72_01.webp': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/tanks/t80_01.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/tanks/t80_02.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/mlrs/bm21_01.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
+  'images/ugv/Lyagushka.webp': LOCAL_IMAGE_SOURCE_COMBAT
+};
+function localImageSource(info){
+  const path = String((info && (info.rawTitle || info.url)) || '').trim().replace(/^\.\//, '');
+  return LOCAL_IMAGE_SOURCES[path] || '';
+}
 function sourceLinkLine(info){
   const frag = document.createDocumentFragment();
-  if(info && info.filepageUrl){
+  const localSrc = localImageSource(info);
+  if(localSrc){
+    frag.append('Allikas: ' + localSrc);
+  }else if(info && info.filepageUrl){
     frag.append('Allikas: ');
     const a = document.createElement('a');
     a.href = info.filepageUrl; a.target = '_blank'; a.rel = 'noopener noreferrer';
     a.textContent = 'Wikimedia Commons';
     a.title = 'Ava pildi leht Wikimedia Commonsis (autor ja litsents)';
     frag.appendChild(a);
-  }else if(info && info.filename){
-    frag.append('Failinimi: ' + info.filename);
   }
   return frag;
 }
@@ -6477,6 +6502,9 @@ window.addEventListener('hashchange', startFromHash);
     </ul>
     <p class="lic-note">Suurendatud vaates, piltide võrdluses, Kuldvillakus ja kureeritud testi projektorivaates allikat pildi juures ei näidata – sama pildi viide on galeriis. Pilte on kuvamiseks vähendatud, muul viisil neid muudetud ei ole.</p>
 
+    <h3>Muud pildid</h3>
+    <p>Osa pilte ei ole Wikimedia Commonsist. Need on pärit avalikest internetiallikatest: tootjate ja näituste fotod, uudisteportaalid ning Ukraina kaitsejõudude avalikud videod. Videokaadrite juures on allikas märgitud pildi all. Pilte kasutatakse mittetulunduslikul õppe-eesmärgil; autoriõigused kuuluvad algsetele autoritele.</p>
+
     <h3>Tehnilised andmed (TTA)</h3>
     <p>TTA andmed on kogutud avalikest allikatest ja tõlgitud masintõlkega. Iga mudeli allikad on loetletud tema TTA vaate all. Peamised allikad: <a href="https://odin.t2com.army.mil/WEG" target="_blank" rel="noopener noreferrer">U.S. Army ODIN / WEG</a>, Wikipedia (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>) ning Ukraina kaitseluure (HUR) portaal <a href="https://war-sanctions.gur.gov.ua/en" target="_blank" rel="noopener noreferrer">War&amp;Sanctions</a>.</p>
 
@@ -6933,7 +6961,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc82'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc83'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
