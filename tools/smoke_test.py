@@ -360,6 +360,15 @@ def main():
                   and ev("() => localStorage.getItem('tehnikatuvastus.testRules.v1')") is None)
         step("Testi reeglid", t_rules)
 
+        # Litsentsid ja allikad (avalehe nupp)
+        def t_lic():
+            home()
+            p.click("#licOpenBtn")
+            check("„Litsentsid ja allikad“ avaneb", p.is_visible("#licPanel") and "Wikimedia Commons" in p.text_content("#licPanel"))
+            p.keyboard.press("Escape")
+            check("Esc sulgeb litsentside akna", not p.is_visible("#licPanel"))
+        step("Litsentsid ja allikad", t_lic)
+
         # 6) Kuldvillaku fail: salvesta → ava
         def t_kuld():
             home()
