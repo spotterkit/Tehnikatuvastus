@@ -365,6 +365,7 @@ def main():
             home()
             p.click("#licOpenBtn")
             check("„Litsentsid ja allikad“ avaneb", p.is_visible("#licPanel") and "Wikimedia Commons" in p.text_content("#licPanel"))
+            check("Litsentside aknas on kontakt ja BY-SA märge", "koerakoonlased@protonmail.com" in p.text_content("#licPanel") and "CC BY-SA 4.0 alusel" in p.text_content("#licPanel"))
             p.keyboard.press("Escape")
             check("Esc sulgeb litsentside akna", not p.is_visible("#licPanel"))
         step("Litsentsid ja allikad", t_lic)
