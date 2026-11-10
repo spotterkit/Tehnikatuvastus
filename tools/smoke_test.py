@@ -298,7 +298,50 @@ def main():
             seq = phases(7)
             check("vana testifail töötab (vastust ei näidata)", seq == ["view", "write"] * 3 + ["end"], " ".join(seq))
             ev("() => CuratedTest.hide && CuratedTest.hide()")
+            # mudelite linnukesed: kõik maha / kõik tagasi ühe nupuga
+            home()
+            p.click("#startCuratedBtn")
+            ev("() => [...document.querySelectorAll('#curatedScreen button')].find(b => /›/.test(b.textContent) && !b.disabled).click()")
+            p.click(".ct-rule-toggle >> nth=0")
+            on = lambda: ev("() => [...document.querySelectorAll('.ct-rule-models input')].filter(c => c.checked).length")
+            n = ev("() => document.querySelectorAll('.ct-rule-models input').length")
+            p.click(".ct-rule-models-tools button:has-text('Eemalda kõik')")
+            cleared = on() == 0 and ev("() => document.querySelector('.ct-rule-block input.ct-num').max") == "0"
+            p.click(".ct-rule-models-tools button:has-text('Vali kõik')")
+            check("mudelid: „Eemalda kõik“ / „Vali kõik“", cleared and on() == n, f"{n} mudelit")
+            ev("() => CuratedTest.hide && CuratedTest.hide()")
         step("Kureeritud test", t_curated)
+
+        # Testi reeglid (50/25): vaikimisi ühe klikiga, ⚙ paneel, mõju testile, säilib uuendamisel, taastamine
+        def t_rules():
+            home()
+            ev("() => localStorage.removeItem('tehnikatuvastus.testRules.v1')")
+            home()
+            check("vaikimisi: paneel kinni, oma reeglite rida peidus",
+                  not p.is_visible("#testRulesPanel") and not p.is_visible("#testRulesStatus"))
+            p.click("#testRulesBtn")
+            idx = lambda gid: ev("""gid => { const l = GROUPS.find(g => g.id === gid).label;
+                return [...document.querySelectorAll('.tr-row input')].findIndex(i => i.getAttribute('aria-label').startsWith(l)); }""", gid)
+            def setv(gid, v):
+                loc = p.locator(".tr-row input").nth(idx(gid)); loc.fill(str(v)); loc.press("Enter")
+            setv("planes", 0); setv("mines", 2)
+            check("muudetud read märgitud, rida „oma reeglid“ nähtav",
+                  ev("() => document.querySelectorAll('.tr-row.changed').length") == 2 and p.is_visible("#testRulesStatus"))
+            r = ev("""() => { let pl = 0, minesEvery = true;
+                for(let i = 0; i < 25; i++){ const b = buildUniqueVehiclePool(50);
+                  pl += b.filter(x => x.entry.group === 'planes').length;
+                  if(!b.some(x => x.entry.group === 'mines')) minesEvery = false; }
+                let cat = 0; for(let i = 0; i < 25; i++) cat += buildCategoryPool(10).filter(x => x.entry.group === 'planes').length;
+                return {pl, minesEvery, cat}; }""")
+            check("reeglid kehtivad testile (0 = välja, muudetud miinidel pole 30%)", r["pl"] == 0 and r["minesEvery"], str(r))
+            check("10 küsimuse test kasutab vaikereegleid", r["cat"] > 0, str(r))
+            home()
+            check("reeglid säilivad lehe uuendamisel",
+                  ev("() => JSON.stringify(testRuleOverrides)") == '{"planes":0,"mines":2}' and p.is_visible("#testRulesStatus"))
+            p.click("#testRulesStatus button")
+            check("„Taasta vaikereeglid“ kustutab", ev("() => localStorage.getItem('tehnikatuvastus.testRules.v1')") is None
+                  and not p.is_visible("#testRulesStatus"))
+        step("Testi reeglid", t_rules)
 
         # 6) Kuldvillaku fail: salvesta → ava
         def t_kuld():
@@ -318,6 +361,66 @@ def main():
             n = ev("() => [...document.querySelectorAll('#kuldBoard .kuld-cell')].filter(b => !b.disabled).length")
             check("Kuldvillaku laua fail avaneb", n >= 3, f"aktiivseid lahtreid {n}")
             Path(path).unlink(missing_ok=True)
+            check("Kuldvillakus pole testi tulemuse kasti", not p.is_visible(".scorebox"))
+            p.click("#kuldFsBtn")
+            check("täisekraan sisse", ev("() => document.body.classList.contains('kuld-fs')"))
+            check("laud täidab ekraani", ev("() => document.getElementById('kuldBoard').getBoundingClientRect().bottom > innerHeight * 0.85"))
+            p.click("#kuldBoard .kuld-cell:not([disabled])")
+            p.wait_for_function("() => document.getElementById('kuldPhoto').style.display === 'block'")
+            p.click("#kuldScope .scope-zoom button:last-child")
+            check("küsimuse pilti saab suurendada", "scale(" in ev("() => document.getElementById('kuldPhoto').style.transform"))
+            p.click("#kuldRevealBtn"); p.click("#kuldGoodBtn")
+            check("pärast vastamist täisekraan jääb", ev("() => document.body.classList.contains('kuld-fs')")
+                  and ev("() => document.getElementById('kuldScore').textContent") != "0")
+            check("vastatud lahter näitab punkte", ev("() => document.querySelector('.kuld-cell.res-good .kc-pts').textContent.startsWith('+')"))
+            p.click("#kuldFsBtn")
+
+            def open_q(sel="#kuldBoard .kuld-cell:not(.answered):not(.is-empty)"):
+                p.click(sel)
+                p.wait_for_function("() => document.getElementById('kuldPhoto').style.display === 'block'")
+
+            def scope_h():
+                return ev("() => Math.round(document.getElementById('kuldScope').getBoundingClientRect().height)")
+
+            # vastuse näitamine ei muuda paigutust; Enter näitab, 2 = ei läinud täppi
+            open_q(); h1 = scope_h()
+            p.keyboard.press("Enter")
+            check("Enter näitab vastust, pilt ei hüppa", ev("() => document.getElementById('kuldQuestion').classList.contains('revealed')") and scope_h() == h1, f"{h1} -> {scope_h()}")
+            p.keyboard.press("2")
+            check("vale vastus näitab laual miinust", ev("() => document.querySelector('.kuld-cell.res-bad .kc-pts').textContent") == "−")
+            # parandus: vale → õige → vastamata
+            open_q(".kuld-cell.res-bad")
+            p.click("#kuldGoodBtn")
+            check("parandus muudab tulemuse ja punktid", ev("() => document.querySelectorAll('.kuld-cell.res-bad').length") == 0
+                  and ev("() => document.getElementById('kuldScore').textContent") == ev("() => String(kuldScores().total)"))
+            n_before = ev("() => document.querySelectorAll('.kuld-cell.answered').length")
+            open_q(".kuld-cell.res-good")
+            p.click(".kuld-undo-btn")
+            check("„Vastamata“ avab küsimuse uuesti", ev("() => document.querySelectorAll('.kuld-cell.answered').length") == n_before - 1)
+            # võistkonnad
+            p.click("#kuldTeamsBtn")
+            check("võistkonnad: kaks valmis", ev("() => document.querySelectorAll('#kuldTeamsList .kuld-team-row').length") == 2)
+            p.fill("#kuldTeamsList .kuld-team-row:nth-child(1) input", "Punased")
+            p.click("#kuldTeamsDoneBtn")
+            open_q(); p.keyboard.press("Enter"); p.keyboard.press("2")
+            open_q(); p.keyboard.press("Enter"); p.keyboard.press("0")
+            sc = ev("() => [...document.querySelectorAll('.kuld-team-score')].map(e => e.querySelector('span').textContent + '=' + e.querySelector('b').textContent)")
+            check("võistkonna punktid ja 0 = keegi", sc[0] == "Punased=0" and sc[1].startswith("Võistkond 2=") and sc[1] != "Võistkond 2=0", str(sc))
+            # ↻ küsib kinnitust (loobumisel seis jääb)
+            ev("() => { window.__realConfirm = window.confirm; window.confirm = m => { window.__confirmMsg = m; return false; }; }")
+            p.click("#kuldResetBtn")
+            msg = ev("() => window.__confirmMsg || ''")
+            ev("() => { window.confirm = window.__realConfirm; }")
+            check("↻ küsib kinnitust, loobumisel seis jääb", msg and ev("() => document.querySelectorAll('.kuld-cell.answered').length") > 0, msg)
+            ev("() => { kuldTeams = []; }")
+            # avalehele minek küsib kinnitust; loobumisel jääb laud alles
+            ev("() => { window.__realConfirm = window.confirm; window.__confirmMsg = ''; window.confirm = m => { window.__confirmMsg = m; return false; }; }")
+            p.click("#kuldMenuBtn")
+            stay = ev("() => document.getElementById('kuldScreen').style.display !== 'none'") and ev("() => window.__confirmMsg") != ""
+            ev("() => { window.confirm = window.__realConfirm; }")
+            check("avalehele minek küsib kinnitust, loobumisel laud jääb", stay)
+            p.click("#kuldMenuBtn")
+            check("avalehele minnes täisekraan lõpeb", not ev("() => document.body.classList.contains('kuld-fs')"))
         step("Kuldvillak", t_kuld)
 
         # 7) piltide varukoopia (ZIP)
