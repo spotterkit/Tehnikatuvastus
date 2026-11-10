@@ -326,7 +326,7 @@ def main():
                 loc = p.locator(".tr-row input").nth(idx(gid)); loc.fill(str(v)); loc.press("Enter")
             setv("planes", 0); setv("mines", 2)
             check("muudetud read märgitud, rida „oma reeglid“ nähtav",
-                  ev("() => document.querySelectorAll('.tr-row.changed').length") == 2 and p.is_visible("#testRulesStatus"))
+                  ev("() => document.querySelectorAll('.tr-item.changed').length") == 2 and p.is_visible("#testRulesStatus"))
             r = ev("""() => { let pl = 0, minesEvery = true;
                 for(let i = 0; i < 25; i++){ const b = buildUniqueVehiclePool(50);
                   pl += b.filter(x => x.entry.group === 'planes').length;
@@ -341,6 +341,23 @@ def main():
             p.click("#testRulesStatus button")
             check("„Taasta vaikereeglid“ kustutab", ev("() => localStorage.getItem('tehnikatuvastus.testRules.v1')") is None
                   and not p.is_visible("#testRulesStatus"))
+            # mudelite väljajätmine: kategooria lahti, „Eemalda kõik“, testi ei tule, säilib, taastamine
+            home()
+            p.click("#testRules25Btn")
+            j = ev("() => [...document.querySelectorAll('.tr-item')].findIndex(it => it.querySelector('input').getAttribute('aria-label').startsWith(GROUPS.find(g => g.id === 'tank').label))")
+            item = p.locator(".tr-item").nth(j)
+            item.locator(".tr-name").click()
+            item.locator("button:has-text('Eemalda kõik')").click()
+            item.locator(".tr-models input").first.check()
+            r = ev("""() => { const ex = testModelsOf('tank').filter(e => testExcluded.has(e.cat)).map(e => e.cat);
+                let hits = 0; for(let i = 0; i < 25; i++) hits += buildUniqueVehiclePool(50).filter(x => ex.includes(x.entry.cat)).length;
+                return {ex: ex.length, total: testModelsOf('tank').length, hits}; }""")
+            check("välja jäetud mudelid ei tule testi", r["ex"] == r["total"] - 1 and r["hits"] == 0, str(r))
+            home()
+            check("väljajätmised säilivad uuendamisel", ev("() => testExcludedCount()") == r["ex"] and "välja jäetud" in p.text_content("#testRulesStatus"))
+            p.click("#testRulesStatus button")
+            check("„Taasta vaikereeglid“ taastab ka mudelid", ev("() => testExcludedCount()") == 0
+                  and ev("() => localStorage.getItem('tehnikatuvastus.testRules.v1')") is None)
         step("Testi reeglid", t_rules)
 
         # 6) Kuldvillaku fail: salvesta → ava
