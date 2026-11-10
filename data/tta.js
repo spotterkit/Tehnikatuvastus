@@ -2393,6 +2393,7 @@ window.TTA_DATA = {
         "maxSpeedOffroad": "Teede puhastamisel kuni 6,8km/h; maastikul pinnasteel kuni 35km/h."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BAT-2", "url": "https://odin.t2com.army.mil/WEG/Asset/da0ecdef49dc06c16dc85d8d77d913b6", "retrieved": "2026-11-10"}
       ]
     },
     "MTU-72": {
@@ -2505,6 +2506,7 @@ window.TTA_DATA = {
         "chassis": "Variant MTU-90M: silla ulatus 19m, kandevõime 60t, kasutusele 2013–2017."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: MTU-90", "url": "https://odin.t2com.army.mil/WEG/Asset/70a2c1e76211ad04cae33a71fb04c314", "retrieved": "2026-11-10"}
       ]
     },
     "MT-55A": {
@@ -2618,6 +2620,7 @@ window.TTA_DATA = {
         "chassis": "Eelkäijad: TMM-1 (ZIL-157), TMM-2 (KrAZ-214); TMM-4 (60t) samal šassiil; asendaja TMM-6."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: TMM-3", "url": "https://odin.t2com.army.mil/WEG/Asset/979cfbe38de5c9e8a8a4bb56bbb719f8", "retrieved": "2026-11-10"}
       ]
     },
     "TMM-6": {
@@ -2671,6 +2674,7 @@ window.TTA_DATA = {
         "specialEquipment": "BTM-3 täiustatud variant: töökiirus tavalises pinnases 1000m/h ja külmunud pinnases 250m/h. Jäi prototüübiks ja seeriatootmisse ei läinud"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BTM-3 (variant BTM-4M)", "url": "https://odin.t2com.army.mil/WEG/Asset/41714363385ece02178899f40f23b494", "retrieved": "2026-11-10"}
       ]
     },
     "BTM-3": {
@@ -2720,6 +2724,7 @@ window.TTA_DATA = {
         "chassis": "MDK-2 ja MDK-2M asendaja. Ei ole õhutransporditav ega langevarjuga heidetav."
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: MDK-3", "url": "https://odin.t2com.army.mil/WEG/Asset/98fee77354aa89adca1830078f6c33f5", "retrieved": "2026-11-10"}
       ]
     },
     "MDK-2M": {
@@ -4043,16 +4048,25 @@ window.TTA_DATA = {
     "Geran-3/Geran-4": {
       "status": "unverified",
       "values": {
-        "maxTakeoffWeightKg": 200,
-        "ferryRange": 1500,
-        "warheadMass": 50,
-        "cruiseSpeed": 600,
-        "maxSpeed": 800
+        "length": 3.5,
+        "wingspan": 3,
+        "engine": "Turboreaktiivmootor: Geran-4 – Telefly LX-WP-160 (160 kgf) või Telefly TF-TJ2000A (200 kgf); Geran-3 – Telefly JT80",
+        "maxSpeed": 500,
+        "serviceCeiling": 5000,
+        "ferryRange": 450,
+        "warheadMass": 50
       },
-      "warnings": {
-        "maxTakeoffWeightKg": "Väärtused on Geran-3 kohta; Geran-4 kohta andmeid ei leitud."
+      "notes": {
+        "length": "Geran-4; mõõtmed samad mis Geran-2/Geran-3 kerel.",
+        "maxSpeed": "Geran-4; aktiivne manööverdamine 300–400 km/h. Geran-3: 300–370 km/h.",
+        "serviceCeiling": "Geran-4.",
+        "ferryRange": "Geran-4. Geran-3: kuni 1000 km.",
+        "warheadMass": "Geran-4: 50 kg kildfugass- või termobaariline (OFZBTš-50/TBBTš-50M) või suurendatud 90 kg termobaariline (TBBTš-90)."
       },
       "sources": [
+        {"name": "HUR / United24: Geran-4 (25.05.2026)", "url": "https://united24media.com/war-in-ukraine/ukraines-intelligence-reveals-russias-new-jet-powered-geran-4-drone-built-to-evade-interceptors-19125", "retrieved": "2026-11-10"},
+        {"name": "HUR / Defence Industry Europe: Geran-4 (mõõtmed, ulatus)", "url": "https://defence-industry.eu/ukraines-defence-intelligence-details-russias-new-geran-4-jet-powered-strike-drone-and-foreign-components/", "retrieved": "2026-11-10"},
+        {"name": "HUR / United24: Geran-3", "url": "https://united24media.com/war-in-ukraine/why-russias-new-jet-powered-drones-are-harder-to-stop-22666", "retrieved": "2026-11-10"}
       ]
     },
     "Geran-5": {
@@ -4412,6 +4426,7 @@ window.TTA_DATA = {
         "specialEquipment": "Katapultstart, automaatne maandumine langevarjuga"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: Granat-4-E", "url": "https://odin.t2com.army.mil/WEG/Asset/0198c7310a595d09af78764c16584059", "retrieved": "2026-11-10"}
       ]
     },
     "Sokol-l": {
@@ -5033,6 +5048,7 @@ window.TTA_DATA = {
         "specialEquipment": "Kerge kokkupandav kraana vägede ruumi katusel (pööre 180°); päästevints (võimsus teadmata)"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BREM-D", "url": "https://odin.t2com.army.mil/WEG/Asset/d0eb6b177383f254a565dab03482c3ea", "retrieved": "2026-11-10"}
       ]
     },
     "BREM-1": {
@@ -5075,6 +5091,7 @@ window.TTA_DATA = {
         "specialEquipment": "Kraana (pööre 270°, kandevõime 1500 kg); vints 6,5 t, 150 m tross"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BREM-2", "url": "https://odin.t2com.army.mil/WEG/Asset/9e65b45de4a83d7319bc93220dca289e", "retrieved": "2026-11-10"}
       ]
     },
     "BREM-K": {
@@ -5098,6 +5115,7 @@ window.TTA_DATA = {
         "specialEquipment": "Kraana kuni 1,5 t; buldooseritera; elektrikeevitusseadmed"
       },
       "sources": [
+        {"name": "Deagel: BTR-80 (BREM-K)", "url": "https://www.deagel.com/Armored%20Vehicles/BTR-80/a000348", "retrieved": "2026-11-10"}
       ]
     },
     "BMM-3": {
@@ -5126,6 +5144,7 @@ window.TTA_DATA = {
         "specialEquipment": "Kandevõime: 4 raskelt haavatut kanderaamil sees, 2 kanderaami mootoriruumi katusel ja kuni 12 inimest kokkupandavas telgis"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BMM-3", "url": "https://odin.t2com.army.mil/WEG/Asset/12dbc1be6c3dca850fa10257f62ef9cd", "retrieved": "2026-11-10"}
       ]
     },
     "URAL-43206": {
@@ -5300,6 +5319,7 @@ window.TTA_DATA = {
         "sensors": "PSNR-5K luureradar (kuni 10 km), 1RL133-1 radar, 1D8 laserkaugusmõõtja, ERRS-1 raadiosuunaleidja, TNA-4 navigatsioon, 1PN22M/M2 sihik (valikuline Alis või Sanoet termokaamera)"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BRM-1K", "url": "https://odin.t2com.army.mil/WEG/Asset/4136bc85abbcc246b4b606de0e585cc2", "retrieved": "2026-11-10"}
       ]
     },
     "BRDM-2 / BRDM-2M": {
@@ -5358,6 +5378,7 @@ window.TTA_DATA = {
         "specialEquipment": "Doosikiiruse mõõturid IMD-21B ja DP-5V, gaasidetektor GSA-13, gaasituvasti PGO-11, proovivõtukomplekt KPO-1, meteokomplekt MK-3M; raadiod R-173 ja R-163; luuresõidu kiirus radioloogilisel 30 km/h, keemilisel 10 km/h"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: RKhM-4-01", "url": "https://odin.t2com.army.mil/WEG/Asset/026baeb16af6245be725a211152cf3b4", "retrieved": "2026-11-10"}
       ]
     },
     "RKhM-6": {
@@ -5387,6 +5408,7 @@ window.TTA_DATA = {
         "specialEquipment": "Keemiline detektor GSA-14, doosikiiruse mõõturid IMD-23 ja IMD-2NM, närvigaasi häireseadmed, aerosoolidetektor ASP-13, proovivõtjad KPO-1 ja APSO, meteokomplekt AMK; navigatsioon (GLONASS, inertsiaal); rehvirõhu reguleerimine"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: RKhM-6", "url": "https://odin.t2com.army.mil/WEG/Asset/f16881b9e0aedf238b139b2a751cad63", "retrieved": "2026-11-10"}
       ]
     },
     "Taifun-K KAMAZ-63968, 6x6": {
@@ -5478,6 +5500,7 @@ window.TTA_DATA = {
         "specialEquipment": "Raadiod: 2 × R-111, 1 × R-123MT, 1 × R-130M; TNA-3 güroskoopiline navigatsiooniseade; AMU 10 m teleskoopmast"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BMP-1KSh", "url": "https://odin.t2com.army.mil/WEG/Asset/f6cab3e2c9d8a521d4672efb6b4c7765", "retrieved": "2026-11-10"}
       ]
     },
     "R-145BM": {
@@ -5500,6 +5523,7 @@ window.TTA_DATA = {
         "specialEquipment": "Raadiod: 2 × R-111/171, 1 × R-123/173, 1 × R-145, 1 × R-130M, maa–õhk raadiojaam R-8xx"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: BTR-60-R-145BM", "url": "https://odin.t2com.army.mil/WEG/Asset/6b939a3396646c911fabfd15c0769812", "retrieved": "2026-11-10"}
       ]
     },
     "R-149BMR": {
@@ -5528,6 +5552,7 @@ window.TTA_DATA = {
         "specialEquipment": "Raadiod: 3 × R-168-0.1UM, 1 × R-168-5UN-1, 2 × R-168-25U-2 (25–40 km), 2 × R-168-100U-2 (25–60 km), 1 × R-168-100KA lühilaine (25–360 km); R-438M Belozer kaasaskantav satelliitside (5000 km)"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: R-149BMR", "url": "https://odin.t2com.army.mil/WEG/Asset/ec9350d7dfab05696e81ed42a23ee769", "retrieved": "2026-11-10"}
       ]
     },
     "R-441-0 Liven": {
@@ -5538,6 +5563,7 @@ window.TTA_DATA = {
         "specialEquipment": "Liikuv satelliitsidekeskus mitmekanalilise raadioreleeside jaoks; 1,8 m satelliiditaldrik, mis sihtib end ise navigatsioonisüsteemi abil; töötab autonoomselt väljal"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: R-441 Liven", "url": "https://odin.t2com.army.mil/WEG/Asset/486adbee36910f5d8e5d8c3abdf5fbaa", "retrieved": "2026-11-10"}
       ]
     },
     "R-149AKSh-1": {
@@ -5555,6 +5581,7 @@ window.TTA_DATA = {
         "specialEquipment": "Raadiod: 2 × R-168-100U-2 (VHF), 2 × R-168-5KV (lühilaine), 1 × R-168-5UN-2 (kaasaskantav VHF), 1 × R-168-MRA (UHF), 1 × R-612-18 (VHF/UHF, lennuliini sagedus); NBC-kaitse; külmkäivitusseade (kuni −50 °C); rehvirõhu keskreguleerimine"
       },
       "sources": [
+        {"name": "U.S. Army ODIN / WEG: R-149AKSh-1", "url": "https://odin.t2com.army.mil/WEG/Asset/0a1de592234f9a261c1dc43971a04e2e", "retrieved": "2026-11-10"}
       ]
     },
     "R-149MA1": {
@@ -7704,7 +7731,9 @@ window.TTA_DATA = {
       "notes": {
         "combatWeight": "Šassii andmed BMD-1-lt; juhtimisversiooni täpsed andmed puuduvad."
       },
-      "sources": []
+      "sources": [
+        {"name": "U.S. Army ODIN / WEG: BMD-1K (šassii andmed)", "url": "https://odin.t2com.army.mil/WEG/Asset/b1447072e14ed6b9d1ebd84a63a19845", "retrieved": "2026-11-10"}
+      ]
     },
     "R-416GM Granit-M": {
       "status": "unverified",
@@ -7725,7 +7754,9 @@ window.TTA_DATA = {
         "maxSpeedRoad": 100,
         "specialEquipment": "Digitaalne raadioreleejaam magistraalliinidele ja kaabelliinide asendamiseks: 390–645 MHz ja 1550–1850 MHz; kuni 8,448 Mbit/s; kasutuselevõtt ≤35 min; 2 generaatorit AD4-T400-1VM2 + akupuhver, autonoomia ≥48h"
       },
-      "sources": []
+      "sources": [
+        {"name": "Army Recognition: R-419L1 (šassii ja otstarve)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2019/russian-eastern-district-gets-r-419l1-communication-stations", "retrieved": "2026-11-10"}
+      ]
     },
     "RS-24 Jars / Topol-M": {
       "status": "unverified",
@@ -7925,7 +7956,10 @@ window.TTA_DATA = {
         "effectiveRange": 200,
         "lethalRadius": 10
       },
-      "sources": []
+      "sources": [
+        {"name": "Defense Update: RPG-7 (TBG-7V)", "url": "https://defense-update.com/?p=14849", "retrieved": "2026-11-10"},
+        {"name": "Wikipedia: RPG-7", "url": "https://en.wikipedia.org/wiki/RPG-7", "retrieved": "2026-11-10"}
+      ]
     },
     "RShG-1": {
       "status": "unverified",
