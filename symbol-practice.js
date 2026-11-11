@@ -323,7 +323,7 @@ function printSheet(list){
 function toMenu(){ S.view = 'menu'; render(); window.scrollTo(0, 0); }
 function open(){
   if(window.CuratedTest) window.CuratedTest.hide();
-  ['homeScreen', 'listScreen', 'runScreen', 'kuldScreen', 'curatedScreen'].forEach(id => {
+  ['homeScreen', 'listScreen', 'runScreen', 'kuldScreen', 'curatedScreen', 'memoryScreen'].forEach(id => {
     const e = document.getElementById(id); if(e) e.style.display = 'none';
   });
   document.body.classList.remove('run-active');

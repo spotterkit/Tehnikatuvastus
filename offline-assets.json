@@ -12,6 +12,7 @@
   "./data/what.js",
   "./curated-test.js",
   "./symbol-practice.js",
+  "./memory-game.js",
   "./data/symbols.js",
   "./fonts/oswald-latin-wght-normal.woff2",
   "./fonts/oswald-latin-ext-wght-normal.woff2",

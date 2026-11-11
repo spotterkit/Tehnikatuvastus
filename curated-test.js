@@ -377,7 +377,7 @@ function popNav(){
   try{ window.history.back(); }catch(e){ ignorePop = false; }
 }
 function showScreen(){
-  ['homeScreen', 'listScreen', 'runScreen', 'kuldScreen'].forEach(id => {
+  ['homeScreen', 'listScreen', 'runScreen', 'kuldScreen', 'memoryScreen'].forEach(id => {
     const e = document.getElementById(id); if(e) e.style.display = 'none';
   });
   document.body.classList.remove('run-active');
