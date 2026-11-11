@@ -125,7 +125,7 @@ function renderConfig(){
     </div>
     <div class="kuld-group-grid" id="memGroups"></div>
     <div class="mm-cfg-count" id="memCount" aria-live="polite"></div>
-    <div class="row"><button type="button" class="primary" id="memStart" style="flex:1;">Alusta Memory</button></div>`;
+    <div class="row"><button type="button" class="primary" id="memStart" style="flex:1;">Alusta</button></div>`;
   const grid = cfg.querySelector('#memGroups');
   rows.forEach(({g, n}) => {
     const label = document.createElement('label'); label.className = 'kuld-group-check';
