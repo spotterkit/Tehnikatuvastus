@@ -180,6 +180,7 @@ def main():
             p.click("#modelGalleryGrid img >> nth=0")
             p.wait_for_selector("#lbImg.ready")
             check("pildi suurendus avaneb", ev("() => document.getElementById('lightbox').classList.contains('open')"))
+            check("suurenduses on allikas pildi nurgas", "Allikas" in (p.text_content("#lbSrc") or "") and p.is_visible("#lbSrc a"))
             box = p.locator("#lbStage").bounding_box()
             cx, cy = box["x"] + box["width"] / 2, box["y"] + box["height"] / 2
             t0 = ev("() => document.getElementById('lbImg').style.transform")
@@ -231,6 +232,7 @@ def main():
             p.wait_for_function("() => document.getElementById('cmpView').classList.contains('open') && document.querySelectorAll('.cmpv-pane img.ready').length === 2")
             check("valik avab võrdluse täisekraanil, vasakul sama pilt", ev("() => document.querySelector('.cmpv-pane img').src") == src
                   and p.text_content(".cmpv-pane >> nth=0").startswith(order[2]))
+            check("võrdluses on allikas mõlema pildi nurgas", ev("() => Array.from(document.querySelectorAll('.cmpv-pane .img-src')).filter(x => x.textContent.includes('Allikas')).length") == 2)
             p.keyboard.press("Escape")
         step("Mudelite vahetamine ↑/↓", t_model_nav)
 
@@ -365,6 +367,8 @@ def main():
             home()
             p.click("#licOpenBtn")
             check("„Litsentsid ja allikad“ avaneb", p.is_visible("#licPanel") and "Wikimedia Commons" in p.text_content("#licPanel"))
+            check("kohaliku pildi allikas lingina", ev("() => { const d = document.createElement('div'); d.appendChild(sourceLinkLine({rawTitle: 'images/mines/ptm4.jpg'})); return d.textContent === 'Allikas: sappers.org' && !!d.querySelector('a[href*=\"sappers.org\"]'); }"))
+            check("fotokrediit ilma lingita", ev("() => { const d = document.createElement('div'); d.appendChild(sourceLinkLine({rawTitle: 'images/forces/spetsnas_02.webp'})); return d.textContent; }") == "Foto: TASS/Scanpix")
             check("Litsentside aknas on kontakt ja BY-SA märge", "koerakoonlased@protonmail.com" in p.text_content("#licPanel") and "CC BY-SA 4.0 alusel" in p.text_content("#licPanel"))
             p.keyboard.press("Escape")
             check("Esc sulgeb litsentside akna", not p.is_visible("#licPanel"))
@@ -411,7 +415,9 @@ def main():
 
             # vastuse näitamine ei muuda paigutust; Enter näitab, 2 = ei läinud täppi
             open_q(); h1 = scope_h()
+            check("Kuldvillakus allikat enne vastust ei näe", not p.is_visible("#kuldSrc"))
             p.keyboard.press("Enter")
+            check("Kuldvillakus on allikas nurgas pärast vastust", p.is_visible("#kuldSrc") and "Allikas" in p.text_content("#kuldSrc"))
             check("Enter näitab vastust, pilt ei hüppa", ev("() => document.getElementById('kuldQuestion').classList.contains('revealed')") and scope_h() == h1, f"{h1} -> {scope_h()}")
             p.keyboard.press("2")
             check("vale vastus näitab laual miinust", ev("() => document.querySelector('.kuld-cell.res-bad .kc-pts').textContent") == "−")
