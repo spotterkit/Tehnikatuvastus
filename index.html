@@ -1303,7 +1303,7 @@ const CATEGORIES = [
   { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", weight: 1, files: ["RehearsalTula02052017-05.jpg"] },
   { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", weight: 1, files: ["images/artillery_recon/ark1_01.jpg", "images/artillery_recon/ark12.jpg"] },
   { label: "1V15", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V15", weight: 1, files: ["images/artillery_recon/1v15_01.webp"] },
-  { label: "1V152", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk (Kapustnik-B osis)", cat: "1V152", weight: 1, files: ["images/artillery_recon/1V152_01.jpg"] },
+  { label: "1V152", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk (Kapustnik-B osis)", cat: "1V152", weight: 1, files: ["Army2016-495.jpg"] },
 
   // Liikursuurtükid ja -miinipildujad
   { label: "2S19 Msta-S", group: "spg", type: "Liikursuurtükk", cat: "2S19 Msta", weight: 3, files: ["ParkPatriot2015part6-02.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_01.jpg", "Військовослужбовці_провели_тактичне_заняття_09.jpg", "images/artillery/2s19_01.jpg", "images/artillery/2s19_02.jpg"] },
@@ -1350,7 +1350,7 @@ const CATEGORIES = [
   { label: "Aleksandrit klass", group: "ships", type: "Miinitraaler", cat: "Aleksandrit klass", weight: 1, files: ["images/ships/alexandrit_01.webp", "«Александр_Обухов».jpg"] },
   { label: "Dyugon klass", group: "ships", type: "Dessantkaater", cat: "Dyugon klass", weight: 1, files: ["«Мичман_Лермонтов».jpg"] },
   { label: "Sovremenny klass", group: "ships", type: "Hävitaja", cat: "Sovremenny klass", weight: 1, files: ["Nastoychivyy_%28610%29_at_Quay_-_Baltic_Sea%2C_Kaliningradskiy_Zaliv_Kaliningrad_Oblast_Baltiysk_30_October_2008.jpg"] },
-  { label: "Kilo-2 klass", group: "ships", type: "Patrullallveelaev", cat: "Kilo-2 klass", weight: 1, files: ["images/ships/kilo2_01.jpg"] },
+  { label: "Kilo-2 klass", group: "ships", type: "Patrullallveelaev", cat: "Kilo-2 klass", weight: 1, files: ["ДЭПЛ_\"Димитров\".jpg"] },
   { label: "Lada klass", group: "ships", type: "Patrullallveelaev", cat: "Lada klass", weight: 1, files: ["B-585_Sankt-Peterburg_in_2010.jpg"] },
   { label: "Nanuchka klass", group: "ships", type: "Korvett/väike raketilaev", cat: "Nanuchka klass", weight: 1, files: ["Sevastopol_Nanuchka_Class_Corvette_%28231434875%29.jpeg"] },
   { label: "Ondatra klass", group: "ships", type: "Dessantkaater", cat: "Ondatra klass", weight: 1, files: ["ДКА_Д-704_в_Амурском_заливе_2010.07.25.JPG"] },
@@ -2421,6 +2421,7 @@ async function fetchSpecificFile(filename){
 // Repo piltide (images/...) allikad, kus see on teada. Ülejäänud repo piltide kohta on üldmärge
 // „Litsentsid ja allikad“ lehel; pildi all neil allikarida ei ole.
 const LOCAL_IMAGE_SOURCE_COMBAT = 'kaader Ukraina kaitsejõudude avalikust videost';
+const LOCAL_IMAGE_SOURCE_RU_SOCIAL = 'Vene sotsiaalmeedia';
 const LOCAL_IMAGE_SOURCES = {
   'images/artillery/2a36_01.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
   'images/artillery/2s19_01.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
@@ -2441,8 +2442,12 @@ const LOCAL_IMAGE_SOURCES = {
   'images/mines/ptm4.jpg': {name: 'sappers.org', url: 'https://sappers.org/en/handbook/mines/anti-tank-bottom-attack/ptm-4-and-ptm-4r'},
   'images/artillery_recon/1v15_01.webp': {name: 'U.S. Army ODIN / WEG', url: 'https://odin.t2com.army.mil/WEG/Asset/1V15_Russian_Artillery_Command_and_Reconnaissance_Vehicle'},
   'images/mines/kzu2.jpg': {name: 'CAT-UXO', url: 'https://cat-uxo.com/explosive-hazards/misc/kzu-2-demolition-charge'},
-  'images/ships/kilo2_01.jpg': {name: 'Wikimedia Commons', url: 'https://commons.wikimedia.org/wiki/File:%D0%94%D0%AD%D0%9F%D0%9B_%22%D0%94%D0%B8%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2%22.jpg'},
-  'images/forces/spetsnas_02.webp': {credit: 'Foto: TASS/Scanpix'}
+  'images/forces/spetsnas_02.webp': {credit: 'Foto: TASS/Scanpix'},
+  'images/forces/navalinf.jpg': {credit: 'Foto: Scanpix/EPA/Anatoly Maltsev'},
+  'images/forces/navy.jpg': {name: 'Stars and Stripes', url: 'https://www.stripes.com/news/2004-07-07/us-russian-servicemembers-join-together-to-celebrate-fourth-1959218.html', credit: 'Foto: Ryan Walker / USMC'},
+  'images/artillery_recon/ark1_01.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/artillery_recon/ark12.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/forces/spetsnas_01.webp': LOCAL_IMAGE_SOURCE_RU_SOCIAL
 };
 function localImageSource(info){
   const path = String((info && (info.rawTitle || info.url)) || '').trim().replace(/^\.\//, '');
@@ -6549,7 +6554,7 @@ window.addEventListener('hashchange', startFromHash);
     <p class="lic-note">Suurendatud vaates, piltide võrdluses täisekraanil ja Kuldvillakus (pärast vastuse näitamist) on allikas väikse sildina pildi nurgas. Kureeritud testi projektorivaates allikat pildi juures ei näidata – sama pildi viide on galeriis. Pilte on kuvamiseks vähendatud, muul viisil neid muudetud ei ole.</p>
 
     <h3>Muud pildid</h3>
-    <p>Osa pilte ei ole Wikimedia Commonsist. Need on pärit avalikest internetiallikatest: tootjate ja näituste fotod, uudisteportaalid ning Ukraina kaitsejõudude avalikud videod. Videokaadrite juures on allikas märgitud pildi all. Pilte kasutatakse mittetulunduslikul õppe-eesmärgil; autoriõigused kuuluvad algsetele autoritele.</p>
+    <p>Osa pilte ei ole vaba litsentsiga. Need pärinevad avalikest internetiallikatest: tootjate ja näituste fotod, uudisteportaalid, sotsiaalmeedia ning Ukraina kaitsejõudude avalikud videod. Nende piltide autoriõigused kuuluvad algsetele autoritele, kõik õigused on kaitstud. Pilte kasutatakse mittetulunduslikul õppe-eesmärgil illustreeriva materjalina, tuginedes autoriõiguse seaduse § 19 erandile. Kasutamine ei tähenda, et autor oleks äpi heaks kiitnud. Kui allikas on teada, on see märgitud pildi juures. Viite parandamiseks või pildi eemaldamiseks vt „Kontakt“.</p>
 
     <h3>Tehnilised andmed (TTA)</h3>
     <p>TTA andmed on kogutud avalikest allikatest ja tõlgitud masintõlkega. Iga mudeli allikad on loetletud tema TTA vaate all. Peamised allikad: <a href="https://odin.t2com.army.mil/WEG" target="_blank" rel="noopener noreferrer">U.S. Army ODIN / WEG</a>, Wikipedia (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>) ning Ukraina kaitseluure (HUR) portaal <a href="https://war-sanctions.gur.gov.ua/en" target="_blank" rel="noopener noreferrer">War&amp;Sanctions</a>.</p>
@@ -7011,7 +7016,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc86'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc88'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
