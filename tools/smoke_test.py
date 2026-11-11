@@ -13,6 +13,7 @@ Mida kontrollitakse:
   - piltide võrdlus ja WHAT-võrdlus täisekraanil
   - kureeritud test: salvestamine → avamine (ka õige vastuse näitamisega), vana testifail
   - Kuldvillaku laua fail: salvestamine → avamine
+  - Memory: laud, mittesobiv paar jääb avatuks, suurendus ilma vastuseta, paari aken, kokkuvõte
   - „Lae pildid seadmesse“ (ZIP)
 
 Esimene kord (paigaldus):
@@ -455,6 +456,51 @@ def main():
             p.click("#kuldMenuBtn")
             check("avalehele minnes täisekraan lõpeb", not ev("() => document.body.classList.contains('kuld-fs')"))
         step("Kuldvillak", t_kuld)
+
+        # 6b) Memory: paar = sama mudeli kaks erinevat pilti
+        def t_memory():
+            home()
+            order = ev("""() => { const b = ['startPracticeBtn','startKuldvillakBtn','startMemoryBtn','startSymbolsBtn'].map(id => document.getElementById(id));
+                return b.every((x, i) => i === 0 || (b[i-1].compareDocumentPosition(x) & Node.DOCUMENT_POSITION_FOLLOWING)); }""")
+            check("avalehel: Harjuta → Kuldvillak → Memory → Tingmärgid", order)
+            p.click("#startMemoryBtn")
+            check("Memory seadistus avaneb", p.is_visible("#memoryConfig") and p.locator("#memGroups input").count() > 3)
+            p.click("#memSizeRow .seg[data-n='8']")
+            p.click("#memStart")
+            p.wait_for_selector("#mmBoard", timeout=30000)
+            S = "window.MemoryGame._state"
+            pis = ev(f"() => {S}.tiles.map(t => t.pi)")
+            check("laual 8 paari = 16 ruutu", len(pis) == 16 and len(set(pis)) == 8, str(len(pis)))
+            check("paari kaks pilti on erinevad failid",
+                  ev(f"() => {S}.pairs.every(p => p.infos[0].rawTitle !== p.infos[1].rawTitle || p.infos[0].url !== p.infos[1].url)"))
+            a = 0; b = next(i for i, x in enumerate(pis) if x != pis[0])
+            faces = p.locator(".mm-face")
+            faces.nth(a).click(); faces.nth(b).click(); p.wait_for_timeout(450)
+            check("mittesobiv paar jääb avatuks", ev(f"() => {S}.open.length") == 2 and p.locator(".mm-tile.up").count() == 2)
+            p.locator(".mm-zoom").nth(a).click()
+            p.wait_for_function("() => lbOpen")
+            check("🔍 avab suurenduse mõlema avatud pildiga", ev("() => lbItems.length") == 2)
+            check("avatud pildi suurenduses pole nime ega allikat", p.text_content("#lbSrc").strip() == "" and ev("() => lbItems.every(i => !i.label)"))
+            p.click("#lbClose")
+            faces.nth(a).click()
+            check("avatud pildi klõps alustab uut katset", ev(f"() => {S}.open") == [a])
+            c = next(i for i, x in enumerate(pis) if x == pis[a] and i != a)
+            faces.nth(c).click()
+            p.wait_for_selector("#mmPop:not([hidden])")
+            name = ev(f"() => {S}.pairs[{pis[a]}].entry.label")
+            check("paari aknas on nimi ja allikas", p.text_content(".mm-pop-name") == name and "Allikas" in p.text_content(".mm-pop-imgs"))
+            p.click("#mmPopOk")
+            for pi in sorted(set(pis)):
+                idx = [i for i, x in enumerate(pis) if x == pi]
+                if ev(f"() => {S}.tiles[{idx[0]}].state") == "matched": continue
+                faces.nth(idx[0]).click(); faces.nth(idx[1]).click()
+                p.wait_for_selector("#mmPop:not([hidden])")
+                p.click("#mmPopOk")
+            p.wait_for_selector("#mmSum")
+            check("lõpus kõik paarid ülevaates", p.locator(".mm-sum-card").count() == 8 and "Kõik 8 paari" in p.text_content(".end-summary h3"))
+            p.click("#mmHome")
+            check("Memoryst avalehele", p.is_visible("#homeScreen") and not p.is_visible("#memoryScreen"))
+        step("Memory", t_memory)
 
         # 7) piltide varukoopia (ZIP)
         def t_backup():
