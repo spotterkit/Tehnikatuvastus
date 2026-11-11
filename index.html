@@ -189,6 +189,15 @@
     color:var(--bone-dim);background:rgba(13,15,10,0.72);
     padding:3px 7px;text-transform:uppercase;
   }
+  /* Pildi allikas pildi nurgas (suurendus, võrdlus täisekraanil, Kuldvillak pärast vastust) */
+  .img-src{position:absolute;right:6px;bottom:5px;z-index:3;max-width:60%;font-size:9px;line-height:1.3;letter-spacing:.02em;
+    color:var(--bone-dim);background:rgba(13,15,10,.6);padding:1px 5px;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .img-src:empty{display:none;}
+  .img-src:hover{opacity:1;}
+  .img-src a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--olive-dim);}
+  .img-src a:hover{color:var(--amber);}
+  .kuld-scope .img-src{top:31px;right:8px;bottom:auto;display:none;}   /* HUD oleku all; all paremal on suurendusnupud */
+  .kuld-question.revealed .kuld-scope .img-src:not(:empty){display:block;}
   .state-msg{
     position:absolute;inset:0;
     display:flex;align-items:center;justify-content:center;
@@ -989,6 +998,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
     <div class="lightbox-stage" id="lbStage">
       <img id="lbImg" alt="" draggable="false">
       <div class="lightbox-msg" id="lbMsg"></div>
+      <div class="img-src" id="lbSrc"></div>
     </div>
   </div>
 
@@ -1069,6 +1079,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
         <div class="hud-tag kq-value" id="kuldQuestionValue">100</div>
         <div class="hud-status" id="kuldHudStatus">OOTEL</div>
         <img id="kuldPhoto" alt="" style="display:none;">
+        <div class="img-src" id="kuldSrc"></div>
         <div class="state-msg" id="kuldStateMsg">
           <div class="spinner"></div>
           <div>Laen pilti...</div>
@@ -2425,16 +2436,43 @@ const LOCAL_IMAGE_SOURCES = {
   'images/tanks/t80_01.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
   'images/tanks/t80_02.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
   'images/mlrs/bm21_01.jpg': LOCAL_IMAGE_SOURCE_COMBAT,
-  'images/ugv/Lyagushka.webp': LOCAL_IMAGE_SOURCE_COMBAT
+  'images/ugv/Lyagushka.webp': LOCAL_IMAGE_SOURCE_COMBAT,
+  // Allikate töölehelt (objekt: name = lingi tekst, url = allika leht, credit = fotokrediit)
+  'images/mines/ptm4.jpg': {name: 'sappers.org', url: 'https://sappers.org/en/handbook/mines/anti-tank-bottom-attack/ptm-4-and-ptm-4r'},
+  'images/artillery_recon/1v15_01.webp': {name: 'U.S. Army ODIN / WEG', url: 'https://odin.t2com.army.mil/WEG/Asset/1V15_Russian_Artillery_Command_and_Reconnaissance_Vehicle'},
+  'images/mines/kzu2.jpg': {name: 'CAT-UXO', url: 'https://cat-uxo.com/explosive-hazards/misc/kzu-2-demolition-charge'},
+  'images/ships/kilo2_01.jpg': {name: 'Wikimedia Commons', url: 'https://commons.wikimedia.org/wiki/File:%D0%94%D0%AD%D0%9F%D0%9B_%22%D0%94%D0%B8%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2%22.jpg'},
+  'images/forces/spetsnas_02.webp': {credit: 'Foto: TASS/Scanpix'}
 };
 function localImageSource(info){
   const path = String((info && (info.rawTitle || info.url)) || '').trim().replace(/^\.\//, '');
   return LOCAL_IMAGE_SOURCES[path] || '';
 }
+// Pildi allikas väikse sildina pildi nurgas. Klõps lingil ei käivita suurendamise/lohistamise žeste.
+function fillImgSrc(box, info){
+  if(!box) return;
+  box.textContent = '';
+  if(info) box.appendChild(sourceLinkLine(info));
+  if(!box.dataset.wired){
+    box.dataset.wired = '1';
+    ['pointerdown','mousedown','touchstart','dblclick','wheel'].forEach(t => box.addEventListener(t, ev => ev.stopPropagation(), {passive:true}));
+  }
+}
 function sourceLinkLine(info){
   const frag = document.createDocumentFragment();
   const localSrc = localImageSource(info);
-  if(localSrc){
+  if(localSrc && typeof localSrc === 'object'){
+    if(localSrc.name){
+      frag.append('Allikas: ');
+      if(localSrc.url){
+        const a = document.createElement('a');
+        a.href = localSrc.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+        a.textContent = localSrc.name;
+        frag.appendChild(a);
+      }else frag.append(localSrc.name);
+    }
+    if(localSrc.credit) frag.append((localSrc.name ? ' · ' : '') + localSrc.credit);
+  }else if(localSrc){
     frag.append('Allikas: ' + localSrc);
   }else if(info && info.filepageUrl){
     frag.append('Allikas: ');
@@ -3780,6 +3818,7 @@ function loadGalleryCards(entry, container, withLabel){
       img.setAttribute('aria-label', 'Suurenda: ' + sourceFilename);
       img.dataset.caption = entry.label + (entry.type ? ' – ' + entry.type : '');   // suurenduses mudel ja täpsustus, mitte failinimi
       img.dataset.label = entry.label; img.dataset.type = entry.type || '';
+      img._srcInfo = info;   // suurenduse ja võrdluse nurgasildi jaoks
       img.addEventListener('click', () => openLightbox(img));
       img.addEventListener('keydown', ev => {
         if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); openLightbox(img); }
@@ -3990,6 +4029,7 @@ function lbShow(i){
   lbImg.onload = () => { lbMsg.textContent = ''; lbSetFit(); lbImg.classList.add('ready'); };
   lbImg.onerror = () => { lbMsg.textContent = 'Pildi laadimine ebaõnnestus'; };
   lbImg.src = item.src;
+  fillImgSrc(document.getElementById('lbSrc'), item.el && item.el._srcInfo);
   document.getElementById('lbPrev').disabled = document.getElementById('lbNext').disabled = lbItems.length < 2;
 }
 // ↑/↓: eelmine/järgmine mudel nimekirja järjekorras (otsingu korral otsingu tulemuste sees).
@@ -4067,6 +4107,7 @@ function lbModelStep(d){
   lbImg.removeAttribute('src');
   lbMsg.textContent = 'Laen pilti...';
   lbRenderInfo({label: target.label, type: target.type || ''}, '');
+  fillImgSrc(document.getElementById('lbSrc'), null);
   lbRenderPicker();
   const started = Date.now();
   (function wait(){
@@ -4825,7 +4866,8 @@ async function openKuldQuestion(col, row){
   kuldRevealBtn.disabled = true;
   // Vastus ja hindamisnupud pannakse paika kohe (nähtamatuna), et vastuse näitamine ei muudaks paigutust.
   kuldCorrectValue.textContent = (q.entry.type ? q.entry.type + ' ' : '') + q.entry.label;
-  kuldFileLine.textContent = '';   // Kuldvillakus pildi allikat ei kuvata (vt sourceLinkLine)
+  kuldFileLine.textContent = '';   // allikas on pildi nurgas (#kuldSrc), nähtav pärast vastuse näitamist
+  fillImgSrc(document.getElementById('kuldSrc'), null);
   document.getElementById('kuldYourGuess').textContent = review ? 'Vali uus hinnang või tühista see.' : ' ';
   buildKuldVerdicts(q, review);
   kuldStateMsg.style.display = 'flex';
@@ -4836,6 +4878,7 @@ async function openKuldQuestion(col, row){
     const file = await fetchSpecificFile(q.filename);
     if(token !== kuldLoadToken) return;
     q.current = { label:q.entry.label, type:q.entry.type || '', cat:q.entry.cat, ...file };
+    fillImgSrc(document.getElementById('kuldSrc'), q.current);   // CSS näitab alles .revealed olekus
     kuldPhoto.src = file.url;
     await new Promise((resolve,reject) => {
       const img = new Image();
@@ -5590,7 +5633,8 @@ window.addEventListener('hashchange', startFromHash);
     const stage = document.createElement('div'); stage.className = 'cmpv-stage';
     const img = document.createElement('img'); img.draggable = false; img.alt = '';
     const msg = document.createElement('div'); msg.className = 'cmpv-msg';
-    stage.append(img, msg);
+    const src = document.createElement('div'); src.className = 'img-src';
+    stage.append(img, msg, src);
     pane.append(head, stage);
     pane.addEventListener('pointerdown', () => setActive(side), true);
 
@@ -5627,6 +5671,7 @@ window.addEventListener('hashchange', startFromHash);
         img.onload = () => { msg.textContent = ''; p.setFit(); img.classList.add('ready'); };
         img.onerror = () => { msg.textContent = 'Pildi laadimine ebaõnnestus'; };
         img.src = it.src;
+        fillImgSrc(src, it.el && it.el._srcInfo);
       }
     };
 
@@ -6501,7 +6546,7 @@ window.addEventListener('hashchange', startFromHash);
       <li>mudelite nimekirja galeriis on iga pildi all link „Allikas: Wikimedia Commons“;</li>
       <li>testis ja harjutuses on pärast vastuse näitamist allikas, autor ja litsents pildi all.</li>
     </ul>
-    <p class="lic-note">Suurendatud vaates, piltide võrdluses, Kuldvillakus ja kureeritud testi projektorivaates allikat pildi juures ei näidata – sama pildi viide on galeriis. Pilte on kuvamiseks vähendatud, muul viisil neid muudetud ei ole.</p>
+    <p class="lic-note">Suurendatud vaates, piltide võrdluses täisekraanil ja Kuldvillakus (pärast vastuse näitamist) on allikas väikse sildina pildi nurgas. Kureeritud testi projektorivaates allikat pildi juures ei näidata – sama pildi viide on galeriis. Pilte on kuvamiseks vähendatud, muul viisil neid muudetud ei ole.</p>
 
     <h3>Muud pildid</h3>
     <p>Osa pilte ei ole Wikimedia Commonsist. Need on pärit avalikest internetiallikatest: tootjate ja näituste fotod, uudisteportaalid ning Ukraina kaitsejõudude avalikud videod. Videokaadrite juures on allikas märgitud pildi all. Pilte kasutatakse mittetulunduslikul õppe-eesmärgil; autoriõigused kuuluvad algsetele autoritele.</p>
@@ -6966,7 +7011,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc84'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc86'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
