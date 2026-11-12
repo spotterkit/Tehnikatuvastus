@@ -137,6 +137,9 @@ def main():
             check("versioon klapib (index.html = offline-sw.js)", app and app == sw, f"{app} vs {sw}")
             check("jaluses on õige versioon", ("versioon " + str(app)) in p.text_content("#appBuildLabel"))
             check("mudeleid on andmetes", ev("() => CATEGORIES.filter(e => e.files && e.files.length).length") > 50)
+            ev("() => { window.__xss = 0; return stripHtml('<b>Autor</b><img src=x onerror=\"window.__xss=1\">'); }")
+            p.wait_for_timeout(300)
+            check("stripHtml ei käivita HTML-i (onerror)", ev("() => window.__xss") == 0 and ev("() => stripHtml('<a href=\"#\">Foto</a> &amp; Co')") == "Foto & Co")
         step("Avaleht", t_home)
 
         # 2) test + täisekraan + suurendus

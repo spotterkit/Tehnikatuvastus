@@ -4,7 +4,7 @@
 Probleem: kohalikud pildid (images/...), mida offline-assets.json-is pole, ei satu offline-paketti.
 Käsitsi hoitud nimekirjast jäid uued pildid (miinid, väeliigid, EW, droonid jne) välja.
 
-Skript leiab kõik viidatud kohalikud pildid (index.html CATEGORIES, data/what.js "image",
+Skript leiab kõik viidatud kohalikud pildid (data/categories.js, data/what.js "image",
 data/tta*.js), jätab nimekirja kõik mitte-pildi kirjed (./index.html, ./data/... jne) ja
 asendab pildikirjed viidatud piltidega. Puuduvad failid jäetakse välja ja hoiatatakse.
 
@@ -28,10 +28,7 @@ def norm(p):
 
 def referenced_images():
     refs = set()
-    html = (ROOT / "index.html").read_text(encoding="utf-8")
-    a = html.find("const CATEGORIES = [")
-    b = html.find("const GROUPS", a)
-    block = html[a:b] if a != -1 and b != -1 else html
+    block = (ROOT / "data" / "categories.js").read_text(encoding="utf-8")
     block = re.sub(r'(?m)^\s*//.*$', '', block)   # kommentaarid ei loe
     refs.update(norm(m) for m in REF_RE.findall(block))
     for rel in ("data/what.js", "data/tta.js", "data/tta-fields.js"):

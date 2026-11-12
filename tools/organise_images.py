@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Organise root-level local images into images/<group>/ and update index.html.
+"""Organise root-level local images into images/<group>/ and update data/categories.js + index.html.
 
 Default is dry-run. Use --apply to perform changes.
 Only local files referenced as images/<filename> inside CATEGORIES items are moved.
@@ -10,6 +10,7 @@ import argparse, re, shutil, sys
 
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / "index.html"
+DATA = ROOT / "data" / "categories.js"
 IMAGES = ROOT / "images"
 
 
@@ -33,10 +34,10 @@ def build_mapping(text: str):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--apply", action="store_true", help="Move files and update index.html")
+    ap.add_argument("--apply", action="store_true", help="Move files and update data/categories.js and index.html")
     args = ap.parse_args()
 
-    text = INDEX.read_text(encoding="utf-8")
+    text = DATA.read_text(encoding="utf-8")
     mapping = build_mapping(text)
     problems = []
     moves = []
@@ -65,14 +66,18 @@ def main():
         print("\nDRY-RUN: muudatusi ei tehtud. Käivitamiseks lisa --apply")
         return 0
 
-    backup = INDEX.with_suffix(".html.bak")
-    shutil.copy2(INDEX, backup)
+    backups = []
+    for f in (DATA, INDEX):
+        b = f.with_suffix(f.suffix + ".bak"); shutil.copy2(f, b); backups.append(b.name)
     new_text = text
+    index_text = INDEX.read_text(encoding="utf-8")
     for old, new, src, dst in moves:
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.move(str(src), str(dst))
         new_text = new_text.replace(old, new)
-    INDEX.write_text(new_text, encoding="utf-8")
+        index_text = index_text.replace(old, new)   # LOCAL_IMAGE_SOURCES võtmed
+    DATA.write_text(new_text, encoding="utf-8")
+    INDEX.write_text(index_text, encoding="utf-8")
 
     # Verify every local path referenced in executable data exists; ignore comments/examples.
     actual_refs = set()
@@ -86,7 +91,7 @@ def main():
         for r in missing: print("  " + r)
         return 3
 
-    print(f"\nVALMIS: liigutatud {len(moves)} pilti. HTML-varukoopia: {backup.name}")
+    print(f"\nVALMIS: liigutatud {len(moves)} pilti. Varukoopiad: {', '.join(backups)}")
     return 0
 
 if __name__ == "__main__":
