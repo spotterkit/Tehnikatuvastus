@@ -355,7 +355,7 @@ const CATEGORIES = [
   { label: "MKTK-1A Judoist", group: "ew", type: "Raadiokontroll ja informatsioonikaitse süsteem", cat: "MKTK-1A Judoist", files: ["MoscowMissileDefence2020-07.jpg"] },
   { label: "RB-636AM2 Svet-KU", group: "ew", type: "Raadiokontroll ja informatsioonikaitse süsteem", cat: "RB-636AM2 Svet-KU", files: ["TB2015ExhibitionP2-54.jpg"] },
   { label: "RP-377LA Lorandit", group: "ew", type: "Suunamääraja ja raadiosignaalide mahasurumise süsteem", cat: "RP-377LA Lorandit", files: ["images/ew/lorandit.jpg"] },
-  { label: "Tirada-2S", group: "ew", type: "Satelliitside segamise kompleks", cat: "", files: ["images/ew/tirada2s.webp"] },
+  { label: "Tirada-2S", group: "ew", type: "Satelliitside segamise kompleks", cat: "", files: ["ECM_station_2.jpg"] },
   { label: "Palantin-K", group: "ew", type: "Raadiohäirete jaam", cat: "Palantin-K", files: ["РЭБ_Палантин_на_базе_КамАЗ.png"] },
   
 
