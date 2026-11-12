@@ -223,6 +223,9 @@ const CATEGORIES = [
   { label: "IL-78M Midas", group: "planes", type: "Tankurlennuk", cat: "IL-78M Midas", files: ["Ilyushin_Il-78M_%2831_blue%29.jpg"] },
   { label: "An-30 Clank", group: "planes", type: "Luurelennuk", cat: "An-30 Clank", files: ["An-30_-_RA-26226.jpg/960px-An-30_-_RA-26226.jpg"] },
   { label: "IL-20M", group: "planes", type: "COMINT/ELINT Luurelennuk", cat: "IL-20M", files: ["Ilyushin_Il-20M_%282%29.jpg"] },
+  { label: "Yak-130 Mitten", group: "planes", type: "Õppelennuk", cat: "Yakovlev Yak-130", files: ["Yakovlev_Yak-130.jpg"] },
+  { label: "L-39 Albatros", group: "planes", type: "Õppelennuk", cat: "Aero L-39 Albatros", files: ["Aero_L-39%2C_Прочее_-_Россия_-RP91602.jpg"] },
+  { label: "An-12 Cub", group: "planes", type: "Transpordilennuk", cat: "Antonov An-12", files: ["Antonov_An-12BK%2C_Russia_-_Air_Force_AN1879625.jpg"] },
 
   // Maasturid ning tagala- ja toetusmasinad
   { label: "BREM-D", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-D", files: ["Army2016-297.jpg"] },
