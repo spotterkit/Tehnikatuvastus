@@ -1,7 +1,7 @@
 // ============================================================================
 // MEMORY: leia paarid
 // Paar = sama mudeli KAKS ERINEVAT pilti (mitte kaks ühesugust pilti), et mängija õpiks masinat
-// eri nurkade alt ära tundma. Mängus on ainult mudelid, millel on vähemalt kaks pilti (kasutaja otsus, variant A).
+// eri nurkade alt ära tundma. Mängus on ainult mudelid, millel on vähemalt kaks erinevat pilti.
 //
 // Avaleht: nupp „Memory“ avab seadistuse (kategooriad + laua suurus 8/12/16 paari). Valik ei sõltu
 // harjutuskategooriatest. Mängus: ümberpööratud ruudul 🔍 (või uus klõps pildil) avab suurenduse.
@@ -84,7 +84,16 @@ function shuffle(a){
 // ---------------------------------------------------------------------------
 // Sobivad mudelid ja seaded
 // ---------------------------------------------------------------------------
-function distinctFiles(e){ return [...new Set(usableFiles(e))]; }
+// Erinevad pildid: sama Commonsi fail võib olla kirjas eri kujul (%28 vs "(", thumbnail-URL),
+// seega võrreldakse normaliseeritud nime. Kohalikud failid (images/…) võrreldakse nii nagu on.
+function distinctFiles(e){
+  const seen = new Set(), out = [];
+  for(const f of usableFiles(e)){
+    const k = String(f).startsWith('images/') ? f : normalizeFilename(f);
+    if(!seen.has(k)){ seen.add(k); out.push(f); }
+  }
+  return out;
+}
 function eligibleEntries(groupIds){
   return CATEGORIES.filter(e => e.files && (!groupIds || groupIds.has(e.group)) && distinctFiles(e).length >= 2);
 }
@@ -146,7 +155,9 @@ function renderConfig(){
   updateConfigCount();
 }
 function syncGroupsFromChecks(){
-  prefs.groups = [...cfg.querySelectorAll('#memGroups input')].filter(c => c.checked).map(c => c.value);
+  const boxes = [...cfg.querySelectorAll('#memGroups input')];
+  // Kõik valitud → null: siis on ka hiljem lisanduvad grupid automaatselt valitud.
+  prefs.groups = boxes.every(c => c.checked) ? null : boxes.filter(c => c.checked).map(c => c.value);
   savePrefs();
 }
 function updateConfigCount(){
@@ -182,7 +193,7 @@ screen.innerHTML = `
 const panel = screen.querySelector('#mmPanel');
 const pop = screen.querySelector('#mmPop');
 
-const S = {view: 'idle', token: 0, pairs: [], tiles: [], open: [], moves: 0, found: 0, t0: 0, t1: 0, size: 12, groups: null};
+const S = {view: 'idle', token: 0, pairs: [], tiles: [], open: [], moves: 0, found: 0, t0: 0, t1: 0, want: 0};
 
 function loadImg(url){
   return new Promise((resolve, reject) => {
@@ -200,6 +211,7 @@ async function loadPair(entry, token){
     if(token !== S.token) return null;
     try{
       const info = await fetchSpecificFile(f);
+      if(infos.some(x => x.url === info.url)) continue;   // eri nimed, sama pilt (nt Commonsi ümbersuunamine)
       await loadImg(info.url);
       infos.push(info);
       if(infos.length === 2) return {entry, infos};
@@ -214,7 +226,8 @@ async function startGame(){
   if(pool.length < MIN_PAIRS) return;
   const want = Math.min(prefs.size, pool.length);
   const token = ++S.token;
-  Object.assign(S, {view: 'loading', pairs: [], tiles: [], open: [], moves: 0, found: 0, t0: 0, t1: 0, size: want, groups});
+  Object.assign(S, {view: 'loading', pairs: [], tiles: [], open: [], moves: 0, found: 0, t0: 0, t1: 0, want});
+  closeMatch(false, true);
   show();
   const progress = () => {
     if(token !== S.token || S.view !== 'loading') return;
@@ -250,7 +263,7 @@ function buildBoard(){
   const cols = S.pairs.length <= 8 ? 4 : S.pairs.length <= 12 ? 6 : 8;
   panel.innerHTML = `
     <div class="mm-stats" aria-live="polite"><span>Paare <b id="mmFound">0</b> / ${S.pairs.length}</span><span>Käike <b id="mmMoves">0</b></span></div>
-    <div class="mm-hint">Pööra kaks ruutu. Paar on sama masina kaks erinevat pilti. 🔍 suurendab avatud pilti.</div>
+    <div class="mm-hint">Pööra kaks ruutu. Paar on sama masina kaks erinevat pilti. 🔍 suurendab avatud pilti.${S.pairs.length < S.want ? ` <b>Osa pilte ei laadinud – laual on ${S.pairs.length} paari ${S.want} asemel.</b>` : ''}</div>
     <div class="mm-board" id="mmBoard" style="--cols:${cols}"></div>`;
   const board = panel.querySelector('#mmBoard');
   S.tiles.forEach((t, i) => {
@@ -357,10 +370,12 @@ function showMatch(pi, fresh){
   pop._last = last;
   pop.querySelector('#mmPopOk').focus();
 }
-function closeMatch(toEnd){
+// silent = sulge ilma kokkuvõtte ja fookuse taastamiseta (uus laud, ekraanilt lahkumine).
+function closeMatch(toEnd, silent){
   if(pop.hidden) return;
   pop.hidden = true;
   pop.innerHTML = '';
+  if(silent) return;
   if(toEnd || (S.view === 'board' && S.found === S.pairs.length)){ renderEnd(); return; }
   if(popOpener && document.contains(popOpener)){ try{ popOpener.focus(); }catch(e){} }
 }
@@ -412,25 +427,23 @@ function renderEnd(){
 // Ekraani näitamine, lahkumine
 // ---------------------------------------------------------------------------
 function show(){
-  if(window.CuratedTest) window.CuratedTest.hide();
-  if(window.SymbolPractice) window.SymbolPractice.hide();
-  ['homeScreen', 'listScreen', 'runScreen', 'kuldScreen', 'curatedScreen', 'symbolScreen'].forEach(id => {
-    const e = document.getElementById(id); if(e) e.style.display = 'none';
-  });
-  document.body.classList.remove('run-active');
-  document.body.classList.add('home-active');
+  showAppScreen(null, 'home-active', 'MemoryGame');   // peidab teised ekraanid ja moodulid (index.html)
   screen.style.display = 'block';
   window.scrollTo(0, 0);
 }
+// Ekraanilt lahkumine (ükskõik mis teel) lõpetab mängu: pooleli laadimine katkestatakse, aken suletakse.
 function hide(){
-  screen.style.display = 'none';
-  pop.hidden = true;
-}
-function inProgress(){ return S.view === 'board' && S.found > 0 && S.found < S.pairs.length; }
-function leave(){
-  if(inProgress() && !confirm('Lõpetada Memory? Praegune laud kaob.')) return;
+  if(screen.style.display === 'none') return;
   S.token++;
   S.view = 'idle';
+  closeMatch(false, true);
+  screen.style.display = 'none';
+}
+// Kinnitust küsitakse alates esimesest pööratud ruudust kuni laua lõpuni.
+function inProgress(){ return S.view === 'board' && (S.moves > 0 || S.open.length > 0) && S.found < S.pairs.length; }
+function confirmLeave(){ return !inProgress() || confirm('Lõpetada Memory? Praegune laud kaob.'); }
+function leave(){
+  if(!confirmLeave()) return;
   hide();
   if(typeof goHome === 'function') goHome();
 }
@@ -439,11 +452,31 @@ screen.querySelector('#mmRestart').addEventListener('click', () => {
   if(inProgress() && !confirm('Alustada uue lauaga? Praegune laud kaob.')) return;
   startGame();
 });
+// Päise pealkiri („TEHNIKATUVASTUS“) viib avalehele: küsi enne, kui laud on pooleli (nagu Kuldvillakus).
+const titleEl = document.getElementById('titleHome');
+if(titleEl) titleEl.addEventListener('click', ev => {
+  if(screen.style.display === 'none') return;
+  if(!confirmLeave()){ ev.stopImmediatePropagation(); ev.preventDefault(); }
+}, true);
+
+// Paari aken on modaalne: Tab liigub ainult akna sees, Esc sulgeb. Enter töötab nupu peal nagu klõps
+// (pildinupp suurendab, „Jätka“ sulgeb); kui fookus pole akna nupul, sulgeb Enter akna.
 document.addEventListener('keydown', e => {
   if(screen.style.display === 'none' || pop.hidden) return;
   if(typeof lbOpen !== 'undefined' && lbOpen) return;   // suurendus sulgub enne
-  if(e.key === 'Escape' || e.key === 'Enter'){ e.preventDefault(); closeMatch(pop._last); }
+  if(e.key === 'Tab'){
+    const f = [...pop.querySelectorAll('button, a[href]')];
+    if(!f.length) return;
+    const i = f.indexOf(document.activeElement);
+    const next = e.shiftKey ? (i <= 0 ? f.length - 1 : i - 1) : (i === -1 || i === f.length - 1 ? 0 : i + 1);
+    e.preventDefault(); f[next].focus();
+    return;
+  }
+  if(e.key === 'Escape'){ e.preventDefault(); closeMatch(pop._last); return; }
+  if(e.key === 'Enter' && !(pop.contains(document.activeElement) && document.activeElement.matches('button, a[href]'))){
+    e.preventDefault(); closeMatch(pop._last);
+  }
 });
 
-window.MemoryGame = {start: startGame, hide, _state: S, _eligible: eligibleEntries};
+window.MemoryGame = {hide, _state: S};
 })();

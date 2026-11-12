@@ -662,6 +662,7 @@
   .tta-status.is-unverified{border-color:var(--amber);color:var(--amber);}
   .tta-sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px 26px;}
   .tta-section-title{font-family:var(--font-display);font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--olive);margin:0 0 6px;padding-bottom:4px;border-bottom:1px solid var(--line);}
+  .tta-section.is-ranges .tta-section-title{color:var(--amber);}   /* klass tuleb koodist: 'tta-section is-' + section.id */
   .tta-list{margin:0;display:grid;grid-template-columns:minmax(110px,44%) 1fr;}
   .tta-list dt,.tta-list dd{margin:0;padding:5px 0;border-bottom:1px dotted rgba(255,255,255,.08);font-size:12px;line-height:1.35;}
   .tta-list dt{color:var(--bone-dim);padding-right:10px;}
@@ -2427,39 +2428,23 @@ function practiceAdvance(){
 }
 
 // ============================================================================
-// EKRAANIDE VAHETUS — avaleht, nimekiri, harjutus/test ja Kuldvillak; moodulid peidetakse window.X.hide() kaudu
+// EKRAANIDE VAHETUS – ühes kohas.
+// Põhiäpi ekraanid (APP_SCREENS) peidetakse display:none abil, moodulid (MODULE_SCREENS) oma hide()
+// kaudu, mis sulgeb ka mooduli hüpikaknad ja katkestab pooleli töö. Uus moodul: lisa ta MODULE_SCREENS-i
+// ja kutsu oma ekraani avades showAppScreen(null, 'home-active', '<moodul>').
 // ============================================================================
-function showRunScreen(){
-  if(window.CuratedTest) window.CuratedTest.hide();
-  if(window.SymbolPractice) window.SymbolPractice.hide();
-  if(window.MemoryGame) window.MemoryGame.hide();
-  document.body.classList.remove('home-active'); document.body.classList.add('run-active');
-  homeScreen.style.display = 'none';
-  listScreen.style.display = 'none';
-  kuldScreen.style.display = 'none';
-  runScreen.style.display = 'block';
+const APP_SCREENS = ['homeScreen', 'listScreen', 'runScreen', 'kuldScreen'];
+const MODULE_SCREENS = ['CuratedTest', 'SymbolPractice', 'MemoryGame'];
+function showAppScreen(id, bodyClass, keepModule){
+  MODULE_SCREENS.forEach(m => { if(m !== keepModule && window[m] && typeof window[m].hide === 'function') window[m].hide(); });
+  APP_SCREENS.forEach(s => { const e = document.getElementById(s); if(e) e.style.display = s === id ? 'block' : 'none'; });
+  document.body.classList.remove('home-active', 'run-active');
+  if(bodyClass) document.body.classList.add(bodyClass);
 }
-
-function showHomeScreen(){
-  if(window.CuratedTest) window.CuratedTest.hide();
-  if(window.SymbolPractice) window.SymbolPractice.hide();
-  if(window.MemoryGame) window.MemoryGame.hide();
-  document.body.classList.remove('run-active'); document.body.classList.add('home-active');
-  runScreen.style.display = 'none';
-  listScreen.style.display = 'none';
-  kuldScreen.style.display = 'none';
-  homeScreen.style.display = 'block';
-}
-
+function showRunScreen(){ showAppScreen('runScreen', 'run-active'); }
+function showHomeScreen(){ showAppScreen('homeScreen', 'home-active'); }
 function showListScreen(){
-  if(window.CuratedTest) window.CuratedTest.hide();
-  if(window.SymbolPractice) window.SymbolPractice.hide();
-  if(window.MemoryGame) window.MemoryGame.hide();
-  document.body.classList.remove('run-active'); document.body.classList.add('home-active');
-  homeScreen.style.display = 'none';
-  runScreen.style.display = 'none';
-  kuldScreen.style.display = 'none';
-  listScreen.style.display = 'block';
+  showAppScreen('listScreen', 'home-active');
   renderModelList();
 }
 
@@ -4332,16 +4317,7 @@ function renderKuldBoard(){
   requestAnimationFrame(fitKuldCats);
 }
 
-function showKuldScreen(){
-  if(window.CuratedTest) window.CuratedTest.hide();
-  if(window.SymbolPractice) window.SymbolPractice.hide();
-  if(window.MemoryGame) window.MemoryGame.hide();
-  document.body.classList.remove('home-active','run-active');
-  homeScreen.style.display = 'none';
-  runScreen.style.display = 'none';
-  listScreen.style.display = 'none';
-  kuldScreen.style.display = 'block';
-}
+function showKuldScreen(){ showAppScreen('kuldScreen', null); }
 
 // Küsimuse täisekraanvaade: lukustab lehe kerimise, kuni küsimus on avatud.
 let kuldLoadToken = 0;
@@ -6576,7 +6552,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc93'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc94'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');

@@ -376,11 +376,7 @@ function popNav(){
   try{ window.history.back(); }catch(e){ ignorePop = false; }
 }
 function showScreen(){
-  ['homeScreen', 'listScreen', 'runScreen', 'kuldScreen', 'memoryScreen'].forEach(id => {
-    const e = document.getElementById(id); if(e) e.style.display = 'none';
-  });
-  document.body.classList.remove('run-active');
-  document.body.classList.add('home-active');
+  showAppScreen(null, 'home-active', 'CuratedTest');   // peidab teised ekraanid ja moodulid (index.html)
   screen.style.display = 'block';
   pushNav();
 }

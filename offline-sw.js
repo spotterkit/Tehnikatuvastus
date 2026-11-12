@@ -1,5 +1,5 @@
 // Service Worker lifecycle release. SW_VERSION on ainult versioonimärk (peab klappima APP_BUILD-iga; tõsta: python tools/bump_version.py --apply).
-const SW_VERSION = 'offline-rc93';
+const SW_VERSION = 'offline-rc94';
 const APP_CACHE = 'tehnikatuvastus-app-' + SW_VERSION;
 // MEDIA nime EI TOHI muuta: olemasolevad Commonsi offline-pildid peavad release'ide vahel säilima.
 const MEDIA_CACHE = 'tehnikatuvastus-offline-final-v13';
@@ -68,6 +68,19 @@ const NAV_TIMEOUT_MS = 3500;
 const CANDIDATE = './__candidate__';
 const APP_CACHE_PREFIX = 'tehnikatuvastus-app-';
 
+// Andmefailid (data/*.js, nt data/categories.js) saavad sama kaitse kui index.html:
+//  - laetakse võrk-enne (muudatus jõuab kasutajani kohe, ka ilma versiooni tõstmata);
+//  - './data/x.js'                  = viimane terve koopia (offline fallback);
+//  - './__candidate__/data/x.js'    = võrgust saadud ja lehele serveeritud, veel terveks märkimata.
+// Kandidaadid tõstetakse terveks koos index.html-iga, kui leht saadab 'shell-healthy'
+// (leht kontrollib muu hulgas, et CATEGORIES on laetud). Süntaksiviga andmefailis ei jõua seega
+// offline-koopiasse ja parandus jõuab kasutajani järgmisel laadimisel.
+const DATA_CANDIDATE_PREFIX = './__candidate__/data/';
+function isDataPath(url){
+  return url.origin === self.location.origin && /\/data\/[^/]+\.js$/.test(url.pathname);
+}
+function dataKey(url){ return './data/' + url.pathname.split('/').pop(); }
+
 function buildOf(text){
   const m = /APP_BUILD\s*=\s*'([^']+)'/.exec(text || '');
   return m ? m[1] : null;
@@ -109,8 +122,24 @@ self.addEventListener('install', event => {
 
     await Promise.allSettled(OPTIONAL_APP_ASSETS.filter(a => a !== './').map(async asset => {
       const req = new Request(asset, {cache:'reload'});
-      const res = await fetch(req);
-      if(!res.ok) throw new Error('Optional app asset failed: ' + asset);
+      const isData = isDataPath(new URL(req.url));
+      let res = null;
+      try{ res = await fetch(req); }catch(e){ res = null; }
+      if(isData){
+        // Uuendusel: eelmise versiooni terve koopia jääb terveks, uus läheb kandidaadiks.
+        // Esmasel installil (või kui vana koopiat pole) läheb uus otse terveks.
+        let old = null;
+        for(const name of await caches.keys()){
+          if(!name.startsWith(APP_CACHE_PREFIX) || name === APP_CACHE) continue;
+          old = await (await caches.open(name)).match(asset, {ignoreVary:true});
+          if(old) break;
+        }
+        if(old) await cache.put(asset, old.clone());
+        if(res && res.ok) await cache.put(old ? DATA_CANDIDATE_PREFIX + asset.split('/').pop() : asset, res.clone());
+        if(!old && !(res && res.ok)) throw new Error('Data asset failed: ' + asset);
+        return;
+      }
+      if(!res || !res.ok) throw new Error('Optional app asset failed: ' + asset);
       await cache.put(req, res.clone());
     }));
     await self.skipWaiting();
@@ -146,10 +175,25 @@ async function promoteCandidate(build){
   await cache.put('./', cand.clone());
 }
 
+// Andmefailide kandidaadid → terveks (kutsutakse 'shell-healthy' peale).
+async function promoteDataCandidates(){
+  const cache = await caches.open(APP_CACHE);
+  const prefix = new URL(DATA_CANDIDATE_PREFIX, self.location.href).href;
+  for(const req of await cache.keys()){
+    if(!req.url.startsWith(prefix)) continue;
+    const res = await cache.match(req, {ignoreVary:true});
+    if(res) await cache.put('./data/' + req.url.slice(prefix.length), res.clone());
+    await cache.delete(req);
+  }
+}
+
 self.addEventListener('message', event => {
   const data = event.data;
   if(data && data.type === 'shell-healthy' && typeof data.build === 'string'){
-    event.waitUntil(promoteCandidate(data.build).catch(() => undefined));
+    event.waitUntil(Promise.all([
+      promoteCandidate(data.build).catch(() => undefined),
+      promoteDataCandidates().catch(() => undefined)
+    ]));
   }
 });
 
@@ -194,6 +238,31 @@ async function navigationNetworkFirst(event){
   }catch(err){
     return await fallback();
   }
+}
+
+// Andmefail: võrk enne. Serveeritud võrguvastus salvestatakse KANDIDAADIKS; kui serveeriti terve
+// koopia (võrk puudub või aeglane), kustutatakse vana kandidaat, et testimata faili ei tõstetaks terveks.
+async function dataNetworkFirst(event){
+  const url = new URL(event.request.url);
+  const key = dataKey(url);
+  const candKey = DATA_CANDIDATE_PREFIX + key.slice('./data/'.length);
+  const cache = await caches.open(APP_CACHE);
+  const goodCopy = () => cache.match(key, {ignoreVary:true, ignoreSearch:true});
+  const networkPromise = fetch(event.request, {cache:'no-cache'});
+  const timeout = new Promise(resolve => setTimeout(() => resolve(null), NAV_TIMEOUT_MS));
+  let winner = null;
+  try{ winner = await Promise.race([networkPromise, timeout]); }catch(e){ winner = null; }
+  if(winner && winner.ok){
+    if(await goodCopy()) await cache.put(candKey, winner.clone());
+    else await cache.put(key, winner.clone());   // terve koopia puudub: parem midagi kui mitte midagi
+    return winner;
+  }
+  await cache.delete(candKey);
+  event.waitUntil(networkPromise.catch(() => undefined));
+  const good = await goodCopy();
+  if(good) return good;
+  if(winner) return winner;
+  try{ return await networkPromise; }catch(e){ return new Response('', {status:503}); }
 }
 
 async function staleWhileRevalidate(event){
@@ -244,6 +313,11 @@ self.addEventListener('fetch', event => {
   // Installer ja värskendus küsivad faile cache:'reload' / 'no-store' režiimis: need peavad
   // minema päriselt võrku, mitte saama SW kaudu vana cache'itud koopiat tagasi.
   if(event.request.cache === 'reload' || event.request.cache === 'no-store') return;
+
+  if(isDataPath(url)){
+    event.respondWith(dataNetworkFirst(event));
+    return;
+  }
 
   if(url.origin === self.location.origin){
     event.respondWith(staleWhileRevalidate(event));
