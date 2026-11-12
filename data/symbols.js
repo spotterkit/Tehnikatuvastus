@@ -1,4 +1,4 @@
-// Genereeritud: tools/build_symbols.py (allikas tools/symbols/nimekiri.json) – ära muuda käsitsi.
+// Tingmärkide andmed (NATO APP-6 / MIL-STD-2525D). Kasutab symbol-practice.js.
 window.SYMBOL_DATA = {
  "source": "DISA MIL-STD-2525D SVG (Esri joint-military-symbology-xml, Apache-2.0); asendused: images/symbols/ovr_*.svg",
  "categories": [
