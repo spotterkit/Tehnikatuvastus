@@ -10,6 +10,7 @@
   "./data/tta-fields.js",
   "./data/tta.js",
   "./data/what.js",
+  "./data/categories.js",
   "./curated-test.js",
   "./symbol-practice.js",
   "./memory-game.js",

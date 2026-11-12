@@ -1,5 +1,5 @@
 // Service Worker lifecycle release. SW_VERSION on ainult versioonimärk (peab klappima APP_BUILD-iga; tõsta: python tools/bump_version.py --apply).
-const SW_VERSION = 'offline-rc91';
+const SW_VERSION = 'offline-rc92';
 const APP_CACHE = 'tehnikatuvastus-app-' + SW_VERSION;
 // MEDIA nime EI TOHI muuta: olemasolevad Commonsi offline-pildid peavad release'ide vahel säilima.
 const MEDIA_CACHE = 'tehnikatuvastus-offline-final-v13';
@@ -55,7 +55,7 @@ const SYMBOL_ASSETS = [
 // SYMBOL_ASSETS:END
 // data/*.js = lokaalsed TTA/WHAT andmestikud (väikesed, kuuluvad app shelli juurde).
 const OPTIONAL_APP_ASSETS = ['./', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png',
-  './data/tta-fields.js', './data/tta.js', './data/what.js', './curated-test.js', './memory-game.js',
+  './data/tta-fields.js', './data/tta.js', './data/what.js', './data/categories.js', './curated-test.js', './memory-game.js',
   './fonts/oswald-latin-wght-normal.woff2', './fonts/oswald-latin-ext-wght-normal.woff2', './fonts/oswald-cyrillic-wght-normal.woff2',
   ...SYMBOL_ASSETS];
 const NAV_TIMEOUT_MS = 3500;
