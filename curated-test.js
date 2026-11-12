@@ -5,7 +5,6 @@
 //
 // Eraldi moodul: ei muuda olemasolevat testi, harjutamist ega kuldvillakut.
 // Kasutab index.html globaale: CATEGORIES, GROUPS, fetchSpecificFile, goHome.
-// Nõuded: Kureeritud_test_nouded.md (N1–N41).
 //
 // Testifail (.html): sees on testi andmed (JSON) ja suunamine äppi kujul <äpi URL>#kureeritud=<base64url JSON>.
 // Topeltklõps → brauser avab äpi → see moodul loeb räsi ja avab testi. Varuvariant: avalehe "Ava salvestatud test".
@@ -436,7 +435,7 @@ function render(){
 function goStep(n){ S.step = n; S.notice = n === 2 ? S.notice : ''; render(); window.scrollTo(0, 0); }
 
 // ---------------------------------------------------------------------------
-// SAMM 1: küsimuste arv ja liikumise režiim (N10, N15, N19)
+// SAMM 1: küsimuste arv ja liikumise režiim
 // ---------------------------------------------------------------------------
 function renderStep1(){
   const s = S.settings;
@@ -455,7 +454,7 @@ function renderStep1(){
     r.addEventListener('change', () => { s.mode = val; times.hidden = val !== 'auto'; });
     return h('label', {class: 'ct-mode'}, r, h('div', null, h('b', null, title), h('span', null, text)));
   };
-  // Valikuline: õige vastus pärast iga küsimust (N41; vaikimisi väljas – siis kehtib N3).
+  // Valikuline: õige vastus pärast iga küsimust (vaikimisi väljas – siis vastust projektoril ei näidata).
   const ansSec = h('input', {type: 'number', min: 1, max: 600, value: s.answerSec, class: 'ct-num', id: 'ctAnsSec'});
   ansSec.addEventListener('input', () => { s.answerSec = clampInt(ansSec.value, 1, 600, DEFAULTS.answerSec); });
   const ansTime = h('div', {class: 'ct-times'}, h('label', {for: 'ctAnsSec'}, 'Õige vastuse näitamine', h('span', null, ansSec, ' s')));
@@ -484,7 +483,7 @@ function renderStep1(){
 }
 
 // ---------------------------------------------------------------------------
-// SAMM 2: pildid – reeglitega täitmine, käsitsi lisamine, eelvaade (N11, N12, N14)
+// SAMM 2: pildid – reeglitega täitmine, käsitsi lisamine, eelvaade
 // ---------------------------------------------------------------------------
 function renderStep2(){
   const s = S.settings, q = S.questions;
@@ -866,7 +865,7 @@ function modelSearch(onPick, placeholder, opts){
 }
 
 // ---------------------------------------------------------------------------
-// Pildivalija (aken): lisab uue küsimuse või vahetab olemasoleva pildi (ükskõik millise mudeli pilt, N14)
+// Pildivalija (aken): lisab uue küsimuse või vahetab olemasoleva pildi (ükskõik millise mudeli pilt)
 // ---------------------------------------------------------------------------
 let pickerEl = null;
 function closePicker(){
@@ -967,7 +966,7 @@ function pickImageFor(opts){
   const inp = search.querySelector('input'); if(inp) setTimeout(() => inp.focus(), 30);
 }
 // ---------------------------------------------------------------------------
-// SAMM 3: kinnitus, salvestamine, lehed (N5, N6, N18, N20, N24–N28)
+// SAMM 3: kinnitus, salvestamine, lehed
 // ---------------------------------------------------------------------------
 function confirmTest(){
   const n = S.questions.length;
@@ -1071,7 +1070,7 @@ function saveTestFile(){
   setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
 }
 
-// --- Prinditavad lehed (brauseri printimisaken, N20) ---
+// --- Prinditavad lehed (brauseri printimisaken) ---
 let printCleanup = null;
 function printSheet(kind){
   if(printCleanup) printCleanup();
@@ -1119,7 +1118,7 @@ function printSheet(kind){
 }
 
 // ---------------------------------------------------------------------------
-// Testi avamine: räsi (#kureeritud=…) või fail (Ava salvestatud test / lohistamine) – N28
+// Testi avamine: räsi (#kureeritud=…) või fail (Ava salvestatud test / lohistamine)
 // ---------------------------------------------------------------------------
 function parseTestText(text){
   let data = null;
@@ -1211,7 +1210,7 @@ function openNew(){
 }
 
 // ---------------------------------------------------------------------------
-// PROJEKTORIVAADE (N3, N4, N15–N17, N21–N23)
+// PROJEKTORIVAADE
 // Iga küsimus: 'view' (pilt + number) → 'write' (pilt kadunud, number + "Kirjuta vastus") → järgmine.
 // Valikuliselt (S.settings.showAnswer, vaikimisi väljas): pärast 'write' tuleb 'answer' – pilt uuesti koos õige vastusega.
 // Ekraanil ei ole failinime, allikat ega vihjeid; pildi alt on tühi (katkise pildi korral ei ilmu tekst).

@@ -7,7 +7,7 @@ const MEDIA_CACHE = 'tehnikatuvastus-offline-final-v13';
 // Ainult index.html on installi jaoks kriitiline. SW ise ei kuulu precache'i.
 const CRITICAL_ASSET = './index.html';
 // NATO tingmärgid (~200 KB): moodul, andmed ja kõik SVG osad kuuluvad app shelli juurde, et töötaksid offline
-// ka ilma offline-paketita. Loendi kirjutab tools/build_symbols.py – ära muuda markerite vahel käsitsi.
+// ka ilma offline-paketita. Uue tingmärgi SVG lisamisel lisa see ka siia loendisse.
 // SYMBOL_ASSETS:START
 const SYMBOL_ASSETS = [
   './symbol-practice.js',

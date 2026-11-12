@@ -6,7 +6,7 @@
 //   „Otsi“    – kõik märgid ruudustikuna, tekstiotsing ja liigi filter; „Prindi“ prindib filtreeritud märgid.
 //
 // Eraldi moodul: ei kasuta pildikategooriaid ega muuda olemasolevaid režiime.
-// Andmed: data/symbols.js (genereerib tools/build_symbols.py failist tools/symbols/nimekiri.json).
+// Andmed: data/symbols.js.
 // Märgid: DISA MIL-STD-2525D SVG osad (images/symbols), laotud üksteise peale; ovr_*.svg = kinnitatud asendused.
 // Kõik märgid on vastase üksused. Kasutab index.html globaali goHome.
 // ============================================================================
