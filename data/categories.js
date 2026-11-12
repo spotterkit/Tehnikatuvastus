@@ -227,8 +227,7 @@ const CATEGORIES = [
   { label: "L-39 Albatros", group: "planes", type: "Õppelennuk", cat: "L-39 Albatros", files: ["Aero_L-39%2C_Прочее_-_Россия_-RP91602.jpg"] },
   { label: "An-12 Cub", group: "planes", type: "Transpordilennuk", cat: "An-12 Cub", files: ["Antonov_An-12BK%2C_Russia_-_Air_Force_AN1879625.jpg"] },
   { label: "Il-38 May", group: "planes", type: "Allveesõja luure- ja patrull-lennuk", cat: "Il-38 May", files: ["День_ВМФ_2020_СПб._Самолёт_Ил-38н.jpg"] },
-  
-  
+  { label: "An-72 Coaler", group: "planes", type: "Transpordilennuk", cat: "An-72 Coaler", files: ["Russian_Air_Force_-_Antonov_An-72.jpg"] },
 
   // Maasturid ning tagala- ja toetusmasinad
   { label: "BREM-D", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-D", files: ["Army2016-297.jpg"] },
