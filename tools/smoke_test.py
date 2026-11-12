@@ -90,6 +90,7 @@ def main():
     page_errors = []
     counter = {"n": 0}
 
+    file_ids = {}
     def route(r):
         url = r.request.url
         u = urlparse(url)
@@ -97,10 +98,14 @@ def main():
             titles = parse_qs(u.query).get("titles", [""])[0].split("|")
             pages = {}
             for i, t in enumerate(titles):
-                counter["n"] += 1
+                # nagu päris Commonsis: sama fail → alati sama URL, eri failid → eri URL
+                if t not in file_ids:
+                    counter["n"] += 1
+                    file_ids[t] = counter["n"]
+                n = file_ids[t]
                 pages[str(i + 1)] = {"title": t, "imageinfo": [{"mime": "image/png",
-                    "url": f"https://upload.wikimedia.org/test/{counter['n'] % 4}.png",
-                    "thumburl": f"https://upload.wikimedia.org/test/{counter['n'] % 4}.png",
+                    "url": f"https://upload.wikimedia.org/test/{n % 4}.png?f={n}",
+                    "thumburl": f"https://upload.wikimedia.org/test/{n % 4}.png?f={n}",
                     "extmetadata": {"Artist": {"value": "Test"}, "LicenseShortName": {"value": "CC BY-SA 4.0"}}}]}
             return r.fulfill(status=200, content_type="application/json", headers={"access-control-allow-origin": "*"},
                              body=json.dumps({"query": {"pages": pages}}))
@@ -139,6 +144,13 @@ def main():
             check("mudeleid on andmetes", ev("() => CATEGORIES.filter(e => e.files && e.files.length).length") > 50)
             ev("() => { window.__xss = 0; return stripHtml('<b>Autor</b><img src=x onerror=\"window.__xss=1\">'); }")
             p.wait_for_timeout(300)
+            check("TTA laskekauguste pealkiri on amber-värvi", ev("""() => {
+                const d = document.createElement('div'); d.className = 'tta-section is-ranges';
+                const t = document.createElement('div'); t.className = 'tta-section-title'; d.append(t);
+                const a = document.createElement('span'); a.style.color = 'var(--amber)';
+                document.body.append(d, a);
+                const ok = getComputedStyle(t).color === getComputedStyle(a).color;
+                d.remove(); a.remove(); return ok; }"""))
             check("stripHtml ei käivita HTML-i (onerror)", ev("() => window.__xss") == 0 and ev("() => stripHtml('<a href=\"#\">Foto</a> &amp; Co')") == "Foto & Co")
         step("Avaleht", t_home)
 
@@ -474,8 +486,10 @@ def main():
             S = "window.MemoryGame._state"
             pis = ev(f"() => {S}.tiles.map(t => t.pi)")
             check("laual 8 paari = 16 ruutu", len(pis) == 16 and len(set(pis)) == 8, str(len(pis)))
-            check("paari kaks pilti on erinevad failid",
-                  ev(f"() => {S}.pairs.every(p => p.infos[0].rawTitle !== p.infos[1].rawTitle || p.infos[0].url !== p.infos[1].url)"))
+            check("paari kaks pilti on erinevad failid", ev(f"""() => {{
+                const k = t => String(t).startsWith('images/') ? t : normalizeFilename(t);
+                const id = i => i.rawTitle ? k(i.rawTitle) : i.url;   // kohalikul pildil rawTitle puudub
+                return {S}.pairs.every(p => p.infos[0].url !== p.infos[1].url && id(p.infos[0]) !== id(p.infos[1])); }}"""))
             a = 0; b = next(i for i, x in enumerate(pis) if x != pis[0])
             faces = p.locator(".mm-face")
             faces.nth(a).click(); faces.nth(b).click(); p.wait_for_timeout(450)
@@ -492,7 +506,18 @@ def main():
             p.wait_for_selector("#mmPop:not([hidden])")
             name = ev(f"() => {S}.pairs[{pis[a]}].entry.label")
             check("paari aknas on nimi ja allikas", p.text_content(".mm-pop-name") == name and "Allikas" in p.text_content(".mm-pop-imgs"))
-            p.click("#mmPopOk")
+            for _ in range(6): p.keyboard.press("Tab")
+            check("Tab jääb paari akna sisse", ev("() => document.getElementById('mmPop').contains(document.activeElement)"))
+            p.focus(".mm-pop-imgs button"); p.keyboard.press("Enter")
+            p.wait_for_function("() => lbOpen")
+            check("Enter pildil suurendab (aken jääb lahti)", not ev("() => document.getElementById('mmPop').hidden"))
+            p.click("#lbClose")
+            p.keyboard.press("Escape")
+            check("Esc sulgeb paari akna", ev("() => document.getElementById('mmPop').hidden"))
+            ev("() => { window.__realConfirm = window.confirm; window.__asked = 0; window.confirm = () => { window.__asked++; return false; }; }")
+            p.click("#titleHome")
+            check("päise klõps küsib kinnitust, loobumisel laud jääb", ev("() => window.__asked") == 1 and p.is_visible("#mmBoard"))
+            ev("() => { window.confirm = window.__realConfirm; }")
             for pi in sorted(set(pis)):
                 idx = [i for i, x in enumerate(pis) if x == pi]
                 if ev(f"() => {S}.tiles[{idx[0]}].state") == "matched": continue
@@ -503,6 +528,16 @@ def main():
             check("lõpus kõik paarid ülevaates", p.locator(".mm-sum-card").count() == 8 and "Kõik 8 paari" in p.text_content(".end-summary h3"))
             p.click("#mmHome")
             check("Memoryst avalehele", p.is_visible("#homeScreen") and not p.is_visible("#memoryScreen"))
+            # ↻ ajal, kui paari aken on lahti: uus laud, aken suletud
+            p.click("#memStart"); p.wait_for_selector("#mmBoard", timeout=30000)
+            pis = ev(f"() => {S}.tiles.map(t => t.pi)")
+            c = next(i for i, x in enumerate(pis) if x == pis[0] and i != 0)
+            faces = p.locator(".mm-face"); faces.nth(0).click(); faces.nth(c).click()
+            p.wait_for_selector("#mmPop:not([hidden])")
+            ev("() => document.getElementById('mmRestart').click()")
+            p.wait_for_selector("#mmBoard", timeout=30000)
+            check("uus laud sulgeb paari akna", ev("() => document.getElementById('mmPop').hidden") and ev(f"() => {S}.found") == 0)
+            p.click("#mmBack")
         step("Memory", t_memory)
 
         # 7) piltide varukoopia (ZIP)
