@@ -1770,27 +1770,12 @@ async function fetchRetry(url){
 }
 
 async function fetchSpecificFile(filename){
-  // Repo sees olevad kohalikud pildid (nt images/ranks/...).
+  // Kohalikud pildid hoidlas (files[] kirjed, mis algavad "images/"); ülejäänud failinimed on Commonsis.
   if(typeof filename === 'string' && (filename.startsWith('images/') || filename.startsWith('./images/'))){
     return {
       filename: filename.split('/').pop(),
       rawTitle: '',
       url: filename,
-      filepageUrl: '',
-      artist: '',
-      license: '',
-      isLocal: true
-    };
-  }
-
-  // Kohalikud GitHub Pagesi pildid: kõik files[] kirjed, mis algavad "images/".
-  // Ülejäänud failinimed kasutavad endiselt Wikimedia Commonsit.
-  if(typeof filename === 'string' && filename.trim().startsWith('images/')){
-    const localPath = filename.trim();
-    return {
-      filename: localPath.split('/').pop(),
-      rawTitle: localPath,
-      url: localPath,
       filepageUrl: '',
       artist: '',
       license: '',
@@ -6552,7 +6537,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc94'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc95'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
