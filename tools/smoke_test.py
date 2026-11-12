@@ -299,7 +299,7 @@ def main():
             check("salvestatud test avaneb, seade alles", ev("() => CuratedTest._state.settings.showAnswer") is True)
             seq = phases(10)
             check("õige vastus pärast iga küsimust", seq == ["view", "write", "answer"] * 3 + ["end"], " ".join(seq))
-            # vana testifail (enne N41) – vastust ei näidata
+            # vana testifail (enne vastuse näitamise seadet) – vastust ei näidata
             load({"mode": "manual"})
             seq = phases(7)
             check("vana testifail töötab (vastust ei näidata)", seq == ["view", "write"] * 3 + ["end"], " ".join(seq))
