@@ -351,6 +351,13 @@ const CATEGORIES = [
   { label: "RB-636AM2 Svet-KU", group: "ew", type: "Raadiokontroll ja informatsioonikaitse süsteem", cat: "RB-636AM2 Svet-KU", files: ["images/ew/rb636am2.jpg"] },
   { label: "GT-01 Murmansk-BN", group: "ew", type: "Raadiohäirete jaam", cat: "GT-01 Murmansk-BN", files: ["Комплекс_РЭБ_Мурманск-БН.png", "images/ew/murmansk.jpg"] },
   { label: "1RL248-4 SPN-4", group: "ew", type: "Raadiohäirete jaam", cat: "1RL248-4 SPN-4", files: ["1RL248-4_SPN-4.jpg"] },
+  { label: "Shipovnik-Aero", group: "ew", type: "UAS-vastane EW süsteem", cat: "Shipovnik-Aero", files: ["Shipovnik_ECM_vehicle_%28KAMAZ-4350%29_at_Engineering_Technologies_2012.jpg"] },
+  { label: "MKTK-1A Judoist", group: "ew", type: "Raadiokontroll ja informatsioonikaitse süsteem", cat: "MKTK-1A Judoist", files: ["MoscowMissileDefence2020-07.jpg"] },
+  { label: "RB-636AM2 Svet-KU", group: "ew", type: "Raadiokontroll ja informatsioonikaitse süsteem", cat: "RB-636AM2 Svet-KU", files: ["TB2015ExhibitionP2-54.jpg"] },
+  { label: "RP-377LA Lorandit", group: "ew", type: "Suunamääraja ja raadiosignaalide mahasurumise süsteem", cat: "RP-377LA Lorandit", files: ["images/ew/lorandit.jpg"] },
+  { label: "Tirada-2S", group: "ew", type: "Satelliitside segamise kompleks", cat: "", files: ["images/ew/tirada2s.webp"] },
+  { label: "Palantin-K", group: "ew", type: "Raadiohäirete jaam", cat: "Palantin-K", files: ["РЭБ_Палантин_на_базе_КамАЗ.png"] },
+  
 
   // Auastmed — pildid on toodud üle olemasolevast Auastmete quizist Base64 kujul.
   { label: "Armeekindral / Генерал армии", group: "ranks", type: "", cat: "Armeekindral", files: ["images/ranks/armeekindral.png"] },
