@@ -1,6 +1,6 @@
 // ============================================================================
 // NATO TINGMÄRGID: harjutus ja otsing
-// Avalehe nupp „NATO tingmärgid“ avab menüü:
+// Avalehe nupp „Tingmärgid“ avab menüü:
 //   „Harjuta“ – õpilane näeb tingmärki, kirjutab vabalt üksuse nime, vaatab õige vastuse ja märgib ise,
 //               kas läks täppi (nagu "Genereeri test"). 10 märki vooru kohta, lõpus „Korda vigu“.
 //   „Otsi“    – kõik märgid ruudustikuna, tekstiotsing ja liigi filter; „Prindi“ prindib filtreeritud märgid.

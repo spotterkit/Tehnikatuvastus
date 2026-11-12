@@ -9,7 +9,7 @@
 // Paari leidmisel aken: mõlemad pildid, nimi, liik ja allikad. Allikat enne paari leidmist ei näidata
 // (Commonsi failinimi reedaks vastuse – sama reegel nagu Kuldvillakus).
 //
-// Kasutab index.html globaale: CATEGORIES, GROUPS, usableFiles, fetchSpecificFile, sourceLinkLine,
+// Kasutab põhiäpi globaale: CATEGORIES (data/categories.js), GROUPS, usableFiles, fetchSpecificFile, sourceLinkLine,
 // openLightboxList, lbOpen, groupCountLabel, goHome.
 // ============================================================================
 (function(){

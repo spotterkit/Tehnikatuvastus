@@ -373,12 +373,8 @@
   }
   .kuld-question.open{display:flex;}
   .kuld-question .verdict-row,.kuld-question > .row{flex:0 0 auto;}
-  .kuld-question-top{display:flex;justify-content:space-between;align-items:center;flex:0 0 auto;}
-  .kuld-question-cat{font-family:var(--font-display);font-size:20px;color:var(--amber);text-transform:uppercase;}
-  .kuld-question-value{font-family:var(--font-display);font-size:28px;color:var(--olive);font-weight:700;}
   .kuld-question .kuld-scope{flex:1 1 auto;height:auto;min-height:0;margin:0;}
   .kuld-scope img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0a0c07;display:block;}
-  .kuld-answer{flex:0 0 auto;margin-top:0;padding-top:10px;border-top:1px dashed var(--line);}
   .kuld-cell.is-empty{opacity:.1;text-decoration:none;}
   .kuld-head-right{display:flex;align-items:center;gap:10px;}
   .kuld-edit-btn{padding:8px 10px;font-size:11px;}
@@ -434,13 +430,6 @@
     text-transform:uppercase;margin-bottom:14px;
   }
   .home-group-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;}
-  .group-btn{
-    width:100%;text-align:left;
-    padding:13px 14px;
-    font-size:13px;letter-spacing:0.04em;text-transform:none;
-    display:flex;justify-content:space-between;align-items:center;gap:10px;
-  }
-  .group-btn .cnt{font-size:12px;color:var(--bone-soft);letter-spacing:0.08em;}
 
   .home-select-actions{display:flex;gap:8px;margin-bottom:10px;}
   #refinePanel .home-select-actions button{min-width:0;padding:10px 6px;font-size:11px;}
@@ -671,10 +660,8 @@
   }
   .tta-status{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border:1px solid var(--line);color:var(--bone-dim);margin-bottom:12px;}
   .tta-status.is-unverified{border-color:var(--amber);color:var(--amber);}
-  .tta-status.is-verified{border-color:var(--green);color:var(--green);}
   .tta-sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px 26px;}
   .tta-section-title{font-family:var(--font-display);font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--olive);margin:0 0 6px;padding-bottom:4px;border-bottom:1px solid var(--line);}
-  .tta-section.is-ranges .tta-section-title{color:var(--amber);}
   .tta-list{margin:0;display:grid;grid-template-columns:minmax(110px,44%) 1fr;}
   .tta-list dt,.tta-list dd{margin:0;padding:5px 0;border-bottom:1px dotted rgba(255,255,255,.08);font-size:12px;line-height:1.35;}
   .tta-list dt{color:var(--bone-dim);padding-right:10px;}
@@ -923,8 +910,6 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
         <div class="row" style="display:none; margin-top:8px;">
         </div>
         <div id="offlineStatus" class="stats-line" style="margin-top:8px;">Kontrollin offline-paketti…</div>
-        <pre id="roundTripAuditOutput" style="display:none; white-space:pre-wrap; word-break:break-word; margin-top:10px; padding:10px; border:1px solid rgba(255,255,255,.18); border-radius:8px; font-size:12px; line-height:1.45; max-height:520px; overflow:auto;"></pre>
-        <pre id="commonsAuditOutput" style="display:none; white-space:pre-wrap; word-break:break-word; margin-top:10px; padding:10px; border:1px solid rgba(255,255,255,.18); border-radius:8px; font-size:12px; line-height:1.45; max-height:520px; overflow:auto;"></pre>
 
         <div class="row" style="margin-top:14px;">
           <button class="primary" id="diagToggle" type="button" style="flex:1;">Pildidiagnostika</button>
@@ -1222,7 +1207,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
 
 <script>
 // Mudelite andmed (CATEGORIES) on failis data/categories.js.
-// Kaheksa harjutuskategooriat — iga CATEGORIES kirje `group` väli viitab siia.
+// Grupid — iga CATEGORIES kirje `group` väli viitab siia. Massiivi järjekord = gruppide järjekord nimekirjas.
 const GROUPS = [
   { id: "tank", label: "Tankid" },
   { id: "ifv", label: "Jalaväe lahingumasinad ja -soomustransportöörid" },
@@ -1533,11 +1518,8 @@ let viewIndex = null;
 let liveState = { phase: 'loading', current: null, guessText: '', message: 'Laen pilti...' };
 
 // --- "Ei korda enne kui KÕIK pildid on läbi käidud" loogika ---
-// Üks ühtne kott KÕIGI kureeritud piltide peale, olenemata tehnikaühikust/kategooriast.
-// NB: see asendab varasema kaalu(weight)-põhise "mõni tüüp tuleb sagedamini" loogika —
-// range "mitte kordust enne kui absoluutselt kõik läbi" ja "mõni tüüp sagedamini"
-// on omavahel vastuolus, seega praegu on iga pilt täpselt võrdse tõenäosusega ja
-// näidatakse täpselt üks kord, enne kui tsükkel algab uuesti otsast.
+// Üks ühtne kott kõigi valitud piltide peale, olenemata mudelist või grupist: iga pilt on
+// võrdse tõenäosusega ja tuleb täpselt üks kord, enne kui tsükkel algab uuesti otsast.
 function shuffleArray(arr){
   for(let i = arr.length - 1; i > 0; i--){
     const j = Math.floor(Math.random() * (i + 1));
@@ -2091,7 +2073,7 @@ function updateNavControls(){
 }
 
 // Skoorikast peakirjas — 'practice' režiimis loeb lihtsalt näidatud pilte,
-// 'test' režiimis näitab õigesti/valesti tulemust nagu varem.
+// 'test' režiimis näitab õigesti/valesti tulemust.
 function updateRunProgress(){
   if(!runProgressFill) return;
   const done = Math.min(shownCount, TOTAL_IMAGES || 0);
@@ -2445,7 +2427,7 @@ function practiceAdvance(){
 }
 
 // ============================================================================
-// REŽIIMIVALIK — kodumenüü ja kolm mängurežiimi
+// EKRAANIDE VAHETUS — avaleht, nimekiri, harjutus/test ja Kuldvillak; moodulid peidetakse window.X.hide() kaudu
 // ============================================================================
 function showRunScreen(){
   if(window.CuratedTest) window.CuratedTest.hide();
@@ -4519,8 +4501,6 @@ function setKuldResult(result){
   renderKuldBoard();
   showKuldBoard();
 }
-function finishKuldQuestion(isCorrect){ setKuldResult({ ok: !!isCorrect, team: null }); }
-
 function startKuldvillak(groupIds){
   if(!groupIds || groupIds.length !== 5) return;
   kuldGame = buildKuldGame(groupIds);
@@ -6596,7 +6576,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc92'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc93'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');

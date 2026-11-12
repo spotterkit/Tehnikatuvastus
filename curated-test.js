@@ -4,7 +4,7 @@
 // salvestab selle .html failina, prindib vastuste lehe ja õpilase lehe ning näitab testi projektorilt.
 //
 // Eraldi moodul: ei muuda olemasolevat testi, harjutamist ega kuldvillakut.
-// Kasutab index.html globaale: CATEGORIES, GROUPS, fetchSpecificFile, goHome.
+// Kasutab põhiäpi globaale: CATEGORIES (data/categories.js), GROUPS, fetchSpecificFile, goHome.
 //
 // Testifail (.html): sees on testi andmed (JSON) ja suunamine äppi kujul <äpi URL>#kureeritud=<base64url JSON>.
 // Topeltklõps → brauser avab äpi → see moodul loeb räsi ja avab testi. Varuvariant: avalehe "Ava salvestatud test".
