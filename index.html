@@ -1201,10 +1201,11 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
 
 <!-- Lokaalsed andmestikud (TTA, WHAT). Laetakse script-sildiga, mitte fetchiga: töötab ka index.html otse failist avades.
      Puuduv fail ei murra äppi – vastav nupp lihtsalt ei ilmu. -->
-<script src="./data/tta-fields.js"></script>
-<script src="./data/tta.js"></script>
-<script src="./data/what.js"></script>
-<script src="./data/categories.js"></script>
+<!-- Andmefailid laetakse unikaalse aadressiga (?t=…): GitHub Pages lubab failil olla brauseri vahemälus 10 min
+     (max-age=600) ja Chrome annaks uuel laadimisel vana koopia otse vahemälust, service workerini jõudmata.
+     Service worker tunneb faili ära ilma ?t-ta (offline-koopia ja kaitse, vt offline-sw.js). -->
+<script>function loadDataScript(name){ document.write('<script src="./data/' + name + '?t=' + Date.now() + '"><\/script>'); }
+loadDataScript('tta-fields.js'); loadDataScript('tta.js'); loadDataScript('what.js'); loadDataScript('categories.js');</script>
 
 <script>
 // Mudelite andmed (CATEGORIES) on failis data/categories.js.
@@ -6124,7 +6125,7 @@ window.addEventListener('hashchange', startFromHash);
 <!-- Kureeritud test (õpetajale): eraldi moodul, vt curated-test.js -->
 <script src="./curated-test.js"></script>
 <!-- NATO tingmärkide harjutus: eraldi moodul, vt symbol-practice.js -->
-<script src="./data/symbols.js"></script>
+<script>loadDataScript('symbols.js');</script>
 <script src="./symbol-practice.js"></script>
 <!-- Memory: paarid = sama mudeli kaks erinevat pilti; eraldi moodul, vt memory-game.js -->
 <script src="./memory-game.js"></script>
@@ -6537,7 +6538,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc95'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc96'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
