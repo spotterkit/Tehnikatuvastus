@@ -69,6 +69,7 @@ const CATEGORIES = [
   { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", files: ["images/artillery_recon/ark1_01.jpg", "images/artillery_recon/ark12.jpg"] },
   { label: "1V15", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V15", files: ["images/artillery_recon/1v15_01.webp"] },
   { label: "1V152", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk (Kapustnik-B osis)", cat: "1V152", files: ["Army2016-495.jpg"] },
+  { label: "1B75 Penicilin", group: "artillery_recon", type: "Passiivne suurtükiväeluure kompleks", cat: "1B75 Penicilin", files: ["images/artillery_recon/1B75Penicillin.jpg]" },
 
   // Liikursuurtükid ja -miinipildujad
   { label: "2S19 Msta-S", group: "spg", type: "Liikursuurtükk", cat: "2S19 Msta", files: ["ParkPatriot2015part6-02.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_01.jpg", "Військовослужбовці_провели_тактичне_заняття_09.jpg", "images/artillery/2s19_01.jpg", "images/artillery/2s19_02.jpg"] },
