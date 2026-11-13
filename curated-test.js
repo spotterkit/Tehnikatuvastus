@@ -17,7 +17,7 @@
 const FILE_KIND = 'tehnikatuvastus-kureeritud-test';
 const FILE_VERSION = 1;
 const HASH_KEY = '#kureeritud=';
-const MAX_Q = 100;
+const MAX_Q = 200;
 const DEFAULTS = {count: 20, mode: 'manual', viewSec: 15, writeSec: 15, name: '', showAnswer: false, answerSec: 5};
 
 const screen = document.getElementById('curatedScreen');
