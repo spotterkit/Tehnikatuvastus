@@ -15,6 +15,8 @@ Mida kontrollitakse:
   - Kuldvillaku laua fail: salvestamine → avamine
   - Memory: laud, mittesobiv paar jääb avatuks, suurendus ilma vastuseta, paari aken, kokkuvõte
   - „Lae pildid seadmesse“ (ZIP)
+  - inglise keel (EN): keelevalik, masintõlke teade, tõlgitud andmed; lõpus nimekiri puuduvatest tõlgetest
+    (puuduv tõlge ei ole viga – äpp näitab siis eestikeelset teksti)
 
 Esimene kord (paigaldus):
   pip install playwright
@@ -591,10 +593,90 @@ def main():
             check("varukoopia ilma vigadeta", "VIGA 0" in p.text_content("#diagProgress"), p.text_content("#diagProgress"))
         step("Lae pildid seadmesse (ZIP)", t_backup)
 
+        # 8) inglise keel (EN)
+        missing_report = {}
+        def t_english():
+            home()
+            ev("() => { localStorage.removeItem('tehnikatuvastus.lang.mtNotice.v1'); }")
+            p.click("#langSwitch [data-lang='en']")
+            p.wait_for_function("() => window.I18N && I18N.lang === 'en' && typeof CATEGORIES !== 'undefined'")
+            p.wait_for_selector("#mtModal")
+            check("EN: masintõlke aken avaneb", "machine translation" in p.text_content("#mtModal"))
+            p.click("#mtModalOk")
+            check("EN: aken sulgub ja jääb meelde", ev("() => !document.getElementById('mtModal') && localStorage.getItem('tehnikatuvastus.lang.mtNotice.v1') === '1'"))
+            check("EN: html lang = en", ev("() => document.documentElement.lang") == "en")
+            check("EN: avalehe nupp on inglise keeles", "All models" in p.text_content("#showModelListBtn"))
+            check("EN: püsiv masintõlke rida avalehel", ev("() => !!document.querySelector('#homeScreen .mt-note')"))
+            check("EN: pealkiri jääb samaks", p.text_content("#titleHome").replace(" ", "") == "TEHNIKATUVASTUS")
+            check("EN: liik ja nimi tõlgitud (Sovremenny → Destroyer)",
+                  ev("() => { const e = CATEGORIES.find(x => x.cat === 'Sovremenny klass'); return !e || (e.type === 'Destroyer' && e.typeEt === 'Hävitaja'); }"))
+            check("EN: TTA vaates on masintõlke rida", ev("""() => {
+                const e = CATEGORIES.find(x => TTA_DATA.models[x.cat]); if(!e) return true;
+                return !!renderTTAPanel(e, TTA_DATA.models[e.cat]).querySelector('.mt-note'); }"""))
+            def home_en():
+                p.goto(base + "/index.html")
+                p.wait_for_function("() => typeof CATEGORIES !== 'undefined' && document.getElementById('appBuildLabel').textContent.includes('version')")
+            check("EN: jaluses on versioon inglise keeles", "version" in p.text_content("#appBuildLabel"))
+            # Käi läbi peamised vaated, et puuduvad tõlked jõuaksid nimekirja.
+            p.click("#showModelListBtn"); p.wait_for_timeout(600); p.click("#listBackBtn")
+            for btn in ("#startKuldvillakBtn", "#startMemoryBtn", "#startSymbolsBtn", "#testRulesBtn", "#groupToggleBtn"):
+                if ev(f"() => !!document.querySelector('{btn}')"):
+                    try:
+                        p.click(btn, timeout=3000); p.wait_for_timeout(400)
+                    except Exception:
+                        pass
+                    home_en()
+            ui_miss = ev("""() => {
+                const names = new Set();
+                (typeof LOCAL_IMAGE_SOURCES !== 'undefined' ? Object.values(LOCAL_IMAGE_SOURCES) : []).forEach(v => { if(v && v.name) names.add(v.name); if(typeof v === 'string') names.add(v); });
+                return [...I18N.misses].filter(x => !names.has(x)); }""")
+            D = ev("""() => {
+                const T = I18N_DATA, out = {};
+                const has = /[õäöüšžÕÄÖÜŠŽ]/;
+                out['liigid'] = [...new Set(CATEGORIES.map(c => c.typeEt).filter(t => t && !T.types[t]))];
+                out['mudelinimed'] = CATEGORIES.filter(c => has.test(c.labelEt) && !T.labels[c.labelEt]).map(c => c.labelEt);
+                out['grupid'] = GROUPS.filter(g => g.label === g.labelEt && has.test(g.label)).map(g => g.label);
+                out['TTA väljad'] = Object.keys(TTA_FIELDS.fields).filter(k => !T.ttaFields[k]);
+                const ENG = new Set(Object.values(T.ttaText || {}).map(x => x.replace(/\\s+/g, ' ').trim()));
+                const tta = [];
+                for(const cat in TTA_DATA.models){ const m = TTA_DATA.models[cat];
+                  for(const part of ['values', 'notes']) for(const k in (m[part] || {})){ const v = m[part][k];
+                    if(typeof v === 'string' && /\\p{L}{3,}/u.test(v) && !ENG.has(v.replace(/\\s+/g, ' ').trim())) tta.push(cat + ' / ' + (part === 'notes' ? 'märkus ' : '') + k + ': ' + v.slice(0, 60)); } }
+                out['TTA tekstid'] = tta;
+                const WEN = new Set(Object.values(T.whatText || {}).map(x => x.replace(/\\s+/g, ' ').trim()));
+                const what = [];
+                for(const cat in WHAT_DATA.models){ const m = WHAT_DATA.models[cat];
+                  const rows = [m.note, ...['wheels', 'hull', 'armament', 'turret'].flatMap(p => (m[p] || []).map(r => r && r.text)), ...(m.related || []).map(g => g && g.label)];
+                  rows.forEach(v => { if(typeof v === 'string' && v.trim() && !WEN.has(v.replace(/\\s+/g, ' ').trim())) what.push(cat + ': ' + v.slice(0, 60)); }); }
+                out['WHAT'] = what;
+                const SEN = new Set(Object.values(T.symbols || {}));
+                out['tingmärgid'] = (window.SYMBOL_DATA ? SYMBOL_DATA.symbols : []).filter(x => !SEN.has(x.name)).map(x => x.name);
+                return out; }""")
+            missing_report.update(D); missing_report["kasutajaliides"] = ui_miss
+            # tagasi eesti keelde
+            p.click("#langSwitch [data-lang='et']")
+            p.wait_for_function("() => window.I18N && I18N.lang === 'et' && typeof CATEGORIES !== 'undefined'")
+            check("ET: tagasi eesti keelde, masintõlke rida puudub", ev("() => !document.querySelector('.mt-note') && document.documentElement.lang === 'et'"))
+        step("Inglise keel (EN)", t_english)
+
         check("lehel ei tekkinud skriptivigu", not page_errors, " | ".join(page_errors)[:300])
         browser.close()
     srv.shutdown()
 
+    if missing_report and not any(missing_report.values()):
+        print()
+        print("Inglise tõlked: kõik olemas.")
+    elif missing_report:
+        print()
+        print("PUUDUVAD INGLISE TÕLKED (ei ole viga – äpp näitab eestikeelset teksti; tõlked: data/i18n-en.js)")
+        for k, v in missing_report.items():
+            if not v:
+                continue
+            print(f"  {k}: {len(v)}")
+            for x in v[:15]:
+                print(f"    - {x}")
+            if len(v) > 15:
+                print(f"    … ja veel {len(v) - 15}")
     bad = [r for r in results if not r[1]]
     print()
     print(f"KOKKU: {len(results) - len(bad)} / {len(results)} korras" + ("" if not bad else f" · {len(bad)} VIGA"))
