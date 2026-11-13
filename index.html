@@ -820,9 +820,8 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
   <div class="panel" id="homeScreen">
     <div class="home-layout">
       <div class="home-main">
-        <div class="home-divider" style="margin-top:0;border-top:none;padding-top:0;">Nimekiri</div>
         <div class="row">
-          <button class="primary" id="showModelListBtn" style="flex:1;">Kõik mudelid (Nimekiri, TTA, WHAT, Pildid)</button>
+          <button class="primary" id="showModelListBtn" style="flex:1;">Kataloog (TTA, WHAT, Pildid)</button>
         </div>
         <div class="stats-line" id="statsLine" style="margin-top:8px;"></div>
 
@@ -6852,7 +6851,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc98'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc99'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
