@@ -605,7 +605,7 @@ def main():
             p.click("#mtModalOk")
             check("EN: aken sulgub ja jääb meelde", ev("() => !document.getElementById('mtModal') && localStorage.getItem('tehnikatuvastus.lang.mtNotice.v1') === '1'"))
             check("EN: html lang = en", ev("() => document.documentElement.lang") == "en")
-            check("EN: avalehe nupp on inglise keeles", "All models" in p.text_content("#showModelListBtn"))
+            check("EN: avalehe nupp on inglise keeles", "Catalogue" in p.text_content("#showModelListBtn"))
             check("EN: püsiv masintõlke rida avalehel", ev("() => !!document.querySelector('#homeScreen .mt-note')"))
             check("EN: pealkiri jääb samaks", p.text_content("#titleHome").replace(" ", "") == "TEHNIKATUVASTUS")
             check("EN: liik ja nimi tõlgitud (Sovremenny → Destroyer)",
