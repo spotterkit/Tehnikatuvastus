@@ -808,7 +808,7 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
   <header>
     <div>
       <div class="eyebrow"></div>
-      <h1 id="titleHome" class="clickable" title="Tagasi avalehele">TEHNIKA<span>TUVASTUS</span></h1>
+      <h1 id="titleHome" class="clickable" title="Tagasi avalehele" data-i18n-skip>TEHNIKA<span>TUVASTUS</span></h1>
     </div>
     <div class="scorebox">
       <div class="lbl">Tulemus</div>
@@ -910,11 +910,11 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
         <div class="qr-eyebrow">Ava telefonis</div>
         <div class="qr-box" id="qrBox"></div>
         <div class="qr-caption">Skanni QR-kood, et avada see leht oma seadmes.</div>
-        <div class="qr-help">Telefoni avaekraanile lisamine:<br>
+        <div class="qr-help" data-i18n-html>Telefoni avaekraanile lisamine:<br>
           <b>iPhone (Safari):</b> jagamisnupp → Lisa avaekraanile.<br>
           <b>Android (Chrome):</b> ⋮ menüü → Paigalda äpp / Lisa avaekraanile.<br>
           Ava äpp ikoonilt ja laadi offline-pakett SEAL (avaekraani äpil on oma salvestus).</div>
-        <div class="qr-help"><b>Teadmiseks:</b><br>
+        <div class="qr-help" data-i18n-html><b>Teadmiseks:</b><br>
           Kui puhastad brauseri andmeid või cache'i, kustub ka offline-pakett ja see tuleb uuesti laadida.<br>
           iPhone võib Safari saidiandmed ise kustutada, kui lehte umbes nädal ei kasuta (avaekraanile lisatud äpil tavaliselt mitte).<br>
           Enne offline-kasutust kontrolli, et olek ütleb "Offline kasutuseks valmis".</div>
@@ -1186,13 +1186,339 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
 var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],f={},c=function(t,r){o=function(t){for(var r=new Array(t),e=0;e<t;e+=1){r[e]=new Array(t);for(var n=0;n<t;n+=1)r[e][n]=null}return r}(i=4*e+17),l(0,0),l(i-7,0),l(0,i-7),s(),h(),d(t,r),e>=7&&v(t),null==a&&(a=p(e,n,u)),w(a,r)},l=function(t,r){for(var e=-1;e<=7;e+=1)if(!(t+e<=-1||i<=t+e))for(var n=-1;n<=7;n+=1)r+n<=-1||i<=r+n||(o[t+e][r+n]=0<=e&&e<=6&&(0==n||6==n)||0<=n&&n<=6&&(0==e||6==e)||2<=e&&e<=4&&2<=n&&n<=4)},h=function(){for(var t=8;t<i-8;t+=1)null==o[t][6]&&(o[t][6]=t%2==0);for(var r=8;r<i-8;r+=1)null==o[6][r]&&(o[6][r]=r%2==0)},s=function(){for(var t=B.getPatternPosition(e),r=0;r<t.length;r+=1)for(var n=0;n<t.length;n+=1){var i=t[r],a=t[n];if(null==o[i][a])for(var u=-2;u<=2;u+=1)for(var f=-2;f<=2;f+=1)o[i+u][a+f]=-2==u||2==u||-2==f||2==f||0==u&&0==f}},v=function(t){for(var r=B.getBCHTypeNumber(e),n=0;n<18;n+=1){var a=!t&&1==(r>>n&1);o[Math.floor(n/3)][n%3+i-8-3]=a}for(n=0;n<18;n+=1){a=!t&&1==(r>>n&1);o[n%3+i-8-3][Math.floor(n/3)]=a}},d=function(t,r){for(var e=n<<3|r,a=B.getBCHTypeInfo(e),u=0;u<15;u+=1){var f=!t&&1==(a>>u&1);u<6?o[u][8]=f:u<8?o[u+1][8]=f:o[i-15+u][8]=f}for(u=0;u<15;u+=1){f=!t&&1==(a>>u&1);u<8?o[8][i-u-1]=f:u<9?o[8][15-u-1+1]=f:o[8][15-u-1]=f}o[i-8][8]=!t},w=function(t,r){for(var e=-1,n=i-1,a=7,u=0,f=B.getMaskFunction(r),c=i-1;c>0;c-=2)for(6==c&&(c-=1);;){for(var g=0;g<2;g+=1)if(null==o[n][c-g]){var l=!1;u<t.length&&(l=1==(t[u]>>>a&1)),f(n,c-g)&&(l=!l),o[n][c-g]=l,-1==(a-=1)&&(u+=1,a=7)}if((n+=e)<0||i<=n){n-=e,e=-e;break}}},p=function(t,r,e){for(var n=A.getRSBlocks(t,r),o=b(),i=0;i<e.length;i+=1){var a=e[i];o.put(a.getMode(),4),o.put(a.getLength(),B.getLengthInBits(a.getMode(),t)),a.write(o)}var u=0;for(i=0;i<n.length;i+=1)u+=n[i].dataCount;if(o.getLengthInBits()>8*u)throw"code length overflow. ("+o.getLengthInBits()+">"+8*u+")";for(o.getLengthInBits()+4<=8*u&&o.put(0,4);o.getLengthInBits()%8!=0;)o.putBit(!1);for(;!(o.getLengthInBits()>=8*u||(o.put(236,8),o.getLengthInBits()>=8*u));)o.put(17,8);return function(t,r){for(var e=0,n=0,o=0,i=new Array(r.length),a=new Array(r.length),u=0;u<r.length;u+=1){var f=r[u].dataCount,c=r[u].totalCount-f;n=Math.max(n,f),o=Math.max(o,c),i[u]=new Array(f);for(var g=0;g<i[u].length;g+=1)i[u][g]=255&t.getBuffer()[g+e];e+=f;var l=B.getErrorCorrectPolynomial(c),h=k(i[u],l.getLength()-1).mod(l);for(a[u]=new Array(l.getLength()-1),g=0;g<a[u].length;g+=1){var s=g+h.getLength()-a[u].length;a[u][g]=s>=0?h.getAt(s):0}}var v=0;for(g=0;g<r.length;g+=1)v+=r[g].totalCount;var d=new Array(v),w=0;for(g=0;g<n;g+=1)for(u=0;u<r.length;u+=1)g<i[u].length&&(d[w]=i[u][g],w+=1);for(g=0;g<o;g+=1)for(u=0;u<r.length;u+=1)g<a[u].length&&(d[w]=a[u][g],w+=1);return d}(o,n)};f.addData=function(t,r){var e=null;switch(r=r||"Byte"){case"Numeric":e=M(t);break;case"Alphanumeric":e=x(t);break;case"Byte":e=m(t);break;case"Kanji":e=L(t);break;default:throw"mode:"+r}u.push(e),a=null},f.isDark=function(t,r){if(t<0||i<=t||r<0||i<=r)throw t+","+r;return o[t][r]},f.getModuleCount=function(){return i},f.make=function(){if(e<1){for(var t=1;t<40;t++){for(var r=A.getRSBlocks(t,n),o=b(),i=0;i<u.length;i++){var a=u[i];o.put(a.getMode(),4),o.put(a.getLength(),B.getLengthInBits(a.getMode(),t)),a.write(o)}var g=0;for(i=0;i<r.length;i++)g+=r[i].dataCount;if(o.getLengthInBits()<=8*g)break}e=t}c(!1,function(){for(var t=0,r=0,e=0;e<8;e+=1){c(!0,e);var n=B.getLostPoint(f);(0==e||t>n)&&(t=n,r=e)}return r}())},f.createTableTag=function(t,r){t=t||2;var e="";e+='<table style="',e+=" border-width: 0px; border-style: none;",e+=" border-collapse: collapse;",e+=" padding: 0px; margin: "+(r=void 0===r?4*t:r)+"px;",e+='">',e+="<tbody>";for(var n=0;n<f.getModuleCount();n+=1){e+="<tr>";for(var o=0;o<f.getModuleCount();o+=1)e+='<td style="',e+=" border-width: 0px; border-style: none;",e+=" border-collapse: collapse;",e+=" padding: 0px; margin: 0px;",e+=" width: "+t+"px;",e+=" height: "+t+"px;",e+=" background-color: ",e+=f.isDark(n,o)?"#000000":"#ffffff",e+=";",e+='"/>';e+="</tr>"}return e+="</tbody>",e+="</table>"},f.createSvgTag=function(t,r,e,n){var o={};"object"==typeof arguments[0]&&(t=(o=arguments[0]).cellSize,r=o.margin,e=o.alt,n=o.title),t=t||2,r=void 0===r?4*t:r,(e="string"==typeof e?{text:e}:e||{}).text=e.text||null,e.id=e.text?e.id||"qrcode-description":null,(n="string"==typeof n?{text:n}:n||{}).text=n.text||null,n.id=n.text?n.id||"qrcode-title":null;var i,a,u,c,g=f.getModuleCount()*t+2*r,l="";for(c="l"+t+",0 0,"+t+" -"+t+",0 0,-"+t+"z ",l+='<svg version="1.1" xmlns="http://www.w3.org/2000/svg"',l+=o.scalable?"":' width="'+g+'px" height="'+g+'px"',l+=' viewBox="0 0 '+g+" "+g+'" ',l+=' preserveAspectRatio="xMinYMin meet"',l+=n.text||e.text?' role="img" aria-labelledby="'+y([n.id,e.id].join(" ").trim())+'"':"",l+=">",l+=n.text?'<title id="'+y(n.id)+'">'+y(n.text)+"</title>":"",l+=e.text?'<description id="'+y(e.id)+'">'+y(e.text)+"</description>":"",l+='<rect width="100%" height="100%" fill="white" cx="0" cy="0"/>',l+='<path d="',a=0;a<f.getModuleCount();a+=1)for(u=a*t+r,i=0;i<f.getModuleCount();i+=1)f.isDark(a,i)&&(l+="M"+(i*t+r)+","+u+c);return l+='" stroke="transparent" fill="black"/>',l+="</svg>"},f.createDataURL=function(t,r){t=t||2,r=void 0===r?4*t:r;var e=f.getModuleCount()*t+2*r,n=r,o=e-r;return I(e,e,function(r,e){if(n<=r&&r<o&&n<=e&&e<o){var i=Math.floor((r-n)/t),a=Math.floor((e-n)/t);return f.isDark(a,i)?0:1}return 1})},f.createImgTag=function(t,r,e){t=t||2,r=void 0===r?4*t:r;var n=f.getModuleCount()*t+2*r,o="";return o+="<img",o+=' src="',o+=f.createDataURL(t,r),o+='"',o+=' width="',o+=n,o+='"',o+=' height="',o+=n,o+='"',e&&(o+=' alt="',o+=y(e),o+='"'),o+="/>"};var y=function(t){for(var r="",e=0;e<t.length;e+=1){var n=t.charAt(e);switch(n){case"<":r+="&lt;";break;case">":r+="&gt;";break;case"&":r+="&amp;";break;case'"':r+="&quot;";break;default:r+=n}}return r};return f.createASCII=function(t,r){if((t=t||1)<2)return function(t){t=void 0===t?2:t;var r,e,n,o,i,a=1*f.getModuleCount()+2*t,u=t,c=a-t,g={"██":"█","█ ":"▀"," █":"▄","  ":" "},l={"██":"▀","█ ":"▀"," █":" ","  ":" "},h="";for(r=0;r<a;r+=2){for(n=Math.floor((r-u)/1),o=Math.floor((r+1-u)/1),e=0;e<a;e+=1)i="█",u<=e&&e<c&&u<=r&&r<c&&f.isDark(n,Math.floor((e-u)/1))&&(i=" "),u<=e&&e<c&&u<=r+1&&r+1<c&&f.isDark(o,Math.floor((e-u)/1))?i+=" ":i+="█",h+=t<1&&r+1>=c?l[i]:g[i];h+="\n"}return a%2&&t>0?h.substring(0,h.length-a-1)+Array(a+1).join("▀"):h.substring(0,h.length-1)}(r);t-=1,r=void 0===r?2*t:r;var e,n,o,i,a=f.getModuleCount()*t+2*r,u=r,c=a-r,g=Array(t+1).join("██"),l=Array(t+1).join("  "),h="",s="";for(e=0;e<a;e+=1){for(o=Math.floor((e-u)/t),s="",n=0;n<a;n+=1)i=1,u<=n&&n<c&&u<=e&&e<c&&f.isDark(o,Math.floor((n-u)/t))&&(i=0),s+=i?g:l;for(o=0;o<t;o+=1)h+=s+"\n"}return h.substring(0,h.length-1)},f.renderTo2dContext=function(t,r){r=r||2;for(var e=f.getModuleCount(),n=0;n<e;n++)for(var o=0;o<e;o++)t.fillStyle=f.isDark(n,o)?"black":"white",t.fillRect(o*r,n*r,r,r)},f};t.stringToBytes=(t.stringToBytesFuncs={default:function(t){for(var r=[],e=0;e<t.length;e+=1){var n=t.charCodeAt(e);r.push(255&n)}return r}}).default,t.createStringToBytes=function(t,r){var e=function(){for(var e=S(t),n=function(){var t=e.read();if(-1==t)throw"eof";return t},o=0,i={};;){var a=e.read();if(-1==a)break;var u=n(),f=n()<<8|n();i[String.fromCharCode(a<<8|u)]=f,o+=1}if(o!=r)throw o+" != "+r;return i}(),n="?".charCodeAt(0);return function(t){for(var r=[],o=0;o<t.length;o+=1){var i=t.charCodeAt(o);if(i<128)r.push(i);else{var a=e[t.charAt(o)];"number"==typeof a?(255&a)==a?r.push(a):(r.push(a>>>8),r.push(255&a)):r.push(n)}}return r}};var r,e,n,o,i,a=1,u=2,f=4,c=8,g={L:1,M:0,Q:3,H:2},l=0,h=1,s=2,v=3,d=4,w=5,p=6,y=7,B=(r=[[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50],[6,30,54],[6,32,58],[6,34,62],[6,26,46,66],[6,26,48,70],[6,26,50,74],[6,30,54,78],[6,30,56,82],[6,30,58,86],[6,34,62,90],[6,28,50,72,94],[6,26,50,74,98],[6,30,54,78,102],[6,28,54,80,106],[6,32,58,84,110],[6,30,58,86,114],[6,34,62,90,118],[6,26,50,74,98,122],[6,30,54,78,102,126],[6,26,52,78,104,130],[6,30,56,82,108,134],[6,34,60,86,112,138],[6,30,58,86,114,142],[6,34,62,90,118,146],[6,30,54,78,102,126,150],[6,24,50,76,102,128,154],[6,28,54,80,106,132,158],[6,32,58,84,110,136,162],[6,26,54,82,110,138,166],[6,30,58,86,114,142,170]],e=1335,n=7973,i=function(t){for(var r=0;0!=t;)r+=1,t>>>=1;return r},(o={}).getBCHTypeInfo=function(t){for(var r=t<<10;i(r)-i(e)>=0;)r^=e<<i(r)-i(e);return 21522^(t<<10|r)},o.getBCHTypeNumber=function(t){for(var r=t<<12;i(r)-i(n)>=0;)r^=n<<i(r)-i(n);return t<<12|r},o.getPatternPosition=function(t){return r[t-1]},o.getMaskFunction=function(t){switch(t){case l:return function(t,r){return(t+r)%2==0};case h:return function(t,r){return t%2==0};case s:return function(t,r){return r%3==0};case v:return function(t,r){return(t+r)%3==0};case d:return function(t,r){return(Math.floor(t/2)+Math.floor(r/3))%2==0};case w:return function(t,r){return t*r%2+t*r%3==0};case p:return function(t,r){return(t*r%2+t*r%3)%2==0};case y:return function(t,r){return(t*r%3+(t+r)%2)%2==0};default:throw"bad maskPattern:"+t}},o.getErrorCorrectPolynomial=function(t){for(var r=k([1],0),e=0;e<t;e+=1)r=r.multiply(k([1,C.gexp(e)],0));return r},o.getLengthInBits=function(t,r){if(1<=r&&r<10)switch(t){case a:return 10;case u:return 9;case f:case c:return 8;default:throw"mode:"+t}else if(r<27)switch(t){case a:return 12;case u:return 11;case f:return 16;case c:return 10;default:throw"mode:"+t}else{if(!(r<41))throw"type:"+r;switch(t){case a:return 14;case u:return 13;case f:return 16;case c:return 12;default:throw"mode:"+t}}},o.getLostPoint=function(t){for(var r=t.getModuleCount(),e=0,n=0;n<r;n+=1)for(var o=0;o<r;o+=1){for(var i=0,a=t.isDark(n,o),u=-1;u<=1;u+=1)if(!(n+u<0||r<=n+u))for(var f=-1;f<=1;f+=1)o+f<0||r<=o+f||0==u&&0==f||a==t.isDark(n+u,o+f)&&(i+=1);i>5&&(e+=3+i-5)}for(n=0;n<r-1;n+=1)for(o=0;o<r-1;o+=1){var c=0;t.isDark(n,o)&&(c+=1),t.isDark(n+1,o)&&(c+=1),t.isDark(n,o+1)&&(c+=1),t.isDark(n+1,o+1)&&(c+=1),0!=c&&4!=c||(e+=3)}for(n=0;n<r;n+=1)for(o=0;o<r-6;o+=1)t.isDark(n,o)&&!t.isDark(n,o+1)&&t.isDark(n,o+2)&&t.isDark(n,o+3)&&t.isDark(n,o+4)&&!t.isDark(n,o+5)&&t.isDark(n,o+6)&&(e+=40);for(o=0;o<r;o+=1)for(n=0;n<r-6;n+=1)t.isDark(n,o)&&!t.isDark(n+1,o)&&t.isDark(n+2,o)&&t.isDark(n+3,o)&&t.isDark(n+4,o)&&!t.isDark(n+5,o)&&t.isDark(n+6,o)&&(e+=40);var g=0;for(o=0;o<r;o+=1)for(n=0;n<r;n+=1)t.isDark(n,o)&&(g+=1);return e+=Math.abs(100*g/r/r-50)/5*10},o),C=function(){for(var t=new Array(256),r=new Array(256),e=0;e<8;e+=1)t[e]=1<<e;for(e=8;e<256;e+=1)t[e]=t[e-4]^t[e-5]^t[e-6]^t[e-8];for(e=0;e<255;e+=1)r[t[e]]=e;var n={glog:function(t){if(t<1)throw"glog("+t+")";return r[t]},gexp:function(r){for(;r<0;)r+=255;for(;r>=256;)r-=255;return t[r]}};return n}();function k(t,r){if(void 0===t.length)throw t.length+"/"+r;var e=function(){for(var e=0;e<t.length&&0==t[e];)e+=1;for(var n=new Array(t.length-e+r),o=0;o<t.length-e;o+=1)n[o]=t[o+e];return n}(),n={getAt:function(t){return e[t]},getLength:function(){return e.length},multiply:function(t){for(var r=new Array(n.getLength()+t.getLength()-1),e=0;e<n.getLength();e+=1)for(var o=0;o<t.getLength();o+=1)r[e+o]^=C.gexp(C.glog(n.getAt(e))+C.glog(t.getAt(o)));return k(r,0)},mod:function(t){if(n.getLength()-t.getLength()<0)return n;for(var r=C.glog(n.getAt(0))-C.glog(t.getAt(0)),e=new Array(n.getLength()),o=0;o<n.getLength();o+=1)e[o]=n.getAt(o);for(o=0;o<t.getLength();o+=1)e[o]^=C.gexp(C.glog(t.getAt(o))+r);return k(e,0).mod(t)}};return n}var A=function(){var t=[[1,26,19],[1,26,16],[1,26,13],[1,26,9],[1,44,34],[1,44,28],[1,44,22],[1,44,16],[1,70,55],[1,70,44],[2,35,17],[2,35,13],[1,100,80],[2,50,32],[2,50,24],[4,25,9],[1,134,108],[2,67,43],[2,33,15,2,34,16],[2,33,11,2,34,12],[2,86,68],[4,43,27],[4,43,19],[4,43,15],[2,98,78],[4,49,31],[2,32,14,4,33,15],[4,39,13,1,40,14],[2,121,97],[2,60,38,2,61,39],[4,40,18,2,41,19],[4,40,14,2,41,15],[2,146,116],[3,58,36,2,59,37],[4,36,16,4,37,17],[4,36,12,4,37,13],[2,86,68,2,87,69],[4,69,43,1,70,44],[6,43,19,2,44,20],[6,43,15,2,44,16],[4,101,81],[1,80,50,4,81,51],[4,50,22,4,51,23],[3,36,12,8,37,13],[2,116,92,2,117,93],[6,58,36,2,59,37],[4,46,20,6,47,21],[7,42,14,4,43,15],[4,133,107],[8,59,37,1,60,38],[8,44,20,4,45,21],[12,33,11,4,34,12],[3,145,115,1,146,116],[4,64,40,5,65,41],[11,36,16,5,37,17],[11,36,12,5,37,13],[5,109,87,1,110,88],[5,65,41,5,66,42],[5,54,24,7,55,25],[11,36,12,7,37,13],[5,122,98,1,123,99],[7,73,45,3,74,46],[15,43,19,2,44,20],[3,45,15,13,46,16],[1,135,107,5,136,108],[10,74,46,1,75,47],[1,50,22,15,51,23],[2,42,14,17,43,15],[5,150,120,1,151,121],[9,69,43,4,70,44],[17,50,22,1,51,23],[2,42,14,19,43,15],[3,141,113,4,142,114],[3,70,44,11,71,45],[17,47,21,4,48,22],[9,39,13,16,40,14],[3,135,107,5,136,108],[3,67,41,13,68,42],[15,54,24,5,55,25],[15,43,15,10,44,16],[4,144,116,4,145,117],[17,68,42],[17,50,22,6,51,23],[19,46,16,6,47,17],[2,139,111,7,140,112],[17,74,46],[7,54,24,16,55,25],[34,37,13],[4,151,121,5,152,122],[4,75,47,14,76,48],[11,54,24,14,55,25],[16,45,15,14,46,16],[6,147,117,4,148,118],[6,73,45,14,74,46],[11,54,24,16,55,25],[30,46,16,2,47,17],[8,132,106,4,133,107],[8,75,47,13,76,48],[7,54,24,22,55,25],[22,45,15,13,46,16],[10,142,114,2,143,115],[19,74,46,4,75,47],[28,50,22,6,51,23],[33,46,16,4,47,17],[8,152,122,4,153,123],[22,73,45,3,74,46],[8,53,23,26,54,24],[12,45,15,28,46,16],[3,147,117,10,148,118],[3,73,45,23,74,46],[4,54,24,31,55,25],[11,45,15,31,46,16],[7,146,116,7,147,117],[21,73,45,7,74,46],[1,53,23,37,54,24],[19,45,15,26,46,16],[5,145,115,10,146,116],[19,75,47,10,76,48],[15,54,24,25,55,25],[23,45,15,25,46,16],[13,145,115,3,146,116],[2,74,46,29,75,47],[42,54,24,1,55,25],[23,45,15,28,46,16],[17,145,115],[10,74,46,23,75,47],[10,54,24,35,55,25],[19,45,15,35,46,16],[17,145,115,1,146,116],[14,74,46,21,75,47],[29,54,24,19,55,25],[11,45,15,46,46,16],[13,145,115,6,146,116],[14,74,46,23,75,47],[44,54,24,7,55,25],[59,46,16,1,47,17],[12,151,121,7,152,122],[12,75,47,26,76,48],[39,54,24,14,55,25],[22,45,15,41,46,16],[6,151,121,14,152,122],[6,75,47,34,76,48],[46,54,24,10,55,25],[2,45,15,64,46,16],[17,152,122,4,153,123],[29,74,46,14,75,47],[49,54,24,10,55,25],[24,45,15,46,46,16],[4,152,122,18,153,123],[13,74,46,32,75,47],[48,54,24,14,55,25],[42,45,15,32,46,16],[20,147,117,4,148,118],[40,75,47,7,76,48],[43,54,24,22,55,25],[10,45,15,67,46,16],[19,148,118,6,149,119],[18,75,47,31,76,48],[34,54,24,34,55,25],[20,45,15,61,46,16]],r=function(t,r){var e={};return e.totalCount=t,e.dataCount=r,e},e={};return e.getRSBlocks=function(e,n){var o=function(r,e){switch(e){case g.L:return t[4*(r-1)+0];case g.M:return t[4*(r-1)+1];case g.Q:return t[4*(r-1)+2];case g.H:return t[4*(r-1)+3];default:return}}(e,n);if(void 0===o)throw"bad rs block @ typeNumber:"+e+"/errorCorrectionLevel:"+n;for(var i=o.length/3,a=[],u=0;u<i;u+=1)for(var f=o[3*u+0],c=o[3*u+1],l=o[3*u+2],h=0;h<f;h+=1)a.push(r(c,l));return a},e}(),b=function(){var t=[],r=0,e={getBuffer:function(){return t},getAt:function(r){var e=Math.floor(r/8);return 1==(t[e]>>>7-r%8&1)},put:function(t,r){for(var n=0;n<r;n+=1)e.putBit(1==(t>>>r-n-1&1))},getLengthInBits:function(){return r},putBit:function(e){var n=Math.floor(r/8);t.length<=n&&t.push(0),e&&(t[n]|=128>>>r%8),r+=1}};return e},M=function(t){var r=a,e=t,n={getMode:function(){return r},getLength:function(t){return e.length},write:function(t){for(var r=e,n=0;n+2<r.length;)t.put(o(r.substring(n,n+3)),10),n+=3;n<r.length&&(r.length-n==1?t.put(o(r.substring(n,n+1)),4):r.length-n==2&&t.put(o(r.substring(n,n+2)),7))}},o=function(t){for(var r=0,e=0;e<t.length;e+=1)r=10*r+i(t.charAt(e));return r},i=function(t){if("0"<=t&&t<="9")return t.charCodeAt(0)-"0".charCodeAt(0);throw"illegal char :"+t};return n},x=function(t){var r=u,e=t,n={getMode:function(){return r},getLength:function(t){return e.length},write:function(t){for(var r=e,n=0;n+1<r.length;)t.put(45*o(r.charAt(n))+o(r.charAt(n+1)),11),n+=2;n<r.length&&t.put(o(r.charAt(n)),6)}},o=function(t){if("0"<=t&&t<="9")return t.charCodeAt(0)-"0".charCodeAt(0);if("A"<=t&&t<="Z")return t.charCodeAt(0)-"A".charCodeAt(0)+10;switch(t){case" ":return 36;case"$":return 37;case"%":return 38;case"*":return 39;case"+":return 40;case"-":return 41;case".":return 42;case"/":return 43;case":":return 44;default:throw"illegal char :"+t}};return n},m=function(r){var e=f,n=t.stringToBytes(r),o={getMode:function(){return e},getLength:function(t){return n.length},write:function(t){for(var r=0;r<n.length;r+=1)t.put(n[r],8)}};return o},L=function(r){var e=c,n=t.stringToBytesFuncs.SJIS;if(!n)throw"sjis not supported.";!function(){var t=n("友");if(2!=t.length||38726!=(t[0]<<8|t[1]))throw"sjis not supported."}();var o=n(r),i={getMode:function(){return e},getLength:function(t){return~~(o.length/2)},write:function(t){for(var r=o,e=0;e+1<r.length;){var n=(255&r[e])<<8|255&r[e+1];if(33088<=n&&n<=40956)n-=33088;else{if(!(57408<=n&&n<=60351))throw"illegal char at "+(e+1)+"/"+n;n-=49472}n=192*(n>>>8&255)+(255&n),t.put(n,13),e+=2}if(e<r.length)throw"illegal char at "+(e+1)}};return i},D=function(){var t=[],r={writeByte:function(r){t.push(255&r)},writeShort:function(t){r.writeByte(t),r.writeByte(t>>>8)},writeBytes:function(t,e,n){e=e||0,n=n||t.length;for(var o=0;o<n;o+=1)r.writeByte(t[o+e])},writeString:function(t){for(var e=0;e<t.length;e+=1)r.writeByte(t.charCodeAt(e))},toByteArray:function(){return t},toString:function(){var r="";r+="[";for(var e=0;e<t.length;e+=1)e>0&&(r+=","),r+=t[e];return r+="]"}};return r},S=function(t){var r=t,e=0,n=0,o=0,i={read:function(){for(;o<8;){if(e>=r.length){if(0==o)return-1;throw"unexpected end of file./"+o}var t=r.charAt(e);if(e+=1,"="==t)return o=0,-1;t.match(/^\s$/)||(n=n<<6|a(t.charCodeAt(0)),o+=6)}var i=n>>>o-8&255;return o-=8,i}},a=function(t){if(65<=t&&t<=90)return t-65;if(97<=t&&t<=122)return t-97+26;if(48<=t&&t<=57)return t-48+52;if(43==t)return 62;if(47==t)return 63;throw"c:"+t};return i},I=function(t,r,e){for(var n=function(t,r){var e=t,n=r,o=new Array(t*r),i={setPixel:function(t,r,n){o[r*e+t]=n},write:function(t){t.writeString("GIF87a"),t.writeShort(e),t.writeShort(n),t.writeByte(128),t.writeByte(0),t.writeByte(0),t.writeByte(0),t.writeByte(0),t.writeByte(0),t.writeByte(255),t.writeByte(255),t.writeByte(255),t.writeString(","),t.writeShort(0),t.writeShort(0),t.writeShort(e),t.writeShort(n),t.writeByte(0);var r=a(2);t.writeByte(2);for(var o=0;r.length-o>255;)t.writeByte(255),t.writeBytes(r,o,255),o+=255;t.writeByte(r.length-o),t.writeBytes(r,o,r.length-o),t.writeByte(0),t.writeString(";")}},a=function(t){for(var r=1<<t,e=1+(1<<t),n=t+1,i=u(),a=0;a<r;a+=1)i.add(String.fromCharCode(a));i.add(String.fromCharCode(r)),i.add(String.fromCharCode(e));var f,c,g,l=D(),h=(f=l,c=0,g=0,{write:function(t,r){if(t>>>r!=0)throw"length over";for(;c+r>=8;)f.writeByte(255&(t<<c|g)),r-=8-c,t>>>=8-c,g=0,c=0;g|=t<<c,c+=r},flush:function(){c>0&&f.writeByte(g)}});h.write(r,n);var s=0,v=String.fromCharCode(o[s]);for(s+=1;s<o.length;){var d=String.fromCharCode(o[s]);s+=1,i.contains(v+d)?v+=d:(h.write(i.indexOf(v),n),i.size()<4095&&(i.size()==1<<n&&(n+=1),i.add(v+d)),v=d)}return h.write(i.indexOf(v),n),h.write(e,n),h.flush(),l.toByteArray()},u=function(){var t={},r=0,e={add:function(n){if(e.contains(n))throw"dup key:"+n;t[n]=r,r+=1},size:function(){return r},indexOf:function(r){return t[r]},contains:function(r){return void 0!==t[r]}};return e};return i}(t,r),o=0;o<r;o+=1)for(var i=0;i<t;i+=1)n.setPixel(i,o,e(i,o));var a=D();n.write(a);for(var u=function(){var t=0,r=0,e=0,n="",o={},i=function(t){n+=String.fromCharCode(a(63&t))},a=function(t){if(t<0);else{if(t<26)return 65+t;if(t<52)return t-26+97;if(t<62)return t-52+48;if(62==t)return 43;if(63==t)return 47}throw"n:"+t};return o.writeByte=function(n){for(t=t<<8|255&n,r+=8,e+=1;r>=6;)i(t>>>r-6),r-=6},o.flush=function(){if(r>0&&(i(t<<6-r),t=0,r=0),e%3!=0)for(var o=3-e%3,a=0;a<o;a+=1)n+="="},o.toString=function(){return n},o}(),f=a.toByteArray(),c=0;c<f.length;c+=1)u.writeByte(f[c]);return u.flush(),"data:image/gif;base64,"+u};return t}();qrcode.stringToBytesFuncs["UTF-8"]=function(t){return function(t){for(var r=[],e=0;e<t.length;e++){var n=t.charCodeAt(e);n<128?r.push(n):n<2048?r.push(192|n>>6,128|63&n):n<55296||n>=57344?r.push(224|n>>12,128|n>>6&63,128|63&n):(e++,n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>>6&63,128|63&n))}return r}(t)},function(t){"function"==typeof define&&define.amd?define([],t):"object"==typeof exports&&(module.exports=t())}(function(){return qrcode});
 </script>
 
+<script id="i18nScript">
+/* ===== Keel (ET / EN) =====
+   Eesti keel on lähtekeel: kood ja andmefailid jäävad eestikeelseks. Teise keele valimisel laetakse
+   data/i18n-<keel>.js (window.I18N_DATA) ja:
+     1) applyData() asendab andmetes (CATEGORIES, GROUPS, TTA, WHAT, tingmärgid) eestikeelsed tekstid tõlkega;
+     2) DOM-tõlkija vahetab lehel nähtavad eestikeelsed tekstid (ui-sõnastik) – ka hiljem JS-iga lisatud tekstid.
+   Puuduv tõlge → jääb eestikeelne tekst (ja satub nimekirja I18N.misses, mida smoke_test.py näitab).
+   Uue keele lisamine: tee fail data/i18n-xx.js ja lisa keel LANGS-i. */
+(function(){
+  const KEY = 'tehnikatuvastus.lang.v1';
+  const NOTICE_KEY = 'tehnikatuvastus.lang.mtNotice.v1';
+  const LANGS = [{id:'et', label:'ET'}, {id:'en', label:'EN'}];
+  const LOCALES = {et:'et-EE', en:'en-GB'};
+  let lang = 'et';
+  try{ const v = localStorage.getItem(KEY); if(LANGS.some(l => l.id === v)) lang = v; }catch(e){}
+  try{ const q = new URLSearchParams(location.search).get('lang'); if(q && LANGS.some(l => l.id === q)) lang = q; }catch(e){}
+  document.documentElement.lang = lang;
+
+  const I18N = window.I18N = {
+    lang, LANGS, KEY, NOTICE_KEY,
+    locale: LOCALES[lang] || 'et-EE',
+    sortLocale: lang,
+    active: lang !== 'et',
+    misses: new Set(),
+    MT_NOTICE: 'This is a machine translation and may contain errors.',
+  };
+
+  // ---------- sõnastik ----------
+  const NBSP_RE = /[­⁠]/g;                       // pehme poolitus / sõnaliide (Kuldvillaku poolitus)
+  const norm = s => String(s).replace(NBSP_RE, '').replace(/\s+/g, ' ').trim();
+  let exact = null, patterns = [], htmlDict = null;
+  const produced = new Set();                              // tõlked, mida oleme lehele pannud (neid ei tõlgita uuesti)
+  function build(){
+    if(exact) return;
+    exact = new Map(); htmlDict = new Map();
+    const D = window.I18N_DATA || {};
+    const add = obj => { for(const k in (obj || {})){ const n = norm(k); if(/\{\w+\}/.test(n)) addPattern(n, obj[k]); else exact.set(n, obj[k]); } };
+    add(D.ui); add(D.types); add(D.groups); add(D.labels);
+    for(const k in (D.html || {})) htmlDict.set(norm(k), D.html[k]);
+  }
+  function addPattern(key, out){
+    const names = [];
+    const re = key.split(/(\{\w+\})/).map(part => {
+      const m = part.match(/^\{(\w+)\}$/);
+      if(m){ names.push(m[1]); return m[1][0] === 'n' ? '([-+]?\\d[\\d\\s.,]*|∞)' : '(.+?)'; }   // {n…} = number, muu = mis tahes tekst
+      return part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }).join('');
+    patterns.push({re: new RegExp('^' + re + '$'), names, out, fixed: key.replace(/\{\w+\}/g, '').length});
+    patterns.sort((a, b) => b.fixed - a.fixed);            // pikem kindel tekst enne
+  }
+  // Tõlgi üks tekst. Tagastab tõlke või null. unresolved = mustri muutuvas osas jäi tõlkimata tekst.
+  let unresolved = false;
+  function lookup(n){
+    if(exact.has(n)) return exact.get(n);
+    for(const p of patterns){
+      const m = n.match(p.re);
+      if(!m) continue;
+      return p.out.replace(/\{(\w+)\}/g, (all, name) => {
+        const i = p.names.indexOf(name);
+        if(i < 0) return all;
+        const v = m[i + 1];
+        if(name[0] === 'n' || name[0] === 'q' || produced.has(norm(v))) return v;   // {q…} = nimi vms, jääb nagu on
+        if(exact.has(v)) return exact.get(v);
+        const r = lookup(v);
+        if(r != null) return r;
+        if(LETTERS.test(v)) unresolved = true;
+        return v;
+      });
+    }
+    return null;
+  }
+  I18N.tr = function(s){
+    if(!I18N.active || s == null) return s;
+    build();
+    const str = String(s);
+    const n = norm(str);
+    if(!n || produced.has(n)) return str;
+    unresolved = false;
+    let out = lookup(n);
+    if(out != null && unresolved) noteMiss(n);
+    if(out == null && /\n/.test(str)){                     // mitmerealine teade (alert): rida-realt
+      const lines = str.split('\n');
+      const tl = lines.map(l => { const t = norm(l); return t ? (lookup(t) ?? null) : ''; });
+      if(tl.every(x => x !== null)) return lines.map((l, i) => tl[i] === '' ? l : tl[i]).join('\n');
+    }
+    if(out == null){ noteMiss(n); return str; }
+    produced.add(norm(out));
+    const lead = str.match(/^\s*/)[0], trail = str.match(/\s*$/)[0];
+    return lead + out + trail;
+  };
+  const LETTERS = /\p{L}{2,}/u;
+  // Ainult number + ühik (580hp, 40km/h) ei ole puuduv tõlge.
+  const UNIT_ONLY = /^[\d\s.,:;–\-+×/%~≈()]*(hp|km\/h|km|mm|cm|m|kg|t|rds\/min|kn|days|l|s|kN|W|h|m\/s|g|MB|KB|px)?[\d\s.,–\-()]*$/;
+  const FILE_PATH = /^[\w\-.\/%()]+\.(jpe?g|png|webp|svg|gif)$/i;
+  function noteMiss(n){ if(LETTERS.test(n) && !UNIT_ONLY.test(n) && !FILE_PATH.test(n) && n.length < 400) I18N.misses.add(n); }
+
+  // ---------- DOM ----------
+  const SKIP = new Set(['SCRIPT', 'STYLE', 'TEXTAREA', 'CODE', 'svg', 'SVG']);
+  const ATTRS = ['title', 'placeholder', 'aria-label', 'alt'];
+  const done = new WeakMap();                              // tekstisõlm → tõlge, mille panime (et mitte uuesti tõlkida)
+  function skipEl(el){
+    for(let e = el; e && e.nodeType === 1; e = e.parentElement){
+      if(SKIP.has(e.tagName) || e.isContentEditable || e.hasAttribute('data-i18n-skip')) return true;
+    }
+    return false;
+  }
+  function trText(node){
+    const v = node.nodeValue;
+    if(done.get(node) === v) return;
+    if(!v || !LETTERS.test(v) || skipEl(node.parentElement)) return;
+    if(node.parentElement && node.parentElement.closest('[data-i18n-done]')){ done.set(node, v); return; }   // terve plokk juba tõlgitud
+    const t = I18N.tr(v);
+    if(t !== v){ node.nodeValue = t; }
+    done.set(node, node.nodeValue);
+  }
+  function trAttrs(el){
+    for(const a of ATTRS){
+      if(!el.hasAttribute(a)) continue;
+      const v = el.getAttribute(a), t = I18N.tr(v);
+      if(t !== v) el.setAttribute(a, t);
+    }
+    if(el.tagName === 'INPUT' && /^(button|submit|reset)$/i.test(el.type) && el.value){
+      const t = I18N.tr(el.value); if(t !== el.value) el.value = t;
+    }
+  }
+  function trHtmlBlock(el){
+    const key = norm(el.innerHTML);
+    if(htmlDict.has(key)){ el.innerHTML = htmlDict.get(key); }
+    el.setAttribute('data-i18n-done', '');
+  }
+  function walk(root){
+    if(root.nodeType === 3){ trText(root); return; }
+    if(root.nodeType !== 1 && root.nodeType !== 11) return;
+    if(root.nodeType === 1){
+      if(skipEl(root)) return;
+      if(root.hasAttribute('data-i18n-html') && !root.hasAttribute('data-i18n-done')) trHtmlBlock(root);
+      trAttrs(root);
+    }
+    root.querySelectorAll && root.querySelectorAll('[data-i18n-html]:not([data-i18n-done])').forEach(trHtmlBlock);
+    const it = document.createTreeWalker(root, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT);
+    for(let n = it.nextNode(); n; n = it.nextNode()){
+      if(n.nodeType === 3) trText(n); else trAttrs(n);
+    }
+  }
+  I18N.translateDom = walk;
+  // HTML-tekst (genereeritud failid, prindiaken): tõlgib tekstid ja jätab skriptid puutumata.
+  I18N.trHtml = function(html){
+    if(!I18N.active) return html;
+    build();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    walk(doc.documentElement);
+    if(doc.title) doc.title = I18N.tr(doc.title);
+    doc.documentElement.lang = lang;
+    return '<!DOCTYPE html>' + doc.documentElement.outerHTML;
+  };
+
+  // ---------- andmed ----------
+  // Asendab andmetes tekstid tõlkega. Eestikeelne originaal jääb alles (typeEt, labelEt), sest kood võrdleb
+  // mõnes kohas eestikeelset liiki (nt 'Sillatank'). Iga andmestik tõlgitakse üks kord.
+  const applied = new Set();
+  // CATEGORIES on failis data/categories.js `const`-ina: see ei ole window omadus, seepärast typeof.
+  const cats = () => (typeof CATEGORIES !== 'undefined' ? CATEGORIES : null);
+  I18N.applyData = function(extra){
+    if(!I18N.active) return;
+    const D = window.I18N_DATA || {};
+    if(!applied.has('categories') && cats()){
+      applied.add('categories');
+      const T = D.types || {}, L = D.labels || {}, TC = D.typeByCat || {};
+      for(const c of cats()){
+        c.labelEt = c.label; c.typeEt = c.type;
+        if(L[c.label]) c.label = L[c.label];
+        if(c.type && (TC[c.cat] || T[c.type])) c.type = TC[c.cat] || T[c.type];
+      }
+    }
+    if(extra && extra.GROUPS && !applied.has('groups')){
+      applied.add('groups');
+      for(const g of extra.GROUPS){ g.labelEt = g.label; if((D.groups || {})[g.label]) g.label = D.groups[g.label]; }
+    }
+    if(window.TTA_FIELDS && !applied.has('ttaFields')){
+      applied.add('ttaFields');
+      const F = window.TTA_FIELDS, TF = D.ttaFields || {}, TS = D.ttaSections || {}, U = D.units || {};
+      (F.sections || []).forEach(s => { if(TS[s.label]) s.label = TS[s.label]; });
+      for(const k in (F.fields || {})){
+        const f = F.fields[k];
+        if(TF[k]) f.label = TF[k];
+        if(f.unit && U[f.unit] != null) f.unit = U[f.unit];
+      }
+    }
+    // TTA ja WHAT: sõnastik „eestikeelne tekst → tõlge“. Kui eestikeelset teksti muudetakse, vana tõlge enam
+    // ei sobi ja näidatakse eestikeelset teksti, kuni tõlge on uuendatud (smoke_test.py näitab puuduvad).
+    const tx = (dict, v) => { if(typeof v !== 'string' || dict[norm(v)] == null) return v; const t = dict[norm(v)]; produced.add(norm(t)); return t; };
+    if(window.TTA_DATA && !applied.has('tta')){
+      applied.add('tta');
+      const TT = {}; for(const k in (D.ttaText || {})) TT[norm(k)] = D.ttaText[k];
+      for(const cat in (window.TTA_DATA.models || {})){
+        const m = window.TTA_DATA.models[cat];
+        for(const part of ['values', 'notes']) for(const k in (m[part] || {})) m[part][k] = tx(TT, m[part][k]);
+      }
+    }
+    if(window.WHAT_DATA && !applied.has('what')){
+      applied.add('what');
+      const W = {}; for(const k in (D.whatText || {})) W[norm(k)] = D.whatText[k];
+      for(const cat in (window.WHAT_DATA.models || {})){
+        const m = window.WHAT_DATA.models[cat];
+        for(const part of ['wheels', 'hull', 'armament', 'turret']) (m[part] || []).forEach(row => { if(row) row.text = tx(W, row.text); });
+        if(m.note) m.note = tx(W, m.note);
+        (m.related || []).forEach(g => { if(g) g.label = tx(W, g.label); });
+      }
+    }
+    if(window.SYMBOL_DATA && !applied.has('symbols')){
+      applied.add('symbols');
+      const S = D.symbols || {};
+      const SD = window.SYMBOL_DATA;
+      (SD.symbols || []).forEach(x => { x.nameEt = x.name; x.name = tx(S, x.name); x.catEt = x.cat; x.cat = tx(S, x.cat); if(x.echName) x.echName = tx(S, x.echName); });
+      if(Array.isArray(SD.categories)) SD.categories = SD.categories.map(c => tx(S, c));
+    }
+    if(typeof D.applyExtra === 'function') D.applyExtra(applied);
+    // Andmete tõlked on juba ingliskeelsed: DOM-tõlkija ei pea neid uuesti tõlkima ega puuduvaks lugema.
+    const mark = v => { if(typeof v === 'string') produced.add(norm(v)); };
+    (cats() || []).forEach(c => { mark(c.label); mark(c.type); if(!(D.labels || {})[c.cat]) mark(c.cat); });
+    if(extra && extra.GROUPS) extra.GROUPS.forEach(g => mark(g.label));
+    if(window.TTA_FIELDS){ (TTA_FIELDS.sections || []).forEach(x => mark(x.label)); Object.values(TTA_FIELDS.fields || {}).forEach(f => mark(f.label)); }
+    // Allikate nimed (ingliskeelsed) ja WHAT alusplatvormi mudelinimed on nimed, mitte tõlgitav tekst.
+    if(window.TTA_DATA) Object.values(TTA_DATA.models || {}).forEach(m => (m.sources || []).forEach(x => mark(x && x.name)));
+    if(window.WHAT_DATA) Object.values(WHAT_DATA.models || {}).forEach(m => (m.related || []).forEach(g => (g && g.models || []).forEach(x => mark(x && x.name))));
+  };
+
+  // ---------- teated ----------
+  if(I18N.active){
+    const oa = window.alert.bind(window), oc = window.confirm.bind(window), op = window.prompt.bind(window);
+    window.alert = m => oa(I18N.tr(m));
+    window.confirm = m => oc(I18N.tr(m));
+    window.prompt = (m, d) => op(I18N.tr(m), d);
+  }
+
+  // ---------- keelevalik ja masintõlke teade ----------
+  I18N.setLang = function(id){
+    if(id === lang) return;
+    try{ localStorage.setItem(KEY, id); }catch(e){}
+    try{ if(id !== 'et') sessionStorage.setItem('tehnikatuvastus.lang.justSwitched', '1'); }catch(e){}
+    const u = new URL(location.href); u.searchParams.delete('lang');
+    location.replace(u.toString());
+  };
+  function mountSwitch(){
+    const h1 = document.getElementById('titleHome');
+    if(!h1 || document.getElementById('langSwitch')) return;
+    const box = document.createElement('div');
+    box.id = 'langSwitch'; box.className = 'lang-switch'; box.setAttribute('data-i18n-skip', '');
+    box.setAttribute('role', 'group'); box.setAttribute('aria-label', lang === 'et' ? 'Keel' : 'Language');
+    LANGS.forEach((l, i) => {
+      if(i) box.appendChild(Object.assign(document.createElement('span'), {className: 'lang-sep', textContent: '|'}));
+      const b = document.createElement('button');
+      b.type = 'button'; b.textContent = l.label; b.dataset.lang = l.id;
+      b.className = 'lang-btn' + (l.id === lang ? ' on' : '');
+      b.setAttribute('aria-pressed', l.id === lang ? 'true' : 'false');
+      b.addEventListener('click', () => I18N.setLang(l.id));
+      box.appendChild(b);
+    });
+    h1.insertAdjacentElement('afterend', box);
+  }
+  function mtLine(){
+    const d = document.createElement('div');
+    d.className = 'mt-note'; d.setAttribute('data-i18n-skip', '');
+    d.textContent = I18N.MT_NOTICE;
+    return d;
+  }
+  I18N.mtLine = () => I18N.active ? mtLine() : null;
+  // Õige vastus: eesti keeles „Liik Nimi“ (Tank T-72), inglise keeles „Nimi – Liik“ (T-72 – Main battle tank (MBT)).
+  I18N.answerText = (label, type) => {
+    if(!type) return label;
+    if(!I18N.active) return type + ' ' + label;
+    const t = type + ''; produced.add(norm(label + ' – ' + t));
+    return label + ' – ' + t;
+  };
+  function mountNotice(){
+    const home = document.querySelector('#homeScreen .home-main');
+    if(home && !home.querySelector('.mt-note')) home.appendChild(mtLine());
+    let show = false;
+    try{ show = sessionStorage.getItem('tehnikatuvastus.lang.justSwitched') === '1'; sessionStorage.removeItem('tehnikatuvastus.lang.justSwitched'); }catch(e){}
+    try{ if(!localStorage.getItem(NOTICE_KEY)) show = true; }catch(e){}
+    if(!show) return;
+    const ov = document.createElement('div');
+    ov.className = 'mt-modal'; ov.id = 'mtModal'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true');
+    ov.setAttribute('data-i18n-skip', '');
+    ov.innerHTML = '<div class="mt-modal-box"><div class="mt-modal-title">Machine translation</div>' +
+      '<p>' + I18N.MT_NOTICE + '</p><div class="row"><button type="button" class="primary" id="mtModalOk" style="flex:1;">OK</button></div></div>';
+    document.body.appendChild(ov);
+    const ok = ov.querySelector('#mtModalOk');
+    const close = () => { try{ localStorage.setItem(NOTICE_KEY, '1'); }catch(e){} ov.remove(); };
+    ok.addEventListener('click', close);
+    ov.addEventListener('keydown', e => { if(e.key === 'Escape') close(); });
+    ok.focus();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    mountSwitch();
+    if(!I18N.active) return;
+    build();
+    if(document.title) document.title = I18N.tr(document.title);
+    walk(document.body);
+    new MutationObserver(list => {
+      for(const m of list){
+        if(m.type === 'characterData') trText(m.target);
+        else if(m.type === 'attributes') trAttrs(m.target);
+        else m.addedNodes.forEach(walk);
+      }
+    }).observe(document.body, {childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ATTRS.concat(['value'])});
+    mountNotice();
+  });
+})();
+</script>
+<style>
+  .lang-switch{display:inline-flex;align-items:center;gap:2px;margin-left:14px;vertical-align:middle;font-family:var(--font-body);}
+  #titleHome{display:inline-block;vertical-align:middle;}
+  .lang-btn{background:none;border:1px solid transparent;color:var(--bone-dim);font:600 13px/1 var(--font-body);letter-spacing:.08em;padding:5px 6px;cursor:pointer;}
+  .lang-btn:hover{color:var(--bone);}
+  .lang-btn.on{color:var(--amber);border-color:var(--line);}
+  .lang-sep{color:var(--line);font-size:13px;}
+  .mt-note{font-size:12px;color:var(--bone-dim);margin-top:14px;font-style:italic;}
+  .mt-modal{position:fixed;inset:0;z-index:10050;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px;}
+  .mt-modal-box{background:var(--panel);border:1px solid var(--line);max-width:420px;width:100%;padding:18px 20px;box-shadow:0 20px 60px rgba(0,0,0,.6);}
+  .mt-modal-title{font-family:var(--font-display);font-size:20px;color:var(--amber);margin-bottom:8px;}
+  .mt-modal-box p{margin:0 0 14px;color:var(--bone);line-height:1.5;}
+</style>
+
 <!-- Lokaalsed andmestikud (TTA, WHAT). Laetakse script-sildiga, mitte fetchiga: töötab ka index.html otse failist avades.
      Puuduv fail ei murra äppi – vastav nupp lihtsalt ei ilmu. -->
 <!-- Andmefailid laetakse unikaalse aadressiga (?t=…): GitHub Pages lubab failil olla brauseri vahemälus 10 min
      (max-age=600) ja Chrome annaks uuel laadimisel vana koopia otse vahemälust, service workerini jõudmata.
      Service worker tunneb faili ära ilma ?t-ta (offline-koopia ja kaitse, vt offline-sw.js). -->
 <script>function loadDataScript(name){ document.write('<script src="./data/' + name + '?t=' + Date.now() + '"><\/script>'); }
-loadDataScript('tta-fields.js'); loadDataScript('tta.js'); loadDataScript('what.js'); loadDataScript('categories.js');</script>
+loadDataScript('tta-fields.js'); loadDataScript('tta.js'); loadDataScript('what.js'); loadDataScript('categories.js');
+if(window.I18N && I18N.active) loadDataScript('i18n-' + I18N.lang + '.js');   // tõlge (vt i18nScript)</script>
 
 <script>
 // Mudelite andmed (CATEGORIES) on failis data/categories.js.
@@ -1233,6 +1559,7 @@ const GROUP_COUNT_WORD = { ranks: 'auastet', weapons: 'relva', forces: 'väeliik
 const GROUP_STATS_WORD = { ranks: 'Auastmeid', weapons: 'Relvi', forces: 'Väeliike ja üksusi', mines: 'Miine' }; // avalehe kokkuvõte
 const GROUP_ENTRY_NOUN = { ranks: 'Auaste', weapons: 'Relv', forces: 'Väeliik/üksus', mines: 'Miin' };      // mudeli akna üldsilt, kui type puudub
 const NON_MACHINE_GROUPS = new Set(Object.keys(GROUP_COUNT_WORD));
+I18N.applyData({GROUPS});   // teise keele korral: andmete tekstid tõlkeks (eestikeelne liik jääb väljale typeEt)
 function groupCountLabel(groupId, n){ return n + ' ' + (GROUP_COUNT_WORD[groupId] || 'masinat'); }
 
 const scope = document.getElementById('scope');
@@ -1425,7 +1752,7 @@ function saveTestRules(){
 }
 function testModelsOf(g){
   return CATEGORIES.filter(e => e.group === g && e.files && e.files.length > 0)
-    .sort((a, b) => a.label.localeCompare(b.label, 'et'));
+    .sort((a, b) => a.label.localeCompare(b.label, I18N.sortLocale));
 }
 function testGroupExcludedCount(g){ return testModelsOf(g).filter(e => testExcluded.has(e.cat)).length; }
 function testExcludedCount(){ return CATEGORIES.filter(e => e.files && e.files.length > 0 && testExcluded.has(e.cat)).length; }
@@ -1447,11 +1774,11 @@ function testGroupModelCap(g, all){
   let n = es.length;
   const capTo1 = pred => { const k = es.filter(pred).length; if(k > 1) n -= k - 1; };
   if(g === 'engineer'){
-    capTo1(e => e.type === 'Sillatank');
-    capTo1(e => e.type === 'Sillamasin' || e.type === 'Pontoonsillapark');
+    capTo1(e => (e.typeEt || e.type) === 'Sillatank');
+    capTo1(e => (e.typeEt || e.type) === 'Sillamasin' || (e.typeEt || e.type) === 'Pontoonsillapark');
   }
   if(g === 'planes') capTo1(e => ['Su-27', 'Su-30', 'Su-33', 'Su-35'].includes(e.label));
-  if(g === 'ad') capTo1(e => e.type === 'ÕT radar');
+  if(g === 'ad') capTo1(e => (e.typeEt || e.type) === 'ÕT radar');
   return n;
 }
 // Mitu küsimust 50/25 test reeglite järgi maksimaalselt saab (mudelid ei kordu; komplekti ühine max).
@@ -1604,14 +1931,14 @@ function buildUniqueVehiclePool(n){
     if(set && (setCounts.get(set) || 0) >= set.max) continue;
 
     if(entry.group === 'engineer'){
-      if(entry.type === 'Sillatank' && subtypeCounts.bridgeTank >= 1) continue;
-      if((entry.type === 'Sillamasin' || entry.type === 'Pontoonsillapark') && subtypeCounts.bridgeVehicleOrPontoon >= 1) continue;
+      if((entry.typeEt || entry.type) === 'Sillatank' && subtypeCounts.bridgeTank >= 1) continue;
+      if(((entry.typeEt || entry.type) === 'Sillamasin' || (entry.typeEt || entry.type) === 'Pontoonsillapark') && subtypeCounts.bridgeVehicleOrPontoon >= 1) continue;
     }
 
     const isSu27Family = entry.group === 'planes' && ['Su-27', 'Su-30', 'Su-33', 'Su-35'].includes(entry.label);
     if(isSu27Family && subtypeCounts.su27Family >= 1) continue;
 
-    const isAdRadar = entry.group === 'ad' && entry.type === 'ÕT radar';
+    const isAdRadar = entry.group === 'ad' && (entry.typeEt || entry.type) === 'ÕT radar';
     if(isAdRadar && subtypeCounts.adRadar >= 1) continue;
 
     chosen.push(entry);
@@ -1619,8 +1946,8 @@ function buildUniqueVehiclePool(n){
     if(set) setCounts.set(set, (setCounts.get(set) || 0) + 1);
 
     if(entry.group === 'engineer'){
-      if(entry.type === 'Sillatank') subtypeCounts.bridgeTank++;
-      if(entry.type === 'Sillamasin' || entry.type === 'Pontoonsillapark') subtypeCounts.bridgeVehicleOrPontoon++;
+      if((entry.typeEt || entry.type) === 'Sillatank') subtypeCounts.bridgeTank++;
+      if((entry.typeEt || entry.type) === 'Sillamasin' || (entry.typeEt || entry.type) === 'Pontoonsillapark') subtypeCounts.bridgeVehicleOrPontoon++;
     }
     if(isSu27Family) subtypeCounts.su27Family++;
     if(isAdRadar) subtypeCounts.adRadar++;
@@ -1929,7 +2256,7 @@ const LOCAL_IMAGE_SOURCES = {
   'images/tanks/t90m.webp': LOCAL_IMAGE_SOURCE_COMBAT,
   'images/tanks/t90m_02.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/comms/r440odb_01.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
-  'images/ew/rb636am2.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/ew/lorandit.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/ew/spr2m_01.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/drones/skat450m.jpeg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/ad/nebosvu.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
@@ -2037,7 +2364,7 @@ function fillAnswerBlock(cur, guessText){
   yourGuess.innerHTML = guessText
     ? 'Sinu vastus: <b>' + guessText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</b>'
     : 'Vastus jäeti tühjaks.';
-  correctValue.textContent = (cur.type ? cur.type + ' ' : '') + cur.label;
+  correctValue.textContent = I18N.answerText(cur.label, cur.type);
   fileLine.innerHTML = '';
   fileLine.appendChild(sourceLinkLine(cur));
 
@@ -2524,7 +2851,7 @@ function groupModelsForList(query, cat){
     if(byGroup.has(e.group)) byGroup.get(e.group).push(e);
     else ungrouped.push(e);
   });
-  const byLabel = (a, b) => a.label.localeCompare(b.label, 'et');
+  const byLabel = (a, b) => a.label.localeCompare(b.label, I18N.sortLocale);
   byGroup.forEach(list => list.sort(byLabel));
   ungrouped.sort(byLabel);
   return {byGroup, ungrouped};
@@ -2563,7 +2890,7 @@ function renderModelList(filterText = ''){
     heading.innerHTML = title + ' <span class="grp-cnt">(' + groupCountLabel(groupId, entries.length) + ')</span>';
     section.appendChild(heading);
 
-    entries.slice().sort((a,b) => a.label.localeCompare(b.label, 'et')).forEach(e => {
+    entries.slice().sort((a,b) => a.label.localeCompare(b.label, I18N.sortLocale)).forEach(e => {
       const row = document.createElement('div');
       row.className = 'model-list-row';
 
@@ -2723,7 +3050,7 @@ function el(tag, cls, text){
 }
 
 function ttaFormatValue(value, def){
-  const fmt = v => Number(v).toLocaleString('et-EE', {maximumFractionDigits: 2});
+  const fmt = v => Number(v).toLocaleString(I18N.locale, {maximumFractionDigits: 2});
   const unit = def.unit || ''; // ühik kohe numbri järel, ilma tühikuta (80km/h, 1500m)
   if(def.type === 'boolean') return value ? 'jah' : 'ei';
   if(def.type === 'number' && typeof value === 'number') return fmt(value) + unit;
@@ -2770,6 +3097,7 @@ function renderTTAPanel(entry, record){
   const picker = makeComparePicker(entry, null);
   if(picker){ head.appendChild(picker); panel.appendChild(head); }
   panel.appendChild(ttaDisclaimer());
+  if(I18N.active) panel.appendChild(I18N.mtLine());
 
   const wrap = el('div', 'tta-sections');
   (TTA_SCHEMA.sections || []).forEach(section => {
@@ -2837,7 +3165,7 @@ function makeComparePicker(entry, selectedCat, kind, onChoose){
       .filter(cat => cat !== entry.cat && entryByCat(cat) && has(entryByCat(cat)))
       .map(entryByCat);
   }
-  others = others.slice().sort((a,b) => a.label.localeCompare(b.label, 'et'));
+  others = others.slice().sort((a,b) => a.label.localeCompare(b.label, I18N.sortLocale));
   if(!others.length) return null;
   const groupLabel = id => { const g = (typeof GROUPS !== 'undefined' ? GROUPS : []).find(x => x.id === id); return g ? g.label : ''; };
 
@@ -3046,7 +3374,9 @@ function makeWhatFigure(entry, record){
 
 function whatColTitle(letter, en, et){
   const title = el('div', 'what-col-title');
-  title.append(el('b', '', letter), en.slice(1), el('span', '', '(' + et + ')'));
+  title.setAttribute('data-i18n-skip', '');   // W/H/A/T pealkirjad on juba ingliskeelsed
+  title.append(el('b', '', letter), en.slice(1));
+  if(!I18N.active) title.append(el('span', '', '(' + et + ')'));   // inglise keeles sulgudes eestikeelset sõna ei näidata
   return title;
 }
 
@@ -3073,6 +3403,7 @@ function renderWHATPanel(entry, record){
   const picker = makeComparePicker(entry, null, 'what');
   if(picker) head.appendChild(picker);
   if(badge || picker) panel.appendChild(head);
+  if(I18N.active) panel.appendChild(I18N.mtLine());
 
   if(record.note) panel.appendChild(el('div', 'what-note', record.note));
   const layout = el('div', 'what-layout' + (record.image ? '' : ' no-image'));
@@ -3802,7 +4133,7 @@ function renderQr(){
 // ============================================================================
 const practiceOpenGroups = new Set();   // lahti klõpsatud kategooriad (ainult see lehelaadimine)
 const practiceModelsOf = gid => CATEGORIES.filter(e => e.group === gid && e.files && e.files.length > 0)
-  .sort((a, b) => a.label.localeCompare(b.label, 'et'));
+  .sort((a, b) => a.label.localeCompare(b.label, I18N.sortLocale));
 const practicePicCount = e => practiceOnePerModel ? (usableFiles(e).length ? 1 : 0) : usableFiles(e).length;
 const plural = (n, one, many) => n + ' ' + (n === 1 ? one : many);
 
@@ -4228,7 +4559,7 @@ function renderKuldBoard(){
   kuldGame.groups.forEach(group => {
     const cat = document.createElement('div');
     cat.className = 'kuld-cat';
-    cat.lang = 'et';
+    cat.lang = I18N.lang;
     cat.dataset.label = group.label;
     cat.title = group.label;
     cat.textContent = group.label;           // poolitus ja suurus: fitKuldCats
@@ -4370,7 +4701,7 @@ async function openKuldQuestion(col, row){
   guess.disabled = true;
   kuldRevealBtn.disabled = true;
   // Vastus ja hindamisnupud pannakse paika kohe (nähtamatuna), et vastuse näitamine ei muudaks paigutust.
-  kuldCorrectValue.textContent = (q.entry.type ? q.entry.type + ' ' : '') + q.entry.label;
+  kuldCorrectValue.textContent = I18N.answerText(q.entry.label, q.entry.type);
   kuldFileLine.textContent = '';   // allikas on pildi nurgas (#kuldSrc), nähtav pärast vastuse näitamist
   fillImgSrc(document.getElementById('kuldSrc'), null);
   document.getElementById('kuldYourGuess').textContent = review ? 'Vali uus hinnang või tühista see.' : ' ';
@@ -5881,7 +6212,7 @@ window.addEventListener('hashchange', startFromHash);
       .replace(/(^|\s)-(?=\p{L})/gu, '$1-⁠');
     const name = el('button', 'tr-name');
     name.type = 'button';
-    name.lang = 'et';
+    name.lang = I18N.lang;
     name.title = 'Näita mudeleid (saad mudeleid testist välja jätta)';
     const caret = el('span', 'tr-caret', '▸');
     const txt = el('span', 'tr-name-txt', nameTxt);
@@ -6044,7 +6375,7 @@ window.addEventListener('hashchange', startFromHash);
     <div class="lic-title" id="licTitle">Litsentsid ja allikad</div>
     <button type="button" id="licClose" class="nav-btn">Sulge</button>
   </div>
-  <div class="lic-body">
+  <div class="lic-body" data-i18n-html>
     <p>Äpp on avalikult kasutatav õppevahend. Pildid, tingmärgid ja andmed kuuluvad nende autoritele ning neid kasutatakse allpool toodud litsentside alusel.</p>
 
     <h3>Fotod – Wikimedia Commons</h3>
@@ -6108,6 +6439,7 @@ window.addEventListener('hashchange', startFromHash);
 <script src="./curated-test.js"></script>
 <!-- NATO tingmärkide harjutus: eraldi moodul, vt symbol-practice.js -->
 <script>loadDataScript('symbols.js');</script>
+<script>I18N.applyData();   // tingmärkide nimed (teise keele korral), enne symbol-practice.js-i</script>
 <script src="./symbol-practice.js"></script>
 <!-- Memory: paarid = sama mudeli kaks erinevat pilti; eraldi moodul, vt memory-game.js -->
 <script src="./memory-game.js"></script>
@@ -6520,7 +6852,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc97'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc98'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');

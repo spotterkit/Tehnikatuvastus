@@ -309,7 +309,7 @@ function printSheet(list){
   <div class="g">${cells}</div>
   <script>window.addEventListener('load',()=>setTimeout(()=>print(),300));<\/script>
   </body></html>`;
-  const url = URL.createObjectURL(new Blob([html], {type: 'text/html;charset=utf-8'}));
+  const url = URL.createObjectURL(new Blob([I18N.trHtml(html)], {type: 'text/html;charset=utf-8'}));
   const w = window.open(url, '_blank');
   if(w){ setTimeout(() => URL.revokeObjectURL(url), 60000); return; }
   // Hüpikaknad blokeeritud: prindi otsinguvaade ise.

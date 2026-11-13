@@ -316,7 +316,7 @@ const norm = t => String(t || '').toLocaleLowerCase('et').replace(/[\s\-–_\/.,
 function todayISO(){ const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
 function isoToEt(iso){ const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || ''); return m ? (+m[3]) + '.' + (+m[2]) + '.' + m[1] : (iso || ''); }
 function clampInt(v, lo, hi, dflt){ const n = parseInt(v, 10); return isNaN(n) ? dflt : Math.min(hi, Math.max(lo, n)); }
-function answerText(q){ return q.type ? q.label + ' – ' + q.type : q.label; }
+function answerText(q){ return q.type ? (I18N.active ? I18N.answerText(q.label, q.type) : q.label + ' – ' + q.type) : q.label; }
 function modeText(){
   const s = S.settings;
   const base = s.mode === 'auto' ? 'Automaatne (pilt ' + s.viewSec + ' s, vastus ' + s.writeSec + ' s' + (s.showAnswer ? ', õige vastus ' + s.answerSec + ' s' : '') + ')' : 'Käsitsi (õpetaja liigub edasi)';
@@ -502,7 +502,7 @@ function renderStep2(){
   const nr = S.rules.noRepeat;
   const excl = new Set(S.rules.excluded);
   const unit = nr ? 'mudelit' : 'pilti';
-  const modelsOf = g => eligible().filter(e => e.group === g.id).sort((x, y) => x.label.localeCompare(y.label, 'et'));
+  const modelsOf = g => eligible().filter(e => e.group === g.id).sort((x, y) => x.label.localeCompare(y.label, I18N.sortLocale));
   const availOf = g => {
     const ms = modelsOf(g).filter(e => !excl.has(e.cat));
     return nr ? ms.length : ms.reduce((a, e) => a + e.files.length, 0);
@@ -804,7 +804,7 @@ function modelSearch(onPick, placeholder, opts){
     if(!qv && !opts.inline){ list.hidden = true; return; }
     const groupSet = catSel && catSel.value ? filters.get(catSel.value) : null;
     const hits = eligible().filter(e => (!groupSet || groupSet.has(e.group)) && matches(e, qv))
-      .sort((a, b) => a.label.localeCompare(b.label, 'et'));
+      .sort((a, b) => a.label.localeCompare(b.label, I18N.sortLocale));
     input.placeholder = groupSet ? 'Otsi sellest kategooriast…' : (placeholder || 'Otsi mudelit…');
     const addOpt = (e, grouped) => {
       const sub = grouped ? (e.type ? e.type + ' · ' : '') + e.files.length + ' pilti' : (e.type || groupLabel(e.group)) + ' · ' + e.files.length + ' pilti';
@@ -1014,8 +1014,8 @@ function renderStep3(){
 }
 
 function fileName(){
-  const base = (S.settings.name || '').trim().replace(/[\\/:*?"<>|#%]+/g, '').replace(/\s+/g, '_').slice(0, 60) || 'Tehnikatest';
-  return base + '_' + (S.created || todayISO()) + '_' + S.questions.length + 'kys.html';
+  const base = (S.settings.name || '').trim().replace(/[\\/:*?"<>|#%]+/g, '').replace(/\s+/g, '_').slice(0, 60) || I18N.tr('Tehnikatest').replace(/\s+/g, '_');
+  return base + '_' + (S.created || todayISO()) + '_' + S.questions.length + (I18N.active ? 'q' : 'kys') + '.html';
 }
 
 function testData(){
@@ -1024,6 +1024,7 @@ function testData(){
     created: S.created || todayISO(),
     name: (S.settings.name || '').trim(),
     app: (typeof window !== 'undefined' && window.__appBuild) || '',
+    lang: I18N.lang,                                          // vastuste (nimi, liik) keel
     settings: {mode: S.settings.mode, viewSec: S.settings.viewSec, writeSec: S.settings.writeSec, showAnswer: !!S.settings.showAnswer, answerSec: S.settings.answerSec},
     questions: S.questions.map(x => ({cat: x.cat, file: x.file, label: x.label, type: x.type}))
   };
@@ -1050,15 +1051,16 @@ function saveTestFile(){
   const appUrl = location.href.split('#')[0];
   const target = appUrl + HASH_KEY + b64urlEncode(json);
   const title = testName();
-  const html = '<!doctype html>\n<html lang="et"><head><meta charset="utf-8">\n'
+  const html = '<!doctype html>\n<html lang="' + I18N.lang + '"><head><meta charset="utf-8">\n'
     + '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
     + '<title>' + escHtml(title) + '</title>\n'
     + '<!-- Tehnikatuvastuse kureeritud test. Topeltklõps avab testi Tehnikatuvastuse äpis. Failis on ka vastused – ära jaga õpilastele. -->\n'
     + '<script type="application/json" id="tehnikatuvastus-test">' + json.replace(/</g, '\\u003c') + '</script>\n'
     + '<script>location.replace(' + JSON.stringify(target).replace(/</g, '\\u003c') + ');</script>\n'
     + '<style>body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#14170f;color:#d9d9c4;margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box}a{color:#c9a227;font-size:20px}</style>\n'
-    + '</head><body><div><p>' + escHtml(title) + '</p><p>Avan Tehnikatuvastuse…</p>'
-    + '<p><a href="' + escHtml(target) + '">Kui test ei avanenud, vajuta siia</a></p></div></body></html>\n';
+    + '</head><body><div><p>' + escHtml(title) + '</p><p>' + escHtml(I18N.tr('Avan Tehnikatuvastuse…')) + '</p>'
+    + '<p><a href="' + escHtml(target) + '">' + escHtml(I18N.tr('Kui test ei avanenud, vajuta siia')) + '</a></p>'
+    + (I18N.active ? '<p style="font-size:13px;opacity:.75">' + escHtml(I18N.MT_NOTICE) + '</p>' : '') + '</div></body></html>\n';
   const blob = new Blob([html], {type: 'text/html'});
   const a = h('a', {href: URL.createObjectURL(blob), download: fileName()});
   document.body.appendChild(a);
@@ -1095,9 +1097,10 @@ function printSheet(kind){
       h('div', null, 'KUUPÄEV:', h('span', {class: 'ct-pr-line'}))));
   }
   box.appendChild(grid);
+  if(I18N.active && kind === 'key') box.appendChild(I18N.mtLine());   // masintõlke märkus vastuste lehel
   const oldTitle = document.title;
   // Pealkiri = PDF-faili vaikimisi nimi "Salvesta PDF-ina" puhul.
-  document.title = (kind === 'key' ? 'Vastuste leht' : 'Õpilase leht') + ' – ' + testName().replace(/ · /g, ' ');
+  document.title = I18N.tr(kind === 'key' ? 'Vastuste leht' : 'Õpilase leht') + ' – ' + testName().replace(/ · /g, ' ');
   document.body.classList.add('ct-printing');
   let cleaned = false;
   const cleanup = () => {
@@ -1141,9 +1144,12 @@ function loadTest(data, source){
     showAnswer: st.showAnswer === true,                       // vanemates failides puudub → väljas
     answerSec: clampInt(st.answerSec, 1, 600, DEFAULTS.answerSec)
   };
+  // Fail on teises keeles salvestatud (vanadel failidel lang puudub = eesti): nimi ja liik võetakse äpi praegusest keelest.
+  const otherLang = (data.lang || 'et') !== I18N.lang;
   S.questions = data.questions.slice(0, MAX_Q).map(x => {
     const e = entryOf(x.cat);
     const ok = !!(e && e.files && e.files.includes(x.file));
+    if(otherLang && e) return {cat: String(x.cat || ''), file: String(x.file || ''), label: e.label, type: e.type || '', missing: !ok || undefined};
     return {cat: String(x.cat || ''), file: String(x.file || ''), label: String(x.label || (e ? e.label : x.cat) || ''), type: String(x.type || (e ? e.type : '') || ''), missing: !ok || undefined};
   });
   S.created = /^\d{4}-\d{2}-\d{2}$/.test(data.created || '') ? data.created : todayISO();
