@@ -180,6 +180,38 @@ def main():
             check("täisekraan välja", not ev("() => document.body.classList.contains('run-fs')"))
         step("Genereeri test + täisekraan", t_test)
 
+        # 2b) harjutuse valik: kategooriad + mudelid, üks pilt mudeli kohta, meelde jätmine
+        def t_practice():
+            home()
+            ev("() => localStorage.removeItem('tehnikatuvastus.practice.v1')")
+            p.reload(); p.wait_for_function("() => typeof CATEGORIES !== 'undefined'")
+            p.click("#groupToggleBtn")
+            check("algul pole midagi valitud", p.is_disabled("#startPracticeBtn"))
+            row = p.locator("#groupGrid .tr-item").nth(0)
+            row.locator(".pg-row > input").check()
+            n_models = ev("() => practiceEntries().length")
+            n_pics = ev("() => practiceEntries().reduce((a, e) => a + usableFiles(e).length, 0)")
+            check("kokkuvõte näitab mudeleid ja pilte", f"{n_pics} pilti" in p.text_content("#practiceSummary") and f"({n_pics} pilti)" in p.text_content("#startPracticeBtn"))
+            row.locator(".tr-name").click()
+            boxes = row.locator(".tr-models input")
+            check("kategooria avaneb mudelite nimekirjaks", boxes.count() == n_models)
+            boxes.nth(0).uncheck()
+            check("mudeli väljajätmine vähendab arvu", ev("() => practiceEntries().length") == n_models - 1)
+            row.locator(".tr-models-tools button", has_text="Eemalda kõik").click()
+            check("„Eemalda kõik“ → nupp keelatud", p.is_disabled("#startPracticeBtn") and "mudel" in p.text_content("#startPracticeBtn"))
+            row.locator(".tr-models-tools button", has_text="Vali kõik").click()
+            p.check("#practiceOnePerModel")
+            check("üks pilt mudeli kohta: pilte = mudeleid", f"({n_models} pilt" in p.text_content("#startPracticeBtn"))
+            p.locator("#groupGrid .tr-item").nth(0).locator(".tr-models input").nth(0).uncheck()
+            p.reload(); p.wait_for_function("() => typeof CATEGORIES !== 'undefined'")
+            check("valik jääb meelde", ev("() => [selectedGroupIds.size, practiceExcluded.size, practiceOnePerModel]") == [1, 1, True])
+            p.click("#startPracticeBtn"); p.wait_for_timeout(300)
+            check("voor: iga mudel üks kord", ev("() => TOTAL_IMAGES") == n_models - 1)
+            home(); p.click("#groupToggleBtn"); p.click("#clearAllBtn")
+            check("„Tühista kõik“ tühjendab ka mudelid", ev("() => [selectedGroupIds.size, practiceExcluded.size]") == [0, 0])
+            p.uncheck("#practiceOnePerModel")
+        step("Harjutuse valik", t_practice)
+
         # mudelid võrdluseks
         pick = """() => {
           const w = CATEGORIES.filter(e => e.files && e.files.length && typeof getWHAT === 'function' && getWHAT(e));
@@ -339,12 +371,12 @@ def main():
                   not p.is_visible("#testRulesPanel") and not p.is_visible("#testRulesStatus"))
             p.click("#testRulesBtn")
             idx = lambda gid: ev("""gid => { const l = GROUPS.find(g => g.id === gid).label;
-                return [...document.querySelectorAll('.tr-row input')].findIndex(i => i.getAttribute('aria-label').startsWith(l)); }""", gid)
+                return [...document.querySelectorAll('#testRulesPanel .tr-row input')].findIndex(i => i.getAttribute('aria-label').startsWith(l)); }""", gid)
             def setv(gid, v):
-                loc = p.locator(".tr-row input").nth(idx(gid)); loc.fill(str(v)); loc.press("Enter")
+                loc = p.locator("#testRulesPanel .tr-row input").nth(idx(gid)); loc.fill(str(v)); loc.press("Enter")
             setv("planes", 0); setv("mines", 2)
             check("muudetud read märgitud, rida „oma reeglid“ nähtav",
-                  ev("() => document.querySelectorAll('.tr-item.changed').length") == 2 and p.is_visible("#testRulesStatus"))
+                  ev("() => document.querySelectorAll('#testRulesPanel .tr-item.changed').length") == 2 and p.is_visible("#testRulesStatus"))
             r = ev("""() => { let pl = 0, minesEvery = true;
                 for(let i = 0; i < 25; i++){ const b = buildUniqueVehiclePool(50);
                   pl += b.filter(x => x.entry.group === 'planes').length;
@@ -362,8 +394,8 @@ def main():
             # mudelite väljajätmine: kategooria lahti, „Eemalda kõik“, testi ei tule, säilib, taastamine
             home()
             p.click("#testRules25Btn")
-            j = ev("() => [...document.querySelectorAll('.tr-item')].findIndex(it => it.querySelector('input').getAttribute('aria-label').startsWith(GROUPS.find(g => g.id === 'tank').label))")
-            item = p.locator(".tr-item").nth(j)
+            j = ev("() => [...document.querySelectorAll('#testRulesPanel .tr-item')].findIndex(it => it.querySelector('input').getAttribute('aria-label').startsWith(GROUPS.find(g => g.id === 'tank').label))")
+            item = p.locator("#testRulesPanel .tr-item").nth(j)
             item.locator(".tr-name").click()
             item.locator("button:has-text('Eemalda kõik')").click()
             item.locator(".tr-models input").first.check()
