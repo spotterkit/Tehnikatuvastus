@@ -270,7 +270,7 @@ const CATEGORIES = [
   { label: "64N6 Big Bird", group: "ad", type: "ÕT radar", cat: "64N6 Big Bird", files: ["CombatWatch-06.jpg"] },
   { label: "35N6 Kasta-2E", group: "ad", type: "ÕT radar", cat: "35N6 Kasta-2E", files: ["35N6_Kasta_radar_%281%29.jpg"] },
   { label: "30N6 Tombstone", group: "ad", type: "ÕT radar", cat: "30N6 Tombstone", files: ["Anti-AircraftExercise2019-28.jpg"] },
-  { label: "96L6 Cheese Board", group: "ad", type: "ÕT radar", cat: "96L6 Cheese Board", files: ["96L6-TsP_radar_%284%29.png"] },
+  { label: "96L6 Cheese Board", group: "ad", type: "ÕT radar", cat: "96L6 Cheese Board", files: ["96L6-TsP_radar_%284%29.png", "96L6E_radar_radar_-_100th_Anniversary_VVS-R_-01.jpg"] },
   { label: "PPRU-1/PPRU-M1", group: "ad", type: "ÕT luure- ja juhtimissoomuk", cat: "PPRU-1/PPRU-M1", files: ["PPRU-1.jpg", "images/ad/PPRU-M1.jpg"] },
   { label: "9S912", group: "ad", type: "ÕT juhtimissoomuk", cat: "9S912", files: ["4thGuardsTankDivisionExercises2011_14.jpg"] },
   { label: "1L119 NEBO-SVU", group: "ad", type: "ÕT radar", cat: "1L119 NEBO-SVU", files: ["images/ad/nebosvu.jpg"] },
