@@ -5,8 +5,7 @@
 window.I18N_DATA = {
   // Kasutajaliidese tekstid: "eesti tekst": "English". {n}, {x} jne = muutuv osa (number, nimi), mis kantakse tõlkesse üle.
   "ui": {
-    "Nimekiri": "List",
-    "Kõik mudelid (Nimekiri, TTA, WHAT, Pildid)": "All models (List, TTA, WHAT, Photos)",
+    "Kataloog (TTA, WHAT, Pildid)": "Catalogue (TTA, WHAT, Photos)",
     "Harjutamine": "Practice",
     "Testid": "Tests",
     "Offline kasutus": "Offline use",
