@@ -69,7 +69,7 @@ const CATEGORIES = [
   { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", files: ["images/artillery_recon/ark1_01.jpg", "images/artillery_recon/ark12.jpg"] },
   { label: "1V15", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V15", files: ["images/artillery_recon/1v15_01.webp"] },
   { label: "1V152", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk (Kapustnik-B osis)", cat: "1V152", files: ["Army2016-495.jpg"] },
-  { label: "1B75 Penicilin", group: "artillery_recon", type: "Passiivne suurtükiväeluure kompleks", cat: "1B75 Penicilin", files: ["images/artillery_recon/1B75Penicillin.jpg]" },
+  { label: "1B75 Penicilin", group: "artillery_recon", type: "Passiivne suurtükiväeluure kompleks", cat: "1B75 Penicilin", files: ["images/artillery_recon/1B75Penicillin.jpg"] },
 
   // Liikursuurtükid ja -miinipildujad
   { label: "2S19 Msta-S", group: "spg", type: "Liikursuurtükk", cat: "2S19 Msta", files: ["ParkPatriot2015part6-02.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_01.jpg", "Військовослужбовці_провели_тактичне_заняття_09.jpg", "images/artillery/2s19_01.jpg", "images/artillery/2s19_02.jpg"] },
@@ -293,7 +293,7 @@ const CATEGORIES = [
   { label: "RKhM-4", group: "recon_special", type: "TBK-luuresoomuk", cat: "RKhM-4", files: ["Mashina_RKHM-4-01_2.jpg"] },
   { label: "RKhM-6", group: "recon_special", type: "TBK-luuresoomuk", cat: "RKhM-6", files: ["RKhM-6_-4.jpg"] },
   { label: "Taifun-VDV/Naparnik K-4386, 4x4", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-VDV/Naparnik K-4386, 4x4", files: ["images/recon_special/taifunvdvk_01.jpg"] },
-  { label: "Taifun-K KAMAZ-63968, 6x6", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-K KAMAZ-63968, 6x6", files: ["9may2015Moscow-19.jpg"] },
+  { label: "Taifun-K KAMAZ-63968, 6x6", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-K KAMAZ-63968, 6x6", files: ["9may2015Moscow-19.jpg", "Engineering_Technologies_-_2012_%282-02%29.jpg"] },
   { label: "Taifun-U Ural-53099", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-U Ural-53099", files: ["Ural-53099_Typhoon-U_-_DayTechnologies2017p2-71.jpg"] },
   { label: "Taifun-U Ural-63095, 6x6", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-U Ural-63095, 6x6", files: ["Alabino220415part1-20.jpg"] },
   { label: "GAZ-233014/TIGR", group: "recon_special", type: "Maastur", cat: "GAZ-233014/TIGR", files: ["12aprilrehearsal_22.jpg", "April_9th_rehearsal_in_Alabino_of_2014_Victory_Day_Parade_%28558-01%29.jpg" ] },
