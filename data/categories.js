@@ -319,6 +319,7 @@ const CATEGORIES = [
   { label: "R-149AKSh-1", group: "comms", type: "Juhtimis- ja staabimasin", cat: "R-149AKSh-1", files: ["images/comms/r2ksh.jpg"] },
   { label: "R-149MA3", group: "comms", type: "Juhtimissoomuk", cat: "R-149MA3", files: ["RaceofHeroes072016-38.jpg"] },
   { label: "R-145BMA", group: "comms", type: "Side- ja juhtimisauto", cat: "R-145BMA", files: ["Interpolitex2015part3-27.jpg"] },
+  { label: "R-439-MD2", group: "comms", type: "Mobiilne satelliitside jaam", cat: "R-439MD2", files: ["R-439.jpeg"] },
 
   // Pind-pind tüüpi juhitavad raketid
   { label: "9K720 Iskander/SS-26 Stone", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "9K720 Iskander/SS-26 Stone", files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg","Army-2023_vehicle_showcase_08.jpg", "A_camouflaged_Iskander-M_complex_during_an_exercise_in_Transbaikalia._June_2021.jpg"] },
