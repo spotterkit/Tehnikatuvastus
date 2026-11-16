@@ -2196,6 +2196,7 @@ const LOCAL_IMAGE_SOURCES = {
   'images/forces/navalinf.jpg': {credit: 'Foto: Scanpix/EPA/Anatoly Maltsev'},
   'images/forces/navy.jpg': {name: 'Stars and Stripes', url: 'https://www.stripes.com/news/2004-07-07/us-russian-servicemembers-join-together-to-celebrate-fourth-1959218.html', credit: 'Foto: Ryan Walker / USMC'},
   'images/artillery_recon/ark1_01.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/artillery_recon/1B75Penicillin.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/artillery_recon/ark12.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/forces/spetsnas_01.webp': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/mines/kz-4.jpg': {name: 'CAT-UXO', url: 'https://cat-uxo.com/explosive-hazards/misc/kz-4-demolition-charge'},
@@ -2228,6 +2229,7 @@ const LOCAL_IMAGE_SOURCES = {
   'images/mines/tm62p3.jpg': {name: 'sappers.org', url: 'https://sappers.org/en/handbook/mines/anti-tank-anti-track/tm-62p3'},
   'images/mines/tm89.jpg': {name: 'CAT-UXO', url: 'https://cat-uxo.com/explosive-hazards/landmines/tm-89-landmine'},
   'images/mlrs/tosburatino.jpg': {name: 'Weapon Systems', url: 'https://weaponsystems.net/system/321-TOS-1%20Buratino'},
+  'images/comms/R-439.jpeg': {name: 'Defense Express', url: 'https://en.defence-ua.com/weapon_and_tech/photo_of_destroyed_russian_modern_satellite_communication_vehicle_appeared-3792.html', credit: 'Foto: Vitaly V. Kuzmin'},
   'images/recon_special/taifunvdvk_01.jpg': {name: 'Defense Express', url: 'https://en.defence-ua.com/weapon_and_tech/russia_applies_the_new_k_4386_typhoon_vdv_armored_vehicles_in_ukraine-4393.html'},
   'images/ugv/Chelnok.jpg': {name: 'UA.News', url: 'https://ua.news/en/war-vs-rf/zsu-vpershe-zafiksuvali-na-fronti-rosiiskii-nazemnii-dron-chelnok'},
   'images/engineer/umz_01.jpeg': {name: 'Army Recognition', url: 'https://www.armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/ukrainian-soldiers-use-vtl-armed-drone-to-destroy-first-russian-umz-mine-laying-vehicle'},
@@ -6851,7 +6853,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc100'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc101'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
