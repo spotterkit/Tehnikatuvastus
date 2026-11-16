@@ -671,6 +671,8 @@ window.I18N_DATA = {
     "STV vastutuleradar": "Counter-battery radar",
     "Juhtimissoomuk": "Armoured command vehicle",
     "Juhtimis- ja sidesoomuk": "Armoured command and signals vehicle",
+    "Mobiilne satelliitside jaam": "Mobile satellite communications station",
+    "Passiivne suurtükiväeluure kompleks": "Passive artillery reconnaissance system",
     "Juhtimis- ja staabimasin": "Command and staff vehicle",
     "Side- ja juhtimisauto": "Signals and command vehicle",
     "Kombineeritud raadiojaam": "Combined radio station",
