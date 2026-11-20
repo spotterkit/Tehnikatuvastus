@@ -286,6 +286,28 @@ def main():
             p.keyboard.press("Escape")
         step("Mudelite vahetamine ↑/↓", t_model_nav)
 
+        # TTA šassii link alusplatvormile (allajoonitud, klikitav; tagasi-nupp toob tagasi)
+        def t_chassis_link():
+            home()
+            ok = ev("() => !!CATEGORIES.find(e => e.cat === 'SPR-2') && !!CATEGORIES.find(e => e.cat === 'BTR-70')")
+            if not ok:
+                check("TTA šassii link (SPR-2/BTR-70 puudub, vahele jäetud)", True); return
+            ev("() => openModelGallery(CATEGORIES.find(e => e.cat === 'SPR-2'), 'tta')")
+            p.wait_for_selector("#modelGallery .tta-link")
+            check("TTA šassii on link alusplatvormile", p.text_content("#modelGallery .tta-link").strip() == "BTR-70")
+            p.click("#modelGallery .tta-link")
+            p.wait_for_function("() => document.getElementById('modelGalleryTitle').textContent === 'BTR-70'")
+            check("šassii link avab alusplatvormi", True)
+            ev("() => modelGalleryBack.click()")
+            p.wait_for_function("() => document.getElementById('modelGalleryTitle').textContent !== 'BTR-70'")
+            check("tagasi-nupp viib TTA vaatesse tagasi", ev("() => currentGalleryTab()") == "tta")
+            n = ev("""() => CATEGORIES.filter(e => { const t = TTA_DATA.models[e.cat]; if(!t || !t.values.chassis) return false;
+                const dd = document.createElement('dd'); dd.textContent = t.values.chassis; linkChassis(dd, e, t.values.chassis);
+                return dd.querySelector('.tta-link'); }).length""")
+            check("šassii lingid tekivad", n >= 40, f"{n} mudelit")
+            p.keyboard.press("Escape")
+        step("TTA šassii link", t_chassis_link)
+
         # 4) võrdlus täisekraanil
         def t_compare():
             home()
