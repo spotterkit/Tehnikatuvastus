@@ -236,7 +236,7 @@ const CATEGORIES = [
   { label: "BREM-2", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-2", files: ["BREM-2_in_Patriot_Park.jpg", "BREM-2_armored_recovery_vehicle.jpg"] },
   { label: "BREM-K", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-K", files: ["BREM-K_-_TankBiathlon14part2-07.jpg", "Army2016-303.jpg"] },
   { label: "URAL-43206", group: "trucks", type: "Veok", cat: "URAL-43206", files: ["Interpolitex_2012_%28478-14%29.jpg"] },
-  { label: "KAMAZ-5350", group: "trucks", type: "Veok", cat: "KAMAZ-5350", files: ["KamAZ-5350.jpg", "Army2016demo-127.jpg"] },
+  { label: "KAMAZ-5350, 6x6", group: "trucks", type: "Veok", cat: "KAMAZ-5350, 6x6", files: ["KamAZ-5350.jpg", "Army2016demo-127.jpg"] },
   { label: "KRAZ-260", group: "trucks", type: "Veok", cat: "KRAZ-260", files: ["790th_Fighter_Order_of_Kutuzov_3rd_class_Aviation_Regiment%2C_Khotilovo_airbase_%28356-28%29.jpg"] },
   { label: "UAZ-469", group: "trucks", type: "Maastur", cat: "UAZ-469", files: ["ParkPatriot2015part4-12.jpg"] },
   { label: "GAZ-66", group: "trucks", type: "Veok", cat: "GAZ-66", files: ["ГАЗ-66_в_Хабаровске.JPG"] },
@@ -257,7 +257,7 @@ const CATEGORIES = [
   { label: "Lada 4x4 pikap (VAZ-2329)", group: "trucks", type: "Maastikusõiduk", cat: "Lada 4x4 pikap", files: ["Lada_4x4_technical.jpg"] },
   { label: "Vityaz (DT-10/DT-30)", group: "trucks", type: "Kahelüliline roomikmaastikusõiduk", cat: "Vityaz (DT-10/DT-30)", files: ["DT-10PM_-_Bronnitsy256.jpg", "Army2016demo-148.jpg"] },
   { label: "GAZ-3344 Aleut", group: "trucks", type: "Kahelüliline roomikmaastikusõiduk", cat: "GAZ-3344 Aleut", files: ["GAZ-3344-20_%22Aleut%22_during_the_%22Armiya_2023%22_exhibition_%28front_view%29.jpg"] },
-  { label: "KAMAZ-6350", group: "trucks", type: "Veok", cat: "KAMAZ-6350", files: ["KamAZ-6350_truck%2C_2011.jpg", "Interpolitex2015part2-30.jpg"] },
+  { label: "KAMAZ-6350, 8x8", group: "trucks", type: "Veok", cat: "KAMAZ-6350, 8x8", files: ["KamAZ-6350_truck%2C_2011.jpg", "Interpolitex2015part2-30.jpg"] },
   
   // Õhutõrjesoomukid, -juhtimissoomukid ja -radarid
   { label: "STRELA-10/SA-13 Gopher", group: "ad", type: "Õhutõrjesoomuk", cat: "STRELA-10/SA-13 Gopher", files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%284%29.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%283%29.jpg"] },
