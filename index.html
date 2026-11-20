@@ -3092,18 +3092,19 @@ function ttaDisclaimer(){
 
 // TTA šassii: alusplatvormi nimi on allajoonitud ja klikitav (avab selle mudeli kaardi, tagasi-nupp toob tagasi).
 // Vaste 1) tekstis on äpis olemas oleva pildiga mudeli nimi (cat või label-i esimene sõna; suurtähed ei loe;
-// nimes peab olema number või sidekriips). Vaste 2) mudel on mõne alusplatvormi WHAT-loendis ("related"):
+// nimes peab olema number või sidekriips; veokeid ei lingita). Vaste 2) mudel on mõne alusplatvormi WHAT-loendis ("related"):
 // siis on link platvormi nimel tekstis (ka lisatähtedega, nt "BTR-60PB" → BTR-60) või kogu tekstil.
 // Andmefaile muutma ei pea – uued mudelid saavad lingi ise.
 let chassisNameCache = null;
 function chassisNameList(){
   if(chassisNameCache) return chassisNameCache;
   const map = new Map();
-  const withFiles = CATEGORIES.filter(e => e && e.cat && e.files && e.files.length);
+  // Veokeid (grupp trucks) alusplatvormina ei lingita (kasutaja otsus).
+  const withFiles = CATEGORIES.filter(e => e && e.cat && e.files && e.files.length && e.group !== 'trucks');
   const add = (n, e) => { n = String(n || '').trim(); const key = n.toLowerCase();
     if(n.length >= 4 && /[\d-]/.test(n) && !map.has(key)) map.set(key, e); };
   withFiles.forEach(e => add(e.cat, e));
-  withFiles.forEach(e => add(String(e.label || '').split(/[\s\/(]/)[0], e));
+  withFiles.forEach(e => add(String(e.label || '').split(/[\s\/(]/)[0].replace(/[,;:.]+$/, ''), e));
   chassisNameCache = [...map.entries()].sort((a, b) => b[0].length - a[0].length);
   return chassisNameCache;
 }
@@ -3114,7 +3115,7 @@ function chassisPlatforms(cat){
       if(m && m.cat === cat && !out.includes(pcat)) out.push(pcat);
     }));
   });
-  return out.map(entryByCat).filter(e => e && e.files && e.files.length);
+  return out.map(entryByCat).filter(e => e && e.files && e.files.length && e.group !== 'trucks');
 }
 function linkChassis(dd, entry, text){
   const lower = text.toLowerCase(), spans = [];
@@ -6927,7 +6928,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc102'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc103'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
