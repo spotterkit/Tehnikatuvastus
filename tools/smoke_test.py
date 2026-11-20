@@ -297,7 +297,7 @@ def main():
             check("TTA šassii on link alusplatvormile", p.text_content("#modelGallery .tta-link").strip() == "BTR-70")
             p.click("#modelGallery .tta-link")
             p.wait_for_function("() => document.getElementById('modelGalleryTitle').textContent === 'BTR-70'")
-            check("šassii link avab alusplatvormi", True)
+            check("šassii link avab alusplatvormi TTA", ev("() => currentGalleryTab()") == "tta")
             ev("() => modelGalleryBack.click()")
             p.wait_for_function("() => document.getElementById('modelGalleryTitle').textContent !== 'BTR-70'")
             check("tagasi-nupp viib TTA vaatesse tagasi", ev("() => currentGalleryTab()") == "tta")
@@ -305,6 +305,14 @@ def main():
                 const dd = document.createElement('dd'); dd.textContent = t.values.chassis; linkChassis(dd, e, t.values.chassis);
                 return dd.querySelector('.tta-link'); }).length""")
             check("šassii lingid tekivad", n >= 40, f"{n} mudelit")
+            # šassii puudub, aga mudel on alusplatvormi WHAT-loendis → tuletatud rida "Alusplatvorm"
+            d = ev("""() => { const out = []; CATEGORIES.forEach(e => { const t = TTA_DATA.models[e.cat];
+                if(!t || t.values.chassis || !e.files || !e.files.length) return;
+                const p = renderTTAPanel(e, t).querySelector('.tta-link'); if(p) out.push(e.cat + ' → ' + p.textContent); });
+                const orphan = CATEGORIES.filter(e => { const t = TTA_DATA.models[e.cat]; return t && !t.values.chassis && chassisPlatforms(e.cat).length
+                  && !renderTTAPanel(e, t).querySelector('.tta-link'); }).map(e => e.cat);
+                return {n: out.length, sample: out.slice(0, 3), orphan}; }""")
+            check("WHAT-loendi mudelil tuletatud alusplatvorm", d["n"] >= 10 and not d["orphan"], f"{d['n']} mudelit, nt {', '.join(d['sample'])}")
             p.keyboard.press("Escape")
         step("TTA šassii link", t_chassis_link)
 
