@@ -3112,7 +3112,9 @@ function chassisPlatforms(cat){
   const out = [];
   Object.entries((window.WHAT_DATA && WHAT_DATA.models) || {}).forEach(([pcat, rec]) => {
     (rec.related || []).forEach(g => (g && g.models || []).forEach(m => {
-      if(m && m.cat === cat && !out.includes(pcat)) out.push(pcat);
+      if(!m || out.includes(pcat)) return;
+      const hit = m.cat ? m.cat === cat : (entryByRelatedName(m.name) || {}).cat === cat;
+      if(hit) out.push(pcat);
     }));
   });
   return out.map(entryByCat).filter(e => e && e.files && e.files.length && e.group !== 'trucks');
@@ -3149,23 +3151,34 @@ function linkChassis(dd, entry, text){
   let pos = 0;
   spans.forEach(({a, b, target}) => {
     if(a > pos) dd.append(text.slice(pos, a));
-    const link = el('span', 'tta-link', text.slice(a, b));
-    link.setAttribute('role', 'link');
-    link.setAttribute('tabindex', '0');
-    link.title = target.label;
-    const go = () => openModelGallery(target, 'photos', {from: entry, fromTab: 'tta'});
-    link.addEventListener('click', go);
-    link.addEventListener('keydown', ev => { if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); go(); } });
-    dd.appendChild(link);
+    dd.appendChild(platformLink(entry, target, text.slice(a, b)));
     pos = b;
   });
   if(pos < text.length) dd.append(text.slice(pos));
+}
+// Link avab alusplatvormi TTA (kui TTA puudub, siis pildid); tagasi-nupp toob TTA vaatesse tagasi.
+function platformLink(entry, target, text){
+  const link = el('span', 'tta-link', text);
+  link.setAttribute('role', 'link');
+  link.setAttribute('tabindex', '0');
+  link.title = target.label;
+  const go = () => openModelGallery(target, 'tta', {from: entry, fromTab: 'tta'});
+  link.addEventListener('click', go);
+  link.addEventListener('keydown', ev => { if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); go(); } });
+  return link;
+}
+// Kui TTA-s šassii puudub, aga mudel on mõne alusplatvormi WHAT-loendis, kuvatakse tuletatud rida
+// "Alusplatvorm" (andmefaili ei muudeta; WHAT-loendisse lisamine annab tagasilingi ise).
+function derivedPlatformValues(entry, values){
+  if(values.chassis || !(TTA_SCHEMA.fields || {}).basePlatform) return values;
+  const p = chassisPlatforms(entry.cat);
+  return p.length ? Object.assign({}, values, {basePlatform: p}) : values;
 }
 
 function renderTTAPanel(entry, record){
   const panel = el('div', 'tta-panel');
   const fields = TTA_SCHEMA.fields || {};
-  const values = record.values || {}, notes = record.notes || {}, warnings = record.warnings || {};
+  const values = derivedPlatformValues(entry, record.values || {}), notes = record.notes || {}, warnings = record.warnings || {};
   // Kõik TTA andmed on avalikest allikatest: disclaimer kuvatakse alati, "kontrollitud" märget ei ole.
   const head = el('div', 'tta-head');
   head.appendChild(el('span'));
@@ -3184,7 +3197,11 @@ function renderTTAPanel(entry, record){
     box.appendChild(el('div', 'tta-section-title', section.label));
     const dl = el('dl', 'tta-list');
     keys.forEach(k => {
-      const dd = el('dd', '', ttaFormatValue(values[k], fields[k]));
+      const dd = el('dd', '', k === 'basePlatform' ? '' : ttaFormatValue(values[k], fields[k]));
+      if(k === 'basePlatform'){
+        dd.setAttribute('data-i18n-skip', '');
+        values[k].forEach((t, i) => { if(i) dd.append(', '); dd.appendChild(platformLink(entry, t, t.cat)); });
+      }
       if(k === 'chassis' && typeof values[k] === 'string') linkChassis(dd, entry, values[k]);
       if(warnings[k]) dd.appendChild(el('span', 'tta-note is-warn', warnings[k]));
       if(notes[k]) dd.appendChild(el('span', 'tta-note', notes[k]));
@@ -6928,7 +6945,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc103'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc104'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
