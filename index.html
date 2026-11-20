@@ -701,6 +701,8 @@
   .what-rel.is-link:hover,.what-rel.is-link:focus-visible{border-color:var(--amber);color:var(--amber);outline:none;}
   .what-rel.is-text{color:var(--bone-dim);border-style:dashed;}
   .what-rel-hint{font-size:11px;color:var(--bone-dim);margin-top:8px;}
+  .tta-link{text-decoration:underline;text-underline-offset:2px;cursor:pointer;}
+  .tta-link:hover,.tta-link:focus-visible{color:var(--amber);outline:none;}
   .what-layout.no-image{grid-template-columns:1fr;}
   .what-layout.no-image .what-cols{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
   .wcmp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 22px;}
@@ -3088,6 +3090,77 @@ function ttaDisclaimer(){
   return d;
 }
 
+// TTA šassii: alusplatvormi nimi on allajoonitud ja klikitav (avab selle mudeli kaardi, tagasi-nupp toob tagasi).
+// Vaste 1) tekstis on äpis olemas oleva pildiga mudeli nimi (cat või label-i esimene sõna; suurtähed ei loe;
+// nimes peab olema number või sidekriips). Vaste 2) mudel on mõne alusplatvormi WHAT-loendis ("related"):
+// siis on link platvormi nimel tekstis (ka lisatähtedega, nt "BTR-60PB" → BTR-60) või kogu tekstil.
+// Andmefaile muutma ei pea – uued mudelid saavad lingi ise.
+let chassisNameCache = null;
+function chassisNameList(){
+  if(chassisNameCache) return chassisNameCache;
+  const map = new Map();
+  const withFiles = CATEGORIES.filter(e => e && e.cat && e.files && e.files.length);
+  const add = (n, e) => { n = String(n || '').trim(); const key = n.toLowerCase();
+    if(n.length >= 4 && /[\d-]/.test(n) && !map.has(key)) map.set(key, e); };
+  withFiles.forEach(e => add(e.cat, e));
+  withFiles.forEach(e => add(String(e.label || '').split(/[\s\/(]/)[0], e));
+  chassisNameCache = [...map.entries()].sort((a, b) => b[0].length - a[0].length);
+  return chassisNameCache;
+}
+function chassisPlatforms(cat){
+  const out = [];
+  Object.entries((window.WHAT_DATA && WHAT_DATA.models) || {}).forEach(([pcat, rec]) => {
+    (rec.related || []).forEach(g => (g && g.models || []).forEach(m => {
+      if(m && m.cat === cat && !out.includes(pcat)) out.push(pcat);
+    }));
+  });
+  return out.map(entryByCat).filter(e => e && e.files && e.files.length);
+}
+function linkChassis(dd, entry, text){
+  const lower = text.toLowerCase(), spans = [];
+  const free = (a, b) => spans.every(x => b <= x.a || a >= x.b);
+  const isW = ch => !!ch && /[a-z0-9À-ɏ]/i.test(ch);
+  chassisNameList().forEach(([key, target]) => {
+    if(target.cat === entry.cat) return;
+    let i = lower.indexOf(key);
+    while(i >= 0){
+      const j = i + key.length;
+      if(!isW(lower[i - 1]) && lower[i - 1] !== '-' && !isW(lower[j]) && free(i, j)){ spans.push({a: i, b: j, target}); break; }
+      i = lower.indexOf(key, i + 1);
+    }
+  });
+  if(!spans.length){
+    chassisPlatforms(entry.cat).forEach(target => {
+      const base = target.cat.toLowerCase().replace(/[a-z]+$/, '');
+      let i = lower.indexOf(base);
+      while(i >= 0){
+        let j = i + base.length; while(j < lower.length && /[a-z]/.test(lower[j])) j++;
+        if(!isW(lower[i - 1]) && lower[i - 1] !== '-' && !/[0-9]/.test(lower[j] || '') && free(i, j)){ spans.push({a: i, b: j, target}); return; }
+        i = lower.indexOf(base, i + 1);
+      }
+    });
+    if(!spans.length){ const p = chassisPlatforms(entry.cat); if(p.length) spans.push({a: 0, b: text.length, target: p[0]}); }
+  }
+  if(!spans.length) return;
+  spans.sort((x, y) => x.a - y.a);
+  dd.textContent = '';
+  dd.setAttribute('data-i18n-skip', '');   // tekst on andmetest juba õiges keeles
+  let pos = 0;
+  spans.forEach(({a, b, target}) => {
+    if(a > pos) dd.append(text.slice(pos, a));
+    const link = el('span', 'tta-link', text.slice(a, b));
+    link.setAttribute('role', 'link');
+    link.setAttribute('tabindex', '0');
+    link.title = target.label;
+    const go = () => openModelGallery(target, 'photos', {from: entry, fromTab: 'tta'});
+    link.addEventListener('click', go);
+    link.addEventListener('keydown', ev => { if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); go(); } });
+    dd.appendChild(link);
+    pos = b;
+  });
+  if(pos < text.length) dd.append(text.slice(pos));
+}
+
 function renderTTAPanel(entry, record){
   const panel = el('div', 'tta-panel');
   const fields = TTA_SCHEMA.fields || {};
@@ -3111,6 +3184,7 @@ function renderTTAPanel(entry, record){
     const dl = el('dl', 'tta-list');
     keys.forEach(k => {
       const dd = el('dd', '', ttaFormatValue(values[k], fields[k]));
+      if(k === 'chassis' && typeof values[k] === 'string') linkChassis(dd, entry, values[k]);
       if(warnings[k]) dd.appendChild(el('span', 'tta-note is-warn', warnings[k]));
       if(notes[k]) dd.appendChild(el('span', 'tta-note', notes[k]));
       dl.append(el('dt', '', fields[k].label), dd);
@@ -6853,7 +6927,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc101'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc102'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
