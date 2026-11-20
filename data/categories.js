@@ -257,6 +257,7 @@ const CATEGORIES = [
   { label: "Lada 4x4 pikap (VAZ-2329)", group: "trucks", type: "Maastikusõiduk", cat: "Lada 4x4 pikap", files: ["Lada_4x4_technical.jpg"] },
   { label: "Vityaz (DT-10/DT-30)", group: "trucks", type: "Kahelüliline roomikmaastikusõiduk", cat: "Vityaz (DT-10/DT-30)", files: ["DT-10PM_-_Bronnitsy256.jpg", "Army2016demo-148.jpg"] },
   { label: "GAZ-3344 Aleut", group: "trucks", type: "Kahelüliline roomikmaastikusõiduk", cat: "GAZ-3344 Aleut", files: ["GAZ-3344-20_%22Aleut%22_during_the_%22Armiya_2023%22_exhibition_%28front_view%29.jpg"] },
+  { label: "KAMAZ-6350", group: "trucks", type: "Veok", cat: "KAMAZ-6350", files: ["KamAZ-6350_truck%2C_2011.jpg", "Interpolitex2015part2-30.jpg"] },
   
   // Õhutõrjesoomukid, -juhtimissoomukid ja -radarid
   { label: "STRELA-10/SA-13 Gopher", group: "ad", type: "Õhutõrjesoomuk", cat: "STRELA-10/SA-13 Gopher", files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%284%29.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%283%29.jpg"] },
@@ -322,6 +323,7 @@ const CATEGORIES = [
   { label: "R-149MA3", group: "comms", type: "Juhtimissoomuk", cat: "R-149MA3", files: ["RaceofHeroes072016-38.jpg"] },
   { label: "R-145BMA", group: "comms", type: "Side- ja juhtimisauto", cat: "R-145BMA", files: ["Interpolitex2015part3-27.jpg"] },
   { label: "R-439MD2", group: "comms", type: "Mobiilne satelliitside jaam", cat: "R-439MD2", files: ["images/comms/R-439.jpeg"] },
+  { label: "R-161PU", group: "comms", type: "HF/VHF raadiosaatejaam ja sidesõlm", cat: "R-161PU", files: ["ParkPatriot2015part9-53.jpg"] },
 
   // Pind-pind tüüpi juhitavad raketid
   { label: "9K720 Iskander/SS-26 Stone", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "9K720 Iskander/SS-26 Stone", files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg","Army-2023_vehicle_showcase_08.jpg", "A_camouflaged_Iskander-M_complex_during_an_exercise_in_Transbaikalia._June_2021.jpg"] },
