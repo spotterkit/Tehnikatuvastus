@@ -256,7 +256,7 @@ const CATEGORIES = [
   { label: "ATs-7,5-4320", group: "trucks", type: "Kütusetsisternauto", cat: "ATs-7,5-4320", files: ["ParkPatriot2015part9-32.jpg"] },
   { label: "Lada 4x4 pikap (VAZ-2329)", group: "trucks", type: "Maastikusõiduk", cat: "Lada 4x4 pikap", files: ["Lada_4x4_technical.jpg"] },
   { label: "Vityaz (DT-10/DT-30)", group: "trucks", type: "Kahelüliline roomikmaastikusõiduk", cat: "Vityaz (DT-10/DT-30)", files: ["DT-10PM_-_Bronnitsy256.jpg", "Army2016demo-148.jpg"] },
-  { label: "GAZ-3344 Aleut", group: "trucks", type: "Kahelüliline roomikmaastikusõiduk", cat: "GAZ-3344 Aleut", files: ["GAZ-3344-20_"Aleut"_during_the_"Armiya_2023"_exhibition_%28front_view%29.jpg"] },
+  { label: "GAZ-3344 Aleut", group: "trucks", type: "Kahelüliline roomikmaastikusõiduk", cat: "GAZ-3344 Aleut", files: ["GAZ-3344-20_%22Aleut%22_during_the_%22Armiya_2023%22_exhibition_%28front_view%29.jpg"] },
   
   // Õhutõrjesoomukid, -juhtimissoomukid ja -radarid
   { label: "STRELA-10/SA-13 Gopher", group: "ad", type: "Õhutõrjesoomuk", cat: "STRELA-10/SA-13 Gopher", files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%284%29.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%283%29.jpg"] },
