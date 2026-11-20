@@ -639,6 +639,7 @@ window.I18N_DATA = {
   },
   // Liigid (CATEGORIES `type`). Terminid: NATOTerm / APP-6, kinnitatud terminiloendiga 13.11.2026.
   "types": {
+    "Kaugmineerimissüsteem": "Remote minelaying system",
     "Tank": "Main battle tank (MBT)",
     "Tankituletoetusmasin": "Tank support fighting vehicle",
     "Jalaväe lahingumasin": "Infantry fighting vehicle (IFV)",
@@ -987,6 +988,7 @@ window.I18N_DATA = {
   "ttaFields": {
     "crew": "Crew",
     "chassis": "Chassis",
+    "basePlatform": "Base platform",
     "seats": "Seats",
     "driveConfig": "Drive configuration",
     "combatWeight": "Combat weight",
@@ -2688,7 +2690,15 @@ window.I18N_DATA = {
     "Ural-4320 või KamAZ (kung-kere)": "Ural-4320 or KamAZ (shelter body)",
     "Vastuvõtuantennid 1,5–60 MHz (KV ja UKV); juhtimiseks raadioreleejaam R-151VCh 525–645 MHz": "Receiving antennas 1.5–60 MHz (HF and VHF); R-151VCh radio relay 525–645 MHz for remote control",
     "Automatiseeritud raadiovastuvõtusõlm: telegraafi- ja telefoniside korraga 6 raadiovõrgus või -suunal (3 adaptiivset). Juhib raadioreleeliini (25–30km) või kaabli kaudu saatesõlme R-161U saatjaid, mis paiknevad tavaliselt 5–10km eemal. 6 vastuvõtjat (R-160P-02 ja R-160P). Lahtirullimine 50–90 min; voolutarve kuni 8kW": "Automated radio receiving node: telegraph and telephone communications in 6 radio nets or links at once (3 adaptive). Remotely controls the transmitters of the R-161U transmitting node, usually 5–10km away, via radio relay (25–30km) or cable. 6 receivers (R-160P-02 and R-160P). Deployment 50–90 min; power consumption up to 8kW",
-    "R-151VCh antenni teleskoopmast; antennisüsteemi AP-122 mast 12m.": "Telescopic mast for the R-151VCh antenna; the AP-122 antenna system mast is 12m."
+    "R-151VCh antenni teleskoopmast; antennisüsteemi AP-122 mast 12m.": "Telescopic mast for the R-151VCh antenna; the AP-122 antenna system mast is 12m.",
+    "3 (ülem, operaator-sihtur, juht)": "3 (commander, operator-gunner, driver)",
+    "KAMAZ-6560 8×8, soomustatud kabiin": "KAMAZ-6560 8×8, armoured cab",
+    "Kaks vahetatavat transpordi-stardikonteinerit, kummaski 25 toru (5 × 5). Kassettraketid hajutavad miinid sihtalale; miinivälja kuju, suuruse, tiheduse ja miinitüübi määrab operaator töökohalt": "Two interchangeable transport-launch containers, 25 tubes each (5 × 5). Cassette rockets scatter mines over the target area; the operator sets minefield shape, size, density and mine type from the workstation",
+    "50 kassettraketti: POM-3 jalaväemiinid või PTM-4 tankitõrjemiinid; võimalik ka segaväli": "50 cassette rockets: POM-3 anti-personnel or PTM-4 anti-tank mines; mixed fields also possible",
+    "Satelliitnavigatsioon, pardaarvuti ja meteojaam tule korrigeerimiseks; mineeritud ala kantakse elektroonilisele kaardile ja edastatakse kõrgemale staabile. Kompleksi kuulub laadimismasin (samuti KAMAZ-6560) kraanaga, mis vahetab konteinerid": "Satellite navigation, onboard computer and weather station for fire corrections; the mined area is plotted on an electronic map and passed to higher headquarters. The complex includes a reloading vehicle (also KAMAZ-6560) with a crane that swaps the containers",
+    "Ühe salvoga mineeritakse mõne minutiga mitme jalgpalliväljaku suurune ala.": "One salvo mines an area of several football fields within minutes.",
+    "PTM-4 isehävitus valitav 8, 12, 24 või 48 h järel, isedeaktiveerumine 120 päeva pärast. Osa miine võib isehävitusel mitte plahvatada.": "PTM-4 self-destruct selectable at 8, 12, 24 or 48 h, self-deactivation after 120 days. Some mines may fail to self-destruct.",
+    "Kasutusel alates 2020; esimene lahingkasutus Ukrainas 2022.": "In service since 2020; combat debut in Ukraine in 2022."
   },
   // WHAT tekstid (read, märkused, alusplatvormi plokkide pealkirjad): "eestikeelne tekst failis what.js": "English".
   "whatText": {

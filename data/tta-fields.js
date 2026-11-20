@@ -22,6 +22,7 @@ window.TTA_FIELDS = {
   "fields": {
     "crew": {"label": "Meeskond", "type": "text", "section": "general", "order": 10},
     "chassis": {"label": "Šassii", "type": "text", "section": "general", "order": 15},
+    "basePlatform": {"label": "Alusplatvorm", "type": "text", "section": "general", "order": 15, "derived": true},
     "seats": {"label": "Istekohad", "type": "text", "section": "general", "order": 16},
     "driveConfig": {"label": "Veoskeem", "type": "text", "section": "general", "order": 17},
     "combatWeight": {"label": "Lahingumass", "type": "number", "section": "general", "order": 20, "unit": "t", "comparable": true},

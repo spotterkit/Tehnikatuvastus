@@ -9018,6 +9018,33 @@ window.TTA_DATA = {
         "mastHeight": "R-151VCh antenni teleskoopmast; antennisüsteemi AP-122 mast 12m."
       },
       "sources": []
+    },
+    "ISDM Zemledelije": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 (ülem, operaator-sihtur, juht)",
+        "chassis": "KAMAZ-6560 8×8, soomustatud kabiin",
+        "driveConfig": "8×8",
+        "length": 10.3,
+        "width": 2.5,
+        "caliber": 122,
+        "launchTubes": 50,
+        "firingRangeMin": 5,
+        "firingRange": 15,
+        "mineLaying": "Kaks vahetatavat transpordi-stardikonteinerit, kummaski 25 toru (5 × 5). Kassettraketid hajutavad miinid sihtalale; miinivälja kuju, suuruse, tiheduse ja miinitüübi määrab operaator töökohalt",
+        "mineCapacity": "50 kassettraketti: POM-3 jalaväemiinid või PTM-4 tankitõrjemiinid; võimalik ka segaväli",
+        "specialEquipment": "Satelliitnavigatsioon, pardaarvuti ja meteojaam tule korrigeerimiseks; mineeritud ala kantakse elektroonilisele kaardile ja edastatakse kõrgemale staabile. Kompleksi kuulub laadimismasin (samuti KAMAZ-6560) kraanaga, mis vahetab konteinerid"
+      },
+      "notes": {
+        "firingRange": "Ühe salvoga mineeritakse mõne minutiga mitme jalgpalliväljaku suurune ala.",
+        "mineCapacity": "PTM-4 isehävitus valitav 8, 12, 24 või 48 h järel, isedeaktiveerumine 120 päeva pärast. Osa miine võib isehävitusel mitte plahvatada.",
+        "specialEquipment": "Kasutusel alates 2020; esimene lahingkasutus Ukrainas 2022."
+      },
+      "sources": [
+        {"name": "Wikipedia: Zemledeliye (minelaying system)", "url": "https://en.wikipedia.org/wiki/Zemledeliye_(minelaying_system)", "retrieved": "2026-11-20"},
+        {"name": "Army Recognition: ISDM Zemledeliye", "url": "https://armyrecognition.com/military-products/army/engineer-maintenance-vehicles/mine-laying-systems/isdm-zemledeliye", "retrieved": "2026-11-20"},
+        {"name": "Militarnyi: «Земледелие» – небезпека для української піхоти та бронетехніки", "url": "https://militarnyi.com/uk/articles/zemledelye-nebezpeka-dlya-ukrayinskoyi-pihoty-ta-bronetehniky-yak-syly-oborony-znyshhuyut-rosijski-systemy-minuvannya/", "retrieved": "2026-11-20"}
+      ]
     }
   }
 };
