@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 23,
+  "version": 24,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -3047,7 +3047,7 @@ window.TTA_DATA = {
         {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-10-23"}
       ]
     },
-    "PPRU-1": {
+    "PPRU-1/PPRU-M1": {
       "status": "unverified",
       "values": {
         "crew": "5",
@@ -5747,7 +5747,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "crew": "2",
-        "chassis": "MT-LB / MT-LBu (pooleldi roomikud)",
+        "chassis": "MT-LBu",
         "combatWeight": 11,
         "length": 6.45,
         "width": 2.86,
@@ -5760,10 +5760,11 @@ window.TTA_DATA = {
         "jammingRange": 0.4,
         "jammerPower": 180,
         "ewTargets": "Lähedussüütega ja raadiojuhitavate sütikutega suurtükimürsud ja raketid (detoneeruvad suuremal kõrgusel); VHF-raadioliinid",
-        "specialEquipment": "Telekaantenn pöörleb ±150°; pidev töö 6 min; paigaldus alla 10 min; kaitse tõenäosus 80%; NBC-kaitse"
+        "specialEquipment": "Kaitseb vägesid raadiosütikuga mürskude ja miinide eest: häirimine paneb mürsu lõhkema ohutul kõrgusel või lülitab sütiku kontaktrežiimile. Kaitstav ala kuni 50ha; töötab automaatselt nii paigal kui ka liikvel; surub alla ka VHF-raadioliine (sh sagedushüpetega). Lahtirullimine 10 min; töövalmidus kuni 10 s"
       },
       "sources": [
-        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
+        {"name": "Rosoboronexport: 1L262E", "url": "https://roe.ru/en/production/land-forces/reconnaissance-and-electronic-warfare-means/army-electronic-warfare-systems/1l262e/", "retrieved": "2026-11-20"}
       ]
     },
     "R-330Zh Žitel": {
@@ -7593,7 +7594,7 @@ window.TTA_DATA = {
         {"name": "Wikipedia: Ural-4320", "url": "https://en.wikipedia.org/wiki/Ural-4320", "retrieved": "2026-10-30"}
       ]
     },
-    "Taifun-VDV K-4386, 4x4": {
+    "Taifun-VDV/Naparnik K-4386, 4x4": {
       "status": "unverified",
       "values": {
         "crew": "Kokku 8 (meeskond + dessant)",
@@ -8057,7 +8058,7 @@ window.TTA_DATA = {
         {"name": "Wikipedia: RPO-A Shmel", "url": "https://en.wikipedia.org/wiki/RPO-A_Shmel", "retrieved": "2026-10-30"}
       ]
     },
-    "R-431-AM": {
+    "R-431AM": {
       "status": "unverified",
       "values": {
         "chassis": "KamAZ 6×6 veok",
@@ -8069,6 +8070,885 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "GlobalSecurity: Palantin", "url": "https://www.globalsecurity.org/military/world/russia/palatine.htm", "retrieved": "2026-10-30"}
+      ]
+    },
+    "IL-78M Midas": {
+      "status": "unverified",
+      "values": {
+        "crew": "6",
+        "length": 46.59,
+        "wingspan": 50.5,
+        "height": 14.76,
+        "emptyWeight": 72,
+        "maxTakeoffWeight": 210,
+        "engine": "4 × Aviadvigatel D-30KP turboventilaatormootor (118kN iga)",
+        "thrust": 472,
+        "maxSpeed": 850,
+        "serviceCeiling": 12000,
+        "ferryRange": 7300,
+        "specialEquipment": "Õhutankur: 3 tankimisgondlit UPAZ „Sahhalin“ – 2 tiibade all taktikaliste lennukite ja 1 kere tagaosas vasakul raskete lennukite tankimiseks. Kütust kokku 138t, sellest üleantav 105,7t"
+      },
+      "notes": {
+        "ferryRange": "Wikipedia ei täpsusta, millise variandi kohta."
+      },
+      "sources": [
+        {"name": "Wikipedia: Ilyushin Il-78", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-78", "retrieved": "2026-11-20"}
+      ]
+    },
+    "An-30 Clank": {
+      "status": "unverified",
+      "values": {
+        "crew": "7",
+        "length": 24.26,
+        "wingspan": 29.2,
+        "height": 8.32,
+        "emptyWeight": 15.59,
+        "maxTakeoffWeight": 23,
+        "engine": "2 × Ivtšenko AI-24VT turbopropellermootor (2803hj iga) + abireaktiivmootor RU-19A-300",
+        "power": 5606,
+        "maxSpeed": 540,
+        "cruiseSpeed": 430,
+        "serviceCeiling": 8300,
+        "ferryRange": 2630,
+        "sensors": "Aerofotokaamerad: tavaliselt 4–5 suurt kaamerat (3 vertikaalset, 2 kaldu 28° nurga all kummalegi poole); lisaks muu mõõdistusvarustus",
+        "specialEquipment": "Aerofotolennuk kaardistamiseks; kasutatud Avatud taeva lepingu vaatluslendudel"
+      },
+      "notes": {
+        "ferryRange": "Ilma reservita."
+      },
+      "sources": [
+        {"name": "Wikipedia: Antonov An-30", "url": "https://en.wikipedia.org/wiki/Antonov_An-30", "retrieved": "2026-11-20"}
+      ]
+    },
+    "IL-20M": {
+      "status": "unverified",
+      "values": {
+        "crew": "13",
+        "length": 35.9,
+        "wingspan": 37.42,
+        "height": 10.17,
+        "emptyWeight": 33.76,
+        "maxTakeoffWeight": 64,
+        "engine": "4 × AI-20M turbopropellermootor (4250hj iga)",
+        "power": 17000,
+        "maxSpeed": 675,
+        "cruiseSpeed": 620,
+        "serviceCeiling": 10000,
+        "ferryRange": 6200,
+        "sensors": "Külgvaatav radar Igla-1 (kere all), kaamera A-87P (kere küljel), ELINT-süsteemid Višnja, SRS-4 Romb ja Kvadrat-2; optilised, infrapuna- ja elektroonilised andurid",
+        "specialEquipment": "COMINT/ELINT luurelennuk; kere peal 2 suurt satelliitside antenni"
+      },
+      "notes": {
+        "maxSpeed": "8000m kõrgusel.",
+        "ferryRange": "Artikli tekstis kuni 5400km."
+      },
+      "sources": [
+        {"name": "Wikipedia: Ilyushin Il-20M", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-20M", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Il-38 May": {
+      "status": "unverified",
+      "values": {
+        "crew": "7–8",
+        "length": 40.185,
+        "wingspan": 37.4,
+        "height": 10.17,
+        "emptyWeight": 35.5,
+        "maxTakeoffWeight": 66,
+        "engine": "4 × Progress AI-20M turbopropellermootor (4225hj iga)",
+        "power": 16900,
+        "maxSpeed": 645,
+        "serviceCeiling": 11000,
+        "ferryRange": 7500,
+        "endurance": 13,
+        "aswWeapons": "Torpeedod, süvaveepommid, miinid ja pommid relvaruumis; sonopoid eesmises relvaruumis",
+        "antiShipMissiles": "Kh-35E",
+        "ordnanceLoad": 9000,
+        "sensors": "Otsinguradar Berkut („Wet Eye“) nina all; magnetanomaalia detektor (MAD) sabas. Il-38N: Novella P-38 (õhusihtmärgid kuni 90km, pinnasihtmärgid kuni 320km, 32 sihtmärki korraga)"
+      },
+      "sources": [
+        {"name": "Wikipedia: Ilyushin Il-38", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-38", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Yak-130 Mitten": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "length": 11.49,
+        "wingspan": 9.84,
+        "height": 4.76,
+        "emptyWeight": 4.6,
+        "maxTakeoffWeight": 10.29,
+        "engine": "2 × Ivtšenko-Progress AI-222-25 turboventilaatormootor (24,52kN iga)",
+        "thrust": 49.04,
+        "maxSpeed": 1060,
+        "cruiseSpeed": 887,
+        "serviceCeiling": 12500,
+        "rateOfClimb": 65,
+        "ferryRange": 2100,
+        "gLimit": 8,
+        "hardpoints": 8,
+        "ordnanceLoad": 3000,
+        "airToAirMissiles": "R-73",
+        "airToGroundWeapons": "Raketid S-8 ja S-25; pommid FAB-M62, ZB-500, KAB-500Kr; kahurikonteiner SNPU-130"
+      },
+      "notes": {
+        "gLimit": "+8 / −3g.",
+        "hardpoints": "Tiivaotstes 2 (ainult soojuspüünised ja dipoolid), tiibade all 6. Artikli tekstis 9."
+      },
+      "sources": [
+        {"name": "Wikipedia: Yakovlev Yak-130", "url": "https://en.wikipedia.org/wiki/Yakovlev_Yak-130", "retrieved": "2026-11-20"}
+      ]
+    },
+    "L-39 Albatros": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "length": 12.13,
+        "wingspan": 9.46,
+        "height": 4.77,
+        "emptyWeight": 3.455,
+        "maxTakeoffWeight": 4.7,
+        "engine": "1 × Ivtšenko AI-25TL turboventilaatormootor",
+        "thrust": 16.87,
+        "maxSpeed": 750,
+        "serviceCeiling": 11000,
+        "rateOfClimb": 21,
+        "ferryRange": 1100,
+        "endurance": 2.5,
+        "gLimit": 8,
+        "hardpoints": 2,
+        "ordnanceLoad": 284
+      },
+      "notes": {
+        "maxSpeed": "5000m kõrgusel.",
+        "ferryRange": "Sisemise kütusega.",
+        "gLimit": "+8 / −4g (massil 4200kg)."
+      },
+      "sources": [
+        {"name": "Wikipedia: Aero L-39 Albatros", "url": "https://en.wikipedia.org/wiki/Aero_L-39_Albatros", "retrieved": "2026-11-20"}
+      ]
+    },
+    "An-12 Cub": {
+      "status": "unverified",
+      "values": {
+        "crew": "5 (2 pilooti, pardainsener, navigaator, raadist)",
+        "length": 33.1,
+        "wingspan": 38,
+        "height": 10.53,
+        "emptyWeight": 28,
+        "maxTakeoffWeight": 61,
+        "engine": "4 × Ivtšenko AI-20L või AI-20M turbopropellermootor (4000hj iga)",
+        "power": 16000,
+        "maxSpeed": 660,
+        "cruiseSpeed": 570,
+        "serviceCeiling": 10200,
+        "ferryRange": 5700,
+        "payload": 20000,
+        "troops": "60 langevarjurit",
+        "caliber": 23,
+        "mainArmament": "Osadel lennukitel 2 × 23mm kahur NR-23 sabatornis",
+        "specialEquipment": "Lastiruumi mahub 2 × BMD-1; lennuulatus maksimaalse lastiga 3600km"
+      },
+      "notes": {
+        "troops": "Artikli tekstis kuni 100 täisvarustuses langevarjurit."
+      },
+      "sources": [
+        {"name": "Wikipedia: Antonov An-12", "url": "https://en.wikipedia.org/wiki/Antonov_An-12", "retrieved": "2026-11-20"}
+      ]
+    },
+    "An-72 Coaler": {
+      "status": "unverified",
+      "values": {
+        "crew": "5",
+        "length": 28.07,
+        "wingspan": 31.89,
+        "height": 8.65,
+        "emptyWeight": 19.05,
+        "maxTakeoffWeight": 34.5,
+        "engine": "2 × Lotarev D-36 seeria 1A turboventilaatormootor (63,9kN iga)",
+        "thrust": 127.8,
+        "maxSpeed": 700,
+        "ferryRange": 4325,
+        "takeoffRun": 620,
+        "payload": 10000,
+        "troops": "kuni 52 reisijat"
+      },
+      "sources": [
+        {"name": "Wikipedia: Antonov An-72", "url": "https://en.wikipedia.org/wiki/Antonov_An-72", "retrieved": "2026-11-20"}
+      ]
+    },
+    "1B75 Penicilin": {
+      "status": "unverified",
+      "values": {
+        "chassis": "KamAZ-6350 8×8",
+        "driveConfig": "8×8",
+        "detectionRange": 25,
+        "sensors": "Teleskoopmastil optiline ja infrapuna andurikomplekt 1B75; maapinnale paigutatavad seismilised ja akustilised andurid (1B76)",
+        "specialEquipment": "Passiivne heli- ja soojuspõhine suurtükiväeluure: leiab vaenlase suurtükkide, miinipildujate, raketiheitjate ja raketistardi asukoha ilma raadiokiirguseta 5 sekundiga kuni 25km kauguselt. Side teiste üksustega kuni 40km; võib töötada automaatrežiimis; juhib ja korrigeerib ka oma suurtükituld. Riiklikud katsetused 2018, lahinguvalves alates 2020"
+      },
+      "sources": [
+        {"name": "Wikipedia: Penicillin (counter-artillery system)", "url": "https://en.wikipedia.org/wiki/Penicillin_(counter-artillery_system)", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Tornado-G/BM-21-1 (2B17M)": {
+      "status": "unverified",
+      "values": {
+        "chassis": "KamAZ 6×6 või Ural-4320",
+        "caliber": 122,
+        "launchTubes": 40,
+        "mainArmament": "40 × 122mm rakett (4 rida × 10 toru)",
+        "specialEquipment": "Raketid 9M538, 9M539 ja 9M541 (täiustatud 122mm Grad OF- ja kumulatiivraketid). Seeriatootmine 2013, kasutusel alates 2014"
+      },
+      "sources": [
+        {"name": "Wikipedia: Tornado (multiple rocket launcher)", "url": "https://en.wikipedia.org/wiki/Tornado_(multiple_rocket_launcher)", "retrieved": "2026-11-20"}
+      ]
+    },
+    "MT-LBM": {
+      "status": "unverified",
+      "values": {
+        "chassis": "MT-LB",
+        "mainArmament": "MT-LBM 6MB: 30mm automaatkahur tornis kere keskel; 6MA: 14,5mm BPU-1 torn"
+      },
+      "notes": {
+        "chassis": "MT-LBM-i mõõte ja massi allikas ei anna; vt MT-LB."
+      },
+      "sources": [
+        {"name": "Wikipedia: MT-LB", "url": "https://en.wikipedia.org/wiki/MT-LB", "retrieved": "2026-11-20"}
+      ]
+    },
+    "PU-12 (9S482)": {
+      "status": "unverified",
+      "values": {
+        "chassis": "BTR-60PB (8×8 ratassoomuk)",
+        "combatWeight": 10.5,
+        "length": 7.22,
+        "width": 2.825,
+        "maxSpeedRoad": 82,
+        "maxSpeedWater": 10,
+        "amphibious": true,
+        "specialEquipment": "Õhutõrjeüksuste liikuv juhtimispunkt: võtab radarilt vastu õhuolukorra andmed, töötleb need ja edastab alluvatele juhtimispunktidele. PU-12M6 (9S482M6) ja PU-12M7 on BTR-80 šassiil"
+      },
+      "sources": [
+        {"name": "Armed Conflicts (valka.cz): PU-12 / PU-12M", "url": "https://www.armedconflicts.com/topic/view/23991", "retrieved": "2026-11-20"},
+        {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-11-20"}
+      ]
+    },
+    "55Zh6M Nebo-M": {
+      "status": "unverified",
+      "values": {
+        "chassis": "RLM-D, RLM-S ja KU-RLK: BAZ-6909-015 8×8 (iga moodul eraldi masinal)",
+        "detectionRange": 600,
+        "sensors": "RLM-M: VHF/UHF 3D-radar (kuni 600km); RLM-D: L-sagedusala AESA-radar (kuni 600km); RLM-S: X-sagedusala AESA-radar; KU-RLK: juhtimismoodul, mis liidab kõigi radarite andmed üheks pildiks",
+        "specialEquipment": "Mitme sagedusalaga radarikompleks; täiskomplekti lahtirullimine 40 min. Väidetavalt avastab ka 5. põlvkonna lennukeid ja ballistiliste rakettide starte"
+      },
+      "sources": [
+        {"name": "Wikipedia: Nebo-M", "url": "https://en.wikipedia.org/wiki/Nebo-M", "retrieved": "2026-11-20"}
+      ]
+    },
+    "R-439MD2": {
+      "status": "unverified",
+      "values": {
+        "chassis": "K1Sh1 (BTR-80 alusel)",
+        "frequencyRange": "Globus: 4/6 GHz, 7/8 GHz ja 0,2/0,4 GHz; tsiviilsatelliidid Express ja Yamal: 4/6 GHz",
+        "specialEquipment": "Satelliitside jaam süsteemide Globus-1, Globus-1M ja Globus geostatsionaarsete satelliitide kaudu, ka tsiviilsatelliitidega Express ja Yamal; hoiab sidet raadiohäirete korral"
+      },
+      "sources": [
+        {"name": "Defense Express: destroyed R-439-MD2", "url": "https://en.defence-ua.com/weapon_and_tech/photo_of_destroyed_russian_modern_satellite_communication_vehicle_appeared-3792.html", "retrieved": "2026-11-20"}
+      ]
+    },
+    "R-149MA3": {
+      "status": "unverified",
+      "values": {
+        "chassis": "BTR-80 (8×8 ratassoomuk)",
+        "specialEquipment": "Juhtimis- ja sidemasin BTR-80 baasil"
+      },
+      "sources": [
+        {"name": "Army Recognition: BTR-80 (variants)", "url": "https://armyrecognition.com/military-products/army/armoured-personnel-carriers/wheeled-vehicles/btr-80-russia-uk", "retrieved": "2026-11-20"},
+        {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-11-20"}
+      ]
+    },
+    "R-145BMA": {
+      "status": "unverified",
+      "values": {
+        "chassis": "GAZ Tigr (4×4 soomusauto)",
+        "specialEquipment": "Juhtimis- ja sidemasin ühenduseks kõrgema staabi ja alluvate üksustega; 2015 said selle armee tasandi luureüksused"
+      },
+      "sources": [
+        {"name": "Army Recognition: R-145BMA Tigr command post vehicle (2015)", "url": "https://armyrecognition.com/archives/archives-land-defense/land-defense-2015/russian-army-scouts-at-the-army-level-equipped-with-r-145bma-tigr-command-post-vehicle-tass-12510153", "retrieved": "2026-11-20"}
+      ]
+    },
+    "1RL243 Rubikon (MASRR)": {
+      "status": "unverified",
+      "values": {
+        "chassis": "MT-LBu-M",
+        "height": 2.035,
+        "detectionRange": 70,
+        "ewTargets": "Vaenlase radarid (otsing ja suunamääramine)",
+        "specialEquipment": "Komplekt MASRR koosneb 3 jaamast 1RL243; töövalmidus 10–15 min; tuvastab tunnis 10–12 sihtmärki; suunamäärangu viga kuni 3°"
+      },
+      "notes": {
+        "height": "Kere kõrgus."
+      },
+      "sources": [
+        {"name": "Valka.cz: 1RL243 Rubikon", "url": "https://www.valka.cz/SOV-1RL243-vyhledavac-radiolokacnich-stanic-t252497", "retrieved": "2026-11-20"}
+      ]
+    },
+    "SPR-2": {
+      "status": "unverified",
+      "values": {
+        "crew": "2",
+        "chassis": "BTR-70",
+        "frequencyRange": "95–420 MHz",
+        "jammerPower": 300,
+        "ewTargets": "Raadiokaugsütikuga suurtükimürsud ja raketid – põhjustab nende lõhkemise ohutul kõrgusel",
+        "specialEquipment": "Kaitstav ala vähemalt 50ha; segab vähemalt 40 sütikut sekundis; töövalmidus kuni 4 min; töötab ka liikumisel; toide 27V, 4kW. GRAU indeks 1L29; moderniseeritud versioon SPR-2M Rtut-BM"
+      },
+      "notes": {
+        "jammerPower": "300W või rohkem."
+      },
+      "sources": [
+        {"name": "Russian Air Defense Systems (Defense Techs): SPR-2 Rtut-B", "url": "https://issuu.com/dellvzla/docs/air_def_1_defensetechs/s/13416584", "retrieved": "2026-11-20"},
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Shipovnik-Aero": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "chassis": "KamAZ-4350",
+        "frequencyRange": "Raadioseire 25–2500 MHz; häirimine 400–500, 800–925 ja 2400–2485 MHz",
+        "detectionRange": 10,
+        "ewTargets": "Väikesed raadiojuhitavad droonid (RQ-11 Ravenist kuni Hermes-tüüpi UAV-deni); ka juhtimispunktid, mobiilside, Wi-Fi, WiMAX ja DECT",
+        "specialEquipment": "Surub alla drooni juhtimiskanali ja võib drooni üle võtta; tuvastamisest mahasurumiseni 25 s; suunamäärangu täpsus 2–3°; lahtirullimine 20–40 min; kasutusel alates 2016"
+      },
+      "notes": {
+        "chassis": "Commonsi foto pealkirja järgi; COGINT raport šassiid ei nimeta."
+      },
+      "sources": [
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"}
+      ]
+    },
+    "MKTK-1A Judoist": {
+      "status": "unverified",
+      "values": {
+        "chassis": "KamAZ-4350",
+        "frequencyRange": "Raadiokiirgus 0,0001–18 GHz; akustiline ja vibroakustiline 10–20 000 Hz",
+        "ewTargets": "Raadiokiirguse allikad; tehnilised infolekkekanalid",
+        "specialEquipment": "Raadiokiirgusallikate avastamine, parameetrite mõõtmine ja asukoha määramine; kontrollib oma vägede kaitset võõra tehnilise luure eest ja blokeerib infolekkekanaleid. 3 automatiseeritud töökohta; lahtirullimine 30 min; voolutarve 3,5kW; suunamäärangu viga alla 2–3°; kasutusel alates 2012"
+      },
+      "sources": [
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"}
+      ]
+    },
+    "RP-377LA Lorandit": {
+      "status": "unverified",
+      "values": {
+        "crew": "2–3",
+        "chassis": "Maastikuauto (nt UAZ) või kantav komplekt",
+        "frequencyRange": "0,02–2 GHz",
+        "jammerPower": 40,
+        "ewTargets": "VHF-raadioside ja juhtimissüsteemide häireallikad",
+        "specialEquipment": "Raadiosaatjate otsing, asukoha määramine ja raadioside mahasurumine; suunamäärangu viga kuni 3°; kantav versioon 2 kohvris ja 4 kotis; 2 või enam komplekti saab ühendada võrku. Kasutusel alates 2019"
+      },
+      "sources": [
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Tirada-2S": {
+      "status": "unverified",
+      "values": {
+        "crew": "5",
+        "chassis": "KamAZ",
+        "frequencyRange": "3–14 GHz (sentimeeterlained)",
+        "ewTargets": "Sidesatelliidid (üleslüli häirimine kitsa kiirega); luuredroonide satelliitside",
+        "specialEquipment": "Juhtimiskeskus, side avastamise ja häirimise riistvaraplokk ning generaator; lahtirullimine 30 min; ulatus „mitukümmend kilomeetrit“; kasutusel alates 2019. Kahtlustatakse Starlinki häirimises"
+      },
+      "sources": [
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Palantin-K": {
+      "status": "unverified",
+      "values": {
+        "chassis": "KamAZ",
+        "frequencyRange": "3–30 MHz (HF) ja 30–300 MHz (VHF)",
+        "jammingRange": 20,
+        "mastHeight": 15,
+        "ewTargets": "Satelliitjuhitav relvastus, mobiil- ja raadioside, droonid ja teised EW-süsteemid",
+        "specialEquipment": "Automatiseeritud häirimiskompleks; ühendab Moskva, Žiteli ja Judoisti ühtseks võrguks. Kasutusel alates 2019"
+      },
+      "notes": {
+        "jammingRange": "Raporti tabelis raadioside mahasurumise ulatus 1000km (raport vastuolu ei selgita).",
+        "chassis": "Commonsi foto pealkirja järgi."
+      },
+      "sources": [
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Lada 4x4 pikap": {
+      "status": "unverified",
+      "values": {
+        "driveConfig": "4×4 (püsiv nelikvedu, keskdiferentsiaali lukk)",
+        "length": 4.52,
+        "width": 1.68,
+        "height": 1.64,
+        "engine": "Niva perekond: 1,6–1,8l bensiinimootor või 1,9l diisel",
+        "groundClearance": 235,
+        "fording": 0.51
+      },
+      "notes": {
+        "length": "Pikap-versiooni pikkus; laius ja kõrgus on Niva üldandmed."
+      },
+      "sources": [
+        {"name": "Wikipedia: Lada Niva Legend", "url": "https://en.wikipedia.org/wiki/Lada_Niva_Legend", "retrieved": "2026-11-20"}
+      ]
+    },
+    "ATZ-7 5557": {
+      "status": "unverified",
+      "values": {
+        "chassis": "Ural-5557 (madalaprofiilsed rehvid ja rehvirõhu reguleerimine)",
+        "driveConfig": "6×6",
+        "specialEquipment": "Tankurauto umbes 7m³ kütusepaagiga maa- ja õhusõidukite tankimiseks"
+      },
+      "notes": {
+        "specialEquipment": "Maht tähise järgi (ATZ-7 = 7m³), samaväärne ATZ-7-5350 on 7000l."
+      },
+      "sources": [
+        {"name": "Wikipedia: Ural-4320", "url": "https://en.wikipedia.org/wiki/Ural-4320", "retrieved": "2026-11-20"},
+        {"name": "Wikipedia: KamAZ-5350", "url": "https://en.wikipedia.org/wiki/KamAZ-5350", "retrieved": "2026-11-20"}
+      ]
+    },
+    "ATs-7,5-4320": {
+      "status": "unverified",
+      "values": {
+        "chassis": "Ural-4320",
+        "driveConfig": "6×6",
+        "engine": "YaMZ-238M2 V8 diisel (Ural-4320)",
+        "power": 240,
+        "specialEquipment": "Kütusetsisternauto umbes 7,5m³ paagiga"
+      },
+      "notes": {
+        "specialEquipment": "Maht tähise järgi (ATs-7,5 = 7,5m³)."
+      },
+      "sources": [
+        {"name": "Wikipedia: Ural-4320", "url": "https://en.wikipedia.org/wiki/Ural-4320", "retrieved": "2026-11-20"}
+      ]
+    },
+    "PTs-6,7": {
+      "status": "unverified",
+      "values": {
+        "length": 5.946,
+        "width": 2.5,
+        "height": 2.88,
+        "combatWeight": 10,
+        "chassis": "MAZ-8925 haagis; vedukid KrAZ-255 ja KrAZ-260",
+        "specialEquipment": "Terasest paak 6700l; imi- ja jaotusvoolik 2 × 3m, Ø75mm; tühjenemine isevoolu teel 25 min; teenindab 1 inimene; kasutusel alates 1977"
+      },
+      "notes": {
+        "combatWeight": "Täismass; tühimass 4240kg."
+      },
+      "sources": [
+        {"name": "Armed Conflicts (valka.cz): PC-6,7-8925", "url": "https://www.armedconflicts.com/topic/view/42114", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Uran-9": {
+      "status": "unverified",
+      "values": {
+        "crew": "0 (1 kaugoperaator)",
+        "combatWeight": 10,
+        "length": 5.12,
+        "width": 2.53,
+        "height": 2.5,
+        "maxSpeedRoad": 35,
+        "maxSpeedOffroad": 25,
+        "controlRange": 3,
+        "caliber": 30,
+        "mainArmament": "30mm automaatkahur 2A72",
+        "atgm": "4 × 9M120 Ataka",
+        "secondaryArmament": "7,62mm koaksiaalne kuulipilduja; termobaarilised raketid Shmel-M",
+        "sensors": "Tulejuhtimissüsteem, IR-kaamerad, laserkaugusmõõtja; laserhoiatussüsteem",
+        "armor": "Kaitse kergrelvade ja kildude vastu",
+        "specialEquipment": "Komplektis 4 robotit, juhtimispunkt KamAZ-veokil ja transportveokid; kasutusel alates 2019. Süürias ilmnesid sideulatuse, relvade ja veermiku probleemid"
+      },
+      "notes": {
+        "controlRange": "Usaldusväärne side kuni 3km; droonretranslaatoriga rohkem."
+      },
+      "sources": [
+        {"name": "Army Technology: Uran-9", "url": "https://www.army-technology.com/projects/uran-9-unmanned-ground-combat-vehicle/", "retrieved": "2026-11-20"},
+        {"name": "Army Recognition: Uran-9", "url": "https://armyrecognition.com/military-products/army/unmanned-systems/unmanned-ground-vehicles/uran-9-ugcv-ugv-unmanned-ground-combat-vehicle-technical-data-sheet-specifications-pictures-video-10910163", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Uran-6": {
+      "status": "unverified",
+      "values": {
+        "crew": "0 (1 kaugoperaator)",
+        "combatWeight": 6,
+        "length": 4.45,
+        "width": 2.01,
+        "height": 1.49,
+        "power": 240,
+        "maxSpeedRoad": 5,
+        "controlRange": 1,
+        "mineClearing": "Trall, freesimistrummel, segmentrull, buldooserisahk, haarats; puhastusriba 1,6m; hävitab lõhkekehi 0,1–4kg",
+        "armor": "Peab vastu kuni 60kg TNT plahvatusele",
+        "specialEquipment": "4 videokaamerat; kaugjuhtimine kuni 1km kauguselt; transport KamAZ-platvormil; töötab 1 operaator"
+      },
+      "notes": {
+        "combatWeight": "Trallimisseadmeta; trallimisseadmega 6,8t.",
+        "length": "Koos trallimisseadmega."
+      },
+      "sources": [
+        {"name": "Army Technology: Uran-6", "url": "https://www.army-technology.com/projects/uran-6-mine-clearing-robot/", "retrieved": "2026-11-20"},
+        {"name": "Army Recognition: Uran-6 on KAMAZ transportation platform", "url": "https://armyrecognition.com/weapons_defence_industry_military_technology_uk/russia_uran-6_robot_to_be_mounted_on_new_kamaz_transportation_platform.html", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Nerehta": {
+      "status": "unverified",
+      "values": {
+        "crew": "0 (kaugoperaator)",
+        "combatWeight": 1.7,
+        "length": 2.5,
+        "width": 1.6,
+        "height": 0.9,
+        "payload": 700,
+        "maxSpeedRoad": 20,
+        "mainArmament": "12,7mm Kord või 7,62mm Kalašnikovi kuulipilduja; 30mm automaatgranaadiheitja AG-30M",
+        "specialEquipment": "Roomik-UGV jalaväe toetuseks; luure- ja transpordimoodul. Eksportversioon Nerekhta-E: 2100kg (transpordimooduliga 2700kg), hübriidajam, kuni 20km/h"
+      },
+      "notes": {
+        "maxSpeedRoad": "Nerekhta-E.",
+        "payload": "Teistel andmetel kuni 500kg."
+      },
+      "sources": [
+        {"name": "Army Guide: Nerehta", "url": "https://army-guide.com/eng/product5206.html", "retrieved": "2026-11-20"},
+        {"name": "Defence Security Asia: Nerekhta-E", "url": "https://defencesecurityasia.com/en/russia-nerekhta-e-combat-robot-export/", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Marker": {
+      "status": "unverified",
+      "values": {
+        "crew": "0 (autonoomne või kaugjuhitav)",
+        "mainArmament": "Kalašnikovi kuulipilduja ja 2 TTRK-d; moodulina ka granaadiheitjad, rakettrelvad ja kuni 16 kamikadze-kvadrokopterit",
+        "specialEquipment": "Roomik- ja rattaversioon; tehisintellektiga sihtmärgituvastus ja autonoomne sõit (läbis autonoomselt 30km). Arendajad FPI ja Android Technics, töö algas 2018; testiti Donbassis 2023"
+      },
+      "sources": [
+        {"name": "Army Technology: Marker", "url": "https://www.army-technology.com/projects/marker-anti-tank-ugv-russia/", "retrieved": "2026-11-20"},
+        {"name": "Army Recognition: four Marker UGVs arrive in Donbas", "url": "https://armyrecognition.com/news/army-news/2023/four-russian-marker-combat-ugvs-arrive-in-donbas-for-operational-testing", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Prokhod-1": {
+      "status": "unverified",
+      "values": {
+        "crew": "0 (valikuliselt mehitatud)",
+        "chassis": "BMR-3MA (T-90 šassii)",
+        "mineClearing": "Rulltrallid KMT-7 ja KMT-8; raske trall TMT-S",
+        "specialEquipment": "Kompleksis robotiseeritud demineerimismasin BMR-3MA ja KamAZ-põhine juhtimismasin; võib sõita automaatselt etteantud marsruudil. Katsetused 2016; kasutatud Ukrainas"
+      },
+      "sources": [
+        {"name": "Shephard: Russia employs Prokhod-1 UGV in Ukraine", "url": "https://www.shephardmedia.com/news/uv-online/russia-employs-prokhod-1-ugv-for-mine-clearance-in-ukraine", "retrieved": "2026-11-20"},
+        {"name": "Army Guide: Prohod-1", "url": "https://army-guide.com/eng/product5456.html", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Kurjer": {
+      "status": "unverified",
+      "values": {
+        "crew": "0 (kaugoperaator)",
+        "combatWeight": 0.25,
+        "length": 1.4,
+        "width": 1.2,
+        "height": 0.58,
+        "payload": 200,
+        "maxSpeedRoad": 35,
+        "controlRange": 10,
+        "mainArmament": "Moodulid: automaatgranaadiheitja AGS-17 või AGS-30, kuulipildujad",
+        "mineLaying": "Tankitõrjemiinid TM-62 ja TM-83",
+        "specialEquipment": "Roomik-UGV; juhtimine raadio, valguskaabli või satelliidi kaudu. Kasutus: laskemoona ja varustuse vedu, miinipanek, tuletoetus. Kõige laialdasemalt kasutatav Vene maismaarobot"
+      },
+      "notes": {
+        "controlRange": "3–10km; rindel sageli alla 1–2km.",
+        "combatWeight": "Kurjer 2.0: umbes 600kg, kuni 20km/h, ulatus 25km."
+      },
+      "sources": [
+        {"name": "Defence Blog: New report tracks Russia's growing combat ground robot fleet", "url": "https://defence-blog.com/new-report-tracks-russias-growing-combat-ground-robot-fleet/", "retrieved": "2026-11-20"},
+        {"name": "Militarnyi: Russian Unmanned Ground Vehicles Deployed in the War Against Ukraine", "url": "https://militarnyi.com/en/articles/russian-unmanned-ground-vehicles-deployed-in-the-war-against-ukraine/", "retrieved": "2026-11-20"},
+        {"name": "Army Recognition: Russia sends batch of Courier UGV", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/ukraine-russia-conflict/russia-sends-batch-of-courier-ugv-to-its-troops-in-ukraine", "retrieved": "2026-11-20"},
+        {"name": "Ukrainska Pravda: Courier 2.0", "url": "https://www.pravda.com.ua/eng/news/2026/09/20/8054305/", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Varan": {
+      "status": "unverified",
+      "values": {
+        "crew": "0 (kaugoperaator)",
+        "mainArmament": "Moodulid: kuulipildujad, automaatgranaadiheitjad, TTRK",
+        "specialEquipment": "Raskem mitmeotstarbeline roomik-UGV transpordiks, pioneeritöödeks ja lahinguks; luure-, EW- ja pioneerivarustus. Seeriatootmises"
+      },
+      "sources": [
+        {"name": "Militarnyi: Russian Unmanned Ground Vehicles Deployed in the War Against Ukraine", "url": "https://militarnyi.com/en/articles/russian-unmanned-ground-vehicles-deployed-in-the-war-against-ukraine/", "retrieved": "2026-11-20"},
+        {"name": "Defence Blog: New report tracks Russia's growing combat ground robot fleet", "url": "https://defence-blog.com/new-report-tracks-russias-growing-combat-ground-robot-fleet/", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Omitš-2": {
+      "status": "unverified",
+      "values": {
+        "crew": "0 (kaugoperaator)",
+        "combatWeight": 0.65,
+        "payload": 350,
+        "range": 20,
+        "specialEquipment": "Laskemoona ja varustuse vedu, ründegruppide transport, haavatute evakuatsioon; väidetav tööaeg kuni 40 min"
+      },
+      "sources": [
+        {"name": "Militarnyi: Russian Unmanned Ground Vehicles Deployed in the War Against Ukraine", "url": "https://militarnyi.com/en/articles/russian-unmanned-ground-vehicles-deployed-in-the-war-against-ukraine/", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Ljaguška": {
+      "status": "unverified",
+      "values": {
+        "crew": "0 (kaugoperaator)",
+        "specialEquipment": "Laskemoona, varustuse ja toidu vedu; FPV-kaamera, kaugjuhtimisjaam, videosignaali kordaja ja teleskoopmast ulatuse suurendamiseks"
+      },
+      "sources": [
+        {"name": "Militarnyi: Russian Unmanned Ground Vehicles Deployed in the War Against Ukraine", "url": "https://militarnyi.com/en/articles/russian-unmanned-ground-vehicles-deployed-in-the-war-against-ukraine/", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Tšelnok": {
+      "status": "unverified",
+      "values": {
+        "crew": "0 (kaugoperaator)",
+        "mineClearing": "Demineerimisversioon miinitõrjekompleksiga UR-83P (2024)",
+        "specialEquipment": "Transpordiplatvorm varustuse viimiseks eesliini positsioonidele"
+      },
+      "sources": [
+        {"name": "Militarnyi: Russian Unmanned Ground Vehicles Deployed in the War Against Ukraine", "url": "https://militarnyi.com/en/articles/russian-unmanned-ground-vehicles-deployed-in-the-war-against-ukraine/", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Murena-300S": {
+      "status": "unverified",
+      "values": {
+        "length": 5.5,
+        "width": 1.5,
+        "maxSpeedKn": 45,
+        "range": 500,
+        "payload": 500,
+        "specialEquipment": "Kasutus: mereväe objektide kaitse, miinipanek ja demineerimine, patrull reaalajas videoga, luure, elektrooniline luure, kamikaze-paat või FPV-droonide kandja. Tõenäoliselt Starlinki antenn; merelainetus kuni 4 palli. Esitleti Army-2024"
+      },
+      "notes": {
+        "maxSpeedKn": "Naval News: tippkiirus 45 sõlme; EDR: reisikiirus 45km/h."
+      },
+      "sources": [
+        {"name": "EDR Magazine: Murena-300S unveiled", "url": "https://www.edrmagazine.eu/murena-300s-unmanned-surface-vehicle-unveiled", "retrieved": "2026-11-20"},
+        {"name": "Naval News: New Russian Navy Murena maritime drone", "url": "https://www.navalnews.com/naval-news/2024/08/new-russian-navy-murena-maritime-drone/", "retrieved": "2026-11-20"},
+        {"name": "Militarnyi: DIU Reveals Details of Russian Naval Drones", "url": "https://militarnyi.com/en/news/diu-reveals-details-of-russian-naval-drones-from-skanda-to-kamikaze-usvs/", "retrieved": "2026-11-20"}
+      ]
+    },
+    "BEK-1000": {
+      "status": "unverified",
+      "values": {
+        "length": 7,
+        "maxSpeedKn": 40,
+        "range": 500,
+        "payload": 1000,
+        "specialEquipment": "Raske USV (ka ASV-1000), arendaja Pella-Fiord, esitleti Fleet-2024; kasulik koormus eri otstarbeks"
+      },
+      "sources": [
+        {"name": "Militarnyi: DIU Reveals Details of Russian Naval Drones", "url": "https://militarnyi.com/en/news/diu-reveals-details-of-russian-naval-drones-from-skanda-to-kamikaze-usvs/", "retrieved": "2026-11-20"},
+        {"name": "United24 Media: Russia's fleet of unmanned sea vessels", "url": "https://united24media.com/war-in-ukraine/ukraine-uncovers-russias-secret-fleet-of-unmanned-sea-vessels-21953", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Iskatel": {
+      "status": "unverified",
+      "values": {
+        "maxSpeedKn": 32,
+        "range": 250,
+        "specialEquipment": "Mereala seire, merepõhja ja faarvaatrite uurimine, lasti vedu ja platvormide pukseerimine; esitleti 2017, sarnane Prantsuse Inspector Mk2-ga"
+      },
+      "notes": {
+        "range": "Vähemalt 250km."
+      },
+      "sources": [
+        {"name": "Militarnyi: DIU Reveals Details of Russian Naval Drones", "url": "https://militarnyi.com/en/news/diu-reveals-details-of-russian-naval-drones-from-skanda-to-kamikaze-usvs/", "retrieved": "2026-11-20"},
+        {"name": "European Security & Defence: The Russian USV era dawns", "url": "https://euro-sd.com/2025/11/articles/47989/the-russian-usv-era-dawns/", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Skanda": {
+      "status": "unverified",
+      "values": {
+        "maxSpeedKn": 20,
+        "range": 150,
+        "specialEquipment": "BL-680 kiirpaadi baasil; veeteede ja laevade kaitse, miinilaadsete objektide otsing, merepõhja uurimine, lasti vedu. Katsetused 2014 Laadogal ja 2019 Sevastopolis; kasutusel Aleksandrit-klassi (projekt 12700) miinitraaleritel"
+      },
+      "notes": {
+        "maxSpeedKn": "Vähemalt 20 sõlme."
+      },
+      "sources": [
+        {"name": "Militarnyi: DIU Reveals Details of Russian Naval Drones", "url": "https://militarnyi.com/en/news/diu-reveals-details-of-russian-naval-drones-from-skanda-to-kamikaze-usvs/", "retrieved": "2026-11-20"},
+        {"name": "Naval News: Project 23900 LHD to carry mine warfare USV", "url": "https://www.navalnews.com/naval-news/2022/01/russian-navy-project-23900-lhd-to-carry-mine-warfare-usv/", "retrieved": "2026-11-20"}
+      ]
+    },
+    "KZ-4": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 63,
+        "explosiveMass": 59000,
+        "delivery": "Suur kumulatiivne lõhkelaeng (paks poolsfääriline vooder, puidust lainekujundaja); läbistab ≈2m raudbetooni või ≈500mm terast. Süütamine elektridetonaatoriga EDP-r või detonaatoriga MD-5M"
+      },
+      "notes": {
+        "mineMass": "≈63kg, lõhkeainet ≈59kg."
+      },
+      "sources": [
+        {"name": "Fenix Insight METIS: KZ-4", "url": "https://metis.fenixinsight.com/munition/demolitionStore/kz-4", "retrieved": "2026-11-20"}
+      ]
+    },
+    "9S912": {
+      "status": "unverified",
+      "values": {
+        "chassis": "BTR-80 (8×8 ratassoomuk)",
+        "specialEquipment": "Ühtne komandöri juhtimispunkt „Kasatelnaja“ maaväe õhutõrjele: võtab vastu õhuolukorra radaritelt ja AWACS-lennukitelt, sorteerib ja jälgib kuni 100 trajektoori ning annab sihtmärgijaotuse soovitusi ja sihtmärgimäärangu kuni 6 alluvale (nt 9S482, 9A331 Tor, 2S6M2 Tunguska, 9K35 Strela-10). Lahtirullimine ja kokkupanek 5 min; töötlustsükkel 1 s; sihtmärgimäärang kõrgemalt juhtimispunktilt alluvatele 2 s"
+      },
+      "sources": [
+        {"name": "Studfile: Назначение и состав пунктов управления (УКП 9С912)", "url": "https://studfile.net/preview/9392907/page:22/", "retrieved": "2026-11-20"},
+        {"name": "Studfile: Подразделения войсковой ПВО мсбр (9С912 на базе БТР-80)", "url": "https://studfile.net/preview/9478360/page:4/", "retrieved": "2026-11-20"},
+        {"name": "Новости космонавтики: индексы (9С912 „Касательная“)", "url": "https://forum.novosti-kosmonavtiki.ru/index.php?topic=12754.0", "retrieved": "2026-11-20"}
+      ]
+    },
+    "R-142NMR": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "chassis": "GAZ-66 (furgoon K66N); ka Ural-43206 või KamAZ-5350 (furgoon K1.5350D)",
+        "combatWeight": 6.44,
+        "specialEquipment": "Polgu juhtimis- ja staabimasin „Deimos-NMR“ maaväe taktikalise lüli sideks. Raadiojaamad: 2 × R-171M ja R-163-50U (UKV), R-134M (KV). Sideulatus: KV 350km paigal / 250km liikvel, UKV 60 / 30km, satelliitside 4000km. Lahtirullimine 5–20 min"
+      },
+      "notes": {
+        "combatWeight": "GAZ-66 versioon."
+      },
+      "sources": [
+        {"name": "Минобороны России: Командно-штабная машина Р-142НМР", "url": "https://structure.mil.ru/structure/forces/ground/weapons/rhbz/more.htm?id=10365033@morfMilitaryModel", "retrieved": "2026-11-20"},
+        {"name": "Военная радиосвязь (military.trcvr.ru): Радиостанции Р-142", "url": "https://military.trcvr.ru/2015/12/12/radiostancija-r-142/", "retrieved": "2026-11-20"},
+        {"name": "PPT-online: КШМ Р-142НМР", "url": "https://en.ppt-online.org/1282979", "retrieved": "2026-11-20"}
+      ]
+    },
+    "R-166": {
+      "status": "unverified",
+      "values": {
+        "crew": "3",
+        "frequencyRange": "KV 1,5–30 MHz; UKV 30–80 MHz",
+        "autonomy": 7,
+        "specialEquipment": "Keskmise võimsusega KV/UKV raadiojaam „Artek“: saatja 1 ± 0,2kW; töötab korraga kahes sõltumatus raadiovõrgus. Sideulatus: KV 2000km paigal / 350km liikvel, UKV 250 / 70km. Voolutarve kuni 16kW. Kasutusel alates 1996, seeriatootmine 2006; versioonid R-166-0,5 ja R-166S"
+      },
+      "notes": {
+        "autonomy": "Vähemalt 7 ööpäeva."
+      },
+      "sources": [
+        {"name": "www1.ru: Р-166-05 и Р-149АКШ в Таджикистане (ТТХ Р-166)", "url": "https://www1.ru/news/2025/08/07/rossiiskie-radisty-zadeistvovali-podviznye-radiostancii-r-166-05-i-r-149aks-v-tadzikistane.amp.html", "retrieved": "2026-11-20"},
+        {"name": "Defence Blog: R-166-0,5 in Syria", "url": "https://defence-blog.com/a-syrian-journalist-has-posted-photos-of-russian-radio-station-r-166-05/", "retrieved": "2026-11-20"}
+      ]
+    },
+    "R-440 ODB": {
+      "status": "unverified",
+      "values": {
+        "chassis": "BTR-D (õhudessandi roomiksoomuk)",
+        "frequencyRange": "Saatmine 5850–5886 ja 5760–5770 MHz; vastuvõtt 3525–3541 ja 3472,5–3482,5 MHz (4/6 GHz)",
+        "specialEquipment": "Õhudessantvägede (VDV) juhtimispunktide satelliitside jaam „Kristall-BD“ („Fobos“) komplektist R-440: kokkupandav paraboolantenn Ø1,2m katusel; saatja 10W; kiirus 1,2–9,6 kbit/s; 1 sidesuund. Satelliidid Raduga, Gorizont, Yamal, Express ja Molnija-3. Kasutusel alates 1989"
+      },
+      "sources": [
+        {"name": "Минобороны России: Десантируемая станция спутниковой связи Р-440-ОДБ", "url": "https://structure.mil.ru/structure/forces/ground/weapons/rhbz/more.htm?id=10365363@morfMilitaryModel", "retrieved": "2026-11-20"},
+        {"name": "RusArmy.com: Станция спутниковой связи Р-440 ОДБ", "url": "https://rusarmy.com/svyaz/sputnik/r-440odb.html", "retrieved": "2026-11-20"},
+        {"name": "Культура.РФ: Р-440 Кристалл-БД", "url": "https://www.culture.ru/events/6252497/beseda-sredstva-svyazi-i-upravleniya-vdv-stanciya-sputnikovoi-svyazi-r-440-kristall-bd", "retrieved": "2026-11-20"}
+      ]
+    },
+    "MTO-BT": {
+      "status": "unverified",
+      "values": {
+        "crew": "5",
+        "chassis": "KamAZ-4310 (furgoon KM-4310)",
+        "driveConfig": "6×6",
+        "combatWeight": 12.94,
+        "length": 8.39,
+        "width": 2.6,
+        "height": 3.47,
+        "range": 1150,
+        "fording": 1.4,
+        "specialEquipment": "Soomustehnika hooldustöökoda välitingimustes: pesu ja värvimine, tankimine, õlide ja määrete vahetus, õhufiltrite pesu, sõlmede reguleerimine, elektriseadmete kontroll, jõuallika ja veermiku sõlmede vahetus, mootorite käivitamine välisest allikast, akude laadimine, keevitus. Lahtirullimine 20–25 min"
+      },
+      "notes": {
+        "chassis": "Uuem MTO-BT1 on Ural-43203 šassiil.",
+        "combatWeight": "Koos meeskonnaga."
+      },
+      "sources": [
+        {"name": "Ozlib: Мастерская технического обслуживания МТО-БТ", "url": "https://ozlib.com/993118/sotsium/podvizhnye_sredstva_tehnicheskogo_obsluzhivaniya_remonta_rossiyskoy_armii", "retrieved": "2026-11-20"},
+        {"name": "Russian Arms Forum: МТО-БТ", "url": "http://www.russianarms.ru/forum/index.php?topic=1053.0", "retrieved": "2026-11-20"}
+      ]
+    },
+    "ATsPT-5,6": {
+      "status": "unverified",
+      "values": {
+        "chassis": "KamAZ-43114, KamAZ-43118 või KamAZ-5350",
+        "driveConfig": "6×6",
+        "combatWeight": 15.205,
+        "power": 240,
+        "specialEquipment": "Joogivee autotsistern 5,6m³: 2 soojusisolatsiooniga sektsiooni roostevabast terasest; täitmine ülevalt luugi kaudu"
+      },
+      "notes": {
+        "combatWeight": "Täismass, KamAZ-43114 versioon."
+      },
+      "sources": [
+        {"name": "Gruzovoy.ru: АЦПТ-5,6 (66063-10) КамАЗ 43114", "url": "https://gruzovoy.ru/catalog/technic/yralspectrans_acpt-56_66063-10_kamaz_43114", "retrieved": "2026-11-20"},
+        {"name": "Severest: АЦПТ-5,6 КамАЗ 5350", "url": "https://severest.ru/katalog/spectekhnika/hr-cisterna/avtosisterna-voda-kamaz/not-made-avtosisterna-voda-kamaz/kamaz/acpt-56-nerzhnerzh-kamaz-5350", "retrieved": "2026-11-20"}
+      ]
+    },
+    "KFZ-T": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 8.7,
+        "mineDiameter": 400,
+        "mineLength": 775,
+        "explosiveMass": 2690,
+        "delivery": "Kumulatiiv-fugass laeng külmunud pinnase kobestamiseks tankikaeviku rajamisel ning teekatte ja lennuradade purustamiseks; sobib ka sügaval maa sees olevate lõhkekehade hävitamiseks. Kumulatiivlaeng 2,84kg (lõhkeainet 1,44kg) teeb augu, fugasslaeng 2,3kg (lõhkeainet 1,25kg) viiakse rakettmootoriga auku. Laenguid saab kasutada ka eraldi. Ettevalmistus 3 min; 1 inimene; asendas kaevikulaengu OZ-1",
+        "fuze": "Fugasslaengu süütaja aeglusti 1–3 s; käivitusseadme aeglusti 50–83 s"
+      },
+      "notes": {
+        "explosiveMass": "Kumulatiiv- ja fugasslaengu lõhkeaine kokku (1,44 + 1,25kg).",
+        "mineDiameter": "Mõõdud Ø400 × 775mm."
+      },
+      "sources": [
+        {"name": "АО «НИИИ»: Средства разрушения (КФЗ-Т)", "url": "http://aoniii.ru/?page_id=309", "retrieved": "2026-11-20"},
+        {"name": "Russian Arms Forum: КФЗ-Т", "url": "http://www.russianarms.ru/forum/index.php?topic=10363.0", "retrieved": "2026-11-20"},
+        {"name": "KNDISE (Ukraina): КФЗ-Т заміна ОЗ-1", "url": "https://digest.kndise.gov.ua/wp-content/uploads/2025/08/71.pdf", "retrieved": "2026-11-20"}
+      ]
+    },
+    "Dsh-MM ja DM-11": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 3,
+        "smokeDuration": "ShD-MM: süttimine 7 s, intensiivne suits 3–4,5 min",
+        "smokeScreen": "ShD-MM: läbipaistmatu suitsukatte pikkus 70–100m (lainepikkused 0,4–1,5 µm)",
+        "delivery": "Väikesed suitsuküünlad lühiajalise maskeeriva suitsukatte loomiseks. ShD-MM: metallkorpuses metallkloriidsegu (2,6kg), hõõrdsüütur – rebi foolium ja tõmba nöörist. DM-11: vanem mudel, mida kasutavad RKBK-väed"
+      },
+      "notes": {
+        "mineMass": "ShD-MM."
+      },
+      "sources": [
+        {"name": "Studfile: Применение пиросоставов в дымовых маскировочных средствах", "url": "https://studfile.net/preview/6658346/page:26/", "retrieved": "2026-11-20"},
+        {"name": "Нева-Таргет: Шашка дымовая ШД-ММ (ТТХ)", "url": "https://new.neva-target.ru/shashka-dymovaya-shd-mm-254-2-91s-hraneniya", "retrieved": "2026-11-20"},
+        {"name": "Fenix Insight METIS: DM-11 Smoke Pot", "url": "https://metis.fenixinsight.com/munition/miscellaneous/dm-11-smoke-pot", "retrieved": "2026-11-20"}
+      ]
+    },
+    "ShD-P": {
+      "status": "unverified",
+      "values": {
+        "mineMass": 11,
+        "smokeDuration": "51 min; töörežiimile jõuab kuni 5 s",
+        "smokeScreen": "Läbipaistmatu osa nähtavas valguses (0,4–0,76 µm) vähemalt 150m, infrapunas (2–5,6 µm) vähemalt 30m",
+        "delivery": "Suurendatud tõhususega suitsuküünal joon- ja alasuitsukatete loomiseks; käivitamine mehaaniliselt või elektriliselt universaalse süüteseadmega; saab paigaldada plokkidena"
+      },
+      "notes": {
+        "mineMass": "Kuni 11kg.",
+        "smokeDuration": "Nii on kirjas Vene kaitseministeeriumi lehel."
+      },
+      "sources": [
+        {"name": "Минобороны России: Шашка дымовая повышенной эффективности ШД-П", "url": "https://structure.mil.ru/structure/forces/ground/weapons/rhbz/more.htm?id=10369844@morfMilitaryModel", "retrieved": "2026-11-20"},
+        {"name": "Союз ветеранов РХБЗ: ШД-П", "url": "https://soyuz-veteranov-rhbz.ru/tehnika/shashka-dymovaya-povyshennoj-effektivnosti-shd-p", "retrieved": "2026-11-20"}
       ]
     }
   }

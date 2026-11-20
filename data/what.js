@@ -5,7 +5,7 @@
 // "draft": true = mustand (kuvatakse kollase märkega "kontrollimata").
 // Pilt on lokaalne ja kuulub offline-assets.json-i. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.WHAT_DATA = {
-  "version": 2,
+  "version": 3,
   "models": {
     "T-62": {
       "image": "images/what/T-62_what.webp",
@@ -112,7 +112,8 @@ window.WHAT_DATA = {
           "label": "Näiteks kasutavad T-90 alusplatvormi",
           "models": [
             {"name": "IMR-3", "cat": "IMR-3"},
-            {"name": "MTU-90", "cat": "MTU-90"}
+            {"name": "MTU-90", "cat": "MTU-90"},
+            {"name": "PROKHOD-1 (BMR-3MA)", "cat": "Prokhod-1"}
           ]
         }
       ]
@@ -276,7 +277,9 @@ window.WHAT_DATA = {
             {"name": "RKhM-6", "cat": "RKhM-6"},
             {"name": "RKhM-4", "cat": "RKhM-4"},
             {"name": "2S23", "cat": "2S23 NONA-SVK"},
-            {"name": "BREM-K", "cat": "BREM-K"}
+            {"name": "BREM-K", "cat": "BREM-K"},
+            {"name": "R-149MA3", "cat": "R-149MA3"},
+            {"name": "9S912", "cat": "9S912"}
           ]
         },
         {
@@ -287,7 +290,8 @@ window.WHAT_DATA = {
             {"name": "RB-531B", "cat": "RB-531B Infauna"},
             {"name": "R-149BMR", "cat": "R-149BMR"},
             {"name": "R-149MA1", "cat": "R-149MA1"},
-            {"name": "BMM-3", "cat": "BMM-3"}
+            {"name": "BMM-3", "cat": "BMM-3"},
+            {"name": "R-439MD2", "cat": "R-439MD2"}
           ]
         }
       ]
@@ -347,7 +351,14 @@ window.WHAT_DATA = {
             {"name": "UR-77", "cat": "UR-77"},
             {"name": "2S1", "cat": "2S1 Gvozdika"},
             {"name": "9P149", "cat": "9P149 Shturm-S"},
-            {"name": "STRELA-10", "cat": "STRELA-10/SA-13 Gopher"}
+            {"name": "STRELA-10", "cat": "STRELA-10/SA-13 Gopher"},
+            {"name": "9M337 „SOSNA-R“", "cat": "9M337 Sosna-R"}
+          ]
+        },
+        {
+          "label": "Moderniseeritud versioon",
+          "models": [
+            {"name": "MT-LBM", "cat": "MT-LBM"}
           ]
         }
       ]
@@ -394,7 +405,7 @@ window.WHAT_DATA = {
         {
           "label": "Näiteks kasutavad MT-LBu alusplatvormi",
           "models": [
-            {"name": "PPRU-M1", "cat": "PPRU-1"},
+            {"name": "PPRU-1/PPRU-M1", "cat": "PPRU-1/PPRU-M1"},
             {"name": "ZOOPARK-1", "cat": "ZOOPARK-1"},
             {"name": "1RL243 „RUBIKON“", "cat": "1RL243 Rubikon (MASRR)"},
             {"name": "R-330BM", "cat": "R-330BM (R-330 Mandat)"},
@@ -402,10 +413,12 @@ window.WHAT_DATA = {
             {"name": "R-300KMV", "cat": "R-300KMV (RB-301B Borisoglebsk-2)"},
             {"name": "R-378BMV", "cat": "R-378BMV (RB-301B Borisoglebsk-2)"},
             {"name": "R-934BMV", "cat": "R-934BMV (RB-301B Borisoglebsk-2)"},
+            {"name": "R-325UMV", "cat": "R-325UMV (RB-301B Borisoglebsk-2)"},
             {"name": "SPR-2M „RTUT-BM“", "cat": "SPR-2M RTUT-BM"},
             {"name": "ARK-1M", "cat": "ARK-1"},
             {"name": "1V13", "cat": "1V13"},
-            {"name": "1V15", "cat": "1V15"}
+            {"name": "1V15", "cat": "1V15"},
+            {"name": "9S932-1 „BARNAUL-T“", "cat": "9S932-1 Barnaul-T"}
           ]
         }
       ]
@@ -436,7 +449,8 @@ window.WHAT_DATA = {
           "models": [
             {"name": "R-145BM", "cat": "R-145BM"},
             {"name": "R-145BM1", "cat": "R-145BM1"},
-            {"name": "1V18", "cat": "1V18"}
+            {"name": "1V18", "cat": "1V18"},
+            {"name": "PU-12", "cat": "PU-12 (9S482)"}
           ]
         }
       ]
