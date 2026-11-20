@@ -192,6 +192,7 @@ const CATEGORIES = [
   { label: "MDK-3", group: "engineer", type: "Kraavikaevamismasin", cat: "MDK-3", files: ["TankBiathlon14final-89.jpg"] },
   { label: "MDK-2", group: "engineer", type: "Kraavikaevamismasin", cat: "MDK-2M", files: ["MDK-2%2C_Котлованная_машина_МДК-2%2C_Artillery_museum%2C_Saint-Petersburg_pic3.JPG"] },
   { label: "IRM", group: "engineer", type: "Pioneeriluuresoomuk", cat: "IRM", files: ["Army2016demo-102.jpg", "ИРМ_Жук_из_состава_187-го_Псковского_ордена_Красной_Звезды_межвидового_учебного_центра_инженерных_войск.jpg"] },
+  { label: "ISDM Zemledelije", group: "engineer", type: "Kaugmineerimissüsteem", cat: "ISDM Zemledelije", files: ["Engineering_reconnaissance_and_firing_complex_Zemledelie_on_the_march.jpg", "ISDM_Zemledeliye_at_Army-2022.jpg"] },
 
   // Helikopterid
   { label: "Mi-8 Hip", group: "helicopters", type: "Transpordikopter", cat: "Mi-8", files: ["Mi-8_AMTSH.jpg", "Moscow%2C_VDNKh%2C_Mi-8_July_2026_01.jpg", "VII_Małopolski_Piknik_Lotniczy_–_Mil_Mi-8_%281%29.jpg"] },
