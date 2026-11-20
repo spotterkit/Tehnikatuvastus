@@ -241,7 +241,7 @@ const CATEGORIES = [
   { label: "UAZ-469", group: "trucks", type: "Maastur", cat: "UAZ-469", files: ["ParkPatriot2015part4-12.jpg"] },
   { label: "GAZ-66", group: "trucks", type: "Veok", cat: "GAZ-66", files: ["ГАЗ-66_в_Хабаровске.JPG"] },
   { label: "MTO-BT", group: "trucks", type: "Mobiilne töökoda", cat: "MTO-BT", files: ["TankBiathlon2016opening-64.jpg"] },
-  { label: "Desertcross 1000-3", group: "trucks", type: "Maastur", cat: "Desertcross 1000-3", files: ["images/trucks/desertcross1000-3_01.jpg"] },
+  { label: "Desertcross 1000-3", group: "trucks", type: "Maastikusõiduk", cat: "Desertcross 1000-3", files: ["images/trucks/desertcross1000-3_01.jpg"] },
   { label: "UAZ-452", group: "trucks", type: "Väikebuss", cat: "UAZ-452", files: ["Uaz-452-medsluzhba.jpg"] },
   { label: "ATZ-7 5557", group: "trucks", type: "Kütuse tankurauto", cat: "ATZ-7 5557", files: ["Army2016-377.jpg"] },
   { label: "Kamaz-65225", group: "trucks", type: "Poolhaagis veok", cat: "Kamaz-65225", files: ["KamAZ-65225_tank_transporter.jpg"] },
@@ -254,7 +254,9 @@ const CATEGORIES = [
   { label: "ATsPT-5,6", group: "trucks", type: "Veetsisternauto", cat: "ATsPT-5,6", files: ["Army2016-382.jpg"] },
   { label: "PTs-6,7", group: "trucks", type: "Kütusehaagistsistern", cat: "PTs-6,7", files: ["ParkPatriot2015part9-43.jpg"] },
   { label: "ATs-7,5-4320", group: "trucks", type: "Kütusetsisternauto", cat: "ATs-7,5-4320", files: ["ParkPatriot2015part9-32.jpg"] },
-  { label: "Lada 4x4 pikap (VAZ-2329)", group: "trucks", type: "Maastur", cat: "Lada 4x4 pikap", files: ["Lada_4x4_technical.jpg"] },
+  { label: "Lada 4x4 pikap (VAZ-2329)", group: "trucks", type: "Maastikusõiduk", cat: "Lada 4x4 pikap", files: ["Lada_4x4_technical.jpg"] },
+  { label: "Vityaz (DT-10/DT-30)", group: "trucks", type: "Kahelüliline roomikmaastikusõiduk", cat: "Vityaz (DT-10/DT-30)", files: ["DT-10PM_-_Bronnitsy256.jpg", "Army2016demo-148.jpg"] },
+  { label: "GAZ-3344 Aleut", group: "trucks", type: "Kahelüliline roomikmaastikusõiduk", cat: "GAZ-3344 Aleut", files: ["GAZ-3344-20_"Aleut"_during_the_"Armiya_2023"_exhibition_%28front_view%29.jpg"] },
   
   // Õhutõrjesoomukid, -juhtimissoomukid ja -radarid
   { label: "STRELA-10/SA-13 Gopher", group: "ad", type: "Õhutõrjesoomuk", cat: "STRELA-10/SA-13 Gopher", files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%284%29.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%283%29.jpg"] },
