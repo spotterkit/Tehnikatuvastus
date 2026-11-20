@@ -5166,7 +5166,7 @@ window.TTA_DATA = {
         {"name": "Wikipedia: Ural-4320", "url": "https://en.wikipedia.org/wiki/Ural-4320", "retrieved": "2026-10-23"}
       ]
     },
-    "KAMAZ-5350": {
+    "KAMAZ-5350, 6x6": {
       "status": "unverified",
       "values": {
         "driveConfig": "6×6",
@@ -5763,8 +5763,7 @@ window.TTA_DATA = {
         "specialEquipment": "Kaitseb vägesid raadiosütikuga mürskude ja miinide eest: häirimine paneb mürsu lõhkema ohutul kõrgusel või lülitab sütiku kontaktrežiimile. Kaitstav ala kuni 50ha; töötab automaatselt nii paigal kui ka liikvel; surub alla ka VHF-raadioliine (sh sagedushüpetega). Lahtirullimine 10 min; töövalmidus kuni 10 s"
       },
       "sources": [
-        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
-        {"name": "Rosoboronexport: 1L262E", "url": "https://roe.ru/en/production/land-forces/reconnaissance-and-electronic-warfare-means/army-electronic-warfare-systems/1l262e/", "retrieved": "2026-11-20"}
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
       ]
     },
     "R-330Zh Žitel": {
@@ -8805,11 +8804,7 @@ window.TTA_DATA = {
         "chassis": "BTR-80 (8×8 ratassoomuk)",
         "specialEquipment": "Ühtne komandöri juhtimispunkt „Kasatelnaja“ maaväe õhutõrjele: võtab vastu õhuolukorra radaritelt ja AWACS-lennukitelt, sorteerib ja jälgib kuni 100 trajektoori ning annab sihtmärgijaotuse soovitusi ja sihtmärgimäärangu kuni 6 alluvale (nt 9S482, 9A331 Tor, 2S6M2 Tunguska, 9K35 Strela-10). Lahtirullimine ja kokkupanek 5 min; töötlustsükkel 1 s; sihtmärgimäärang kõrgemalt juhtimispunktilt alluvatele 2 s"
       },
-      "sources": [
-        {"name": "Studfile: Назначение и состав пунктов управления (УКП 9С912)", "url": "https://studfile.net/preview/9392907/page:22/", "retrieved": "2026-11-20"},
-        {"name": "Studfile: Подразделения войсковой ПВО мсбр (9С912 на базе БТР-80)", "url": "https://studfile.net/preview/9478360/page:4/", "retrieved": "2026-11-20"},
-        {"name": "Новости космонавтики: индексы (9С912 „Касательная“)", "url": "https://forum.novosti-kosmonavtiki.ru/index.php?topic=12754.0", "retrieved": "2026-11-20"}
-      ]
+      "sources": []
     },
     "R-142NMR": {
       "status": "unverified",
@@ -8822,11 +8817,7 @@ window.TTA_DATA = {
       "notes": {
         "combatWeight": "GAZ-66 versioon."
       },
-      "sources": [
-        {"name": "Минобороны России: Командно-штабная машина Р-142НМР", "url": "https://structure.mil.ru/structure/forces/ground/weapons/rhbz/more.htm?id=10365033@morfMilitaryModel", "retrieved": "2026-11-20"},
-        {"name": "Военная радиосвязь (military.trcvr.ru): Радиостанции Р-142", "url": "https://military.trcvr.ru/2015/12/12/radiostancija-r-142/", "retrieved": "2026-11-20"},
-        {"name": "PPT-online: КШМ Р-142НМР", "url": "https://en.ppt-online.org/1282979", "retrieved": "2026-11-20"}
-      ]
+      "sources": []
     },
     "R-166": {
       "status": "unverified",
@@ -8840,7 +8831,6 @@ window.TTA_DATA = {
         "autonomy": "Vähemalt 7 ööpäeva."
       },
       "sources": [
-        {"name": "www1.ru: Р-166-05 и Р-149АКШ в Таджикистане (ТТХ Р-166)", "url": "https://www1.ru/news/2025/08/07/rossiiskie-radisty-zadeistvovali-podviznye-radiostancii-r-166-05-i-r-149aks-v-tadzikistane.amp.html", "retrieved": "2026-11-20"},
         {"name": "Defence Blog: R-166-0,5 in Syria", "url": "https://defence-blog.com/a-syrian-journalist-has-posted-photos-of-russian-radio-station-r-166-05/", "retrieved": "2026-11-20"}
       ]
     },
@@ -8851,11 +8841,7 @@ window.TTA_DATA = {
         "frequencyRange": "Saatmine 5850–5886 ja 5760–5770 MHz; vastuvõtt 3525–3541 ja 3472,5–3482,5 MHz (4/6 GHz)",
         "specialEquipment": "Õhudessantvägede (VDV) juhtimispunktide satelliitside jaam „Kristall-BD“ („Fobos“) komplektist R-440: kokkupandav paraboolantenn Ø1,2m katusel; saatja 10W; kiirus 1,2–9,6 kbit/s; 1 sidesuund. Satelliidid Raduga, Gorizont, Yamal, Express ja Molnija-3. Kasutusel alates 1989"
       },
-      "sources": [
-        {"name": "Минобороны России: Десантируемая станция спутниковой связи Р-440-ОДБ", "url": "https://structure.mil.ru/structure/forces/ground/weapons/rhbz/more.htm?id=10365363@morfMilitaryModel", "retrieved": "2026-11-20"},
-        {"name": "RusArmy.com: Станция спутниковой связи Р-440 ОДБ", "url": "https://rusarmy.com/svyaz/sputnik/r-440odb.html", "retrieved": "2026-11-20"},
-        {"name": "Культура.РФ: Р-440 Кристалл-БД", "url": "https://www.culture.ru/events/6252497/beseda-sredstva-svyazi-i-upravleniya-vdv-stanciya-sputnikovoi-svyazi-r-440-kristall-bd", "retrieved": "2026-11-20"}
-      ]
+      "sources": []
     },
     "MTO-BT": {
       "status": "unverified",
@@ -8875,10 +8861,7 @@ window.TTA_DATA = {
         "chassis": "Uuem MTO-BT1 on Ural-43203 šassiil.",
         "combatWeight": "Koos meeskonnaga."
       },
-      "sources": [
-        {"name": "Ozlib: Мастерская технического обслуживания МТО-БТ", "url": "https://ozlib.com/993118/sotsium/podvizhnye_sredstva_tehnicheskogo_obsluzhivaniya_remonta_rossiyskoy_armii", "retrieved": "2026-11-20"},
-        {"name": "Russian Arms Forum: МТО-БТ", "url": "http://www.russianarms.ru/forum/index.php?topic=1053.0", "retrieved": "2026-11-20"}
-      ]
+      "sources": []
     },
     "ATsPT-5,6": {
       "status": "unverified",
@@ -8892,10 +8875,7 @@ window.TTA_DATA = {
       "notes": {
         "combatWeight": "Täismass, KamAZ-43114 versioon."
       },
-      "sources": [
-        {"name": "Gruzovoy.ru: АЦПТ-5,6 (66063-10) КамАЗ 43114", "url": "https://gruzovoy.ru/catalog/technic/yralspectrans_acpt-56_66063-10_kamaz_43114", "retrieved": "2026-11-20"},
-        {"name": "Severest: АЦПТ-5,6 КамАЗ 5350", "url": "https://severest.ru/katalog/spectekhnika/hr-cisterna/avtosisterna-voda-kamaz/not-made-avtosisterna-voda-kamaz/kamaz/acpt-56-nerzhnerzh-kamaz-5350", "retrieved": "2026-11-20"}
-      ]
+      "sources": []
     },
     "KFZ-T": {
       "status": "unverified",
@@ -8912,8 +8892,6 @@ window.TTA_DATA = {
         "mineDiameter": "Mõõdud Ø400 × 775mm."
       },
       "sources": [
-        {"name": "АО «НИИИ»: Средства разрушения (КФЗ-Т)", "url": "http://aoniii.ru/?page_id=309", "retrieved": "2026-11-20"},
-        {"name": "Russian Arms Forum: КФЗ-Т", "url": "http://www.russianarms.ru/forum/index.php?topic=10363.0", "retrieved": "2026-11-20"},
         {"name": "KNDISE (Ukraina): КФЗ-Т заміна ОЗ-1", "url": "https://digest.kndise.gov.ua/wp-content/uploads/2025/08/71.pdf", "retrieved": "2026-11-20"}
       ]
     },
@@ -8929,8 +8907,6 @@ window.TTA_DATA = {
         "mineMass": "ShD-MM."
       },
       "sources": [
-        {"name": "Studfile: Применение пиросоставов в дымовых маскировочных средствах", "url": "https://studfile.net/preview/6658346/page:26/", "retrieved": "2026-11-20"},
-        {"name": "Нева-Таргет: Шашка дымовая ШД-ММ (ТТХ)", "url": "https://new.neva-target.ru/shashka-dymovaya-shd-mm-254-2-91s-hraneniya", "retrieved": "2026-11-20"},
         {"name": "Fenix Insight METIS: DM-11 Smoke Pot", "url": "https://metis.fenixinsight.com/munition/miscellaneous/dm-11-smoke-pot", "retrieved": "2026-11-20"}
       ]
     },
@@ -8944,12 +8920,104 @@ window.TTA_DATA = {
       },
       "notes": {
         "mineMass": "Kuni 11kg.",
-        "smokeDuration": "Nii on kirjas Vene kaitseministeeriumi lehel."
+        "smokeDuration": "Allika järgi."
+      },
+      "sources": []
+    },
+    "Vityaz (DT-10/DT-30)": {
+      "status": "unverified",
+      "values": {
+        "crew": "5 (esimese lüli kabiinis)",
+        "combatWeight": 30,
+        "loadCapacity": 30000,
+        "length": 13.75,
+        "width": 2.8,
+        "height": 2.7,
+        "engine": "DT-30PM: YaMZ-847.10 diisel; varem V-46-5 mitmekütuse diisel (710hj, T-72 mootorist)",
+        "power": 800,
+        "maxSpeedRoad": 45,
+        "maxSpeedWater": 6,
+        "range": 700,
+        "amphibious": true,
+        "gradient": 58,
+        "sideSlope": 27,
+        "verticalStep": 1.2,
+        "trench": 4.5,
+        "specialEquipment": "Kahelüliline roomikmaastikusõiduk raskete koormate veoks soos, liivas ja lumes ning äärmuslikus kliimas; liigub vees roomikutega. DT-10PM: mass 23,5t, kandevõime 10t, 710hj, kuni 44km/h. Tootmises alates 1982"
+      },
+      "notes": {
+        "combatWeight": "DT-30 tühimass; kandevõime samuti 30t.",
+        "length": "DT-30 (Wikipedia).",
+        "power": "DT-30PM."
       },
       "sources": [
-        {"name": "Минобороны России: Шашка дымовая повышенной эффективности ШД-П", "url": "https://structure.mil.ru/structure/forces/ground/weapons/rhbz/more.htm?id=10369844@morfMilitaryModel", "retrieved": "2026-11-20"},
-        {"name": "Союз ветеранов РХБЗ: ШД-П", "url": "https://soyuz-veteranov-rhbz.ru/tehnika/shashka-dymovaya-povyshennoj-effektivnosti-shd-p", "retrieved": "2026-11-20"}
+        {"name": "Wikipedia: Vityaz (ATV)", "url": "https://en.wikipedia.org/wiki/Vityaz_(ATV)", "retrieved": "2026-11-20"},
+        {"name": "Deagel: DT-30", "url": "https://deagel.com/armies/dt-30/a002698", "retrieved": "2026-11-20"},
+        {"name": "Army Recognition: Russian military beefs up all-terrain capabilities (2018)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2018/russian-military-beefs-up-all-terrain-capabilities", "retrieved": "2026-11-20"}
       ]
+    },
+    "GAZ-3344 Aleut": {
+      "status": "unverified",
+      "values": {
+        "seats": "Kuni 20 (esilülis 5 koos juhiga)",
+        "combatWeight": 11.2,
+        "loadCapacity": 2500,
+        "engine": "YaMZ-5347-26 diisel, Allisoni automaatkäigukast",
+        "amphibious": true,
+        "specialEquipment": "Kahelüliline ujuv roomikmaastikusõiduk Arktika tingimustesse (sarnane Bv 206-ga): esilüli on jõumoodul, tagalüli ümberehitatav sõitjate-, sanitaar-, magamis- või juhtimismoodul; mõlemad lülid köetavad. Kasutustemperatuur −50 kuni +40°C. Kasutusel alates 2019"
+      },
+      "notes": {
+        "combatWeight": "Täismass koos 2,5t lastiga (tootja ZZGT).",
+        "loadCapacity": "Esilüli 500–750kg, tagalüli 2000–2250kg (allikad erinevad)."
+      },
+      "sources": [
+        {"name": "Janes: Russia's GAZ-3344-20 Aleut ATV enters service", "url": "https://www.janes.com/defence-intelligence-insights/defence-news/russias-gaz-3344-20-aleut-atv-enters-service", "retrieved": "2026-11-20"},
+        {"name": "Army Recognition: GAZ-3344-20 at BIDEC 2017", "url": "https://armyrecognition.com/waac", "retrieved": "2026-11-20"},
+        {"name": "Defence Blog: GAZ-3344-20 at BIDEC-2017", "url": "https://defence-blog.com/?p=28228", "retrieved": "2026-11-20"}
+      ]
+    },
+    "KAMAZ-6350, 8x8": {
+      "status": "unverified",
+      "values": {
+        "seats": "1 + 2 kabiinis",
+        "driveConfig": "8×8",
+        "combatWeight": 12.4,
+        "loadCapacity": 10000,
+        "towingCapacity": 12000,
+        "length": 9.83,
+        "width": 2.55,
+        "height": 3.1,
+        "engine": "KamAZ-740.50-360 V8 diisel, 11,8l",
+        "power": 360,
+        "maxSpeedRoad": 95,
+        "range": 1000,
+        "fuelCapacity": 375,
+        "groundClearance": 390,
+        "verticalStep": 0.6,
+        "specialEquipment": "Mustangi perekonna suurim (8×8) taktikaline veok; kasutusel ka suurtükiveduki ja eriseadmete šassiina (nt 1B75 Penicilin, Moskva-1)"
+      },
+      "notes": {
+        "combatWeight": "Tühimass; täismass 22,6t.",
+        "height": "Kabiini katuseni; presendiga 3,26m."
+      },
+      "sources": [
+        {"name": "WeaponSystems.net: KamAZ-6350", "url": "https://weaponsystems.net/system/1280-KamAZ-6350", "retrieved": "2026-11-20"},
+        {"name": "Army Recognition: Kamaz 6350 artillery tractor (2011)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2011/russia-22-december-2011-news-uk", "retrieved": "2026-11-20"}
+      ]
+    },
+    "R-161PU": {
+      "status": "unverified",
+      "values": {
+        "crew": "5 (sõjaajal)",
+        "chassis": "Ural-4320 või KamAZ (kung-kere)",
+        "frequencyRange": "Vastuvõtuantennid 1,5–60 MHz (KV ja UKV); juhtimiseks raadioreleejaam R-151VCh 525–645 MHz",
+        "mastHeight": 19,
+        "specialEquipment": "Automatiseeritud raadiovastuvõtusõlm: telegraafi- ja telefoniside korraga 6 raadiovõrgus või -suunal (3 adaptiivset). Juhib raadioreleeliini (25–30km) või kaabli kaudu saatesõlme R-161U saatjaid, mis paiknevad tavaliselt 5–10km eemal. 6 vastuvõtjat (R-160P-02 ja R-160P). Lahtirullimine 50–90 min; voolutarve kuni 8kW"
+      },
+      "notes": {
+        "mastHeight": "R-151VCh antenni teleskoopmast; antennisüsteemi AP-122 mast 12m."
+      },
+      "sources": []
     }
   }
 };
