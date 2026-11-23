@@ -33,7 +33,7 @@ const CATEGORIES = [
   { label: "BMP-T", group: "tank", type: "Tankituletoetusmasin", cat: "BMP-T", files: ["Terminator_%2840115444250%29.jpg", "Victory_Day_2018_%2827053433837%29.jpg"] },
 
   // Jalaväe lahingumasinad
-  { label: "BMP-2", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-2", files: ["BMP-2_of_Russian_Ground_Forces.jpg", "BMP-2_%281%29.jpg", "BMP-2_-_TankBiathlon14part1-11.jpg", "images/ifv/bmp2_01.jpg", "images/ifv/bmp2_02.jpg"] },
+  { label: "BMP-2", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-2", files: ["BMP-2_of_Russian_Ground_Forces.jpg", "BMP-2_%281%29.jpg", "BMP-2_-_TankBiathlon14part1-11.jpg", "images/ifv/bmp2_01.jpg", "images/ifv/bmp2_02.jpg", "Продвижение_подразделений_ВС_РФ_в_ходе_вторжения_на_Украину_012.png"] },
   { label: "BMP-3", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-3", files: ["Destruction_of_Russian_tanks_by_Ukrainian_troops_in_Mariupol_%284%29.jpg", "BMP-3_%2841204909204%29.jpg", "BMP-3_infantry_fighting_vehicle_at_Engineering_Technologies_2012_02.jpg", "images/ifv/bmp3_01.webp", "Engineering_Technologies_-_2012_%281-37%29.jpg", "Мелітопольські_територіали_врятували_«утопленика»_–_російську_БМП-3.jpg"] },
   { label: "BMP-1", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-1", files: ["Kazan_BMP-1_2024-07-18_2453.jpg", "images/ifv/bmp1_01.webp", "БМП-1_с_учебного_полигона_Алматинского_Института_Сухопутных_Войск.JPG", "Движение_колонн_ВС_РФ_и_охрана_моста_в_Киевской_области_03.png"] },
   { label: "BMP-1AM Basurmanin", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-1AM Basurmanin", files: ["images/ifv/bmp1am.jpg", "BMP-1AM_with_BTR-82A_turret_at_ARMY-2018.jpg"] },
