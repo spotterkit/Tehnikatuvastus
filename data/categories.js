@@ -30,7 +30,7 @@ const CATEGORIES = [
   { label: "T-90M", group: "tank", type: "Tank", cat: "T-90M", files: ["T-90M.jpg", "Engineering_Technologies_-_2012_%281-25%29.jpg", "T-90M_MBT_Army-2022_2022-08-20_2397.jpg", "Zapad_2017_%28Proving_Ground_Luzhsky%29_02.jpg", "images/tanks/t90m.webp", "images/tanks/t90m_02.jpg"] },
   { label: "T-90A", group: "tank", type: "Tank", cat: "T-90A", files: ["Moscow_2012_Victory_Day_Parade_Rehearsal%2C_T-90_tank%2C_Russia.jpg", "T-90A_front_Army-2016.jpg", "T-90A_MBT_photo011.jpg", "T-90A_with_OPVT_wading_snorkel_during_river_crossing_training_-_September_2023_01.jpg"] },
   { label: "T-62", group: "tank", type: "Tank", cat: "T-62", files: ["VNPA_T-62_-_092025.jpg", "images/tanks/t62_01.jpg"] },
-  { label: "BMP-T", group: "tank", type: "Tankituletoetusmasin", cat: "BMP-T", files: ["Terminator_%2840115444250%29.jpg"] },
+  { label: "BMP-T", group: "tank", type: "Tankituletoetusmasin", cat: "BMP-T", files: ["Terminator_%2840115444250%29.jpg", "Victory_Day_2018_%2827053433837%29.jpg"] },
 
   // Jalaväe lahingumasinad
   { label: "BMP-2", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-2", files: ["BMP-2_of_Russian_Ground_Forces.jpg", "BMP-2_%281%29.jpg", "BMP-2_-_TankBiathlon14part1-11.jpg", "images/ifv/bmp2_01.jpg", "images/ifv/bmp2_02.jpg"] },
@@ -47,7 +47,7 @@ const CATEGORIES = [
   { label: "BMO-T", group: "ifv", type: "Raske soomustransportöör", cat: "BMO-T", files: ["Army2016demo-030.jpg", "Українські_військові_знищили_БМО-Т.jpg"] },
   { label: "BTR-60", group: "ifv", type: "Jalaväe soomustransportöör", cat: "BTR-60", files: ["Бронетраспортер_БТР-60.jpg", "Шклоў._Бранятэхніка_%2803%29.jpg"] },
   { label: "BTR-70", group: "ifv", type: "Jalaväe soomustransportöör", cat: "BTR-70", files: ["2015-05-05._Репетиция_парада_Победы_086.jpg", "Verkhnyaya_Pyshma_Tank_Museum_2012_0202.jpg"] },
-  { label: "MT-LBM", group: "ifv", type: "Jalaväe soomustransportöör", cat: "MT-LBM", files: ["MT-LBM_6MB_-_Bronnitsy221.jpg"] },
+  { label: "MT-LBMB", group: "ifv", type: "Jalaväe soomustransportöör", cat: "MT-LBMB", files: ["MT-LBM_6MB_-_Bronnitsy221.jpg", "MT-LBMB_with_MB2_combat_module_-_Bronnitsy.jpg"] },
 
   // Dessandi lahingumasinad
   { label: "BMD-2", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-2", files: ["BMD-2_-_137AirborneRegiment29.jpg", "BMD-2_-_137AirborneRegiment01.jpg", "BMD-2_-_137AirborneRegiment36.jpg", "FinalCheck2018-25.jpg"] },
@@ -61,11 +61,11 @@ const CATEGORIES = [
   // Suurtükiväe luure-, juhtimis- ja tulejuhtimissoomukid
   { label: "PRP-3", group: "artillery_recon", type: "STV luure- ja tulejuhtimissoomuk", cat: "PRP-3", files: ["images/artillery_recon/prp3_01.jpg", "images/artillery_recon/prp3_02.jpg"] },
   { label: "PRP-4", group: "artillery_recon", type: "STV luure- ja tulejuhtimissoomuk", cat: "PRP-4", files: ["Russia_Arms_Expo_2013_%28531-22%29.jpg", "Army2016-510.jpg"] },
-  { label: "SNAR-10", group: "artillery_recon", type: "STV Luure- ja tulejuhtimissoomuk", cat: "SNAR-10", files: ["MAKS2015part6-08.jpg", "Oboronexpo2014part3-57.jpg"] },
+  { label: "SNAR-10", group: "artillery_recon", type: "STV Luure- ja tulejuhtimissoomuk", cat: "SNAR-10", files: ["MAKS2015part6-08.jpg", "Oboronexpo2014part3-57.jpg", "ArtilleryExercise2014-07.jpg"] },
   { label: "ZOOPARK-1", group: "artillery_recon", type: "STV vastutuleradar", cat: "ZOOPARK-1", files: ["ArtilleryExercise2014-06.jpg", "1L219M_back_view_MAKS2005.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_02.jpg"] },
-  { label: "1V13", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V13", files: ["Engineering_Technologies_2010_Part4_0033_copy.jpg"] },
+  { label: "1V13", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V13", files: ["Engineering_Technologies_2010_Part4_0033_copy.jpg", "Engineering_Technologies_2010_Part4_0034_copy.jpg"] },
   { label: "1V18", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V18", files: ["2018._Донецк_N_18_DSC_8191.jpg", "2014-12-06._Площадка_военной_техники_в_парке_Ленинского_комсомола_07.JPG"] },
-  { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", files: ["RehearsalTula02052017-05.jpg"] },
+  { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", files: ["RehearsalTula02052017-05.jpg", "1V119_%22Reostat%22.jpg"] },
   { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", files: ["images/artillery_recon/ark1_01.jpg", "images/artillery_recon/ark12.jpg"] },
   { label: "1V15", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V15", files: ["images/artillery_recon/1v15_01.webp"] },
   { label: "1V152", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk (Kapustnik-B osis)", cat: "1V152", files: ["Army2016-495.jpg"] },
@@ -88,9 +88,10 @@ const CATEGORIES = [
   { label: "Tornado-G/BM-21-1 (2B17M)", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "Tornado-G/BM-21-1 (2B17M)", files: ["Army2016demo-062.jpg"] },
   { label: "BM-27 Uragan", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-27 Uragan", files: ["BM-27_Uragan.jpg", "Uragan_MLRS_of_the_52nd_Artillery_Brigade_%282%29.png", "165th_Artillery_Brigade%27s_9K57_Uragan_MLRS_06.jpg"] },
   { label: "BM-30 Smertš", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-30 Smertš", files: ["BM-30_Smerch%2C_2010.jpg", "9A52_Smerch_2017-12-24.jpg", "9A52_of_300-mm_multiple_rocket_launching_system_9K58_«Smerch»%2C_Artillery_museum%2C_Saint-Petersburg_pic4.JPG"] },
-  { label: "TOS-1A", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-1A", files: ["TZM-T_of_the_TOS-1A_system_%281%29.jpg", "TOS-1A_MRL_during_the_the_May_Parade_2010.jpeg", "TOS-1A_before_firing.jpg"] },
+  { label: "TOS-1A Solntsepjok", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-1A Solntsepjok", files: ["TZM-T_of_the_TOS-1A_system_%281%29.jpg", "TOS-1A_MRL_during_the_the_May_Parade_2010.jpeg", "TOS-1A_before_firing.jpg"] },
   { label: "9T234-2", group: "mlrs", type: "Mitmikraketiheitja Smertš laadimismasin", cat: "9T234-2", files: ["Army2016demo-070.jpg"] },
   { label: "TOS-1 Buratino", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-1 Buratino", files: ["images/mlrs/tosburatino.jpg"] },
+  { label: "TZM-T", group: "mlrs", type: "TOS-1A transpordi- ja laadimismasin", cat: "TOS-1", files: ["TTZM-T_of_the_TOS-1A_system_%287%29.jpg", "TZM-Gusarivka.jpg"] },
 
   // Järelveetavad suurtükid ja miinipildujad
   { label: "D-30", group: "towed_artillery", type: "Haubits", cat: "D-30", files: ["122mm_howitzer_D-30_-_Armory_masters4.jpg", "122_mm_Howitzer_D-30_2017-12-24.JPG", "D-30A%2C_122-mm_howitzer_04.jpg"] },
@@ -114,7 +115,7 @@ const CATEGORIES = [
   { label: "Uragan/Karakurt klass", group: "ships", type: "Korvett/väike raketilaev", cat: "Uragan/Karakurt klass", files: ["images/ships/karakurt_01.png"] },
   { label: "Tarantul klass", group: "ships", type: "Korvett/raketikaater", cat: "Tarantul klass", files: ["Project_1241_missile_boat_of_the_Black_Sea_Fleet_of_the_Russian_Federation.png", "Zarechny_%28parade%29.jpg"] },
   { label: "Aleksandrit klass", group: "ships", type: "Miinitraaler", cat: "Aleksandrit klass", files: ["images/ships/alexandrit_01.webp", "«Александр_Обухов».jpg"] },
-  { label: "Dyugon klass", group: "ships", type: "Dessantkaater", cat: "Dyugon klass", files: ["«Мичман_Лермонтов».jpg"] },
+  { label: "Dyugon klass", group: "ships", type: "Dessantkaater", cat: "Dyugon klass", files: ["«Мичман_Лермонтов».jpg", "«Мичман_Лермонтов»1.jpg"] },
   { label: "Sovremenny klass", group: "ships", type: "Hävitaja", cat: "Sovremenny klass", files: ["Nastoychivyy_%28610%29_at_Quay_-_Baltic_Sea%2C_Kaliningradskiy_Zaliv_Kaliningrad_Oblast_Baltiysk_30_October_2008.jpg"] },
   { label: "Kilo-2 klass", group: "ships", type: "Patrullallveelaev", cat: "Kilo-2 klass", files: ["ДЭПЛ_\"Димитров\".jpg"] },
   { label: "Lada klass", group: "ships", type: "Patrullallveelaev", cat: "Lada klass", files: ["B-585_Sankt-Peterburg_in_2010.jpg"] },
