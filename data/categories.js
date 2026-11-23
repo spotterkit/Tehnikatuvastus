@@ -26,7 +26,7 @@
 const CATEGORIES = [
   // Tankid
   { label: "T-72", group: "tank", type: "Tank", cat: "T-72", files: ["T-72_Ruske_vojske_-_Odbrana_slobode_2019_Niš_1.jpg", "Kazan_T-72_2024-07-18_2451.jpg", "Танк_Т-72Б.jpg", "Sloboda_2019_-_Ruski_T-72_02.jpg", "Dmitry_Medvedev_in_Orenburg_Oblast_26_September_2008-7.jpg", "images/tanks/t72_01.webp"] },
-  { label: "T-80", group: "tank", type: "Tank", cat: "T-80", files: ["4thTankBrigade_-_T-80U_-01.jpg/960px-4thTankBrigade_-_T-80U_-01.jpg", "Движение_техники_по_понтонной_переправе_через_Северский_Донец_004.png", "T-80BVM.jpg", "T-80BVM_%282%29.jpg", "images/tanks/t80_01.jpg", "images/tanks/t80_02.jpg"] },
+  { label: "T-80", group: "tank", type: "Tank", cat: "T-80", files: ["4thTankBrigade_-_T-80U_-01.jpg/960px-4thTankBrigade_-_T-80U_-01.jpg", "Движение_техники_по_понтонной_переправе_через_Северский_Донец_004.png", "Движение_техники_по_понтонной_переправе_через_Северский_Донец_005.png", "T-80BVM_%282%29.jpg", "images/tanks/t80_01.jpg", "images/tanks/t80_02.jpg"] },
   { label: "T-90M", group: "tank", type: "Tank", cat: "T-90M", files: ["T-90M.jpg", "Engineering_Technologies_-_2012_%281-25%29.jpg", "T-90M_MBT_Army-2022_2022-08-20_2397.jpg", "Zapad_2017_%28Proving_Ground_Luzhsky%29_02.jpg", "images/tanks/t90m.webp", "images/tanks/t90m_02.jpg"] },
   { label: "T-90A", group: "tank", type: "Tank", cat: "T-90A", files: ["Moscow_2012_Victory_Day_Parade_Rehearsal%2C_T-90_tank%2C_Russia.jpg", "T-90A_front_Army-2016.jpg", "T-90A_MBT_photo011.jpg", "T-90A_with_OPVT_wading_snorkel_during_river_crossing_training_-_September_2023_01.jpg"] },
   { label: "T-62", group: "tank", type: "Tank", cat: "T-62", files: ["VNPA_T-62_-_092025.jpg", "images/tanks/t62_01.jpg"] },
@@ -299,7 +299,7 @@ const CATEGORIES = [
   { label: "RKhM-4", group: "recon_special", type: "TBK-luuresoomuk", cat: "RKhM-4", files: ["Mashina_RKHM-4-01_2.jpg"] },
   { label: "RKhM-6", group: "recon_special", type: "TBK-luuresoomuk", cat: "RKhM-6", files: ["RKhM-6_-4.jpg"] },
   { label: "Taifun-VDV/Naparnik K-4386, 4x4", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-VDV/Naparnik K-4386, 4x4", files: ["images/recon_special/taifunvdvk_01.jpg"] },
-  { label: "Taifun-K KAMAZ-63968, 6x6", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-K KAMAZ-63968, 6x6", files: ["9may2015Moscow-19.jpg", "Engineering_Technologies_-_2012_%282-02%29.jpg"] },
+  { label: "Taifun-K KAMAZ-63968, 6x6", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-K KAMAZ-63968, 6x6", files: ["9may2015Moscow-19.jpg", "Engineering_Technologies_-_2012_%282-02%29.jpg", "Движение_колонны_бронетехники_ВС_РФ_004.png"] },
   { label: "Taifun-U Ural-53099", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-U Ural-53099", files: ["Ural-53099_Typhoon-U_-_DayTechnologies2017p2-71.jpg", "Ural-53099_Typhoon-U_-_DayTechnologies2017p2-70.jpg"] },
   { label: "Taifun-U Ural-63095, 6x6", group: "recon_special", type: "Soomustatud auto", cat: "Taifun-U Ural-63095, 6x6", files: ["Alabino220415part1-20.jpg", "VDayRehearsal05052016-10.jpg"] },
   { label: "GAZ-233014/TIGR", group: "recon_special", type: "Maastur", cat: "GAZ-233014/TIGR", files: ["12aprilrehearsal_22.jpg", "April_9th_rehearsal_in_Alabino_of_2014_Victory_Day_Parade_%28558-01%29.jpg" ] },
@@ -311,7 +311,7 @@ const CATEGORIES = [
   // Side- ja juhtimissoomukid ning autod
   { label: "BMP-1Ksh", group: "comms", type: "Juhtimissoomuk", cat: "BMP-1Ksh", files: ["ParkPatriot2015part10-24.jpg", "ParkPatriot2015part11-131.jpg", "ParkPatriot2015part11-133.jpg"] },
   { label: "R-149MA1", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-149MA1", files: ["R-149MA1_-_Engineering_technologies_2012_%282%29.jpg", "R-149MA1_-_Engineering_technologies_2012_%281%29.jpg"] },
-  { label: "R-166-0,5", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-166-0,5", files: ["R-166-0%2C5_radiostation_-_27th_Independent_Sevastopol_Guards_Motor_Rifle_Brigade_%282%29.jpg"] },
+  { label: "R-166-0,5", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-166-0,5", files: ["R-166-0%2C5_radiostation_-_27th_Independent_Sevastopol_Guards_Motor_Rifle_Brigade_%282%29.jpg", "Движение_колонн_ВС_РФ_и_охрана_моста_в_Киевской_области_05.png"] },
   { label: "BMD-1Ksh", group: "comms", type: "Juhtimissoomuk", cat: "BMD-1Ksh", files: ["Командно-штабные_машины_в_артиллерийском_музее_—_2.jpg", "images/comms/bmd1ksh_01.webp"] },
   { label: "R-145BM", group: "comms", type: "Juhtimissoomuk", cat: "R-145BM", files: ["R-145BM_command_vehicle_on_BTR-60_base.jpg", "ParkPatriot2015part9-47.jpg"] },
   { label: "R-149BMR", group: "comms", type: "Juhtimissoomuk", cat: "R-149BMR", files: ["images/comms/R149BMR.jpg"] },
