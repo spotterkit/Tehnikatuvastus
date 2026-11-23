@@ -34,7 +34,7 @@ const CATEGORIES = [
 
   // Jalaväe lahingumasinad
   { label: "BMP-2", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-2", files: ["BMP-2_of_Russian_Ground_Forces.jpg", "BMP-2_%281%29.jpg", "BMP-2_-_TankBiathlon14part1-11.jpg", "images/ifv/bmp2_01.jpg", "images/ifv/bmp2_02.jpg"] },
-  { label: "BMP-3", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-3", files: ["Destruction_of_Russian_tanks_by_Ukrainian_troops_in_Mariupol_%284%29.jpg", "BMP-3_%2841204909204%29.jpg", "BMP-3_infantry_fighting_vehicle_at_Engineering_Technologies_2012_02.jpg", "images/ifv/bmp3_01.webp", "Engineering_Technologies_-_2012_%281-37%29.jpg"] },
+  { label: "BMP-3", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-3", files: ["Destruction_of_Russian_tanks_by_Ukrainian_troops_in_Mariupol_%284%29.jpg", "BMP-3_%2841204909204%29.jpg", "BMP-3_infantry_fighting_vehicle_at_Engineering_Technologies_2012_02.jpg", "images/ifv/bmp3_01.webp", "Engineering_Technologies_-_2012_%281-37%29.jpg", "Мелітопольські_територіали_врятували_«утопленика»_–_російську_БМП-3.jpg"] },
   { label: "BMP-1", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-1", files: ["Kazan_BMP-1_2024-07-18_2453.jpg", "images/ifv/bmp1_01.webp", "БМП-1_с_учебного_полигона_Алматинского_Института_Сухопутных_Войск.JPG", "Движение_колонн_ВС_РФ_и_охрана_моста_в_Киевской_области_03.png"] },
   { label: "BMP-1AM Basurmanin", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-1AM Basurmanin", files: ["images/ifv/bmp1am.jpg", "BMP-1AM_with_BTR-82A_turret_at_ARMY-2018.jpg"] },
   { label: "BMP-2M Berežok", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-2M Berežok", files: ["BMP-2_with_modernized_turret_at_Engineering_Technologies_2012_02.jpg", "images/ifv/bmp2m.jpg"] },
@@ -72,7 +72,7 @@ const CATEGORIES = [
   { label: "1B75 Penicilin", group: "artillery_recon", type: "Passiivne suurtükiväeluure kompleks", cat: "1B75 Penicilin", files: ["images/artillery_recon/1B75Penicillin.jpg"] },
 
   // Liikursuurtükid ja -miinipildujad
-  { label: "2S19 Msta-S", group: "spg", type: "Liikursuurtükk", cat: "2S19 Msta", files: ["ParkPatriot2015part6-02.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_01.jpg", "Військовослужбовці_провели_тактичне_заняття_09.jpg", "images/artillery/2s19_01.jpg", "images/artillery/2s19_02.jpg"] },
+  { label: "2S19 Msta-S", group: "spg", type: "Liikursuurtükk", cat: "2S19 Msta", files: ["ParkPatriot2015part6-02.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_01.jpg", "Військовослужбовці_провели_тактичне_заняття_09.jpg", "images/artillery/2s19_01.jpg", "images/artillery/2s19_02.jpg", "Марш_российских_артиллерийских_подразделений_в_ходе_вторжения_на_Украину_007.png"] },
   { label: "2S3 Akatsija", group: "spg", type: "Liikursuurtükk", cat: "2S3 Akatsiya", files: ["2S3_Akatsiya_3261.jpg", "2S3_Akatsiya_2017-12-24.jpg", "Northern_Fleet_artillery_combat_training_in_Murmansk_-_January_2023_07.jpg", "images/artillery/2s3_01.webp"] },
   { label: "2S1 Gvozdika", group: "spg", type: "Liikursuurtükk", cat: "2S1 Gvozdika", files: ["2S1_Gvozdika_2017-12-24.jpg", "Openwater2016-40.jpg", "AmphibiousAssault2015-03.jpg", "images/artillery/2s1_01.png", "images/artillery/2s1_02.jpg"] },
   { label: "2S9 Nona", group: "spg", type: "Liikurmiinipilduja", cat: "2S9 Nona", files: ["2S9_Nona-S.png", "ParkPatriot2015part5-71.jpg", "2S9_Nona_in_Saint-Petersburg.jpg", "images/artillery/2s9_01.jpg"] },
@@ -95,7 +95,7 @@ const CATEGORIES = [
 
   // Järelveetavad suurtükid ja miinipildujad
   { label: "D-30", group: "towed_artillery", type: "Haubits", cat: "D-30", files: ["122mm_howitzer_D-30_-_Armory_masters4.jpg", "122_mm_Howitzer_D-30_2017-12-24.JPG", "D-30A%2C_122-mm_howitzer_04.jpg"] },
-  { label: "2A65", group: "towed_artillery", type: "Suurtükk", cat: "2A65", files: ["2A65_howitzer.jpg", "2A65_Msta-B_howitzer_%2814-11-2019%29_05.jpg", "2A65_Msta-B_howitzer_%2824-10-2017%29_03.jpg"] },
+  { label: "2A65", group: "towed_artillery", type: "Suurtükk", cat: "2A65", files: ["2A65_howitzer.jpg", "2A65_Msta-B_howitzer_%2814-11-2019%29_05.jpg", "2A65_Msta-B_howitzer_%2824-10-2017%29_03.jpg", "На_Харківщині_українські_бійці_розгромили_чергову_партію_техніки_окупантів_03.jpg"] },
   { label: "2A36", group: "towed_artillery", type: "Suurtükk", cat: "2A36", files: ["ParkPatriot2015part6-62.jpg", "CheboksaryMemorialPark-36.jpg", "2А36_с_тягачом-машиной_управления_огня.JPG", "images/artillery/2a36_01.jpg"] },
   { label: "D-20", group: "towed_artillery", type: "Haubits", cat: "D-20", files: ["Howitzer_D-20.jpg", "152_mm_howitzer_D-20-4598.JPG", "Haubica_152mm_D_20_2011_7235.jpg"] },
   { label: "2-B16 Nona-K", group: "towed_artillery", type: "Järelveetav miinipilduja", cat: "2-B16 Nona-K", files: ["2B16_gun-howitzer-mortar_3.jpg", "ArtilleryExercise2020-12.jpg"] },
@@ -199,7 +199,7 @@ const CATEGORIES = [
   // Helikopterid
   { label: "Mi-8 Hip", group: "helicopters", type: "Transpordikopter", cat: "Mi-8", files: ["Mi-8_AMTSH.jpg", "Moscow%2C_VDNKh%2C_Mi-8_July_2026_01.jpg", "VII_Małopolski_Piknik_Lotniczy_–_Mil_Mi-8_%281%29.jpg"] },
   { label: "Mi-24/Mi-35 Hind", group: "helicopters", type: "Ründekopter", cat: "Mi-24/Mi-35", files: ["Mil_Mi-24...%2C_Russia_-_Air_Force_AN2177076.jpg", "Mil_Mi-24...%2C_Russia_-_Air_Force_AN1773358.jpg", "Mil_Mi-24VM_Hind_formation_-_Zhukovsky_2012_%288715913306%29.jpg"] },
-  { label: "Mi-28 Havoc", group: "helicopters", type: "Ründekopter", cat: "Mi-28", files: ["Russian_Air_Force%2C_RF-13489%2C_Mil_Mi-28NM_%2849581609382%29.jpg", "Mil_Mi-28N_Havoc%2C_Russia_-_Air_Force_JP6659611.jpg", "Mil_Mi-28_at_the_MAKS-2013_%2801%29.jpg"] },
+  { label: "Mi-28 Havoc", group: "helicopters", type: "Ründekopter", cat: "Mi-28", files: ["Russian_Air_Force%2C_RF-13489%2C_Mil_Mi-28NM_%2849581609382%29.jpg", "Mil_Mi-28N_Havoc%2C_Russia_-_Air_Force_JP6659611.jpg", "Mil_Mi-28_at_the_MAKS-2013_%2801%29.jpg", "Кадры_уничтожения_ударными_вертолетами_бронетехники_ВСУ_001.png", "Кадры_уничтожения_ударными_вертолетами_бронетехники_ВСУ_004.png"] },
   { label: "Ka-52 Hokum-B", group: "helicopters", type: "Ründekopter", cat: "Ka-52", files: ["Kamov_Ka-52.jpg", "MoscowVictoryDayParade2020_Ka-52_010_3407.jpg", "98_Yellow_Kamov_Ka-52_Russian_Air_Force_%288131768896%29.jpg"] },
   { label: "Ka-29 Helix-B", group: "helicopters", type: "Mereväe ründe-transpordikopter", cat: "Ka-29", files: ["NavalFlyingAce2018-18.jpg", "Kamov_Ka-29_’62_yellow’_%2824656644148%29.jpg"] },
   { label: "Ka-27 Helix-A", group: "helicopters", type: "Allveelaevatõrje helikopter", cat: "Ka-27", files: ["Kamov_Ka-27M_RF-19115_at_Army-2022.jpg", "A_Russian_Helix_KA-27_%28cropped%29.jpg"] },
@@ -253,7 +253,7 @@ const CATEGORIES = [
   { label: "Ulan", group: "trucks", type: "Maastikusõiduk", cat: "Ulan", files: ["images/trucks/ulan.jpg"] },
   { label: "Ulan-2", group: "trucks", type: "Maastikusõiduk", cat: "Ulan-2", files: ["images/trucks/ulan2.jpg"] },
   { label: "ZIL-131", group: "trucks", type: "Veok", cat: "ZIL-131", files: ["Zil-131-Russian-army2.jpg"] },
-  { label: "URAL-4320", group: "trucks", type: "Veok", cat: "URAL-4320", files: ["Ural-4320.jpg"] },
+  { label: "URAL-4320", group: "trucks", type: "Veok", cat: "URAL-4320", files: ["Ural-4320.jpg", "Несение_службы_военнослужащими_ВДВ_на_блокпостах_в_Киевской_области_010.png"] },
   { label: "ATsPT-5,6", group: "trucks", type: "Veetsisternauto", cat: "ATsPT-5,6", files: ["Army2016-382.jpg"] },
   { label: "PTs-6,7", group: "trucks", type: "Kütusehaagistsistern", cat: "PTs-6,7", files: ["ParkPatriot2015part9-43.jpg"] },
   { label: "ATs-7,5-4320", group: "trucks", type: "Kütusetsisternauto", cat: "ATs-7,5-4320", files: ["ParkPatriot2015part9-32.jpg"] },
@@ -307,6 +307,7 @@ const CATEGORIES = [
   { label: "VPK-3927-1 Volk-1", group: "recon_special", type: "Soomustatud auto", cat: "VPK-3927-1 Volk-1", files: ["VPK_-3927_Volk_01.jpg"] },
   { label: "Kamaz-5350 Z-STS Akhmat", group: "recon_special", type: "Soomustatud veok", cat: "Kamaz-5350 Z-STS Akhmat", files: ["Z-STS_KamAZ-5350_Army-2022_2022-08-20_2668.jpg"] },
   { label: "AMN-590951 Spartak (VPK-Ural)", group: "recon_special", type: "Soomustatud auto", cat: "AMN-590951 Spartak (VPK-Ural)", files: ["MIC-Ural_-_Army-2022_07.jpg"] },
+  { label: "Ural-4320 Zvezda-V", group: "apc", type: "Soomustatud veok", cat: "Ural-4320 Zvezda-V", files: ["Interpolitex2015part1-20.jpg", "VVday2015_49.jpg"] },
 
   // Side- ja juhtimissoomukid ning autod
   { label: "BMP-1Ksh", group: "comms", type: "Juhtimissoomuk", cat: "BMP-1Ksh", files: ["ParkPatriot2015part10-24.jpg", "ParkPatriot2015part11-131.jpg", "ParkPatriot2015part11-133.jpg"] },
@@ -329,7 +330,7 @@ const CATEGORIES = [
   { label: "R-161PU", group: "comms", type: "HF/VHF raadiosaatejaam ja sidesõlm", cat: "R-161PU", files: ["ParkPatriot2015part9-53.jpg"] },
 
   // Pind-pind tüüpi juhitavad raketid
-  { label: "9K720 Iskander/SS-26 Stone", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "9K720 Iskander/SS-26 Stone", files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg","Army-2023_vehicle_showcase_08.jpg", "A_camouflaged_Iskander-M_complex_during_an_exercise_in_Transbaikalia._June_2021.jpg"] },
+  { label: "9K720 Iskander/SS-26 Stone", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "9K720 Iskander/SS-26 Stone", files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg","Army-2023_vehicle_showcase_08.jpg", "A_camouflaged_Iskander-M_complex_during_an_exercise_in_Transbaikalia._June_2021.jpg", "Кадры_работы_расчетов_ОТРК_«Искандер»_002.png"] },
   { label: "SS-21 Totška/SS-21 Scarab", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "SS-21 Totška/SS-21 Scarab", files: ["Tochka-U_rep_parad_Yekat.jpg", "ChemicalExercise2018-01.jpg"] },
   { label: "RS-24 Jars / Topol-M", group: "guided_ground_rockets", type: "Mandritevaheline ballistiline rakett", cat: "RS-24 Jars / Topol-M", files: ["April_9th_rehearsal_in_Alabino_of_2014_Victory_Day_Parade_(558-57).jpg"] },
   { label: "K-300P Bastion-P/SS-C-5 Stooge", group: "guided_ground_rockets", type: "Rannakaitse-raketikompleks", cat: "K-300P Bastion-P/SS-C-5 Stooge", files: ["Комплекс_Бастион_перед_пуском_ракет.jpg"] },
