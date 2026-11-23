@@ -173,10 +173,10 @@ const CATEGORIES = [
 
   // Pioneerisoomukid ja tehnika
   { label: "IMR-2", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-2", files: ["RIAN_archive_734015_Wildfires_in_Moscow_Region%27s_Lukhovitsky_district.jpg", "EngineerFieldRide2017-07.jpg"] },
-  { label: "BAT-2", group: "engineer", type: "Roomikbuldooser", cat: "BAT-2", files: ["OpenWater2017qualifying-44.jpg", 'Track_laying_vehicle_BAT-2M_during_the_"Armiya_2021"_exhibition.jpg'] },
+  { label: "BAT-2", group: "engineer", type: "Roomikbuldooser", cat: "BAT-2", files: ["OpenWater2017qualifying-44.jpg", 'Track_laying_vehicle_BAT-2M_during_the_"Armiya_2021"_exhibition.jpg', "БАТ-2_-_Финал_международного_конкурса_«Безопасный_маршрут»_01.jpg", "Финал_и_церемония_награждения_участников_международного_конкурса_«Инженерная_формула»_АрМИ-2017_%28г._Тюмень%29_%285%29.jpg"] },
   { label: "MTU-72", group: "engineer", type: "Sillatank", cat: "MTU-72", files: ["Army2016demo-098.jpg", "TankBiathlon14final-92.jpg"] },
-  { label: "UR-77 Meteorit", group: "engineer", type: "Demineerimissoomuk", cat: "UR-77", files: ["EngineerExercise2020-19.jpg", "UR-77.jpg", "AssaultExercise2017-06.jpg"] },
-  { label: "PTS-2", group: "engineer", type: "Amfiibtransportöör", cat: "PTS-2", files: ["PTS-2_-_RaceofHeroes-part2-35.jpg", "PTS-2_-_RaceofHeroes-part2-36.jpg"] },
+  { label: "UR-77 Meteorit", group: "engineer", type: "Demineerimissoomuk", cat: "UR-77", files: ["EngineerExercise2020-19.jpg", "UR-77.jpg", "AssaultExercise2017-06.jpg", "EngineerExercise2018-09.jpg"] },
+  { label: "PTS-2", group: "engineer", type: "Amfiibtransportöör", cat: "PTS-2", files: ["PTS-2_-_RaceofHeroes-part2-35.jpg", "PTS-2_-_RaceofHeroes-part2-36.jpg", "ПТС-2_-_Подготовка_иностранных_команд-участниц_к_этапам_соревнования_«Инженерная_формула»_01.jpg", "EngineeringFormula2017-06.jpg"] },
   { label: "PTS-4", group: "engineer", type: "Amfiibtransportöör", cat: "PTS-4", files: ["PTS-4_RAE-2013_2.jpg"] },
   { label: "MTU-90", group: "engineer", type: "Sillatank", cat: "MTU-90", files: ["MTU-90_3.jpg"] },
   { label: "MT-55A", group: "engineer", type: "Sillatank", cat: "MT-55A", files: ["T-55_inženirsko_vozilo.JPG"] },
@@ -186,7 +186,7 @@ const CATEGORIES = [
   { label: "IMR-3", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-3", files: ["Army2016demo-100.jpg", "Engineering_Technologies_-_2012_%285-49%29.jpg"] },
   { label: "TMM-3", group: "engineer", type: "Sillamasin", cat: "TMM-3", files: ["ТММ-3_тяжёлый_механизированный_мост.jpg"] },
   { label: "TMM-6", group: "engineer", type: "Sillamasin", cat: "TMM-6", files: ["TMM-6_bridgelayer_01.jpg"] },
-  { label: "Pontoonsillapark", group: "engineer", type: "Pontoonsillapark", cat: "Pontoonsillapark", files: ["KrAZ-255_PMP_Pontoon_Bridge.jpg", "OpenWater2017qualifying-06.jpg"] },
+  { label: "Pontoonsillapark", group: "engineer", type: "Pontoonsillapark", cat: "Pontoonsillapark", files: ["KrAZ-255_PMP_Pontoon_Bridge.jpg", "OpenWater2017qualifying-06.jpg", "Center2019Exercise-25.jpg"] },
   { label: "UMZ", group: "engineer", type: "Universaalne miinilaotur", cat: "UMZ", files: ["images/engineer/umz_01.jpeg"] },
   { label: "GMZ-3", group: "engineer", type: "Mineerimissoomuk", cat: "GMZ-3", files: ["GMZ-3_minelayer_vehicle_at_Engineering_Technologies_2012.jpg", "Engineering_Technologies_-_2012_%285-43%29.jpg"] },
   { label: "BTM-4M", group: "engineer", type: "Tranžeemasin", cat: "BTM-4M", files: ["images/engineer/BTM4M.jpg"] },
@@ -198,7 +198,7 @@ const CATEGORIES = [
 
   // Helikopterid
   { label: "Mi-8 Hip", group: "helicopters", type: "Transpordikopter", cat: "Mi-8", files: ["Mi-8_AMTSH.jpg", "Moscow%2C_VDNKh%2C_Mi-8_July_2026_01.jpg", "VII_Małopolski_Piknik_Lotniczy_–_Mil_Mi-8_%281%29.jpg", "Russian_helicopter_in_Minsk%2C_Belarus_%2826_February_2022%29_2.jpg"] },
-  { label: "Mi-24/Mi-35 Hind", group: "helicopters", type: "Ründekopter", cat: "Mi-24/Mi-35", files: ["Mil_Mi-24...%2C_Russia_-_Air_Force_AN2177076.jpg", "Mil_Mi-24...%2C_Russia_-_Air_Force_AN1773358.jpg", "Mil_Mi-24VM_Hind_formation_-_Zhukovsky_2012_%288715913306%29.jpg"] },
+  { label: "Mi-24/Mi-35 Hind", group: "helicopters", type: "Ründekopter", cat: "Mi-24/Mi-35", files: ["Mil_Mi-24...%2C_Russia_-_Air_Force_AN2177076.jpg", "Mil_Mi-24...%2C_Russia_-_Air_Force_AN1773358.jpg", "Mil_Mi-24VM_Hind_formation_-_Zhukovsky_2012_%288715913306%29.jpg", "Миль_Ми-24-25-35%2C_Прочее_-_Россия_-RP27332.jpg", "Миль_Ми-24-25-35%2C_%21_Прочее_-_Россия_%21_RP69152.jpg"] },
   { label: "Mi-28 Havoc", group: "helicopters", type: "Ründekopter", cat: "Mi-28", files: ["Russian_Air_Force%2C_RF-13489%2C_Mil_Mi-28NM_%2849581609382%29.jpg", "Mil_Mi-28N_Havoc%2C_Russia_-_Air_Force_JP6659611.jpg", "Mil_Mi-28_at_the_MAKS-2013_%2801%29.jpg", "Кадры_уничтожения_ударными_вертолетами_бронетехники_ВСУ_001.png", "Кадры_уничтожения_ударными_вертолетами_бронетехники_ВСУ_004.png"] },
   { label: "Ka-52 Hokum-B", group: "helicopters", type: "Ründekopter", cat: "Ka-52", files: ["Kamov_Ka-52.jpg", "MoscowVictoryDayParade2020_Ka-52_010_3407.jpg", "98_Yellow_Kamov_Ka-52_Russian_Air_Force_%288131768896%29.jpg", "Работа_армейской_авиации_ВКС_РФ_001.png", "Ударные_вертолеты_Ка-52_ВКС_России_005.png"] },
   { label: "Ka-29 Helix-B", group: "helicopters", type: "Mereväe ründe-transpordikopter", cat: "Ka-29", files: ["NavalFlyingAce2018-18.jpg", "Kamov_Ka-29_’62_yellow’_%2824656644148%29.jpg"] },
