@@ -188,7 +188,7 @@ const CATEGORIES = [
   { label: "TMM-6", group: "engineer", type: "Sillamasin", cat: "TMM-6", files: ["TMM-6_bridgelayer_01.jpg"] },
   { label: "Pontoonsillapark", group: "engineer", type: "Pontoonsillapark", cat: "Pontoonsillapark", files: ["KrAZ-255_PMP_Pontoon_Bridge.jpg", "OpenWater2017qualifying-06.jpg", "Center2019Exercise-25.jpg"] },
   { label: "UMZ", group: "engineer", type: "Universaalne miinilaotur", cat: "UMZ", files: ["images/engineer/umz_01.jpeg"] },
-  { label: "GMZ-3", group: "engineer", type: "Mineerimissoomuk", cat: "GMZ-3", files: ["GMZ-3_minelayer_vehicle_at_Engineering_Technologies_2012.jpg", "Engineering_Technologies_-_2012_%285-43%29.jpg"] },
+  { label: "GMZ-3", group: "engineer", type: "Mineerimissoomuk", cat: "GMZ-3", files: ["GMZ-3_minelayer_vehicle_at_Engineering_Technologies_2012.jpg", "Engineering_Technologies_-_2012_%285-43%29.jpg", "The_winter_training_period_11.jpg"] },
   { label: "BTM-4M", group: "engineer", type: "Tranžeemasin", cat: "BTM-4M", files: ["images/engineer/BTM4M.jpg"] },
   { label: "BTM-3", group: "engineer", type: "Tranžeemasin", cat: "BTM-3", files: ["BTM-3_trenching_vehicle_at_Park_Patriot_01.jpg"] },
   { label: "MDK-3", group: "engineer", type: "Kraavikaevamismasin", cat: "MDK-3", files: ["TankBiathlon14final-89.jpg"] },
