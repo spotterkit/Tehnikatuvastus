@@ -51,7 +51,7 @@ const CATEGORIES = [
 
   // Dessandi lahingumasinad
   { label: "BMD-2", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-2", files: ["BMD-2_-_137AirborneRegiment29.jpg", "BMD-2_-_137AirborneRegiment01.jpg", "BMD-2_-_137AirborneRegiment36.jpg", "FinalCheck2018-25.jpg", "Російська_техніка%2C_маркована_V.jpg"] },
-  { label: "BMD-4M", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-4M", files: ["BMD-4M_0002_copy.jpg", "BMD-4M_14.jpg", "Moscow%2C_Tverskaya_Street%2C_parade_rehearsal%2C_BMD-4_%2831092775422%29.jpg", "Battle_of_Hostomel%2C_04.03.2022%2C_Stuck_Russian_BMD-4.jpg", "images/airborne/bmd4m.jpg"] },
+  { label: "BMD-4M", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-4M", files: ["BMD-4M_0002_copy.jpg", "BMD-4M_14.jpg", "Moscow%2C_Tverskaya_Street%2C_parade_rehearsal%2C_BMD-4_%2831092775422%29.jpg", "Battle_of_Hostomel%2C_04.03.2022%2C_Stuck_Russian_BMD-4.jpg", "images/airborne/bmd4m.jpg", "BMD-4M_-_0-12.jpg"] },
   { label: "BMD-1", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-1", files: ["BMD-1_Belarus.jpg", "Vdvcompetition11.jpg"] },
 
   // Dessandi soomustransportöörid
@@ -84,10 +84,10 @@ const CATEGORIES = [
   { label: "2S23 NONA-SVK", group: "spg", type: "Liikurmiinipilduja", cat: "2S23 NONA-SVK", files: ["ParkPatriot2015part5-65.jpg", "2S23_Nona-SVK.jpg", "WMDArtilleryExercise2018-07.jpg"] },
 
   // Mitmikraketiheitjad (reaktiivsuurtükid)
-  { label: "BM-21 Grad", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-21 Grad", files: ["BM_-_21_Grad.jpg", "BM-21_Grad_%2803%29.jpg", "images/mlrs/bm21_01.jpg"] },
+  { label: "BM-21 Grad", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-21 Grad", files: ["BM_-_21_Grad.jpg", "BM-21_Grad_%2803%29.jpg", "images/mlrs/bm21_01.jpg", "ChebarkulExercise2017-02.jpg"] },
   { label: "Tornado-G/BM-21-1 (2B17M)", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "Tornado-G/BM-21-1 (2B17M)", files: ["Army2016demo-062.jpg"] },
   { label: "BM-27 Uragan", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-27 Uragan", files: ["BM-27_Uragan.jpg", "Uragan_MLRS_of_the_52nd_Artillery_Brigade_%282%29.png", "165th_Artillery_Brigade%27s_9K57_Uragan_MLRS_06.jpg", "Передача_трофейной_украинской_техники_и_вооружения_подразделениям_ЛНР_008.png"] },
-  { label: "BM-30 Smertš", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-30 Smertš", files: ["BM-30_Smerch%2C_2010.jpg", "9A52_Smerch_2017-12-24.jpg", "9A52_of_300-mm_multiple_rocket_launching_system_9K58_«Smerch»%2C_Artillery_museum%2C_Saint-Petersburg_pic4.JPG"] },
+  { label: "BM-30 Smertš", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-30 Smertš", files: ["BM-30_Smerch%2C_2010.jpg", "9A52_Smerch_2017-12-24.jpg", "9A52_of_300-mm_multiple_rocket_launching_system_9K58_«Smerch»%2C_Artillery_museum%2C_Saint-Petersburg_pic4.JPG", "BM-30_back_Tula_2016.JPG"] },
   { label: "TOS-1A Solntsepjok", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-1A Solntsepjok", files: ["TZM-T_of_the_TOS-1A_system_%281%29.jpg", "TOS-1A_MRL_during_the_the_May_Parade_2010.jpeg", "TOS-1A_before_firing.jpg"] },
   { label: "9T234-2", group: "mlrs", type: "Mitmikraketiheitja Smertš laadimismasin", cat: "9T234-2", files: ["Army2016demo-070.jpg"] },
   { label: "TOS-1 Buratino", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-1 Buratino", files: ["images/mlrs/tosburatino.jpg"] },
@@ -109,8 +109,8 @@ const CATEGORIES = [
   { label: "Buyan-M klass", group: "ships", type: "Korvett/väike raketilaev", cat: "Buyan-M klass", files: ["«Великий_Устюг».jpg", "Град_Свияжск.jpg"] },
   { label: "Vishnya klass", group: "ships", type: "Luurelaev", cat: "Vishnya klass", files: ["images/ships/vishnya_01.jpg"] },
   { label: "Parchim II klass", group: "ships", type: "Korvett/väike raketilaev", cat: "Parchim II klass", files: ["Channel_One_Russia_in_Navy_%2827-06-2013%29_35.jpg"] },
-  { label: "Neustrashimyy klass", group: "ships", type: "Fregatt", cat: "Neustrashimyy klass", files: ["Neustrashimy-DN-SD-05-02976.jpg"] },
-  { label: "Steregushchiy klass", group: "ships", type: "Fregatt", cat: "Steregushchiy klass", files: ["Corvette_Steregushchiy.jpg", "Steregushchiy-class_corvette_339_2021Oct.png"] },
+  { label: "Neustrashimyy klass", group: "ships", type: "Fregatt", cat: "Neustrashimyy klass", files: ["Neustrashimy-DN-SD-05-02976.jpg", "Frigate_Neustrashimy_%28FF_712%29_188.jpg", "RFS_Neustrashimy_%28FF_712%29.jpg"] },
+  { label: "Steregushchiy klass", group: "ships", type: "Fregatt", cat: "Steregushchiy klass", files: ["Corvette_Steregushchiy.jpg", "Steregushchiy-class_corvette_339_2021Oct.png", "10-YearAnniversary2018-02.jpg"] },
   { label: "Pomornik klass", group: "ships", type: "Hõljuklaev", cat: "Pomornik klass", files: ["Zubr_class_LCAC_-_Zapad-2013_%282%29.jpeg", "Zubr_class_LCAC_-_Zapad-2013.jpeg"] },
   { label: "Uragan/Karakurt klass", group: "ships", type: "Korvett/väike raketilaev", cat: "Uragan/Karakurt klass", files: ["images/ships/karakurt_01.png"] },
   { label: "Tarantul klass", group: "ships", type: "Korvett/raketikaater", cat: "Tarantul klass", files: ["Project_1241_missile_boat_of_the_Black_Sea_Fleet_of_the_Russian_Federation.png", "Zarechny_%28parade%29.jpg"] },
@@ -136,7 +136,7 @@ const CATEGORIES = [
   { label: "Gerbera", group: "drones", type: "Mitmeotstarbeline droon", cat: "Gerbera", files: ["Russian_drone_Gerbera%2C_downed_in_Ukraine_%282025-01-05%29.jpg", "Russian_drone_Gerbera%2C_downed_in_Ukraine_%282025-01-07%29.jpg"] },
   { label: "Geran-2", group: "drones", type: "Kaugmaa-ÕRM", cat: "Geran-2", files: ["National_Aerospace_Park_in_September_2023_%2813%29.jpg", "Geran_drones_stored_near_Tsymbulova.jpg"] },
   { label: "Molnja-2", group: "drones", type: "Ründedroon", cat: "Molnja-2", files: ["images/drones/Molniya2_01.jpg", "Molniya_UAV.png"] },
-  { label: "Supercam S350", group: "drones", type: "Luuredroon", cat: "Supercam S350", files: ["БВС_Supercam_S350.jpg"] },
+  { label: "Supercam S350", group: "drones", type: "Luuredroon", cat: "Supercam S350", files: ["БВС_Supercam_S350.jpg", "Supercam_S350.jpg"] },
   { label: "Eleron-3", group: "drones", type: "Luuredroon", cat: "Eleron-3", files: ["Unmanned_aerial_vehicle_Aileron.jpg"] },
   { label: "Forpost-PU", group: "drones", type: "Luuredroon", cat: "Forpost-PU", files: ["Forpost_UAV_ARMY-2022.jpg", "UAVMonitoringExercise2018-08.jpg"] },
   { label: "Orion", group: "drones", type: "Ründe-Luuredroon", cat: "Orion", files: ["Kronstadt_Orion_front_right_ARMY-2022.jpg"] },
