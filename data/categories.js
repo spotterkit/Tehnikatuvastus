@@ -94,7 +94,7 @@ const CATEGORIES = [
   { label: "TZM-T", group: "mlrs", type: "TOS-1A transpordi- ja laadimismasin", cat: "TOS-1", files: ["TTZM-T_of_the_TOS-1A_system_%287%29.jpg", "TZM-Gusarivka.jpg"] },
 
   // Järelveetavad suurtükid ja miinipildujad
-  { label: "D-30", group: "towed_artillery", type: "Haubits", cat: "D-30", files: ["122mm_howitzer_D-30_-_Armory_masters4.jpg", "122_mm_Howitzer_D-30_2017-12-24.JPG", "D-30A%2C_122-mm_howitzer_04.jpg"] },
+  { label: "D-30", group: "towed_artillery", type: "Haubits", cat: "D-30", files: ["122mm_howitzer_D-30_-_Armory_masters4.jpg", "122_mm_Howitzer_D-30_2017-12-24.JPG", "D-30A%2C_122-mm_howitzer_04.jpg", "83rd_Guards_Air_Assault_Brigade%27s_artillery_exercise_%2827-03-2020%29_09.jpg", "CombatArtilleryExercise2018-08.jpg"] },
   { label: "2A65", group: "towed_artillery", type: "Suurtükk", cat: "2A65", files: ["2A65_howitzer.jpg", "2A65_Msta-B_howitzer_%2814-11-2019%29_05.jpg", "2A65_Msta-B_howitzer_%2824-10-2017%29_03.jpg", "На_Харківщині_українські_бійці_розгромили_чергову_партію_техніки_окупантів_03.jpg"] },
   { label: "2A36", group: "towed_artillery", type: "Suurtükk", cat: "2A36", files: ["ParkPatriot2015part6-62.jpg", "CheboksaryMemorialPark-36.jpg", "2А36_с_тягачом-машиной_управления_огня.JPG", "images/artillery/2a36_01.jpg"] },
   { label: "D-20", group: "towed_artillery", type: "Haubits", cat: "D-20", files: ["Howitzer_D-20.jpg", "152_mm_howitzer_D-20-4598.JPG", "Haubica_152mm_D_20_2011_7235.jpg"] },
