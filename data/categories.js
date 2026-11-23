@@ -56,7 +56,7 @@ const CATEGORIES = [
 
   // Dessandi soomustransportöörid
   { label: "BTR-D", group: "airborne", type: "Dessandi soomustransportöör", cat: "BTR-D", files: ["Vdvcompetition10.jpg", "106th_Guards_Airborne_Division_%28394-39%29.jpg", "Несение_службы_военнослужащими_ВДВ_на_блокпостах_в_Киевской_области_006.png", "TacticalExercise2018-02.jpg", "Vdvcompetition07.jpg"] },
-  { label: "BTR-MDM", group: "airborne", type: "Dessandi soomustransportöör", cat: "BTR-MDM", files: ["Army2016demo-018.jpg", "Alabino22042016-50.jpg", "Ryazan_BMD4M-1200-12.jpg", "images/airborne/btrMDM_01.webp"] },
+  { label: "BTR-MDM", group: "airborne", type: "Dessandi soomustransportöör", cat: "BTR-MDM", files: ["Army2016demo-018.jpg", "Alabino22042016-50.jpg", "Ryazan_BMD4M-1200-12.jpg", "images/airborne/btrMDM_01.webp", "Battle_of_Hostomel%2C_04.03.2022%2C_Damaged_Russian_BTR-MD.jpg"] },
 
   // Suurtükiväe luure-, juhtimis- ja tulejuhtimissoomukid
   { label: "PRP-3", group: "artillery_recon", type: "STV luure- ja tulejuhtimissoomuk", cat: "PRP-3", files: ["images/artillery_recon/prp3_01.jpg", "images/artillery_recon/prp3_02.jpg"] },
@@ -99,7 +99,7 @@ const CATEGORIES = [
   { label: "2A36", group: "towed_artillery", type: "Suurtükk", cat: "2A36", files: ["ParkPatriot2015part6-62.jpg", "CheboksaryMemorialPark-36.jpg", "2А36_с_тягачом-машиной_управления_огня.JPG", "images/artillery/2a36_01.jpg"] },
   { label: "D-20", group: "towed_artillery", type: "Haubits", cat: "D-20", files: ["Howitzer_D-20.jpg", "152_mm_howitzer_D-20-4598.JPG", "Haubica_152mm_D_20_2011_7235.jpg"] },
   { label: "2-B16 Nona-K", group: "towed_artillery", type: "Järelveetav miinipilduja", cat: "2-B16 Nona-K", files: ["2B16_gun-howitzer-mortar_3.jpg", "ArtilleryExercise2020-12.jpg"] },
-  { label: "2B11 / 2S12", group: "towed_artillery", type: "Miinipilduja", cat: "2B11 / 2S12", files: ["120mm_2B11_mortar_-_4thTankDivisionOpenDay17p2-35.jpg", "CombatArtilleryExercise2018-02.jpg", "TacticalExerciseTsabal_08.jpg", "2S12A_-_Masters_of_artillery_fire_-_2017-02.jpg"] },
+  { label: "2B11 / 2S12", group: "towed_artillery", type: "Miinipilduja", cat: "2B11 / 2S12", files: ["120mm_2B11_mortar_-_4thTankDivisionOpenDay17p2-35.jpg", "CombatArtilleryExercise2018-02.jpg", "TacticalExerciseTsabal_08.jpg", "2S12A_-_Masters_of_artillery_fire_-_2017-02.jpg", "Артиллерийские_подразделения_ВДВ_поддерживая_огнем_десант_002.png"] },
   { label: "2B14 / 2B24", group: "towed_artillery", type: "Miinipilduja", cat: "2B14 / 2B24", files: ["Russian_troops_in_northeastern_Ukraine_%28February_2023%29.jpg", "AirborneExercise2017_06.jpg", "Russian_soldier_passed_a_82mm_mortar_shell.jpg"] },
   { label: "2B9 Vasiljok", group: "towed_artillery", type: "Automaatmiinipilduja", cat: "2B9 Vasiljok", files: ["82mm_automatic_mortar_2B9_Vasilek_-_Oboronexpo2014part3-27.jpg", "2B9_Vasilyok_in_Museum_of_technique_2016-08-16.JPG", "82mm_automatic_mortar_2B9_Vasilek_-_Oboronexpo2014part3-26.jpg"] },
   { label: "2B23 Nona-M1", group: "towed_artillery", type: "Järelveetav miinipilduja", cat: "2B23", files: ["Oboronexpo2014part3-24.jpg", "Oboronexpo2014part3-23.jpg"] },
@@ -197,7 +197,7 @@ const CATEGORIES = [
   { label: "ISDM Zemledelije", group: "engineer", type: "Kaugmineerimissüsteem", cat: "ISDM Zemledelije", files: ["Engineering_reconnaissance_and_firing_complex_Zemledelie_on_the_march.jpg", "ISDM_Zemledeliye_at_Army-2022.jpg"] },
 
   // Helikopterid
-  { label: "Mi-8 Hip", group: "helicopters", type: "Transpordikopter", cat: "Mi-8", files: ["Mi-8_AMTSH.jpg", "Moscow%2C_VDNKh%2C_Mi-8_July_2026_01.jpg", "VII_Małopolski_Piknik_Lotniczy_–_Mil_Mi-8_%281%29.jpg"] },
+  { label: "Mi-8 Hip", group: "helicopters", type: "Transpordikopter", cat: "Mi-8", files: ["Mi-8_AMTSH.jpg", "Moscow%2C_VDNKh%2C_Mi-8_July_2026_01.jpg", "VII_Małopolski_Piknik_Lotniczy_–_Mil_Mi-8_%281%29.jpg", "Russian_helicopter_in_Minsk%2C_Belarus_%2826_February_2022%29_2.jpg"] },
   { label: "Mi-24/Mi-35 Hind", group: "helicopters", type: "Ründekopter", cat: "Mi-24/Mi-35", files: ["Mil_Mi-24...%2C_Russia_-_Air_Force_AN2177076.jpg", "Mil_Mi-24...%2C_Russia_-_Air_Force_AN1773358.jpg", "Mil_Mi-24VM_Hind_formation_-_Zhukovsky_2012_%288715913306%29.jpg"] },
   { label: "Mi-28 Havoc", group: "helicopters", type: "Ründekopter", cat: "Mi-28", files: ["Russian_Air_Force%2C_RF-13489%2C_Mil_Mi-28NM_%2849581609382%29.jpg", "Mil_Mi-28N_Havoc%2C_Russia_-_Air_Force_JP6659611.jpg", "Mil_Mi-28_at_the_MAKS-2013_%2801%29.jpg", "Кадры_уничтожения_ударными_вертолетами_бронетехники_ВСУ_001.png", "Кадры_уничтожения_ударными_вертолетами_бронетехники_ВСУ_004.png"] },
   { label: "Ka-52 Hokum-B", group: "helicopters", type: "Ründekopter", cat: "Ka-52", files: ["Kamov_Ka-52.jpg", "MoscowVictoryDayParade2020_Ka-52_010_3407.jpg", "98_Yellow_Kamov_Ka-52_Russian_Air_Force_%288131768896%29.jpg", "Работа_армейской_авиации_ВКС_РФ_001.png", "Ударные_вертолеты_Ка-52_ВКС_России_005.png"] },
@@ -207,7 +207,7 @@ const CATEGORIES = [
   { label: "Mi-26 Halo", group: "helicopters", type: "Transpordikopter", cat: "Mi-26", files: ["Mil_Design_Bureau%2C_3112%2C_Mil_Mi-26T2_Halo_%2849581304097%29.jpg", "Mil_Mi-26_Halo_88_blue_%288594011266%29.jpg", "Mil_Mi-26_on_MAKS_airshow.JPG"] },
 
   // Lennukid
-  { label: "Su-25 Frogfoot", group: "planes", type: "Ründelennuk", cat: "Su-25", files: ["Sukhoi_Su-25_of_the_Russian_Air_Force_landing_at_Vladivostok_%288683076150%29.jpg", "SU-25_R3-6-25.jpg"] },
+  { label: "Su-25 Frogfoot", group: "planes", type: "Ründelennuk", cat: "Su-25", files: ["Sukhoi_Su-25_of_the_Russian_Air_Force_landing_at_Vladivostok_%288683076150%29.jpg", "SU-25_R3-6-25.jpg", "Су-25_повреждённый_ракетой_украинского_ПЗРК_вернулся_на_базу.png"] },
   { label: "Su-34 Fullback", group: "planes", type: "Ründe- ja pommituslennuk", cat: "Su-34", files: ["Russian_Air_Force_Sukhoi_Su-34_Beltyukov-1.jpg", "MAKS2015part1-10_%28cropped%29.jpg"] },
   { label: "Su-24 Fencer", group: "planes", type: "Ründe-, pommitus- ja luurelennuk", cat: "Su-24", files: ["Sukhoi_Su-24_inflight_Mishin.jpg", "Two_Russian_Sukhoi_Su-24_fly_over_the_USS_Donald_Cook_%28DDG_75%29.jpg"] },
   { label: "Su-27 Flanker", group: "planes", type: "Hävitaja", cat: "Su-27", files: ["Su-27SM3_in_flight%2C_Celebration_of_the_100th_anniversary_of_Russian_Air_Force.jpg", "Su-27_Stargard_%2824112757863%29.jpg"] },
