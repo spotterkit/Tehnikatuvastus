@@ -25,7 +25,7 @@
 // ============================================================================
 const CATEGORIES = [
   // Tankid
-  { label: "T-72", group: "tank", type: "Tank", cat: "T-72", files: ["T-72_Ruske_vojske_-_Odbrana_slobode_2019_Niš_1.jpg", "Продвижение_подразделений_ВС_РФ_в_ходе_вторжения_на_Украину_010.png", "Танк_Т-72Б.jpg", "Sloboda_2019_-_Ruski_T-72_02.jpg", "Dmitry_Medvedev_in_Orenburg_Oblast_26_September_2008-7.jpg", "images/tanks/t72_01.webp"] },
+  { label: "T-72", group: "tank", type: "Tank", cat: "T-72", files: ["T-72_Ruske_vojske_-_Odbrana_slobode_2019_Niš_1.jpg", "Продвижение_подразделений_ВС_РФ_в_ходе_вторжения_на_Украину_010.png", "Танк_Т-72Б.jpg", "Sloboda_2019_-_Ruski_T-72_02.jpg", "Dmitry_Medvedev_in_Orenburg_Oblast_26_September_2008-7.jpg", "images/tanks/t72_01.webp", "Рятувальники_витягли_російський_танк%2C_який_місяць_тому_потонув_у_річці_Псел_01.jpg"] },
   { label: "T-80", group: "tank", type: "Tank", cat: "T-80", files: ["4thTankBrigade_-_T-80U_-01.jpg/960px-4thTankBrigade_-_T-80U_-01.jpg", "Движение_техники_по_понтонной_переправе_через_Северский_Донец_004.png", "Движение_техники_по_понтонной_переправе_через_Северский_Донец_005.png", "T-80BVM_%282%29.jpg", "images/tanks/t80_01.jpg", "images/tanks/t80_02.jpg"] },
   { label: "T-90M", group: "tank", type: "Tank", cat: "T-90M", files: ["T-90M.jpg", "Engineering_Technologies_-_2012_%281-25%29.jpg", "T-90M_MBT_Army-2022_2022-08-20_2397.jpg", "Zapad_2017_%28Proving_Ground_Luzhsky%29_02.jpg", "images/tanks/t90m.webp", "images/tanks/t90m_02.jpg"] },
   { label: "T-90A", group: "tank", type: "Tank", cat: "T-90A", files: ["Moscow_2012_Victory_Day_Parade_Rehearsal%2C_T-90_tank%2C_Russia.jpg", "T-90A_front_Army-2016.jpg", "T-90A_MBT_photo011.jpg", "T-90A_with_OPVT_wading_snorkel_during_river_crossing_training_-_September_2023_01.jpg"] },
@@ -50,7 +50,7 @@ const CATEGORIES = [
   { label: "MT-LBMB", group: "ifv", type: "Jalaväe soomustransportöör", cat: "MT-LBMB", files: ["MT-LBM_6MB_-_Bronnitsy221.jpg", "MT-LBMB_with_MB2_combat_module_-_Bronnitsy.jpg"] },
 
   // Dessandi lahingumasinad
-  { label: "BMD-2", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-2", files: ["BMD-2_-_137AirborneRegiment29.jpg", "BMD-2_-_137AirborneRegiment01.jpg", "BMD-2_-_137AirborneRegiment36.jpg", "FinalCheck2018-25.jpg"] },
+  { label: "BMD-2", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-2", files: ["BMD-2_-_137AirborneRegiment29.jpg", "BMD-2_-_137AirborneRegiment01.jpg", "BMD-2_-_137AirborneRegiment36.jpg", "FinalCheck2018-25.jpg", "Російська_техніка%2C_маркована_V.jpg"] },
   { label: "BMD-4M", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-4M", files: ["BMD-4M_0002_copy.jpg", "BMD-4M_14.jpg", "Moscow%2C_Tverskaya_Street%2C_parade_rehearsal%2C_BMD-4_%2831092775422%29.jpg", "Battle_of_Hostomel%2C_04.03.2022%2C_Stuck_Russian_BMD-4.jpg", "images/airborne/bmd4m.jpg"] },
   { label: "BMD-1", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-1", files: ["BMD-1_Belarus.jpg", "Vdvcompetition11.jpg"] },
 
@@ -200,7 +200,7 @@ const CATEGORIES = [
   { label: "Mi-8 Hip", group: "helicopters", type: "Transpordikopter", cat: "Mi-8", files: ["Mi-8_AMTSH.jpg", "Moscow%2C_VDNKh%2C_Mi-8_July_2026_01.jpg", "VII_Małopolski_Piknik_Lotniczy_–_Mil_Mi-8_%281%29.jpg"] },
   { label: "Mi-24/Mi-35 Hind", group: "helicopters", type: "Ründekopter", cat: "Mi-24/Mi-35", files: ["Mil_Mi-24...%2C_Russia_-_Air_Force_AN2177076.jpg", "Mil_Mi-24...%2C_Russia_-_Air_Force_AN1773358.jpg", "Mil_Mi-24VM_Hind_formation_-_Zhukovsky_2012_%288715913306%29.jpg"] },
   { label: "Mi-28 Havoc", group: "helicopters", type: "Ründekopter", cat: "Mi-28", files: ["Russian_Air_Force%2C_RF-13489%2C_Mil_Mi-28NM_%2849581609382%29.jpg", "Mil_Mi-28N_Havoc%2C_Russia_-_Air_Force_JP6659611.jpg", "Mil_Mi-28_at_the_MAKS-2013_%2801%29.jpg", "Кадры_уничтожения_ударными_вертолетами_бронетехники_ВСУ_001.png", "Кадры_уничтожения_ударными_вертолетами_бронетехники_ВСУ_004.png"] },
-  { label: "Ka-52 Hokum-B", group: "helicopters", type: "Ründekopter", cat: "Ka-52", files: ["Kamov_Ka-52.jpg", "MoscowVictoryDayParade2020_Ka-52_010_3407.jpg", "98_Yellow_Kamov_Ka-52_Russian_Air_Force_%288131768896%29.jpg", "Работа_армейской_авиации_ВКС_РФ_001.png"] },
+  { label: "Ka-52 Hokum-B", group: "helicopters", type: "Ründekopter", cat: "Ka-52", files: ["Kamov_Ka-52.jpg", "MoscowVictoryDayParade2020_Ka-52_010_3407.jpg", "98_Yellow_Kamov_Ka-52_Russian_Air_Force_%288131768896%29.jpg", "Работа_армейской_авиации_ВКС_РФ_001.png", "Ударные_вертолеты_Ка-52_ВКС_России_005.png"] },
   { label: "Ka-29 Helix-B", group: "helicopters", type: "Mereväe ründe-transpordikopter", cat: "Ka-29", files: ["NavalFlyingAce2018-18.jpg", "Kamov_Ka-29_’62_yellow’_%2824656644148%29.jpg"] },
   { label: "Ka-27 Helix-A", group: "helicopters", type: "Allveelaevatõrje helikopter", cat: "Ka-27", files: ["Kamov_Ka-27M_RF-19115_at_Army-2022.jpg", "A_Russian_Helix_KA-27_%28cropped%29.jpg"] },
   { label: "Ka-31", group: "helicopters", type: "Eelhoiatus- ja õhuruumi juhtimise helikopter", cat: "Ka-31", files: ["Russian_Navy_Kamov_Ka-31.jpg", "Ka-31_%284288619876%29.jpg"] },
