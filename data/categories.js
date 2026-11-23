@@ -26,7 +26,7 @@
 const CATEGORIES = [
   // Tankid
   { label: "T-72", group: "tank", type: "Tank", cat: "T-72", files: ["T-72_Ruske_vojske_-_Odbrana_slobode_2019_Niš_1.jpg", "Kazan_T-72_2024-07-18_2451.jpg", "Танк_Т-72Б.jpg", "Sloboda_2019_-_Ruski_T-72_02.jpg", "Dmitry_Medvedev_in_Orenburg_Oblast_26_September_2008-7.jpg", "images/tanks/t72_01.webp"] },
-  { label: "T-80", group: "tank", type: "Tank", cat: "T-80", files: ["4thTankBrigade_-_T-80U_-01.jpg/960px-4thTankBrigade_-_T-80U_-01.jpg", "4thTankBrigade_-_T-80U_-11.jpg", "T-80BVM.jpg", "T-80BVM_%282%29.jpg", "images/tanks/t80_01.jpg", "images/tanks/t80_02.jpg"] },
+  { label: "T-80", group: "tank", type: "Tank", cat: "T-80", files: ["4thTankBrigade_-_T-80U_-01.jpg/960px-4thTankBrigade_-_T-80U_-01.jpg", "Движение_техники_по_понтонной_переправе_через_Северский_Донец_004.png", "T-80BVM.jpg", "T-80BVM_%282%29.jpg", "images/tanks/t80_01.jpg", "images/tanks/t80_02.jpg"] },
   { label: "T-90M", group: "tank", type: "Tank", cat: "T-90M", files: ["T-90M.jpg", "Engineering_Technologies_-_2012_%281-25%29.jpg", "T-90M_MBT_Army-2022_2022-08-20_2397.jpg", "Zapad_2017_%28Proving_Ground_Luzhsky%29_02.jpg", "images/tanks/t90m.webp", "images/tanks/t90m_02.jpg"] },
   { label: "T-90A", group: "tank", type: "Tank", cat: "T-90A", files: ["Moscow_2012_Victory_Day_Parade_Rehearsal%2C_T-90_tank%2C_Russia.jpg", "T-90A_front_Army-2016.jpg", "T-90A_MBT_photo011.jpg", "T-90A_with_OPVT_wading_snorkel_during_river_crossing_training_-_September_2023_01.jpg"] },
   { label: "T-62", group: "tank", type: "Tank", cat: "T-62", files: ["VNPA_T-62_-_092025.jpg", "images/tanks/t62_01.jpg"] },
@@ -35,7 +35,7 @@ const CATEGORIES = [
   // Jalaväe lahingumasinad
   { label: "BMP-2", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-2", files: ["BMP-2_of_Russian_Ground_Forces.jpg", "BMP-2_%281%29.jpg", "BMP-2_-_TankBiathlon14part1-11.jpg", "images/ifv/bmp2_01.jpg", "images/ifv/bmp2_02.jpg"] },
   { label: "BMP-3", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-3", files: ["Destruction_of_Russian_tanks_by_Ukrainian_troops_in_Mariupol_%284%29.jpg", "BMP-3_%2841204909204%29.jpg", "BMP-3_infantry_fighting_vehicle_at_Engineering_Technologies_2012_02.jpg", "images/ifv/bmp3_01.webp", "Engineering_Technologies_-_2012_%281-37%29.jpg"] },
-  { label: "BMP-1", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-1", files: ["Kazan_BMP-1_2024-07-18_2453.jpg", "images/ifv/bmp1_01.webp", "БМП-1_с_учебного_полигона_Алматинского_Института_Сухопутных_Войск.JPG"] },
+  { label: "BMP-1", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-1", files: ["Kazan_BMP-1_2024-07-18_2453.jpg", "images/ifv/bmp1_01.webp", "БМП-1_с_учебного_полигона_Алматинского_Института_Сухопутных_Войск.JPG", "Движение_колонн_ВС_РФ_и_охрана_моста_в_Киевской_области_03.png"] },
   { label: "BMP-1AM Basurmanin", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-1AM Basurmanin", files: ["images/ifv/bmp1am.jpg", "BMP-1AM_with_BTR-82A_turret_at_ARMY-2018.jpg"] },
   { label: "BMP-2M Berežok", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-2M Berežok", files: ["BMP-2_with_modernized_turret_at_Engineering_Technologies_2012_02.jpg", "images/ifv/bmp2m.jpg"] },
 
