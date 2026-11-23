@@ -86,7 +86,7 @@ const CATEGORIES = [
   // Mitmikraketiheitjad (reaktiivsuurtükid)
   { label: "BM-21 Grad", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-21 Grad", files: ["BM_-_21_Grad.jpg", "BM-21_Grad_%2803%29.jpg", "images/mlrs/bm21_01.jpg"] },
   { label: "Tornado-G/BM-21-1 (2B17M)", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "Tornado-G/BM-21-1 (2B17M)", files: ["Army2016demo-062.jpg"] },
-  { label: "BM-27 Uragan", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-27 Uragan", files: ["BM-27_Uragan.jpg", "Uragan_MLRS_of_the_52nd_Artillery_Brigade_%282%29.png", "165th_Artillery_Brigade%27s_9K57_Uragan_MLRS_06.jpg"] },
+  { label: "BM-27 Uragan", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-27 Uragan", files: ["BM-27_Uragan.jpg", "Uragan_MLRS_of_the_52nd_Artillery_Brigade_%282%29.png", "165th_Artillery_Brigade%27s_9K57_Uragan_MLRS_06.jpg", "Передача_трофейной_украинской_техники_и_вооружения_подразделениям_ЛНР_008.png"] },
   { label: "BM-30 Smertš", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-30 Smertš", files: ["BM-30_Smerch%2C_2010.jpg", "9A52_Smerch_2017-12-24.jpg", "9A52_of_300-mm_multiple_rocket_launching_system_9K58_«Smerch»%2C_Artillery_museum%2C_Saint-Petersburg_pic4.JPG"] },
   { label: "TOS-1A Solntsepjok", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-1A Solntsepjok", files: ["TZM-T_of_the_TOS-1A_system_%281%29.jpg", "TOS-1A_MRL_during_the_the_May_Parade_2010.jpeg", "TOS-1A_before_firing.jpg"] },
   { label: "9T234-2", group: "mlrs", type: "Mitmikraketiheitja Smertš laadimismasin", cat: "9T234-2", files: ["Army2016demo-070.jpg"] },
@@ -235,7 +235,7 @@ const CATEGORIES = [
 
   // Maasturid ning tagala- ja toetusmasinad
   { label: "BREM-D", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-D", files: ["Army2016-297.jpg"] },
-  { label: "BREM-1", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-1", files: ["BREM-1_-_ETIF-2010_%281%29.jpg", "BREM-1_-_TankBiathlon14part1-48.jpg"] },
+  { label: "BREM-1", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-1", files: ["BREM-1_-_ETIF-2010_%281%29.jpg", "BREM-1_-_TankBiathlon14part1-48.jpg", "Передача_трофейной_украинской_техники_и_вооружения_подразделениям_ЛНР_015.png"] },
   { label: "BREM-2", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-2", files: ["BREM-2_in_Patriot_Park.jpg", "BREM-2_armored_recovery_vehicle.jpg"] },
   { label: "BREM-K", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-K", files: ["BREM-K_-_TankBiathlon14part2-07.jpg", "Army2016-303.jpg"] },
   { label: "URAL-43206", group: "trucks", type: "Veok", cat: "URAL-43206", files: ["Interpolitex_2012_%28478-14%29.jpg"] },
