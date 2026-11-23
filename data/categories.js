@@ -286,8 +286,8 @@ const CATEGORIES = [
   { label: "55Zh6M Nebo-M", group: "ad", type: "ÕT radar", cat: "55Zh6M Nebo-M", files: ["55Zh6M_Nebo-M_mobile_multiband_radar_system_-02.jpg"] },
 
   // Tankitõrjesoomukid
-  { label: "9P149 Shturm-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P149 Shturm-S", files: ["9P149.jpg", "Штурм-С_-_Контрольная_проверка_курсантов_Учебного_центра_боевого_применения_ракетных_войск_и_артиллерии_02.jpg", "images/antitank/shturms_01.jpg"] },
-  { label: "9P157-2 Krizantema-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P157-2 Krizantema-S", files: ["9P157-2_combat_vehicle_of_9K123_Khrizantema-S_AT_system_at_Engineering_Technologies_2012.jpg", "Oboronexpo2014part3-35.jpg", "May_5th_rehearsal_of_2014_Victory_Day_Parade_in_Moscow_%28562-22%29.jpg"] },
+  { label: "9P149 Shturm-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P149 Shturm-S", files: ["9P149.jpg", "Штурм-С_-_Контрольная_проверка_курсантов_Учебного_центра_боевого_применения_ракетных_войск_и_артиллерии_02.jpg", "images/antitank/shturms_01.jpg", "Army2016demo-028.jpg", "Battle_of_Konotop_24.jpg"] },
+  { label: "9P157-2 Krizantema-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P157-2 Krizantema-S", files: ["9P157-2_combat_vehicle_of_9K123_Khrizantema-S_AT_system_at_Engineering_Technologies_2012.jpg", "Oboronexpo2014part3-35.jpg", "May_5th_rehearsal_of_2014_Victory_Day_Parade_in_Moscow_%28562-22%29.jpg", "May_5th_rehearsal_of_2014_Victory_Day_Parade_in_Moscow_%28562-20%29.jpg", "April_9th_rehearsal_in_Alabino_of_2014_Victory_Day_Parade_%28558-27%29.jpg"] },
   { label: "2S25 Sprut-SD", group: "antitank", type: "Tankitõrjesoomuk", cat: "2S25 Sprut-SD", files: ["2S25_Sprut-SD_at_Army_2016.jpg", "2S25_Mod_Army-2022_2022-08-20_2209.jpg"] },
   { label: "BTR-RD", group: "antitank", type: "Dessandi tankitõrjesoomuk", cat: "BTR-RD", files: ["BTR-RD-1.JPG"] },
   { label: "9P162 Kornet-T", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P162 Kornet-T", files: ["Kornet-T_in_1000th_Training_Center_of_Rocket_and_Artillery_Troops_01.jpg", "images/antitank/kornett_01.jpg"] },
