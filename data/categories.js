@@ -175,7 +175,7 @@ const CATEGORIES = [
   { label: "IMR-2", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-2", files: ["RIAN_archive_734015_Wildfires_in_Moscow_Region%27s_Lukhovitsky_district.jpg", "EngineerFieldRide2017-07.jpg"] },
   { label: "BAT-2", group: "engineer", type: "Roomikbuldooser", cat: "BAT-2", files: ["OpenWater2017qualifying-44.jpg", 'Track_laying_vehicle_BAT-2M_during_the_"Armiya_2021"_exhibition.jpg'] },
   { label: "MTU-72", group: "engineer", type: "Sillatank", cat: "MTU-72", files: ["Army2016demo-098.jpg", "TankBiathlon14final-92.jpg"] },
-  { label: "UR-77 Meteorit", group: "engineer", type: "Demineerimissoomuk", cat: "UR-77", files: ["EngineerExercise2020-19.jpg", "UR-77.jpg"] },
+  { label: "UR-77 Meteorit", group: "engineer", type: "Demineerimissoomuk", cat: "UR-77", files: ["EngineerExercise2020-19.jpg", "UR-77.jpg", "AssaultExercise2017-06.jpg"] },
   { label: "PTS-2", group: "engineer", type: "Amfiibtransportöör", cat: "PTS-2", files: ["PTS-2_-_RaceofHeroes-part2-35.jpg", "PTS-2_-_RaceofHeroes-part2-36.jpg"] },
   { label: "PTS-4", group: "engineer", type: "Amfiibtransportöör", cat: "PTS-4", files: ["PTS-4_RAE-2013_2.jpg"] },
   { label: "MTU-90", group: "engineer", type: "Sillatank", cat: "MTU-90", files: ["MTU-90_3.jpg"] },
