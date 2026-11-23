@@ -5,7 +5,7 @@
 // "draft": true = mustand (kuvatakse kollase märkega "kontrollimata").
 // Pilt on lokaalne ja kuulub offline-assets.json-i. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.WHAT_DATA = {
-  "version": 3,
+  "version": 4,
   "models": {
     "T-62": {
       "image": "images/what/T-62_what.webp",
@@ -56,7 +56,8 @@ window.WHAT_DATA = {
             {"name": "BMO-T", "cat": "BMO-T"},
             {"name": "BMP-T „TERMINATOR“", "cat": "BMP-T"},
             {"name": "TOS-1 „BURATINO“", "cat": "TOS-1 Buratino"},
-            {"name": "TOS-1A", "cat": "TOS-1A"},
+            {"name": "TOS-1A „SOLNTSEPJOK“", "cat": "TOS-1A Solntsepjok"},
+            {"name": "TZM-T", "cat": "TOS-1"},
             {"name": "BREM-1", "cat": "BREM-1"},
             {"name": "IMR-2", "cat": "IMR-2"},
             {"name": "MTU-72", "cat": "MTU-72"},
@@ -358,7 +359,7 @@ window.WHAT_DATA = {
         {
           "label": "Moderniseeritud versioon",
           "models": [
-            {"name": "MT-LBM", "cat": "MT-LBM"}
+            {"name": "MT-LBMB", "cat": "MT-LBMB"}
           ]
         }
       ]

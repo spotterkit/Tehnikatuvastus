@@ -639,6 +639,7 @@ window.I18N_DATA = {
   },
   // Liigid (CATEGORIES `type`). Terminid: NATOTerm / APP-6, kinnitatud terminiloendiga 13.11.2026.
   "types": {
+    "TOS-1A transpordi- ja laadimismasin": "TOS-1A transporter-loader",
     "Kaugmineerimissüsteem": "Remote minelaying system",
     "Tank": "Main battle tank (MBT)",
     "Tankituletoetusmasin": "Tank support fighting vehicle",
@@ -1131,6 +1132,25 @@ window.I18N_DATA = {
   },
   // TTA tekstid: "eestikeelne tekst failis tta.js": "English". Numbreid ei tõlgita. Muudetud eestikeelne tekst vajab uut tõlget.
   "ttaText": {
+    "T-72A tanki šassii (Objekt 563)": "T-72A tank chassis (Object 563)",
+    "V-84 diisel": "V-84 diesel",
+    "Relvastuseta (meeskonna isikurelvad)": "Unarmed (crew personal weapons)",
+    "TOS-1A laadimismasin: 24 raketti (2 × 12) soomustatud konteinerites, hüdrauliline kraana (10 kN) BM-1 laadimiseks; veab ka 400 l kütust BM-1 jaoks. Tavaliselt toetab üks TZM-T kuni nelja BM-1 lahingumasinat": "TOS-1A transporter-loader: 24 rockets (2 × 12) in armoured containers, hydraulic crane (10 kN) for reloading the BM-1; also carries 400 l of fuel for the BM-1. One TZM-T normally supports up to four BM-1 launch vehicles",
+    "Laskemoona soomuskate on eemaldatav": "Removable armour cover for the ammunition",
+    "Kiirus nagu BM-1-l.": "Speed as for the BM-1.",
+    "Varasem TZM oli KrAZ-255B veoki šassiil; ratas-TZM (563K) on KAMAZ-63501 šassiil.": "The earlier TZM was on a KrAZ-255B truck chassis; the wheeled TZM (563K) is on a KAMAZ-63501 chassis.",
+    "Sisepõlemis-kolbmootor, kahelabaline veopropeller": "Internal combustion piston engine, two-blade tractor propeller",
+    "Güroskoopstabiliseeritud optoelektrooniline jaam: päevakaamera (suum), termokaamera 640 × 480, sihtimiskaamera; laserkaugusmõõtja-sihtmärgivalgusti (200–8000 m)": "Gyro-stabilised electro-optical turret: day camera (zoom), 640 × 480 thermal imager, sighting camera; laser rangefinder-designator (200–8,000 m)",
+    "Katapultstart, langevarjuga maandumine. Juhib täppis-suurtükiväe- ja lennukimoona (laseriga sihtmärgi valgustamine). Maajaam juhib kuni nelja drooni korraga": "Catapult launch, parachute recovery. Guides precision artillery and air munitions (laser target designation). The ground station controls up to four UAVs at a time",
+    "Andmeside ulatus; autonoomselt kuni 300 km.": "Data-link range; up to 300 km autonomously.",
+    "Mõnes allikas kuni 8 kg.": "Up to 8 kg in some sources.",
+    "2–3 + 16": "2–3 + 16",
+    "Ural-4320 (6×6 veok), soomustatud ümberehitus": "Ural-4320 (6×6 truck), armoured conversion",
+    "YaMZ-238M2 diisel": "YaMZ-238M2 diesel",
+    "Relvastuseta; laskeavad kabiini klaasides ja kere kuulikindlate akende all": "Unarmed; firing ports in the cab glazing and below the bulletproof windows of the troop compartment",
+    "Soomustatud kere seinad (GOST 50963-96 6. klass), lisasoomus kapotil ja kabiinil": "Armoured troop compartment walls (GOST 50963-96 class 6), additional armour on the bonnet and cab",
+    "287 + 60 l.": "287 + 60 l.",
+    "Algselt siseministeeriumi (MVD) sisevägedele; sõdurite hüüdnimi „Pokémon“. Ümber ehitatud üle 500 masina (2000–2010).": "Originally for the Interior Ministry (MVD) Internal Troops; soldiers' nickname “Pokémon”. More than 500 vehicles converted (2000–2010).",
     "3 + 4 dessantväelast": "3 + 4 troops",
     "5D20 V6 diisel": "5D20 V6 diesel",
     "30mm 2A42 automaatkahur (300 lasku)": "30mm 2A42 automatic cannon (300 rounds)",

@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 24,
+  "version": 25,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -1563,7 +1563,86 @@ window.TTA_DATA = {
         {"name": "Wikipedia: BM-30 Smerch", "url": "https://en.wikipedia.org/wiki/BM-30_Smerch", "retrieved": "2026-10-07"}
       ]
     },
-    "TOS-1A": {
+    "TOS-1": {
+      "status": "unverified",
+      "values": {
+        "crew": "3 (ülem, operaator, juht)",
+        "chassis": "T-72A tanki šassii (Objekt 563)",
+        "combatWeight": 39,
+        "engine": "V-84 diisel",
+        "power": 840,
+        "maxSpeedRoad": 60,
+        "mainArmament": "Relvastuseta (meeskonna isikurelvad)",
+        "specialEquipment": "TOS-1A laadimismasin: 24 raketti (2 × 12) soomustatud konteinerites, hüdrauliline kraana (10 kN) BM-1 laadimiseks; veab ka 400 l kütust BM-1 jaoks. Tavaliselt toetab üks TZM-T kuni nelja BM-1 lahingumasinat",
+        "armor": "Laskemoona soomuskate on eemaldatav"
+      },
+      "notes": {
+        "maxSpeedRoad": "Kiirus nagu BM-1-l.",
+        "specialEquipment": "Varasem TZM oli KrAZ-255B veoki šassiil; ratas-TZM (563K) on KAMAZ-63501 šassiil."
+      },
+      "sources": [
+        {"name": "Wikipedia: TOS-1", "url": "https://en.wikipedia.org/wiki/TOS-1", "retrieved": "2026-11-23"},
+        {"name": "WeaponSystems.net: TOS-1A Solntsepyok", "url": "https://weaponsystems.net/system/322-TOS-1A+Solntsepyok", "retrieved": "2026-11-23"}
+      ]
+    },
+    "Orlan-30": {
+      "status": "unverified",
+      "values": {
+        "wingspan": 3.9,
+        "maxTakeoffWeightKg": 30,
+        "payload": 5,
+        "engine": "Sisepõlemis-kolbmootor, kahelabaline veopropeller",
+        "cruiseSpeed": 90,
+        "maxSpeed": 150,
+        "serviceCeiling": 3500,
+        "endurance": 8,
+        "controlRange": 120,
+        "ferryRange": 300,
+        "sensors": "Güroskoopstabiliseeritud optoelektrooniline jaam: päevakaamera (suum), termokaamera 640 × 480, sihtimiskaamera; laserkaugusmõõtja-sihtmärgivalgusti (200–8000 m)",
+        "specialEquipment": "Katapultstart, langevarjuga maandumine. Juhib täppis-suurtükiväe- ja lennukimoona (laseriga sihtmärgi valgustamine). Maajaam juhib kuni nelja drooni korraga"
+      },
+      "notes": {
+        "controlRange": "Andmeside ulatus; autonoomselt kuni 300 km.",
+        "payload": "Mõnes allikas kuni 8 kg."
+      },
+      "sources": [
+        {"name": "EDR Magazine: ADEX 2024 – Orlan-30 UAV", "url": "https://www.edrmagazine.eu/rosoboronexport-showcases-the-orlan-30-uav-for-the-first-time-in-the-caspian-region", "retrieved": "2026-11-23"}
+      ]
+    },
+    "Ural-4320 Zvezda-V": {
+      "status": "unverified",
+      "values": {
+        "crew": "2–3 + 16",
+        "chassis": "Ural-4320 (6×6 veok), soomustatud ümberehitus",
+        "driveConfig": "6×6",
+        "combatWeight": 13.8,
+        "loadCapacity": 3375,
+        "length": 7.66,
+        "width": 2.5,
+        "height": 3.27,
+        "engine": "YaMZ-238M2 diisel",
+        "maxSpeedRoad": 85,
+        "range": 1080,
+        "fuelCapacity": 347,
+        "groundClearance": 400,
+        "gradient": 60,
+        "sideSlope": 40,
+        "trench": 0.7,
+        "verticalStep": 0.8,
+        "fording": 1.5,
+        "mainArmament": "Relvastuseta; laskeavad kabiini klaasides ja kere kuulikindlate akende all",
+        "armor": "Soomustatud kere seinad (GOST 50963-96 6. klass), lisasoomus kapotil ja kabiinil"
+      },
+      "notes": {
+        "combatWeight": "Täismass.",
+        "fuelCapacity": "287 + 60 l.",
+        "crew": "Algselt siseministeeriumi (MVD) sisevägedele; sõdurite hüüdnimi „Pokémon“. Ümber ehitatud üle 500 masina (2000–2010)."
+      },
+      "sources": [
+        {"name": "Armed Conflicts (valka.cz): Ural-4320 Zvezda-V", "url": "https://www.armedconflicts.com/Ural-4320-Zvezda-V-t250901", "retrieved": "2026-11-23"}
+      ]
+    },
+    "TOS-1A Solntsepjok": {
       "status": "unverified",
       "values": {
         "crew": "3",
@@ -8303,7 +8382,7 @@ window.TTA_DATA = {
         {"name": "Wikipedia: Tornado (multiple rocket launcher)", "url": "https://en.wikipedia.org/wiki/Tornado_(multiple_rocket_launcher)", "retrieved": "2026-11-20"}
       ]
     },
-    "MT-LBM": {
+    "MT-LBMB": {
       "status": "unverified",
       "values": {
         "chassis": "MT-LB",
