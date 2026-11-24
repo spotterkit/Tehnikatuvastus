@@ -44,7 +44,7 @@ const CATEGORIES = [
   { label: "BTR-82A", group: "ifv", type: "Jalaväe soomustransportöör", cat: "BTR-82A", files: ["BTR-82_%2841072268395%29.jpg", "Interpolitex2016part2-52.jpg", "Движение_колонны_бронетехники_ВС_РФ_003.png", "Залишений_російський_танк%2C_Броварський_район%2C_с._Плоске.jpg", "SpecialEngineerExercise2019-13.jpg", "Движение_техники_по_понтонной_переправе_через_Северский_Донец_009.png"] },
   { label: "MT-LB", group: "ifv", type: "Jalaväe soomustransportöör", cat: "MT-LB", files: ["Soviet_MT-LB.JPEG/960px-Soviet_MT-LB.JPEG", "202nd_Air_Defence_Brigade_-_MT-LB_-_002.jpg", "Russian_troops_in_Novoaidar%2C_6_March_2022.png", "Vostok-2014-13.jpg", "ArcticBrigadeTacticalTraining-02.jpg", "Golomyanny_Island_12.jpg"] },
   { label: "MT-LBu", group: "ifv", type: "Alusplatvorm erisoomukitele", cat: "MT-LBu", files: ["ParkPatriot2015part11-139.jpg", "ParkPatriot2015part4-67.jpg", "ParkPatriot2015part4-65.jpg"] },
-  { label: "BMO-T", group: "ifv", type: "Raske soomustransportöör", cat: "BMO-T", files: ["Army2016demo-030.jpg", "Українські_військові_знищили_БМО-Т.jpg", "Heavy_flamethrower_personnel_carrier_BMO-T_%285%29.jpg", "Heavy_flamethrower_personnel_carrier_BMO-T_%285%29.jpg"] },
+  { label: "BMO-T", group: "ifv", type: "Raske soomustransportöör", cat: "BMO-T", files: ["Army2016demo-030.jpg", "Українські_військові_знищили_БМО-Т.jpg", "Heavy_flamethrower_personnel_carrier_BMO-T_%285%29.jpg", "Army2016demo-031.jpg"] },
   { label: "BTR-60", group: "ifv", type: "Jalaväe soomustransportöör", cat: "BTR-60", files: ["Бронетраспортер_БТР-60.jpg", "Шклоў._Бранятэхніка_%2803%29.jpg", "Memorial_complex_on_Victory_Square_in_Vitebsk_-_058.jpg"] },
   { label: "BTR-70", group: "ifv", type: "Jalaväe soomustransportöör", cat: "BTR-70", files: ["2015-05-05._Репетиция_парада_Победы_086.jpg", "Verkhnyaya_Pyshma_Tank_Museum_2012_0202.jpg", "Strategic_all-around_20.jpg"] },
   { label: "MT-LBMB", group: "ifv", type: "Jalaväe soomustransportöör", cat: "MT-LBMB", files: ["MT-LBM_6MB_-_Bronnitsy221.jpg", "MT-LBMB_with_MB2_combat_module_-_Bronnitsy.jpg"] },
@@ -68,7 +68,7 @@ const CATEGORIES = [
   { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", files: ["RehearsalTula02052017-05.jpg", "1V119_%22Reostat%22.jpg"] },
   { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", files: ["images/artillery_recon/ark1_01.jpg", "images/artillery_recon/ark12.jpg"] },
   { label: "1V15", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V15", files: ["images/artillery_recon/1v15_01.webp", "ACRV_M_1974%282%29_IV15_%287527973628%29_%28cropped%29.jpg"] },
-  { label: "1V152 (1V126 Kapustnik-B)", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk", cat: "1V152 (1V126 Kapustnik-B)", files: ["Army2016-495.jpg"] },
+  { label: "1V152 (1V126 Kapustnik-B)", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk", cat: "1V152 (1V126 Kapustnik-B)", files: ["images/artillery_recon/1v152.png"] },
   { label: "1B75 Penicilin", group: "artillery_recon", type: "Passiivne suurtükiväeluure kompleks", cat: "1B75 Penicilin", files: ["images/artillery_recon/1B75Penicillin.jpg"] },
 
   // Liikursuurtükid ja -miinipildujad
@@ -309,7 +309,7 @@ const CATEGORIES = [
   { label: "VPK-3927-1 Volk-1", group: "recon_special", type: "Soomustatud auto", cat: "VPK-3927-1 Volk-1", files: ["VPK_-3927_Volk_01.jpg"] },
   { label: "Kamaz-5350 Z-STS Akhmat", group: "recon_special", type: "Soomustatud veok", cat: "Kamaz-5350 Z-STS Akhmat", files: ["Z-STS_KamAZ-5350_Army-2022_2022-08-20_2668.jpg"] },
   { label: "AMN-590951 Spartak (VPK-Ural)", group: "recon_special", type: "Soomustatud auto", cat: "AMN-590951 Spartak (VPK-Ural)", files: ["MIC-Ural_-_Army-2022_07.jpg"] },
-  { label: "Ural-4320 Zvezda-V", group: "apc", type: "Soomustatud veok", cat: "Ural-4320 Zvezda-V", files: ["Interpolitex2015part1-20.jpg", "VVday2015_49.jpg"] },
+  { label: "Ural-4320 Zvezda-V", group: "recon_special", type: "Soomustatud veok", cat: "Ural-4320 Zvezda-V", files: ["Interpolitex2015part1-20.jpg", "VVday2015_49.jpg"] },
 
   // Side- ja juhtimissoomukid ning autod
   { label: "BMP-1Ksh", group: "comms", type: "Juhtimissoomuk", cat: "BMP-1Ksh", files: ["ParkPatriot2015part10-24.jpg", "ParkPatriot2015part11-131.jpg", "ParkPatriot2015part11-133.jpg"] },
