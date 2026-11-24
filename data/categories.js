@@ -52,7 +52,7 @@ const CATEGORIES = [
   // Dessandi lahingumasinad
   { label: "BMD-2", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-2", files: ["BMD-2_-_137AirborneRegiment29.jpg", "BMD-2_-_137AirborneRegiment01.jpg", "BMD-2_-_137AirborneRegiment36.jpg", "FinalCheck2018-25.jpg", "Російська_техніка%2C_маркована_V.jpg"] },
   { label: "BMD-4M", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-4M", files: ["BMD-4M_0002_copy.jpg", "BMD-4M_14.jpg", "Moscow%2C_Tverskaya_Street%2C_parade_rehearsal%2C_BMD-4_%2831092775422%29.jpg", "Battle_of_Hostomel%2C_04.03.2022%2C_Stuck_Russian_BMD-4.jpg", "images/airborne/bmd4m.jpg", "BMD-4M_-_0-12.jpg"] },
-  { label: "BMD-1", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-1", files: ["BMD-1_Belarus.jpg", "Vdvcompetition11.jpg"] },
+  { label: "BMD-1", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-1", files: ["BMD-1_Belarus.jpg", "Vdvcompetition11.jpg", "BMD-1P_Army-2022_2022-08-20_2656.jpg"] },
 
   // Dessandi soomustransportöörid
   { label: "BTR-D", group: "airborne", type: "Dessandi soomustransportöör", cat: "BTR-D", files: ["Vdvcompetition10.jpg", "106th_Guards_Airborne_Division_%28394-39%29.jpg", "Несение_службы_военнослужащими_ВДВ_на_блокпостах_в_Киевской_области_006.png", "TacticalExercise2018-02.jpg", "Vdvcompetition07.jpg"] },
@@ -97,12 +97,12 @@ const CATEGORIES = [
   { label: "D-30", group: "towed_artillery", type: "Haubits", cat: "D-30", files: ["122mm_howitzer_D-30_-_Armory_masters4.jpg", "122_mm_Howitzer_D-30_2017-12-24.JPG", "D-30A%2C_122-mm_howitzer_04.jpg", "83rd_Guards_Air_Assault_Brigade%27s_artillery_exercise_%2827-03-2020%29_09.jpg", "CombatArtilleryExercise2018-08.jpg"] },
   { label: "2A65", group: "towed_artillery", type: "Suurtükk", cat: "2A65", files: ["2A65_howitzer.jpg", "2A65_Msta-B_howitzer_%2814-11-2019%29_05.jpg", "2A65_Msta-B_howitzer_%2824-10-2017%29_03.jpg", "На_Харківщині_українські_бійці_розгромили_чергову_партію_техніки_окупантів_03.jpg"] },
   { label: "2A36", group: "towed_artillery", type: "Suurtükk", cat: "2A36", files: ["ParkPatriot2015part6-62.jpg", "CheboksaryMemorialPark-36.jpg", "2А36_с_тягачом-машиной_управления_огня.JPG", "images/artillery/2a36_01.jpg"] },
-  { label: "D-20", group: "towed_artillery", type: "Haubits", cat: "D-20", files: ["Howitzer_D-20.jpg", "152_mm_howitzer_D-20-4598.JPG", "Haubica_152mm_D_20_2011_7235.jpg"] },
-  { label: "2-B16 Nona-K", group: "towed_artillery", type: "Järelveetav miinipilduja", cat: "2-B16 Nona-K", files: ["2B16_gun-howitzer-mortar_3.jpg", "ArtilleryExercise2020-12.jpg"] },
+  { label: "D-20", group: "towed_artillery", type: "Haubits", cat: "D-20", files: ["Howitzer_D-20.jpg", "152_mm_howitzer_D-20-4598.JPG", "Haubica_152mm_D_20_2011_7235.jpg", "Cheboksary11.jpg"] },
+  { label: "2-B16 Nona-K", group: "towed_artillery", type: "Järelveetav miinipilduja", cat: "2-B16 Nona-K", files: ["2B16_gun-howitzer-mortar_3.jpg", "ArtilleryExercise2020-12.jpg", "ArtilleryExercise2020-05.jpg", "ArtilleryExercise2020-10.jpg"] },
   { label: "2B11 / 2S12", group: "towed_artillery", type: "Miinipilduja", cat: "2B11 / 2S12", files: ["120mm_2B11_mortar_-_4thTankDivisionOpenDay17p2-35.jpg", "CombatArtilleryExercise2018-02.jpg", "TacticalExerciseTsabal_08.jpg", "2S12A_-_Masters_of_artillery_fire_-_2017-02.jpg", "Артиллерийские_подразделения_ВДВ_поддерживая_огнем_десант_002.png"] },
   { label: "2B14 / 2B24", group: "towed_artillery", type: "Miinipilduja", cat: "2B14 / 2B24", files: ["Russian_troops_in_northeastern_Ukraine_%28February_2023%29.jpg", "AirborneExercise2017_06.jpg", "Russian_soldier_passed_a_82mm_mortar_shell.jpg"] },
   { label: "2B9 Vasiljok", group: "towed_artillery", type: "Automaatmiinipilduja", cat: "2B9 Vasiljok", files: ["82mm_automatic_mortar_2B9_Vasilek_-_Oboronexpo2014part3-27.jpg", "2B9_Vasilyok_in_Museum_of_technique_2016-08-16.JPG", "82mm_automatic_mortar_2B9_Vasilek_-_Oboronexpo2014part3-26.jpg"] },
-  { label: "2B23 Nona-M1", group: "towed_artillery", type: "Järelveetav miinipilduja", cat: "2B23", files: ["Oboronexpo2014part3-24.jpg", "Oboronexpo2014part3-23.jpg"] },
+  { label: "2B23 Nona-M1", group: "towed_artillery", type: "Järelveetav miinipilduja", cat: "2B23", files: ["Oboronexpo2014part3-24.jpg", "Oboronexpo2014part3-23.jpg", "2B23_Nona-M1.jpg"] },
 
   // Laevad
   { label: "Ropucha II / III klass", group: "ships", type: "Suur maabumisalus", cat: "Ropucha II / III klass", files: ["Project_775M_AZOV_2008_G1.jpg", "Kaliningrad2004Cartagena.jpg"] },
