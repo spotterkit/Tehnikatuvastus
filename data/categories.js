@@ -60,14 +60,14 @@ const CATEGORIES = [
 
   // Suurtükiväe luure-, juhtimis- ja tulejuhtimissoomukid
   { label: "PRP-3", group: "artillery_recon", type: "STV luure- ja tulejuhtimissoomuk", cat: "PRP-3", files: ["images/artillery_recon/prp3_01.jpg", "images/artillery_recon/prp3_02.jpg"] },
-  { label: "PRP-4", group: "artillery_recon", type: "STV luure- ja tulejuhtimissoomuk", cat: "PRP-4", files: ["Russia_Arms_Expo_2013_%28531-22%29.jpg", "Army2016-510.jpg"] },
+  { label: "PRP-4", group: "artillery_recon", type: "STV luure- ja tulejuhtimissoomuk", cat: "PRP-4", files: ["Russia_Arms_Expo_2013_%28531-22%29.jpg", "Army2016-510.jpg", "Land_Forces_%2826855856672%29.jpg", "Army2016-514.jpg"] },
   { label: "SNAR-10", group: "artillery_recon", type: "STV Luure- ja tulejuhtimissoomuk", cat: "SNAR-10", files: ["MAKS2015part6-08.jpg", "Oboronexpo2014part3-57.jpg", "ArtilleryExercise2014-07.jpg"] },
   { label: "ZOOPARK-1", group: "artillery_recon", type: "STV vastutuleradar", cat: "ZOOPARK-1", files: ["ArtilleryExercise2014-06.jpg", "1L219M_back_view_MAKS2005.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_02.jpg"] },
   { label: "1V13", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V13", files: ["Engineering_Technologies_2010_Part4_0033_copy.jpg", "Engineering_Technologies_2010_Part4_0034_copy.jpg"] },
   { label: "1V18", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V18", files: ["2018._Донецк_N_18_DSC_8191.jpg", "2014-12-06._Площадка_военной_техники_в_парке_Ленинского_комсомола_07.JPG"] },
   { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", files: ["RehearsalTula02052017-05.jpg", "1V119_%22Reostat%22.jpg"] },
   { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", files: ["images/artillery_recon/ark1_01.jpg", "images/artillery_recon/ark12.jpg"] },
-  { label: "1V15", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V15", files: ["images/artillery_recon/1v15_01.webp"] },
+  { label: "1V15", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V15", files: ["images/artillery_recon/1v15_01.webp", "ACRV_M_1974%282%29_IV15_%287527973628%29_%28cropped%29.jpg"] },
   { label: "1V152", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk (Kapustnik-B osis)", cat: "1V152", files: ["Army2016-495.jpg"] },
   { label: "1B75 Penicilin", group: "artillery_recon", type: "Passiivne suurtükiväeluure kompleks", cat: "1B75 Penicilin", files: ["images/artillery_recon/1B75Penicillin.jpg"] },
 
@@ -76,11 +76,11 @@ const CATEGORIES = [
   { label: "2S3 Akatsija", group: "spg", type: "Liikursuurtükk", cat: "2S3 Akatsiya", files: ["2S3_Akatsiya_3261.jpg", "2S3_Akatsiya_2017-12-24.jpg", "Northern_Fleet_artillery_combat_training_in_Murmansk_-_January_2023_07.jpg", "images/artillery/2s3_01.webp", "ArtilleryExercise2020-03.jpg", "Акация_-_Боевые_стрельбы_гаубичного_самоходно-артиллерийского_дивизиона_соединения_морской_пехоты_на_Камчатке_07.jpg"] },
   { label: "2S1 Gvozdika", group: "spg", type: "Liikursuurtükk", cat: "2S1 Gvozdika", files: ["2S1_Gvozdika_2017-12-24.jpg", "Openwater2016-40.jpg", "AmphibiousAssault2015-03.jpg", "images/artillery/2s1_01.png", "images/artillery/2s1_02.jpg", "Репетиция_к_параду_7_мая_2014_Хабаровск_ф1.JPG"] },
   { label: "2S9 Nona", group: "spg", type: "Liikurmiinipilduja", cat: "2S9 Nona", files: ["2S9_Nona-S.png", "ParkPatriot2015part5-71.jpg", "2S9_Nona_in_Saint-Petersburg.jpg", "images/artillery/2s9_01.jpg", "ControlCheck2018-07.jpg", "AirborneExercise2018-04.jpg"] },
-  { label: "2S4 Tjulpan", group: "spg", type: "Liikurmiinipilduja", cat: "2S4 Tjulpan", files: ["2S4_Tyulpan_ARMY-2022.jpg", "240-mm_self-propelled_mortar_2B8_%28SAC-2S4%29.JPG", "images/artillery/2s4_01.jpg"] },
-  { label: "2S7 Pion", group: "spg", type: "Liikursuurtükk", cat: "2S7 Pion", files: ["Russian_2S7_Pion_self_propelled_203_mm_Heavy_artillery_gun_%28Ank_Kumar%2C_Infosys_Limited%29_03.jpg", "2S7_Pion_at_ARMY-2018.jpg", "images/artillery/2s7_01.jpg", "ArtilleryExercise2020-22.jpg"] },
+  { label: "2S4 Tjulpan", group: "spg", type: "Liikurmiinipilduja", cat: "2S4 Tjulpan", files: ["2S4_Tyulpan_ARMY-2022.jpg", "240-mm_self-propelled_mortar_2B8_%28SAC-2S4%29.JPG", "images/artillery/2s4_01.jpg", "2S4_Tyulpan_05.jpg", "305th_Artillery_Brigade%27s_exercise_2020_%2808%29.jpg"] },
+  { label: "2S7 Pion", group: "spg", type: "Liikursuurtükk", cat: "2S7 Pion", files: ["Russian_2S7_Pion_self_propelled_203_mm_Heavy_artillery_gun_%28Ank_Kumar%2C_Infosys_Limited%29_03.jpg", "2S7_Pion_at_ARMY-2018.jpg", "images/artillery/2s7_01.jpg", "ArtilleryExercise2020-22.jpg", "Army-2018-29.jpg"] },
   { label: "2S43 Malva", group: "spg", type: "Liikursuurtükk", cat: "2S43 Malva", files: ["2S43_Malva.jpg/960px-2S43_Malva.jpg", "2S43_Malva_in_forest.jpg", "images/artillery/2s43_01.webp"] },
   { label: "2S44 Giatsint-K", group: "spg", type: "Liikursuurtükk", cat: "2S44 Giatsint-K", files: ["2S44_Giatsint-K_-_2025_Moscow_Victory_Day_Parade_61_%28cropped%29.jpg", "images/artillery/2s44_01.jpg", "images/artillery/2s44_02.jpg"] },
-  { label: "2S5 Giatsint-S", group: "spg", type: "Liikursuurtükk", cat: "2S5 Giatsint-S", files: ["2S5_Giatsint-S.jpg", "2S5_Giatsint-S%2C_Самоходная_пушка_2С5_Гиацинт-С%2C_Artillery_museum%2C_Saint-Petersburg_pic2.JPG", "2024-08-21_-_24_OMBr_ZSU_-_Captured_Giatsint-S_SPG_-_Chasiv_Yar_-_08.jpg"] },
+  { label: "2S5 Giatsint-S", group: "spg", type: "Liikursuurtükk", cat: "2S5 Giatsint-S", files: ["2S5_Giatsint-S.jpg", "2S5_Giatsint-S%2C_Самоходная_пушка_2С5_Гиацинт-С%2C_Artillery_museum%2C_Saint-Petersburg_pic2.JPG", "2024-08-21_-_24_OMBr_ZSU_-_Captured_Giatsint-S_SPG_-_Chasiv_Yar_-_08.jpg", "305th_Artillery_Brigade%27s_exercise_2020_%2809%29.jpg", "ArtilleryExercise2020-18.jpg", "ArtilleryExercise2020-20.jpg"] },
   { label: "2S23 NONA-SVK", group: "spg", type: "Liikurmiinipilduja", cat: "2S23 NONA-SVK", files: ["ParkPatriot2015part5-65.jpg", "2S23_Nona-SVK.jpg", "WMDArtilleryExercise2018-07.jpg", "2S23_self-propelled_mortar-howitzer_02.jpg", "CampCollection2018-03.jpg", "Saint-Petersburg_Victory_Day_Parade_%282019%29_04.jpg"] },
 
   // Mitmikraketiheitjad (reaktiivsuurtükid)
