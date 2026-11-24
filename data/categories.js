@@ -243,7 +243,7 @@ const CATEGORIES = [
   { label: "KRAZ-260", group: "trucks", type: "Veok", cat: "KRAZ-260", files: ["790th_Fighter_Order_of_Kutuzov_3rd_class_Aviation_Regiment%2C_Khotilovo_airbase_%28356-28%29.jpg"] },
   { label: "UAZ-469", group: "trucks", type: "Maastur", cat: "UAZ-469", files: ["ParkPatriot2015part4-12.jpg", "Репетиция_парада_на_Дворцовой_площади_в_Санкт-Петербурге_2H1A1890WI.jpg", "Pn-victory-day-2005-0150-uaz.jpg"] },
   { label: "GAZ-66", group: "trucks", type: "Veok", cat: "GAZ-66", files: ["ГАЗ-66_в_Хабаровске.JPG", "ParkPatriot2015part4-22.jpg"] },
-  { label: "MTO-BT", group: "trucks", type: "Mobiilne töökoda", cat: "MTO-BT", files: ["TankBiathlon2016opening-64.jpg"] },
+  { label: "MTO-BT", group: "trucks", type: "Mobiilne töökoda", cat: "MTO-BT", files: ["TankBiathlon2016opening-64.jpg", "MTO-BT-1_-_TankBiathlon14part1-49.jpg"] },
   { label: "Desertcross 1000-3", group: "trucks", type: "Maastikusõiduk", cat: "Desertcross 1000-3", files: ["images/trucks/desertcross1000-3_01.jpg"] },
   { label: "UAZ-452", group: "trucks", type: "Väikebuss", cat: "UAZ-452", files: ["Uaz-452-medsluzhba.jpg", "images/trucks/uazpomm.png", "Day_of_the_Town_2025_%28Moscow%29_mi_li_guf_robo.jpg"] },
   { label: "ATZ-7 5557", group: "trucks", type: "Kütuse tankurauto", cat: "ATZ-7 5557", files: ["Army2016-377.jpg"] },
