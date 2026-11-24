@@ -639,6 +639,7 @@ window.I18N_DATA = {
   },
   // Liigid (CATEGORIES `type`). Terminid: NATOTerm / APP-6, kinnitatud terminiloendiga 13.11.2026.
   "types": {
+    "STV juhtimis- ja vaatlussoomuk": "Armoured artillery command and observation vehicle",
     "TOS-1A transpordi- ja laadimismasin": "TOS-1A transporter-loader",
     "Kaugmineerimissüsteem": "Remote minelaying system",
     "Tank": "Main battle tank (MBT)",
@@ -1132,6 +1133,16 @@ window.I18N_DATA = {
   },
   // TTA tekstid: "eestikeelne tekst failis tta.js": "English". Numbreid ei tõlgita. Muudetud eestikeelne tekst vajab uut tõlget.
   "ttaText": {
+    "T-80U tanki šassii": "T-80U tank chassis",
+    "Gaasiturbiin": "Gas turbine",
+    "12,7mm kuulipilduja": "12.7mm machine gun",
+    "Suitsugranaadiheitjad": "Smoke grenade launchers",
+    "Hüdrauliline peavints 35 t (plokkidega 140 t), troos u 160 m; abivints 1 t; hüdrauliline kraana 18 t; buldooserilaba (ankur vintsimisel ja tugi kraanatööl, ka teede puhastamiseks); varuosade platvorm, keevitusseade. Moderniseeritud versioonil haakeseade, millega meeskond saab masina haakida soomuse alt väljumata": "Hydraulic main winch 35 t (140 t with pulley blocks), cable approx. 160 m; auxiliary winch 1 t; hydraulic crane 18 t; dozer blade (anchor when winching and support during crane work, also for clearing routes); spare-parts platform, welding equipment. The modernised version has a coupling device that lets the crew hitch a vehicle without leaving the protection of the armour",
+    "T-80U kere; moderniseeritud versioonil lisasoomus, reaktiivsoomus ja droonivastane võrk/raam pealisehitise kohal": "T-80U hull; the modernised version has add-on armour, explosive reactive armour and an anti-drone net/frame above the superstructure",
+    "Allikas annab T-80 hilisemate versioonide turbiini võimsuse.": "The source gives the turbine output of later T-80 versions.",
+    "Rembat-2018 võistlusel vedas teadaolevalt kuut kokkuhaagitud T-80 tanki (kokku üle 270 t).": "At the Rembat-2018 competition it reportedly towed six coupled T-80 tanks (over 270 t in total).",
+    "Kütusetsisternauto umbes 5m³ paagiga": "Fuel tanker with a tank of approx. 5m³",
+    "Maht tähise järgi (ATsG-5 = 5m³).": "Capacity from the designation (ATsG-5 = 5m³).",
     "T-72A tanki šassii (Objekt 563)": "T-72A tank chassis (Object 563)",
     "V-84 diisel": "V-84 diesel",
     "Relvastuseta (meeskonna isikurelvad)": "Unarmed (crew personal weapons)",

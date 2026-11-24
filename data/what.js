@@ -5,7 +5,7 @@
 // "draft": true = mustand (kuvatakse kollase märkega "kontrollimata").
 // Pilt on lokaalne ja kuulub offline-assets.json-i. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.WHAT_DATA = {
-  "version": 4,
+  "version": 5,
   "models": {
     "T-62": {
       "image": "images/what/T-62_what.webp",
@@ -286,7 +286,7 @@ window.WHAT_DATA = {
         {
           "label": "Näiteks kasutavad K1Š1 – BTR-80 šassiil põhinevat kõrgendatud kerega alusplatvormi",
           "models": [
-            {"name": "1V152", "cat": "1V152"},
+            {"name": "1V152", "cat": "1V152 (1V126 Kapustnik-B)"},
             {"name": "R-166-0,5", "cat": "R-166-0,5"},
             {"name": "RB-531B", "cat": "RB-531B Infauna"},
             {"name": "R-149BMR", "cat": "R-149BMR"},

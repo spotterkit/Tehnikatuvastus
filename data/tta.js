@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 25,
+  "version": 26,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -2353,7 +2353,7 @@ window.TTA_DATA = {
         {"name": "Militarnyi: Russian ARK-1 Rys’ radar neutralized in the Kherson region", "url": "https://militarnyi.com/en/news/russian-ark-1-rys-radar-neutralized-in-the-kherson-region/", "retrieved": "2026-10-23"}
       ]
     },
-    "1V152": {
+    "1V152 (1V126 Kapustnik-B)": {
       "status": "unverified",
       "values": {
         "crew": "3 (kokku kuni 7 inimest)",
@@ -8580,6 +8580,46 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: Lada Niva Legend", "url": "https://en.wikipedia.org/wiki/Lada_Niva_Legend", "retrieved": "2026-11-20"}
+      ]
+    },
+    "BREM-80U": {
+      "status": "unverified",
+      "values": {
+        "crew": "4",
+        "chassis": "T-80U tanki šassii",
+        "combatWeight": 46,
+        "engine": "Gaasiturbiin",
+        "power": 1250,
+        "maxSpeedRoad": 70,
+        "range": 500,
+        "mainArmament": "12,7mm kuulipilduja",
+        "secondaryArmament": "Suitsugranaadiheitjad",
+        "specialEquipment": "Hüdrauliline peavints 35 t (plokkidega 140 t), troos u 160 m; abivints 1 t; hüdrauliline kraana 18 t; buldooserilaba (ankur vintsimisel ja tugi kraanatööl, ka teede puhastamiseks); varuosade platvorm, keevitusseade. Moderniseeritud versioonil haakeseade, millega meeskond saab masina haakida soomuse alt väljumata",
+        "armor": "T-80U kere; moderniseeritud versioonil lisasoomus, reaktiivsoomus ja droonivastane võrk/raam pealisehitise kohal"
+      },
+      "notes": {
+        "power": "Allikas annab T-80 hilisemate versioonide turbiini võimsuse.",
+        "specialEquipment": "Rembat-2018 võistlusel vedas teadaolevalt kuut kokkuhaagitud T-80 tanki (kokku üle 270 t)."
+      },
+      "sources": [
+        {"name": "Army Recognition: Russia Sends Upgraded BREM-80 Recovery Vehicles with Anti-Drone Protection (2026)", "url": "https://armyrecognition.com/news/army-news/2026/russia-sends-upgraded-brem-80-recovery-vehicles-with-anti-drone-protection-to-ukraine-front", "retrieved": "2026-11-24"},
+        {"name": "Army Recognition: Russia Unveils New BREM-80U Armored Recovery Tank (2024)", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/defence-security-industry-technology/russia-unveils-new-brem-80u-armored-recovery-tank-featuring-enhanced-anti-drone-armor", "retrieved": "2026-11-24"}
+      ]
+    },
+    "ATsG-5-4320": {
+      "status": "unverified",
+      "values": {
+        "chassis": "Ural-4320",
+        "driveConfig": "6×6",
+        "engine": "YaMZ-238M2 V8 diisel (Ural-4320)",
+        "power": 240,
+        "specialEquipment": "Kütusetsisternauto umbes 5m³ paagiga"
+      },
+      "notes": {
+        "specialEquipment": "Maht tähise järgi (ATsG-5 = 5m³)."
+      },
+      "sources": [
+        {"name": "Wikipedia: Ural-4320", "url": "https://en.wikipedia.org/wiki/Ural-4320", "retrieved": "2026-11-24"}
       ]
     },
     "ATZ-7 5557": {
