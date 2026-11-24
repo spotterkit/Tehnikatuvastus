@@ -308,13 +308,13 @@ const CATEGORIES = [
   { label: "RÕS/IVECO", group: "recon_special", type: "Soomustatud auto", cat: "RÕS/IVECO", files: ["Iveco_LMV_Lynx_of_the_Russian_Airborne_Troops_08.jpg", "Engineering_Technologies_-_2012_%283-06%29.jpg", "Zapad-2017_-_Airborne_exercise_05.jpg"] },
   { label: "VPK-3927-1 Volk-1", group: "recon_special", type: "Soomustatud auto", cat: "VPK-3927-1 Volk-1", files: ["VPK_-3927_Volk_01.jpg"] },
   { label: "Kamaz-5350 Z-STS Akhmat", group: "recon_special", type: "Soomustatud veok", cat: "Kamaz-5350 Z-STS Akhmat", files: ["Z-STS_KamAZ-5350_Army-2022_2022-08-20_2668.jpg"] },
-  { label: "AMN-590951 Spartak (VPK-Ural)", group: "recon_special", type: "Soomustatud auto", cat: "AMN-590951 Spartak (VPK-Ural)", files: ["MIC-Ural_-_Army-2022_07.jpg"] },
+  { label: "AMN-590951 Spartak (VPK-Ural)", group: "recon_special", type: "Soomustatud auto", cat: "AMN-590951 Spartak (VPK-Ural)", files: ["MIC-Ural_-_Army-2022_07.jpg", "2023_Moscow_Victory_Day_Parade_38.jpg"] },
   { label: "Ural-4320 Zvezda-V", group: "recon_special", type: "Soomustatud veok", cat: "Ural-4320 Zvezda-V", files: ["Interpolitex2015part1-20.jpg", "VVday2015_49.jpg"] },
 
   // Side- ja juhtimissoomukid ning autod
   { label: "BMP-1Ksh", group: "comms", type: "Juhtimissoomuk", cat: "BMP-1Ksh", files: ["ParkPatriot2015part10-24.jpg", "ParkPatriot2015part11-131.jpg", "ParkPatriot2015part11-133.jpg"] },
-  { label: "R-149MA1", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-149MA1", files: ["R-149MA1_-_Engineering_technologies_2012_%282%29.jpg", "R-149MA1_-_Engineering_technologies_2012_%281%29.jpg"] },
-  { label: "R-166-0,5", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-166-0,5", files: ["R-166-0%2C5_radiostation_-_27th_Independent_Sevastopol_Guards_Motor_Rifle_Brigade_%282%29.jpg", "Движение_колонн_ВС_РФ_и_охрана_моста_в_Киевской_области_05.png"] },
+  { label: "R-149MA1", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-149MA1", files: ["R-149MA1_-_Engineering_technologies_2012_%282%29.jpg", "R-149MA1_-_Engineering_technologies_2012_%281%29.jpg", "Вновь_сформированную_мотострелковую_бригаду_ЦВО_оснастили_новыми_бронемашинами_связи_Р-149МА1_01.jpg", "R-149MA1_-_Engineering_technologies_2012_%285%29.jpg"] },
+  { label: "R-166-0,5", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-166-0,5", files: ["R-166-0%2C5_radiostation_-_27th_Independent_Sevastopol_Guards_Motor_Rifle_Brigade_%282%29.jpg", "Движение_колонн_ВС_РФ_и_охрана_моста_в_Киевской_области_05.png", "Vostok-2018-85.jpg", "Parad2014NN-20.jpg"] },
   { label: "BMD-1Ksh", group: "comms", type: "Juhtimissoomuk", cat: "BMD-1Ksh", files: ["Командно-штабные_машины_в_артиллерийском_музее_—_2.jpg", "images/comms/bmd1ksh_01.webp"] },
   { label: "R-145BM", group: "comms", type: "Juhtimissoomuk", cat: "R-145BM", files: ["R-145BM_command_vehicle_on_BTR-60_base.jpg", "ParkPatriot2015part9-47.jpg"] },
   { label: "R-149BMR", group: "comms", type: "Juhtimissoomuk", cat: "R-149BMR", files: ["images/comms/R149BMR.jpg"] },
