@@ -296,7 +296,7 @@ const CATEGORIES = [
   { label: "Kornet-D", group: "antitank", type: "Tankitõrjeauto", cat: "Kornet-D", files: ["Kornet-D1_-_Alabino05042017-21.jpg", "VDayRehearsal05052016-05.jpg"] },
 
   // Luuresoomukid ja soomustatud autod
-  { label: "BRM-1K", group: "recon_special", type: "Luuresoomuk", cat: "BRM-1K", files: ["BRM-1K_top.jpg", "BRM-1K_%283%29.jpg", "4thTankDivisionOpenDay17p1-51.jpg", ""ReadinessCheck2020-12.jpg"] },
+  { label: "BRM-1K", group: "recon_special", type: "Luuresoomuk", cat: "BRM-1K", files: ["BRM-1K_top.jpg", "BRM-1K_%283%29.jpg", "4thTankDivisionOpenDay17p1-51.jpg", "ReadinessCheck2020-12.jpg"] },
   { label: "BRDM-2 / BRDM-2M", group: "recon_special", type: "Luuresoomuk", cat: "BRDM-2 / BRDM-2M", files: ["BRDM-2_-_ETIF-2010_%283%29.jpg", "RWS2017-39.jpg", "Vehicle_recaptured_by_Ukrainian_forces_in_Luhansk_Oblast%2C_12_March_2022_%2802%29.jpg"] },
   { label: "RKhM-4", group: "recon_special", type: "TBK-luuresoomuk", cat: "RKhM-4", files: ["Mashina_RKHM-4-01_2.jpg", "282-NBC-training-center-09.jpg", "Tactical_exercises_of_Radiological%2C_Chemical_and_Biological_Protection_Troops_units_at_Shikhani_training_ground_%28410-3%29.jpg"] },
   { label: "RKhM-6", group: "recon_special", type: "TBK-luuresoomuk", cat: "RKhM-6", files: ["RKhM-6_-4.jpg", "282-NBC-training-center-60.jpg", "Army2016-495.jpg"] },
