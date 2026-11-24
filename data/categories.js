@@ -68,7 +68,7 @@ const CATEGORIES = [
   { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", files: ["RehearsalTula02052017-05.jpg", "1V119_%22Reostat%22.jpg"] },
   { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", files: ["images/artillery_recon/ark1_01.jpg", "images/artillery_recon/ark12.jpg"] },
   { label: "1V15", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V15", files: ["images/artillery_recon/1v15_01.webp", "ACRV_M_1974%282%29_IV15_%287527973628%29_%28cropped%29.jpg"] },
-  { label: "1V152", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk (Kapustnik-B osis)", cat: "1V152", files: ["Army2016-495.jpg"] },
+  { label: "1V152 (1V126 Kapustnik-B)", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk", cat: "1V152 (1V126 Kapustnik-B)", files: ["Army2016-495.jpg"] },
   { label: "1B75 Penicilin", group: "artillery_recon", type: "Passiivne suurtükiväeluure kompleks", cat: "1B75 Penicilin", files: ["images/artillery_recon/1B75Penicillin.jpg"] },
 
   // Liikursuurtükid ja -miinipildujad
