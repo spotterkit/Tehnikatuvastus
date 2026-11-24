@@ -326,7 +326,7 @@ const CATEGORIES = [
   { label: "R-419L1", group: "comms", type: "Raadioreleejaam", cat: "R-419L1", files: ["Цифровая_радиорелейная_станция_Р-419Л1.jpg"] },
   { label: "R-142NMR", group: "comms", type: "Kombineeritud raadiojaam", cat: "R-142NMR", files: ["R-142NMR_radistation_-_TVM2012ch2p4photo050.jpg"] },
   { label: "R-149AKSh-1", group: "comms", type: "Juhtimis- ja staabimasin", cat: "R-149AKSh-1", files: ["images/comms/r2ksh.jpg"] },
-  { label: "R-149MA3", group: "comms", type: "Juhtimissoomuk", cat: "R-149MA3", files: ["RaceofHeroes072016-38.jpg"] },
+  { label: "R-149MA3", group: "comms", type: "Juhtimissoomuk", cat: "R-149MA3", files: ["RaceofHeroes072016-38.jpg", "RaceofHeroes072016-39.jpg"] },
   { label: "R-145BMA", group: "comms", type: "Side- ja juhtimisauto", cat: "R-145BMA", files: ["Interpolitex2015part3-27.jpg"] },
   { label: "R-439MD2", group: "comms", type: "Mobiilne satelliitside jaam", cat: "R-439MD2", files: ["images/comms/R-439.jpeg"] },
   { label: "R-161PU", group: "comms", type: "HF/VHF raadiosaatejaam ja sidesõlm", cat: "R-161PU", files: ["ParkPatriot2015part9-53.jpg"] },
