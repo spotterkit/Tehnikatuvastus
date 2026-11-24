@@ -2237,6 +2237,9 @@ const LOCAL_IMAGE_SOURCES = {
   'images/engineer/umz_01.jpeg': {name: 'Army Recognition', url: 'https://www.armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/ukrainian-soldiers-use-vtl-armed-drone-to-destroy-first-russian-umz-mine-laying-vehicle'},
   'images/trucks/ulan.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/trucks/ulan2.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/artillery_recon/1v152.png': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/trucks/uazpomm.png': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/trucks/BREM-80.jpg': {name: 'Army Recognition', url: 'https://armyrecognition.com/news/army-news/2026/russia-sends-upgraded-brem-80-recovery-vehicles-with-anti-drone-protection-to-ukraine-front'},
   'images/ships/karakurt_01.png': {name: 'Naval News', url: 'https://www.navalnews.com/naval-news/2021/06/russias-black-sea-fleet-to-get-two-karakurt-class-corvettes-this-year/'},
   'images/drones/v2uai.jpeg': {name: 'FDD’s Long War Journal', url: 'https://www.longwarjournal.org/archives/2025/06/ukrainian-intelligence-details-russias-new-v2u-autonomous-loitering-munition.php'},
   'images/artillery/2s1_01.png': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
@@ -6945,7 +6948,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc105'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc106'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
