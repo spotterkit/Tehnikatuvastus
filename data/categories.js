@@ -172,7 +172,7 @@ const CATEGORIES = [
   { label: "Zala Z-16", group: "drones", type: "Luuredroon", cat: "Zala Z-16", files: ["images/drones/zalaz16.jpg"] },
 
   // Pioneerisoomukid ja tehnika
-  { label: "IMR-2", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-2", files: ["RIAN_archive_734015_Wildfires_in_Moscow_Region%27s_Lukhovitsky_district.jpg", "EngineerFieldRide2017-07.jpg"] },
+  { label: "IMR-2", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-2", files: ["RIAN_archive_734015_Wildfires_in_Moscow_Region%27s_Lukhovitsky_district.jpg", "EngineerFieldRide2017-07.jpg", "AssaultExercise2017-02.jpg"] },
   { label: "BAT-2", group: "engineer", type: "Roomikbuldooser", cat: "BAT-2", files: ["OpenWater2017qualifying-44.jpg", 'Track_laying_vehicle_BAT-2M_during_the_"Armiya_2021"_exhibition.jpg', "БАТ-2_-_Финал_международного_конкурса_«Безопасный_маршрут»_01.jpg", "Финал_и_церемония_награждения_участников_международного_конкурса_«Инженерная_формула»_АрМИ-2017_%28г._Тюмень%29_%285%29.jpg"] },
   { label: "MTU-72", group: "engineer", type: "Sillatank", cat: "MTU-72", files: ["Army2016demo-098.jpg", "TankBiathlon14final-92.jpg"] },
   { label: "UR-77 Meteorit", group: "engineer", type: "Demineerimissoomuk", cat: "UR-77", files: ["EngineerExercise2020-19.jpg", "UR-77.jpg", "AssaultExercise2017-06.jpg", "EngineerExercise2018-09.jpg"] },
@@ -183,7 +183,7 @@ const CATEGORIES = [
   { label: "MTU-20", group: "engineer", type: "Sillatank", cat: "MTU-20", files: ["Israeli_Armoured_Bridgelayer_on_T-54_T-55_Chassis_During_Yom_Kippur_War.jpg"] },
   { label: "UR-83P", group: "engineer", type: "Reaktiivdemineerimisseade", cat: "UR-83P", files: ["images/engineer/ur83p_01.jpg"] },
   { label: "ZRP-2", group: "engineer", type: "Reaktiivdemineerimisseade", cat: "ZRP-2", files: [] },
-  { label: "IMR-3", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-3", files: ["Army2016demo-100.jpg", "Engineering_Technologies_-_2012_%285-49%29.jpg"] },
+  { label: "IMR-3", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-3", files: ["Army2016demo-100.jpg", "Engineering_Technologies_-_2012_%285-49%29.jpg", "AssaultExercise2017-05.jpg"] },
   { label: "TMM-3", group: "engineer", type: "Sillamasin", cat: "TMM-3", files: ["ТММ-3_тяжёлый_механизированный_мост.jpg", "Уран-6_и_ТММ-3_-_На_полигоне_инженерных_войск_в_подмосковном_Николо-Урюпино_показали_боевую_работу_Уран-6_и_Уран-14_01.jpg"] },
   { label: "TMM-6", group: "engineer", type: "Sillamasin", cat: "TMM-6", files: ["TMM-6_bridgelayer_01.jpg", "TMM-6_bridgelayer_-_Omsk_2009_-_03.jpg"] },
   { label: "Pontoonsillapark", group: "engineer", type: "Pontoonsillapark", cat: "Pontoonsillapark", files: ["KrAZ-255_PMP_Pontoon_Bridge.jpg", "OpenWater2017qualifying-06.jpg", "Center2019Exercise-25.jpg"] },
@@ -191,9 +191,9 @@ const CATEGORIES = [
   { label: "GMZ-3", group: "engineer", type: "Mineerimissoomuk", cat: "GMZ-3", files: ["GMZ-3_minelayer_vehicle_at_Engineering_Technologies_2012.jpg", "Engineering_Technologies_-_2012_%285-43%29.jpg", "The_winter_training_period_11.jpg"] },
   { label: "BTM-4M", group: "engineer", type: "Tranžeemasin", cat: "BTM-4M", files: ["images/engineer/BTM4M.jpg"] },
   { label: "BTM-3", group: "engineer", type: "Tranžeemasin", cat: "BTM-3", files: ["BTM-3_trenching_vehicle_at_Park_Patriot_01.jpg"] },
-  { label: "MDK-3", group: "engineer", type: "Kraavikaevamismasin", cat: "MDK-3", files: ["TankBiathlon14final-89.jpg"] },
+  { label: "MDK-3", group: "engineer", type: "Kraavikaevamismasin", cat: "MDK-3", files: ["TankBiathlon14final-89.jpg", "The_winter_training_period_15.jpg"] },
   { label: "MDK-2", group: "engineer", type: "Kraavikaevamismasin", cat: "MDK-2M", files: ["MDK-2%2C_Котлованная_машина_МДК-2%2C_Artillery_museum%2C_Saint-Petersburg_pic3.JPG"] },
-  { label: "IRM", group: "engineer", type: "Pioneeriluuresoomuk", cat: "IRM", files: ["Army2016demo-102.jpg", "ИРМ_Жук_из_состава_187-го_Псковского_ордена_Красной_Звезды_межвидового_учебного_центра_инженерных_войск.jpg"] },
+  { label: "IRM", group: "engineer", type: "Pioneeriluuresoomuk", cat: "IRM", files: ["Army2016demo-102.jpg", "ИРМ_Жук_из_состава_187-го_Псковского_ордена_Красной_Звезды_межвидового_учебного_центра_инженерных_войск.jpg", "Anti-AircraftExercise2019-36.jpg", "Army2016demo-103.jpg"] },
   { label: "ISDM Zemledelije", group: "engineer", type: "Kaugmineerimissüsteem", cat: "ISDM Zemledelije", files: ["Engineering_reconnaissance_and_firing_complex_Zemledelie_on_the_march.jpg", "ISDM_Zemledeliye_at_Army-2022.jpg"] },
 
   // Helikopterid
