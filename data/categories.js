@@ -273,7 +273,7 @@ const CATEGORIES = [
   { label: "ATsPT-5,6", group: "trucks", type: "Veetsisternauto", cat: "ATsPT-5,6", files: ["Army2016-382.jpg"] },
   { label: "PTs-6,7", group: "trucks", type: "Kütusehaagistsistern", cat: "PTs-6,7", files: ["ParkPatriot2015part9-43.jpg"] },
   { label: "ATs-7,5-4320", group: "trucks", type: "Kütusetsisternauto", cat: "ATs-7,5-4320", files: ["ParkPatriot2015part9-32.jpg"] },
-  { label: "Lada 4x4 pikap (VAZ-2329)", group: "trucks", type: "Maastikusõiduk", cat: "Lada 4x4 pikap", files: ["Lada_4x4_technical.jpg"] },
+  { label: "Lada 4x4 pikap", group: "trucks", type: "Maastikusõiduk", cat: "Lada 4x4 pikap", files: ["Lada_4x4_technical.jpg", "Vostok2018-31.jpg"] },
   { label: "Vityaz (DT-10/DT-30)", group: "trucks", type: "Kahelüliline roomikmaastikusõiduk", cat: "Vityaz (DT-10/DT-30)", files: ["DT-10PM_-_Bronnitsy256.jpg", "Army2016demo-148.jpg"] },
   { label: "GAZ-3344 Aleut", group: "trucks", type: "Kahelüliline roomikmaastikusõiduk", cat: "GAZ-3344 Aleut", files: ["GAZ-3344-20_%22Aleut%22_during_the_%22Armiya_2023%22_exhibition_%28front_view%29.jpg"] },
   { label: "KAMAZ-6350, 8x8", group: "trucks", type: "Veok", cat: "KAMAZ-6350, 8x8", files: ["KamAZ-6350_truck%2C_2011.jpg", "Interpolitex2015part2-30.jpg"] },
