@@ -252,6 +252,8 @@ const CATEGORIES = [
   { label: "BREM-1", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-1", files: ["BREM-1_-_ETIF-2010_%281%29.jpg", "BREM-1_-_TankBiathlon14part1-48.jpg", "Передача_трофейной_украинской_техники_и_вооружения_подразделениям_ЛНР_015.png"] },
   { label: "BREM-2", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-2", files: ["BREM-2_in_Patriot_Park.jpg", "BREM-2_armored_recovery_vehicle.jpg", "ParkPatriot2015part11-147.jpg"] },
   { label: "BREM-K", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-K", files: ["BREM-K_-_TankBiathlon14part2-07.jpg", "Army2016-303.jpg", "LogisticalExercise2018-02.jpg"] },
+  { label: "BREM-L Begljanka", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-L", files: ["LogisticalExercise2018-05.jpg", "BREM-L_-_TankBiathlon14part2-15.jpg"] },
+  { label: "BTS-4A", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BTS-4A", files: ["Army2016-312.jpg"] },
   { label: "URAL-43206", group: "trucks", type: "Veok", cat: "URAL-43206", files: ["Interpolitex_2012_%28478-14%29.jpg", "Army2016demo-117.jpg"] },
   { label: "KAMAZ-5350, 6x6", group: "trucks", type: "Veok", cat: "KAMAZ-5350, 6x6", files: ["KamAZ-5350.jpg", "Army2016demo-127.jpg", "DayTechnologies2017p2-12.jpg"] },
   { label: "KRAZ-260", group: "trucks", type: "Veok", cat: "KRAZ-260", files: ["790th_Fighter_Order_of_Kutuzov_3rd_class_Aviation_Regiment%2C_Khotilovo_airbase_%28356-28%29.jpg"] },
@@ -277,6 +279,8 @@ const CATEGORIES = [
   { label: "KAMAZ-6350, 8x8", group: "trucks", type: "Veok", cat: "KAMAZ-6350, 8x8", files: ["KamAZ-6350_truck%2C_2011.jpg", "Interpolitex2015part2-30.jpg"] },
   { label: "BREM-80U", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-80U", files: ["images/trucks/BREM-80.jpg"] },
   { label: "ATsG-5-4320", group: "trucks", type: "Kütuse tankurauto", cat: "ATsG-5-4320", files: ["ParkPatriot2015part9-35.jpg"] },
+  { label: "KamAZ-4310/KamAZ-43118, 6x6", group: "trucks", type: "Veok", cat: "KamAZ-4310/KamAZ-43118, 6x6", files: ["ParkPatriot2015part4-19.jpg"] },
+  { label: "GAZ-3308 Sadko", group: "trucks", type: "Veok", cat: "GAZ-3308", files: ["Interpolitex_2013_%28534-4%29.jpg"] },
   
   // Õhutõrjesoomukid, -juhtimissoomukid ja -radarid
   { label: "STRELA-10/SA-13 Gopher", group: "ad", type: "Õhutõrjesoomuk", cat: "STRELA-10/SA-13 Gopher", files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%284%29.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%283%29.jpg", "MasteringTheArmament2018-01.jpg", "SummerAirborneExercise2018-36.jpg"] },
