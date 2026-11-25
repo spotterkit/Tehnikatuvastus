@@ -5,7 +5,7 @@
 // "draft": true = mustand (kuvatakse kollase märkega "kontrollimata").
 // Pilt on lokaalne ja kuulub offline-assets.json-i. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.WHAT_DATA = {
-  "version": 6,
+  "version": 8,
   "models": {
     "T-62": {
       "image": "images/what/T-62_what.webp",
@@ -349,11 +349,10 @@ window.WHAT_DATA = {
           "label": "Näiteks kasutavad MT-LB alusplatvormi",
           "models": [
             {"name": "SNAR-10", "cat": "SNAR-10"},
-            {"name": "UR-77", "cat": "UR-77"},
-            {"name": "2S1", "cat": "2S1 Gvozdika"},
             {"name": "9P149", "cat": "9P149 Shturm-S"},
             {"name": "STRELA-10", "cat": "STRELA-10/SA-13 Gopher"},
-            {"name": "9M337 „SOSNA-R“", "cat": "9M337 Sosna-R"}
+            {"name": "9M337 „SOSNA-R“", "cat": "9M337 Sosna-R"},
+            {"name": "MT-LB + ZU-23-2", "cat": "MT-LB-ZU23"}
           ]
         },
         {
@@ -419,7 +418,10 @@ window.WHAT_DATA = {
             {"name": "ARK-1M", "cat": "ARK-1"},
             {"name": "1V13", "cat": "1V13"},
             {"name": "1V15", "cat": "1V15"},
-            {"name": "9S932-1 „BARNAUL-T“", "cat": "9S932-1 Barnaul-T"}
+            {"name": "9S932-1 „BARNAUL-T“", "cat": "9S932-1 Barnaul-T"},
+            {"name": "2S1", "cat": "2S1 Gvozdika"},
+            {"name": "UR-77", "cat": "UR-77"},
+            {"name": "2S34 „HOSTA“", "cat": "2S34 Hosta"}
           ]
         }
       ]
@@ -554,7 +556,9 @@ window.WHAT_DATA = {
             {"name": "2S9", "cat": "2S9 Nona"},
             {"name": "R-440 ODB", "cat": "R-440 ODB"},
             {"name": "1V119", "cat": "1V119"},
-            {"name": "BREM-D", "cat": "BREM-D"}
+            {"name": "BREM-D", "cat": "BREM-D"},
+            {"name": "BTR-ZD", "cat": "BTR-ZD"},
+            {"name": "BTR-D + ZU-23-2", "cat": "BTR-D-ZU23"}
           ]
         }
       ]
