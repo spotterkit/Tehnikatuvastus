@@ -353,7 +353,7 @@ const CATEGORIES = [
   { label: "R-440 ODB", group: "comms", type: "ÕDV satelliitsidesoomuk", cat: "R-440 ODB", files: ["images/comms/r440odb_01.jpg"] },
   { label: "R-166", group: "comms", type: "Kombineeritud raadioside masin", cat: "R-166", files: ["R-166_radiostation.jpg", "R-166_-_IMG-2017-06-30-WA0003_01.jpg"] },
   { label: "R-441-0 Liven", group: "comms", type: "SAT raadiosideauto", cat: "R-441-0 Liven", files: ["images/comms/r441liven_01.jpg"] },
-  { label: "R-145BM1", group: "comms", type: "Juhtimissoomuk", cat: "R-145BM1", files: ["Interpolitex2015part3-32.jpg", "R-145BM1_command_vehicle_on_BTR-60_base.jpg"] },
+  { label: "R-145BM1", group: "comms", type: "Juhtimissoomuk", cat: "R-145BM1", files: ["Interpolitex2015part3-32.jpg", "R-145BM1_command_vehicle_on_BTR-60_base.jpg", "R-145BM1_command_vehicle_on_BTR-60_base_1.jpg"] },
   { label: "R-416GM Granit-M", group: "comms", type: "Raadioreleejaam", cat: "R-416GM Granit-M", files: ["images/comms/R461.jpg"] },
   { label: "R-419L1", group: "comms", type: "Raadioreleejaam", cat: "R-419L1", files: ["Цифровая_радиорелейная_станция_Р-419Л1.jpg"] },
   { label: "R-142NMR", group: "comms", type: "Kombineeritud raadiojaam", cat: "R-142NMR", files: ["R-142NMR_radistation_-_TVM2012ch2p4photo050.jpg"] },
