@@ -1385,6 +1385,12 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
         const m = window.TTA_DATA.models[cat];
         for(const part of ['values', 'notes']) for(const k in (m[part] || {})) m[part][k] = tx(TT, m[part][k]);
       }
+      // Süsteemid (nt R-330 Mandat): kirjeldus, tüüpiline üksus ja osade rollid.
+      for(const id in (window.TTA_DATA.systems || {})){
+        const sy = window.TTA_DATA.systems[id];
+        ['purpose', 'typicalUnit'].forEach(k => { if(sy[k]) sy[k] = tx(TT, sy[k]); });
+        (sy.members || []).forEach(m => { if(m && m.role) m.role = tx(TT, m.role); });
+      }
     }
     if(window.WHAT_DATA && !applied.has('what')){
       applied.add('what');
@@ -1411,6 +1417,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     if(window.TTA_FIELDS){ (TTA_FIELDS.sections || []).forEach(x => mark(x.label)); Object.values(TTA_FIELDS.fields || {}).forEach(f => mark(f.label)); }
     // Allikate nimed (ingliskeelsed) ja WHAT alusplatvormi mudelinimed on nimed, mitte tõlgitav tekst.
     if(window.TTA_DATA) Object.values(TTA_DATA.models || {}).forEach(m => (m.sources || []).forEach(x => mark(x && x.name)));
+    if(window.TTA_DATA) Object.values(TTA_DATA.systems || {}).forEach(sy => { mark(sy.name); (sy.sources || []).forEach(x => mark(x && x.name)); (sy.members || []).forEach(m => mark(m && m.name)); });
     if(window.WHAT_DATA) Object.values(WHAT_DATA.models || {}).forEach(m => (m.related || []).forEach(g => (g && g.models || []).forEach(x => mark(x && x.name))));
   };
 
@@ -2238,6 +2245,7 @@ const LOCAL_IMAGE_SOURCES = {
   'images/trucks/ulan.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/trucks/ulan2.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/artillery_recon/1v152.webp': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/artillery_recon/jastreb.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/trucks/uazpomm.png': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/trucks/BREM-80.jpg': {name: 'Army Recognition', url: 'https://armyrecognition.com/news/army-news/2026/russia-sends-upgraded-brem-80-recovery-vehicles-with-anti-drone-protection-to-ukraine-front'},
   'images/ships/karakurt_01.png': {name: 'Naval News', url: 'https://www.navalnews.com/naval-news/2021/06/russias-black-sea-fleet-to-get-two-karakurt-class-corvettes-this-year/'},
@@ -3104,10 +3112,14 @@ function chassisNameList(){
   const map = new Map();
   // Veokeid (grupp trucks) alusplatvormina ei lingita (kasutaja otsus).
   const withFiles = CATEGORIES.filter(e => e && e.cat && e.files && e.files.length && e.group !== 'trucks');
+  const first = e => String(e.labelEt || e.label || '').split(/[\s\/(]/)[0].replace(/[,;:.]+$/, '');
+  // Veoki nimi (nt „KamAZ-5350“) ei tohi viia teisele mudelile, mille nimi algab sama veokiga (nt Kamaz-5350 Z-STS Akhmat).
+  const truckNames = new Set(CATEGORIES.filter(e => e && e.group === 'trucks')
+    .flatMap(e => [e.cat, first(e)]).map(n => String(n || '').replace(/[,;:.]+$/, '').trim().toLowerCase()));
   const add = (n, e) => { n = String(n || '').trim(); const key = n.toLowerCase();
-    if(n.length >= 4 && /[\d-]/.test(n) && !map.has(key)) map.set(key, e); };
+    if(n.length >= 4 && /[\d-]/.test(n) && !map.has(key) && !truckNames.has(key)) map.set(key, e); };
   withFiles.forEach(e => add(e.cat, e));
-  withFiles.forEach(e => add(String(e.label || '').split(/[\s\/(]/)[0].replace(/[,;:.]+$/, ''), e));
+  withFiles.forEach(e => add(first(e), e));
   chassisNameCache = [...map.entries()].sort((a, b) => b[0].length - a[0].length);
   return chassisNameCache;
 }
@@ -3173,9 +3185,40 @@ function platformLink(entry, target, text){
 // Kui TTA-s šassii puudub, aga mudel on mõne alusplatvormi WHAT-loendis, kuvatakse tuletatud rida
 // "Alusplatvorm" (andmefaili ei muudeta; WHAT-loendisse lisamine annab tagasilingi ise).
 function derivedPlatformValues(entry, values){
-  if(values.chassis || !(TTA_SCHEMA.fields || {}).basePlatform) return values;
-  const p = chassisPlatforms(entry.cat);
-  return p.length ? Object.assign({}, values, {basePlatform: p}) : values;
+  const F = TTA_SCHEMA.fields || {}, add = {};
+  if(!values.chassis && F.basePlatform){ const p = chassisPlatforms(entry.cat); if(p.length) add.basePlatform = p; }
+  if(F.system){ const sy = systemsFor(entry.cat); if(sy.length) add.system = sy; }
+  return Object.keys(add).length ? Object.assign({}, values, add) : values;
+}
+// Süsteemid (TTA_DATA.systems): üks kirjeldus mitme masina kohta (nt R-330 Mandat, 1V12 „Mašina-S“).
+// Iga osa TTA-s rida „Süsteem“: nimi – mida süsteem teeb; tüüpiline üksus; koosseis (äpis olevad osad on lingid).
+function systemsFor(cat){
+  return Object.values((window.TTA_DATA && TTA_DATA.systems) || {})
+    .filter(sy => (sy.members || []).some(m => m && m.cat === cat));
+}
+function renderSystemValue(dd, entry, systems){
+  dd.setAttribute('data-i18n-skip', '');
+  const F = TTA_SCHEMA.fields || {}, tr = t => (window.I18N && I18N.tr) ? I18N.tr(t) : t;
+  systems.forEach((sy, i) => {
+    const box = el('span', 'tta-system');
+    if(i){ dd.appendChild(el('br')); dd.appendChild(el('br')); }
+    box.appendChild(el('strong', '', sy.name));
+    if(sy.purpose) box.append(' – ' + sy.purpose);
+    if(sy.typicalUnit && F.typicalUnit){ box.appendChild(el('br')); box.append(F.typicalUnit.label + ': ' + sy.typicalUnit); }
+    const members = (sy.members || []).filter(Boolean);
+    if(members.length){
+      box.appendChild(el('br')); box.append(tr('Koosseis') + ': ');
+      members.forEach((m, j) => {
+        if(j) box.append(', ');
+        const name = m.name || m.cat, target = m.cat ? entryByCat(m.cat) : null;
+        if(m.cat === entry.cat) box.appendChild(el('strong', '', name));
+        else if(target && target.files && target.files.length) box.appendChild(platformLink(entry, target, name));
+        else box.append(name);
+        if(m.role) box.append(' (' + m.role + ')');
+      });
+    }
+    dd.appendChild(box);
+  });
 }
 
 function renderTTAPanel(entry, record){
@@ -3200,7 +3243,8 @@ function renderTTAPanel(entry, record){
     box.appendChild(el('div', 'tta-section-title', section.label));
     const dl = el('dl', 'tta-list');
     keys.forEach(k => {
-      const dd = el('dd', '', k === 'basePlatform' ? '' : ttaFormatValue(values[k], fields[k]));
+      const dd = el('dd', '', (k === 'basePlatform' || k === 'system') ? '' : ttaFormatValue(values[k], fields[k]));
+      if(k === 'system') renderSystemValue(dd, entry, values[k]);
       if(k === 'basePlatform'){
         dd.setAttribute('data-i18n-skip', '');
         values[k].forEach((t, i) => { if(i) dd.append(', '); dd.appendChild(platformLink(entry, t, t.cat)); });
@@ -6948,7 +6992,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc107'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc108'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
