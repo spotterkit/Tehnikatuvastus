@@ -70,6 +70,8 @@ const CATEGORIES = [
   { label: "1V15", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V15", files: ["images/artillery_recon/1v15_01.webp", "ACRV_M_1974%282%29_IV15_%287527973628%29_%28cropped%29.jpg"] },
   { label: "1V152 (1V126 Kapustnik-B)", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk", cat: "1V152 (1V126 Kapustnik-B)", files: ["images/artillery_recon/1v152.webp"] },
   { label: "1B75 Penicilin", group: "artillery_recon", type: "Passiivne suurtükiväeluure kompleks", cat: "1B75 Penicilin", files: ["images/artillery_recon/1B75Penicillin.jpg"] },
+  { label: "1K148 Jastreb-AV", group: "artillery_recon", type: "STV vastutuleradar", cat: "1K148 Jastreb-AV", files: ["images/artillery_recon/jastreb.jpg"] },
+  { label: "1V110", group: "artillery_recon", type: "Patarei vanemohvitseri juhtimismasin", cat: "1V110", files: ["4thGuardsTankDivisionExercises2011_13.jpg", "1V110_-_4th_Separate_Tank_Brigade.jpg"] },
 
   // Liikursuurtükid ja -miinipildujad
   { label: "2S19 Msta-S", group: "spg", type: "Liikursuurtükk", cat: "2S19 Msta", files: ["ParkPatriot2015part6-02.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_01.jpg", "Військовослужбовці_провели_тактичне_заняття_09.jpg", "images/artillery/2s19_01.jpg", "images/artillery/2s19_02.jpg", "Марш_российских_артиллерийских_подразделений_в_ходе_вторжения_на_Украину_007.png"] },
@@ -138,7 +140,7 @@ const CATEGORIES = [
   { label: "Molnja-2", group: "drones", type: "Ründedroon", cat: "Molnja-2", files: ["images/drones/Molniya2_01.jpg", "Molniya_UAV.png"] },
   { label: "Supercam S350", group: "drones", type: "Luuredroon", cat: "Supercam S350", files: ["БВС_Supercam_S350.jpg", "Supercam_S350.jpg"] },
   { label: "Eleron-3", group: "drones", type: "Luuredroon", cat: "Eleron-3", files: ["Unmanned_aerial_vehicle_Aileron.jpg"] },
-  { label: "Forpost-PU", group: "drones", type: "Luuredroon", cat: "Forpost-PU", files: ["Forpost_UAV_ARMY-2022.jpg", "UAVMonitoringExercise2018-08.jpg"] },
+  { label: "Forpost-R", group: "drones", type: "Luuredroon", cat: "Forpost-R", files: ["Forpost_UAV_ARMY-2022.jpg", "UAVMonitoringExercise2018-08.jpg"] },
   { label: "Orion", group: "drones", type: "Ründe-Luuredroon", cat: "Orion", files: ["Kronstadt_Orion_front_right_ARMY-2022.jpg"] },
   { label: "Geran-3/Geran-4", group: "drones", type: "Kaugmaa-ÕRM", cat: "Geran-3/Geran-4", files: ["Geran_4.png"] },
   { label: "Geran-5", group: "drones", type: "Kaugmaa-ÕRM", cat: "Geran-5", files: ["images/drones/geran5_01.webp", "Geran-5_launch_-_9_May_2026.png"] },
@@ -163,7 +165,7 @@ const CATEGORIES = [
   { label: "Sarõz-2", group: "drones", type: "Luuredroon", cat: "Sarõz-2", files: ["images/drones/saryz2.jpg"] },
   { label: "Albatros-M5", group: "drones", type: "Luuredroon", cat: "Albatros-M5", files: ["images/drones/albatrosm5.jpg"] },
   { label: "Ajaks V300", group: "drones", type: "Luuredroon", cat: "Ajaks V300", files: ["images/drones/ajaksv300.jpg"] },
-  { label: "Sokol-l", group: "drones", type: "Püüdurdroon", cat: "Sokol-l", files: ["images/drones/sokol_l.jpg"] },
+  { label: "Sokol-I", group: "drones", type: "Püüdurdroon", cat: "Sokol-I", files: ["images/drones/sokol_l.jpg"] },
   { label: "Zala KUB-2", group: "drones", type: "Ründedroon", cat: "Zala KUB-2", files: ["images/drones/zalakub2.jpg"] },
   { label: "Zala KUB", group: "drones", type: "Ründedroon", cat: "Zala KUB", files: ["UAV_KUB-E.jpg"] },
   { label: "V2U AI", group: "drones", type: "Ründedroon", cat: "V2U AI", files: ["images/drones/v2uai.jpeg"] },
