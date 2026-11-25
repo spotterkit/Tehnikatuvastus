@@ -312,6 +312,8 @@ const CATEGORIES = [
   { label: "MT-LB + ZU-23-2", group: "ad", type: "Õhutõrjesoomuk", cat: "MT-LB-ZU23", files: ["Десантники_81_окремої_аеромобільної_бригади_ВДВ_успішно_відпрацювали_навчально-бойові_завдання_3.jpg"] },
   { label: "BTR-ZD", group: "ad", type: "Dessandi õhutõrjesoomuk", cat: "BTR-ZD", files: ["SlavicBrotherhood2020-26.jpg", "137_AirborneRegiment_-_BTR-D%2C_MANPADS.jpg"] },
   { label: "BTR-D + ZU-23-2", group: "ad", type: "Dessandi õhutõrjesoomuk", cat: "BTR-D-ZU23", files: ["BTR-ZD.jpg"] },
+  { label: "48Ja6-K1 Podlet-K1", group: "ad", type: "ÕT radar", cat: "48Ja6-K1 Podlet-K1", files: ["Army2016-398.jpg", "Podliot-K1.jpg"] },
+  { label: "9S18M1 Kupol (Snow Drift)", group: "ad", type: "ÕT radar", cat: "9S18M1", files: ["Buk-M1-2_9S18M1-1.JPG", "images/ad/9s18.jpg"] },
 
   // Tankitõrjesoomukid
   { label: "9P149 Shturm-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P149 Shturm-S", files: ["9P149.jpg", "Штурм-С_-_Контрольная_проверка_курсантов_Учебного_центра_боевого_применения_ракетных_войск_и_артиллерии_02.jpg", "images/antitank/shturms_01.jpg", "Army2016demo-028.jpg", "Battle_of_Konotop_24.jpg"] },
