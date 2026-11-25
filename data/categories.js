@@ -65,7 +65,7 @@ const CATEGORIES = [
   { label: "ZOOPARK-1", group: "artillery_recon", type: "STV vastutuleradar", cat: "ZOOPARK-1", files: ["ArtilleryExercise2014-06.jpg", "1L219M_back_view_MAKS2005.jpg", "9th_Guards_Artillery_Brigade%27s_2S19_Msta-S_firing_%2803-03-2016%29_02.jpg"] },
   { label: "1V13", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V13", files: ["Engineering_Technologies_2010_Part4_0033_copy.jpg", "Engineering_Technologies_2010_Part4_0034_copy.jpg"] },
   { label: "1V18", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V18", files: ["2018._Донецк_N_18_DSC_8191.jpg", "2014-12-06._Площадка_военной_техники_в_парке_Ленинского_комсомола_07.JPG"] },
-  { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", files: ["RehearsalTula02052017-05.jpg", "1V119_%22Reostat%22.jpg"] },
+  { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", files: ["RehearsalTula02052017-05.jpg", "1V119_%22Reostat%22.jpg", "RehearsalTula02052017-07.jpg"] },
   { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", files: ["images/artillery_recon/ark1_01.jpg", "images/artillery_recon/ark12.jpg"] },
   { label: "1V15", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V15", files: ["images/artillery_recon/1v15_01.webp", "ACRV_M_1974%282%29_IV15_%287527973628%29_%28cropped%29.jpg"] },
   { label: "1V152 (1V126 Kapustnik-B)", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk", cat: "1V152 (1V126 Kapustnik-B)", files: ["images/artillery_recon/1v152.webp"] },
@@ -286,6 +286,9 @@ const CATEGORIES = [
   { label: "Buk-M3/SA-27 Gollum", group: "ad", type: "Õhutõrjesoomuk", cat: "Buk-M3/SA-27 Gollum", files: ["9A317M_Armia2018.jpg", "Расчеты_ЗРК_«Бук-М3»_отразили_удар_условного_противника_по_пункту_базирования_кораблей_Каспийской_флотилии_в_Дагестане.jpg"] },
   { label: "PU-12 (9S482)", group: "ad", type: "ÕT juhtimissoomuk", cat: "PU-12 (9S482)", files: ["BTR_60_-_PU-12.JPG"] },
   { label: "55Zh6M Nebo-M", group: "ad", type: "ÕT radar", cat: "55Zh6M Nebo-M", files: ["55Zh6M_Nebo-M_mobile_multiband_radar_system_-02.jpg"] },
+  { label: "MT-LB + ZU-23-2", group: "ad", type: "Õhutõrjesoomuk", cat: "MT-LB-ZU23", files: ["Десантники_81_окремої_аеромобільної_бригади_ВДВ_успішно_відпрацювали_навчально-бойові_завдання_3.jpg"] },
+  { label: "BTR-ZD", group: "ad", type: "Dessandi õhutõrjesoomuk", cat: "BTR-ZD", files: ["SlavicBrotherhood2020-26.jpg", "137_AirborneRegiment_-_BTR-D%2C_MANPADS.jpg"] },
+  { label: "BTR-D + ZU-23-2", group: "ad", type: "Dessandi õhutõrjesoomuk", cat: "BTR-D-ZU23", files: ["BTR-ZD.jpg"] },
 
   // Tankitõrjesoomukid
   { label: "9P149 Shturm-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P149 Shturm-S", files: ["9P149.jpg", "Штурм-С_-_Контрольная_проверка_курсантов_Учебного_центра_боевого_применения_ракетных_войск_и_артиллерии_02.jpg", "images/antitank/shturms_01.jpg", "Army2016demo-028.jpg", "Battle_of_Konotop_24.jpg"] },
