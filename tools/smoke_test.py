@@ -244,6 +244,24 @@ def main():
                   and ev("() => document.getElementById('modelGallery').classList.contains('open')"))
         step("Galerii: pildi suurendus", t_lightbox)
 
+        # 3a) kataloogi otsing (rc111): kirjaviis, translitereerimine, mitu sõna, järjestus
+        def t_search():
+            home()
+            p.click("#showModelListBtn")
+            names = lambda q: ev("q => modelListOrder(q, '').map(e => e.labelEt || e.label)", q)
+            for a, b in [("T72", "T-72"), ("bmp2", "BMP-2"), ("su 34", "Su-34"), ("Smerch", "Smertš"),
+                         ("Tosochka", "Tosotška"), ("Yolka", "Jolka"), ("ohutorje", "õhutõrje")]:
+                check(f"otsing „{a}“ = „{b}“", names(a) == names(b) and len(names(a)) > 0, f"{len(names(a))} vs {len(names(b))}")
+            check("T72: esimene tulemus algab T-72-ga", (names("T72") or [""])[0].startswith("T-72"))
+            both = names("luure droon")
+            check("mitu sõna, järjekord ei loe", both and both == names("droon luure"), str(len(both)))
+            check("tundmatu päring = 0", names("qqqxyz") == [])
+            p.fill("#modelListSearch", "t72")
+            on_screen = ev("() => [...document.querySelectorAll('#modelListContent .m-name')].map(x => x.textContent)")
+            check("ekraanil = modelListOrder (↑/↓ sama järjekord)", on_screen == ev("() => modelListOrder('t72').map(e => e.label)") and len(on_screen) > 0)
+            p.fill("#modelListSearch", "")
+        step("Kataloogi otsing", t_search)
+
         # 3b) mudelite vahetamine ↑/↓ (galerii ja suurendus), nimekirja järjekorras
         def t_model_nav():
             home()
@@ -343,6 +361,48 @@ def main():
             check("süsteemide koosseis ja süsteemi rida", not sy["bad"], f"{sy['n']} osa; " + ", ".join(sy["bad"]))
             p.keyboard.press("Escape")
         step("TTA šassii link", t_chassis_link)
+        def t_status():
+            home()
+            # andmete kontroll: kindlad väärtused, aasta, allikas; auastmetel/väeliikidel/relvadel/miinidel välja pole
+            bad = ev("""() => { const out = [], opts = TTA_FIELDS.fields.productionStatus.options;
+                Object.entries(TTA_DATA.models).forEach(([cat, m]) => { const v = (m.values || {}).productionStatus; if(v === undefined) return;
+                  const e = entryByCat(cat);
+                  if(!v || !Array.isArray(v.status) || !v.status.length) out.push(cat + ': tühi');
+                  else if(v.status.some(id => !opts[id]) || new Set(v.status).size !== v.status.length) out.push(cat + ': tundmatu/korduv ' + v.status.join(','));
+                  if(!v || !/^20\\d\\d$/.test(String(v.asOf))) out.push(cat + ': aasta puudub');
+                  if(!(m.sources || []).length) out.push(cat + ': allikas puudub');
+                  if(e && NON_MACHINE_GROUPS.has(e.group)) out.push(cat + ': grupp ' + e.group); });
+                return out; }""")
+            check("tootmisseisu andmed on korrektsed", not bad, ", ".join(bad))
+            # kuvamine (ajutine väärtus, andmeid ei muudeta)
+            txt = ev("""() => productionStatusText({status: ['new', 'upgrade'], asOf: 2026}, TTA_FIELDS.fields.productionStatus)""")
+            check("tootmisseis TTA-s", txt == "Uustootmine · Moderniseerimine (seisuga 2026)", txt)
+            # kataloogi filter
+            p.click("#showModelListBtn"); p.wait_for_selector("#modelListContent .model-list-row")
+            n_all = p.locator("#modelListContent .model-list-row").count()
+            want = ev("""() => CATEGORIES.filter(e => e.files && e.files.length && !NON_MACHINE_GROUPS.has(e.group) && productionStatusOf(e).includes('storage')).length""")
+            p.locator("#modelListStatus > summary").click()
+            p.locator("#modelListStatusOpts input[value='storage']").check()
+            got = p.locator("#modelListContent .model-list-row").count()
+            check("filter: ainult valitud seisuga mudelid", got == want and (want > 0 or got == 0), f"{got} / {want}")
+            check("filter on märgitud", ev("() => document.getElementById('modelListStatus').classList.contains('is-on')"))
+            boxes = p.locator("#modelListStatusOpts input")
+            for i in range(boxes.count()):
+                boxes.nth(i).check()
+            n_mix = p.locator("#modelListContent .model-list-row").count()
+            n_nonmachine = ev("() => CATEGORIES.filter(e => e.files && e.files.length && NON_MACHINE_GROUPS.has(e.group)).length")
+            check("filter: kõik seisud + Teadmata = kõik masinad (auastmed, väeliigid, relvad, miinid välja)", n_mix == n_all - n_nonmachine, f"{n_mix} / {n_all} − {n_nonmachine}")
+            for i in range(boxes.count()):
+                boxes.nth(i).uncheck()
+            check("filter maha: kõik mudelid", p.locator("#modelListContent .model-list-row").count() == n_all)
+            p.click("#listBackBtn")
+            # sama nimi ja liik → üks kord (Pontoonsillapark)
+            a = ev("""() => { const e = CATEGORIES.find(x => x.cat === 'Pontoonsillapark'); if(!e) return null;
+                lbRenderInfo({label: e.label, type: e.type}, '');
+                return [I18N.answerText(e.label, e.type), document.querySelectorAll('#lbInfo .lb-type').length]; }""")
+            check("sama nimi ja liik kuvatakse üks kord", a is None or a == ["Pontoonsillapark", 0], str(a))
+            check("erineva liigiga vastus jääb samaks", ev("() => I18N.answerText('T-72', 'Tank')") == "Tank T-72")
+        step("Tootmisseis ja nime/liigi kordus", t_status)
 
         # 4) võrdlus täisekraanil
         def t_compare():
@@ -671,6 +731,10 @@ def main():
             check("EN: TTA vaates on masintõlke rida", ev("""() => {
                 const e = CATEGORIES.find(x => TTA_DATA.models[x.cat]); if(!e) return true;
                 return !!renderTTAPanel(e, TTA_DATA.models[e.cat]).querySelector('.mt-note'); }"""))
+            pe = ev("""() => { const e = CATEGORIES.find(x => x.cat === 'Pontoonsillapark'); return e ? I18N.answerText(e.label, e.type) : null; }""")
+            check("EN: Pontoonsillapark vastus nimi – liik", pe is None or pe == "PMP pontoon bridge – Pontoon bridge", str(pe))
+            st = ev("""() => productionStatusText({status: ['new', 'storage'], asOf: 2026}, TTA_FIELDS.fields.productionStatus)""")
+            check("EN: tootmisseis tõlgitud", st == "New production · Reactivation from storage (as of 2026)", st)
             def home_en():
                 p.goto(base + "/index.html")
                 p.wait_for_function("() => typeof CATEGORIES !== 'undefined' && document.getElementById('appBuildLabel').textContent.includes('version')")
