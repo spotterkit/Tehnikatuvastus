@@ -89,7 +89,6 @@ const CATEGORIES = [
   { label: "2S40 Floks", group: "spg", type: "Liikurmiinipilduja", cat: "2S40", files: ["2S40_Flox.jpg"] },
   { label: "2S41 Drok", group: "spg", type: "Liikurmiinipilduja", cat: "2S41", files: ["2S41_Drok.jpg"] },
 
-
   // Mitmikraketiheitjad (reaktiivsuurtükid)
   { label: "BM-21 Grad", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-21 Grad", files: ["BM_-_21_Grad.jpg", "BM-21_Grad_%2803%29.jpg", "images/mlrs/bm21_01.jpg", "ChebarkulExercise2017-02.jpg"] },
   { label: "Tornado-G/BM-21-1 (2B17M)", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "Tornado-G/BM-21-1 (2B17M)", files: ["Army2016demo-062.jpg", "Хабаровск%2C_репетиция_к_параду_4_мая_2016._Идет_дождь_%2819%29.jpg"] },
@@ -180,6 +179,7 @@ const CATEGORIES = [
   { label: "Dan-T", group: "drones", type: "Kaugmaa-ÕRM/väike tiibrakett", cat: "Dan-T", files: ["images/drones/dant.webp"] },
   { label: "Zala Z-16", group: "drones", type: "Luuredroon", cat: "Zala Z-16", files: ["images/drones/zalaz16.jpg"] },
   { label: "Gerbera-2", group: "drones", type: "Mitmeotstarbeline droon", cat: "Gerbera-2", files: ["images/drones/gerbera-2.jpg", "images/drones/gerbera2_1.png"] },
+  { label: "Jolka", group: "drones", type: "Püüdurdroon", cat: "Yolka", files: ["Yolka_drone_interceptor.png", "images/drones/yolka.jpg"] },
 
   // Pioneerisoomukid ja tehnika
   { label: "IMR-2", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-2", files: ["RIAN_archive_734015_Wildfires_in_Moscow_Region%27s_Lukhovitsky_district.jpg", "EngineerFieldRide2017-07.jpg", "AssaultExercise2017-02.jpg"] },
