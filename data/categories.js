@@ -87,6 +87,7 @@ const CATEGORIES = [
   { label: "2S34 Hosta", group: "spg", type: "Liikurmiinipilduja", cat: "2S34 Hosta", files: ["Army2016demo-056.jpg"] },
   { label: "2S35 Koalitsija-SV", group: "spg", type: "Liikursuurtükk", cat: "2S35", files: ["9may2015Moscow-35_%28cropped%29.jpg"] },
   { label: "2S40 Floks", group: "spg", type: "Liikurmiinipilduja", cat: "2S40", files: ["2S40_Flox.jpg"] },
+  { label: "2S41 Drok", group: "spg", type: "Liikurmiinipilduja", cat: "2S41", files: ["2S41_Drok.jpg"] },
 
   // Mitmikraketiheitjad (reaktiivsuurtükid)
   { label: "BM-21 Grad", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-21 Grad", files: ["BM_-_21_Grad.jpg", "BM-21_Grad_%2803%29.jpg", "images/mlrs/bm21_01.jpg", "ChebarkulExercise2017-02.jpg"] },
