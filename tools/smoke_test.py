@@ -313,6 +313,34 @@ def main():
                   && !renderTTAPanel(e, t).querySelector('.tta-link'); }).map(e => e.cat);
                 return {n: out.length, sample: out.slice(0, 3), orphan}; }""")
             check("WHAT-loendi mudelil tuletatud alusplatvorm", d["n"] >= 10 and not d["orphan"], f"{d['n']} mudelit, nt {', '.join(d['sample'])}")
+            # WHAT ↔ TTA kooskõla: soomukplatvormi WHAT-loendis oleva masina TTA-s peab olema link just sellele platvormile
+            bad = ev("""() => { const out = [];
+                Object.entries(WHAT_DATA.models).forEach(([pcat, rec]) => { const pe = entryByCat(pcat);
+                  if(!pe || pe.group === 'trucks') return;
+                  (rec.related || []).forEach(g => (g.models || []).forEach(m => {
+                    const e = m.cat ? entryByCat(m.cat) : entryByRelatedName(m.name); const t = e && TTA_DATA.models[e.cat];
+                    if(!t || !e.files || !e.files.length) return;
+                    const ok = [...renderTTAPanel(e, t).querySelectorAll('.tta-link')].some(x => x.title === pe.label);
+                    if(!ok) out.push(e.cat + ' (WHAT: ' + pcat + ')'); })); });
+                return out; }""")
+            check("WHAT-loend ja TTA alusplatvorm on kooskõlas", not bad, ", ".join(bad))
+            # veoki nimi šassii tekstis ei tohi saada linki (ka mitte teisele mudelile, mille nimi algab veoki nimega)
+            tl = ev("""() => { const trucks = new Set(CATEGORIES.filter(e => e.group === 'trucks').map(e => e.cat.split(/[\\s,]/)[0].toLowerCase()));
+                const out = []; CATEGORIES.forEach(e => { const t = TTA_DATA.models[e.cat]; if(!t || !t.values.chassis) return;
+                  const dd = document.createElement('dd'); linkChassis(dd, e, t.values.chassis);
+                  dd.querySelectorAll('.tta-link').forEach(a => { if(trucks.has(a.textContent.toLowerCase())) out.push(e.cat + ' → ' + a.textContent); }); });
+                return out; }""")
+            check("veoki nimi ei ole šassii link", not tl, ", ".join(tl))
+            # Süsteemid: iga koosseisu cat on olemas ja selle masina TTA-s on rida „Süsteem“ (avatud osa rasvaselt)
+            sy = ev("""() => { const bad = [], S = TTA_DATA.systems || {}; let n = 0;
+                Object.entries(S).forEach(([id, sy]) => (sy.members || []).forEach(m => { if(!m || !m.cat) return; n++;
+                  const e = entryByCat(m.cat), t = e && TTA_DATA.models[m.cat];
+                  if(!e) { bad.push(id + ': ' + m.cat + ' puudub'); return; }
+                  if(!t) { bad.push(id + ': ' + m.cat + ' TTA puudub'); return; }
+                  const d = renderTTAPanel(e, t).querySelector('.tta-system');
+                  if(!d || !d.querySelector('strong + * , strong')) bad.push(id + ': ' + m.cat + ' süsteemi rida puudub'); }));
+                return {n, bad}; }""")
+            check("süsteemide koosseis ja süsteemi rida", not sy["bad"], f"{sy['n']} osa; " + ", ".join(sy["bad"]))
             p.keyboard.press("Escape")
         step("TTA šassii link", t_chassis_link)
 
