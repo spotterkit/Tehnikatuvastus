@@ -179,6 +179,7 @@ const CATEGORIES = [
   { label: "Banderol", group: "drones", type: "Kaugmaa-ÕRM/väike tiibrakett", cat: "Banderol", files: ["images/drones/banderol.webp"] },
   { label: "Dan-T", group: "drones", type: "Kaugmaa-ÕRM/väike tiibrakett", cat: "Dan-T", files: ["images/drones/dant.webp"] },
   { label: "Zala Z-16", group: "drones", type: "Luuredroon", cat: "Zala Z-16", files: ["images/drones/zalaz16.jpg"] },
+  { label: "Gerbera-2", group: "drones", type: "Mitmeotstarbeline droon", cat: "Gerbera-2", files: ["images/drones/gerbera-2.jpg", "images/drones/gerbera2_1.png"] },
 
   // Pioneerisoomukid ja tehnika
   { label: "IMR-2", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-2", files: ["RIAN_archive_734015_Wildfires_in_Moscow_Region%27s_Lukhovitsky_district.jpg", "EngineerFieldRide2017-07.jpg", "AssaultExercise2017-02.jpg"] },
