@@ -6,6 +6,8 @@ window.TTA_DATA = {
     "BMD-2": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhudessantvägede (VDV) langevarjur- ja dessantründepolgud (nt 98. õhudessantdiviisi 299. langevarjurpolk)",
+        "productionStatus": {"status": ["upgrade"], "asOf": 2026},
         "purpose": "Dessandi jalaväe lahingumasin (kasutusel 1985): BMD-1 uue torniga variant, mõeldud BMD-1 asendajaks.",
         "crew": "3 + 4 dessantväelast",
         "combatWeight": 8.2,
@@ -53,12 +55,14 @@ window.TTA_DATA = {
         {"name": "Wikipedia: BMD-2", "url": "https://en.wikipedia.org/wiki/BMD-2", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 9K111 Fagot", "url": "https://en.wikipedia.org/wiki/9K111_Fagot", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 9M113 Konkurs", "url": "https://en.wikipedia.org/wiki/9M113_Konkurs", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: Shipunov 2A42", "url": "https://en.wikipedia.org/wiki/Shipunov_2A42", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: Shipunov 2A42", "url": "https://en.wikipedia.org/wiki/Shipunov_2A42", "retrieved": "2026-10-07"},
+        {"name": "United24 Media: New BMD-2M deliveries help Russia offset losses, not armor weaknesses (Jun 2026)", "url": "https://united24media.com/world/new-bmd-2m-deliveries-help-russia-offset-losses-not-armor-weaknesses-19540", "retrieved": "2026-11-25"}
       ]
     },
     "BMD-1": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhudessantvägede (VDV) diviisid ja brigaadid (ajalooliselt; nüüd reservis)",
         "purpose": "Ujuv roomikdessandi-jalaväe lahingumasin: annab õhudessantvägedele (VDV) õhust toimetatava soomustoetuse.",
         "crew": "3 + 4 dessantväelast",
         "combatWeight": 7.5,
@@ -98,6 +102,8 @@ window.TTA_DATA = {
     "BMP-2": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Maavägi; vähemal määral merejalavägi ja õhudessantväed (VDV)",
+        "productionStatus": {"status": ["upgrade"], "asOf": 2023},
         "purpose": "Ujuv jalaväe lahingumasin (1980ndad), BMP-1 järglane.",
         "crew": "3 + 7 dessantväelast",
         "combatWeight": 14.3,
@@ -139,12 +145,14 @@ window.TTA_DATA = {
         {"name": "U.S. Army ODIN / WEG: BMP-2", "url": "https://odin.t2com.army.mil/WEG/Asset/0463e5419617d63ff6dc58ed40babd01", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BMP-2", "url": "https://en.wikipedia.org/wiki/BMP-2", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 9M113 Konkurs", "url": "https://en.wikipedia.org/wiki/9M113_Konkurs", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: Shipunov 2A42", "url": "https://en.wikipedia.org/wiki/Shipunov_2A42", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: Shipunov 2A42", "url": "https://en.wikipedia.org/wiki/Shipunov_2A42", "retrieved": "2026-10-07"},
+        {"name": "Focus.ua: Remont i modernizatsiya – rossiyskie oruzheyniki snabzhayut armiyu BMP-2M uskorennymi tempami (Nov 2023)", "url": "https://focus.ua/voennye-novosti/607795-remont-i-modernizaciya-rossiyskie-oruzheyniki-snabzhayut-armiyu-bmp-2m-uskorennymi-tempami", "retrieved": "2026-11-25"}
       ]
     },
     "BMP-1": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "Ujuv roomikjalaväe lahingumasin (kasutusel alates 1966): annab jalaväeosakonnale kerge tanki liikuvuse ja tulejõu ning võimaldab tal võidelda soomuse kaitse all.",
         "crew": "3 + 8 dessantväelast",
         "combatWeight": 13.5,
@@ -184,12 +192,15 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BMP-1", "url": "https://odin.t2com.army.mil/WEG/Asset/cf0e6eb4267d8a3e60d66101379a8149", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BMP-1", "url": "https://en.wikipedia.org/wiki/BMP-1", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: 9M14 Malyutka", "url": "https://en.wikipedia.org/wiki/9M14_Malyutka", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 9M14 Malyutka", "url": "https://en.wikipedia.org/wiki/9M14_Malyutka", "retrieved": "2026-10-07"},
+        {"name": "Jamestown EDM: Russia Exhausts Soviet-Era Arms Storage Bases (Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"}
       ]
     },
     "BMP-3": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskurbrigaadi motolaskurpataljon (2016. aasta struktuur)",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Jalaväe lahingumasin, BMP-1 ja BMP-2 järglane; üks tugevaima relvastusega jalaväe lahingumasinaid.",
         "crew": "3 + 7 dessantväelast (+2 lisakohta)",
         "combatWeight": 18.7,
@@ -233,12 +244,16 @@ window.TTA_DATA = {
         {"name": "U.S. Army ODIN / WEG: BMP-3", "url": "https://odin.t2com.army.mil/WEG/Asset/822df89dbe778cd601cb1e8cee707585", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BMP-3", "url": "https://en.wikipedia.org/wiki/BMP-3", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 2A70", "url": "https://en.wikipedia.org/wiki/2A70", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: 9M117 Bastion", "url": "https://en.wikipedia.org/wiki/9M117_Bastion", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 9M117 Bastion", "url": "https://en.wikipedia.org/wiki/9M117_Bastion", "retrieved": "2026-10-07"},
+        {"name": "FMSO/Army University Press (Grau & Bartles 2016): The Russian Way of War – Force Structure, Tactics and Modernization of the Russian Ground Forces", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russian Army Receives New BMP-3s With Additional Protection and Electronic Warfare (Dec 2025)", "url": "https://militarnyi.com/en/news/russian-army-receives-new-bmp-3s-with-additional-protection-and-electronic-warfare/", "retrieved": "2026-11-25"}
       ]
     },
     "BTR-60": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Reservüksused",
+        "productionStatus": {"status": ["storage"], "asOf": 2025},
         "purpose": "Esimene Nõukogude 8×8 soomustransportööride seeriast (BTR-152 asendaja). Soomustransportöörina enam peaaegu ei kasutata; pigem liikuva juhtimispunkti, suurtükiväe eesvaatluse ja sidemasinana.",
         "crew": "2 + 14 dessantväelast",
         "combatWeight": 10.3,
@@ -272,12 +287,18 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BTR-60", "url": "https://odin.t2com.army.mil/WEG/Asset/547812768252900f3a32aaebe26dc418", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BTR-60", "url": "https://en.wikipedia.org/wiki/BTR-60", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: KPV heavy machine gun", "url": "https://en.wikipedia.org/wiki/KPV_heavy_machine_gun", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: KPV heavy machine gun", "url": "https://en.wikipedia.org/wiki/KPV_heavy_machine_gun", "retrieved": "2026-10-07"},
+        {"name": "Jamestown EDM: Russia Exhausts Soviet-Era Arms Storage Bases (Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Pro-Russian troops continue to use in Ukraine old Soviet BTR-60PB, BTR-70 APCs (Apr 2023)", "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/pro-russian-troops-continue-to-use-in-ukraine-old-soviet-btr-60pb-btr-70-apcs", "retrieved": "2026-11-25"},
+        {"name": "Euromaidan Press: Forbes – Russia still has over 2,300 decaying BTRs in storage (Mar 2025)", "url": "https://euromaidanpress.com/?p=329508", "retrieved": "2026-11-25"},
+        {"name": "Defence24: Rosjanie przywracają do służby kolejne poradzieckie transportery (Oct 2025)", "url": "https://defence24.pl/sily-zbrojne/rosjanie-przywracaja-do-sluzby-kolejne-poradzieckie-transportery", "retrieved": "2026-11-25"}
       ]
     },
     "BTR-70": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Reservüksused",
+        "productionStatus": {"status": ["storage"], "asOf": 2025},
         "purpose": "8×8 soomustransportöör, BTR-60 järglane.",
         "crew": "2 + 9 dessantväelast",
         "combatWeight": 11.5,
@@ -312,12 +333,18 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BTR-70", "url": "https://odin.t2com.army.mil/WEG/Asset/146a46d960de31b2409f05b05df2ed2d", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: BTR-70", "url": "https://en.wikipedia.org/wiki/BTR-70", "retrieved": "2026-10-08"}
+        {"name": "Wikipedia: BTR-70", "url": "https://en.wikipedia.org/wiki/BTR-70", "retrieved": "2026-10-08"},
+        {"name": "Jamestown EDM: Russia Exhausts Soviet-Era Arms Storage Bases (Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Pro-Russian troops continue to use in Ukraine old Soviet BTR-60PB, BTR-70 APCs (Apr 2023)", "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/pro-russian-troops-continue-to-use-in-ukraine-old-soviet-btr-60pb-btr-70-apcs", "retrieved": "2026-11-25"},
+        {"name": "Euromaidan Press: Forbes – Russia still has over 2,300 decaying BTRs in storage (Mar 2025)", "url": "https://euromaidanpress.com/?p=329508", "retrieved": "2026-11-25"},
+        {"name": "Ukrinform: Russia nearing exhaustion of Soviet-era armored vehicles – ISW (Jun 2025)", "url": "https://www.ukrinform.net/rubric-ato/4009043-russia-nearing-exhaustion-of-sovietera-armored-vehicles-isw.html", "retrieved": "2026-11-25"}
       ]
     },
     "BTR-80": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskurbrigaadi motolaskurpataljon (soomustransportööridel) (2016. aasta struktuur)",
+        "productionStatus": {"status": ["storage"], "asOf": 2025},
         "purpose": "Ujuv 8×8 ratassoomustransportöör (kasutusel 1985), BTR-60 ja BTR-70 asendaja.",
         "crew": "3 + 7 dessantväelast",
         "combatWeight": 13.6,
@@ -350,12 +377,17 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BTR-80", "url": "https://odin.t2com.army.mil/WEG/Asset/a4fd3058789fe5d3485f4b5013237e89", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: KPV heavy machine gun", "url": "https://en.wikipedia.org/wiki/KPV_heavy_machine_gun", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: KPV heavy machine gun", "url": "https://en.wikipedia.org/wiki/KPV_heavy_machine_gun", "retrieved": "2026-10-07"},
+        {"name": "FMSO/Army University Press (Grau & Bartles 2016): The Russian Way of War – Force Structure, Tactics and Modernization of the Russian Ground Forces", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
+        {"name": "Euromaidan Press: Forbes – Russia still has over 2,300 decaying BTRs in storage (Mar 2025)", "url": "https://euromaidanpress.com/?p=329508", "retrieved": "2026-11-25"},
+        {"name": "Ukrinform: Russia nearing exhaustion of Soviet-era armored vehicles – ISW (Jun 2025)", "url": "https://www.ukrinform.net/rubric-ato/4009043-russia-nearing-exhaustion-of-sovietera-armored-vehicles-isw.html", "retrieved": "2026-11-25"}
       ]
     },
     "BTR-82A": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskurbrigaadi motolaskurpataljon (soomustransportööridel) (2016. aasta struktuur)",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "BTR-80 uusim tootmisversioon parema soomuse ja killuvoodriga (võeti kasutusele 2013).",
         "crew": "3 + 7 dessantväelast",
         "combatWeight": 15.4,
@@ -381,12 +413,16 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BTR-82", "url": "https://odin.t2com.army.mil/WEG/Asset/a27afe2e5a4fe5a7a2ef8df88c926c9d", "retrieved": "2026-10-08"},
         {"name": "Army Technology: BTR-82A", "url": "https://www.army-technology.com/projects/btr-82a-armoured-personnel-carrier/", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-10-07"},
+        {"name": "FMSO/Army University Press (Grau & Bartles 2016): The Russian Way of War – Force Structure, Tactics and Modernization of the Russian Ground Forces", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
+        {"name": "United24 Media: Production of Russia's BTR-82 hits Soviet-era scale (Nov 2025)", "url": "https://united24media.com/latest-news/production-of-russias-btr-82-hits-soviet-era-scale-13024", "retrieved": "2026-11-25"}
       ]
     },
     "MT-LB": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Põhjapoolsete motolaskurbrigaadide motolaskurpataljonid; ka suurtükiveduk (nt tankitõrjekahur MT-12) (2016. aasta struktuur)",
+        "productionStatus": {"status": ["storage"], "asOf": 2025},
         "purpose": "Mitmeotstarbeline ujuv roomiksoomuk (kasutusel 1970ndatest): sageli soomustransportöörina, ka suurtükiveduki ja sanitaarmasinana.",
         "crew": "2 + 11 dessantväelast",
         "combatWeight": 11.9,
@@ -416,12 +452,17 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: MT-LB", "url": "https://odin.t2com.army.mil/WEG/Asset/6eba8568bfb1ffa74a03edc24db3a174", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: MT-LB", "url": "https://en.wikipedia.org/wiki/MT-LB", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: MT-LB", "url": "https://en.wikipedia.org/wiki/MT-LB", "retrieved": "2026-10-07"},
+        {"name": "FMSO/Army University Press (Grau & Bartles 2016): The Russian Way of War – Force Structure, Tactics and Modernization of the Russian Ground Forces", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russia Empties One of Its Largest MT-LB Storage Bases (Nov 2025)", "url": "https://militarnyi.com/en/news/russia-empties-one-of-its-largest-mt-lb-storage-bases", "retrieved": "2026-11-25"},
+        {"name": "Jamestown EDM: Russia Exhausts Soviet-Era Arms Storage Bases (Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"},
+        {"name": "Trench Art (David Axe): Russia Is Burning Through One Of Its Last Stocks of Old Cold War Vehicles (Apr 2025)", "url": "https://www.trenchart.us/p/russia-is-burning-through-one-of", "retrieved": "2026-11-25"}
       ]
     },
     "MT-LBu": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["storage"], "asOf": 2025},
         "purpose": "MT-LB suurem, relvastamata versioon, mis on paljude erisoomukite alus.",
         "crew": "2 + 6",
         "combatWeight": 15.55,
@@ -449,12 +490,14 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: MT-LBu", "url": "https://odin.t2com.army.mil/WEG/Asset/a58fe6021604d74d51e48d93eff4feda", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: MT-LBu", "url": "https://en.wikipedia.org/wiki/MT-LBu", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: MT-LB", "url": "https://en.wikipedia.org/wiki/MT-LB", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: MT-LB", "url": "https://en.wikipedia.org/wiki/MT-LB", "retrieved": "2026-10-07"},
+        {"name": "Trench Art (David Axe): Russia Is Burning Through One Of Its Last Stocks of Old Cold War Vehicles (Apr 2025)", "url": "https://www.trenchart.us/p/russia-is-burning-through-one-of", "retrieved": "2026-11-25"}
       ]
     },
     "BMO-T": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskurbrigaadi RKBK-kompanii leegiheitjarühm; RKBK-brigaadide ja -polkude leegiheitjapataljonid (2016. aasta struktuur)",
         "purpose": "T-72 baasil raske soomustatud leegiheitjate transportöör: veab ja toetab leegiheitjate jalaväge.",
         "crew": "2 + 7 leegiheitjat",
         "combatWeight": 43.9,
@@ -475,12 +518,15 @@ window.TTA_DATA = {
         "range": "Maastikul 427–657km."
       },
       "sources": [
-        {"name": "Tanks Encyclopedia: BMO-T", "url": "https://tanks-encyclopedia.com/bmo-t-heavy-armored-flamethrower-personnel-carrier/", "retrieved": "2026-10-07"}
+        {"name": "Tanks Encyclopedia: BMO-T", "url": "https://tanks-encyclopedia.com/bmo-t-heavy-armored-flamethrower-personnel-carrier/", "retrieved": "2026-10-07"},
+        {"name": "FMSO/Army University Press (Grau & Bartles 2016): The Russian Way of War – Force Structure, Tactics and Modernization of the Russian Ground Forces", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "BMD-4M": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhudessantvägede (VDV) pataljonid (pataljonikomplekt: 31 BMD-4M + 16 BTR-MDM)",
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Ujuv jalaväe lahingumasin Vene dessantvägede (VDV) veoks, parema liikuvuse, tulejõu ja kaitsega.",
         "crew": "3 + 6 dessantväelast",
         "combatWeight": 13.5,
@@ -520,12 +566,14 @@ window.TTA_DATA = {
         {"name": "U.S. Army ODIN / WEG: BMD-4", "url": "https://odin.t2com.army.mil/WEG/Asset/0b0252ef60737282417f02e725ae471d", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BMD-4", "url": "https://en.wikipedia.org/wiki/BMD-4", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 9M117 Bastion", "url": "https://en.wikipedia.org/wiki/9M117_Bastion", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: 2A70", "url": "https://en.wikipedia.org/wiki/2A70", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 2A70", "url": "https://en.wikipedia.org/wiki/2A70", "retrieved": "2026-10-07"},
+        {"name": "Army Recognition: Russia continues to strengthen its army in Ukraine with delivery of new batch of BMD-4M and BMP-3 (2024)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2024/russia-continues-to-strengthen-its-army-in-ukraine-with-delivery-of-new-batch-of-bmd-4m-and-bmp-3", "retrieved": "2026-11-25"}
       ]
     },
     "BTR-D": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhudessantväed (VDV)",
         "purpose": "Dessantvägede mitmeotstarbeline roomiksoomustransportöör; vägede ruumis kuni 10 varustatud sõdurit.",
         "crew": "3 + 10 dessantväelast",
         "combatWeight": 8.2,
@@ -558,12 +606,16 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BTR-D", "url": "https://odin.t2com.army.mil/WEG/Asset/4c664f7c3b53fc81f1af53bbeedd4e1f", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: BTR-D", "url": "https://en.wikipedia.org/wiki/BTR-D", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: BTR-D", "url": "https://en.wikipedia.org/wiki/BTR-D", "retrieved": "2026-10-07"},
+        {"name": "Army Recognition: New delivery of BMD-2 and BTR-D armored vehicles for Russian airborne forces in Ukraine (2024)", "url": "https://armyrecognition.com/news/army-news/army-news-2024/new-delivery-of-bmd-2-and-btr-d-armored-vehicles-for-russian-airborne-forces-in-ukraine", "retrieved": "2026-11-25"},
+        {"name": "Ukrinform: Russia nearing exhaustion of Soviet-era armored vehicles – ISW (Jun 2025)", "url": "https://www.ukrinform.net/rubric-ato/4009043-russia-nearing-exhaustion-of-sovietera-armored-vehicles-isw.html", "retrieved": "2026-11-25"}
       ]
     },
     "BTR-MDM": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhudessantvägede (VDV) pataljonid (pataljonikomplekt: 31 BMD-4M + 16 BTR-MDM)",
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Dessandi- ja õhuründeüksuste ujuv roomiksoomustransportöör vägede ja varustuse veoks; ka juhtimis-, side-, sanitaar- ja logistikaversioonid.",
         "crew": "2 + 13 dessantväelast",
         "combatWeight": 13.2,
@@ -594,12 +646,16 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BTR-MDM Rakushka-M", "url": "https://odin.t2com.army.mil/WEG/Asset/3af6301b891ad5c873fe2a9a697e1bec", "retrieved": "2026-10-28"},
-        {"name": "Army Technology: BTR-MDM", "url": "https://www.army-technology.com/projects/btr-mdm-armoured-personnel-carrier/", "retrieved": "2026-10-07"}
+        {"name": "Army Technology: BTR-MDM", "url": "https://www.army-technology.com/projects/btr-mdm-armoured-personnel-carrier/", "retrieved": "2026-10-07"},
+        {"name": "Army Recognition: Russian Airborne Forces boost anti-drone capabilities with upgraded BTR-MDM Rakushka armored vehicles (Dec 2024)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2024/russian-airborne-forces-boost-anti-drone-capabilities-with-upgraded-btr-mdm-rakushka-armored-vehicles", "retrieved": "2026-11-25"},
+        {"name": "Wikipedia: BMD-4", "url": "https://en.wikipedia.org/wiki/BMD-4", "retrieved": "2026-11-25"}
       ]
     },
     "T-62": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Reserv- ja mobilisatsiooniüksused; vabatahtlike pataljonid (nt Alania pataljon)",
+        "productionStatus": {"status": ["storage"], "asOf": 2025},
         "purpose": "Nõukogude põhitank (1961), oma ajal Nõukogude armee standardtank. Hiljem vananenud ja reservi pandud; 2022 võeti Ukraina sõjaks hoidlatest uuesti kasutusele.",
         "crew": "4",
         "combatWeight": 40,
@@ -641,12 +697,15 @@ window.TTA_DATA = {
         {"name": "U.S. Army ODIN / WEG: T-62", "url": "https://odin.t2com.army.mil/WEG/Asset/13b258159daa62abea0fcc4d720f288e", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: T-62", "url": "https://en.wikipedia.org/wiki/T-62", "retrieved": "2026-10-07"},
         {"name": "GlobalSecurity: AT-12 Sheksna", "url": "https://www.globalsecurity.org/military/world/russia/at-12.htm", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: DShK", "url": "https://en.wikipedia.org/wiki/DShK", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: DShK", "url": "https://en.wikipedia.org/wiki/DShK", "retrieved": "2026-10-07"},
+        {"name": "Kyiv Independent: Russia revives obsolete T-62 tanks amid equipment shortages, Ukrainian intel says (Jun 2025)", "url": "https://kyivindependent.com/russia-revives-obsolete-t-62-tanks-amid-equipment-shortages-ukrainian-intel-says-06-2025/amp", "retrieved": "2026-11-25"}
       ]
     },
     "T-72": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskurbrigaadi tankipataljon; tankibrigaadid (2016. aasta struktuur)",
+        "productionStatus": {"status": ["upgrade", "storage"], "asOf": 2026},
         "purpose": "Nõukogude põhitankide perekond (tootmises alates 1973); ehitatud ca 25 000, moderniseerimise abil kasutuses aastakümneid.",
         "crew": "3",
         "combatWeight": 44.5,
@@ -690,12 +749,18 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: T-72", "url": "https://odin.t2com.army.mil/WEG/Asset/805d8d9f2e9c02fab6a81028d4f77d0b", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: T-72", "url": "https://en.wikipedia.org/wiki/T-72", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: 9M119 Svir", "url": "https://en.wikipedia.org/wiki/9M119_Svir", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 9M119 Svir", "url": "https://en.wikipedia.org/wiki/9M119_Svir", "retrieved": "2026-10-07"},
+        {"name": "FMSO/Army University Press (Grau & Bartles 2016): The Russian Way of War – Force Structure, Tactics and Modernization of the Russian Ground Forces", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russia delivers more T-90M and T-72B3M tanks as it rebuilds combat power in Ukraine (Sept 2026)", "url": "https://www.armyrecognition.com/news/army-news/2026/russia-delivers-more-t-90m-and-t-72b3m-tanks-as-it-rebuilds-combat-power-in-ukraine", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russia Plans to Repair and Upgrade More Than 800 T-72 Tanks Over the Next Decade (Oct 2025)", "url": "https://militarnyi.com/en/news/russia-plans-to-repair-and-upgrade-more-than-800-t-72-tanks-over-the-next-decade/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: OSINT Study – Russia Has Exhausted Over Half of Its Stockpiles of Armored Vehicles and Artillery (Oct 2025)", "url": "https://militarnyi.com/en/news/osint-study-russia-has-exhausted-over-half-of-its-stockpiles-of-armored-vehicles-and-artillery/", "retrieved": "2026-11-25"}
       ]
     },
     "T-80": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "2. kaardiväe Tamani ja 4. kaardiväe Kantemirovka diviis (dateerimata andmed); vähesel määral merejalavägi (IISS 2026: ~30)",
+        "productionStatus": {"status": ["upgrade", "storage"], "asOf": 2025},
         "purpose": "Põhitank (kasutusel 1976), esimene ainult gaasiturbiinmootoriga seeriatank.",
         "crew": "3",
         "combatWeight": 43.7,
@@ -736,7 +801,10 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: T-80BV", "url": "https://odin.t2com.army.mil/WEG/Asset/6b3d145b802982380c3feaf1f4efa9e4", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: T-80", "url": "https://en.wikipedia.org/wiki/T-80", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: T-80", "url": "https://en.wikipedia.org/wiki/T-80", "retrieved": "2026-10-07"},
+        {"name": "Army Recognition: Russia delivers more T-90M and T-72B3M tanks as it rebuilds combat power in Ukraine (Sept 2026)", "url": "https://www.armyrecognition.com/news/army-news/2026/russia-delivers-more-t-90m-and-t-72b3m-tanks-as-it-rebuilds-combat-power-in-ukraine", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: OSINT Study – Russia Has Exhausted Over Half of Its Stockpiles of Armored Vehicles and Artillery (Oct 2025)", "url": "https://militarnyi.com/en/news/osint-study-russia-has-exhausted-over-half-of-its-stockpiles-of-armored-vehicles-and-artillery/", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russian forces in Ukraine reinforced with additional T-80BVM model 2023 tanks (Feb 2024)", "url": "https://www.armyrecognition.com/ukraine_-_russia_conflict_war_2022/russian_forces_in_ukraine_reinforced_with_additional_t-80bvm_model_2023_tanks.html", "retrieved": "2026-11-25"}
       ]
     },
     "T-90A": {
@@ -786,6 +854,8 @@ window.TTA_DATA = {
     "T-90M": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Tanki- ja motolaskurformeeringud (nt 90. kaardiväe tankidiviis; Kesk-SVR üldväearmee motolaskurformeering)",
+        "productionStatus": {"status": ["new", "upgrade"], "asOf": 2026},
         "purpose": "T-90 põhjalikult moderniseeritud versioon („Proryv-3“), esmakordselt avalikult 2017.",
         "crew": "3",
         "combatWeight": 46.5,
@@ -822,12 +892,17 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: T-90M", "url": "https://odin.t2com.army.mil/WEG/Asset/ca2015f698eb0515ae502257e38bfc17", "retrieved": "2026-10-28"},
         {"name": "Wikipedia: T-90", "url": "https://en.wikipedia.org/wiki/T-90", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: Kord machine gun", "url": "https://en.wikipedia.org/wiki/Kord_machine_gun", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: Kord machine gun", "url": "https://en.wikipedia.org/wiki/Kord_machine_gun", "retrieved": "2026-10-07"},
+        {"name": "Army Recognition: Russia delivers more T-90M and T-72B3M tanks as it rebuilds combat power in Ukraine (Sept 2026)", "url": "https://www.armyrecognition.com/news/army-news/2026/russia-delivers-more-t-90m-and-t-72b3m-tanks-as-it-rebuilds-combat-power-in-ukraine", "retrieved": "2026-11-25"},
+        {"name": "Euromaidan Press: Russia turns old tanks into 'new' T-90Ms (Oct 2025)", "url": "https://euromaidanpress.com/2025/10/04/t-90as-into-t-90ms/", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russian Defense Ministry deploys 23 new T-90M Proryv-3 main battle tanks in Central District (May 2024)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2024/russian-defense-ministry-deploys-23-new-t-90m-proryv-3-main-battle-tanks-in-central-district-2", "retrieved": "2026-11-25"}
       ]
     },
     "BMP-T": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Tankidiviisi tankipolgu BMPT-kompanii (nt 90. tankidiviis)",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Soomusmasin tankide ja teiste soomukite toetamiseks asulalahingus.",
         "crew": "5",
         "combatWeight": 48,
@@ -858,12 +933,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BMPT Terminator", "url": "https://odin.t2com.army.mil/WEG/Asset/9f1db2b58ba9e52eb202ed082e26720c", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: BMPT Terminator", "url": "https://en.wikipedia.org/wiki/BMPT_Terminator", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: BMPT Terminator", "url": "https://en.wikipedia.org/wiki/BMPT_Terminator", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russian Army Receives New BMPT Terminator Vehicles (Oct 2025)", "url": "https://militarnyi.com/en/news/russian-army-receives-new-bmpt-terminator-vehicles/", "retrieved": "2026-11-25"}
       ]
     },
     "2S1 Gvozdika": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Liikurhaubitsadivisjoni patarei (maaväed ja merejalavägi)",
+        "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "122mm liikurhaubits (kasutusel 1972) MT-LBu šassiil, suurtükiväe tuletoetuseks; oli Nõukogude diviisides laialt kasutusel.",
         "crew": "4",
         "chassis": "Modifitseeritud MT-LBu šassii",
@@ -901,12 +979,16 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S1 Gvozdika", "url": "https://odin.t2com.army.mil/WEG/Asset/08b8cac0bf7658df6cf95d0850fc9a18", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: 2S1 Gvozdika", "url": "https://en.wikipedia.org/wiki/2S1_Gvozdika", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 2S1 Gvozdika", "url": "https://en.wikipedia.org/wiki/2S1_Gvozdika", "retrieved": "2026-10-07"},
+        {"name": "Canadian Army Journal 20-2 (2024), Grau & Bartles: The 2S35 Koalitsiya-SV, Robotics and the Future of Russian Artillery Modernization", "url": "https://www.canada.ca/en/army/services/canadian-army-journal/articles/2024/20-2-grau-and-bartles-russian-artillery-modernization.html", "retrieved": "2026-11-25"},
+        {"name": "Jamestown: Russia Exhausts Soviet-Era Arms Storage Bases (14 Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"}
       ]
     },
     "2S3 Akatsiya": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Manöövribrigaadi liikurhaubitsadivisjon (vanem relv, osas brigaadides); merejalavägi",
+        "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "152mm liikurkahur (1968): Nõukogude tanki- ja motolaskurdiviiside suurtükiväepolkude relv.",
         "crew": "4–6",
         "chassis": "Objekt 123 roomikšassii",
@@ -943,12 +1025,17 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S3 Akatsiya", "url": "https://odin.t2com.army.mil/WEG/Asset/db17bd5d3c8bcab93b89b6408fde38ef", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: 2S3 Akatsiya", "url": "https://en.wikipedia.org/wiki/2S3_Akatsiya", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 2S3 Akatsiya", "url": "https://en.wikipedia.org/wiki/2S3_Akatsiya", "retrieved": "2026-10-07"},
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
+        {"name": "Canadian Army Journal 20-2 (2024), Grau & Bartles: The 2S35 Koalitsiya-SV, Robotics and the Future of Russian Artillery Modernization", "url": "https://www.canada.ca/en/army/services/canadian-army-journal/articles/2024/20-2-grau-and-bartles-russian-artillery-modernization.html", "retrieved": "2026-11-25"},
+        {"name": "Jamestown: Russia Exhausts Soviet-Era Arms Storage Bases (14 Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"}
       ]
     },
     "2S19 Msta": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Manöövribrigaadi liikurhaubitsadivisjon (brigaadis 2 divisjoni, kokku 36 tk); ka suurtükiväebrigaadid",
+        "productionStatus": {"status": ["upgrade"], "asOf": 2024},
         "purpose": "152mm haubits Msta liikurversioonis (2S19 Msta-S); järelveetav versioon on 2A65 Msta-B.",
         "crew": "5",
         "chassis": "T-72 baasil",
@@ -989,12 +1076,15 @@ window.TTA_DATA = {
         {"name": "U.S. Army ODIN / WEG: 2S19M1 Msta-S", "url": "https://odin.t2com.army.mil/WEG/Asset/5d89ac25a8643d6e283c22f341f000a6", "retrieved": "2026-10-08"},
         {"name": "Army Technology: 2S19 Msta-S", "url": "https://www.army-technology.com/projects/msta/", "retrieved": "2026-10-07"},
         {"name": "Wikipedia: 2S19 Msta", "url": "https://en.wikipedia.org/wiki/2S19_Msta", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: NSV machine gun", "url": "https://en.wikipedia.org/wiki/NSV_machine_gun", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: NSV machine gun", "url": "https://en.wikipedia.org/wiki/NSV_machine_gun", "retrieved": "2026-10-07"},
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
+        {"name": "Canadian Army Journal 20-2 (2024), Grau & Bartles: The 2S35 Koalitsiya-SV, Robotics and the Future of Russian Artillery Modernization", "url": "https://www.canada.ca/en/army/services/canadian-army-journal/articles/2024/20-2-grau-and-bartles-russian-artillery-modernization.html", "retrieved": "2026-11-25"}
       ]
     },
     "2S9 Nona": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Mõnes motolaskurpataljonis 2S12 asemel (2016. aasta struktuur)",
         "purpose": "Õhust heidetav 120mm liikurmiinipilduja (kasutusel 1981).",
         "crew": "4",
         "chassis": "S-120 (BTR-D baasil)",
@@ -1031,12 +1121,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S9-1M Nona-S", "url": "https://odin.t2com.army.mil/WEG/Asset/c8f7d048a361903479ad71de6b46247d", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: 2S9 Nona", "url": "https://en.wikipedia.org/wiki/2S9_Nona", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 2S9 Nona", "url": "https://en.wikipedia.org/wiki/2S9_Nona", "retrieved": "2026-10-07"},
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "2S4 Tjulpan": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Suurtükiväebrigaad (raske toruartillerii)",
+        "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "240mm raske liikurmiinipilduja kaitstud sihtmärkide (nt kindlustatud juhtimispunktid, kaitsekindlustused) ja mäenõlvade taga olevate vägede tabamiseks.",
         "crew": "4 (+5 toetusmasinas)",
         "combatWeight": 27.5,
@@ -1064,12 +1157,16 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S4 Tjulpan", "url": "https://odin.t2com.army.mil/WEG/Asset/d219603fc9b5137cd037eb4896872f59", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: 2S4 Tyulpan", "url": "https://en.wikipedia.org/wiki/2S4_Tyulpan", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 2S4 Tyulpan", "url": "https://en.wikipedia.org/wiki/2S4_Tyulpan", "retrieved": "2026-10-07"},
+        {"name": "Canadian Army Journal 20-2 (2024), Grau & Bartles: The 2S35 Koalitsiya-SV, Robotics and the Future of Russian Artillery Modernization", "url": "https://www.canada.ca/en/army/services/canadian-army-journal/articles/2024/20-2-grau-and-bartles-russian-artillery-modernization.html", "retrieved": "2026-11-25"},
+        {"name": "Jamestown: Russia Exhausts Soviet-Era Arms Storage Bases (14 Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"}
       ]
     },
     "2S7 Pion": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Suurtükiväebrigaadi raske suurtükiväe divisjon",
+        "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "Nõukogude 203mm liikurkahur.",
         "crew": "7",
         "chassis": "Objekt 216",
@@ -1104,12 +1201,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S7 Pion", "url": "https://odin.t2com.army.mil/WEG/Asset/debeca79b7cbf053d9ded62c6c859dbf", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: 2S7 Pion", "url": "https://en.wikipedia.org/wiki/2S7_Pion", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 2S7 Pion", "url": "https://en.wikipedia.org/wiki/2S7_Pion", "retrieved": "2026-10-07"},
+        {"name": "Canadian Army Journal 20-2 (2024), Grau & Bartles: The 2S35 Koalitsiya-SV, Robotics and the Future of Russian Artillery Modernization", "url": "https://www.canada.ca/en/army/services/canadian-army-journal/articles/2024/20-2-grau-and-bartles-russian-artillery-modernization.html", "retrieved": "2026-11-25"},
+        {"name": "Jamestown: Russia Exhausts Soviet-Era Arms Storage Bases (14 Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"}
       ]
     },
     "2S43 Malva": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "152mm liikurkahur 8×8 ratasšassiil (programm Nabrosok).",
         "crew": "5",
         "chassis": "BAZ-6910-027 „Voštšina“ 8×8 ratasšassii",
@@ -1141,12 +1241,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S43 Malva", "url": "https://odin.t2com.army.mil/WEG/Asset/b59fadc3a1a4539f7e7cf175111daa05", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: 2S43 Malva", "url": "https://en.wikipedia.org/wiki/2S43_Malva", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 2S43 Malva", "url": "https://en.wikipedia.org/wiki/2S43_Malva", "retrieved": "2026-10-07"},
+        {"name": "Militarnyi: Russia Scales Up Production of Malva Self-Propelled Guns", "url": "https://militarnyi.com/en/news/russia-scales-up-production-of-malva-self-propelled-guns/", "retrieved": "2026-11-25"}
       ]
     },
     "2S5 Giatsint-S": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Liikurhaubitsadivisjoni patarei",
+        "productionStatus": {"status": ["upgrade", "storage"], "asOf": 2024},
         "purpose": "152mm liikurkahur: tabab sihtmärke suuremal kaugusel ja suurema tulekiirusega kui 2S3 Akatsiya.",
         "crew": "5",
         "combatWeight": 28.2,
@@ -1177,7 +1280,9 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S5 Giatsint-S", "url": "https://odin.t2com.army.mil/WEG/Asset/24b3b651219fe1792ecef375d738f6b6", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: 2S5 Giatsint-S", "url": "https://en.wikipedia.org/wiki/2S5_Giatsint-S", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 2S5 Giatsint-S", "url": "https://en.wikipedia.org/wiki/2S5_Giatsint-S", "retrieved": "2026-10-07"},
+        {"name": "Canadian Army Journal 20-2 (2024), Grau & Bartles: The 2S35 Koalitsiya-SV, Robotics and the Future of Russian Artillery Modernization", "url": "https://www.canada.ca/en/army/services/canadian-army-journal/articles/2024/20-2-grau-and-bartles-russian-artillery-modernization.html", "retrieved": "2026-11-25"},
+        {"name": "Jamestown: Russia Exhausts Soviet-Era Arms Storage Bases (14 Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"}
       ]
     },
     "2S23 NONA-SVK": {
@@ -1229,6 +1334,7 @@ window.TTA_DATA = {
     "D-30": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "122mm järelveetav haubits (kasutusel 1960); kolmjalglafett võimaldab kiiresti pöörata 360°.",
         "crew": "7",
         "chassis": "Vedukas: MT-LB või Ural-4320",
@@ -1257,12 +1363,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: D-30 (M1963)", "url": "https://odin.t2com.army.mil/WEG/Asset/b14f9899cde6b3e6045f28966886449e", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: D-30 howitzer", "url": "https://en.wikipedia.org/wiki/D-30_howitzer", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: D-30 howitzer", "url": "https://en.wikipedia.org/wiki/D-30_howitzer", "retrieved": "2026-10-07"},
+        {"name": "Jamestown: Russia Exhausts Soviet-Era Arms Storage Bases (14 Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"}
       ]
     },
     "2A65": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "152mm haubits Msta järelveetav versioon (2A65 Msta-B); liikurversioon on 2S19.",
         "crew": "6–11",
         "weightKg": 7000,
@@ -1282,12 +1390,15 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2A65", "url": "https://odin.t2com.army.mil/WEG/Asset/2cfe71b9d60339108419f65665bdf563", "retrieved": "2026-10-28"},
         {"name": "Wikipedia: 2A65 Msta-B", "url": "https://en.wikipedia.org/wiki/152_mm_howitzer_2A65_Msta-B", "retrieved": "2026-10-07"},
-        {"name": "Wikipedia: 2S19 Msta", "url": "https://en.wikipedia.org/wiki/2S19_Msta", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: 2S19 Msta", "url": "https://en.wikipedia.org/wiki/2S19_Msta", "retrieved": "2026-11-25"},
+        {"name": "Jamestown: Russia Exhausts Soviet-Era Arms Storage Bases (14 Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"},
+        {"name": "Newsweek: Russia artillery satellite losses (Feb 2024)", "url": "https://www.newsweek.com/russia-artillery-satellite-losses-1867249?piano_t=1", "retrieved": "2026-11-25"}
       ]
     },
     "2A36": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "152mm järelveetav välikahur (kasutusel 1976), M-46 asendaja; põhiülesanne vastupatareituli.",
         "crew": "8",
         "chassis": "Vedukas: KrAZ-255B, KrAZ-4556 või AT-S",
@@ -1316,12 +1427,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2A36 Giatsint-B", "url": "https://odin.t2com.army.mil/WEG/Asset/b9f63392cd0d13e15b046e91dc796f63", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: 2A36 Giatsint-B", "url": "https://en.wikipedia.org/wiki/2A36_Giatsint-B", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 2A36 Giatsint-B", "url": "https://en.wikipedia.org/wiki/2A36_Giatsint-B", "retrieved": "2026-10-07"},
+        {"name": "Jamestown: Russia Exhausts Soviet-Era Arms Storage Bases (14 Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"},
+        {"name": "Newsweek: Russia artillery satellite losses (Feb 2024)", "url": "https://www.newsweek.com/russia-artillery-satellite-losses-1867249?piano_t=1", "retrieved": "2026-11-25"}
       ]
     },
     "D-20": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "Käsitsi laetav järelveetav 152mm kahurhaubits (1950ndad); oli motolaskurdiviisi suurtükiväepolgu ja armee suurtükiväebrigaadide pataljonides.",
         "crew": "8",
         "chassis": "Vedukas: 6×6 või 8×8 veoauto",
@@ -1350,7 +1464,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: D-20 (M1955)", "url": "https://odin.t2com.army.mil/WEG/Asset/82908ad6e362b16a8295d3ac2eb01943", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: D-20", "url": "https://en.wikipedia.org/wiki/152_mm_towed_gun-howitzer_M1955_(D-20)", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: D-20", "url": "https://en.wikipedia.org/wiki/152_mm_towed_gun-howitzer_M1955_(D-20)", "retrieved": "2026-10-07"},
+        {"name": "Jamestown: Russia Exhausts Soviet-Era Arms Storage Bases (14 Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"}
       ]
     },
     "2-B16 Nona-K": {
@@ -1388,6 +1503,7 @@ window.TTA_DATA = {
     "2B11/2S12": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskurpataljoni miinipildujapatarei (8 miinipildujat)",
         "purpose": "120mm raske miinipilduja 2B11; 2S12 on miinipilduja koos veokiga (pukseeritakse käru 2L81 abil GAZ-66-ga). Suurima kaliibriga kaudtulerelv pataljoni tasandil.",
         "crew": "5 (+2 veduki meeskond)",
         "chassis": "2F510 kaherattaline käru, vedukas GAZ-66",
@@ -1409,12 +1525,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2B11 Sani", "url": "https://odin.t2com.army.mil/WEG/Asset/415cc764898e355ad2be19e4319f3430", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: 2S12 Sani", "url": "https://en.wikipedia.org/wiki/2S12_Sani", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 2S12 Sani", "url": "https://en.wikipedia.org/wiki/2S12_Sani", "retrieved": "2026-10-07"},
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "2B14/2B24": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskurpataljon (6 miinipildujat pataljoni kohta); algselt dessant- ja kergjalavägi",
         "purpose": "82mm kantav kaudtulerelv dessandi- ja kergejalaväele; kasutusel ka motolaskuritel.",
         "crew": "4",
         "weightKg": 41.88,
@@ -1437,6 +1555,7 @@ window.TTA_DATA = {
     "2B9 Vasiljok": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhumobiilsed jalaväeüksused; MT-LB-le paigaldatuna maaväed",
         "purpose": "82mm automaatne kahur-miinipilduja (1967): rataslafetil, meenutab kerget suurtükki; kasutusel Vene õhumobiilses jalaväes.",
         "crew": "6",
         "weightKg": 645,
@@ -1491,6 +1610,8 @@ window.TTA_DATA = {
     "BM-21 Grad": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Manöövribrigaadi reaktiivsuurtükiväe divisjon (18 tk)",
+        "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "122mm mitmikraketiheitja: tugevus on paljude rakettide korraga sihtmärgile laskmises; tõhusaim lühemal kaugusel, vähem täpne kui suurtükivägi.",
         "crew": "5",
         "chassis": "Ural-375D (BM-21-1: Ural-4320)",
@@ -1527,12 +1648,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BM-21 Grad", "url": "https://odin.t2com.army.mil/WEG/Asset/250d04a7bec1cb46b44ab21a6cbe985b", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: BM-21 Grad", "url": "https://en.wikipedia.org/wiki/BM-21_Grad", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: BM-21 Grad", "url": "https://en.wikipedia.org/wiki/BM-21_Grad", "retrieved": "2026-10-07"},
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
+        {"name": "Jamestown: Russia Exhausts Soviet-Era Arms Storage Bases (14 Mar 2024)", "url": "https://jamestown.org/program/russia-exhausts-soviet-era-arms-storage-bases/", "retrieved": "2026-11-25"}
       ]
     },
     "BM-27 Uragan": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Suurtükiväebrigaadi reaktiivsuurtükiväe divisjon (1–2); ka diviisi suurtükiväepolk",
         "purpose": "220mm mitmikraketiheitja kassettlaskemoona heitmiseks; rakett võib külvata ka jalaväemiine PFM-1.",
         "crew": "4",
         "chassis": "ZIL-135LM 8×8",
@@ -1569,12 +1693,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 9P140 (BM-27 Uragan)", "url": "https://odin.t2com.army.mil/WEG/Asset/57ff33a6536a23f1a11644d1f426c13d", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: BM-27 Uragan", "url": "https://en.wikipedia.org/wiki/BM-27_Uragan", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: BM-27 Uragan", "url": "https://en.wikipedia.org/wiki/BM-27_Uragan", "retrieved": "2026-10-07"},
+        {"name": "Army Recognition: Analysis – MLRS multiple launch rocket systems of Russian army, part 3", "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/defence-security-industry-technology/analysis-news-mlrs-multiple-launch-rocket-systems-of-russian-army-part-3", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russian army deploys new version of BM-27 Uragan MLRS in Ukraine (17 Apr 2024)", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/russian-army-deploys-new-version-of-bm-27-uragan-mlrs-rocket-launcher-in-ukraine", "retrieved": "2026-11-25"}
       ]
     },
     "BM-30 Smertš": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Sõjaväeringkonna suurtükiväebrigaad (Smertši divisjon)",
         "purpose": "Raske 300mm mitmikraketiheitja elavjõu, soomus- ja kergete sihtmärkide tabamiseks koondumisaladel ning suurtükipatareide, juhtimispunktide ja laskemoonaladude vastu.",
         "crew": "4",
         "chassis": "MAZ-543M",
@@ -1607,7 +1734,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 9A52-2 (BM-30 Smerch-M)", "url": "https://odin.t2com.army.mil/WEG/Asset/2caad55fb3c4c4d5cdd28a2194007544", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: BM-30 Smerch", "url": "https://en.wikipedia.org/wiki/BM-30_Smerch", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: BM-30 Smerch", "url": "https://en.wikipedia.org/wiki/BM-30_Smerch", "retrieved": "2026-10-07"},
+        {"name": "Army Recognition: Analysis – MLRS multiple launch rocket systems of Russian army, part 3", "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/defence-security-industry-technology/analysis-news-mlrs-multiple-launch-rocket-systems-of-russian-army-part-3", "retrieved": "2026-11-25"}
       ]
     },
     "TZM-T": {
@@ -1636,6 +1764,7 @@ window.TTA_DATA = {
     "Orlan-30": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Luuredroon, mis valgustab sihtmärki laseriga ja juhib täppis-suurtüki- ja lennukimoona.",
         "wingspan": 3.9,
         "maxTakeoffWeightKg": 30,
@@ -1655,12 +1784,15 @@ window.TTA_DATA = {
         "payload": "Mõnes allikas kuni 8 kg."
       },
       "sources": [
-        {"name": "EDR Magazine: ADEX 2024 – Orlan-30 UAV", "url": "https://www.edrmagazine.eu/rosoboronexport-showcases-the-orlan-30-uav-for-the-first-time-in-the-caspian-region", "retrieved": "2026-11-23"}
+        {"name": "EDR Magazine: ADEX 2024 – Orlan-30 UAV", "url": "https://www.edrmagazine.eu/rosoboronexport-showcases-the-orlan-30-uav-for-the-first-time-in-the-caspian-region", "retrieved": "2026-11-23"},
+        {"name": "Euromaidan Press: Russian drone manufacturer 'Orlan-10' ramps up production despite sanctions", "url": "https://euromaidanpress.com/2024/01/13/russian-drone-manufacturer-orlan-10-ramps-up-production-despite-sanctions-inform-napalm-reports/", "retrieved": "2026-11-25"}
       ]
     },
     "Ural-4320 Zvezda-V": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Siseministeeriumi sisejulgeoleku (poolsõjaväelised) väed; 2024 nähtud ka rindel rünnakutes",
+        "productionStatus": {"status": ["ended"], "asOf": 2024},
         "purpose": "Improviseeritud ratassoomustransportöör: soomustatud pealisehitis veoki šassiil vägede veoks tagalas ja rinde lähedal.",
         "crew": "2–3 + 16",
         "chassis": "Ural-4320 (6×6 veok), soomustatud ümberehitus",
@@ -1689,12 +1821,15 @@ window.TTA_DATA = {
         "crew": "Algselt siseministeeriumi (MVD) sisevägedele; sõdurite hüüdnimi „Pokémon“. Ümber ehitatud üle 500 masina (2000–2010)."
       },
       "sources": [
-        {"name": "Armed Conflicts (valka.cz): Ural-4320 Zvezda-V", "url": "https://www.armedconflicts.com/Ural-4320-Zvezda-V-t250901", "retrieved": "2026-11-23"}
+        {"name": "Armed Conflicts (valka.cz): Ural-4320 Zvezda-V", "url": "https://www.armedconflicts.com/Ural-4320-Zvezda-V-t250901", "retrieved": "2026-11-23"},
+        {"name": "Trench Art (David Axe): Russia's Do-It-Yourself Assault Trucks Aren't As Bad As We First Thought", "url": "https://www.trenchart.us/p/russias-do-it-yourself-assault-trucks", "retrieved": "2026-11-25"}
       ]
     },
     "TOS-1A Solntsepjok": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Sõjaväeringkonna RKhBZ (ABK-kaitse) brigaadi raske leegiheitja pataljon (9 masinat); üldväearmee/keemiakaitsepolgu leegiheitjakompanii (3 masinat)",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Termobaariliste rakettidega mitmikraketiheitja (24 toru) vastase kindlustatud positsioonide ja kergelt soomustatud masinate ründamiseks.",
         "crew": "3",
         "chassis": "T-72 tanki šassii (modifitseeritud)",
@@ -1729,12 +1864,17 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: TOS-1A Solntsepek", "url": "https://odin.t2com.army.mil/WEG/Asset/3067b1cfe6cb93f35b4065e3a2067bc7", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: TOS-1", "url": "https://en.wikipedia.org/wiki/TOS-1", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: TOS-1", "url": "https://en.wikipedia.org/wiki/TOS-1", "retrieved": "2026-10-07"},
+        {"name": "Army Recognition: More heavy flamethrower units to appear in Russian armies (Feb 2018)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2018/more-heavy-flamethrower-units-to-appear-in-russian-armies", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Solntsepyok, Buratino, and Tosochka – the threat of Russian thermobaric flamethrowers in Ukraine (Oct 2024)", "url": "https://militarnyi.com/en/articles/solntsepyok-buratino-and-tosochka-the-threat-of-russian-thermobaric-flamethrowers-in-ukraine/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russian Army Received a Batch of New Solntsepyok Flamethrower Systems (Nov 2025)", "url": "https://militarnyi.com/en/news/russian-army-received-a-batch-of-new-solntsepyok-flamethrower-systems/", "retrieved": "2026-11-25"},
+        {"name": "European Security & Defence: Russia poised to expand thermobaric artillery inventory (Nov 2025)", "url": "https://euro-sd.com/2025/11/articles/armament/47751/russia-poised-to-expand-thermobaric-artillery-inventory", "retrieved": "2026-11-25"}
       ]
     },
     "TOS-1 Buratino": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "RKhBZ (ABK-kaitse) väed",
         "purpose": "Termobaariliste rakettidega mitmikraketiheitja (esialgne versioon, 30 toru) vastase kindlustatud positsioonide ja kergelt soomustatud masinate ründamiseks.",
         "crew": "3",
         "chassis": "T-72 tanki šassii (modifitseeritud)",
@@ -1769,7 +1909,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: TOS-1 Buratino", "url": "https://odin.t2com.army.mil/WEG/Asset/9292c23c5b064d5446656bf2852c9b9b", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: TOS-1", "url": "https://en.wikipedia.org/wiki/TOS-1", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: TOS-1", "url": "https://en.wikipedia.org/wiki/TOS-1", "retrieved": "2026-10-07"},
+        {"name": "Militarnyi: Solntsepyok, Buratino, and Tosochka – the threat of Russian thermobaric flamethrowers in Ukraine (Oct 2024)", "url": "https://militarnyi.com/en/articles/solntsepyok-buratino-and-tosochka-the-threat-of-russian-thermobaric-flamethrowers-in-ukraine/", "retrieved": "2026-11-25"}
       ]
     },
     "9T234-2": {
@@ -1785,6 +1926,7 @@ window.TTA_DATA = {
     "2S44 Giatsint-K": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "152mm liikurkahur: järelveetava 2A36 Giatsint-B relv 2S43 Malva 8×8 ratasšassiil (BAZ-6910-027).",
         "crew": "5",
         "chassis": "BAZ-6910-027 „Voštšina“ 8×8 ratasšassii",
@@ -1817,7 +1959,9 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S44 Giatsint-K", "url": "https://odin.t2com.army.mil/WEG/Asset/aef72388775e5c89be3c2d7879158089", "retrieved": "2026-10-07"},
-        {"name": "Militarnyi: 2S44 Giatsint-K", "url": "https://militarnyi.com/en/news/151st-brigade-s-drones-destroy-russia-s-newest-2s43-giatsint-k-self-propelled-gun/", "retrieved": "2026-11-25"}
+        {"name": "Militarnyi: 2S44 Giatsint-K", "url": "https://militarnyi.com/en/news/151st-brigade-s-drones-destroy-russia-s-newest-2s43-giatsint-k-self-propelled-gun/", "retrieved": "2026-11-25"},
+        {"name": "Defense Express: Russians copy Ukraine's Bohdana in developing Giatsint-K, aiming to produce 36 units in 2026 (23 Jan 2026)", "url": "https://en.defence-ua.com/news/russians_copy_ukraines_bohdana_self_propelled_howitzers_in_developing_giatsint_k_aiming_to_produce_36_units_in_2026-17249.html", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russia Scales Up Production of Malva Self-Propelled Guns", "url": "https://militarnyi.com/en/news/russia-scales-up-production-of-malva-self-propelled-guns/", "retrieved": "2026-11-25"}
       ]
     },
     "GMZ-3": {
@@ -1889,6 +2033,7 @@ window.TTA_DATA = {
     "UR-77": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Pioneeri-sapöörbrigaadi ründe- ja tõkete kõrvaldamise pataljoni raske pioneeritehnika kompanii",
         "purpose": "Demineerimissoomuk, mis rajab reaktiivsete miinitõrjelaengutega koridori läbi miinivälja.",
         "crew": "2",
         "chassis": "2S1 Gvozdika šassii (modifitseeritud MT-LBu)",
@@ -1911,7 +2056,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: UR-77 Meteorit", "url": "https://odin.t2com.army.mil/WEG/Asset/ff60b0630b4bff5a8cd9707cffd449ca", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: UR-77 Meteorit", "url": "https://en.wikipedia.org/wiki/UR-77_Meteorit", "retrieved": "2026-10-08"}
+        {"name": "Wikipedia: UR-77 Meteorit", "url": "https://en.wikipedia.org/wiki/UR-77_Meteorit", "retrieved": "2026-10-08"},
+        {"name": "Militarnyi: Інженерні батальйони штурму та розгородження", "url": "https://militarnyi.com/uk/articles/inzhenerni-batalyony-shturmu-ta-rozhorodzhennya/", "retrieved": "2026-11-25"}
       ]
     },
     "IRM": {
@@ -1950,6 +2096,7 @@ window.TTA_DATA = {
     "2S6 Tunguska": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["upgrade"], "asOf": 2026},
         "purpose": "Iseliikuv õhutõrjekahur- ja raketikompleks, mis kaitseb motolaskur- ja tankiüksusi madalal lendavate lennukite, helikopterite ja tiibrakettide eest.",
         "typicalUnit": "Motolaskur- või tankipolgu õhutõrjeraketi-suurtükiväepataljon; brigaadi õhutõrjepataljon",
         "crew": "4",
@@ -1995,7 +2142,8 @@ window.TTA_DATA = {
         {"name": "U.S. Army ODIN / WEG: 2S6M Tunguska-M", "url": "https://odin.t2com.army.mil/WEG/Asset/5fadf3d546d246dc08b49b62deed65a2", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 2K22 Tunguska", "url": "https://en.wikipedia.org/wiki/2K22_Tunguska", "retrieved": "2026-10-08"},
         {"name": "Army Recognition: Russian Ground Forces build up air defense – Part 1", "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/analysis-defense-and-security-industry/analysis-russian-ground-forces-build-up-air-defense-part-1", "retrieved": "2026-11-25"},
-        {"name": "Tom Cooper / Donald Hill: Russian Air Defences of 2026, Part 1", "url": "https://xxtomcooperxx.substack.com/p/russian-air-defences-of-2026-part", "retrieved": "2026-11-25"}
+        {"name": "Tom Cooper / Donald Hill: Russian Air Defences of 2026, Part 1", "url": "https://xxtomcooperxx.substack.com/p/russian-air-defences-of-2026-part", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russia deploys modernized Tunguska-M1 with new electro-optical module", "url": "https://armyrecognition.com/news/army-news/2026/russia-deploys-modernized-tunguska-m1-with-new-electro-optical-module-to-improve-low-altitude-drone-defense", "retrieved": "2026-11-25"}
       ]
     },
     "STRELA-10/SA-13 Gopher": {
@@ -2045,6 +2193,7 @@ window.TTA_DATA = {
     "PRP-4": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Liikursuurtükiväe divisjoni tulejuhtimisrühm; brigaadi suurtükiväe juhtimis- ja luurepatarei",
         "purpose": "Suurtükiväe luure ja tulejuhtimine: määrab sihtmärkide koordinaadid.",
         "crew": "4",
         "chassis": "BMP-1 šassii",
@@ -2074,12 +2223,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: PRP-4A Argus", "url": "https://odin.t2com.army.mil/WEG/Asset/9bd635a80bf83183f54381f4d29935f1", "retrieved": "2026-10-08"},
-        {"name": "Militarnyi: PRP-4", "url": "https://militarnyi.com/en/news/russians-lost-rare-prp-4-vehicles-in-combat/", "retrieved": "2026-11-25"}
+        {"name": "Militarnyi: PRP-4", "url": "https://militarnyi.com/en/news/russians-lost-rare-prp-4-vehicles-in-combat/", "retrieved": "2026-11-25"},
+        {"name": "Canadian Army Journal 20-2 (2024), Grau & Bartles: The 2S35 Koalitsiya-SV, Robotics and the Future of Russian Artillery Modernization", "url": "https://www.canada.ca/en/army/services/canadian-army-journal/articles/2024/20-2-grau-and-bartles-russian-artillery-modernization.html", "retrieved": "2026-11-25"},
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "ZOOPARK-1": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Brigaadi suurtükiväe juhtimis- ja luurepatarei",
         "purpose": "Vastutuleradar: määrab vastase miinipildujate, suurtükkide, raketiheitjate ja taktikaliste rakettide stardipositsioonid mürsu trajektoori järgi; jälgib ka oma suurtüki tule tulemusi.",
         "chassis": "MT-LBu",
         "length": 6.45,
@@ -2103,7 +2255,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 1L219 Zoopark-1", "url": "https://odin.t2com.army.mil/WEG/Asset/100a6d9e7cd19b088a28e2ec49760597", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: Zoopark-1", "url": "https://en.wikipedia.org/wiki/Zoopark-1", "retrieved": "2026-10-08"}
+        {"name": "Wikipedia: Zoopark-1", "url": "https://en.wikipedia.org/wiki/Zoopark-1", "retrieved": "2026-10-08"},
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "9P149 Shturm-S": {
@@ -2144,6 +2297,7 @@ window.TTA_DATA = {
     "9P157-2 Krizantema-S": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskurbrigaadi tankitõrjepataljoni tankitõrjeraketipatarei (2016. aasta struktuur)",
         "purpose": "BMP-3 baasil tankitõrje-liikurversioon raketikompleksiga 9M123 Hrizantema (radari- ja laserjuhtimine).",
         "crew": "2 (operaator, juht)",
         "chassis": "BMP-3 šassii, tornita",
@@ -2174,12 +2328,15 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 9P157 Khrizantema-S", "url": "https://odin.t2com.army.mil/WEG/Asset/ecf8afb0fa6f4c6aa532e100cf191796", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 9M123 Khrizantema", "url": "https://en.wikipedia.org/wiki/9M123_Khrizantema", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: BMP-3", "url": "https://en.wikipedia.org/wiki/BMP-3", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: BMP-3", "url": "https://en.wikipedia.org/wiki/BMP-3", "retrieved": "2026-11-25"},
+        {"name": "FMSO/Army University Press (Grau & Bartles 2016): The Russian Way of War – Force Structure, Tactics and Modernization of the Russian Ground Forces", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
+        {"name": "Defense Express: While boasting about Khrizantemas, Russians prefer not to mention their not so successful Shturm-S and Kornet-T ATGMs (Jun 2023)", "url": "https://en.defence-ua.com/weapon_and_tech/while_boasting_about_khrizantemas_russians_prefer_not_to_mention_their_not_so_successful_shturm_s_and_kornet_t_atgms-7102.html", "retrieved": "2026-11-25"}
       ]
     },
     "9P162 Kornet-T": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskurbrigaadi tankitõrjepataljoni tankitõrjeraketipatarei (2016. aasta struktuur)",
         "purpose": "BMP-3 baasil tankitõrjeversioon Kornet-raketikompleksiga; kasutusel motoriseeritud üksustes.",
         "crew": "2 (juht, ülem-operaator)",
         "chassis": "BMP-3 šassii, tornita",
@@ -2211,7 +2368,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 9P162 Kornet-T", "url": "https://odin.t2com.army.mil/WEG/Asset/223bc869ffda3e31fc9dd6f14997d978", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 9M133 Kornet", "url": "https://en.wikipedia.org/wiki/9M133_Kornet", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: BMP-3", "url": "https://en.wikipedia.org/wiki/BMP-3", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: BMP-3", "url": "https://en.wikipedia.org/wiki/BMP-3", "retrieved": "2026-11-25"},
+        {"name": "FMSO/Army University Press (Grau & Bartles 2016): The Russian Way of War – Force Structure, Tactics and Modernization of the Russian Ground Forces", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "PRP-3": {
@@ -2250,6 +2408,7 @@ window.TTA_DATA = {
     "SNAR-10": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Brigaadi suurtükiväe juhtimis- ja luurepatarei",
         "purpose": "Lahinguvälja seireradar: avastab ja jälgib liikuvaid maa- ja veepealseid sihtmärke (sõidukid, isikkoosseis, laevad) ning annab suurtükiväele andmeid oma tule korrigeerimiseks.",
         "crew": "5 (allika kirjelduses 4–5)",
         "chassis": "MT-LB (6 tugirullikut külje kohta)",
@@ -2273,7 +2432,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Wikipedia: MT-LB", "url": "https://en.wikipedia.org/wiki/MT-LB", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: List of equipment of the Russian Ground Forces", "url": "https://en.wikipedia.org/wiki/List_of_equipment_of_the_Russian_Ground_Forces", "retrieved": "2026-10-23"},
-        {"name": "Army Recognition: SNAR-10", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/defence-security-industry-technology/snar-10m1-russia-defense-industry-military-equipment-14-august-2014-uk", "retrieved": "2026-11-25"}
+        {"name": "Army Recognition: SNAR-10", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/defence-security-industry-technology/snar-10m1-russia-defense-industry-military-equipment-14-august-2014-uk", "retrieved": "2026-11-25"},
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "1V13": {
@@ -2386,6 +2546,7 @@ window.TTA_DATA = {
     "1V119": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhudessantvägede ja merejalaväe suurtükiväe- ja miinipildujaüksused",
         "purpose": "Dessandi suurtükiväe juhtimis- ja luuremasin 2S9 „Nona-S“ jaoks (1981): määrab sihtmärgi koordinaadid, arvutab laskeandmed (automaatne tulejuhtimine 1V520, käsitsi PUO-7) ja juhib 2S9 tuld; heidetav langevarjuga koos dessandiga.",
         "crew": "6",
         "chassis": "BTR-D",
@@ -2411,7 +2572,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 1V119", "url": "https://odin.t2com.army.mil/WEG/Asset/ecd7ac12bd7b5f88de0735878b6be95d", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: BTR-D (variandid)", "url": "https://en.wikipedia.org/wiki/BTR-D", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: BTR-D (variandid)", "url": "https://en.wikipedia.org/wiki/BTR-D", "retrieved": "2026-11-25"},
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "ARK-1": {
@@ -2444,6 +2606,7 @@ window.TTA_DATA = {
     "1V152 (1V126 Kapustnik-B)": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Suurtükiväe divisjon ja patarei (divisjoni juhtimispunkt kuni 4 patareile)",
         "purpose": "Kapustnik-B automatiseeritud tulejuhtimissüsteemi ühtne juhtimis- ja vaatlussoomuk (1986): tulejuhi (FIST) ja tuletegevuskeskuse (FDC) variandid.",
         "crew": "3 (kokku kuni 7 inimest)",
         "chassis": "BTR-80 (8x8 ratassoomuk)",
@@ -2472,12 +2635,14 @@ window.TTA_DATA = {
         "chassis": "Kapustnik-B komplekti kuulub ka veoautol Ural-4320 põhinev 1V153. FIST (tulejuht) ja FDC (tuletegevuskeskus) on kaks varianti samal BTR-80 šassiil."
       },
       "sources": [
-        {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-10-23"},
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "IMR-2": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Teepuhastus- ja pioneerisoomuk, mis rajab sõidukitele läbipääsu varemete, metsatõkete ja saastatud alade kaudu.",
         "crew": "2",
         "chassis": "T-72 roomikšassii (IMR-2M1: T-72A); torni asemel pöörlev teleskoopkraana",
@@ -2510,6 +2675,8 @@ window.TTA_DATA = {
     "IMR-3": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Pioneeri-sapöörbrigaadi ründe- ja tõkete kõrvaldamise pataljoni raske pioneeritehnika kompanii",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Uue põlvkonna teepuhastus- ja pioneerisoomuk T-90 baasil.",
         "crew": "2",
         "chassis": "T-90A roomikšassii",
@@ -2538,7 +2705,9 @@ window.TTA_DATA = {
         "fording": "Läbib veetõkkeid kuni 5m sügavuselt põhja mööda (ettevalmistusega); ettevalmistuseta 2,7m."
       },
       "sources": [
-        {"name": "Wikipedia: IMR-2", "url": "https://en.wikipedia.org/wiki/IMR-2", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: IMR-2", "url": "https://en.wikipedia.org/wiki/IMR-2", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Інженерні батальйони штурму та розгородження", "url": "https://militarnyi.com/uk/articles/inzhenerni-batalyony-shturmu-ta-rozhorodzhennya/", "retrieved": "2026-11-25"},
+        {"name": "Defense Mirror: Russia Delivers IMR-3M Obstacle-Clearing Vehicles to Defense Ministry", "url": "https://defensemirror.com/news/40935/Russia_Delivers_IMR_3M_Obstacle_Clearing_Vehicles_to_Defense_Ministry", "retrieved": "2026-11-25"}
       ]
     },
     "BAT-2": {
@@ -2946,6 +3115,7 @@ window.TTA_DATA = {
     "Pantsir-S1/SA-22 Greyhound": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Lähi- ja lühimaa õhutõrjekahur- ja raketikompleks objektide ning pikamaa õhutõrjesüsteemide (nt S-400) kaitseks õhusõidukite, täppismoona, tiibrakettide ja droonide eest.",
         "typicalUnit": "VKS õhutõrjeraketipolk: patarei S-400 kaitseks",
         "crew": "3",
@@ -2982,7 +3152,9 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: Pantsir missile system", "url": "https://en.wikipedia.org/wiki/Pantsir_missile_system", "retrieved": "2026-10-23"},
-        {"name": "Armada International: To Kill a Pantsir (2024)", "url": "https://www.armadainternational.com/2024/07/to-kill-a-pantsir-electronic-warfare/", "retrieved": "2026-11-25"}
+        {"name": "Armada International: To Kill a Pantsir (2024)", "url": "https://www.armadainternational.com/2024/07/to-kill-a-pantsir-electronic-warfare/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russian Army Receives New Pantsir Missile Systems in Two Variants", "url": "https://militarnyi.com/en/news/russian-army-receives-new-pantsir-missile-systems-in-two-variants/", "retrieved": "2026-11-25"},
+        {"name": "RUSI: Disrupting Russian Air Defence Production (Dec 2025)", "url": "https://static.rusi.org/rp-disrupting-russian-air-defence-production.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "Buk-M1/SA-11 Gadfly": {
@@ -3025,6 +3197,7 @@ window.TTA_DATA = {
     "Buk-M3/SA-27 Gollum": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Keskmaa õhutõrjeraketikompleksi iseliikuv laskeseade 9A316M (TELAR); tabab õhusõidukeid, tiibrakette, taktikalisi ballistilisi rakette ja täppismoona.",
         "typicalUnit": "Üldväearmee õhutõrjeraketibrigaad",
         "crew": "4",
@@ -3046,12 +3219,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: Buk missile system", "url": "https://en.wikipedia.org/wiki/Buk_missile_system", "retrieved": "2026-10-23"},
-        {"name": "Tom Cooper / Donald Hill: Russian Air Defences of 2026, Part 1", "url": "https://xxtomcooperxx.substack.com/p/russian-air-defences-of-2026-part", "retrieved": "2026-11-25"}
+        {"name": "Tom Cooper / Donald Hill: Russian Air Defences of 2026, Part 1", "url": "https://xxtomcooperxx.substack.com/p/russian-air-defences-of-2026-part", "retrieved": "2026-11-25"},
+        {"name": "Defense Mirror: Almaz Antey Speeds up Deliveries of Buk M3 Anti Aircraft Systems to Russian Troops (Oct 2023)", "url": "https://www.defensemirror.com/news/35188/Almaz_Antey_Speeds_up_Deliveries_of_Buk_M3_Anti_Aircraft_Systems_to_Russian_Troops", "retrieved": "2026-11-25"}
       ]
     },
     "S-400 / S-300": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Pika- ja keskmaa õhutõrjeraketikompleks õhusõidukite, tiibrakettide ja ballistiliste rakettide tõrjeks (S-300P alates 1978, S-400 alates 2007).",
         "typicalUnit": "VKS õhutõrjeraketipolk (2 pataljoni) õhukaitsediviisis",
         "chassis": "Radarid ja juhtimispunkt MZKT-7930 8×8 šassiil; laskeseade 5P85TE2 poolhaagisena BAZ-64022 6×6 veokil (või MAZ-543M)",
@@ -3069,12 +3244,14 @@ window.TTA_DATA = {
         {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-10-23"},
         {"name": "Wikipedia: S-300 missile system", "url": "https://en.wikipedia.org/wiki/S-300_missile_system", "retrieved": "2026-10-23"},
         {"name": "Armada International: To Kill a Pantsir (2024)", "url": "https://www.armadainternational.com/2024/07/to-kill-a-pantsir-electronic-warfare/", "retrieved": "2026-11-25"},
-        {"name": "CNA: Russian Forces in the Western Military District (2021)", "url": "https://www.cna.org/reports/2021/06/Russian-Forces-in-the-Western-Military-District.pdf", "retrieved": "2026-11-25"}
+        {"name": "CNA: Russian Forces in the Western Military District (2021)", "url": "https://www.cna.org/reports/2021/06/Russian-Forces-in-the-Western-Military-District.pdf", "retrieved": "2026-11-25"},
+        {"name": "RUSI: Disrupting Russian Air Defence Production (Dec 2025)", "url": "https://static.rusi.org/rp-disrupting-russian-air-defence-production.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "Tor": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Iseliikuv lühimaa õhutõrjeraketikompleks (Tor-M1): otsib sihtmärke liikvel olles, tulistab seisatuselt.",
         "typicalUnit": "Diviisi õhutõrjepolk",
         "crew": "3",
@@ -3107,12 +3284,15 @@ window.TTA_DATA = {
         {"name": "U.S. Army ODIN / WEG: Tor", "url": "https://odin.t2com.army.mil/WEG/Asset/5bcf872fc08701649d8de5b1fbd87aee", "retrieved": "2026-10-28"},
         {"name": "Wikipedia: Tor missile system", "url": "https://en.wikipedia.org/wiki/Tor_missile_system", "retrieved": "2026-10-23"},
         {"name": "Tom Cooper / Donald Hill: Russian Air Defences of 2026, Part 1", "url": "https://xxtomcooperxx.substack.com/p/russian-air-defences-of-2026-part", "retrieved": "2026-11-25"},
-        {"name": "CNA: The Russian Army – Organization and Modernization (2019)", "url": "https://www.cna.org/reports/2019/10/IOP-2019-U-021801-Final.pdf", "retrieved": "2026-11-25"}
+        {"name": "CNA: The Russian Army – Organization and Modernization (2019)", "url": "https://www.cna.org/reports/2019/10/IOP-2019-U-021801-Final.pdf", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Belarus boosts joint air defense with Russia as new Tor-M2K systems strengthen regional shield", "url": "https://armyrecognition.com/news/army-news/2025/belarus-boosts-joint-air-defense-with-russia-as-new-tor-m2k-systems-strengthen-regional-shield", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russia Transfers Eighth Tor-M2K Air Defense Battery to Belarus", "url": "https://militarnyi.com/en/news/russia-transfers-eighth-tor-m2k-air-defense-battery-to-belarus/", "retrieved": "2026-11-25"}
       ]
     },
     "ZSU-23-4": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Iseliikuv neljaraudne 23mm õhutõrjekahur (1962); saab tulistada liikvel olles.",
         "typicalUnit": "Motolaskur- või tankipolgu õhutõrjeraketi-suurtükiväepataljon",
         "crew": "4 (ülem, juht, laskur, radarioperaator)",
@@ -3150,12 +3330,14 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: ZSU-23-4", "url": "https://odin.t2com.army.mil/WEG/Asset/d4cb684d59fa9e42f8fbc8224c92972a", "retrieved": "2026-10-28"},
         {"name": "Wikipedia: ZSU-23-4 Shilka", "url": "https://en.wikipedia.org/wiki/ZSU-23-4_Shilka", "retrieved": "2026-10-23"},
-        {"name": "Army Recognition: Russian Ground Forces build up air defense – Part 1", "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/analysis-defense-and-security-industry/analysis-russian-ground-forces-build-up-air-defense-part-1", "retrieved": "2026-11-25"}
+        {"name": "Army Recognition: Russian Ground Forces build up air defense – Part 1", "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/analysis-defense-and-security-industry/analysis-russian-ground-forces-build-up-air-defense-part-1", "retrieved": "2026-11-25"},
+        {"name": "ArmyInform: How the Shilka has changed – its history and current role in the war", "url": "https://armyinform.com.ua/en/2025/11/20/how-the-shilka-has-changed-its-history-and-current-role-in-the-war/", "retrieved": "2026-11-25"}
       ]
     },
     "SA-8B Gecko": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Iseliikuv lühimaa õhutõrjeraketikompleks (9K33 Osa, 1971): sihtmärke otsitakse ja jälgitakse liikvel, tulistatakse seisatuselt.",
         "typicalUnit": "Diviisi õhutõrjepolk; varem ka brigaadi õhutõrjepataljon",
         "crew": "5",
@@ -3185,7 +3367,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Wikipedia: 9K33 Osa", "url": "https://en.wikipedia.org/wiki/9K33_Osa", "retrieved": "2026-10-23"},
         {"name": "CNA: The Russian Army – Organization and Modernization (2019)", "url": "https://www.cna.org/reports/2019/10/IOP-2019-U-021801-Final.pdf", "retrieved": "2026-11-25"},
-        {"name": "Army Recognition: Russian Ground Forces build up air defense – Part 1", "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/analysis-defense-and-security-industry/analysis-russian-ground-forces-build-up-air-defense-part-1", "retrieved": "2026-11-25"}
+        {"name": "Army Recognition: Russian Ground Forces build up air defense – Part 1", "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/analysis-defense-and-security-industry/analysis-russian-ground-forces-build-up-air-defense-part-1", "retrieved": "2026-11-25"},
+        {"name": "Tom Cooper / Donald Hill: Russian Air Defences of 2026, Part 1", "url": "https://xxtomcooperxx.substack.com/p/russian-air-defences-of-2026-part", "retrieved": "2026-11-25"}
       ]
     },
     "9S932-1 Barnaul-T": {
@@ -3206,6 +3389,7 @@ window.TTA_DATA = {
     "92N6 Gravestone": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "S-400 mitmefunktsiooniline tulejuhtimisradar 92N6E: jälgib sihtmärke, juhib raketilaskeid ja edastab andmeid laskeseadmetele.",
         "chassis": "MZKT-7930 8×8",
         "sensors": "Mitmefunktsiooniline faasantennradar, antenn 4×2m",
@@ -3217,7 +3401,8 @@ window.TTA_DATA = {
         "radarRange": "Avastus- ja jälgimiskaugus 340–400km."
       },
       "sources": [
-        {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-10-23"},
+        {"name": "RUSI: Disrupting Russian Air Defence Production (Dec 2025)", "url": "https://static.rusi.org/rp-disrupting-russian-air-defence-production.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "64N6 Big Bird": {
@@ -3281,6 +3466,7 @@ window.TTA_DATA = {
     "96L6 Cheese Board": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "3D ülevaate- ja avastusradar õhusihtmärkide, helikopterite, droonide ja rakettide avastamiseks (S-300/S-400).",
         "crew": "3 operaatorit",
         "chassis": "MAZ-7930 (MZKT-7930) 8×8",
@@ -3297,7 +3483,8 @@ window.TTA_DATA = {
         "emplacementTime": "Kuni 5 min"
       },
       "sources": [
-        {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-10-23"},
+        {"name": "RUSI: Disrupting Russian Air Defence Production (Dec 2025)", "url": "https://static.rusi.org/rp-disrupting-russian-air-defence-production.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "PPRU-1/PPRU-M1": {
@@ -3331,6 +3518,7 @@ window.TTA_DATA = {
     "1L119 NEBO-SVU": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Mobiilne meetrilaine radar varjatud (stealth) sihtmärkide avastamiseks (NATO „Box Spring“); kasutatakse S-300 ja S-400 tulejuhtimise kaugavastuseks.",
         "crew": "4",
         "chassis": "Ural või KamAZ veok (diiselgeneraatorid ED 2×30-T400); antenniseade poolhaagisel ChMZAP-9907.2 (2 masinat)",
@@ -3347,7 +3535,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Wikipedia: Nebo-SVU", "url": "https://en.wikipedia.org/wiki/Nebo-SVU", "retrieved": "2026-10-23"},
         {"name": "Militarnyi: Ukrainian military demonstrated the destroyed Nebo-SVU radar", "url": "https://militarnyi.com/en/news/ukrainian-military-demonstrated-the-destroyed-russian-nebo-svu-radar/", "retrieved": "2026-11-25"},
-        {"name": "United24 Media: Nebo-SVU destroyed in Kherson region (2025)", "url": "https://united24media.com/latest-news/ukrainian-drone-strike-destroys-100-million-russian-nebo-svu-radar-in-kherson-region-5215", "retrieved": "2026-11-25"}
+        {"name": "United24 Media: Nebo-SVU destroyed in Kherson region (2025)", "url": "https://united24media.com/latest-news/ukrainian-drone-strike-destroys-100-million-russian-nebo-svu-radar-in-kherson-region-5215", "retrieved": "2026-11-25"},
+        {"name": "RUSI: Disrupting Russian Air Defence Production (Dec 2025)", "url": "https://static.rusi.org/rp-disrupting-russian-air-defence-production.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "9M337 Sosna-R": {
@@ -3384,6 +3573,7 @@ window.TTA_DATA = {
     "2S25 Sprut-SD": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhudessantvägede (VDV) patareid (2009–2011 andmed)",
         "purpose": "Dessantvägede (VDV) kerge tankitõrje-liikurkahur vastase tankide otsimiseks ja hävitamiseks; maaväes ja merejalaväes ka kerge ujuv tankina; langevarjuga heidetav.",
         "crew": "3",
         "chassis": "Ujuv roomikšassii, hüdropneumaatiline vedrustus (kliirens 190–590mm)",
@@ -3418,12 +3608,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S25 Sprut-SD", "url": "https://odin.t2com.army.mil/WEG/Asset/e4add5b7dcaa7115fe56f9817c7cc1dd", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: 2S25 Sprut-SD", "url": "https://en.wikipedia.org/wiki/2S25_Sprut-SD", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: 2S25 Sprut-SD", "url": "https://en.wikipedia.org/wiki/2S25_Sprut-SD", "retrieved": "2026-10-23"},
+        {"name": "Army Recognition: Rostec showcases new Sprut-SDM1 light tank with upgraded armor kit at Army-2024", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2024/rostec-showcases-new-sprut-sdm1-light-tank-with-upgraded-armor-kit-at-army-2024", "retrieved": "2026-11-25"}
       ]
     },
     "BTR-RD": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhudessantväed (VDV)",
         "purpose": "BTR-D baasil dessantvägede tankitõrjeraketi-meeskondade soomuk kahe stardiseadmega 9P135M-1.",
         "crew": "3 + tankitõrjemeeskond (BTR-D põhjal)",
         "chassis": "BTR-D (õhudessandi roomikšassii)",
@@ -3485,6 +3677,8 @@ window.TTA_DATA = {
     "Mi-8": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Armeelennuväe brigaad; eraldi kopterpolk; ka laevastike mereväe lennuväe kopter- ja segapolgud",
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Keskmine kahe turbiiniga kopter: peamiselt transport, ka õhujuhtimispunkt, relvastatud kopter ja luureplatvorm.",
         "crew": "3 (kaks piloti ja pardamehaanik)",
         "length": 18.4,
@@ -3511,12 +3705,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Mi-8", "url": "https://odin.t2com.army.mil/WEG/Asset/67c5c5f3d1654ac683797195fdd8fa51", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Mil Mi-8", "url": "https://en.wikipedia.org/wiki/Mil_Mi-8", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Mil Mi-8", "url": "https://en.wikipedia.org/wiki/Mil_Mi-8", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "Mi-24/Mi-35": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Armeelennuväe brigaad; eraldi kopterpolk; ka Balti laevastiku segakopterpolk",
         "purpose": "Suur ründekopter, mis veab ka kuni 8 inimest dessanti.",
         "crew": "2 (piloot ja relvaoperaator) + valikuliselt tehnik",
         "length": 18.6,
@@ -3546,12 +3742,17 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Mi-24/Mi-35", "url": "https://odin.t2com.army.mil/WEG/Asset/450917c08512fe367579bbf8ffb18bf8", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Mil Mi-24", "url": "https://en.wikipedia.org/wiki/Mil_Mi-24", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Mil Mi-24", "url": "https://en.wikipedia.org/wiki/Mil_Mi-24", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi (UA): Модернізований «Крокодил»: російський гелікоптер Ми-35М та їхні втрати в Україні (22 Oct 2025)", "url": "https://militarnyi.com/uk/articles/modernizovanyj-krokodyl-rosijskyj-gelikopter-my-35m-ta-yihni-vtraty-v-ukrayini/", "retrieved": "2026-11-25"},
+        {"name": "Defense Express: Russia sends rare Mi-35P Phoenix helicopters to Guinea - how many does Russia really have (12 Jun 2026)", "url": "https://en.defence-ua.com/news/russia_sends_rare_mi_35p_phoenix_helicopters_to_guinea_how_many_does_russia_really_have-18787.html", "retrieved": "2026-11-25"}
       ]
     },
     "Mi-28": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Armeelennuväe brigaad; eraldi kopterpolk",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Kahekohaline ründekopter soomusmasinate vastu igal ajal ja ilmaga; dessandi veo võimet pole.",
         "crew": "2 (piloot ja relvaoperaator)",
         "length": 17.01,
@@ -3581,12 +3782,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Mi-28", "url": "https://odin.t2com.army.mil/WEG/Asset/3f14488657bc3918b28203ec368f55cd", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Mil Mi-28", "url": "https://en.wikipedia.org/wiki/Mil_Mi-28", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Mil Mi-28", "url": "https://en.wikipedia.org/wiki/Mil_Mi-28", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "Ka-52": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Armeelennuväe brigaad; eraldi kopterpolk",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Kahekohaline päeval ja öösel tegutsev lahingukopter; teine meeskonnaliige tegeleb luure ja sihtmärkide määramisega.",
         "crew": "2 (kõrvuti istmed)",
         "length": 16,
@@ -3617,12 +3821,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Ka-52", "url": "https://odin.t2com.army.mil/WEG/Asset/65cf198f7294b53cef415ef1bb3ad216", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Kamov Ka-52", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-52", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Kamov Ka-52", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-52", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi (UA): Російський Ка-52: можливості та втрати у війні з Україною (2 Jun 2025)", "url": "https://militarnyi.com/uk/articles/rosijskyj-ka-52-mozhlyvosti-ta-vtraty-u-vijni-z-ukrayinoyu/", "retrieved": "2026-11-25"}
       ]
     },
     "Ka-29": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Laevastiku mereväe lennuväe kopterpolk (nt Põhjalaevastiku 830. allveelaevatõrje kopterpolk, Balti laevastiku 396. segakopterpolk, Musta mere laevastiku 318. segalennuväepolk)",
         "purpose": "Soomustatud ründe-transpordikopter, opereerib dessantlaevadelt või lennukikandjatelt.",
         "crew": "2 (piloodid)",
         "length": 11.3,
@@ -3644,12 +3851,14 @@ window.TTA_DATA = {
         "specialEquipment": "Ka-29TB kasutusel 1987; üle 60 ehitatud; uuendatud mootorite ja relvadega"
       },
       "sources": [
-        {"name": "Wikipedia: Kamov Ka-29", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-29", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Kamov Ka-29", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-29", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "Ka-27": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Laevastiku mereväe lennuväe kopterpolk (nt Põhjalaevastiku 830. allveelaevatõrje kopterpolk, Balti laevastiku 396. segakopterpolk, Musta mere laevastiku 318. segalennuväepolk)",
         "purpose": "Mereväe kopter allveelaevade jahtimiseks ja transpordiks; allveelaevatõrjeversioon Ka-27PL tegutseb tavaliselt paaris jahtija-tapja meeskonnana.",
         "crew": "3 (piloot, navigaator, hüdroakustik) + 2–3 spetsialisti",
         "length": 11.3,
@@ -3672,12 +3881,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Ka-27", "url": "https://odin.t2com.army.mil/WEG/Asset/88f8ae48a9604b65064fcdab7146c6ae", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Kamov Ka-27", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-27", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Kamov Ka-27", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-27", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "Ka-31": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Musta mere laevastiku 318. segalennuväepolk (Katša)",
         "purpose": "Mereväe eelhoiatus- ja õhuruumi juhtimise kopter.",
         "crew": "2",
         "length": 12.5,
@@ -3698,12 +3909,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Ka-31", "url": "https://odin.t2com.army.mil/WEG/Asset/73afd902567e61e87b093258b8136ccf", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Kamov Ka-31", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-31", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Kamov Ka-31", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-31", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "Mi-26": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Armeelennuväe brigaad",
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Raske transpordikopter sõjatehnika veoks.",
         "crew": "5 (kaks piloodi, navigaator, pardamehaanik, pardatehnik)",
         "length": 33.73,
@@ -3726,12 +3940,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Mi-26", "url": "https://odin.t2com.army.mil/WEG/Asset/84c54f9bd5537811f1849f45384a4a0b", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Mil Mi-26", "url": "https://en.wikipedia.org/wiki/Mil_Mi-26", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Mil Mi-26", "url": "https://en.wikipedia.org/wiki/Mil_Mi-26", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "Su-25": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VKS ründelennuväepolk; ka segalennuväepolk",
         "purpose": "Allahelikiirusega ühekohaline ründelennuk maaväe lähitoetuseks.",
         "crew": "1",
         "length": 15.53,
@@ -3761,12 +3977,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Su-25", "url": "https://odin.t2com.army.mil/WEG/Asset/c8c6c485190bb3346d00e901fe24e7ef", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Sukhoi Su-25", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-25", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Sukhoi Su-25", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-25", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "Su-34": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VKS pommituslennuväepolk; ka segalennuväepolk",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kahekohaline igailmaline ülehelikiirusega keskmaa-hävituspommitaja, mõeldud eelkõige maa- ja meresihtmärkide vastu.",
         "crew": "2 (kõrvuti istmed)",
         "length": 23.34,
@@ -3797,12 +4016,17 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Su-34", "url": "https://odin.t2com.army.mil/WEG/Asset/36da5724533f03d0e2aab3bbb53283e0", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Sukhoi Su-34", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-34", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Sukhoi Su-34", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-34", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russia Receives Seventh Batch of New Su-34 Fighter Jets in 2025", "url": "https://militarnyi.com/en/news/russia-receives-seventh-batch-of-new-su-34-fighter-jets-in-2025/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: New Su-30SM2s and Su-34s Have Joined the Russian Aerospace Forces' Combat Aviation Fleet (2026)", "url": "https://militarnyi.com/en/news/su-30sm2s-su-34s-russian-aerospace-forces/", "retrieved": "2026-11-25"}
       ]
     },
     "Su-24": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VKS segalennuväepolk; mereväe lennuväe ründepolk (Balti ja Musta mere laevastik)",
+        "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Ülehelikiirusega igailmaline taktikaline pommitaja; Su-24MR on taktikalise luure versioon.",
         "crew": "2 (piloot ja relvaoperaator)",
         "length": 22.53,
@@ -3831,12 +4055,15 @@ window.TTA_DATA = {
         "ferryRange": "Lahinguulatus 615km madalal lennul (3000kg relvakoormaga ja lisapaakidega)."
       },
       "sources": [
-        {"name": "Wikipedia: Sukhoi Su-24", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-24", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Sukhoi Su-24", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-24", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "Su-27": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VKS hävituslennuväepolk; ka segalennuväepolk",
+        "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Ülimanööverdusvõimeline hävitaja õhuülekaalu ülesanneteks; hilisemad versioonid suudavad täita peaaegu kõiki õhusõja ülesandeid.",
         "crew": "1 (Su-27UB: 2)",
         "length": 21.94,
@@ -3867,12 +4094,15 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Su-27", "url": "https://odin.t2com.army.mil/WEG/Asset/8355873ae7285f6ba9891989c0e49e48", "retrieved": "2026-10-28"},
         {"name": "Wikipedia: Sukhoi Su-27", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-27", "retrieved": "2026-10-23"},
-        {"name": "Migflug: Su-27 Flanker", "url": "https://migflug.com/afterburner/aircraft/su-27-flanker/", "retrieved": "2026-10-23"}
+        {"name": "Migflug: Su-27 Flanker", "url": "https://migflug.com/afterburner/aircraft/su-27-flanker/", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "Sukhoi Su-35": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VKS hävituslennuväepolk",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Su-27 õhuülekaalu hävitaja edasiarendus (4++ põlvkond); ründab ka maa- ja meresihtmärke.",
         "crew": "1",
         "length": 21.9,
@@ -3902,12 +4132,17 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: Sukhoi Su-35", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-35", "retrieved": "2026-10-23"},
-        {"name": "Armedconflicts.com: Su-35S", "url": "https://origin.armedconflicts.com/topic/view/112697", "retrieved": "2026-10-23"}
+        {"name": "Armedconflicts.com: Su-35S", "url": "https://origin.armedconflicts.com/topic/view/112697", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russia Receives Third Batch of Su-35S Fighter Jets in 2025", "url": "https://militarnyi.com/en/news/russia-receives-third-batch-of-su-35s-fighter-jets-in-2025/", "retrieved": "2026-11-25"},
+        {"name": "Ukrainska Pravda: Russian forces receive new batch of Su-35S multirole fighter jets, number undisclosed (26 May 2026)", "url": "https://www.pravda.com.ua/eng/news/2026/05/26/8036451/", "retrieved": "2026-11-25"}
       ]
     },
     "Sukhoi Su-33": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Põhjalaevastiku 279. mereväe hävituslennuväepolk (Severomorsk-3)",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Igailmaline lennukikandja hävitaja, eelkõige õhuülekaalu jaoks, mitmeotstarbelise võimega.",
         "crew": "1",
         "length": 21.19,
@@ -3936,12 +4171,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Sukhoi Su-33", "url": "https://odin.t2com.army.mil/WEG/Asset/1ac57b230e7c0f839d34312b6c5d4346", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Sukhoi Su-33", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-33", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Sukhoi Su-33", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-33", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "MiG-31": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VKS hävituslennuväepolk; ka segalennuväepolk",
+        "productionStatus": {"status": ["upgrade"], "asOf": 2024},
         "purpose": "Ülehelikiirusega püüdurhävitaja (MiG-25 järglane); MiG-31K kannab aeroballistilist raketti Kh-47M2 Kinžal.",
         "crew": "2 (piloot ja relvaoperaator)",
         "length": 22.62,
@@ -3974,12 +4212,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: MiG-31", "url": "https://odin.t2com.army.mil/WEG/Asset/a4669ef1dd64227e040b5bfc32b11855", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Mikoyan MiG-31", "url": "https://en.wikipedia.org/wiki/Mikoyan_MiG-31", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Mikoyan MiG-31", "url": "https://en.wikipedia.org/wiki/Mikoyan_MiG-31", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russian Air Force receives a new batch of modernized MiG-31BMs interceptors with long-range missiles (2024)", "url": "https://www.armyrecognition.com/archives/archives-aerospace-defense/2024/russian-air-force-receives-a-new-batch-of-modernized-mig-31bms-interceptors-with-long-range-missiles", "retrieved": "2026-11-25"}
       ]
     },
     "MiG-29": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Põhjalaevastiku 100. mereväe hävituslennuväepolk (MiG-29KR)",
         "purpose": "Õhuülekaalu hävitaja (1970ndad); paljud hilisemad versioonid on mitmeotstarbelised.",
         "crew": "1 (MiG-29UB: 2)",
         "length": 17.37,
@@ -4010,12 +4251,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Migflug: MiG-29 Fulcrum", "url": "https://migflug.com/afterburner/aircraft/mig-29-fulcrum/", "retrieved": "2026-10-23"},
-        {"name": "Wikipedia: Mikoyan MiG-29", "url": "https://en.wikipedia.org/wiki/Mikoyan_MiG-29", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Mikoyan MiG-29", "url": "https://en.wikipedia.org/wiki/Mikoyan_MiG-29", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "Tu-95": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Kauglennuväe raske pommituslennuväediviis (22. kaardiväe ja 326. diviis)",
+        "productionStatus": {"status": ["upgrade"], "asOf": 2025},
         "purpose": "Tuumarelva kandev neljamootoriline turbopropeller-strateegiline pommitaja ja raketikandja (tiibraketid Kh-55, Kh-101).",
         "crew": "6–7",
         "length": 49.13,
@@ -4037,12 +4281,17 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Tu-95", "url": "https://odin.t2com.army.mil/WEG/Asset/e37eaf7714c42c34cb9b08d39a9eb28c", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Tupolev Tu-95", "url": "https://en.wikipedia.org/wiki/Tupolev_Tu-95", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Tupolev Tu-95", "url": "https://en.wikipedia.org/wiki/Tupolev_Tu-95", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Russian Long Range Aviation", "url": "https://en.wikipedia.org/wiki/Russian_Long_Range_Aviation", "retrieved": "2026-11-25"},
+        {"name": "Ukrainska Pravda: Russia may expand strategic bomber fleet, analysts warn (21 May 2025)", "url": "https://www.pravda.com.ua/eng/news/2025/05/21/7513345", "retrieved": "2026-11-25"},
+        {"name": "Espreso Global: Russia struggles to modernize aging Tu-95 bombers amid war demands (19 Nov 2024)", "url": "https://global.espreso.tv/military-news-russia-struggles-to-modernize-aging-tu-95-bombers-amid-war-demands", "retrieved": "2026-11-25"}
       ]
     },
     "IL-76": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VKS sõjaväetranspordilennuväe (VTA) diviis või polk (2011. aasta struktuur)",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Neljamootoriline mitmeotstarbeline strateegiline transpordilennuk.",
         "crew": "5",
         "length": 46.6,
@@ -4064,12 +4313,16 @@ window.TTA_DATA = {
         "ferryRange": "9700km ilma lastita (Il-76MD-90A); 5000km 52t lastiga."
       },
       "sources": [
-        {"name": "Wikipedia: Ilyushin Il-76", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-76", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Ilyushin Il-76", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-76", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Military Transport Aviation", "url": "https://en.wikipedia.org/wiki/Military_Transport_Aviation", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: In 2025, Russian Aerospace Forces Received 7 Il-76MD-90A Aircraft", "url": "https://militarnyi.com/en/news/in-2025-russian-aerospace-forces-received-7-il-76md-90a-aircraft/", "retrieved": "2026-11-25"}
       ]
     },
     "Antonov An-26": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VTA eraldi eskadrill; laevastike mereväe segalennuväepolgud",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Kahemootoriline turbopropeller-transpordilennuk; teisese ülesandena ka pommitamine tiivaaluste pommiriiulitega.",
         "crew": "5 (kaks piloodi, raadist, pardamehaanik, navigaator)",
         "length": 23.8,
@@ -4090,12 +4343,17 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Antonov An-26", "url": "https://odin.t2com.army.mil/WEG/Asset/ffc81e23f9a4a7aaec0e8738517fa17f", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Antonov An-26", "url": "https://en.wikipedia.org/wiki/Antonov_An-26", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Antonov An-26", "url": "https://en.wikipedia.org/wiki/Antonov_An-26", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "Wikipedia: Military Transport Aviation", "url": "https://en.wikipedia.org/wiki/Military_Transport_Aviation", "retrieved": "2026-11-25"},
+        {"name": "Euromaidan Press: Russia's An-series military transports ... 143 of its 368 military Antonovs need urgent repair (10 Apr 2026)", "url": "https://euromaidanpress.com/2026/04/10/russias-an-series-military-transports-were-designed-in-kyiv-and-moscows-leaked-documents-show-143-of-its-368-military-antonovs-need-urgent-repair/", "retrieved": "2026-11-25"}
       ]
     },
     "Antonov An-124": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VKS sõjaväetranspordilennuväe polk (566. polk Seštšas, 235. polk Uljanovskis) (2011. aasta struktuur)",
+        "productionStatus": {"status": ["ended", "storage"], "asOf": 2024},
         "purpose": "Suur neljamootoriline strateegiline transpordilennuk.",
         "crew": "8",
         "length": 69.1,
@@ -4115,12 +4373,16 @@ window.TTA_DATA = {
         "specialEquipment": "Lennuulatus 3700km täiskoormaga, 8400km 80t lastiga, 11 500km 40t lastiga; sõjaväeline standardkoormus kuni 150t"
       },
       "sources": [
-        {"name": "Wikipedia: Antonov An-124 Ruslan", "url": "https://en.wikipedia.org/wiki/Antonov_An-124_Ruslan", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Antonov An-124 Ruslan", "url": "https://en.wikipedia.org/wiki/Antonov_An-124_Ruslan", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Military Transport Aviation", "url": "https://en.wikipedia.org/wiki/Military_Transport_Aviation", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russia reactivates An-124 transport plane from 25-year storage for Ukraine military operations (29 Mar 2024)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2024/russia-reactivates-an-124-transport-plane-from-25-year-storage-for-ukraine-military-operations", "retrieved": "2026-11-25"}
       ]
     },
     "A-50": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VKS 144. kaugradarluure lennuväepolk / 2457. lennubaas (Ivanovo-Severnõi)",
+        "productionStatus": {"status": ["upgrade"], "asOf": 2023},
         "purpose": "Õhust eelhoiatuse ja juhtimise lennuk (AEW&C): juhib kuni 10 hävitajat õhutõrje- või maarünnakuülesannetel.",
         "crew": "15 (5 lennumeeskonda + 10 operaatorit)",
         "length": 46.6,
@@ -4142,12 +4404,15 @@ window.TTA_DATA = {
         "maxTakeoffWeight": "170t (Il-76M baasil), 190t (Il-76MD baasil)."
       },
       "sources": [
-        {"name": "Wikipedia: Beriev A-50", "url": "https://en.wikipedia.org/wiki/Beriev_A-50", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Beriev A-50", "url": "https://en.wikipedia.org/wiki/Beriev_A-50", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Military Transport Aviation", "url": "https://en.wikipedia.org/wiki/Military_Transport_Aviation", "retrieved": "2026-11-25"}
       ]
     },
     "Tu-22M": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Kauglennuväe raske pommituslennuväepolk (52. ja 200. polk); 40. segalennuväepolk (Olenja)",
+        "productionStatus": {"status": ["upgrade"], "asOf": 2025},
         "purpose": "Tuumarelva kandev ülehelikiirusega muutuva tiivageomeetriaga kaugpommitaja strateegilisteks ja merelöökideks.",
         "crew": "4",
         "length": 42.46,
@@ -4172,12 +4437,17 @@ window.TTA_DATA = {
         "combatRadius": "2500km ca 10 000kg relvakoormaga; lennuulatus 6800km."
       },
       "sources": [
-        {"name": "Wikipedia: Tupolev Tu-22M", "url": "https://en.wikipedia.org/wiki/Tupolev_Tu-22M", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Tupolev Tu-22M", "url": "https://en.wikipedia.org/wiki/Tupolev_Tu-22M", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Russian Long Range Aviation", "url": "https://en.wikipedia.org/wiki/Russian_Long_Range_Aviation", "retrieved": "2026-11-25"},
+        {"name": "Ukrainska Pravda: Russia may expand strategic bomber fleet, analysts warn (21 May 2025)", "url": "https://www.pravda.com.ua/eng/news/2025/05/21/7513345", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Flight Over Baltic Sea Was Performed by a 'New' Tu-22M3 Bomber Armed with an Kh-22 Missile (Nov 2025)", "url": "https://militarnyi.com/en/news/flight-over-baltic-sea-was-performed-by-a-new-tu-22m3-bomber-armed-with-an-kh-22-missile/", "retrieved": "2026-11-25"}
       ]
     },
     "Tu-160": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Kauglennuväe 22. kaardiväe raske pommituslennuväediviis (Engels)",
+        "productionStatus": {"status": ["new", "upgrade"], "asOf": 2025},
         "purpose": "Tuumarelva kandev ülehelikiirusega muutuva tiivageomeetriaga raske strateegiline pommitaja; põhiülesanne kaugelt tulistavate rakettide kandja.",
         "crew": "4",
         "length": 54.1,
@@ -4202,12 +4472,17 @@ window.TTA_DATA = {
         "maxSpeed": "Kõrgusel 12 200m (Mach 2,05)."
       },
       "sources": [
-        {"name": "Wikipedia: Tupolev Tu-160", "url": "https://en.wikipedia.org/wiki/Tupolev_Tu-160", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Tupolev Tu-160", "url": "https://en.wikipedia.org/wiki/Tupolev_Tu-160", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Russian Long Range Aviation", "url": "https://en.wikipedia.org/wiki/Russian_Long_Range_Aviation", "retrieved": "2026-11-25"},
+        {"name": "Ukrainska Pravda: Russia may expand strategic bomber fleet, analysts warn (21 May 2025)", "url": "https://www.pravda.com.ua/eng/news/2025/05/21/7513345", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russia expands long-range strategic capabilities with delivery of two newly built Tu-160M bombers (2025)", "url": "https://www.armyrecognition.com/news/aerospace-news/2025/russia-expands-long-range-strategic-capabilities-with-delivery-of-two-newly-built-tu-160m-bombers", "retrieved": "2026-11-25"}
       ]
     },
     "Su-30": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VKS hävitus- ja segalennuväepolk; laevastike mereväe lennuväe ründe- ja hävituspolgud",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kahekohaline mitmeotstarbeline igailmaline hävitaja; Su-30SM (Vene versioon) täidab nii õhuülekaalu kui ka maarünnaku ülesandeid.",
         "crew": "2",
         "length": 21.935,
@@ -4231,12 +4506,17 @@ window.TTA_DATA = {
         "specialEquipment": "Tõukevektoriga düüsid; lennuulatus õhutankimisega 5200km"
       },
       "sources": [
-        {"name": "Wikipedia: Sukhoi Su-30", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-30", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Sukhoi Su-30", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-30", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russia Receives Batch of New Su-30SM2 Multirole Fighter Jets", "url": "https://militarnyi.com/en/news/russia-receives-batch-of-new-su-30sm2-multirole-fighter-jets/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: New Su-30SM2s and Su-34s Have Joined the Russian Aerospace Forces' Combat Aviation Fleet (9 Jul 2026)", "url": "https://militarnyi.com/en/news/su-30sm2s-su-34s-russian-aerospace-forces/", "retrieved": "2026-11-25"}
       ]
     },
     "Su-57": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VKS 23. kaardiväe hävituslennuväepolk (Dzjomgi)",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kahemootoriline varjatud mitmeotstarbeline hävitaja õhulahinguks ning maa- ja merelöökideks.",
         "crew": "1 (Su-57D: 2)",
         "length": 20.1,
@@ -4267,12 +4547,15 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Su-57", "url": "https://odin.t2com.army.mil/WEG/Asset/0dabf5bc7b5370a11075350ea11f38aa", "retrieved": "2026-10-28"},
         {"name": "Migflug: Su-57 Felon", "url": "https://migflug.com/afterburner/aircraft/su-57-felon/", "retrieved": "2026-10-23"},
-        {"name": "Wikipedia: Sukhoi Su-57", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-57", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Sukhoi Su-57", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-57", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Russia concentrates most of its Su-57 fleet (11 Feb 2026)", "url": "https://militarnyi.com/en/news/russia-concentrates-most-of-its-su-57-fleet/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russia Receives Second Batch of Su-57 Fighters in 2026", "url": "https://militarnyi.com/en/news/uac-su-57-russian-aerospace-forces-in-2026/", "retrieved": "2026-11-25"}
       ]
     },
     "Orlan-10": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Taktikaline luuredroon luureks, jälgimiseks ja suurtükitule korrigeerimiseks; kasutatakse ka koos EW-kompleksiga Leer-3.",
         "typicalUnit": "Droonide luureüksused, sh Rubikoni keskuse luurerühmad (Orlan-10 meeskonnad pikemateks lendudeks)",
         "wingspan": 3.1,
@@ -4291,12 +4574,15 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Orlan-10", "url": "https://odin.t2com.army.mil/WEG/Asset/379eaac7d219f22f944c3b04bd4228cf", "retrieved": "2026-10-28"},
         {"name": "Wikipedia: Orlan-10", "url": "https://en.wikipedia.org/wiki/Orlan-10", "retrieved": "2026-10-23"},
-        {"name": "Inside Unmanned Systems: What Russia's Rubicon drone units reveal", "url": "https://insideunmannedsystems.com/?p=42510", "retrieved": "2026-11-25"}
+        {"name": "Inside Unmanned Systems: What Russia's Rubicon drone units reveal", "url": "https://insideunmannedsystems.com/?p=42510", "retrieved": "2026-11-25"},
+        {"name": "Euromaidan Press: Russian drone manufacturer 'Orlan-10' ramps up production despite sanctions", "url": "https://euromaidanpress.com/2024/01/13/russian-drone-manufacturer-orlan-10-ramps-up-production-despite-sanctions-inform-napalm-reports/", "retrieved": "2026-11-25"}
       ]
     },
     "ZALA Lancet": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Rubikoni keskuse luure-löögiüksus",
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Hulkuv laskemoon (ründedroon) soomusmasinate, suurtükkide ja õhutõrje tabamiseks.",
         "maxTakeoffWeightKg": 12,
         "ferryRange": 40,
@@ -4308,12 +4594,16 @@ window.TTA_DATA = {
         "specialEquipment": "Katapultstart; optiline telejuhtimine ja sihtimine"
       },
       "sources": [
-        {"name": "Wikipedia: ZALA Lancet", "url": "https://en.wikipedia.org/wiki/ZALA_Lancet", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: ZALA Lancet", "url": "https://en.wikipedia.org/wiki/ZALA_Lancet", "retrieved": "2026-10-23"},
+        {"name": "Shephard: Russia reaches new monthly record for Lancet use in Ukraine", "url": "https://shephardmedia.com/news/uv-online/russia-reaches-new-monthly-record-for-lancet-use-in-ukraine", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russia Deploys Updated Lancet Strike Drone in Ukraine", "url": "https://militarnyi.com/en/news/russia-deploys-updated-lancet-strike-drone-in-ukraine/", "retrieved": "2026-11-25"},
+        {"name": "Inside Unmanned Systems: What Russia's Rubicon drone units reveal", "url": "https://insideunmannedsystems.com/?p=42510", "retrieved": "2026-11-25"}
       ]
     },
     "Gerbera": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Odav mitmeotstarbeline droon, mida kasutatakse peibutus-, luure- ja ründedroonina koos Geran-2-ga.",
         "length": 2,
         "wingspan": 2.5,
@@ -4330,6 +4620,7 @@ window.TTA_DATA = {
     "Geran-2": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kaugmaa ründedroon (Shahed-136 Vene versioon) rünnakuteks sügaval tagalas paiknevate objektide vastu.",
         "typicalUnit": "VKS ründedroonide üksused",
         "length": 3.5,
@@ -4345,12 +4636,15 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Geran-2", "url": "https://odin.t2com.army.mil/WEG/Asset/0641c3e1e7dbc7489aa655b1245969a8", "retrieved": "2026-10-28"},
         {"name": "Wikipedia: HESA Shahed 136", "url": "https://en.wikipedia.org/wiki/HESA_Shahed_136", "retrieved": "2026-10-23"},
-        {"name": "Jamestown: Russia's Unmanned Systems Forces become wildcard", "url": "https://jamestown.org/russias-unmanned-systems-forces-become-wildcard-in-moscows-military-modernization/", "retrieved": "2026-11-25"}
+        {"name": "Jamestown: Russia's Unmanned Systems Forces become wildcard", "url": "https://jamestown.org/russias-unmanned-systems-forces-become-wildcard-in-moscows-military-modernization/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russia Produces About 2,800 Geran-2 Drones per Month", "url": "https://militarnyi.com/en/news/russia-produces-about-2-800-geran-2-drones-per-month/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Production of the Geran-4/5 Jet Drones Has Surpassed That of the Geran-2", "url": "https://militarnyi.com/en/news/production-of-the-geran-4-5-jet-drones-has-surpassed-that-of-the-geran-2/", "retrieved": "2026-11-25"}
       ]
     },
     "Geran-3/Geran-4": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Reaktiivmootoriga kaugmaa ründedroon, Geran-2 kiirem edasiarendus.",
         "typicalUnit": "VKS ründedroonide üksused",
         "length": 3.5,
@@ -4372,12 +4666,14 @@ window.TTA_DATA = {
         {"name": "HUR / United24: Geran-4 (25.05.2026)", "url": "https://united24media.com/war-in-ukraine/ukraines-intelligence-reveals-russias-new-jet-powered-geran-4-drone-built-to-evade-interceptors-19125", "retrieved": "2026-11-10"},
         {"name": "HUR / Defence Industry Europe: Geran-4 (mõõtmed, ulatus)", "url": "https://defence-industry.eu/ukraines-defence-intelligence-details-russias-new-geran-4-jet-powered-strike-drone-and-foreign-components/", "retrieved": "2026-11-10"},
         {"name": "HUR / United24: Geran-3", "url": "https://united24media.com/war-in-ukraine/why-russias-new-jet-powered-drones-are-harder-to-stop-22666", "retrieved": "2026-11-10"},
-        {"name": "Jamestown: Russia's Unmanned Systems Forces become wildcard", "url": "https://jamestown.org/russias-unmanned-systems-forces-become-wildcard-in-moscows-military-modernization/", "retrieved": "2026-11-25"}
+        {"name": "Jamestown: Russia's Unmanned Systems Forces become wildcard", "url": "https://jamestown.org/russias-unmanned-systems-forces-become-wildcard-in-moscows-military-modernization/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Production of the Geran-4/5 Jet Drones Has Surpassed That of the Geran-2", "url": "https://militarnyi.com/en/news/production-of-the-geran-4-5-jet-drones-has-surpassed-that-of-the-geran-2/", "retrieved": "2026-11-25"}
       ]
     },
     "Geran-5": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Reaktiivmootoriga kaugmaa ründedroon suurema lõhkepeaga.",
         "typicalUnit": "VKS ründedroonide üksused",
         "length": 6,
@@ -4394,12 +4690,15 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Geran-5", "url": "https://odin.t2com.army.mil/WEG/Asset/e0db4f6fdfcb42f6f26eabda2301c839", "retrieved": "2026-10-28"},
         {"name": "Kyiv Post: Geran-5 (HUR)", "url": "https://www.kyivpost.com/amp/post/68327", "retrieved": "2026-10-23"},
-        {"name": "Jamestown: Russia's Unmanned Systems Forces become wildcard", "url": "https://jamestown.org/russias-unmanned-systems-forces-become-wildcard-in-moscows-military-modernization/", "retrieved": "2026-11-25"}
+        {"name": "Jamestown: Russia's Unmanned Systems Forces become wildcard", "url": "https://jamestown.org/russias-unmanned-systems-forces-become-wildcard-in-moscows-military-modernization/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Production of the Geran-4/5 Jet Drones Has Surpassed That of the Geran-2", "url": "https://militarnyi.com/en/news/production-of-the-geran-4-5-jet-drones-has-surpassed-that-of-the-geran-2/", "retrieved": "2026-11-25"}
       ]
     },
     "Molnja-2": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Rubikoni keskuse lennukitüüpi FPV-ründedroonide üksus",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Odav lühimaa ründedroon (lendav tiib).",
         "wingspan": 1.5,
         "maxTakeoffWeightKg": 10,
@@ -4412,12 +4711,16 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Molnja-2", "url": "https://odin.t2com.army.mil/WEG/Asset/5fac868e9ad10594815bbea7c2291c11", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Molniya drone", "url": "https://en.wikipedia.org/wiki/Molniya_(drone)", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Molniya drone", "url": "https://en.wikipedia.org/wiki/Molniya_(drone)", "retrieved": "2026-10-23"},
+        {"name": "Kyiv Independent: Majority of companies involved in Russian Molniya drone production unsanctioned", "url": "https://kyivindependent.com/exclusive-majority-of-companies-involved-in-russian-molniya-drone-production-unsanctioned-research-shows/", "retrieved": "2026-11-25"},
+        {"name": "United24 Media: A Russian drone that takes off every minute along Ukraine's front", "url": "https://united24media.com/world/a-russian-drone-that-takes-off-every-minute-along-ukraines-front-how-do-you-stop-molniya-19647", "retrieved": "2026-11-25"},
+        {"name": "Inside Unmanned Systems: What Russia's Rubicon drone units reveal", "url": "https://insideunmannedsystems.com/?p=42510", "retrieved": "2026-11-25"}
       ]
     },
     "Molnja-1": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Rubikoni keskuse lennukitüüpi FPV-ründedroonide üksus (Molnija perekond, variant täpsustamata)",
         "purpose": "Odav lühimaa ründedroon (lendav tiib).",
         "wingspan": 1.5,
         "maxTakeoffWeightKg": 10,
@@ -4427,12 +4730,14 @@ window.TTA_DATA = {
         "endurance": 0.67
       },
       "sources": [
-        {"name": "Wikipedia: Molniya drone", "url": "https://en.wikipedia.org/wiki/Molniya_(drone)", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Molniya drone", "url": "https://en.wikipedia.org/wiki/Molniya_(drone)", "retrieved": "2026-10-23"},
+        {"name": "Inside Unmanned Systems: What Russia's Rubicon drone units reveal", "url": "https://insideunmannedsystems.com/?p=42510", "retrieved": "2026-11-25"}
       ]
     },
     "Supercam S350": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Taktikaline luuredroon luureks ja sihtmärkide avastamiseks.",
         "wingspan": 3.2,
         "maxTakeoffWeightKg": 11.5,
@@ -4446,7 +4751,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Supercam S350", "url": "https://odin.t2com.army.mil/WEG/Asset/955834539eadc753a28aa1f7843efa3e", "retrieved": "2026-10-28"},
-        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Supercam S350", "url": "https://war-sanctions.gur.gov.ua/en/uav/217", "retrieved": "2026-10-23"}
+        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Supercam S350", "url": "https://war-sanctions.gur.gov.ua/en/uav/217", "retrieved": "2026-10-23"},
+        {"name": "Molfar: Supercam drone production: war, spying and sanctions helplessness", "url": "https://molfar.com/en/blog/vyrobnyctvo-droniv-supercam-viina-shpygunstvo-sankciina-bezporadnist", "retrieved": "2026-11-25"}
       ]
     },
     "Eleron-3": {
@@ -4473,6 +4779,7 @@ window.TTA_DATA = {
     "Orion": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Keskmise kõrguse pikaajalise lennu luure- ja ründedroon (tankitõrjeraketid, väikesed tiibraketid).",
         "length": 8,
         "wingspan": 16,
@@ -4486,7 +4793,8 @@ window.TTA_DATA = {
         "airToGroundWeapons": "Vikhr-1V tankitõrjerakett, Banderol (S8000) tiibrakett"
       },
       "sources": [
-        {"name": "Wikipedia: Kronshtadt Orion", "url": "https://en.wikipedia.org/wiki/Kronshtadt_Orion", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Kronshtadt Orion", "url": "https://en.wikipedia.org/wiki/Kronshtadt_Orion", "retrieved": "2026-10-23"},
+        {"name": "United24 Media: Strike drones hit key Russian arms facility making Orion UAVs and S8000 missiles", "url": "https://united24media.com/latest-news/strike-drones-hit-key-russian-arms-facility-making-orion-uavs-and-s8000-missiles-8693", "retrieved": "2026-11-25"}
       ]
     },
     "Zala KUB-2": {
@@ -4506,6 +4814,7 @@ window.TTA_DATA = {
     "Zala KUB": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Hulkuv laskemoon (ründedroon).",
         "length": 0.95,
         "wingspan": 1.21,
@@ -4516,12 +4825,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Zala KUB", "url": "https://odin.t2com.army.mil/WEG/Asset/64e82ecf06f6edfe3ef96b58493d1871", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: ZALA KUB-BLA", "url": "https://en.wikipedia.org/wiki/ZALA_Kub-BLA", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: ZALA KUB-BLA", "url": "https://en.wikipedia.org/wiki/ZALA_Kub-BLA", "retrieved": "2026-10-23"},
+        {"name": "Army Recognition: Russia increases KYB loitering munitions production capacity tenfold", "url": "https://armyrecognition.com/news/army-news/army-news-2024/russia-increases-kyb-loitering-munitions-production-capacity-tenfold", "retrieved": "2026-11-25"}
       ]
     },
     "Skalpel": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Hulkuv laskemoon (ründedroon).",
         "length": 0.65,
         "maxTakeoffWeightKg": 10.5,
@@ -4531,12 +4842,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Skalpel", "url": "https://odin.t2com.army.mil/WEG/Asset/6f5d89e0efc459f4723dc488c350918e", "retrieved": "2026-10-28"},
-        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Scalpel", "url": "https://war-sanctions.gur.gov.ua/en/page-skalpel", "retrieved": "2026-10-23"}
+        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Scalpel", "url": "https://war-sanctions.gur.gov.ua/en/page-skalpel", "retrieved": "2026-10-23"},
+        {"name": "Defence Industry Europe: Russia launches mass production of Scalpel loitering munition", "url": "https://defence-industry.eu/russia-launches-mass-production-of-scalpel-loitering-munition/", "retrieved": "2026-11-25"}
       ]
     },
     "Knijaz Veši Oleg": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Väike luuredroon.",
         "length": 0.82,
         "wingspan": 2.8,
@@ -4550,7 +4863,8 @@ window.TTA_DATA = {
         "sensors": "Kolmeteljeline stabilisaator: lai Full HD kaamera ja 10× optilise suumiga kaamera"
       },
       "sources": [
-        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Knyaz Veschyi Oleg", "url": "https://war-sanctions.gur.gov.ua/en/page-knyaz-oleg", "retrieved": "2026-10-23"}
+        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Knyaz Veschyi Oleg", "url": "https://war-sanctions.gur.gov.ua/en/page-knyaz-oleg", "retrieved": "2026-10-23"},
+        {"name": "Militarnyi: Russia Significantly Increases Use of Knyaz Veshchy Oleg UAVs: Ranks Second After ZALA", "url": "https://militarnyi.com/en/news/russia-knyaz-veshchy-oleg-uavs-second-zala/", "retrieved": "2026-11-25"}
       ]
     },
     "Privet-82": {
@@ -4671,6 +4985,7 @@ window.TTA_DATA = {
     "Banderol": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Väike tiibrakett, mida kannab Orion-droon.",
         "length": 5,
         "wingspan": 2.2,
@@ -4681,12 +4996,14 @@ window.TTA_DATA = {
         "ferryRange": 500
       },
       "sources": [
-        {"name": "U.S. Army ODIN / WEG: S8000 Banderol", "url": "https://odin.t2com.army.mil/WEG/Asset/9da7792070eb9c26258ee8122f85006c", "retrieved": "2026-10-28"}
+        {"name": "U.S. Army ODIN / WEG: S8000 Banderol", "url": "https://odin.t2com.army.mil/WEG/Asset/9da7792070eb9c26258ee8122f85006c", "retrieved": "2026-10-28"},
+        {"name": "United24 Media: Strike drones hit key Russian arms facility making Orion UAVs and S8000 missiles", "url": "https://united24media.com/latest-news/strike-drones-hit-key-russian-arms-facility-making-orion-uavs-and-s8000-missiles-8693", "retrieved": "2026-11-25"}
       ]
     },
     "Dan-T": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Lennukilt või kopterilt startiv reaktiivmootoriga väike tiibrakett.",
         "length": 3.4,
         "wingspan": 2,
@@ -4702,12 +5019,15 @@ window.TTA_DATA = {
         "warheadMass": "130–135kg."
       },
       "sources": [
-        {"name": "U.S. Army ODIN / WEG: Dan-T", "url": "https://odin.t2com.army.mil/WEG/Asset/d09cbfedc8089584f342e699442a248e", "retrieved": "2026-10-28"}
+        {"name": "U.S. Army ODIN / WEG: Dan-T", "url": "https://odin.t2com.army.mil/WEG/Asset/d09cbfedc8089584f342e699442a248e", "retrieved": "2026-10-28"},
+        {"name": "Kyiv Post: Russia Continues to Develop Cheap Cruise Missile Substitutes", "url": "https://www.kyivpost.com/post/86238", "retrieved": "2026-11-25"},
+        {"name": "United24 Media: Meet Russia's Dan-T, a cheap cruise missile Moscow plans to mass produce in 2027", "url": "https://united24media.com/war-in-ukraine/meet-russias-dan-t-a-cheap-cruise-missile-moscow-plans-to-mass-produce-in-2027-22035", "retrieved": "2026-11-25"}
       ]
     },
     "Forpost-R": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Mereväe lennuväe droonipolgud (laevastikud)",
         "purpose": "Keskmise kõrguse pikaajalise lennu luure- ja ründedroon (juhitavad pommid KAB-20S).",
         "length": 6,
         "wingspan": 9.1,
@@ -4723,7 +5043,10 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "GUR War & Sanctions (Ukraina kaitseluure): Forpost-R", "url": "https://war-sanctions.gur.gov.ua/en/uav/281", "retrieved": "2026-10-28"},
-        {"name": "AISAR: Forpost-R (Forpost-RU)", "url": "https://www.aisar.tech/catalog/drone/forpost-r", "retrieved": "2026-10-28"}
+        {"name": "AISAR: Forpost-R (Forpost-RU)", "url": "https://www.aisar.tech/catalog/drone/forpost-r", "retrieved": "2026-10-28"},
+        {"name": "Army Recognition: Russian naval aviation armed with drones (part 1)", "url": "https://armyrecognition.com/focus-analysis-conflicts/navy/naval-technology/russian-naval-aviation-armed-with-drones-part-1", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russia establishes drone command hub in Kamchatka", "url": "https://www.armyrecognition.com/archives/archives-aerospace-defense/defense-news-aerospace-2025/russia-establishes-drone-command-hub-in-kamchatka-to-boost-arctic-and-pacific-surveillance", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russian Media: Russian Federation Installed Radar on Forpost UAV", "url": "https://militarnyi.com/en/news/russian-media-russian-federation-installed-radar-on-forpost-uav/", "retrieved": "2026-11-25"}
       ]
     },
     "KUB-10": {
@@ -4864,6 +5187,8 @@ window.TTA_DATA = {
     "Ropucha II / III klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Põhjalaevastik, Balti laevastik, Musta mere laevastik ja Vaikse ookeani laevastik",
+        "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Dessantlaev rannale maabumiseks: kuni 450t lasti, ühes variandis 10 tanki ja 340 sõdurit.",
         "standardDisplacement": 3450,
         "fullDisplacement": 4080,
@@ -4888,6 +5213,8 @@ window.TTA_DATA = {
     "Buyan-M klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Kaspia flotill; Musta mere laevastik; Balti laevastik",
+        "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Jõe-mere tüüpi laev rannikuvööndis tegutsemiseks ja Venemaa rannikualade kaitseks; Buyan-M on moderniseeritud versioon vertikaalstardiseadmega 3S14.",
         "standardDisplacement": 850,
         "fullDisplacement": 949,
@@ -4907,12 +5234,15 @@ window.TTA_DATA = {
         "sensors": "Pozitiv-M1 faasantennradar, MP-231-2 navigatsioonradar, Laska tulejuhtimisradar, Anapa-M sukeldujatõrje sonar"
       },
       "sources": [
-        {"name": "Wikipedia: Buyan-class corvette", "url": "https://en.wikipedia.org/wiki/Buyan-class_corvette", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Buyan-class corvette", "url": "https://en.wikipedia.org/wiki/Buyan-class_corvette", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Buyan-M-class corvette", "url": "https://en.wikipedia.org/wiki/Buyan-M-class_corvette", "retrieved": "2026-11-25"}
       ]
     },
     "Vishnya klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Põhjalaevastik, Balti laevastik, Musta mere laevastik ja Vaikse ookeani laevastik",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Luurelaev signaaliluure (SIGINT) kogumiseks ulatusliku andurikomplektiga.",
         "standardDisplacement": 3100,
         "fullDisplacement": 3470,
@@ -4937,6 +5267,8 @@ window.TTA_DATA = {
     "Parchim II klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Balti laevastik",
+        "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Korvett rannikuvete allveelaevatõrjeks.",
         "standardDisplacement": 800,
         "fullDisplacement": 950,
@@ -4961,6 +5293,8 @@ window.TTA_DATA = {
     "Neustrashimyy klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Balti laevastik",
+        "productionStatus": {"status": ["ended"], "asOf": 2023},
         "purpose": "Suur üldotstarbeline allveelaevatõrjefregatt.",
         "standardDisplacement": 3210,
         "fullDisplacement": 4400,
@@ -4988,6 +5322,8 @@ window.TTA_DATA = {
     "Steregushchiy klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Balti laevastik; Vaikse ookeani laevastik",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Mitmeotstarbeline korvett (Grisha klassi asendaja) rannikuvööndis tegutsemiseks, allveelaevade ja pinnalaevade tõrjeks ning dessandi tuletoetuseks.",
         "standardDisplacement": 1800,
         "fullDisplacement": 2200,
@@ -5015,6 +5351,7 @@ window.TTA_DATA = {
     "Pomornik klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Balti laevastik",
         "purpose": "Dessanthõljuk dessantüksuste toimetamiseks laevadelt ka ettevalmistamata rannale; saab vedada ja paigaldada meremiine.",
         "standardDisplacement": 415,
         "fullDisplacement": 555,
@@ -5038,6 +5375,8 @@ window.TTA_DATA = {
     "Uragan/Karakurt klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Balti laevastik; Musta mere laevastik; Kaspia flotill (Vaikse ookeani laevastikule ehitatakse)",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Väike raketilaev (kasutusel 2018), Buyan-M-st tugevam ja suurema ulatusega; põhirelvastus Kalibr-tiibraketid või ülehelikiirusega laevavastased raketid P-800 Oniks.",
         "fullDisplacement": 800,
         "length": 67,
@@ -5062,6 +5401,8 @@ window.TTA_DATA = {
     "Tarantul klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Vaikse ookeani laevastik; Balti laevastik; Musta mere laevastik",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Raketikorvett, loodud raketikaatri Projekt 205M (Tsunami) asendajaks.",
         "standardDisplacement": 488,
         "fullDisplacement": 549,
@@ -5085,6 +5426,8 @@ window.TTA_DATA = {
     "Aleksandrit klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Põhjalaevastik, Balti laevastik, Musta mere laevastik ja Vaikse ookeani laevastik",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Uusim Vene miinitraaler: kahjutustab või hävitab miine ohutust kaugusest mehitamata sõidukitega.",
         "standardDisplacement": 620,
         "fullDisplacement": 890,
@@ -5110,6 +5453,7 @@ window.TTA_DATA = {
     "Dyugon klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Balti laevastik; Kaspia flotill; Vaikse ookeani laevastik",
         "purpose": "Õhukoopaga dessantkaater: 120–140t lasti, 3 tanki või 5 soomustransportööri ja kuni 100 merejalaväelast.",
         "fullDisplacement": 280,
         "length": 45,
@@ -5131,6 +5475,7 @@ window.TTA_DATA = {
     "Sovremenny klass": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Juhitavate rakettidega hävitaja, peaülesanne pinnalaevade tõrje; kaitseb ka saadetavaid sõjalaevu ja transpordilaevu mere- ja õhuohtude eest.",
         "standardDisplacement": 7940,
         "fullDisplacement": 8480,
@@ -5153,12 +5498,16 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Sovremenny klass", "url": "https://odin.t2com.army.mil/WEG/Asset/faa46cd6750dce3ce106a9076ae14a26", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Sovremennyy-class destroyer", "url": "https://en.wikipedia.org/wiki/Sovremennyy-class_destroyer", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Sovremennyy-class destroyer", "url": "https://en.wikipedia.org/wiki/Sovremennyy-class_destroyer", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: Russian destroyer Admiral Ushakov", "url": "https://en.wikipedia.org/wiki/Russian_destroyer_Admiral_Ushakov", "retrieved": "2026-11-25"},
+        {"name": "Defense Express: Russia may have decommissioned one of its last two Baltic Sea destroyers", "url": "https://en.defence-ua.com/analysis/russia_may_have_decommissioned_one_of_its_last_two_baltic_sea_destroyers-13720.html", "retrieved": "2026-11-25"}
       ]
     },
     "Kilo-2 klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Musta mere laevastik; Vaikse ookeani laevastik; Balti laevastik",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Diiselelektriline ründeallveelaev pinnalaevade ja allveelaevade tõrjeks madalates vetes; täiustatud versioonid (Projekt 636/636.3) saavad lasta Kalibr-tiibrakette torpeedotorudest.",
         "standardDisplacement": 2350,
         "fullDisplacement": 3950,
@@ -5183,6 +5532,8 @@ window.TTA_DATA = {
     "Lada klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Põhjalaevastik; Balti laevastik",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Diiselelektriline ründeallveelaev allveelaevade ja pinnalaevade tõrjeks, mereväebaaside, ranniku ja meretee kaitseks ning luureks.",
         "standardDisplacement": 1793,
         "fullDisplacement": 2743,
@@ -5209,6 +5560,8 @@ window.TTA_DATA = {
     "Nanuchka klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Balti laevastik; Vaikse ookeani laevastik; Põhjalaevastik",
+        "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Väike raketilaev pinnalaevade tõrjeks, ehitatud laevavastase raketi P-120 Malahhit ümber.",
         "standardDisplacement": 569,
         "fullDisplacement": 671,
@@ -5233,6 +5586,8 @@ window.TTA_DATA = {
     "Ondatra klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Vaikse ookeani laevastik; Balti laevastik; Põhjalaevastik; Musta mere laevastik",
+        "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Madala süvisega dessantkaater: 1 tank T-72 või 22 sõdurit või 50t lasti.",
         "standardDisplacement": 90,
         "fullDisplacement": 145,
@@ -5254,6 +5609,8 @@ window.TTA_DATA = {
     "Serna klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Kaspia flotill; Balti laevastik; Musta mere laevastik; Vaikse ookeani laevastik",
+        "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Õhukoopaga dessantkaater: 1 tank või 2 soomustransportööri või 45t lasti.",
         "fullDisplacement": 105,
         "autonomy": 1,
@@ -5270,12 +5627,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Serna klass", "url": "https://odin.t2com.army.mil/WEG/Asset/f20a45c1771d26f18c8c3b5d62344781", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: Serna-class landing craft", "url": "https://en.wikipedia.org/wiki/Serna-class_landing_craft", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Serna-class landing craft", "url": "https://en.wikipedia.org/wiki/Serna-class_landing_craft", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: List of active Russian Navy ships", "url": "https://en.wikipedia.org/wiki/List_of_active_Russian_Navy_ships", "retrieved": "2026-11-25"}
       ]
     },
     "Sonya klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Põhjalaevastik; Vaikse ookeani laevastik; Balti laevastik; Kaspia flotill",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Puitkerega rannikuvete miinitraaler (Vanya klassi järglane).",
         "standardDisplacement": 400,
         "fullDisplacement": 450,
@@ -5299,6 +5659,8 @@ window.TTA_DATA = {
     "Grachonok klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Kõik laevastikud ja Kaspia flotill (mereväebaaside diversioonivastased üksused); ka Rosgvardia",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Diversioonivastane kaater diversantide ja terroristide tõrjeks mereväebaaside vetes.",
         "fullDisplacement": 138,
         "length": 31.04,
@@ -5321,6 +5683,7 @@ window.TTA_DATA = {
     "Lida klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Balti laevastik",
         "purpose": "Väike miinitraaler meremiinide otsimiseks sadamasissesõitudes, sadamates ja jõgedel.",
         "standardDisplacement": 131,
         "fullDisplacement": 135,
@@ -5344,6 +5707,7 @@ window.TTA_DATA = {
     "Raptor klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Balti laevastik; Musta mere laevastik (sh Novorossiiski mereväebaasi diversioonivastane üksus)",
         "purpose": "Kiire rannikuvete patrullkaater patrulliks, otsingu- ja päästetöödeks ning vägede veoks (dessant kuni 20 inimest).",
         "fullDisplacement": 23,
         "length": 16.9,
@@ -5365,6 +5729,8 @@ window.TTA_DATA = {
     "Moma klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Musta mere laevastik (luurelaevad, projekt 861M)",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Rannikuvete hüdrograafialaev, kasutatakse ka poide hooldamiseks; ümberehitatud Moma (Projekt 861M) on elektroonilise luure (ELINT) laev.",
         "standardDisplacement": 1200,
         "fullDisplacement": 1542,
@@ -5380,12 +5746,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Moma klass", "url": "https://odin.t2com.army.mil/WEG/Asset/02dad9bc3c0051fd649f73a0c5f6a940", "retrieved": "2026-10-28"},
-        {"name": "GlobalSecurity: Moma class", "url": "https://www.globalsecurity.org/military/world/russia/moma-class.htm", "retrieved": "2026-10-23"}
+        {"name": "GlobalSecurity: Moma class", "url": "https://www.globalsecurity.org/military/world/russia/moma-class.htm", "retrieved": "2026-10-23"},
+        {"name": "Wikipedia: List of active Russian Navy ships", "url": "https://en.wikipedia.org/wiki/List_of_active_Russian_Navy_ships", "retrieved": "2026-11-25"}
       ]
     },
     "BREM-D": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhudessantdiviisi eraldi remondipataljon",
         "purpose": "BTR-D baasil dessantvägede remondi- ja äraveosoomuk BMD-1 tüüpi masinate remondiks ja evakueerimiseks.",
         "crew": "1",
         "combatWeight": 8,
@@ -5582,6 +5950,7 @@ window.TTA_DATA = {
     "UAZ-469": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Sõjaväe kerge maastikusõiduk (toodetud alates 1971).",
         "driveConfig": "4×4",
         "combatWeight": 2.45,
@@ -5604,6 +5973,7 @@ window.TTA_DATA = {
     "GAZ-66": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "4×4 sõjaväe maastikuveok, Nõukogude armee motolaskurite üks peamisi veokeid.",
         "driveConfig": "4×4",
         "loadCapacity": 2000,
@@ -5627,6 +5997,7 @@ window.TTA_DATA = {
     "UAZ-452": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Nelikveoga maastikubuss ja kerge veok; UAZ-452A sanitaarversioon veab kuut istuvat haiget.",
         "driveConfig": "4×4",
         "length": 4.44,
@@ -5647,6 +6018,7 @@ window.TTA_DATA = {
     "Desertcross 1000-3": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Kerge nelikveoline maastikusõiduk: peamiselt isikkoosseisu ja väikeste koormate (laskemoon, toit) veoks positsioonidele; ka luure, patrull, otsing ja pääste ning haavatute evakuatsioon.",
         "driveConfig": "Tagavedu või nelikvedu",
         "combatWeight": 1.05,
@@ -5672,6 +6044,7 @@ window.TTA_DATA = {
     "BRM-1K": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskur- või tankipolgu luurekompanii; diviisi luurepataljon",
         "purpose": "BMP-1 šassiil luuresoomuk taktikaliseks luureks; lahinguvälja seireradar PSNR-5 (Tall Mike).",
         "crew": "6 (ülem, juht, raadiooperaator, navigaator, kaks luureoperaatorit)",
         "combatWeight": 13.3,
@@ -5693,12 +6066,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BRM-1K", "url": "https://odin.t2com.army.mil/WEG/Asset/4136bc85abbcc246b4b606de0e585cc2", "retrieved": "2026-11-10"},
-        {"name": "Army Recognition: BRM-1K", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/ukrainian-soldiers-capture-a-brm-1k-model-2021-most-modern-reconnaissance-vehicle-of-russian-army", "retrieved": "2026-11-25"}
+        {"name": "Army Recognition: BRM-1K", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/ukrainian-soldiers-capture-a-brm-1k-model-2021-most-modern-reconnaissance-vehicle-of-russian-army", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Analyst: Russians have begun to use old BRM-1K armored vehicles more often in assaults", "url": "https://militarnyi.com/en/news/analyst-russians-have-begun-to-use-old-brm-1k-armored-vehicles-more-often-in-assaults", "retrieved": "2026-11-25"}
       ]
     },
     "BRDM-2 / BRDM-2M": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "Ujuv soomustatud luureauto (BRDM-1 asendaja); mitme eriversiooni alus (keemialuure, tankitõrje, õhutõrje, juhtimine).",
         "crew": "4",
         "combatWeight": 7,
@@ -5724,12 +6099,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BRDM-2 / BRDM-2M", "url": "https://odin.t2com.army.mil/WEG/Asset/3563edc1754294260097f7d8266974d5", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: BRDM-2", "url": "https://en.wikipedia.org/wiki/BRDM-2", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: BRDM-2", "url": "https://en.wikipedia.org/wiki/BRDM-2", "retrieved": "2026-10-23"},
+        {"name": "112.ua: Russia restores BRDM-2 armored vehicles for war in Ukraine", "url": "https://112.ua/en/rosia-vidnovlue-bronemasini-brdm-2-dla-vijni-v-ukraini-pro-so-ce-svidcit-44059", "retrieved": "2026-11-25"}
       ]
     },
     "RKhM-4": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "BTR-80 baasil TBK-luuresoomuk (kiirgus- ja keemialuure).",
         "crew": "3",
         "combatWeight": 13.6,
@@ -5755,12 +6132,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: RKhM-4-01", "url": "https://odin.t2com.army.mil/WEG/Asset/026baeb16af6245be725a211152cf3b4", "retrieved": "2026-11-10"},
-        {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-11-25"},
+        {"name": "UNITED24 Media: Ukrainian drone strike destroys rare RKhM-4 chemical recon vehicle", "url": "https://united24media.com/latest-news/ukrainian-drone-strike-destroys-rare-rkhm-4-chemical-recon-vehicle-video-7239", "retrieved": "2026-11-25"}
       ]
     },
     "RKhM-6": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "RKBT-kaitse (TBK) brigaadid ja sõjaväeringkondade TBK-luureüksused",
         "purpose": "BTR-80 baasil TBK-luuresoomuk (RKhM-4-01 edasiarendus) keemilise, bioloogilise, radioloogilise ja tuumaluure jaoks.",
         "crew": "3",
         "combatWeight": 13.6,
@@ -5793,6 +6172,7 @@ window.TTA_DATA = {
     "Taifun-K KAMAZ-63968, 6x6": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Luurepataljonid ja eriotstarbelised (spetsnaz) brigaadid",
         "purpose": "Typhoon-perekonna miinikindel MRAP-soomuk; 6×6 KamAZ-63968 on ujuv soomustransportöör kaugjuhitava relvamooduliga.",
         "crew": "2 + 16 (kuni, konfiguratsioonist sõltuvalt)",
         "combatWeight": 21,
@@ -5808,7 +6188,10 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: Kamaz Typhoon", "url": "https://en.wikipedia.org/wiki/Kamaz_Typhoon", "retrieved": "2026-10-23"},
-        {"name": "GlobalSecurity: Taifun", "url": "https://www.globalsecurity.org/military/world/russia/taifun.htm", "retrieved": "2026-10-23"}
+        {"name": "GlobalSecurity: Taifun", "url": "https://www.globalsecurity.org/military/world/russia/taifun.htm", "retrieved": "2026-10-23"},
+        {"name": "Army Recognition: Russian reconnaissance and special forces units will receive Typhoon-K and Typhoon-U MRAPs", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2016/russian-reconnaissance-and-special-forces-units-will-receive-typhoon-k-and-typhoon-u-mraps-1270516", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russian Southern MD special task force units received another batch of KAMAZ-63968 Typhoons", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2015/russian-southern-md-special-task-force-units-received-another-batch-of-kamaz-63968-typhoons", "retrieved": "2026-11-25"},
+        {"name": "ESUT: Geschützte Typhoon-K für russische Aufklärer", "url": "https://esut.de/2020/01/meldungen/streitkraefte/18134/geschuetzte-typhoon-k-fuer-russische-aufklaerer/", "retrieved": "2026-11-25"}
       ]
     },
     "VPK-3927-1 Volk-1": {
@@ -5833,6 +6216,8 @@ window.TTA_DATA = {
     "GAZ-233014/TIGR": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Eriüksused (spetsnaz), merejalavägi ja õhudessantväed",
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "4×4 mitmeotstarbeline jalaväe maastikusoomuk Vene relvajõududele ja siseministeeriumile; relvasüsteemide alus (nt Kornet-D, õhutõrje Gibka-S).",
         "driveConfig": "4×4",
         "engine": "Cummins B205 turbodiisel",
@@ -5846,6 +6231,7 @@ window.TTA_DATA = {
     "RÕS/IVECO": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhudessantväed (nt 106. kaardiväe õhudessantdiviis)",
         "purpose": "Iveco LMV (kerge mitmeotstarbeline taktikaline 4×4 sõiduk, MRAP-omadustega) Vene variant Rõs.",
         "crew": "1 + 4",
         "combatWeight": 7.1,
@@ -5859,12 +6245,14 @@ window.TTA_DATA = {
         "armor": "AMAP lisasoomuspaneelid raamil, STANAG 4569 tase 1–3"
       },
       "sources": [
-        {"name": "Wikipedia: Iveco LMV", "url": "https://en.wikipedia.org/wiki/Iveco_LMV", "retrieved": "2026-10-28"}
+        {"name": "Wikipedia: Iveco LMV", "url": "https://en.wikipedia.org/wiki/Iveco_LMV", "retrieved": "2026-10-28"},
+        {"name": "Defence24: Rosja: pojazdy Iveco Ryś w elitarnej dywizji powietrznodesantowej", "url": "https://defence24.pl/sily-zbrojne/rosja-pojazdy-iveco-rys-w-elitarnej-dywizji-powietrznodesantowej", "retrieved": "2026-11-25"}
       ]
     },
     "BMP-1Ksh": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskur- ja tankipolgud",
         "purpose": "Juhtimis- ja staabisoomuk BMP-1 baasil.",
         "crew": "3 (kirjetes ka „3 + 4“ ja 6)",
         "combatWeight": 13,
@@ -5886,7 +6274,8 @@ window.TTA_DATA = {
         "commsMastHeight": 10
       },
       "sources": [
-        {"name": "U.S. Army ODIN / WEG: BMP-1KSh", "url": "https://odin.t2com.army.mil/WEG/Asset/f6cab3e2c9d8a521d4672efb6b4c7765", "retrieved": "2026-11-10"}
+        {"name": "U.S. Army ODIN / WEG: BMP-1KSh", "url": "https://odin.t2com.army.mil/WEG/Asset/f6cab3e2c9d8a521d4672efb6b4c7765", "retrieved": "2026-11-10"},
+        {"name": "Wikipedia: BMP-1 variants", "url": "https://en.wikipedia.org/wiki/BMP-1_variants", "retrieved": "2026-11-25"}
       ]
     },
     "R-145BM": {
@@ -5966,6 +6355,7 @@ window.TTA_DATA = {
     "R-149AKSh-1": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Üldväearmee sideüksused",
         "purpose": "Juhtimis- ja sidemasin veoki šassiil.",
         "crew": "7",
         "length": 7.85,
@@ -5980,7 +6370,8 @@ window.TTA_DATA = {
         "radioSets": "2 × R-168-100U-2 (UKV), 2 × R-168-5KV (KV), 1 × R-168-5UN-2 (kaasaskantav UKV), 1 × R-168-MRA (UHF), 1 × R-612-18 (VHF/UHF, lennuliini sagedus)"
       },
       "sources": [
-        {"name": "U.S. Army ODIN / WEG: R-149AKSh-1", "url": "https://odin.t2com.army.mil/WEG/Asset/0a1de592234f9a261c1dc43971a04e2e", "retrieved": "2026-11-10"}
+        {"name": "U.S. Army ODIN / WEG: R-149AKSh-1", "url": "https://odin.t2com.army.mil/WEG/Asset/0a1de592234f9a261c1dc43971a04e2e", "retrieved": "2026-11-10"},
+        {"name": "Army Recognition: Russian Central Military District signal units receive advanced hardware (Dec 2019)", "url": "https://armyrecognition.com/archives/archives-land-defense/land-defense-2019/russian-central-military-district-signal-units-receive-advanced-hardware", "retrieved": "2026-11-25"}
       ]
     },
     "R-149MA1": {
@@ -6039,6 +6430,8 @@ window.TTA_DATA = {
     "9K720 Iskander/SS-26 Stone": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Üldväearmee raketibrigaad (3 pataljoni × 2 patareid)",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Liikuv lühimaa-ballistiliste rakettide süsteem: Iskander-M kannab kahte 9M723 kvaasiballistilist raketti, Iskander-K tiibrakette (9M728, 9M729).",
         "crew": "3",
         "chassis": "MZKT-79306 ASTROLOG 8×8",
@@ -6054,12 +6447,14 @@ window.TTA_DATA = {
         "specialEquipment": "Valmisolek: kuni 4 min kõrgeimast valmidusest, kuni 16 min marsilt; 2 raketti 9P78 stardiseadmel ja 2 raketti 9T250 laadimismasinal; ühetoimeline tahkekütusemootor"
       },
       "sources": [
-        {"name": "Wikipedia: 9K720 Iskander", "url": "https://en.wikipedia.org/wiki/9K720_Iskander", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: 9K720 Iskander", "url": "https://en.wikipedia.org/wiki/9K720_Iskander", "retrieved": "2026-10-23"},
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "SS-21 Totška/SS-21 Scarab": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Üldväearmee raketibrigaad (asendatud Iskanderiga)",
         "purpose": "Taktikaline ballistiline rakett täpseteks löökideks vastase taktikalistele sihtmärkidele; pidi asenduma Iskanderiga, kuid kasutatakse ka Ukraina sõjas.",
         "crew": "3",
         "chassis": "BAZ-5921 ujuv teisaldatav stardiseade",
@@ -6076,14 +6471,16 @@ window.TTA_DATA = {
         "guidance": "Inertsiaalne"
       },
       "sources": [
-        {"name": "Wikipedia: OTR-21 Tochka", "url": "https://en.wikipedia.org/wiki/OTR-21_Tochka", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: OTR-21 Tochka", "url": "https://en.wikipedia.org/wiki/OTR-21_Tochka", "retrieved": "2026-10-23"},
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
+        {"name": "Defence Blog: Russian Tochka-U ballistic missiles return to service amid Ukraine war", "url": "https://defence-blog.com/russian-tochka-u-ballistic-missiles-return-to-service-amid-ukraine-war/", "retrieved": "2026-11-25"}
       ]
     },
     "Krasukha-2": {
       "status": "unverified",
       "values": {
         "purpose": "Maapealne S-riba häirejaam AWACS-lennukite ja teiste õhuradarite häirimiseks.",
-        "typicalUnit": "Sõjaväeringkonna EW-brigaad",
+        "typicalUnit": "Eraldi elektroonilise sõjapidamise (EW) brigaadid",
         "crew": "4",
         "chassis": "BAZ-6910-022 8×8",
         "frequencyRange": "2,3–3,7 GHz (S-riba)",
@@ -6095,7 +6492,8 @@ window.TTA_DATA = {
         {"name": "Wikipedia: Krasukha", "url": "https://en.wikipedia.org/wiki/Krasukha_(electronic_warfare_system)", "retrieved": "2026-10-23"},
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
         {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"},
-        {"name": "Hudson Institute: The Fall and Rise of Russian Electronic Warfare", "url": "https://www.hudson.org/national-security-defense/the-fall-and-rise-of-russian-electronic-warfare", "retrieved": "2026-11-25"}
+        {"name": "Hudson Institute: The Fall and Rise of Russian Electronic Warfare", "url": "https://www.hudson.org/national-security-defense/the-fall-and-rise-of-russian-electronic-warfare", "retrieved": "2026-11-25"},
+        {"name": "Air University (Mendenhall et al.): Adapting to the Spectrum", "url": "https://www.airuniversity.af.edu/Portals/10/AUPress/Papers/WF_100_Mendenhall-et-al_Adapting_To_The_Spectrum.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "Krasukha-4": {
@@ -6120,6 +6518,7 @@ window.TTA_DATA = {
     "Lejer-2/Leer-2": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhudessantväed",
         "purpose": "Mobiilne automatiseeritud raadioluure, suunatuvastuse ja häirimise kompleks; jäljendab ka raadioelektroonilisi süsteeme.",
         "crew": "3 (tabelis), 2 (pildiallkirjas)",
         "chassis": "Tigr-M (85Ya6)",
@@ -6131,7 +6530,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
-        {"name": "Army Recognition: Leer-2 and Tirada destroyed", "url": "https://armyrecognition.com/ukraine_-_russia_conflict_war_2022/ukrainian_soldiers_destroy_crucial_russian_leer-2_and_tirade_electronic_warfare_systems.html", "retrieved": "2026-11-25"}
+        {"name": "Army Recognition: Leer-2 and Tirada destroyed", "url": "https://armyrecognition.com/ukraine_-_russia_conflict_war_2022/ukrainian_soldiers_destroy_crucial_russian_leer-2_and_tirade_electronic_warfare_systems.html", "retrieved": "2026-11-25"},
+        {"name": "Defence Blog: Russian airborne troops commissions new Leer-2 electronic warfare systems", "url": "https://defence-blog.com/?p=23870", "retrieved": "2026-11-25"}
       ]
     },
     "RB-341B Lejer-3/Leer-3": {
@@ -6242,7 +6642,9 @@ window.TTA_DATA = {
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
         {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"},
         {"name": "OE Watch: Russian motorized rifle divisions to gain an EW battalion", "url": "https://oe.t2com.army.mil/product/russian-motorized-rifle-divisions-to-gain-an-electronic-warfare-battalion/", "retrieved": "2026-11-25"},
-        {"name": "Russian Defense Policy: 15th Independent EW Brigade", "url": "https://russiandefpolicy.com/tag/15th-independent-ew-brigade/", "retrieved": "2026-11-25"}
+        {"name": "Russian Defense Policy: 15th Independent EW Brigade", "url": "https://russiandefpolicy.com/tag/15th-independent-ew-brigade/", "retrieved": "2026-11-25"},
+        {"name": "Kyiv Post: Key Electronic Warfare Systems Destroyed in Russia Before Reaching Combat Zone (Feb 2025)", "url": "https://www.kyivpost.com/post/47304", "retrieved": "2026-11-25"},
+        {"name": "Defense Express: Fire in Voronezh destroys two Russian R-330Zh Zhytel electronic warfare systems (Feb 2025)", "url": "https://en.defence-ua.com/industries/fire_in_voronezh_destroys_two_russian_r_330zh_zhytel_electronic_warfare_systems_video-13564.html", "retrieved": "2026-11-25"}
       ]
     },
     "RB-301B (RB-301B Borisoglebsk-2)": {
@@ -7899,6 +8301,7 @@ window.TTA_DATA = {
     "BMP-1AM Basurmanin": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["upgrade"], "asOf": 2024},
         "purpose": "BMP-1 moderniseeritud versioon: 73mm kahuri asemel stabiliseeritud 30mm automaatkahuriga 2A72 relvamoodul.",
         "combatWeight": 14.3,
         "length": 6.735,
@@ -7921,12 +8324,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "GlobalSecurity: BMP-1AM Basurmanin", "url": "https://www.globalsecurity.org/military/world/russia/bmp-1am.htm", "retrieved": "2026-10-30"},
-        {"name": "Tank Encyclopedia: BMP-1AM", "url": "https://tank-afv.com/modern/Russia/BMP-1AM.php", "retrieved": "2026-10-30"}
+        {"name": "Tank Encyclopedia: BMP-1AM", "url": "https://tank-afv.com/modern/Russia/BMP-1AM.php", "retrieved": "2026-10-30"},
+        {"name": "Army Recognition: Russian forces receive new infantry fighting vehicles BMP-3 and BMP-1AM (2024)", "url": "https://armyrecognition.com/news/army-news/2024/russian-forces-receive-new-infantry-fighting-vehicles-bmp-3-and-bmp-1am", "retrieved": "2026-11-25"}
       ]
     },
     "BMP-2M Berežok": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["upgrade"], "asOf": 2023},
         "purpose": "BMP-2 moderniseeritud versioon lahingumooduliga Berežok (30mm kahur ja Kornet-raketid), parema liikuvuse ja tulejõuga.",
         "crew": "3 + 7 dessantväelast",
         "combatWeight": 16,
@@ -7958,12 +8363,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Army Technology: BMP-2M Infantry Fighting Vehicle", "url": "https://www.army-technology.com/projects/bmp-2m-infantry-fighting-vehicle/", "retrieved": "2026-10-30"},
-        {"name": "GlobalSecurity: BMP-2M", "url": "https://www.globalsecurity.org/military/world/russia/bmp-2m.htm", "retrieved": "2026-10-30"}
+        {"name": "GlobalSecurity: BMP-2M", "url": "https://www.globalsecurity.org/military/world/russia/bmp-2m.htm", "retrieved": "2026-10-30"},
+        {"name": "Focus.ua: Remont i modernizatsiya – rossiyskie oruzheyniki snabzhayut armiyu BMP-2M uskorennymi tempami (Nov 2023)", "url": "https://focus.ua/voennye-novosti/607795-remont-i-modernizaciya-rossiyskie-oruzheyniki-snabzhayut-armiyu-bmp-2m-uskorennymi-tempami", "retrieved": "2026-11-25"}
       ]
     },
     "Alpinist klass": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Balti laevastik",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Alpinist-tüüpi ahtertraaler, mis on ümber ehitatud luurelaevaks (AGI).",
         "standardDisplacement": 1020,
         "fullDisplacement": 1238,
@@ -7976,12 +8384,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "CMO DB: SSV Alpinist [Pr.503R]", "url": "https://cmo-db.com/en/cmo/ship/451", "retrieved": "2026-10-30"},
-        {"name": "Military Periscope: Al'pinist (AGI) class", "url": "https://www.militaryperiscope.com/weapons/ships/intelligence-collection/alpinist-agi-class/", "retrieved": "2026-10-30"}
+        {"name": "Military Periscope: Al'pinist (AGI) class", "url": "https://www.militaryperiscope.com/weapons/ships/intelligence-collection/alpinist-agi-class/", "retrieved": "2026-10-30"},
+        {"name": "Wikipedia: List of active Russian Navy ships", "url": "https://en.wikipedia.org/wiki/List_of_active_Russian_Navy_ships", "retrieved": "2026-11-25"},
+        {"name": "Military Periscope: Al'pinist (AGI) class", "url": "https://www.militaryperiscope.com/weapons/naval-warfare/intelligence-collection/alpinist-agi-class/overview/", "retrieved": "2026-11-25"}
       ]
     },
     "Zernika-2": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Lendava tiiva skeemiga ründedroon, mille lõppfaasi isesihtimine tabab ka side ja GPS-i häirimise korral.",
         "cruiseSpeed": 75,
         "serviceCeiling": 1500,
@@ -7991,7 +8402,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "United24 Media: Russia hit Kharkiv with a new drone called Chernika", "url": "https://united24media.com/latest-news/russia-hit-kharkiv-with-a-new-drone-called-chernika-heres-what-we-know-about-it-9500", "retrieved": "2026-10-30"},
-        {"name": "Defence24: Charków pod ostrzałem nowym typem drona z Rosji", "url": "https://defence24.pl/wojna-na-ukrainie-raport-specjalny-defence24/charkow-pod-ostrzalem-nowym-typem-drona-z-rosji", "retrieved": "2026-10-30"}
+        {"name": "Defence24: Charków pod ostrzałem nowym typem drona z Rosji", "url": "https://defence24.pl/wojna-na-ukrainie-raport-specjalny-defence24/charkow-pod-ostrzalem-nowym-typem-drona-z-rosji", "retrieved": "2026-10-30"},
+        {"name": "Militarnyi: Russia Uses Chernika Drone to Strike Kharkiv for the First Time", "url": "https://militarnyi.com/en/news/russia-uses-chernika-drone-to-strike-kharkiv-for-the-first-time/", "retrieved": "2026-11-25"}
       ]
     },
     "Skat-450M": {
@@ -8145,6 +8557,7 @@ window.TTA_DATA = {
     "ZIL-131": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Üldotstarbeline 3,5t 6×6 sõjaväeveok; versioonid ka sadulveduki, kallur- ja kütuseautona.",
         "seats": "3 (kabiinis)",
         "driveConfig": "6×6",
@@ -8195,6 +8608,7 @@ window.TTA_DATA = {
     "Taifun-VDV/Naparnik K-4386, 4x4": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhudessantväed (VDV)",
         "purpose": "4×4 miinikindel ratassoomuk: lahinguülesannete toetus, meeskonna, logistika ja lasti vedu, meditsiiniline tugi; õhust heidetav.",
         "crew": "Kokku 8 (meeskond + dessant)",
         "driveConfig": "4×4",
@@ -8215,7 +8629,9 @@ window.TTA_DATA = {
         "combatWeight": "Täismass; tühimass 11t."
       },
       "sources": [
-        {"name": "Army Technology: Typhoon-VDV K-4386", "url": "https://www.army-technology.com/projects/typhoon-vdv-k-4386/", "retrieved": "2026-10-30"}
+        {"name": "Army Technology: Typhoon-VDV K-4386", "url": "https://www.army-technology.com/projects/typhoon-vdv-k-4386/", "retrieved": "2026-10-30"},
+        {"name": "Army Recognition: New K-4386 Typhoon-VDV 4x4 armored vehicles in Ukraine for Russian airborne troops", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/new-k-4386-typhoon-vdv-4x4-armored-vehicles-in-ukraine-for-russian-airborne-troops", "retrieved": "2026-11-25"},
+        {"name": "Defence Blog: Russian airborne troops receives new armored vehicles", "url": "https://defence-blog.com/?p=59702", "retrieved": "2026-11-25"}
       ]
     },
     "Taifun-U Ural-53099": {
@@ -8265,12 +8681,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: Ural Typhoon", "url": "https://en.wikipedia.org/wiki/Ural_Typhoon", "retrieved": "2026-10-30"},
-        {"name": "Warwheels: Typhoon-U Ural-63095", "url": "https://warwheels.net/Typhoon-U-Ural63095-63099mrapINDEX.html", "retrieved": "2026-10-30"}
+        {"name": "Warwheels: Typhoon-U Ural-63095", "url": "https://warwheels.net/Typhoon-U-Ural63095-63099mrapINDEX.html", "retrieved": "2026-10-30"},
+        {"name": "Army Recognition: Russian reconnaissance and special forces units will receive Typhoon-K and Typhoon-U MRAPs", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2016/russian-reconnaissance-and-special-forces-units-will-receive-typhoon-k-and-typhoon-u-mraps-1270516", "retrieved": "2026-11-25"}
       ]
     },
     "Kamaz-5350 Z-STS Akhmat": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Tšetšeenia (Kadõrovi) üksused; hiljem ka teised Vene väeüksused",
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "6×6 veoki šassiil mitmeotstarbeline soomusauto (10 kohta) Tšetšeenia julgeolekujõududele, muu hulgas jalaväe ja lasti veoks.",
         "crew": "Kuni 10",
         "chassis": "KamAZ-5350 6×6 (Remdiesel)",
@@ -8282,12 +8701,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Defence24: Czeczenia kupi rosyjskie MRAP-y", "url": "https://defence24.pl/polityka-obronna/czeczenia-kupi-rosyjskie-mrapy", "retrieved": "2026-10-30"},
-        {"name": "Wikipedia: KamAZ-5350", "url": "https://en.wikipedia.org/wiki/KamAZ-5350", "retrieved": "2026-10-30"}
+        {"name": "Wikipedia: KamAZ-5350", "url": "https://en.wikipedia.org/wiki/KamAZ-5350", "retrieved": "2026-10-30"},
+        {"name": "Defence24: Rosjanie wysyłają kolejne wozy kadyrowców na Ukrainę", "url": "https://defence24.pl/wojna-na-ukrainie-raport-specjalny-defence24/rosjanie-wysylaja-kolejne-wozy-kadyrowcow-na-ukraine", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Ukrainian forces destroy two Chechen Z-STS Akhmat armored vehicles in Kursk region", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/ukrainian-forces-destroy-two-chechen-z-sts-akhmat-armored-vehicles-in-kursk-region", "retrieved": "2026-11-25"}
       ]
     },
     "AMN-590951 Spartak (VPK-Ural)": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Rosgvardia, siseväed ja eriüksused",
         "purpose": "Uue põlvkonna 4×4 mitmeotstarbeline ratassoomuk (esmaesitlus Army-2022); kasutusel Ukraina sõjas.",
         "crew": "Kuni 9 (juht, ülem, laskur + 6 jalaväelast)",
         "driveConfig": "4×4",
@@ -8301,12 +8723,14 @@ window.TTA_DATA = {
         "armor": "Lisasoomus ees ja katusel; peab vastu 6kg TNT plahvatusele põhja ja rataste all"
       },
       "sources": [
-        {"name": "Army Recognition: Russian army receives AMN-590951", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2022/russian-army-continues-to-receive-new-combat-vehicles-such-as-the-amn-590951", "retrieved": "2026-10-30"}
+        {"name": "Army Recognition: Russian army receives AMN-590951", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2022/russian-army-continues-to-receive-new-combat-vehicles-such-as-the-amn-590951", "retrieved": "2026-10-30"},
+        {"name": "Army Recognition: Iran secretly received Spartak 4x4 MRAP armored vehicles from Russia for border patrols", "url": "https://armyrecognition.com/news/army-news/2025/iran-secretly-received-spartak-4x4-mrap-armored-vehicles-from-russia-for-border-patrols", "retrieved": "2026-11-25"}
       ]
     },
     "R-166-0,5": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskurbrigaadi sideüksused",
         "purpose": "KV/UKV raadiojaam raadioside pidamiseks sidesõlme koosseisus või iseseisvalt, ka raadiohäirete tingimustes; töötab korraga kahes sõltumatus suunas.",
         "chassis": "UNSh / K1Sh1 (BTR-80 alusel)",
         "driveConfig": "8×8",
@@ -8373,6 +8797,7 @@ window.TTA_DATA = {
     "R-419L1": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Üldväearmee sideüksused",
         "purpose": "Digitaalne raadioreleejaam magistraalliinidele ja kaabelliinide asendamiseks taktikalise ja operatiivtasandi välisidesüsteemides.",
         "crew": "4",
         "chassis": "KamAZ-4350",
@@ -8384,12 +8809,15 @@ window.TTA_DATA = {
         "powerSupply": "2 generaatorit AD4-T400-1VM2 + akupuhver, autonoomia ≥48h"
       },
       "sources": [
-        {"name": "Army Recognition: R-419L1 (šassii ja otstarve)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2019/russian-eastern-district-gets-r-419l1-communication-stations", "retrieved": "2026-11-10"}
+        {"name": "Army Recognition: R-419L1 (šassii ja otstarve)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2019/russian-eastern-district-gets-r-419l1-communication-stations", "retrieved": "2026-11-10"},
+        {"name": "Army Recognition: Russian Central Military District signal units receive advanced hardware (Dec 2019)", "url": "https://armyrecognition.com/archives/archives-land-defense/land-defense-2019/russian-central-military-district-signal-units-receive-advanced-hardware", "retrieved": "2026-11-25"}
       ]
     },
     "RS-24 Jars / Topol-M": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Strateegiliste raketivägede raketidiviis (raketiarmee koosseisus)",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Mitme lõhkepeaga (MIRV) termotuumarelvaga mandritevaheline ballistiline rakett, sisuliselt Topol-M; liikuvatel stardiseadmetel ja raketišahtides.",
         "crew": "3 (stardiseade)",
         "chassis": "MZKT-79221 16×16 (liikuv) või raketišaht",
@@ -8405,12 +8833,14 @@ window.TTA_DATA = {
         "launchWeight": "Jarsi andmed. Topol-M: ~47t, pikkus ~22,7m, läbimõõt ~1,86m, üks lõhkepea."
       },
       "sources": [
-        {"name": "Wikipedia: RS-24 Yars", "url": "https://en.wikipedia.org/wiki/RS-24_Yars", "retrieved": "2026-10-30"}
+        {"name": "Wikipedia: RS-24 Yars", "url": "https://en.wikipedia.org/wiki/RS-24_Yars", "retrieved": "2026-10-30"},
+        {"name": "Wikipedia: Strategic Rocket Forces", "url": "https://en.wikipedia.org/wiki/Strategic_Rocket_Forces", "retrieved": "2026-11-25"}
       ]
     },
     "K-300P Bastion-P/SS-C-5 Stooge": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Mereväe rannakaitse raketibrigaad (kõik laevastikud)",
         "purpose": "Liikuv rannakaitse-raketikompleks pinnalaevade (sh lennukikandjarühmad, konvoid, dessantlaevad) tõrjeks; Süürias näidatud ka maismaasihtmärkide ründamise võimet.",
         "crew": "3 (stardiseade)",
         "chassis": "MZKT-7930 8×8",
@@ -8427,12 +8857,14 @@ window.TTA_DATA = {
         "firingRange": "Kõrge–madal trajektoor; madal–madal 120km."
       },
       "sources": [
-        {"name": "Wikipedia: K-300P Bastion-P", "url": "https://en.wikipedia.org/wiki/K-300P_Bastion-P", "retrieved": "2026-10-30"}
+        {"name": "Wikipedia: K-300P Bastion-P", "url": "https://en.wikipedia.org/wiki/K-300P_Bastion-P", "retrieved": "2026-10-30"},
+        {"name": "Army Recognition: Russian Navy strengthens its coastal missile brigades with Bal and Bastion systems", "url": "https://www.armyrecognition.com/archives/archives-naval-defense/naval-defense-2018/russian-navy-strengthens-its-coastal-missile-brigades-with-bal-and-bastion-systems", "retrieved": "2026-11-25"}
       ]
     },
     "3K60 Bal/SSC-6 Sennight": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Mereväe rannakaitse raketibrigaad (kõik laevastikud)",
         "purpose": "Rannakaitse laevavastane raketikompleks rakettidega Kh-35 Uran (4K51 Rubeži järglane).",
         "chassis": "MZKT-7930 8×8",
         "missileLength": 4.4,
@@ -8445,7 +8877,8 @@ window.TTA_DATA = {
         "specialEquipment": "Rakett Kh-35, kuni 8 tk stardiseadmel; patareis juhtimismasin, 2 stardiseadet ja 2 laadimismasinat (diviisis tavaliselt 2 patareid); lahinguvalmis alla 10 min"
       },
       "sources": [
-        {"name": "Weapon Systems: 3K60 Bal", "url": "https://weaponsystems.net/system/140-3K60%20Bal", "retrieved": "2026-10-30"}
+        {"name": "Weapon Systems: 3K60 Bal", "url": "https://weaponsystems.net/system/140-3K60%20Bal", "retrieved": "2026-10-30"},
+        {"name": "Army Recognition: Russian Navy strengthens its coastal missile brigades with Bal and Bastion systems", "url": "https://www.armyrecognition.com/archives/archives-naval-defense/naval-defense-2018/russian-navy-strengthens-its-coastal-missile-brigades-with-bal-and-bastion-systems", "retrieved": "2026-11-25"}
       ]
     },
     "9T250": {
@@ -8728,6 +9161,8 @@ window.TTA_DATA = {
     "IL-78M Midas": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Kauglennuväe õhutankimisüksus (203. kaardiväe õhutankimislennuväepolk)",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Il-76 baasil õhutankur: tiivaalused gondlid tangivad taktikalisi lennukeid, kere gondel raskemaid lennukeid.",
         "crew": "6",
         "length": 46.59,
@@ -8746,7 +9181,9 @@ window.TTA_DATA = {
         "ferryRange": "Wikipedia ei täpsusta, millise variandi kohta."
       },
       "sources": [
-        {"name": "Wikipedia: Ilyushin Il-78", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-78", "retrieved": "2026-11-20"}
+        {"name": "Wikipedia: Ilyushin Il-78", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-78", "retrieved": "2026-11-20"},
+        {"name": "Wikipedia: Russian Long Range Aviation", "url": "https://en.wikipedia.org/wiki/Russian_Long_Range_Aviation", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russia may be building first Il-78MK-90A tanker aircraft for China (28 Oct 2026)", "url": "https://www.armyrecognition.com/news/aerospace-news/2026/russia-may-be-building-first-il-78mk-90a-tanker-aircraft-for-china-to-expand-air-operations-over-pacific", "retrieved": "2026-11-25"}
       ]
     },
     "An-30 Clank": {
@@ -8778,6 +9215,8 @@ window.TTA_DATA = {
     "IL-20M": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Laevastiku või sõjaväeringkonna staabi alluvuses; nt Põhjalaevastiku 403. segalennuväepolk",
+        "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Neljamootoriline raadio- ja elektroonilise luure lennuk (COMINT/ELINT).",
         "crew": "13",
         "length": 35.9,
@@ -8799,12 +9238,14 @@ window.TTA_DATA = {
         "ferryRange": "Artikli tekstis kuni 5400km."
       },
       "sources": [
-        {"name": "Wikipedia: Ilyushin Il-20M", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-20M", "retrieved": "2026-11-20"}
+        {"name": "Wikipedia: Ilyushin Il-20M", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-20M", "retrieved": "2026-11-20"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "Il-38 May": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Põhjalaevastiku 403. segalennuväepolk; ka Vaikse ookeani laevastiku mereväe lennuvägi",
         "purpose": "Mereväe patrull- ja allveelaevatõrjelennuk (loodud USA ballistiliste rakettidega allveelaevade vastu).",
         "crew": "7–8",
         "length": 40.185,
@@ -8824,12 +9265,16 @@ window.TTA_DATA = {
         "sensors": "Otsinguradar Berkut („Wet Eye“) nina all; magnetanomaalia detektor (MAD) sabas. Il-38N: Novella P-38 (õhusihtmärgid kuni 90km, pinnasihtmärgid kuni 320km, 32 sihtmärki korraga)"
       },
       "sources": [
-        {"name": "Wikipedia: Ilyushin Il-38", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-38", "retrieved": "2026-11-20"}
+        {"name": "Wikipedia: Ilyushin Il-38", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-38", "retrieved": "2026-11-20"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "The Aviationist: Ukrainian Drone Strike Reportedly Destroys Rare Russian Il-38N ASW Aircraft (24 Dec 2025)", "url": "https://theaviationist.com/2025/12/24/drone-strike-on-il-38n/", "retrieved": "2026-11-25"}
       ]
     },
     "Yak-130 Mitten": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Krasnodari kõrgema sõjaväelennukooli õppelennuväepolgud; VKS ümberõppekeskused (nt Borisoglebsk)",
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Kahekohaline reaktiivõppelennuk ja kerge lahingulennuk; suudab täita kerge ründe- ja luurelennuki ülesandeid.",
         "crew": "2",
         "length": 11.49,
@@ -8855,12 +9300,16 @@ window.TTA_DATA = {
         "hardpoints": "Tiivaotstes 2 (ainult soojuspüünised ja dipoolid), tiibade all 6. Artikli tekstis 9."
       },
       "sources": [
-        {"name": "Wikipedia: Yakovlev Yak-130", "url": "https://en.wikipedia.org/wiki/Yakovlev_Yak-130", "retrieved": "2026-11-20"}
+        {"name": "Wikipedia: Yakovlev Yak-130", "url": "https://en.wikipedia.org/wiki/Yakovlev_Yak-130", "retrieved": "2026-11-20"},
+        {"name": "Army Recognition: Russian Air Force receives new batch of Irkutsk-produced Yak-130 combat trainer aircraft (Jul 2024)", "url": "https://www.armyrecognition.com/archives/archives-aerospace-defense/2024/russian-air-force-receives-new-batch-of-irkutsk-produced-yak-130-combat-trainer-aircraft", "retrieved": "2026-11-25"},
+        {"name": "Wikipedia: Krasnodar Higher Military Aviation School of Pilots", "url": "https://en.wikipedia.org/wiki/Krasnodar_Higher_Military_Aviation_School_of_Pilots", "retrieved": "2026-11-25"}
       ]
     },
     "L-39 Albatros": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Krasnodari kõrgema sõjaväelennukooli õppelennuväepolgud",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Reaktiivõppelennuk pilootide alg- ja edasijõudnute väljaõppeks; lennanud ka kerge ründelennukina.",
         "crew": "2",
         "length": 12.13,
@@ -8885,12 +9334,16 @@ window.TTA_DATA = {
         "gLimit": "+8 / −4g (massil 4200kg)."
       },
       "sources": [
-        {"name": "Wikipedia: Aero L-39 Albatros", "url": "https://en.wikipedia.org/wiki/Aero_L-39_Albatros", "retrieved": "2026-11-20"}
+        {"name": "Wikipedia: Aero L-39 Albatros", "url": "https://en.wikipedia.org/wiki/Aero_L-39_Albatros", "retrieved": "2026-11-20"},
+        {"name": "United24 Media: Russian Air Force loses Czech-designed L-39 Albatros jet in Krasnodar crash (27 Jul 2026)", "url": "https://united24media.com/war-in-ukraine/russian-air-force-loses-czech-designed-l-39-albatros-jet-in-krasnodar-crash-21099", "retrieved": "2026-11-25"},
+        {"name": "Wikipedia: Krasnodar Higher Military Aviation School of Pilots", "url": "https://en.wikipedia.org/wiki/Krasnodar_Higher_Military_Aviation_School_of_Pilots", "retrieved": "2026-11-25"}
       ]
     },
     "An-12 Cub": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VTA polk või eraldi eskadrill; ka Põhjalaevastiku 403. segalennuväepolk",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Neljamootoriline turbopropeller-transpordilennuk: Nõukogude õhujõudude standardne keskmaa lasti- ja langevarjurite transpordilennuk; ka EW-, VIP- ja tankurversioonid.",
         "crew": "5 (2 pilooti, pardainsener, navigaator, raadist)",
         "length": 33.1,
@@ -8914,12 +9367,17 @@ window.TTA_DATA = {
         "troops": "Artikli tekstis kuni 100 täisvarustuses langevarjurit."
       },
       "sources": [
-        {"name": "Wikipedia: Antonov An-12", "url": "https://en.wikipedia.org/wiki/Antonov_An-12", "retrieved": "2026-11-20"}
+        {"name": "Wikipedia: Antonov An-12", "url": "https://en.wikipedia.org/wiki/Antonov_An-12", "retrieved": "2026-11-20"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "Wikipedia: Military Transport Aviation", "url": "https://en.wikipedia.org/wiki/Military_Transport_Aviation", "retrieved": "2026-11-25"},
+        {"name": "Euromaidan Press: Russia's An-series military transports ... 143 of its 368 military Antonovs need urgent repair (10 Apr 2026)", "url": "https://euromaidanpress.com/2026/04/10/russias-an-series-military-transports-were-designed-in-kyiv-and-moscows-leaked-documents-show-143-of-its-368-military-antonovs-need-urgent-repair/", "retrieved": "2026-11-25"}
       ]
     },
     "An-72 Coaler": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "FSB piirivalveteenistuse lennuvägi (An-72P patrull-lennukid); ka VKS ja mereväe lennuvägi",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Lühikese stardi ja maandumisega (STOL) transpordilennuk.",
         "crew": "5",
         "length": 28.07,
@@ -8936,7 +9394,9 @@ window.TTA_DATA = {
         "troops": "kuni 52 reisijat"
       },
       "sources": [
-        {"name": "Wikipedia: Antonov An-72", "url": "https://en.wikipedia.org/wiki/Antonov_An-72", "retrieved": "2026-11-20"}
+        {"name": "Wikipedia: Antonov An-72", "url": "https://en.wikipedia.org/wiki/Antonov_An-72", "retrieved": "2026-11-20"},
+        {"name": "Euromaidan Press: Russia's An-series military transports ... 143 of its 368 military Antonovs need urgent repair (10 Apr 2026)", "url": "https://euromaidanpress.com/2026/04/10/russias-an-series-military-transports-were-designed-in-kyiv-and-moscows-leaked-documents-show-143-of-its-368-military-antonovs-need-urgent-repair/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi (UA): Росіяни показали застосування рідкісного Ан-72П з гарматою ГШ-23Л (Nov 2026)", "url": "https://militarnyi.com/uk/news/rosiyany-strilby-litaka-an-72p/", "retrieved": "2026-11-25"}
       ]
     },
     "1B75 Penicilin": {
@@ -8956,6 +9416,8 @@ window.TTA_DATA = {
     "Tornado-G/BM-21-1 (2B17M)": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Brigaadi või suurtükiväepolgu reaktiivsuurtükiväe divisjon (1 divisjon)",
+        "productionStatus": {"status": ["upgrade"], "asOf": 2024},
         "purpose": "BM-21 Gradi moderniseerimispakett: uued 122mm raketid (9M538, 9M539, 9M541) suurema tulejõuga.",
         "chassis": "KamAZ 6×6 või Ural-4320",
         "caliber": 122,
@@ -8964,7 +9426,9 @@ window.TTA_DATA = {
         "specialEquipment": "Raketid 9M538, 9M539 ja 9M541 (täiustatud 122mm Grad OF- ja kumulatiivraketid). Seeriatootmine 2013, kasutusel alates 2014"
       },
       "sources": [
-        {"name": "Wikipedia: Tornado (multiple rocket launcher)", "url": "https://en.wikipedia.org/wiki/Tornado_(multiple_rocket_launcher)", "retrieved": "2026-11-20"}
+        {"name": "Wikipedia: Tornado (multiple rocket launcher)", "url": "https://en.wikipedia.org/wiki/Tornado_(multiple_rocket_launcher)", "retrieved": "2026-11-20"},
+        {"name": "Army Recognition: Analysis – MLRS multiple launch rocket systems of Russian army, part 3", "url": "https://www.armyrecognition.com/focus-analysis-conflicts/army/defence-security-industry-technology/analysis-news-mlrs-multiple-launch-rocket-systems-of-russian-army-part-3", "retrieved": "2026-11-25"},
+        {"name": "Canadian Army Journal 20-2 (2024), Grau & Bartles: The 2S35 Koalitsiya-SV, Robotics and the Future of Russian Artillery Modernization", "url": "https://www.canada.ca/en/army/services/canadian-army-journal/articles/2024/20-2-grau-and-bartles-russian-artillery-modernization.html", "retrieved": "2026-11-25"}
       ]
     },
     "MT-LBMB": {
@@ -9004,6 +9468,7 @@ window.TTA_DATA = {
     "55Zh6M Nebo-M": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Mitme sagedusalaga radarikompleks: liidab VHF-, L- ja X-sagedusala radarite andmed üheks pildiks; väidetavalt avastab ka 5. põlvkonna lennukeid ja ballistiliste rakettide starte.",
         "chassis": "RLM-D, RLM-S ja KU-RLK: BAZ-6909-015 8×8 (iga moodul eraldi masinal)",
         "sensors": "RLM-M: VHF/UHF 3D-radar (kuni 600km); RLM-D: L-sagedusala AESA-radar (kuni 600km); RLM-S: X-sagedusala AESA-radar; KU-RLK: juhtimismoodul, mis liidab kõigi radarite andmed üheks pildiks",
@@ -9012,7 +9477,8 @@ window.TTA_DATA = {
         "emplacementTime": "40 min (täiskomplekt)"
       },
       "sources": [
-        {"name": "Wikipedia: Nebo-M", "url": "https://en.wikipedia.org/wiki/Nebo-M", "retrieved": "2026-11-20"}
+        {"name": "Wikipedia: Nebo-M", "url": "https://en.wikipedia.org/wiki/Nebo-M", "retrieved": "2026-11-20"},
+        {"name": "RUSI: Disrupting Russian Air Defence Production (Dec 2025)", "url": "https://static.rusi.org/rp-disrupting-russian-air-defence-production.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "R-439MD2": {
@@ -9207,6 +9673,7 @@ window.TTA_DATA = {
     "BREM-80U": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["upgrade"], "asOf": 2026},
         "purpose": "T-80U šassiil soomustatud remondi- ja äraveosoomuk tankide toetamiseks lahinguväljal.",
         "crew": "4",
         "chassis": "T-80U tanki šassii",
@@ -9287,6 +9754,7 @@ window.TTA_DATA = {
     "Uran-9": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["prototype"], "asOf": 2026},
         "purpose": "Mehitamata lahingumasin luureks ja tuletoetuseks (kahur, tankitõrje- ja termobaarilised raketid).",
         "crew": "0 (1 kaugoperaator)",
         "combatWeight": 10,
@@ -9309,7 +9777,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Army Technology: Uran-9", "url": "https://www.army-technology.com/projects/uran-9-unmanned-ground-combat-vehicle/", "retrieved": "2026-11-20"},
-        {"name": "Army Recognition: Uran-9", "url": "https://armyrecognition.com/military-products/army/unmanned-systems/unmanned-ground-vehicles/uran-9-ugcv-ugv-unmanned-ground-combat-vehicle-technical-data-sheet-specifications-pictures-video-10910163", "retrieved": "2026-11-20"}
+        {"name": "Army Recognition: Uran-9", "url": "https://armyrecognition.com/military-products/army/unmanned-systems/unmanned-ground-vehicles/uran-9-ugcv-ugv-unmanned-ground-combat-vehicle-technical-data-sheet-specifications-pictures-video-10910163", "retrieved": "2026-11-20"},
+        {"name": "Militarnyi: Russian Unmanned Ground Vehicles Deployed in the War Against Ukraine", "url": "https://militarnyi.com/en/articles/russian-unmanned-ground-vehicles-deployed-in-the-war-against-ukraine/", "retrieved": "2026-11-25"}
       ]
     },
     "Uran-6": {
@@ -9390,6 +9859,7 @@ window.TTA_DATA = {
     "Kurjer": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kõige laialdasemalt kasutatav Vene mitmeotstarbeline maismaarobot: laskemoona ja varustuse vedu, miinipanek ja tuletoetus.",
         "crew": "0 (kaugoperaator)",
         "combatWeight": 0.25,
@@ -9411,12 +9881,14 @@ window.TTA_DATA = {
         {"name": "Defence Blog: New report tracks Russia's growing combat ground robot fleet", "url": "https://defence-blog.com/new-report-tracks-russias-growing-combat-ground-robot-fleet/", "retrieved": "2026-11-20"},
         {"name": "Militarnyi: Russian Unmanned Ground Vehicles Deployed in the War Against Ukraine", "url": "https://militarnyi.com/en/articles/russian-unmanned-ground-vehicles-deployed-in-the-war-against-ukraine/", "retrieved": "2026-11-20"},
         {"name": "Army Recognition: Russia sends batch of Courier UGV", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/ukraine-russia-conflict/russia-sends-batch-of-courier-ugv-to-its-troops-in-ukraine", "retrieved": "2026-11-20"},
-        {"name": "Ukrainska Pravda: Courier 2.0", "url": "https://www.pravda.com.ua/eng/news/2026/09/20/8054305/", "retrieved": "2026-11-20"}
+        {"name": "Ukrainska Pravda: Courier 2.0", "url": "https://www.pravda.com.ua/eng/news/2026/09/20/8054305/", "retrieved": "2026-11-20"},
+        {"name": "Ukrainska Pravda: Russia's army of robots: how Moscow is using ground drones", "url": "https://www.pravda.com.ua/eng/news/2026/05/04/8033120/", "retrieved": "2026-11-25"}
       ]
     },
     "Varan": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Raskem mitmeotstarbeline roomik-maismaarobot transpordiks, pioneeritöödeks ja lahinguks.",
         "crew": "0 (kaugoperaator)",
         "mainArmament": "Moodulid: kuulipildujad, automaatgranaadiheitjad, TTRK",
@@ -9438,7 +9910,8 @@ window.TTA_DATA = {
         "specialEquipment": "Väidetav tööaeg kuni 40 min"
       },
       "sources": [
-        {"name": "Militarnyi: Russian Unmanned Ground Vehicles Deployed in the War Against Ukraine", "url": "https://militarnyi.com/en/articles/russian-unmanned-ground-vehicles-deployed-in-the-war-against-ukraine/", "retrieved": "2026-11-20"}
+        {"name": "Militarnyi: Russian Unmanned Ground Vehicles Deployed in the War Against Ukraine", "url": "https://militarnyi.com/en/articles/russian-unmanned-ground-vehicles-deployed-in-the-war-against-ukraine/", "retrieved": "2026-11-20"},
+        {"name": "Defence Blog: New report tracks Russia's growing combat ground robot fleet", "url": "https://defence-blog.com/new-report-tracks-russias-growing-combat-ground-robot-fleet/", "retrieved": "2026-11-25"}
       ]
     },
     "Ljaguška": {
@@ -9576,6 +10049,7 @@ window.TTA_DATA = {
     "R-166": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Motolaskurbrigaadi sideüksused",
         "purpose": "Keskmise võimsusega KV/UKV raadiojaam „Artek“; töötab korraga kahes sõltumatus raadiovõrgus, ka raadiohäirete tingimustes.",
         "crew": "3",
         "commsFrequency": "KV 1,5–30 MHz; UKV 30–80 MHz",
@@ -9693,6 +10167,7 @@ window.TTA_DATA = {
     "Vityaz (DT-10/DT-30)": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Arktilised brigaadid (nt Põhjalaevastiku eraldi arktiline brigaad)",
         "purpose": "Kahelüliline roomikmaastikusõiduk raskete koormate veoks soos, liivas ja lumes ning äärmuslikus kliimas; liigub vees roomikutega.",
         "crew": "5 (esimese lüli kabiinis)",
         "combatWeight": 30,
@@ -9720,12 +10195,14 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Wikipedia: Vityaz (ATV)", "url": "https://en.wikipedia.org/wiki/Vityaz_(ATV)", "retrieved": "2026-11-20"},
         {"name": "Deagel: DT-30", "url": "https://deagel.com/armies/dt-30/a002698", "retrieved": "2026-11-20"},
-        {"name": "Army Recognition: Russian military beefs up all-terrain capabilities (2018)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2018/russian-military-beefs-up-all-terrain-capabilities", "retrieved": "2026-11-20"}
+        {"name": "Army Recognition: Russian military beefs up all-terrain capabilities (2018)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2018/russian-military-beefs-up-all-terrain-capabilities", "retrieved": "2026-11-20"},
+        {"name": "Army Recognition: Russian Army Arctic brigade has taken delivery of DT-10PM two-section tracked amphibious carrier", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2015/russian-army-arctic-brigade-has-taken-delivery-of-dt-10pm-two-section-tracked-amphibious-carrier-tass-12912152", "retrieved": "2026-11-25"}
       ]
     },
     "GAZ-3344 Aleut": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Arktilised motolaskurbrigaadid (nt Põhjalaevastiku eraldi motolaskurbrigaad)",
         "purpose": "Kahelüliline ujuv roomikmaastikusõiduk Arktika tingimustesse (sarnane Bv 206-ga).",
         "seats": "Kuni 20 (esilülis 5 koos juhiga)",
         "combatWeight": 11.2,
@@ -9741,12 +10218,14 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Janes: Russia's GAZ-3344-20 Aleut ATV enters service", "url": "https://www.janes.com/defence-intelligence-insights/defence-news/russias-gaz-3344-20-aleut-atv-enters-service", "retrieved": "2026-11-20"},
         {"name": "Army Recognition: GAZ-3344-20 at BIDEC 2017", "url": "https://armyrecognition.com/waac", "retrieved": "2026-11-20"},
-        {"name": "Defence Blog: GAZ-3344-20 at BIDEC-2017", "url": "https://defence-blog.com/?p=28228", "retrieved": "2026-11-20"}
+        {"name": "Defence Blog: GAZ-3344-20 at BIDEC-2017", "url": "https://defence-blog.com/?p=28228", "retrieved": "2026-11-20"},
+        {"name": "Defence24: Rosja: nowe śniegobłotochody wchodzą na uzbrojenie brygady arktycznej", "url": "https://defence24.pl/sily-zbrojne/rosja-nowe-sniegoblotochody-wchodza-na-uzbrojenie-brygady-arktycznej", "retrieved": "2026-11-25"}
       ]
     },
     "KAMAZ-6350, 8x8": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "10t taktikaline 8×8 veok (1998), mõeldud peamiselt relvasüsteemide ja eriseadmete šassiiks.",
         "seats": "1 + 2 kabiinis",
         "driveConfig": "8×8",
@@ -9771,7 +10250,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "WeaponSystems.net: KamAZ-6350", "url": "https://weaponsystems.net/system/1280-KamAZ-6350", "retrieved": "2026-11-20"},
-        {"name": "Army Recognition: Kamaz 6350 artillery tractor (2011)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2011/russia-22-december-2011-news-uk", "retrieved": "2026-11-20"}
+        {"name": "Army Recognition: Kamaz 6350 artillery tractor (2011)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2011/russia-22-december-2011-news-uk", "retrieved": "2026-11-20"},
+        {"name": "Defence24: Rosyjskie opancerzone ciężarówki coraz liczniejsze", "url": "https://defence24.pl/sily-zbrojne/rosyjskie-opancerzone-ciezarowki-coraz-liczniejsze", "retrieved": "2026-11-25"}
       ]
     },
     "R-161PU": {
@@ -9795,6 +10275,8 @@ window.TTA_DATA = {
     "ISDM Zemledelije": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Pioneeribrigaadid (nt 45. eraldi kaardiväe pioneeribrigaad)",
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Kaugmineerimissüsteem: laseb 122mm kassettrakettidega miinivälja 5–15km kaugusele.",
         "crew": "3 (ülem, operaator-sihtur, juht)",
         "chassis": "KAMAZ-6560 8×8, soomustatud kabiin",
@@ -9817,12 +10299,14 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Wikipedia: Zemledeliye (minelaying system)", "url": "https://en.wikipedia.org/wiki/Zemledeliye_(minelaying_system)", "retrieved": "2026-11-20"},
         {"name": "Army Recognition: ISDM Zemledeliye", "url": "https://armyrecognition.com/military-products/army/engineer-maintenance-vehicles/mine-laying-systems/isdm-zemledeliye", "retrieved": "2026-11-20"},
-        {"name": "Militarnyi: «Земледелие» – небезпека для української піхоти та бронетехніки", "url": "https://militarnyi.com/uk/articles/zemledelye-nebezpeka-dlya-ukrayinskoyi-pihoty-ta-bronetehniky-yak-syly-oborony-znyshhuyut-rosijski-systemy-minuvannya/", "retrieved": "2026-11-20"}
+        {"name": "Militarnyi: «Земледелие» – небезпека для української піхоти та бронетехніки", "url": "https://militarnyi.com/uk/articles/zemledelye-nebezpeka-dlya-ukrayinskoyi-pihoty-ta-bronetehniky-yak-syly-oborony-znyshhuyut-rosijski-systemy-minuvannya/", "retrieved": "2026-11-20"},
+        {"name": "Army Recognition: Russian Army receives ISDM Zemledeliye mine-laying system ahead of schedule", "url": "https://armyrecognition.com/news/army-news/2023/russian-army-receives-isdm-zemledeliye-mine-laying-system-ahead-of-schedule", "retrieved": "2026-11-25"}
       ]
     },
     "1K148 Jastreb-AV": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Vastupatareiradar: jälgib vastase mürskude trajektoori ja määrab tulepositsioonide koordinaadid; töötab koos Zoopark-1M-iga.",
         "chassis": "BAZ-6910-025 8×8",
         "driveConfig": "8×8",
@@ -9835,7 +10319,9 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Army Recognition: Ukraine reports destruction of 1K148 Yastreb-AV", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/ukraine-reports-destruction-of-russia-s-new-1k148-yastreb-av-radar-system", "retrieved": "2026-11-25"},
         {"name": "Militarnyi: Russia deploys the newest Yastreb-AV system", "url": "https://mil.in.ua/en/news/russia-deploys-the-newest-yastreb-av-system-to-war-against-ukraine", "retrieved": "2026-11-25"},
-        {"name": "Defence Blog: Ukraine destroys two rare Russian Yastreb radars", "url": "https://defence-blog.com/ukraine-destroys-two-rare-russian-yastreb-radars/", "retrieved": "2026-11-25"}
+        {"name": "Defence Blog: Ukraine destroys two rare Russian Yastreb radars", "url": "https://defence-blog.com/ukraine-destroys-two-rare-russian-yastreb-radars/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russia deploys the newest Yastreb-AV system to war against Ukraine (2 Jan 2024)", "url": "https://militarnyi.com/en/news/russia-deploys-the-newest-yastreb-av-system-to-war-against-ukraine/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Ukrainian Forces Target Russian Counter-Battery Radars: What Was Hit and Why It Matters (Aug 2025)", "url": "https://militarnyi.com/en/articles/ukrainian-forces-target-russian-counter-battery-radars-what-was-hit-and-why-it-matters", "retrieved": "2026-11-25"}
       ]
     },
     "1V110": {
@@ -9887,6 +10373,8 @@ window.TTA_DATA = {
     "2S35": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Üldväearmee, armeekorpuse või tankiarmee suurtükiväebrigaad (kavandatud)",
+        "productionStatus": {"status": ["prototype"], "asOf": 2024},
         "purpose": "152mm liikursuurtükk, uue põlvkonna liikurhaubits.",
         "crew": "2–3",
         "chassis": "Roomikšassii, tõenäoliselt T-90 baasil; hilisemad versioonid Armata šassiil",
@@ -9908,12 +10396,14 @@ window.TTA_DATA = {
         "firingRangeGuided": "Täppismoon 70–80km."
       },
       "sources": [
-        {"name": "Wikipedia: 2S35 Koalitsiya-SV", "url": "https://en.wikipedia.org/wiki/2S35_Koalitsiya-SV", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: 2S35 Koalitsiya-SV", "url": "https://en.wikipedia.org/wiki/2S35_Koalitsiya-SV", "retrieved": "2026-11-25"},
+        {"name": "Canadian Army Journal 20-2 (2024), Grau & Bartles: The 2S35 Koalitsiya-SV, Robotics and the Future of Russian Artillery Modernization", "url": "https://www.canada.ca/en/army/services/canadian-army-journal/articles/2024/20-2-grau-and-bartles-russian-artillery-modernization.html", "retrieved": "2026-11-25"}
       ]
     },
     "2S40": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Ratastel 120mm liikur-kahurmiinipilduja: tulistab nagu haubits või miinipilduja ning otsetulega.",
         "crew": "4",
         "chassis": "Ural-4320 6×6",
@@ -9926,7 +10416,8 @@ window.TTA_DATA = {
         "specialEquipment": "Kasutusel alates 2023"
       },
       "sources": [
-        {"name": "Wikipedia: 2S40 Floks", "url": "https://en.wikipedia.org/wiki/2S40_Floks", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: 2S40 Floks", "url": "https://en.wikipedia.org/wiki/2S40_Floks", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russian army began to arm with 2S40 Flox ACS (6 Oct 2023)", "url": "https://militarnyi.com/en/news/russian-army-began-to-arm-with-2s40-flox-acs/", "retrieved": "2026-11-25"}
       ]
     },
     "2S41": {
@@ -10024,6 +10515,7 @@ window.TTA_DATA = {
     "TOS-2 Tosotška": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Sõjaväeringkonna RKhBZ (ABK-kaitse) üksused",
         "purpose": "Termobaariliste rakettidega raske leegiheitjasüsteem kindlustatud positsioonide ja kergsoomustatud tehnika vastu; oma kraanaga laadimiseks.",
         "chassis": "Ural-63706-0120 6×6",
         "driveConfig": "6×6",
@@ -10036,7 +10528,8 @@ window.TTA_DATA = {
         "firingRange": "Laiendatud 2024; rakett MO.1.01.04M2 kuni 10km."
       },
       "sources": [
-        {"name": "Wikipedia: TOS-2", "url": "https://en.wikipedia.org/wiki/TOS-2", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: TOS-2", "url": "https://en.wikipedia.org/wiki/TOS-2", "retrieved": "2026-11-25"},
+        {"name": "European Security & Defence: Russia poised to expand thermobaric artillery inventory (Nov 2025)", "url": "https://euro-sd.com/2025/11/articles/armament/47751/russia-poised-to-expand-thermobaric-artillery-inventory", "retrieved": "2026-11-25"}
       ]
     },
     "Gerbera-2": {
@@ -10127,8 +10620,9 @@ window.TTA_DATA = {
     "Tu-142": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Põhjalaevastiku 403. segalennuväepolk (Tu-142 Kipelovos); Vaikse ookeani laevastiku 310. eraldi kaugallveelaevatõrje lennuväepolk (Kamennõi Rutšei)",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Kaugmaa allveelaevatõrje- ja mereluurelennuk (Tu-95 baasil).",
-        "typicalUnit": "Mereväe lennunduse kaugallveelaevatõrje lennupolgud (35. diviis Fedotovos, 310. polk)",
         "crew": "11–13",
         "length": 53.08,
         "wingspan": 50,
@@ -10143,7 +10637,8 @@ window.TTA_DATA = {
         "combatRadius": "Allika järgi lahingulennu ulatus 6500km."
       },
       "sources": [
-        {"name": "Wikipedia: Tupolev Tu-142", "url": "https://en.wikipedia.org/wiki/Tupolev_Tu-142", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: Tupolev Tu-142", "url": "https://en.wikipedia.org/wiki/Tupolev_Tu-142", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
       ]
     },
     "BREM-L": {
@@ -10194,6 +10689,7 @@ window.TTA_DATA = {
     "GAZ-3308": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Kerge 4×4 maastikuveok (2,5t klass), GAZ-66 asendaja Vene relvajõududes.",
         "driveConfig": "4×4",
         "loadCapacity": 2500,
@@ -10228,6 +10724,7 @@ window.TTA_DATA = {
     "UAZ Patriot": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Raamkerega keskmise suurusega maastur; kasutusel Vene maaväes, piirivalves ja politseis.",
         "driveConfig": "4×4",
         "engine": "2,7l bensiinimootor (ka diiselversioonid)",
@@ -10281,6 +10778,7 @@ window.TTA_DATA = {
     "48Ja6-K1 Podlet-K1": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Mobiilne 3D-radar madalal ja eriti madalal lendavate õhusihtmärkide avastamiseks ja jälgimiseks ka keerulises segavas keskkonnas.",
         "radarBand": "S (2–4GHz)",
         "radarRange": 100,
@@ -10292,12 +10790,14 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Armed Conflicts (valka.cz): 48Ja6-K1 Podlet-K1", "url": "https://www.armedconflicts.com/48Ya6-K1-Podlet-K1-t255035", "retrieved": "2026-11-25"},
         {"name": "Radartutorial: 48Ya6-K1 Podlet K1", "url": "https://www.radartutorial.eu/19.kartei/02.surv/karte040.en.html", "retrieved": "2026-11-25"},
-        {"name": "Army Recognition: Ukraine destroys Podlet-K1 radar system", "url": "https://www.armyrecognition.com/ukraine_-_russia_conflict_war_2022/ukraine_destroys_$5.5_million_podlet-k1_radar_system_at_russian_border.html", "retrieved": "2026-11-25"}
+        {"name": "Army Recognition: Ukraine destroys Podlet-K1 radar system", "url": "https://www.armyrecognition.com/ukraine_-_russia_conflict_war_2022/ukraine_destroys_$5.5_million_podlet-k1_radar_system_at_russian_border.html", "retrieved": "2026-11-25"},
+        {"name": "RUSI: Disrupting Russian Air Defence Production (Dec 2025)", "url": "https://static.rusi.org/rp-disrupting-russian-air-defence-production.pdf", "retrieved": "2026-11-25"}
       ]
     },
     "9S18M1": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Õhutõrjeraketibrigaadi divisjon (Buk-M1 kompleks)",
         "purpose": "Buk-M1 (SA-11) õhutõrjeraketikompleksi 3D sihtmärkide avastusradar.",
         "radarBand": "Sentimeeterlaine",
         "radarRange": 85
@@ -10329,6 +10829,7 @@ window.TTA_DATA = {
     "S-350 Vitjaz/SA-28": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "VKS õhutõrjeraketipolk (plaanitud)",
         "purpose": "Keskmaa õhutõrjeraketikompleks, S-300PS asendaja.",
         "chassis": "BAZ-6909 / BAZ-69092 (kõik masinad)",
         "samMissiles": "Laskeseadmel 50P6 12 × 9M96/9M96E2 (12–120km) või 9M100 (infrapunasihtimine, 10–15km)",
@@ -10339,12 +10840,16 @@ window.TTA_DATA = {
         "samRange": "Aerodünaamilised sihtmärgid 1,5–120km; ballistilised sihtmärgid 1,5–30km."
       },
       "sources": [
-        {"name": "Wikipedia: S-350E Vityaz 50R6", "url": "https://en.wikipedia.org/wiki/S-350E_Vityaz_50R6", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: S-350E Vityaz 50R6", "url": "https://en.wikipedia.org/wiki/S-350E_Vityaz_50R6", "retrieved": "2026-11-25"},
+        {"name": "Jamestown: New S-350 Missile System Will Strengthen Russian Air Defense (2020)", "url": "https://jamestown.org/program/new-s-350-missile-system-will-strengthen-russian-air-defense/", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Russian Vityaz – a threat from the latest S-350 air defense system (Dec 2023)", "url": "https://militarnyi.com/en/articles/russian-vityaz-a-threat-from-the-latest-s-350-air-defense-system/", "retrieved": "2026-11-25"}
       ]
     },
     "BPM-97 KamAZ-43269": {
       "status": "unverified",
       "values": {
+        "typicalUnit": "Piirivalve; Strateegiliste raketivägede diviiside terrorismivastased üksused",
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "4×4 MRAP-soomustransportöör (KamAZ-4326 šassiil), loodud Vene piirivalvele GAZ-66 asendamiseks; kasutusel ka relvajõududes ja julgeolekuasutustes, ka luuresoomukina.",
         "crew": "Kokku 12 (sh juht ja ülem)",
         "driveConfig": "4×4",
@@ -10353,7 +10858,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Wikipedia: BPM-97", "url": "https://en.wikipedia.org/wiki/BPM-97", "retrieved": "2026-11-25"},
         {"name": "Army Technology: BPM-97 APC", "url": "https://www.army-technology.com/projects/bpm-97-apc/", "retrieved": "2026-11-25"},
-        {"name": "Army Recognition: BPM-97 Vystrel KamAZ-43269 APC", "url": "https://www.armyrecognition.com/russia_russian_army_wheeled_armoured_vehicle_uk/bpm-97_kamaz-43269_vystrel_4x4_armored_personnel_carrier_vehicle_data.html", "retrieved": "2026-11-25"}
+        {"name": "Army Recognition: BPM-97 Vystrel KamAZ-43269 APC", "url": "https://www.armyrecognition.com/russia_russian_army_wheeled_armoured_vehicle_uk/bpm-97_kamaz-43269_vystrel_4x4_armored_personnel_carrier_vehicle_data.html", "retrieved": "2026-11-25"},
+        {"name": "Defence Blog: Russia deploys rare armored vehicles to Ukraine", "url": "https://defence-blog.com/russia-deploys-rare-armored-vehicles-to-ukraine/", "retrieved": "2026-11-25"}
       ]
     },
     "K-53949 Taifun-K, 4x4": {
