@@ -68,7 +68,7 @@ const CATEGORIES = [
   { label: "1V119 Reostat", group: "artillery_recon", type: "Dessandi suurtükiväe juhtimissoomuk", cat: "1V119", files: ["RehearsalTula02052017-05.jpg", "1V119_%22Reostat%22.jpg"] },
   { label: "ARK-1", group: "artillery_recon", type: "STV positsioneerimisradar", cat: "ARK-1", files: ["images/artillery_recon/ark1_01.jpg", "images/artillery_recon/ark12.jpg"] },
   { label: "1V15", group: "artillery_recon", type: "STV juhtimissoomuk", cat: "1V15", files: ["images/artillery_recon/1v15_01.webp", "ACRV_M_1974%282%29_IV15_%287527973628%29_%28cropped%29.jpg"] },
-  { label: "1V152 (1V126 Kapustnik-B)", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk", cat: "1V152 (1V126 Kapustnik-B)", files: ["images/artillery_recon/1v152.png"] },
+  { label: "1V152 (1V126 Kapustnik-B)", group: "artillery_recon", type: "STV juhtimis- ja vaatlussoomuk", cat: "1V152 (1V126 Kapustnik-B)", files: ["images/artillery_recon/1v152.webp"] },
   { label: "1B75 Penicilin", group: "artillery_recon", type: "Passiivne suurtükiväeluure kompleks", cat: "1B75 Penicilin", files: ["images/artillery_recon/1B75Penicillin.jpg"] },
 
   // Liikursuurtükid ja -miinipildujad
@@ -91,7 +91,7 @@ const CATEGORIES = [
   { label: "TOS-1A Solntsepjok", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-1A Solntsepjok", files: ["TZM-T_of_the_TOS-1A_system_%281%29.jpg", "TOS-1A_MRL_during_the_the_May_Parade_2010.jpeg", "TOS-1A_before_firing.jpg"] },
   { label: "9T234-2", group: "mlrs", type: "Mitmikraketiheitja Smertš laadimismasin", cat: "9T234-2", files: ["Army2016demo-070.jpg"] },
   { label: "TOS-1 Buratino", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-1 Buratino", files: ["images/mlrs/tosburatino.jpg"] },
-  { label: "TZM-T", group: "mlrs", type: "TOS-1A transpordi- ja laadimismasin", cat: "TOS-1", files: ["TTZM-T_of_the_TOS-1A_system_%287%29.jpg", "TZM-Gusarivka.jpg"] },
+  { label: "TZM-T", group: "mlrs", type: "TOS-1A transpordi- ja laadimismasin", cat: "TZM-T", files: ["TTZM-T_of_the_TOS-1A_system_%287%29.jpg", "TZM-Gusarivka.jpg"] },
 
   // Järelveetavad suurtükid ja miinipildujad
   { label: "D-30", group: "towed_artillery", type: "Haubits", cat: "D-30", files: ["122mm_howitzer_D-30_-_Armory_masters4.jpg", "122_mm_Howitzer_D-30_2017-12-24.JPG", "D-30A%2C_122-mm_howitzer_04.jpg", "83rd_Guards_Air_Assault_Brigade%27s_artillery_exercise_%2827-03-2020%29_09.jpg", "CombatArtilleryExercise2018-08.jpg"] },

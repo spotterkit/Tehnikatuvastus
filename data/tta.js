@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 26,
+  "version": 27,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -1563,7 +1563,7 @@ window.TTA_DATA = {
         {"name": "Wikipedia: BM-30 Smerch", "url": "https://en.wikipedia.org/wiki/BM-30_Smerch", "retrieved": "2026-10-07"}
       ]
     },
-    "TOS-1": {
+    "TZM-T": {
       "status": "unverified",
       "values": {
         "crew": "3 (ülem, operaator, juht)",
