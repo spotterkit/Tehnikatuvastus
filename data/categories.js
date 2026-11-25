@@ -217,6 +217,7 @@ const CATEGORIES = [
   { label: "Ka-27 Helix-A", group: "helicopters", type: "Allveelaevatõrje helikopter", cat: "Ka-27", files: ["Kamov_Ka-27M_RF-19115_at_Army-2022.jpg", "A_Russian_Helix_KA-27_%28cropped%29.jpg", "US_Navy_090209-N-1082Z-005_A_Russian_Helix_KA-27_helicopter_assigned_to_the_Russian_destroyer_Admiral_Vinogradov_%28DDG_572%29_passes_over_a_cargo_ship.jpg", "Камов_Ка-27-28-29-31-32_5235004686607%2C_Севастополь_-_Кача_RP51644.jpg", "День_ВМФ_2020_СПб._Вертолёты_Ка-27м.jpg"] },
   { label: "Ka-31", group: "helicopters", type: "Eelhoiatus- ja õhuruumi juhtimise helikopter", cat: "Ka-31", files: ["Russian_Navy_Kamov_Ka-31.jpg", "Ka-31_%284288619876%29.jpg", "Kamov_Ka-31%2C_Russia_-_Air_Force_AN1258376.jpg", "Russian_Helicopter_Kamov_Ka-31.jpg"] },
   { label: "Mi-26 Halo", group: "helicopters", type: "Transpordikopter", cat: "Mi-26", files: ["Mil_Design_Bureau%2C_3112%2C_Mil_Mi-26T2_Halo_%2849581304097%29.jpg", "Mil_Mi-26_Halo_88_blue_%288594011266%29.jpg", "Mil_Mi-26_on_MAKS_airshow.JPG", "87_Blue_-_RF-_Mil_Mi-26_Russian_Air_Force_%288132093997%29.jpg", "9may2015Moscow-39.jpg"] },
+  { label: "Ansat-U", group: "helicopters", type: "Õppekopter", cat: "Ansat", files: ["Helicopter_-_MAKS_2009.jpg", "АНСАТ-У_ВВС_РФ_337_resize.jpg"] },
 
   // Lennukid
   { label: "Su-25 Frogfoot", group: "planes", type: "Ründelennuk", cat: "Su-25", files: ["Sukhoi_Su-25_of_the_Russian_Air_Force_landing_at_Vladivostok_%288683076150%29.jpg", "SU-25_R3-6-25.jpg", "Су-25_повреждённый_ракетой_украинского_ПЗРК_вернулся_на_базу.png", "Merlion86_IMG_6521_%288295362025%29.jpg", "Merlion86_IMG_6623_%288296408838%29.jpg", "Sukhoi_Su-25_%26_modifications_%284258534671%29.jpg"] },
@@ -227,7 +228,7 @@ const CATEGORIES = [
   { label: "Su-33 Flanker-D", group: "planes", type: "Hävitaja", cat: "Sukhoi Su-33", files: ["Russian_Air_Force_Sukhoi_Su-33_Bubin-1.jpg", "Return_of_aircraft_and_helicopters_from_the_Admiral_Kuznetsov_to_Severomorsk_%2816%29.jpg", "ScheduledFlight2017-23.jpg"] },
   { label: "MiG-31 Foxhound", group: "planes", type: "Mitmeotstarbeline püüdurhävitaja", cat: "MiG-31", files: ["Russian_Air_Force_Mikoyan-Gurevich_MiG-31P.jpg", "Mikoyan_MiG-31_Foxhound_formation_-_Zhukovsky_2012_%288711974924%29.jpg", "790th_Fighter_Order_of_Kutuzov_3rd_class_Aviation_Regiment%2C_Khotilovo_airbase_%28354-16%29.jpg", "Merlion86_IMG_0295_%285739377304%29.jpg", "790th_Fighter_Order_of_Kutuzov_3rd_class_Aviation_Regiment%2C_Khotilovo_airbase_%28354-21%29.jpg"] },
   { label: "MiG-29 Fulcrum", group: "planes", type: "Mitmeotstarbeline hävitaja", cat: "MiG-29", files: ["Mig-29_on_landing.jpg", "Russia_-_Air_Force_Mikoyan-Gurevich_MiG-29_%289-13%29_31_red_%283103700391%29.jpg", "Aviamix2015-03_%28cropped%29.jpg", "Aviamix2015-05.jpg", "Aviamix2015-04.jpg"] },
-  { label: "Tu-95 Bear", group: "planes", type: "Strateegiline pommitaja", cat: "Tu-95", files: ["Tu-95_at_an_Air_show_in_Voronezh_2014.jpg", "Tu-95_Bear_formation_-_Zhukovsky_2012_%288639038616%29.jpg", "Russian_Bear_%27H%27_Aircraft_MOD_45158140.jpg"] },
+  { label: "Tu-95 Bear", group: "planes", type: "Strateegiline pommitaja", cat: "Tu-95", files: ["Tu-95_at_an_Air_show_in_Voronezh_2014.jpg", "Tu-95_Bear_formation_-_Zhukovsky_2012_%288639038616%29.jpg", "Russian_Bear_%27H%27_Aircraft_MOD_45158140.jpg", "Tu-95MSM_%2836497269471%29.jpg"] },
   { label: "IL-76 Candid", group: "planes", type: "Transpordilennuk", cat: "IL-76", files: ["Il-76MD-90A_maneuvering.jpg", "Приземление_транспортного_самолета_Ил-76_в_аэропорту_Брест.jpg", "AirborneExercise2019-11.jpg"] },
   { label: "An-26 Curl", group: "planes", type: "Transpordilennuk", cat: "Antonov An-26", files: ["Antonov_AN-26_Curl.jpg", "Russian_Navy_Antonov_An-26_Dvurekov-3.jpg"] },
   { label: "An-124 Condor", group: "planes", type: "Transpordilennuk", cat: "Antonov An-124", files: ["Antonov_An-124_Ruslan%2C_Russia_-_Air_Force_AN1653308.jpg", "An_124_forward.jpg"] },
@@ -244,6 +245,7 @@ const CATEGORIES = [
   { label: "An-12 Cub", group: "planes", type: "Transpordilennuk", cat: "An-12 Cub", files: ["Antonov_An-12BK%2C_Russia_-_Air_Force_AN1879625.jpg", "VVO_1514_%2833612841172%29.jpg", "Antonov_AN-12_%286126385631%29.jpg"] },
   { label: "Il-38 May", group: "planes", type: "Allveesõja luure- ja patrull-lennuk", cat: "Il-38 May", files: ["День_ВМФ_2020_СПб._Самолёт_Ил-38н.jpg", "RF-75355_IL38%28N%29_Russian_Navy_Air_Force_UUMB_%2832813341433%29.jpg"] },
   { label: "An-72 Coaler", group: "planes", type: "Transpordilennuk", cat: "An-72 Coaler", files: ["Russian_Air_Force_-_Antonov_An-72.jpg", "An72LANDING.jpg"] },
+  { label: "Tu-142", group: "planes", type: "Allveesõja luure- ja patrull-lennuk", cat: "Tu-142", files: ["День_ВМФ_2020_СПб._Самолёт_Ту-142м.jpg"] },
 
   // Maasturid ning tagala- ja toetusmasinad
   { label: "BREM-D", group: "trucks", type: "Soomustatud remondi- ja äraveosoomuk", cat: "BREM-D", files: ["Army2016-297.jpg", "Army2016-296.jpg"] },
