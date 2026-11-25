@@ -84,6 +84,9 @@ const CATEGORIES = [
   { label: "2S44 Giatsint-K", group: "spg", type: "Liikursuurtükk", cat: "2S44 Giatsint-K", files: ["2S44_Giatsint-K_-_2025_Moscow_Victory_Day_Parade_61_%28cropped%29.jpg", "images/artillery/2s44_01.jpg", "images/artillery/2s44_02.jpg"] },
   { label: "2S5 Giatsint-S", group: "spg", type: "Liikursuurtükk", cat: "2S5 Giatsint-S", files: ["2S5_Giatsint-S.jpg", "2S5_Giatsint-S%2C_Самоходная_пушка_2С5_Гиацинт-С%2C_Artillery_museum%2C_Saint-Petersburg_pic2.JPG", "2024-08-21_-_24_OMBr_ZSU_-_Captured_Giatsint-S_SPG_-_Chasiv_Yar_-_08.jpg", "305th_Artillery_Brigade%27s_exercise_2020_%2809%29.jpg", "ArtilleryExercise2020-18.jpg", "ArtilleryExercise2020-20.jpg"] },
   { label: "2S23 NONA-SVK", group: "spg", type: "Liikurmiinipilduja", cat: "2S23 NONA-SVK", files: ["ParkPatriot2015part5-65.jpg", "2S23_Nona-SVK.jpg", "WMDArtilleryExercise2018-07.jpg", "2S23_self-propelled_mortar-howitzer_02.jpg", "CampCollection2018-03.jpg", "Saint-Petersburg_Victory_Day_Parade_%282019%29_04.jpg"] },
+  { label: "2S34 Hosta", group: "spg", type: "Liikurmiinipilduja", cat: "2S34 Hosta", files: ["Army2016demo-056.jpg"] },
+  { label: "2S35 Koalitsija-SV", group: "spg", type: "Liikursuurtükk", cat: "2S35", files: ["9may2015Moscow-35_%28cropped%29.jpg"] },
+  { label: "2S40 Floks", group: "spg", type: "Liikurmiinipilduja", cat: "2S40", files: ["2S40_Flox.jpg"] },
 
   // Mitmikraketiheitjad (reaktiivsuurtükid)
   { label: "BM-21 Grad", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-21 Grad", files: ["BM_-_21_Grad.jpg", "BM-21_Grad_%2803%29.jpg", "images/mlrs/bm21_01.jpg", "ChebarkulExercise2017-02.jpg"] },
