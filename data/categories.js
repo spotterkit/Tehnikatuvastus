@@ -281,6 +281,8 @@ const CATEGORIES = [
   { label: "ATsG-5-4320", group: "trucks", type: "Kütuse tankurauto", cat: "ATsG-5-4320", files: ["ParkPatriot2015part9-35.jpg"] },
   { label: "KamAZ-4310/KamAZ-43118, 6x6", group: "trucks", type: "Veok", cat: "KamAZ-4310/KamAZ-43118, 6x6", files: ["ParkPatriot2015part4-19.jpg"] },
   { label: "GAZ-3308 Sadko", group: "trucks", type: "Veok", cat: "GAZ-3308", files: ["Interpolitex_2013_%28534-4%29.jpg"] },
+  { label: "KamAZ-4350/KamAZ-43501, 4x4", group: "trucks", type: "Veok", cat: "KAMAZ-4350", files: ["Army2016demo-124.jpg", "Army2016demo-125.jpg"] },
+  { label: "UAZ Patriot", group: "trucks", type: "Maastur", cat: "UAZ Patriot", files: ["Army2016-408.jpg", "Встреча_подразделений_ВС_РФ_и_ЛНР_в_Новоайдаре_009.png"] },
   
   // Õhutõrjesoomukid, -juhtimissoomukid ja -radarid
   { label: "STRELA-10/SA-13 Gopher", group: "ad", type: "Õhutõrjesoomuk", cat: "STRELA-10/SA-13 Gopher", files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%284%29.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%283%29.jpg", "MasteringTheArmament2018-01.jpg", "SummerAirborneExercise2018-36.jpg"] },
