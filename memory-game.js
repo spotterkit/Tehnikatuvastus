@@ -71,6 +71,19 @@ const CSS = `
 .mm-cfg-sizes{margin:4px 0 10px;}
 .mm-cfg-count{font-size:12px;color:var(--bone-soft);margin:8px 0;}
 .mm-cfg-count.warn{color:var(--amber);}
+.mm-hist-right{display:flex;gap:6px;}
+.mm-fs-btn{font-size:17px;padding:7px 12px;}
+/* Täisekraan: päis peidetud, laud täidab ekraani; veergude arvu ja ruudu suuruse arvutab fitBoard(). */
+body.mm-fs{padding:0;min-height:0;}
+body.mm-fs .wrap{max-width:none;height:100vh;height:100dvh;display:flex;flex-direction:column;padding:8px 12px;box-sizing:border-box;}
+body.mm-fs header,body.mm-fs footer{display:none;}
+body.mm-fs #memoryScreen{flex:1;min-height:0;display:flex !important;flex-direction:column;}
+body.mm-fs #memoryScreen > .hist-nav{flex:none;margin-bottom:6px;}
+body.mm-fs #mmPanel{flex:1;min-height:0;display:flex;flex-direction:column;padding:8px 10px;overflow:auto;}
+body.mm-fs .mm-hint{display:none;}
+body.mm-fs .mm-stats{flex:none;margin-bottom:6px;}
+body.mm-fs .mm-board{flex:1;min-height:0;max-width:none;width:100%;align-content:center;justify-content:center;}
+body.mm-fs .mm-name{font-size:clamp(10px,1.6vh,15px);}
 `;
 const st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
 
@@ -186,7 +199,10 @@ screen.innerHTML = `
   <div class="hist-nav">
     <button type="button" class="nav-btn" id="mmBack" title="Tagasi avalehele">‹ Avalehele</button>
     <div class="hist-status live">MEMORY</div>
-    <button type="button" class="nav-btn" id="mmRestart" title="Uus laud">↻</button>
+    <div class="mm-hist-right">
+      <button type="button" class="nav-btn" id="mmRestart" title="Uus laud">↻</button>
+      <button type="button" class="nav-btn mm-fs-btn" id="mmFs" aria-label="Täisekraan" aria-pressed="false">⛶</button>
+    </div>
   </div>
   <div class="panel mm-panel" id="mmPanel"></div>
   <div class="mm-pop" id="mmPop" hidden role="dialog" aria-modal="true" aria-label="Paar leitud"></div>`;
@@ -283,6 +299,7 @@ function buildBoard(){
     board.appendChild(tile);
     t.el = tile; t.face = face; t.front = front;
   });
+  requestAnimationFrame(fitBoard);
 }
 
 function setState(i, state){
@@ -434,6 +451,7 @@ function show(){
 // Ekraanilt lahkumine (ükskõik mis teel) lõpetab mängu: pooleli laadimine katkestatakse, aken suletakse.
 function hide(){
   if(screen.style.display === 'none') return;
+  setFs(false);
   S.token++;
   S.view = 'idle';
   closeMatch(false, true);
@@ -476,6 +494,67 @@ document.addEventListener('keydown', e => {
   if(e.key === 'Enter' && !(pop.contains(document.activeElement) && document.activeElement.matches('button, a[href]'))){
     e.preventDefault(); closeMatch(pop._last);
   }
+});
+
+// ---------------------------------------------------------------------------
+// Täisekraan (⛶ ribal, klahv F): päis peidetakse ja kogu laud mahub ekraanile.
+// Kus brauser lubab (arvuti, Android), läheb ka päris täisekraanile; iPhone'is ainult paigutus.
+// Esc (brauseri täisekraanist väljumine), ⛶ uuesti või ekraanilt lahkumine lõpetab režiimi.
+// ---------------------------------------------------------------------------
+const fsBtn = screen.querySelector('#mmFs');
+const canFull = !!(document.documentElement.requestFullscreen && document.exitFullscreen);
+const FS_TITLE_ON = 'Välju täisekraanist (F)';
+const FS_TITLE_OFF = 'Täisekraan: kogu laud ekraanil (F)';
+let fsOn = false, usedApi = false;
+fsBtn.title = FS_TITLE_OFF;
+
+function setFs(on){
+  if(on === fsOn) return;
+  fsOn = on;
+  document.body.classList.toggle('mm-fs', on);
+  fsBtn.setAttribute('aria-pressed', String(on));
+  fsBtn.title = on ? FS_TITLE_ON : FS_TITLE_OFF;
+  if(on){
+    if(canFull && !document.fullscreenElement){
+      usedApi = true;
+      try{ document.documentElement.requestFullscreen().catch(() => { usedApi = false; }); }catch(e){ usedApi = false; }
+    }
+  }else if(usedApi){
+    usedApi = false;
+    try{ if(document.fullscreenElement === document.documentElement) document.exitFullscreen().catch(() => {}); }catch(e){}
+  }
+  requestAnimationFrame(fitBoard);
+}
+// Valib veergude arvu nii, et kõik ruudud (4:3) mahuvad lauale võimalikult suurtena.
+function fitBoard(){
+  const board = panel.querySelector('#mmBoard');
+  if(!board) return;
+  if(!fsOn){ board.style.gridTemplateColumns = ''; return; }
+  const n = S.tiles.length;
+  const gap = parseFloat(getComputedStyle(board).columnGap) || 6;
+  const W = board.clientWidth, H = board.clientHeight;
+  if(!n || !W || !H) return;
+  let best = {w: 0, c: 1};
+  for(let c = 1; c <= n; c++){
+    const r = Math.ceil(n / c);
+    const w = Math.min((W - gap * (c - 1)) / c, (H - gap * (r - 1)) / r * 4 / 3);
+    if(w > best.w) best = {w, c};
+  }
+  board.style.gridTemplateColumns = `repeat(${best.c}, ${Math.max(40, Math.floor(best.w))}px)`;
+}
+fsBtn.addEventListener('click', () => setFs(!fsOn));
+document.addEventListener('fullscreenchange', () => {
+  // Esc brauseri täisekraanist lõpetab ka paigutuse. Suurenduse oma täisekraan (lightbox) ei loe.
+  if(fsOn && usedApi && !document.fullscreenElement){ usedApi = false; setFs(false); return; }
+  setTimeout(fitBoard, 120);
+});
+window.addEventListener('resize', () => { if(fsOn) fitBoard(); });
+document.addEventListener('keydown', e => {
+  if(screen.style.display === 'none' || !pop.hidden) return;
+  if(typeof lbOpen !== 'undefined' && lbOpen) return;
+  if(e.ctrlKey || e.metaKey || e.altKey) return;
+  if(e.target && e.target.closest && e.target.closest('input, textarea, select, [contenteditable="true"]')) return;
+  if(e.key === 'f' || e.key === 'F'){ e.preventDefault(); setFs(!fsOn); }
 });
 
 window.MemoryGame = {hide, _state: S};

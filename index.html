@@ -2246,6 +2246,13 @@ const LOCAL_IMAGE_SOURCES = {
   'images/trucks/ulan2.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/artillery_recon/1v152.webp': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/artillery_recon/jastreb.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/drones/gerbera-2.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/drones/gerbera2_1.png': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/drones/yolka.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/ad/9s18.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/ad/p182prima.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/trucks/uraltornadou.jfif': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/comms/mp1lm.png': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/trucks/uazpomm.png': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/trucks/BREM-80.jpg': {name: 'Army Recognition', url: 'https://armyrecognition.com/news/army-news/2026/russia-sends-upgraded-brem-80-recovery-vehicles-with-anti-drone-protection-to-ukraine-front'},
   'images/ships/karakurt_01.png': {name: 'Naval News', url: 'https://www.navalnews.com/naval-news/2021/06/russias-black-sea-fleet-to-get-two-karakurt-class-corvettes-this-year/'},
@@ -4143,7 +4150,8 @@ function closeLightbox(restoreFocus, fromHistory){
   lbModelToken++;
   if(fromHistory !== true) popLayer();
   lbGestures.reset();
-  try{ if(document.fullscreenElement) document.exitFullscreen().catch(() => {}); }catch(e){}
+  // Ainult suurenduse enda täisekraan: lehe täisekraan (Memory, Kuldvillak) jääb alles.
+  try{ if(document.fullscreenElement === lightbox) document.exitFullscreen().catch(() => {}); }catch(e){}
   lightbox.classList.remove('open');
   lightbox.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
@@ -6992,7 +7000,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc108'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc109'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
