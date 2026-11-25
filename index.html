@@ -535,6 +535,14 @@
   }
   .model-list-cat:focus{border-color:var(--olive);}
   .model-list-cat.is-on{border-color:var(--olive);color:var(--amber);}
+  .model-list-status{margin-top:8px;background:var(--bg-0);border:1px solid var(--line);font-family:var(--font-body);font-size:15px;}
+  .model-list-status > summary{padding:10px 8px;cursor:pointer;color:var(--bone);list-style-position:inside;}
+  .model-list-status[open] > summary, .model-list-status:focus-within{border-color:var(--olive);}
+  .model-list-status.is-on{border-color:var(--olive);}
+  .model-list-status.is-on > summary{color:var(--amber);}
+  .mls-opts{display:flex;flex-wrap:wrap;gap:6px 16px;padding:2px 10px 10px;}
+  .mls-opts label{display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--bone);font-size:14px;}
+  .mls-opts .mls-cnt{color:var(--bone-dim);}
   .model-list-all{margin-top:10px;font-size:12px;letter-spacing:0;text-transform:none;padding:7px 11px;}
   .model-list-heading .grp-cnt{
     color:var(--bone-dim);font-family:var(--font-body);
@@ -932,6 +940,10 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
       <div class="model-list-search" style="margin-bottom:14px;">
         <input type="text" id="modelListSearch" placeholder="Otsi mudelit (nt T-72, Su-...)" autocomplete="off" style="width:100%;">
         <select id="modelListCat" class="model-list-cat" aria-label="Filtreeri kategooria järgi"></select>
+        <details id="modelListStatus" class="model-list-status">
+          <summary>Tootmisseis</summary>
+          <div class="mls-opts" id="modelListStatusOpts"></div>
+        </details>
       </div>
       <div id="modelListContent"></div>
     </div>
@@ -1461,8 +1473,16 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     return d;
   }
   I18N.mtLine = () => I18N.active ? mtLine() : null;
+  // Liik ainult siis, kui see erineb kuvatavast nimest (nt „Pontoonsillapark“ on nii nimi kui ka liik → sõna üks kord).
+  // Võrreldakse kuvatavaid (tõlgitud) tekste: EN-is „PMP pontoon bridge – Pontoon bridge“ jääb, sest need erinevad.
+  I18N.distinctType = (label, type) => {
+    if(!type) return '';
+    const k = s => norm(s).toLocaleLowerCase();
+    return k(type) === k(label || '') ? '' : type;
+  };
   // Õige vastus: eesti keeles „Liik Nimi“ (Tank T-72), inglise keeles „Nimi – Liik“ (T-72 – Main battle tank (MBT)).
   I18N.answerText = (label, type) => {
+    type = I18N.distinctType(label, type);
     if(!type) return label;
     if(!I18N.active) return type + ' ' + label;
     const t = type + ''; produced.add(norm(label + ' – ' + t));
@@ -2856,23 +2876,93 @@ function modelInListCat(e, cat){
   const known = GROUPS.some(g => g.id === e.group);
   return cat === MODEL_LIST_UNGROUPED ? !known : e.group === cat;
 }
+// Tootmisseisu filter (valikuruudud). Ühtegi valimata = filter väljas. Mudel sobib, kui tal on mõni valitud seis.
+// „Teadmata“ = masin, mille TTA-s tootmisseisu pole. Auastmed, väeliigid, relvad ja miinid (NON_MACHINE_GROUPS)
+// tootmisseisu ei saa: filtri korral neid ei näidata.
+const MODEL_LIST_STATUS_UNKNOWN = '__unknown__';
+const modelListStatusSel = new Set();
+function productionStatusOf(e){
+  const r = TTA_MODELS[e.cat], v = r && r.values && r.values.productionStatus;
+  return v && Array.isArray(v.status) ? v.status : [];
+}
+function modelInStatusFilter(e){
+  if(!modelListStatusSel.size) return true;
+  if(NON_MACHINE_GROUPS.has(e.group)) return false;
+  const st = productionStatusOf(e);
+  if(!st.length) return modelListStatusSel.has(MODEL_LIST_STATUS_UNKNOWN);
+  return st.some(id => modelListStatusSel.has(id));
+}
+// OTSING (rc111) – kirjaviisist sõltumatu, sama reegel kataloogis, võrdluses ja kureeritud testi valikus:
+//  * kirjavahemärgid ja tühikud ei loe: T72 = T-72 = „t 72“, BMP2 = BMP-2;
+//  * translitereerimine ei loe: Smertš = Smerch, Tosotška = Tosochka, Jolka = Yolka, Ahmat = Akhmat, Štšuka = Shchuka;
+//  * täpitähed ei loe (õ = o, ä = a jne);
+//  * mitu sõna: iga sõna peab leiduma (järjekord ei loe), nt „luure droon“;
+//  * otsitakse nimest, liigist ja cat-ist; inglise keeles ka eestikeelsest nimest ja liigist.
+function searchNorm(t){
+  return String(t || '').toLocaleLowerCase('et')
+    .replace(/tš|ch/g, 'c').replace(/š|sh/g, 's').replace(/ž|zh/g, 'z').replace(/kh/g, 'h').replace(/y/g, 'j')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^0-9a-z\u0400-\u04ff]+/g, '');
+}
+// Päring → {whole, words}. Tühi päring → null (sobib kõik).
+function searchQuery(q){
+  const raw = String(q || '').trim();
+  if(!raw) return null;
+  const words = raw.split(/[\s,;]+/).map(searchNorm).filter(Boolean);
+  const whole = searchNorm(raw);
+  return whole ? {whole, words} : null;
+}
+// Väli → kokkusurutud tekst + kohad, kus algab uus osa (pärast kirjavahemärki või tähe/numbri vahetusel).
+function searchField(t){
+  let s = '';
+  const starts = new Set();
+  String(t || '').split(/[^0-9A-Za-z\u00C0-\u017E\u0400-\u04ff]+/).forEach(part => {
+    const n = searchNorm(part);
+    for(let i = 0; i < n.length; i++){
+      if(i === 0 || /\d/.test(n[i]) !== /\d/.test(n[i - 1])) starts.add(s.length + i);
+    }
+    s += n;
+  });
+  return {s, starts};
+}
+// Numbriga algav sõna peab algama osa algusest: „34“ leiab Su-34, aga mitte ZSU-23-4 („234“ sees).
+function searchHit(f, w){
+  if(!/^\d/.test(w)) return f.s.includes(w);
+  for(let i = f.s.indexOf(w); i >= 0; i = f.s.indexOf(w, i + 1)) if(f.starts.has(i)) return true;
+  return false;
+}
+// Kas mudel sobib? Tagastab järjestuse numbri (0 = nimi algab päringuga, 1 = nimes, 2 = mujal) või -1.
+function modelSearchRank(e, sq){
+  if(!sq) return 0;
+  const names = [e.label, e.labelEt].filter(Boolean).map(searchField);
+  const fields = names.concat([e.type, e.typeEt, e.cat].filter(Boolean).map(searchField));
+  const hit = w => fields.some(f => searchHit(f, w));
+  if(!hit(sq.whole) && !sq.words.every(hit)) return -1;
+  if(names.some(f => f.s.startsWith(sq.whole))) return 0;
+  if(names.some(f => searchHit(f, sq.whole))) return 1;
+  return 2;
+}
+function modelMatchesSearch(e, q){ return modelSearchRank(e, searchQuery(q)) >= 0; }
+
 function groupModelsForList(query, cat){
-  query = String(query || '').trim().toLocaleLowerCase('et');
+  const sq = searchQuery(query);
   if(cat === undefined) cat = modelListCatValue();
   const byGroup = new Map();
   GROUPS.forEach(g => byGroup.set(g.id, []));
   const ungrouped = [];
+  const rankOf = new Map();
   CATEGORIES.forEach(e => {
     if(!e.files || e.files.length === 0) return; // pildita read jäetakse nimekirjast täiesti välja
     if(!modelInListCat(e, cat)) return;
-    if(query){
-      const haystack = [e.label, e.type, e.cat].filter(Boolean).join(' ').toLocaleLowerCase('et');
-      if(!haystack.includes(query)) return;
-    }
+    if(!modelInStatusFilter(e)) return;
+    const rank = modelSearchRank(e, sq);
+    if(rank < 0) return;
+    rankOf.set(e, rank);
     if(byGroup.has(e.group)) byGroup.get(e.group).push(e);
     else ungrouped.push(e);
   });
-  const byLabel = (a, b) => a.label.localeCompare(b.label, I18N.sortLocale);
+  // Otsingu korral grupi sees: kõigepealt nimi algab päringuga, siis nimes, siis liigis; edasi tähestik.
+  const byLabel = (a, b) => (rankOf.get(a) - rankOf.get(b)) || a.label.localeCompare(b.label, I18N.sortLocale);
   byGroup.forEach(list => list.sort(byLabel));
   ungrouped.sort(byLabel);
   return {byGroup, ungrouped};
@@ -2898,6 +2988,7 @@ function renderModelList(filterText = ''){
 
   modelListContent.innerHTML = '';
   fillModelListCat(withPhotos);
+  fillModelListStatus(withPhotos);
   const cat = modelListCatValue();
 
   const {byGroup, ungrouped} = groupModelsForList(query, cat);
@@ -2911,7 +3002,7 @@ function renderModelList(filterText = ''){
     heading.innerHTML = title + ' <span class="grp-cnt">(' + groupCountLabel(groupId, entries.length) + ')</span>';
     section.appendChild(heading);
 
-    entries.slice().sort((a,b) => a.label.localeCompare(b.label, I18N.sortLocale)).forEach(e => {
+    entries.forEach(e => {   // järjekord tuleb groupModelsForList-ist (sama mis ↑/↓)
       const row = document.createElement('div');
       row.className = 'model-list-row';
 
@@ -2952,7 +3043,17 @@ function renderModelList(filterText = ''){
   if(!modelListContent.children.length){
     const box = document.createElement('div');
     box.className = 'model-list-summary';
-    box.textContent = cat ? 'Selles kategoorias otsingule sobivaid mudeleid ei leitud.' : 'Otsingule sobivaid mudeleid ei leitud.';
+    box.textContent = modelListStatusSel.size ? 'Tootmisseisu filtrile sobivaid mudeleid ei leitud.'
+      : cat ? 'Selles kategoorias otsingule sobivaid mudeleid ei leitud.' : 'Otsingule sobivaid mudeleid ei leitud.';
+    if(modelListStatusSel.size){
+      const clr = document.createElement('button');
+      clr.type = 'button';
+      clr.className = 'model-list-all';
+      clr.textContent = 'Tühista tootmisseisu filter';
+      clr.addEventListener('click', () => { modelListStatusSel.clear(); renderModelList(query); });
+      box.appendChild(document.createElement('br'));
+      box.appendChild(clr);
+    }
     // Mujal kategooriates on vasteid – paku otsida kõigist.
     const outside = cat && query ? groupModelsForList(query, '') : null;
     const n = outside ? GROUPS.reduce((a, g) => a + outside.byGroup.get(g.id).length, outside.ungrouped.length) : 0;
@@ -2990,6 +3091,34 @@ function fillModelListCat(withPhotos){
   if(ung) add(MODEL_LIST_UNGROUPED, 'Grupeerimata (' + ung + ')');
   sel.value = [...sel.options].some(o => o.value === prev) ? prev : '';
   sel.classList.toggle('is-on', !!sel.value);
+}
+
+// Tootmisseisu valikuruudud: loendur näitab, mitu pildiga mudelit seisu järgi on (kategooriast sõltumata).
+function fillModelListStatus(withPhotos){
+  const box = document.getElementById('modelListStatusOpts'), det = document.getElementById('modelListStatus');
+  if(!box || !det) return;
+  const def = (TTA_SCHEMA.fields || {}).productionStatus;
+  if(!def){ det.hidden = true; return; }
+  const machines = withPhotos.filter(e => !NON_MACHINE_GROUPS.has(e.group));
+  const opts = Object.entries(def.options || {}).map(([id, label]) => [id, label, machines.filter(e => productionStatusOf(e).includes(id)).length]);
+  opts.push([MODEL_LIST_STATUS_UNKNOWN, 'Teadmata', machines.filter(e => !productionStatusOf(e).length).length]);
+  box.innerHTML = '';
+  opts.forEach(([id, label, n]) => {
+    const lab = document.createElement('label');
+    const cb = document.createElement('input');
+    cb.type = 'checkbox'; cb.value = id; cb.checked = modelListStatusSel.has(id);
+    cb.addEventListener('change', () => {
+      if(cb.checked) modelListStatusSel.add(id); else modelListStatusSel.delete(id);
+      renderModelList(modelListSearch ? modelListSearch.value : '');
+      const again = document.querySelector('#modelListStatusOpts input[value="' + id + '"]');
+      if(again) again.focus();   // nimekiri joonistati uuesti: fookus jääb samale ruudule
+    });
+    const cnt = el('span', 'mls-cnt', '(' + n + ')');
+    cnt.setAttribute('data-i18n-skip', '');
+    lab.append(cb, el('span', '', label), cnt);
+    box.appendChild(lab);
+  });
+  det.classList.toggle('is-on', modelListStatusSel.size > 0);
 }
 
 const modelListSearch = document.getElementById('modelListSearch');
@@ -3074,6 +3203,7 @@ function ttaFormatValue(value, def){
   const fmt = v => Number(v).toLocaleString(I18N.locale, {maximumFractionDigits: 2});
   const unit = def.unit || ''; // ühik kohe numbri järel, ilma tühikuta (80km/h, 1500m)
   if(def.type === 'boolean') return value ? 'jah' : 'ei';
+  if(def.type === 'status') return productionStatusText(value, def);
   if(def.type === 'number' && typeof value === 'number') return fmt(value) + unit;
   if(def.type === 'range' && value && typeof value === 'object'){
     if(typeof value.min === 'number' && typeof value.max === 'number') return fmt(value.min) + '–' + fmt(value.max) + unit;
@@ -3081,6 +3211,18 @@ function ttaFormatValue(value, def){
   }
   return String(value);
 }
+
+// Tootmisseis: „Uustootmine · Moderniseerimine (seisuga 2026)“. Iga osa tõlgitakse eraldi (ui-sõnastik),
+// seepärast on lahter data-i18n-skip (vt ttaSkipI18n).
+function productionStatusText(value, def){
+  const tr = t => (window.I18N && I18N.tr) ? I18N.tr(t) : t;
+  const opts = (def && def.options) || {};
+  const ids = (value && Array.isArray(value.status)) ? value.status : [];
+  const parts = ids.map(id => tr(opts[id] || id));
+  if(!parts.length) return '';
+  return parts.join(' · ') + (value.asOf ? ' ' + tr('(seisuga ' + value.asOf + ')') : '');
+}
+function ttaSkipI18n(def){ return !!def && def.type === 'status'; }
 
 function safeHttpsUrl(url){
   try{ const u = new URL(url); return u.protocol === 'https:' ? u.href : null; }catch(e){ return null; }
@@ -3257,6 +3399,7 @@ function renderTTAPanel(entry, record){
         values[k].forEach((t, i) => { if(i) dd.append(', '); dd.appendChild(platformLink(entry, t, t.cat)); });
       }
       if(k === 'chassis' && typeof values[k] === 'string') linkChassis(dd, entry, values[k]);
+      if(ttaSkipI18n(fields[k])) dd.setAttribute('data-i18n-skip', '');
       if(warnings[k]) dd.appendChild(el('span', 'tta-note is-warn', warnings[k]));
       if(notes[k]) dd.appendChild(el('span', 'tta-note', notes[k]));
       dl.append(el('dt', '', fields[k].label), dd);
@@ -3359,7 +3502,7 @@ function makeComparePicker(entry, selectedCat, kind, onChoose){
     const q = cmpNorm(input.value);
     const selectedLabel = selectedCat && entryByCat(selectedCat) ? entryByCat(selectedCat).label : null;
     const showAll = !q || input.value === selectedLabel;
-    const hit = e => showAll || [e.label, e.type, e.cat].some(t => cmpNorm(t).includes(q));
+    const hit = e => showAll || modelMatchesSearch(e, input.value);
     const same = others.filter(e => e.group === entry.group && hit(e));
     const rest = others.filter(e => e.group !== entry.group && hit(e));
     list.innerHTML = '';
@@ -3467,6 +3610,7 @@ function showTTACompare(a, b){
       }
       [[va, ra, winA], [vb, rb, winB]].forEach(([v, r, win]) => {
         const c = el('div', 'cmp-val' + (win ? ' is-better' : ''), v === undefined ? '—' : ttaFormatValue(v, def));
+        if(ttaSkipI18n(def)) c.setAttribute('data-i18n-skip', '');
         const warn = (r.warnings || {})[k];
         if(warn){ c.classList.add('has-warn'); c.title = warn; c.appendChild(el('span', 'tta-note is-warn', '! ' + warn)); }
         row.appendChild(c);
@@ -3804,7 +3948,8 @@ function loadGalleryCards(entry, container, withLabel){
       img.tabIndex = 0;
       img.setAttribute('role', 'button');
       img.setAttribute('aria-label', 'Suurenda: ' + sourceFilename);
-      img.dataset.caption = entry.label + (entry.type ? ' – ' + entry.type : '');   // suurenduses mudel ja täpsustus, mitte failinimi
+      const capType = I18N.distinctType(entry.label, entry.type);
+      img.dataset.caption = entry.label + (capType ? ' – ' + capType : '');   // suurenduses mudel ja täpsustus, mitte failinimi
       img.dataset.label = entry.label; img.dataset.type = entry.type || '';
       img._srcInfo = info;   // suurenduse ja võrdluse nurgasildi jaoks
       img.addEventListener('click', () => openLightbox(img));
@@ -4026,7 +4171,8 @@ function lbShow(i){
 function lbRenderInfo(item, countText){
   lbInfo.innerHTML = '';
   const label = item.label || item.caption || '';
-  if(item.type) lbInfo.appendChild(el('div', 'lb-type', item.type));
+  const type = I18N.distinctType(label, item.type);   // sama nimi ja liik → sõna üks kord
+  if(type) lbInfo.appendChild(el('div', 'lb-type', type));
   const name = el('div', 'lb-name', label);
   if(countText) name.appendChild(el('span', 'lb-count', countText));
   lbInfo.appendChild(name);
@@ -7000,7 +7146,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc109'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc110'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');

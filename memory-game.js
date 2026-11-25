@@ -375,7 +375,7 @@ function showMatch(pi, fresh){
   const last = fresh && S.found === S.pairs.length;
   popOpener = document.activeElement;
   pop.innerHTML = `<div class="mm-pop-box">
-      ${p.entry.type ? `<div class="mm-pop-type">${esc(p.entry.type)}</div>` : ''}
+      ${I18N.distinctType(p.entry.label, p.entry.type) ? `<div class="mm-pop-type">${esc(p.entry.type)}</div>` : ''}
       <div class="mm-pop-name">${esc(p.entry.label)}</div>
       <div class="mm-pop-imgs">${p.infos.map((info, k) => `<figure><button type="button" data-k="${k}" title="Suurenda"><img src="${esc(info.url)}" alt="${esc(p.entry.label)}"></button><figcaption data-k="${k}"></figcaption></figure>`).join('')}</div>
       <div class="row"><button type="button" class="primary" id="mmPopOk" style="flex:1;">${last ? 'Vaata kokkuvõtet' : 'Jätka'}</button></div>

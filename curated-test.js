@@ -316,7 +316,8 @@ const norm = t => String(t || '').toLocaleLowerCase('et').replace(/[\s\-–_\/.,
 function todayISO(){ const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
 function isoToEt(iso){ const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || ''); return m ? (+m[3]) + '.' + (+m[2]) + '.' + m[1] : (iso || ''); }
 function clampInt(v, lo, hi, dflt){ const n = parseInt(v, 10); return isNaN(n) ? dflt : Math.min(hi, Math.max(lo, n)); }
-function answerText(q){ return q.type ? (I18N.active ? I18N.answerText(q.label, q.type) : q.label + ' – ' + q.type) : q.label; }
+// Sama nimi ja liik (nt Pontoonsillapark) → sõna üks kord.
+function answerText(q){ const t = I18N.distinctType(q.label, q.type); return t ? (I18N.active ? I18N.answerText(q.label, t) : q.label + ' – ' + t) : q.label; }
 function modeText(){
   const s = S.settings;
   const base = s.mode === 'auto' ? 'Automaatne (pilt ' + s.viewSec + ' s, vastus ' + s.writeSec + ' s' + (s.showAnswer ? ', õige vastus ' + s.answerSec + ' s' : '') + ')' : 'Käsitsi (õpetaja liigub edasi)';
@@ -797,7 +798,9 @@ function modelSearch(onPick, placeholder, opts){
     catSel.value = initial;
     catSel.addEventListener('change', () => { draw(); list.scrollTop = 0; input.focus(); });
   }
-  const matches = (e, qv) => !qv || [e.label, e.type, e.cat].some(t => norm(t).includes(qv));
+  // Sama otsingureegel nagu kataloogis (modelMatchesSearch failis index.html); varuvariant vanale.
+  const matches = (e, qv) => !qv || (typeof modelMatchesSearch === 'function'
+    ? modelMatchesSearch(e, input.value) : [e.label, e.type, e.cat].some(t => norm(t).includes(qv)));
   const draw = () => {
     const qv = norm(input.value);
     list.innerHTML = '';
