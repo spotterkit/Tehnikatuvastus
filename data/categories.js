@@ -50,7 +50,7 @@ const CATEGORIES = [
   { label: "MT-LBMB", group: "ifv", type: "Jalaväe soomustransportöör", cat: "MT-LBMB", files: ["MT-LBM_6MB_-_Bronnitsy221.jpg", "MT-LBMB_with_MB2_combat_module_-_Bronnitsy.jpg"] },
 
   // Dessandi lahingumasinad
-  { label: "BMD-2", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-2", files: ["BMD-2_-_137AirborneRegiment29.jpg", "BMD-2_-_137AirborneRegiment01.jpg", "BMD-2_-_137AirborneRegiment36.jpg", "FinalCheck2018-25.jpg", "Російська_техніка%2C_маркована_V.jpg"] },
+  { label: "BMD-2", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-2", files: ["BMD-2_-_137AirborneRegiment29.jpg", "BMD-2_-_137AirborneRegiment01.jpg", "106th_Guards_Airborne_Division_%28394-27%29.jpg", "FinalCheck2018-25.jpg", "Російська_техніка%2C_маркована_V.jpg", "Несение_службы_военнослужащими_ВДВ_на_блокпостах_в_Киевской_области_001.png"] },
   { label: "BMD-4M", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-4M", files: ["BMD-4M_0002_copy.jpg", "BMD-4M_14.jpg", "Moscow%2C_Tverskaya_Street%2C_parade_rehearsal%2C_BMD-4_%2831092775422%29.jpg", "Battle_of_Hostomel%2C_04.03.2022%2C_Stuck_Russian_BMD-4.jpg", "images/airborne/bmd4m.jpg", "BMD-4M_-_0-12.jpg"] },
   { label: "BMD-1", group: "airborne", type: "Dessandi lahingumasin", cat: "BMD-1", files: ["BMD-1_Belarus.jpg", "Vdvcompetition11.jpg", "BMD-1P_Army-2022_2022-08-20_2656.jpg"] },
 
