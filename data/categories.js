@@ -340,7 +340,9 @@ const CATEGORIES = [
   { label: "Kamaz-5350 Z-STS Akhmat", group: "recon_special", type: "Soomustatud veok", cat: "Kamaz-5350 Z-STS Akhmat", files: ["Z-STS_KamAZ-5350_Army-2022_2022-08-20_2668.jpg"] },
   { label: "AMN-590951 Spartak (VPK-Ural)", group: "recon_special", type: "Soomustatud auto", cat: "AMN-590951 Spartak (VPK-Ural)", files: ["MIC-Ural_-_Army-2022_07.jpg", "2023_Moscow_Victory_Day_Parade_38.jpg"] },
   { label: "Ural-4320 Zvezda-V", group: "recon_special", type: "Soomustatud veok", cat: "Ural-4320 Zvezda-V", files: ["Interpolitex2015part1-20.jpg", "VVday2015_49.jpg"] },
-
+  { label: "BPM-97 KamAZ-43269", group: "recon_special", type: "Soomustatud auto", cat: "BPM-97 KamAZ-43269", files: ["DayTechnologies2017p2-02.jpg"] },
+  { label: "K-53949 Taifun-K, 4x4", group: "recon_special", type: "Soomustatud veok", cat: "K-53949 Taifun-K, 4x4", files: ["ZA-53949A8_Typhoon-4x4_Army-2022_2022-08-20_2669.jpg"] },
+  
   // Side- ja juhtimissoomukid ning autod
   { label: "BMP-1Ksh", group: "comms", type: "Juhtimissoomuk", cat: "BMP-1Ksh", files: ["ParkPatriot2015part10-24.jpg", "ParkPatriot2015part11-131.jpg", "ParkPatriot2015part11-133.jpg"] },
   { label: "R-149MA1", group: "comms", type: "Juhtimis- ja sidesoomuk", cat: "R-149MA1", files: ["R-149MA1_-_Engineering_technologies_2012_%282%29.jpg", "R-149MA1_-_Engineering_technologies_2012_%281%29.jpg", "Вновь_сформированную_мотострелковую_бригаду_ЦВО_оснастили_новыми_бронемашинами_связи_Р-149МА1_01.jpg", "R-149MA1_-_Engineering_technologies_2012_%285%29.jpg"] },
@@ -360,6 +362,7 @@ const CATEGORIES = [
   { label: "R-145BMA", group: "comms", type: "Side- ja juhtimisauto", cat: "R-145BMA", files: ["Interpolitex2015part3-27.jpg"] },
   { label: "R-439MD2", group: "comms", type: "Mobiilne satelliitside jaam", cat: "R-439MD2", files: ["images/comms/R-439.jpeg"] },
   { label: "R-161PU", group: "comms", type: "HF/VHF raadiosaatejaam ja sidesõlm", cat: "R-161PU", files: ["ParkPatriot2015part9-53.jpg"] },
+  { label: "MP-1IM/MP-2IM", group: "comms", type: "Sidesoomuk", cat: "MP-1IM", files: ["images/comms/mp1lm.png"] },
 
   // Pind-pind tüüpi juhitavad raketid
   { label: "9K720 Iskander/SS-26 Stone", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "9K720 Iskander/SS-26 Stone", files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg","Army-2023_vehicle_showcase_08.jpg", "A_camouflaged_Iskander-M_complex_during_an_exercise_in_Transbaikalia._June_2021.jpg", "Кадры_работы_расчетов_ОТРК_«Искандер»_002.png"] },
