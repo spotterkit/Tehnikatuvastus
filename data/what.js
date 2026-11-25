@@ -5,7 +5,7 @@
 // "draft": true = mustand (kuvatakse kollase märkega "kontrollimata").
 // Pilt on lokaalne ja kuulub offline-assets.json-i. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.WHAT_DATA = {
-  "version": 8,
+  "version": 9,
   "models": {
     "T-62": {
       "image": "images/what/T-62_what.webp",
@@ -243,7 +243,8 @@ window.WHAT_DATA = {
           "label": "Näiteks kasutavad BMP-3 alusplatvormi",
           "models": [
             {"name": "9P157-2 „KRIZANTEMA-S“", "cat": "9P157-2 Krizantema-S"},
-            {"name": "9P162 „KORNET-T“", "cat": "9P162 Kornet-T"}
+            {"name": "9P162 „KORNET-T“", "cat": "9P162 Kornet-T"},
+            {"name": "BREM-L", "cat": "BREM-L"}
           ]
         }
       ]
