@@ -612,6 +612,7 @@ const CATEGORIES = [
   // Luureradarid (group: "ground_radars")
   { label: "PSNR-8 Kredo-M1", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "PSNR-8 Kredo-M1", files: ["Kredo-M1_-_IDELF-2008-248.jpg"] },
   { label: "SBR-5 Fara-1 1L111", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "SBR-5 Fara-1 1L111", files: ["FARA-1_-_IDELF-2008-247_%28cropped%29.jpg"] },
+  { label: "SBR-3 Fara-U 1RL136", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "SBR-3 Fara-U 1RL136", files: ["ReconCompany4thOTBr68.jpg"] },
 
   // Suurtükiväe kaasaskantavad tulejuhtimisseadmed (group: "fire_control")
   // { label: "", group: "fire_control", type: "Tulejuhtimisseade", cat: "", files: [] },
