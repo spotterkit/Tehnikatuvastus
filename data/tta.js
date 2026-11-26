@@ -153,7 +153,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "productionStatus": {"status": ["storage"], "asOf": 2024},
-        "purpose": "Ujuv jalaväe lahingumasin (kasutusel alates 1966. aastast), mis võimaldab jalaväel võidelda soomuse kaitse all.",
+        "purpose": "Ujuv jalaväe lahingumasin (kasutusel alates 1966. aastast).",
         "crew": "3 + 8 dessantväelast",
         "combatWeight": 13.5,
         "length": 6.735,
@@ -201,7 +201,7 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Motolaskurpataljon",
         "productionStatus": {"status": ["new"], "asOf": 2025},
-        "purpose": "Jalaväe lahingumasin, BMP-1 ja BMP-2 järglane; üks tugevaima relvastusega jalaväe lahingumasinaid.",
+        "purpose": "Jalaväe lahingumasin, BMP-1 ja BMP-2 järglane; eelkäijatega võrreldes võimsama relvastusega.",
         "crew": "3 + 7 dessantväelast (+2 lisakohta)",
         "combatWeight": 18.7,
         "length": 7.14,
@@ -388,7 +388,7 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Motolaskurpataljon",
         "productionStatus": {"status": ["new"], "asOf": 2025},
-        "purpose": "BTR-80 uusim tootmisversioon (kasutusel alates 2013. aastast) parema kaitsega.",
+        "purpose": "BTR-80 uusim tootmisversioon (kasutusel alates 2013. aastast) parema kaitse ja pearelvaga.",
         "crew": "3 + 7 dessantväelast",
         "combatWeight": 15.4,
         "length": 7.65,
@@ -463,7 +463,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "productionStatus": {"status": ["storage"], "asOf": 2025},
-        "purpose": "MT-LB suurem, relvastamata versioon, mis on paljude erisoomukite alus.",
+        "purpose": "Paljude erisoomukite alusplatvorm.",
         "crew": "2 + 6",
         "combatWeight": 15.55,
         "length": 7.21,
@@ -497,7 +497,7 @@ window.TTA_DATA = {
     "BMO-T": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "TBK-kaitse leegiheitjarühm; TBK-kaitse leegiheitjapataljon",
+        "typicalUnit": "Leegiheitjarühm",
         "purpose": "T-72 baasil raske soomustransportöör leegiheitjate veoks ja toetuseks.",
         "crew": "2 + 7 leegiheitjat",
         "combatWeight": 43.9,
@@ -527,7 +527,7 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Õhudessantpataljon",
         "productionStatus": {"status": ["new"], "asOf": 2024},
-        "purpose": "Ujuv dessandi jalaväe lahingumasin Vene õhudessantvägedele (VDV).",
+        "purpose": "Moodsaim ujuv dessandi jalaväe lahingumasin Vene õhudessantvägedele (VDV).",
         "crew": "3 + 6 dessantväelast",
         "combatWeight": 13.5,
         "length": 6.4,
@@ -656,7 +656,7 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Reserv- ja mobilisatsiooniüksus; Vabatahtlike pataljon",
         "productionStatus": {"status": ["storage"], "asOf": 2025},
-        "purpose": "Nõukogude põhitank. Vananenuna pandi reservi; 2022 võeti Ukraina sõjaks hoidlatest uuesti kasutusele.",
+        "purpose": "Nõukogude Liidu lahingutank. 2022 võeti Ukraina sõjaks reservist uuesti kasutusele.",
         "crew": "4",
         "combatWeight": 40,
         "length": 9.33,
@@ -706,7 +706,7 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Tankipataljon; Tankibrigaad",
         "productionStatus": {"status": ["upgrade", "storage"], "asOf": 2026},
-        "purpose": "Nõukogude põhitankide perekond (tootmises alates 1973. aastast); ehitatud ca 25 000.",
+        "purpose": "Nõukogude Liidu lahingutank (tootmises alates 1973. aastast); ehitatud ca 25 000.",
         "crew": "3",
         "combatWeight": 44.5,
         "length": 9.53,
@@ -761,7 +761,7 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Tankidiviis; Merejalavägi",
         "productionStatus": {"status": ["upgrade", "storage"], "asOf": 2025},
-        "purpose": "Põhitank (kasutusel alates 1976. aastast).",
+        "purpose": "Lahingutank (kasutusel alates 1976. aastast).",
         "crew": "3",
         "combatWeight": 43.7,
         "length": 9.65,
@@ -811,7 +811,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Motolaskurbrigaad",
-        "purpose": "Vene armee põhitank: T-90 versioon. T-90 töötati välja T-72 baasil selle asendajaks.",
+        "purpose": "Vene armee lahingutank: T-90 versioon. T-90 töötati välja T-72 baasil selle asendajaks.",
         "crew": "3",
         "combatWeight": 46,
         "length": 9.63,
@@ -857,7 +857,7 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Tankidiviis; Motolaskurdiviis",
         "productionStatus": {"status": ["new", "upgrade"], "asOf": 2026},
-        "purpose": "Põhitank: T-90 põhjalikult moderniseeritud versioon, avalikult esmakordselt 2017.",
+        "purpose": "Põhitank: T-90 põhjalikult moderniseeritud versioon.",
         "crew": "3",
         "combatWeight": 46.5,
         "length": 9.63,
@@ -904,7 +904,7 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Tankipolgu rood",
         "productionStatus": {"status": ["new"], "asOf": 2025},
-        "purpose": "Soomusmasin tankide ja teiste soomukite toetamiseks asulalahingus.",
+        "purpose": "Soomusmasin tankide ja teiste soomukite toetamiseks.",
         "crew": "5",
         "combatWeight": 48,
         "length": 7.2,
@@ -1321,10 +1321,6 @@ window.TTA_DATA = {
         "armor": "Ümberringi kaitse 7,62mm soomusläbistava kuuli ja kildude eest"
       },
       "notes": {
-        "crew": "GlobalSecurity: 4–6.",
-        "power": "Wikipedia/GlobalSecurity: 260hj.",
-        "maxSpeedRoad": "GlobalSecurity: 70km/h.",
-        "range": "GlobalSecurity: 600km.",
         "rateOfFire": "Püsiv 4 lasku/min.",
         "firingRange": "OF-mürsk 8,85km; miin 7,15km.",
         "firingRangeGuided": "Laserjuhitav „Kitolov-2“."
@@ -1391,7 +1387,7 @@ window.TTA_DATA = {
         "rateOfFire": "5–6 lasku/min.",
         "firingRange": "OF45.",
         "firingRangeBB": "OF61.",
-        "mainArmament": "Kasutab ka laserjuhitavat Krasnopoli (laskekaugust allikas pole)."
+        "mainArmament": "Kasutab ka laserjuhitavat Krasnopoli."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2A65", "url": "https://odin.t2com.army.mil/WEG/Asset/2cfe71b9d60339108419f65665bdf563", "retrieved": "2026-10-28"},
@@ -1513,7 +1509,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Motolaskurpataljoni miinipildujapatarei",
-        "purpose": "120mm raske miinipilduja, suurima kaliibriga kaudtulerelv pataljoni tasandil. 2S12 on miinipilduja koos veokiga.",
+        "purpose": "120mm raske miinipilduja, suurima kaliibriga kaudtulerelv pataljoni tasandil.",
         "crew": "5 (+2 veduki meeskond)",
         "chassis": "2F510 kaherattaline käru, vedukas GAZ-66",
         "weightKg": 210,
@@ -1565,7 +1561,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Jalaväeüksus",
-        "purpose": "82mm automaatne kahur-miinipilduja rataslafetil; kasutusel Vene õhumobiilses jalaväes.",
+        "purpose": "82mm automaatne kahur-miinipilduja rataslafetil.",
         "crew": "6",
         "weightKg": 645,
         "length": 4.115,
@@ -1760,7 +1756,7 @@ window.TTA_DATA = {
         "power": 840,
         "maxSpeedRoad": 60,
         "mainArmament": "Relvastuseta (meeskonna isikurelvad)",
-        "specialEquipment": "24 raketti (2 × 12) soomustatud konteinerites, hüdrauliline kraana (10 kN) BM-1 laadimiseks; veab ka 400 l kütust BM-1 jaoks. Tavaliselt toetab üks TZM-T kuni nelja BM-1 lahingumasinat",
+        "specialEquipment": "24 raketti (2 × 12) soomustatud konteinerites, hüdrauliline kraana BM-1 laadimiseks; veab ka 400 l kütust BM-1 jaoks. Tavaliselt toetab üks TZM-T kuni nelja BM-1 lahingumasinat",
         "armor": "Laskemoona soomuskate on eemaldatav"
       },
       "notes": {
@@ -1787,7 +1783,7 @@ window.TTA_DATA = {
         "endurance": 8,
         "controlRange": 120,
         "ferryRange": 300,
-        "sensors": "Güroskoopstabiliseeritud optoelektrooniline jaam: päevakaamera (suum), termokaamera 640 × 480, sihtimiskaamera; laserkaugusmõõtja-sihtmärgivalgusti (200–8000 m)",
+        "sensors": "Güroskoopstabiliseeritud optoelektrooniline jaam: päevakaamera, termokaamera 640 × 480, sihtimiskaamera; laserkaugusmõõtja-sihtmärgivalgusti (200–8000 m)",
         "specialEquipment": "Katapultstart, langevarjuga maandumine. Maajaam juhib kuni nelja drooni korraga"
       },
       "notes": {
@@ -2019,7 +2015,7 @@ window.TTA_DATA = {
     "UMZ": {
       "status": "unverified",
       "values": {
-        "purpose": "Kaugmineerimisseade, mis laob liikumise ajal tanki- ja jalaväemiinide välja.",
+        "purpose": "Kaugmineerimisseade.",
         "crew": "2",
         "chassis": "ZIL-131 6×6 veoauto (UMZ-K: KamAZ-63501; UMZ-G: T-72/T-90 tanki šassii)",
         "combatWeight": 10,
@@ -2037,7 +2033,6 @@ window.TTA_DATA = {
         "armor": "Soomustamata (ZIL-131 versioon)"
       },
       "notes": {
-        "chassis": "Peetakse GMZ-seeria asendajaks.",
         "combatWeight": "Miinilastiga; ilma miinideta 8,3t.",
         "mineLaying": "Paigalduskiirus 10–40km/h. Miinivälja pikkus 1000–1200m, sügavus 30–120m. Ühe laadungiga miinivälja max pikkus: PFM-1S 3200m, POM-2 5000m, PTM-3 600m. Kasutab samu miinikassette mis PKM."
       },
@@ -2048,10 +2043,10 @@ window.TTA_DATA = {
     "UR-77": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Pioneeribrigaadi pioneerirood",
+        "typicalUnit": "Pioneerirood",
         "purpose": "Demineerimissoomuk, mis rajab reaktiivsete miinitõrjelaengutega koridori läbi miinivälja.",
         "crew": "2",
-        "chassis": "2S1 Gvozdika šassii (modifitseeritud MT-LBu)",
+        "chassis": "modifitseeritud MT-LBu",
         "combatWeight": 15.5,
         "length": 8.4,
         "width": 2.8,
@@ -2080,7 +2075,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Pioneeriluuresoomuk teede, miiniväljade ja veetõkete (koolmekohtade) luureks.",
         "crew": "6 (ülem, juht, 4 pioneeri)",
-        "chassis": "BMP-1 komponendid, 7 tugirullikut külje kohta",
+        "chassis": "BMP-1",
         "combatWeight": 18,
         "length": 8.3,
         "width": 3.15,
@@ -2115,7 +2110,7 @@ window.TTA_DATA = {
         "purpose": "Õhutõrjekahur- ja raketikompleksi iseliikuv laskeseade, mis kaitseb motolaskur- ja tankiüksusi madalal lendavate lennukite, helikopterite ja tiibrakettide eest.",
         "typicalUnit": "Motolaskur- või tankipolgu õhutõrjedivisjon; Brigaadi õhutõrjedivisjon",
         "crew": "4",
-        "chassis": "GM-352M roomikšassii",
+        "chassis": "GM-352M",
         "combatWeight": 34,
         "length": 7.93,
         "width": 3.24,
@@ -2165,7 +2160,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Lühimaa õhutõrjeraketisoomuk taktikaliste üksuste kaitseks.",
-        "typicalUnit": "Motolaskur- või tankipolgu õhutõrjedivisjon; Brigaadi õhutõrjedivisjon",
+        "typicalUnit": "Motolaskur- või tankipolgu õhutõrjepataljon; Brigaadi õhutõrjedpataljon",
         "crew": "3 (ülem, operaator, juht)",
         "chassis": "MT-LB",
         "combatWeight": 12.1,
@@ -2264,7 +2259,7 @@ window.TTA_DATA = {
       },
       "notes": {
         "chassis": "Komplekti kuuluvad ka hooldusauto 1L30 (Ural-43203) ja generaatorihaagis. Radarit toidab põhimootori võimsusvõtt (30kW). 1L260 Zoopark-1M teenistuses alates 2017.",
-        "length": "MT-LB šassii mõõtmed.",
+        "length": "MT-LBu šassii.",
         "power": "Uuematel KamAZ-740.50, 360hj.",
         "secondaryArmament": "ODIN/WEG: enamikul MT-LB variantidel."
       },
@@ -2414,7 +2409,7 @@ window.TTA_DATA = {
         "armor": "Keevitatud valtsitud teras (kere katus 6mm): kaitseb igast küljest 12,7mm kuulide eest, eesmine sektor osaliselt 20mm eest; torn 33mm; lisasoomus saadaval"
       },
       "notes": {
-        "chassis": "PRP-3 „Val“ on PRP-4 eelkäija: sama BMP-1 šassii ja sama põhimõte, kuid vanem radar. PRP-4 võttis tootmisliinil selle üle (Wikipedia: PRP-3 ehitas Tšeljabinski traktoritehas ChTZ, PRP-4 Rubtsovski masinaehitustehas)."
+        "chassis": "PRP-3 „Val“ on PRP-4 eelkäija: sama BMP-1 šassii ja sama põhimõte, kuid vanem radar. PRP-4 võttis tootmisliinil selle üle."
       },
       "sources": [
         {"name": "Wikipedia: BMP-1", "url": "https://en.wikipedia.org/wiki/BMP-1", "retrieved": "2026-10-23"}
@@ -2425,8 +2420,8 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Brigaadi suurtükiväe juhtimis- ja luurepatarei",
         "purpose": "Lahinguvälja seireradar, mis avastab ja jälgib liikuvaid sihtmärke maal ja vees ning annab suurtükiväele andmeid tule korrigeerimiseks.",
-        "crew": "5 (allika kirjelduses 4–5)",
-        "chassis": "MT-LB (6 tugirullikut külje kohta)",
+        "crew": "5",
+        "chassis": "MT-LB",
         "combatWeight": 12.6,
         "length": 7.62,
         "width": 2.86,
@@ -2582,8 +2577,7 @@ window.TTA_DATA = {
         "armor": "Kere 15mm"
       },
       "notes": {
-        "chassis": "Pikendatud BMD-1 šassii (BTR-D), sama mis 2S9 „Nona-S“ kandjal – juhtimismasin liigub dessandiga kaasas. ODIN/WEG märgib šassiiks BMD-1.",
-        "specialEquipment": "Masinat nimetatakse ka „1V119 Spektr“."
+        "chassis": "Pikendatud BMD-1 šassii (BTR-D).
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 1V119", "url": "https://odin.t2com.army.mil/WEG/Asset/ecd7ac12bd7b5f88de0735878b6be95d", "retrieved": "2026-10-28"},
@@ -6092,7 +6086,7 @@ window.TTA_DATA = {
         "mainArmament": "73 mm 2A28 Grom madalrõhu sileraudkahur (40 lasku)",
         "secondaryArmament": "7,62 mm PK (2000 padrunit); suitsugraanaadiheitjad (hilisematel 6 × 81 mm Tucha)",
         "atgm": "1 × 9M14 Malyutka (AT-3 Sagger)",
-        "armor": "Kere 19 mm; torn 23 mm eest, 19 mm külgedelt, 13 mm tagant, 6 mm katus; lisasoomus ja reaktiivsoomus võimalik; automaatne ületõukekaitse (NBC)",
+        "armor": "Kere 19 mm; torn 23 mm eest, 19 mm külgedelt, 13 mm tagant, 6 mm katus; lisasoomus ja reaktiivsoomus võimalik.",
         "sensors": "PSNR-5K luureradar (kuni 10 km), 1RL133-1 radar, 1D8 laserkaugusmõõtja, ERRS-1 raadiosuunaleidja, TNA-4 navigatsioon, 1PN22M/M2 sihik (valikuline Alis või Sanoet termokaamera)"
       },
       "sources": [
@@ -6158,7 +6152,7 @@ window.TTA_DATA = {
         "trench": 2,
         "mainArmament": "1 × 14,5 mm KPVT (500 padrunit)",
         "secondaryArmament": "1 × 7,62 mm PKT (2500 padrunit); 6 × 81 mm suitsugraanaadiheitjat",
-        "armor": "Kere esiosa peab vastu 12,7 mm kuulidele; igakülgne kaitse 7,62 mm kuulide ja kildude vastu; kollektiivne NBC-kaitse",
+        "armor": "Kere esiosa peab vastu 12,7 mm kuulidele; teistel külgedel kaitse 7,62 mm kuulide ja kildude vastu; TBK-kaitse",
         "specialEquipment": "Doosikiiruse mõõturid IMD-21B ja DP-5V, gaasidetektor GSA-13, gaasituvasti PGO-11, proovivõtukomplekt KPO-1, meteokomplekt MK-3M; raadiod R-173 ja R-163; luuresõidu kiirus radioloogilisel 30 km/h, keemilisel 10 km/h"
       },
       "sources": [
@@ -6191,7 +6185,7 @@ window.TTA_DATA = {
         "trench": 2,
         "mainArmament": "1 × 14,5 mm KPVT (500 padrunit)",
         "secondaryArmament": "1 × 7,62 mm PKT (2500 padrunit); 6 × 81 mm suitsugraanaadiheitjat",
-        "armor": "Kere esiosa peab vastu 12,7 mm kuulidele; igakülgne kaitse 7,62 mm kuulide ja kildude vastu; tugevdatud katus ja miiniohutu põhi; kollektiivne NBC-kaitse",
+        "armor": "Kere esiosa peab vastu 12,7 mm kuulidele; igakülgne kaitse 7,62 mm kuulide ja kildude vastu; tugevdatud katus ja miiniohutu põhi; TBK-kaitse",
         "sensors": "Termosihikud ülemal ja laskuril, päevasihik 1P3-6, infrapunaprožektor OU-3GA2M",
         "specialEquipment": "Keemiline detektor GSA-14, doosikiiruse mõõturid IMD-23 ja IMD-2NM, närvigaasi häireseadmed, aerosoolidetektor ASP-13, proovivõtjad KPO-1 ja APSO, meteokomplekt AMK; navigatsioon (GLONASS, inertsiaal); rehvirõhu reguleerimine"
       },
@@ -6326,7 +6320,7 @@ window.TTA_DATA = {
         "range": 500,
         "amphibious": true,
         "mainArmament": "1 × 7,62 mm PKT (2500 padrunit); torn ja 14,5 mm kuulipilduja eemaldatud",
-        "armor": "Keevitatud teras 5–9 mm; lisasoomust ei ole; kollektiivne NBC-kaitse",
+        "armor": "Keevitatud teras 5–9 mm; lisasoomust ei ole; TBK-kaitse",
         "radioSets": "2 × R-111/171, 1 × R-123/173, 1 × R-145, 1 × R-130M, maa–õhk raadiojaam R-8xx"
       },
       "sources": [
@@ -6357,7 +6351,7 @@ window.TTA_DATA = {
         "trench": 2,
         "mainArmament": "1 × 14,5 mm KPVT (500 padrunit)",
         "secondaryArmament": "1 × 7,62 mm PKT (2500 padrunit); 6 × 81 mm suitsugraanaadiheitjat",
-        "armor": "Kere esiosa peab vastu 12,7 mm kuulidele; igakülgne kaitse 7,62 mm kuulide ja kildude vastu; torn peab vastu 12,7 mm kuulidele; kollektiivne NBC-kaitse",
+        "armor": "Kere esiosa peab vastu 12,7 mm kuulidele; igakülgne kaitse 7,62 mm kuulide ja kildude vastu; torn peab vastu 12,7 mm kuulidele; TBK-kaitse",
         "radioSets": "3 × R-168-0.1UM, 1 × R-168-5UN-1, 2 × R-168-25U-2, 2 × R-168-100U-2, 1 × R-168-100KA (KV); kaasaskantav satelliitsidejaam R-438M Belozer",
         "commsRange": "R-168-25U-2 25–40km, R-168-100U-2 25–60km, R-168-100KA (KV) 25–360km; satelliitside 5000km"
       },
@@ -6397,7 +6391,7 @@ window.TTA_DATA = {
         "power": 260,
         "maxSpeedRoad": 100,
         "range": 1000,
-        "specialEquipment": "NBC-kaitse; külmkäivitusseade (kuni −50 °C); rehvirõhu keskreguleerimine",
+        "specialEquipment": "TBK-kaitse; külmkäivitusseade (kuni −50 °C); rehvirõhu keskreguleerimine",
         "radioSets": "2 × R-168-100U-2 (UKV), 2 × R-168-5KV (KV), 1 × R-168-5UN-2 (kaasaskantav UKV), 1 × R-168-MRA (UHF), 1 × R-612-18 (VHF/UHF, lennuliini sagedus)"
       },
       "sources": [
@@ -6450,7 +6444,7 @@ window.TTA_DATA = {
         "range": 500,
         "amphibious": true,
         "mainArmament": "Relvastus puudub (BTR-60PB torn alles, kuulipilduja eemaldatud)",
-        "specialEquipment": "GPS/GLONASS; öönägemisseadmed; NBC-kaitse",
+        "specialEquipment": "GPS/GLONASS; öönägemisseadmed; TBK-kaitse",
         "radioSets": "R-168-100KA, R-168-25U ja R-168-100U (kaks igat)",
         "powerSupply": "Generaator T-290V; avariitoide 12ST-85RM"
       },
@@ -8388,7 +8382,7 @@ window.TTA_DATA = {
         "cannonRangeSoft": 4000,
         "mgRange": 1500,
         "sensors": "Mitmekanaliline laskuri sihik (termokaamera, laserkaugusmõõtja, JTTR-juhtimiskanal), relvastuse stabilisaator ja ballistikaarvuti; avastus 5000m päeval, 3000m öösel; ülema sihik 1PZ-13",
-        "armor": "BMP-2 kere + lisasoomus: peab vastu 12,7mm B-32 kuulidele ja kumulatiivrakettidele (tootja andmed); NBC-kaitse"
+        "armor": "BMP-2 kere + lisasoomus: peab vastu 12,7mm B-32 kuulidele ja kumulatiivrakettidele (tootja andmed); TBK-kaitse"
       },
       "notes": {
         "mainArmament": "GlobalSecurity nimetab 2A72; Berežoki moodulil on standardselt 2A42."
@@ -8681,7 +8675,7 @@ window.TTA_DATA = {
         "maxSpeedRoad": 100,
         "range": 1000,
         "mainArmament": "Kaugjuhitav relvamoodul (näidisel Kalashnikov MBDU)",
-        "armor": "STANAG 4569 tase III (7,62×54mm B-32 soomustläbistav), suurendatav; täiskeevitatud kere, NBC-filterventilatsioon"
+        "armor": "STANAG 4569 tase III (7,62×54mm B-32 soomustläbistav), suurendatav; täiskeevitatud kere, TBK-filterventilatsioon"
       },
       "notes": {
         "combatWeight": "Täismass. Teine allikas: 14,5t.",
