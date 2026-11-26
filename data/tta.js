@@ -1561,7 +1561,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Jalaväeüksus",
-        "purpose": "82 mm automaatmiinipilduja rataslafetil.",
+        "purpose": "82 mm järelveetav automaatmiinipilduja.",
         "crew": "6",
         "weightKg": 645,
         "length": 4.115,
@@ -1977,12 +1977,12 @@ window.TTA_DATA = {
         "typicalUnit": "Pioneeribrigaad",
         "purpose": "Roomikmiinilaotur tankitõrjemiinide paigaldamiseks maapinnale või maasse.",
         "crew": "3 (ülem, juht-mehaanik, miinipaigaldaja)",
-        "chassis": "Roomikšassii, 2K11 Krug (SA-4 Ganef) baasil",
+        "chassis": "2K11 Krug (SA-4 Ganef)",
         "combatWeight": 28.5,
         "length": 8.62,
         "width": 3.25,
         "height": 2.7,
-        "engine": "KaMAZ-7482 vesijahutusega diisel",
+        "engine": "KamAZ-7482 vesijahutusega diisel",
         "power": 525,
         "maxSpeedRoad": 60,
         "maxSpeedOffroad": 25,
@@ -2015,7 +2015,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Kaugmineerimisseade, mis heidab miinivälja miinikassettidest.",
         "crew": "2",
-        "chassis": "ZIL-131 6×6 veoauto (UMZ-K: KamAZ-63501; UMZ-G: T-72/T-90 tanki šassii)",
+        "chassis": "ZIL-131 6×6 (UMZ-K: KamAZ-63501; UMZ-G: T-72/T-90)",
         "combatWeight": 10,
         "length": 7.1,
         "width": 3,
@@ -2032,7 +2032,7 @@ window.TTA_DATA = {
       },
       "notes": {
         "combatWeight": "Miinilastiga; ilma miinideta 8,3 t.",
-        "mineLaying": "Paigalduskiirus 10–40 km/h. Miinivälja pikkus 1000–1200 m, sügavus 30–120 m. Ühe laadungiga miinivälja max pikkus: PFM-1S 3200 m, POM-2 5000 m, PTM-3 600 m. Kasutab samu miinikassette mis PKM."
+        "mineLaying": "Paigalduskiirus 10–40 km/h. Miinivälja pikkus 1000–1200 m, sügavus 30–120 m. Ühe laadungiga miinivälja suurim pikkus: PFM-1S 3200 m, POM-2 5000 m, PTM-3 600 m."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: UMZ", "url": "https://odin.t2com.army.mil/WEG/Asset/5a51749ebc13bfc7090c2a7d8a6fd4c8", "retrieved": "2026-10-08"}
@@ -2044,7 +2044,7 @@ window.TTA_DATA = {
         "typicalUnit": "Pioneerirood",
         "purpose": "Demineerimissoomuk, mis rajab reaktiivsete miinitõrjelaengutega koridori läbi miinivälja.",
         "crew": "2",
-        "chassis": "MT-LBu (muudetud)",
+        "chassis": "Modifitseeritud MT-LBu",
         "combatWeight": 15.5,
         "length": 8.4,
         "width": 2.8,
@@ -2073,7 +2073,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Pioneeriluuresoomuk teede, miiniväljade ja veetõkete (koolmekohtade) luureks.",
         "crew": "6 (ülem, juht, 4 pioneeri)",
-        "chassis": "BMP-1",
+        "chassis": "Modifitseeritud BMP-1",
         "combatWeight": 18,
         "length": 8.3,
         "width": 3.15,
@@ -2094,7 +2094,7 @@ window.TTA_DATA = {
       },
       "notes": {
         "maxSpeedWater": "Kaks sõukruvi kere tagaosas.",
-        "mgRange": "Max laskekaugus 4000 m.",
+        "mgRange": "Maksimaalne laskekaugus 4000 m.",
         "specialEquipment": "Teeluure tavaliselt 8–10 km/h, miiniväljade luure 5 km/h; 100 m laiune veetakistus läbitakse 5 minutiga. Variant IPR: kokkuklapitav snorkel."
       },
       "sources": [
@@ -2136,14 +2136,14 @@ window.TTA_DATA = {
         "armor": "Kaitseb kergrelvade tule ja mürsukildude eest"
       },
       "notes": {
-        "combatWeight": "Andmed 2S6M järgi. Wikipedia (2S6M1): 35 t.",
+        "combatWeight": "Andmed kehtivad 2S6M kohta. 2S6M1: 35 t.",
         "height": "Radar üleval 4,02 m.",
-        "power": "Wikipedia: nimivõimsus 780 hj, selles sõidukis piiratud 710 hj-ga.",
+        "power": "Nimivõimsus 780 hj, selles sõidukis piiratud 710 hj-ga.",
         "samMissiles": "2S6M põhitootmisversioon; algsel 2S6-l 4 raketti. Laskmine liikumiselt kuni 45 km/h.",
         "rateOfFire": "Ühe kahuri kohta 1950–2500 lasku/min.",
         "sensors": "Süsteemi reageerimisaeg umbes 8 s.",
         "samRange": "9M311M / 2S6M1. Algne 9M311: kuni 8 km.",
-        "samAltitude": "Wikipedia (9M311-M1): 15–3500 m.",
+        "samAltitude": "9M311-M1: 15–3500 m.",
         "cannonRangeAir": "Kaldkaugus; min umbes 200 m."
       },
       "sources": [
@@ -2183,12 +2183,12 @@ window.TTA_DATA = {
         "armor": "Kaitseb kergrelvade tule ja mürsukildude eest"
       },
       "notes": {
-        "combatWeight": "Wikipedia (Strela-10M3): 12,3 t.",
-        "length": "Wikipedia: 6,6 m.",
+        "combatWeight": "Strela-10M3: 12,3 t.",
+        "length": "Teistel andmetel 6,6 m.",
         "height": "Lahinguasendis 3,96 m.",
         "maxSpeedWater": "5–6 km/h, liigub vees roomikute abil.",
         "samMissiles": "Uuestilaadimine umbes 3 min. Strela-10M3 rakett 9M333: 5 kg lõhkepea, sobib ka droonide ja tiibrakettide vastu.",
-        "secondaryArmament": "Wikipedia: PKMB kuulipilduja.",
+        "secondaryArmament": "Teistel andmetel PKMB kuulipilduja.",
         "samAltitude": "9M333: alates 10 m."
       },
       "sources": [
@@ -2204,7 +2204,7 @@ window.TTA_DATA = {
         "typicalUnit": "Liikursuurtükipataljoni tulejuhtimisrühm; Brigaadi suurtükiväe tulejuhtimispatarei",
         "purpose": "Suurtükiväe luure- ja tulejuhtimissoomuk, mis määrab sihtmärkide koordinaadid.",
         "crew": "4",
-        "chassis": "BMP-1 šassii",
+        "chassis": "BMP-1",
         "combatWeight": 13.8,
         "length": 6.74,
         "width": 2.94,
@@ -2226,7 +2226,7 @@ window.TTA_DATA = {
         "armor": "Keevitatud valtsitud teras (kere katus 6 mm), torn 33 mm; lisasoomus saadaval"
       },
       "notes": {
-        "combatWeight": "Andmed PRP-4A Argus (2009) järgi; baasmudel PRP-4 Nard on 1980. aastate algusest.",
+        "combatWeight": "Andmed kehtivad PRP-4A Arguse (2009) kohta; põhiversioon PRP-4 Nard on 1980. aastate algusest.",
         "sensors": "Seisva tanki avastuskaugus väljalülitatud mootoriga väheneb umbes 2 km-ni."
       },
       "sources": [
@@ -2258,7 +2258,7 @@ window.TTA_DATA = {
       "notes": {
         "chassis": "Komplekti kuuluvad ka hooldusauto 1L30 (Ural-43203) ja generaatorihaagis. Radarit toidab põhimootori võimsusvõtt (30 kW). 1L260 Zoopark-1M teenistuses alates 2017.",
         "power": "Uuematel KamAZ-740.50, 360 hj.",
-        "secondaryArmament": "ODIN/WEG: enamikul MT-LB variantidel."
+        "secondaryArmament": "Enamikul MT-LB variantidel."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 1L219 Zoopark-1", "url": "https://odin.t2com.army.mil/WEG/Asset/100a6d9e7cd19b088a28e2ec49760597", "retrieved": "2026-10-08"},
@@ -2269,7 +2269,7 @@ window.TTA_DATA = {
     "9P149 Shturm-S": {
       "status": "unverified",
       "values": {
-        "purpose": "MT-LB baasil tankitõrjesoomuk (kasutusel alates 1979. aastast) tankitõrjekompleksiga Šturm.",
+        "purpose": "Tankitõrjesoomuk (kasutusel alates 1979. aastast) tankitõrjekompleksiga Šturm.",
         "crew": "2",
         "chassis": "MT-LB",
         "combatWeight": 11.9,
@@ -2286,14 +2286,14 @@ window.TTA_DATA = {
         "sideSlope": 30,
         "verticalStep": 0.61,
         "trench": 2.41,
-        "atgm": "9M114 Kokon (AT-6 Spiral) – üks sissetõmmatav kanderaam automaatlaaduriga; raadiokäsujuhtimine (SACLOS)",
-        "atgmPenetration": "560–600 mm RHA (kumulatiivne lõhkepea)",
+        "atgm": "9M114 Kokon (AT-6 Spiral) – üks sissetõmmatav kanderaam automaatlaaduriga; poolautomaatne raadiokäsujuhtimine",
+        "atgmPenetration": "560–600 mm (RHA), kumulatiivne lõhkepea",
         "sensors": "Optiline sihik laserkaugusmõõtjaga (päevane)",
         "atgmRange": {"min": 400, "max": 5000},
         "armor": "Keevitatud teras 7–14 mm"
       },
       "notes": {
-        "atgm": "Kanderaam sees olles sarnaneb MT-LB-ga; eristab väikese kuulipildujatorni asemel suur optiline sihik. Shturm-SM (2014): raketid 9M120 Ataka, päeva- ja öösihik.",
+        "atgm": "Shturm-SM (2014): raketid 9M120 Ataka, päeva- ja öösihik.",
         "atgmRange": "9M114M1: kuni 6 km, 9M114M2: kuni 7 km. Shturm-SM (9M120 Ataka): kuni 6 km."
       },
       "sources": [
@@ -2305,9 +2305,9 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Tankitõrjeraketipatarei",
-        "purpose": "BMP-3 baasil tankitõrjesoomuk tankitõrjekompleksiga Krizantema.",
+        "purpose": "Tankitõrjesoomuk tankitõrjekompleksiga Krizantema.",
         "crew": "2 (operaator, juht)",
-        "chassis": "BMP-3 šassii, tornita",
+        "chassis": "BMP-3, tornita",
         "combatWeight": 18.7,
         "length": 7.14,
         "width": 3.15,
@@ -2323,14 +2323,14 @@ window.TTA_DATA = {
         "verticalStep": 0.8,
         "trench": 2.5,
         "atgm": "9M123 Krizantema (AT-15) – 2 kanderaamil, kokku 15 raketti, revolvertüüpi automaatlaadur; kaksikjuhtimine: millimeeterlaine-radar või laserkiir",
-        "atgmPenetration": "Tandem-kumulatiivne: üle 1100 mm RHA aktiivsoomuse taga; ka termobaariline lõhkepea",
+        "atgmPenetration": "Tandem-kumulatiivne: üle 1100 mm (RHA, aktiivsoomuse taga); ka termobaariline lõhkepea",
         "sensors": "Sissetõmmatav millimeeterlaine-radar; optiline sihik laserjuhtimisega; laserkaugusmõõtja",
         "atgmRange": {"min": 400, "max": 6000},
         "armor": "Alumiiniumsulam + poltidega terasest lisasoomus; esiosa peab 30 mm mürsule vastu 200 m kauguselt"
       },
       "notes": {
         "atgm": "Kanderaamid laetakse automaatselt umbes 15 sekundiga. Rakett umbes 400 m/s; tabab ka madalal lendavaid sihtmärke (kuni 3000 m). 9P157-4 on patarei juhtimismasin (BMP-3 torn ilma relvata).",
-        "atgmPenetration": "Wikipedia: 1100–1250 mm."
+        "atgmPenetration": "Teistel andmetel 1100–1250 mm."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 9P157 Khrizantema-S", "url": "https://odin.t2com.army.mil/WEG/Asset/ecf8afb0fa6f4c6aa532e100cf191796", "retrieved": "2026-10-08"},
@@ -2344,9 +2344,9 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Tankitõrjepataljoni tankitõrjeraketipatarei",
-        "purpose": "BMP-3 baasil tankitõrjesoomuk tankitõrjekompleksiga Kornet; kasutusel motolaskurüksustes.",
+        "purpose": "Tankitõrjesoomuk tankitõrjekompleksiga Kornet.",
         "crew": "2 (juht, ülem-operaator)",
-        "chassis": "BMP-3 šassii, tornita",
+        "chassis": "BMP-3, tornita",
         "combatWeight": 14.1,
         "length": 6.73,
         "width": 3.15,
@@ -2363,14 +2363,14 @@ window.TTA_DATA = {
         "verticalStep": 0.8,
         "trench": 2.5,
         "atgm": "9M133 Kornet (AT-14 Spriggan) – 2 sissetõmmataval kanderaamil, kokku 16 raketti (12 automaatlaaduris + 4 keres); laserkiirjuhtimine; ka 9M133F fugassraketid",
-        "atgmPenetration": "1000–1200 mm RHA aktiivsoomuse taga (ilma 1200–1400 mm); betoon 3–3,5 m",
+        "atgmPenetration": "1000–1200 mm (RHA, aktiivsoomuse taga), ilma aktiivsoomuseta 1200–1400 mm; betoon 3–3,5 m",
         "atgmRange": {"min": 100, "max": 5500},
         "armor": "BMP-3 kere: alumiiniumsulam, esiosa komposiitsoomus peab 30 mm soomust läbistavale mürsule vastu; ümberringi 14,5 mm"
       },
       "notes": {
         "height": "Kanderaamid sees.",
         "atgm": "Kaks raketti saab lasta samale sihtmärgile alla sekundilise vahega (aktiivkaitse ülekoormamiseks) või kahele sihtmärgile korraga. Muud relvastust peale meeskonna isikurelvade pole.",
-        "atgmRange": "9M133M-2: 150–8000 m (Wikipedia)."
+        "atgmRange": "9M133M-2: 150–8000 m."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 9P162 Kornet-T", "url": "https://odin.t2com.army.mil/WEG/Asset/223bc869ffda3e31fc9dd6f14997d978", "retrieved": "2026-10-08"},
@@ -2384,7 +2384,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Suurtükiväe luure- ja vaatlussoomuk (kasutusel alates 1972. aastast): leiab vastase üksused ja suurtükiväe positsioonid ning annab sihtmärkide koordinaadid tulejuhtimiseks.",
         "crew": "5",
-        "chassis": "BMP-1 šassii",
+        "chassis": "BMP-1",
         "combatWeight": 13.8,
         "length": 6.74,
         "width": 2.94,
@@ -2402,7 +2402,7 @@ window.TTA_DATA = {
         "caliber": 7.62,
         "mainArmament": "7,62 mm kuulipilduja (ainult enesekaitseks)",
         "sensors": "Mastil maapealse seire radar IRL-123 (NATO „Small Fred“, J-sagedusala 10–20 GHz): liikuvate ja seisvate sihtmärkide avastuskaugus 20 km, jälgimiskaugus 7 km; laserkaugusmõõtja 1D6; soojuskaamerat ja arvutatud tulejuhtimist pole",
-        "specialEquipment": "Raadiojaamad 2×R-123M, R-124 ja R-108 – jälgib mitut juhtimis- ja tulejuhtimisvõrku. Maha võetav vaatluspost kuni 6 km kaugusel sõidukist; TBK-kaitse ja suitsuseadmed",
+        "specialEquipment": "Raadiojaamad 2 × R-123M, R-124 ja R-108 – jälgib mitut juhtimis- ja tulejuhtimisvõrku. Maha võetav vaatluspost kuni 6 km kaugusel sõidukist; TBK-kaitse ja suitsuseadmed",
         "armor": "Keevitatud valtsitud teras (kere katus 6 mm): kaitseb igast küljest 12,7 mm kuulide eest, eesmine sektor osaliselt 20 mm eest; torn 33 mm; lisasoomus saadaval"
       },
       "notes": {},
@@ -2414,7 +2414,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Brigaadi suurtükiväe juhtimis- ja luurepatarei",
-        "purpose": "Lahinguvälja seireradar, mis avastab ja jälgib liikuvaid sihtmärke maal ja vees ning annab suurtükiväele andmeid tule korrigeerimiseks.",
+        "purpose": "Lahinguvälja seireradar (kasutusel alates 1975. aastast), mis avastab ja jälgib liikuvaid sihtmärke maal ja vees ning annab suurtükiväele andmeid tule korrigeerimiseks.",
         "crew": "5",
         "chassis": "MT-LB",
         "combatWeight": 12.6,
@@ -2427,12 +2427,11 @@ window.TTA_DATA = {
         "range": 500,
         "caliber": 7.62,
         "mainArmament": "7,62 mm PKT kuulipilduja (enesekaitseks)",
-        "sensors": "Radar 1RL232 „Leopard“ (NATO „Big Fred“), K-sagedusala 34,55–35,25 GHz, parabool-antenn. Algversioon: liikuvad sõidukid 16 km (ilma MTI-ta) / 10 km (MTI-ga), liikuvad laevad 30 km, mürsu löögikohad 10 km. SNAR-10M1: sõidukid 40 km, isikkoosseis 8–10 km, miinipilduja tuli 10 km, suurtükitule 15 km; jälgib korraga kuni 20 sihtmärki",
-        "specialEquipment": "Positsioonile asumine ja kokkupakkimine 5min; autonoomne töö vähemalt 3 ööpäeva (M1). TBK-kaitse; M1 variandil digitaalne töötlus ja kuvar, satelliitnavigatsioon ja automaatne andmeedastus"
+        "sensors": "Radar 1RL232 „Leopard“ (NATO „Big Fred“), K-sagedusala 34,55–35,25 GHz, parabool-antenn. Algversioon: liikuvad sõidukid 16 km (ilma MTI-ta) / 10 km (MTI-ga), liikuvad laevad 30 km, mürsu löögikohad 10 km. SNAR-10M1: sõidukid 40 km, isikkoosseis 8–10 km, miinipilduja tuli 10 km, suurtükituli 15 km; jälgib korraga kuni 20 sihtmärki",
+        "specialEquipment": "Positsioonile asumine ja kokkupakkimine 5 min; autonoomne töö vähemalt 3 ööpäeva (M1). TBK-kaitse; M1 variandil digitaalne töötlus ja kuvar, satelliitnavigatsioon ja automaatne andmeedastus"
       },
       "notes": {
-        "chassis": "Radar asub MT-LB tüüpi šassiil (SNAR-10 võeti kasutusele 1975).",
-        "sensors": "SNAR-10M (1RL232-1): radar asendatud Kredo-1E-ga, 40 km sõidukitele, lisaks digitaalne kuvar ja side. SNAR-10M1 (1RL232-2): laiemalt kasutusel. Wikipedia loetleb Venemaa maaväe varustuses M1 varianti nime all „SANR-10M Pantera“ (tootmises)."
+        "sensors": "SNAR-10M (1RL232-1): radar asendatud Kredo-1E-ga, 40 km sõidukitele, lisaks digitaalne kuvar ja side. SNAR-10M1 (1RL232-2): laiemalt kasutusel. M1 variant on Venemaa maaväes kasutusel nime all „SANR-10M Pantera“ (tootmises)."
       },
       "sources": [
         {"name": "Wikipedia: MT-LB", "url": "https://en.wikipedia.org/wiki/MT-LB", "retrieved": "2026-10-23"},
@@ -2444,8 +2443,8 @@ window.TTA_DATA = {
     "1V13": {
       "status": "unverified",
       "values": {
-        "purpose": "Patarei vanemohvitseri juhtimissoomuk (patarei tulejuhtimiskeskus), millega juhitakse patarei tuld.",
-        "crew": "6 (allika tekstis 5: ülem, operaator-arvutaja, vanemraadist, raadist, mehaanik-juht)",
+        "purpose": "Patarei vanemohvitseri juhtimissoomuk (patarei tulejuhtimiskeskus).",
+        "crew": "6 (teistel andmetel 5: ülem, operaator-arvutaja, vanemradist, radist, juht-mehaanik)",
         "chassis": "MT-LBu",
         "combatWeight": 15.7,
         "length": 7.19,
@@ -2463,13 +2462,13 @@ window.TTA_DATA = {
         "trench": 2.7,
         "caliber": 7.62,
         "mainArmament": "Põhirelvastust pole",
-        "secondaryArmament": "7,62 mm PKMB kuulipilduja ja RPG-7VN (5 lasku); varasemates versioonides DShK-M, hilisemates NSVT",
+        "secondaryArmament": "7,62 mm PKMB kuulipilduja ja RPG-7VN (5 lasku); varasematel versioonidel DŠK-M, hilisematel NSVT",
         "sensors": "Suurtükiväe kompassi- ja kaugusmõõteseadmed: topograafiline instrument 1G-121-1, güroskoop 1G-25-1, kaugusmõõtja DSP-30, vaatlusseade PV-1, suunaring PAB-2AM",
         "specialEquipment": "Laskeandmete arvuti PUO-9M, automaatne käsuvastuvõtja 9Sh34, välitelefonid, kaabliratas (3×500 m), kiirgus- ja keemialuureseade GO-27, miiniindikaator IMP, generaator GIV-8/6000; filter-ventilatsioon, kütte- ja saastest puhastamise seadmed",
         "radioSets": "3 × R-123M"
       },
       "notes": {
-        "gradient": "Allika 30° ≈ 58%; külgkalle 25° ≈ 47%.",
+        "gradient": "30° ≈ 58%; külgkalle 25° ≈ 47%.",
         "power": "220 kW (295 hj)."
       },
       "sources": [
@@ -2502,12 +2501,12 @@ window.TTA_DATA = {
         "mainArmament": "Põhirelvastust pole",
         "secondaryArmament": "7,62 mm PKMB kuulipilduja ja RPG-7VN (5 lasku)",
         "sensors": "Laserkaugusmõõtja 1D8, kombineeritud vaatlusseade 1PN44, stereokaugusmõõtja DS-1, tankivaatlusseadmed TNPO-170, koordinaatide teisendi 1T804, kaugusmõõtja DSP-30, güroskoop 1G-25-1, topograafiline instrument 1G-121-1, suunaring PAB-2AM",
-        "specialEquipment": "Laskeandmete arvuti PUO-9M; välitelefonikeskjaam P-19M, 2×TA-57, kaabliratas; kiirgus- ja keemialuureseade GO-27; generaator GIV-8/6000; filter-ventilatsioon, kütte- ja saastest puhastamise seadmed",
+        "specialEquipment": "Laskeandmete arvuti PUO-9M; välitelefonikeskjaam P-19M, 2 × TA-57, kaabliratas; kiirgus- ja keemialuureseade GO-27; generaator GIV-8/6000; filter-ventilatsioon, kütte- ja saastest puhastamise seadmed",
         "radioSets": "2 × R-123(M), R-111, R-130M (teleskoopmast), R-107"
       },
       "notes": {
-        "chassis": "Sarnane 1V14-le (patarei ülema ja tulejuhi masin), kuid pikk antennimast raadiojaamale R-130M ja üks R-123M asendatud R-111-ga. Mõõtmed ja kiirus on MT-LBu omad.",
-        "gradient": "Allika 30° ≈ 58%; külgkalle 25° ≈ 47%."
+        "chassis": "Mõõtmed ja kiirus on MT-LBu omad.",
+        "gradient": "30° ≈ 58%; külgkalle 25° ≈ 47%."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 1V15", "url": "https://odin.t2com.army.mil/WEG/Asset/fef5ab0fc4918cdf790ac08b8bfc65e7", "retrieved": "2026-10-28"},
@@ -2520,12 +2519,12 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Järelveetavate suurtükkide ja raketiheitjate patarei ülema juhtimis- ja vaatlussoomuk: luure, sihtmärkide koordinaatide määramine ja tule juhtimine.",
         "crew": "6",
-        "chassis": "BTR-60PB (8x8 ratassoomuk)",
+        "chassis": "BTR-60PB",
         "combatWeight": 10.1,
         "length": 7.22,
         "width": 2.82,
         "height": 2.06,
-        "engine": "2×GAZ-49B bensiinimootor (2×90 hj)",
+        "engine": "2 × GAZ-49B bensiinimootor",
         "power": 180,
         "maxSpeedRoad": 80,
         "maxSpeedOffroad": 60,
@@ -2552,7 +2551,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Õhudessantvägede suurtüki- ja miinipildujaüksus; Merejalaväe suurtüki- ja miinipildujaüksus",
-        "purpose": "Dessandi suurtükiväe juhtimis- ja luuremasin 2S9 „Nona-S“ jaoks: määrab sihtmärkide koordinaadid, arvutab laskeandmed ja juhib 2S9 tuld.",
+        "purpose": "Õhudessantvägede suurtükiväe juhtimis- ja luuremasin 2S9 „Nona-S“ jaoks: määrab sihtmärkide koordinaadid, arvutab laskeandmed ja juhib 2S9 tuld.",
         "crew": "6",
         "chassis": "BTR-D",
         "combatWeight": 6.7,
@@ -2568,11 +2567,10 @@ window.TTA_DATA = {
         "amphibious": true,
         "airDroppable": true,
         "sensors": "Laserkaugusmõõtja 1D15, kaugusmõõtja DSP-30, päeva-/öövaatlus 1PN44, stereokaugusmõõtja DS-1, suunaring PAB-2AM, navigatsioonisüsteem 1T121-M",
-        "specialEquipment": "Raadiod 3×R-123M ja R-107M; TBK-kaitse. Seadmestik sarnane 1V14-ga",
+        "specialEquipment": "Raadiod 3 × R-123M ja R-107M; TBK-kaitse",
         "armor": "Kere 15 mm"
       },
       "notes": {
-        "chassis": "BTR-D on pikendatud BMD-1."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 1V119", "url": "https://odin.t2com.army.mil/WEG/Asset/ecd7ac12bd7b5f88de0735878b6be95d", "retrieved": "2026-10-28"},
@@ -2596,12 +2594,11 @@ window.TTA_DATA = {
         "maxSpeedOffroad": 30,
         "range": 500,
         "sensors": "3D monopulssradar 1RL239 „Lynx“ (lainepikkus 5 cm, H-sagedusala 6–8 GHz): miinipildujad 13 km, suurtükid 8 km, reaktiivmürsud 25 km, taktikalised raketid 30 km; jälgib kuni 3 sihtmärki minutis",
-        "specialEquipment": "Täisautonoomne – oma navigatsiooni-, orientatsiooni-, topo- ja sidesüsteemid. Positsioonile asumine ja kokkupakkimine 5min; TBK-kaitse",
+        "specialEquipment": "Täisautonoomne – oma navigatsiooni-, orientatsiooni-, topo- ja sidesüsteemid. Positsioonile asumine ja kokkupakkimine 5 min; TBK-kaitse",
         "armor": "Kere 15 mm, torn eest 20 mm"
       },
       "notes": {
-        "chassis": "Radari kaks kiirgurit ja vastuvõtuantennid on kere peal, ülejäänud seadmed kere sees.",
-        "sensors": "Selle sõiduki järeltulija on 1L219 Zoopark-1 (ZOOPARK-1)."
+        "chassis": "Radari kaks kiirgurit ja vastuvõtuantennid on kere peal, ülejäänud seadmed kere sees."
       },
       "sources": [
         {"name": "Militarnyi: Russian ARK-1 Rys’ radar neutralized in the Kherson region", "url": "https://militarnyi.com/en/news/russian-ark-1-rys-radar-neutralized-in-the-kherson-region/", "retrieved": "2026-10-23"}
@@ -2611,9 +2608,9 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Suurtükipataljon; Suurtükipatarei",
-        "purpose": "Kapustnik-B automatiseeritud tulejuhtimissüsteemi juhtimis- ja vaatlussoomuk; variandid tulejuhile (FIST) ja tuletegevuskeskusele (FDC).",
+        "purpose": "Kapustnik-B automatiseeritud tulejuhtimissüsteemi juhtimis- ja vaatlussoomuk; variandid tulejuhile ja tulejuhtimiskeskusele.",
         "crew": "3 (kokku kuni 7 inimest)",
-        "chassis": "BTR-80 (8x8 ratassoomuk)",
+        "chassis": "BTR-80",
         "combatWeight": 13.6,
         "length": 7.7,
         "width": 2.9,
@@ -2629,14 +2626,14 @@ window.TTA_DATA = {
         "sideSlope": 40,
         "verticalStep": 0.5,
         "trench": 2.0,
-        "mainArmament": "Põhirelvastust pole (FIST); FDC-variandil KPVT 14,5 mm raskekuulipilduja",
-        "secondaryArmament": "Suitsugranaadiheitjad: 4 tk torni kummalgi küljel",
+        "mainArmament": "Tulejuhi variandil põhirelvastust pole; tulejuhtimiskeskuse variandil 14,5 mm KPVT raskekuulipilduja",
+        "secondaryArmament": "Suitsugranaadiheitjad, 4 torni kummalgi küljel",
         "sensors": "Torni laserkaugusmõõtja, päeva- ja öövaatlusseadmed, käeshoitav laserkaugusmõõtja ja pimenägemisseade, inertsiaalnavigatsioon; täiustatud variandil IR-vaatlusseade (passiivne 1500 m, aktiivne 3000 m), soojuskaamera, laserindikaator; hilisemad variandid GLONASS",
-        "specialEquipment": "Määrab sihtmärgi koordinaadid, arvutab laskeandmed korraga kuni kahele sihtmärgile ja annab need relvadele (suurtükid, miinipildujad, raketiheitjad). Raadiod: 2 kaugraadiot VHF (andmeside), 1 HF, 1 keskmaa- ja 1 lähimaaraadio; 10 m teleskoopmast, 4 kW generaator, vints 4,5 t; kollektiivne TBK-kaitse",
+        "specialEquipment": "Määrab sihtmärgi koordinaadid, arvutab laskeandmed korraga kuni kahele sihtmärgile ja annab need relvadele (suurtükid, miinipildujad, raketiheitjad). Raadiod: 2 UKV-kaugraadiot (andmeside), 1 KV-raadio, 1 keskmaa- ja 1 lähimaaraadio; 10 m teleskoopmast, 4 kW generaator, vints 4,5 t; kollektiivne TBK-kaitse",
         "armor": "Kere eesosa kaitseb 12,7 mm, igast küljest 7,62 mm kuulide ja mürsukildude eest; kuulikindlad aknad, lisasoomus saadaval"
       },
       "notes": {
-        "chassis": "Kapustnik-B komplekti kuulub ka veoautol Ural-4320 põhinev 1V153. FIST (tulejuht) ja FDC (tuletegevuskeskus) on kaks varianti samal BTR-80 šassiil."
+        "chassis": "Kapustnik-B komplekti kuulub ka Ural-4320 veokil põhinev 1V153."
       },
       "sources": [
         {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-10-23"},
@@ -2649,7 +2646,7 @@ window.TTA_DATA = {
         "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Teepuhastus- ja pioneerisoomuk, mis rajab sõidukitele läbipääsu varemete, metsatõkete ja saastatud alade kaudu.",
         "crew": "2",
-        "chassis": "T-72 roomikšassii (IMR-2M1: T-72A); torni asemel pöörlev teleskoopkraana",
+        "chassis": "T-72 (IMR-2M1: T-72A)",
         "combatWeight": 44.3,
         "length": 9.55,
         "width": 4.35,
@@ -2663,13 +2660,13 @@ window.TTA_DATA = {
         "verticalStep": 0.8,
         "caliber": 12.7,
         "mainArmament": "12,7 mm NSVT kuulipilduja juhikabiini katusel (enesekaitseks)",
-        "specialEquipment": "Pöörlev teleskoopne mitmeotstarbeline kraana (haaratsiga, tõstevõime 2 t, ulatus 8,4 m); eesmine buldooserisae (V-kujuline või sirge, 200–250m³/h; üles tõstetav). Kivitõkete puhastamine 280–350 m/h, kraavide ja puutõkete 350–400m³/h. TBK-kaitse ja suitsuseadmed",
+        "specialEquipment": "Pöörlev teleskoopne mitmeotstarbeline kraana (haaratsiga, tõstevõime 2 t, ulatus 8,4 m); eesmine buldooserisae (V-kujuline või sirge, 200–250 m³/h; üles tõstetav). Kivitõkete puhastamine 280–350 m/h, kraavide ja puutõkete 350–400 m³/h. TBK-kaitse ja suitsuseadmed",
         "armor": "Kaitseb kergrelvade tule ja mürsukildude eest",
-        "emplacementTime": "Ca 6 min (sõidurežiimilt tööasendisse)"
+        "emplacementTime": "Umbes 6 min (sõidurežiimilt tööasendisse)"
       },
       "notes": {
         "chassis": "IMR-2M1 (1982) on lihtsustatud variant ilma miinitõrjeseadmeta; IMR-2M2 (1990) on mõeldud saastatud aladele (kopp haaratsi asemel); IMR-2MA: suurem operaatorikabiin ja 12,7 mm NSV; Klin-1: kaugjuhitav IMR-2.",
-        "maxSpeedRoad": "Wikipedia: 50 km/h; IMR-2M puhul on avaldatud ka 60 km/h."
+        "maxSpeedRoad": "Teistel andmetel 50 km/h; IMR-2M puhul on avaldatud ka 60 km/h."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: IMR-2", "url": "https://odin.t2com.army.mil/WEG/Asset/77349ebd70a8b979d06d4b83e429da8d", "retrieved": "2026-10-28"},
@@ -2681,9 +2678,9 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Pioneeribrigaadi pioneerirood",
         "productionStatus": {"status": ["new"], "asOf": 2026},
-        "purpose": "Uue põlvkonna teepuhastus- ja pioneerisoomuk T-90 baasil.",
+        "purpose": "Teepuhastus- ja pioneerisoomuk.",
         "crew": "2",
-        "chassis": "T-90A roomikšassii",
+        "chassis": "T-90A",
         "combatWeight": 49.5,
         "length": 9.32,
         "width": 3.5,
@@ -2700,12 +2697,12 @@ window.TTA_DATA = {
         "fording": 5,
         "caliber": 12.7,
         "mainArmament": "12,7 mm NSVT kuulipilduja kaugjuhitavas relvajaamas",
-        "mineClearing": "Rööbastee laiune minitraal KMT-R3 koos elektromagnetseadmega EMT (traalib varrasmiine ja magnetsüütega miine)",
-        "specialEquipment": "U-kujuline buldooserisae (200–250m³/h), teleskoopkraana (tõstevõime 2 t, pöördenurk 360°) kopaga, kiirgus- ja keemialuureseade, suitsugeneraator, automaatne tulekustutus. Võimalik kaugjuhtimine kantavalt pultilt või autonoomne töö programmeeritud marsruudil; TBK-kaitse",
+        "mineClearing": "Rööbastee laiune miinitraal KMT-R3 koos elektromagnetseadmega EMT (traalib varrasmiine ja magnetsüütega miine)",
+        "specialEquipment": "U-kujuline buldooserisae (200–250 m³/h), teleskoopkraana (tõstevõime 2 t, pöördenurk 360°) kopaga, kiirgus- ja keemialuureseade, suitsugeneraator, automaatne tulekustutus. Võimalik kaugjuhtimine kantavalt pultilt või autonoomne töö programmeeritud marsruudil; TBK-kaitse",
         "armor": "Kaitseb kergrelvade tule ja mürsukildude eest; lisasoomus saadaval"
       },
       "notes": {
-        "chassis": "IMR-3M (tootmine alates 2016/2018) kasutab T-90 šassiid; valmistatud Uralvagonzavodis.",
+        "chassis": "IMR-3M on T-90 šassiil.",
         "fording": "Läbib veetõkkeid kuni 5 m sügavuselt põhja mööda (ettevalmistusega); ettevalmistuseta 2,7 m."
       },
       "sources": [
@@ -2719,8 +2716,8 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Brigaadi pioneeripataljon",
         "purpose": "Raske roomikbuldooser teede ja läbipääsude rajamiseks, pinnasvallide ehitamiseks ja kraavide kaevamiseks.",
-        "crew": "2 (kabiinis) + kuni 6 pioneeri (allikas: 8 kohta kokku)",
-        "chassis": "MT-T raske roomikvedur",
+        "crew": "2 (kabiinis) + kuni 6 pioneeri (kokku 8 kohta)",
+        "chassis": "MT-T",
         "combatWeight": 39.7,
         "length": 9.64,
         "width": 4.2,
@@ -2731,8 +2728,8 @@ window.TTA_DATA = {
         "maxSpeedOffroad": 35,
         "range": 500,
         "mainArmament": "Relvastust pole",
-        "specialEquipment": "Eesmine buldooserisae (laius 4,5 m buldooserina, 4,2 m teepuhastajana; teede puhastamine 350–450m³/h, kraavi kaevamine 200–250m³/h; kallutatav 10°); hüdrokraana (ulatus 7,3 m, tõstevõime 2 t); hüdrovints (25 t, 100 m trossi); tagumine kobesti (sügavus 0,5 m). TBK-kaitse ülerõhuga",
-        "armor": "Keevitatud terask 14 mm"
+        "specialEquipment": "Eesmine buldooserisae (laius 4,5 m buldooserina, 4,2 m teepuhastajana; teede puhastamine 350–450 m³/h, kraavi kaevamine 200–250 m³/h; kallutatav 10°); hüdrokraana (ulatus 7,3 m, tõstevõime 2 t); hüdrovints (25 t, 100 m trossi); tagumine kobesti (sügavus 0,5 m). TBK-kaitse ülerõhuga",
+        "armor": "Keevitatud teras 14 mm"
       },
       "notes": {
         "chassis": "BAT-M on moderniseeritud teedeehituse variant.",
@@ -2748,7 +2745,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Sillatank kuni 18 m laiuse kraavi või veetõkke ületamiseks.",
         "crew": "2",
-        "chassis": "T-72 roomikšassii (T-72B/T-72M1 ümberehitus)",
+        "chassis": "T-72 (T-72B/T-72M1 ümberehitus)",
         "combatWeight": 40,
         "length": 11.64,
         "width": 3.46,
@@ -2764,11 +2761,11 @@ window.TTA_DATA = {
         "fording": 1.0,
         "caliber": 7.62,
         "mainArmament": "7,62 mm PKMB kuulipilduja katusel",
-        "specialEquipment": "Silla pikkus 20 m, laius 3,3 m, sõiduraja laius 1,0 m, kaal 6,4 t, kandevõime 50 t. Silla paigaldus 3min, äravõtmine 8min; hüdrauliline eesmine tugisae (ka buldooserina). TBK-kaitse ja termosuitsuseade",
-        "armor": "T-72 šassii soomuskere, torni asemel sillaseade"
+        "specialEquipment": "Silla pikkus 20 m, laius 3,3 m, sõiduraja laius 1,0 m, kaal 6,4 t, kandevõime 50 t. Silla paigaldus 3 min, äravõtmine 8 min; hüdrauliline eesmine tugisae (ka buldooserina). TBK-kaitse ja termosuitsuseade",
+        "armor": "T-72 soomuskere; torni asemel sillaseade"
       },
       "notes": {
-        "chassis": "Asendas MTU-20 ja MT-55 (T-55 šassii). Toodang lõppes 1990.",
+        "chassis": "Toodetud kuni 1990. aastani.",
         "fording": "Ettevalmistusega kuni 4,5 m."
       },
       "sources": [
@@ -2780,7 +2777,7 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Brigaadi pioneeripataljon",
         "purpose": "Ujuv roomiktransportöör raskete veokite, relvade, varustuse ja laskemoona veoks üle veetõkete.",
-        "chassis": "MT-T raske roomikšassii (T-64 komponendid)",
+        "chassis": "MT-T (T-64 komponentidega)",
         "length": 12,
         "width": 3.3,
         "height": 3.17,
@@ -2793,7 +2790,6 @@ window.TTA_DATA = {
         "specialEquipment": "Kandevõime 12 t; tagumine pealelaadimisramp. Lisavarustus: mitmeotstarbeline kopp, buldooserisae, veejoamootor, kliimaseade, radar ja navigatsioonisüsteem"
       },
       "notes": {
-        "chassis": "Eelkäijad: PTS (1965, T-55 šassii, 10 t, 350 hj) ja PTS-M (1969). PTS-2 on PTS-4 eelkäija.",
         "specialEquipment": "PTS-2 ja PTS-M on ühtlasi kasutusel UR-83P miinitõrjelaengu veopaatidena."
       },
       "sources": [
@@ -2804,8 +2800,8 @@ window.TTA_DATA = {
     "PTS-4": {
       "status": "unverified",
       "values": {
-        "purpose": "Ujuv roomiktransportöör raskete koormate veoks üle veetõkete, PTS-2 järglane.",
-        "chassis": "T-80 šassii ja vedrustus",
+        "purpose": "Ujuv roomiktransportöör (toodetud alates 2014. aastast) raskete koormate veoks üle veetõkete.",
+        "chassis": "T-80",
         "combatWeight": 33,
         "length": 8.3,
         "width": 3.3,
@@ -2822,7 +2818,7 @@ window.TTA_DATA = {
         "trench": 2.5,
         "caliber": 12.7,
         "mainArmament": "12,7 mm kuulipilduja kaugjuhitavas relvajaamas",
-        "specialEquipment": "Kandevõime 12 t maismaal ja 18 t vees; täielikult suletud kabiin; suuremad sõukruvid. Katsetatud 2011, tootmisse 2014",
+        "specialEquipment": "Kandevõime 12 t maismaal ja 18 t vees; täielikult suletud kabiin; suuremad sõukruvid",
         "armor": "Suletud kabiin kaitseb kergrelvade tule ja mürsukildude eest"
       },
       "notes": {
@@ -2837,9 +2833,9 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Tankibrigaad",
-        "purpose": "Sillatank („Gusenitsa-1“): paigaldab ühe silla kraavi, kanali või väikese jõe ületamiseks; koos TMM-6-ga ehitab mitmest osast koosneva silla.",
+        "purpose": "Sillatank, mis paigaldab silla kraavi, kanali või väikese jõe ületamiseks; koos TMM-6-ga ehitab mitmest osast koosneva silla.",
         "crew": "2",
-        "chassis": "T-90S roomikšassii",
+        "chassis": "T-90S",
         "combatWeight": 45.5,
         "length": 9.6,
         "width": 3.52,
@@ -2854,7 +2850,7 @@ window.TTA_DATA = {
         "trench": 2.8,
         "fording": 1.2,
         "mainArmament": "Relvastust pole",
-        "specialEquipment": "Silla ulatus 24 m (kokku 25 m), sõiduraja laius 3,55 m, kaal 8,6 t, kandevõime 50 t; paigaldus ca 2,5min, silla saab paigaldada kabiinist. Võimeline end sisse kaevama. TBK-kaitse ja suitsuseade"
+        "specialEquipment": "Silla ulatus 24 m (kokku 25 m), sõiduraja laius 3,55 m, kaal 8,6 t, kandevõime 50 t; paigaldus umbes 2,5 min, silla saab paigaldada kabiinist. Võimeline end sisse kaevama. TBK-kaitse ja suitsuseade"
       },
       "notes": {
         "chassis": "Variant MTU-90M: silla ulatus 19 m, kandevõime 60 t, kasutusele 2013–2017."
@@ -2869,7 +2865,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Sillatank kraavide ja veetõkete ületamiseks.",
         "crew": "2",
-        "chassis": "T-55A roomikšassii",
+        "chassis": "T-55A",
         "combatWeight": 36,
         "length": 9.88,
         "width": 3.3,
@@ -2884,7 +2880,7 @@ window.TTA_DATA = {
         "specialEquipment": "Sild 18 m, kandevõime kuni 50 t"
       },
       "notes": {
-        "chassis": "MT-55 oli seeriaeelne mudel (sild MT-34); MT-55A on seeriaversioon. Asendati MTU-72-ga."
+        "chassis": "MT-55 oli seeriaeelne mudel (sild MT-34); MT-55A on seeriaversioon."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: MT-55A", "url": "https://odin.t2com.army.mil/WEG/Asset/0cb3922a45a98414dcb4ecfd04445e2a", "retrieved": "2026-10-28"},
@@ -2896,7 +2892,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Sillatank (toodetud 1963–1977) kuni 18 m laiuste kraavide ületamiseks.",
         "crew": "2",
-        "chassis": "T-55A roomikšassii",
+        "chassis": "T-55A",
         "combatWeight": 37,
         "length": 11.64,
         "width": 3.3,
@@ -2910,10 +2906,9 @@ window.TTA_DATA = {
         "verticalStep": 0.8,
         "trench": 2.7,
         "fording": 1.4,
-        "specialEquipment": "Silla pikkus 20 m, laius 3,3 m, kaal 7 t, kandevõime 50 t (üks allikas: 60 t); paigaldus 5min, äravõtmine 10min"
+        "specialEquipment": "Silla pikkus 20 m, laius 3,3 m, kaal 7 t, kandevõime 50 t (teistel andmetel 60 t); paigaldus 5 min, äravõtmine 10 min"
       },
       "notes": {
-        "chassis": "Võeti Nõukogude armees kasutusele 1960ndate lõpus; asendati MTU-72-ga."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: MTU-20", "url": "https://odin.t2com.army.mil/WEG/Asset/59d9d1b2924ba8b7d43f2f78cc521f20", "retrieved": "2026-10-28"},
@@ -2926,13 +2921,12 @@ window.TTA_DATA = {
         "purpose": "Kantav reaktiivne miinitõrjeseade koridori rajamiseks läbi miinivälja.",
         "crew": "2 (laskmine); kokkupanek 6 inimest",
         "weightKg": 1810,
-        "mineClearing": "Reaktiivne miinitõrjelaeng UZP-83 (UZP-77 modifikatsioon): laengu pikkus 120 m, ca 1380 kg lõhkeainet PVV-4 (11,5 kg/m); kaks raketimootorit DM-70; lastakse 100–440 m kaugusele; puhastab vähemalt 6 m (tankitõrjemiiniväljas) või 12 m (jalaväemiiniväljas) laiuse koridori",
-        "specialEquipment": "Laskerakis, ankur, pidurdustross ja mehaaniline süütur VR-04 (plahvatus 60–120s pärast pidurdamist). Tulepositsioon maapinnal, kaevikus, auto-/haagisekastis, ujuval PTS-M/PTS-2 kandjal või laevatekil. Komplekti mõõtmed lahinguasendis 1,5×1,5×2,6 m",
+        "mineClearing": "Reaktiivne miinitõrjelaeng UZP-83 (UZP-77 modifikatsioon): laengu pikkus 120 m, umbes 1380 kg lõhkeainet PVV-4 (11,5 kg/m); kaks raketimootorit DM-70; lastakse 100–440 m kaugusele; puhastab vähemalt 6 m (tankitõrjemiiniväljas) või 12 m (jalaväemiiniväljas) laiuse koridori",
+        "specialEquipment": "Laskerakis, ankur, pidurdustross ja mehaaniline süütur VR-04 (plahvatus 60–120 s pärast pidurdamist). Tulepositsioon maapinnal, kaevikus, auto-/haagisekastis, ujuval PTS-M/PTS-2 kandjal või laevatekil. Komplekti mõõtmed lahinguasendis 1,5×1,5×2,6 m",
         "emplacementTime": "90 min (kokkupanek)"
       },
       "notes": {
-        "specialEquipment": "Transporditakse osadeks võetuna, 2 komplekti ühel maastikuveokil (ZIL-131, Ural-4320, KamAZ-53105).",
-        "mineClearing": "Võrdlus: USA M58 MICLIC (106 m laeng, ca 8 m laiune ja 100 m pikk koridor)."
+        "specialEquipment": "Transporditakse osadeks võetuna, 2 komplekti ühel maastikuveokil (ZIL-131, Ural-4320, KamAZ-53105)."
       },
       "sources": [
         {"name": "Fenix Insight: UR-83P", "url": "https://metis.fenixinsight.com/munition/demolitionStore/ur-83p", "retrieved": "2026-10-23"}
@@ -2947,7 +2941,7 @@ window.TTA_DATA = {
         "weightKg": 34,
         "mineClearing": "Miinitõrjelaeng DKR-150 (pikkus 60 m) raketimootoriga D-ZRP-2M; lastakse kuni 160 m kaugusele; puhastab 0,4 m laiuse ja 54–60 m pikkuse läbipääsu jalaväemiiniväljas",
         "specialEquipment": "Laeng, raketimootor, ühendustross, süütur, pidurdustross, käivitusseade, ankrud ja kandekott (kokku 34 kg). Mehaaniline süütur plahvatab laengu kaugjuhtimisega; sihtimine pidurdustrossiga",
-        "emplacementTime": "Ca 5 min (kokkupanek)"
+        "emplacementTime": "Umbes 5 min (kokkupanek)"
       },
       "notes": {
         "mineClearing": "Tänapäevased miinid võivad olla varustatud süütega, mis on mõeldud selliste laengute vastu."
@@ -2976,12 +2970,11 @@ window.TTA_DATA = {
         "gradient": 58,
         "verticalStep": 0.6,
         "trench": 0.68,
-        "specialEquipment": "Kääridega (kokkuklapitav) sild pikkusega 10,5 m, laius 3,8 m, kaal 7 t; laotatakse tagurpidi sõidu suunas. Kandevõime 50 t (allika järgi ka 60 t). Soomustamata, TBK-kaitset pole",
+        "specialEquipment": "Kääridega (kokkuklapitav) sild pikkusega 10,5 m, laius 3,8 m, kaal 7 t; laotatakse tagurpidi sõidu suunas. Kandevõime 50 t (teistel andmetel 60 t). TBK-kaitset pole",
         "armor": "Soomustamata",
-        "emplacementTime": "Ca 72 min (täielik paigaldus)"
+        "emplacementTime": "Umbes 72 min (täielik paigaldus)"
       },
       "notes": {
-        "chassis": "Eelkäijad: TMM-1 (ZIL-157), TMM-2 (KrAZ-214); TMM-4 (60 t) samal šassiil; asendaja TMM-6."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: TMM-3", "url": "https://odin.t2com.army.mil/WEG/Asset/979cfbe38de5c9e8a8a4bb56bbb719f8", "retrieved": "2026-11-10"},
@@ -2992,7 +2985,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Brigaadi pioneeripataljon",
-        "purpose": "Raske mehhaniseeritud sillaauto („Gusenitsa-2“): kuus sillaautot ehitavad 102 m silla.",
+        "purpose": "Raske mehhaniseeritud sillaauto: kuus sillaautot ehitavad 102 m silla.",
         "crew": "2",
         "chassis": "MZKT-7930 8×8",
         "combatWeight": 42,
@@ -3009,11 +3002,11 @@ window.TTA_DATA = {
         "verticalStep": 0.6,
         "trench": 2,
         "fording": 1.4,
-        "specialEquipment": "Kääridega kokkuklapitav sild pikkusega 17 m, laius 4 m, kandevõime 60 t; veetõkke sügavus 2–5 m. Läbilaskevõime kuni 400 sõidukit tunnis kiirusega 30 km/h. Soomustamata, TBK-kaitsega",
+        "specialEquipment": "Kääridega kokkuklapitav sild pikkusega 17 m, laius 4 m, kandevõime 60 t; veetõkke sügavus 2–5 m. Läbilaskevõime kuni 400 sõidukit tunnis kiirusega 30 km/h. TBK-kaitse",
         "armor": "Soomustamata"
       },
       "notes": {
-        "chassis": "Töötab koos MTU-90-ga mitmelõivaliste sildade ehitamisel. Wikipedia: TMM-5 oli väikese seeriaga prototüüp."
+        "chassis": "Töötab koos MTU-90-ga mitmelõiguliste sildade ehitamisel."
       },
       "sources": [
         {"name": "Wikipedia: TMM-6", "url": "https://en.wikipedia.org/wiki/TMM-6", "retrieved": "2026-10-23"},
@@ -3027,10 +3020,9 @@ window.TTA_DATA = {
         "crew": "3",
         "chassis": "KrAZ-255B 6×6 (pontoonide vedaja)",
         "fording": 1.2,
-        "specialEquipment": "Täiskomplekt 32 jõepontooni, 4 kaldapontooni ja 12 sillapaati (pool-komplekt 16+2). Pontoon laotub veele sattudes automaatselt. Silla pikkus kuni 227 m (60 t) või 382 m (20 t); sõiduraja laius 6,5 m; ehituskiirus kuni 7 m/min; max voolukiirus 2 m/s. Parvedena: 40 t (2 pontooni, 8min) kuni 170 t (1+8 pontooni)"
+        "specialEquipment": "Täiskomplekt 32 jõepontooni, 4 kaldapontooni ja 12 sillapaati (poolkomplekt 16+2). Pontoon laotub veele sattudes automaatselt. Silla pikkus kuni 227 m (60 t) või 382 m (20 t); sõiduraja laius 6,5 m; ehituskiirus kuni 7 m/min; suurim voolukiirus 2 m/s. Parvedena: 40 t (2 pontooni, 8 min) kuni 170 t (1+8 pontooni)"
       },
       "notes": {
-        "specialEquipment": "Järeltulijad: PPS-84, PP-91 ja PP-2005."
       },
       "sources": [
         {"name": "Wikipedia: PMP Floating Bridge", "url": "https://en.wikipedia.org/wiki/PMP_Floating_Bridge", "retrieved": "2026-10-23"}
@@ -3039,7 +3031,7 @@ window.TTA_DATA = {
     "BTM-4M": {
       "status": "unverified",
       "values": {
-        "purpose": "Kiire kraavikaevur, BTM-3 täiustatud variant (jäi prototüübiks).",
+        "purpose": "Kiire kraavikaevur (jäi prototüübiks).",
         "crew": "2",
         "specialEquipment": "Töökiirus tavalises pinnases 1000 m/h ja külmunud pinnases 250 m/h"
       },
@@ -3050,9 +3042,9 @@ window.TTA_DATA = {
     "BTM-3": {
       "status": "unverified",
       "values": {
-        "purpose": "Kiire kraavikaevur kaitse- ja sidekraavide kaevamiseks.",
+        "purpose": "Kiire kraavikaevur (toodetud alates 1957. aastast) kaitse- ja sidekraavide kaevamiseks.",
         "crew": "2",
-        "chassis": "AT-T raske suurtükikvedur (T-54 šassii alusel)",
+        "chassis": "AT-T",
         "combatWeight": 27.5,
         "length": 7,
         "width": 3.17,
@@ -3064,12 +3056,11 @@ window.TTA_DATA = {
         "amphibious": false,
         "trench": 1.8,
         "fording": 1.1,
-        "specialEquipment": "Kopprootor 8 kopaga (á 160 l); kraavi sügavus 1,1 m (põhiprofiil) kuni 1,5 m; töökiirus 270–810 m/h, õhukese (0,4–0,5 m) kraavi puhul kuni 1200–1400 m/h; min pöörderaadius 25 m; buldooserisae. TBK-kaitse",
+        "specialEquipment": "Kopprootor 8 kopaga (igaüks 160 l); kraavi sügavus 1,1 m (põhiprofiil) kuni 1,5 m; töökiirus 270–810 m/h, õhukese (0,4–0,5 m) kraavi puhul kuni 1200–1400 m/h; väikseim pöörderaadius 25 m; buldooserisae. TBK-kaitse",
         "armor": "Kaitseb kergrelvade tule ja mürsukildude eest",
-        "emplacementTime": "Ca 10 min (sõidurežiimilt kaevamisele)"
+        "emplacementTime": "Umbes 10 min (sõidurežiimilt kaevamisele)"
       },
       "notes": {
-        "chassis": "Toodetud Dmitrovi ekskavaatoritehases alates 1957."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BTM-3", "url": "https://odin.t2com.army.mil/WEG/Asset/41714363385ece02178899f40f23b494", "retrieved": "2026-10-28"}
@@ -3080,7 +3071,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Kraavikaevamismasin tankitõrjekraavide ning sõidukite ja laskepositsioonide süvendite kaevamiseks.",
         "crew": "2",
-        "chassis": "MT-T raske roomikvedur",
+        "chassis": "MT-T",
         "combatWeight": 39.5,
         "length": 10.22,
         "width": 3.23,
@@ -3090,11 +3081,11 @@ window.TTA_DATA = {
         "maxSpeedRoad": 70,
         "maxSpeedOffroad": 35,
         "range": 500,
-        "specialEquipment": "Kaevamisel pikkus 11,75 m, laius 4,6 m, kõrgus 3,25 m; kraavi laius 3,5 m, sügavus kuni 3 m; tootlikkus 400–500m³/h; buldooserisae; TBK-kaitse ülerõhuga",
+        "specialEquipment": "Kaevamisel pikkus 11,75 m, laius 4,6 m, kõrgus 3,25 m; kraavi laius 3,5 m, sügavus kuni 3 m; tootlikkus 400–500 m³/h; buldooserisae; TBK-kaitse ülerõhuga",
         "armor": "Soomustamata"
       },
       "notes": {
-        "chassis": "MDK-2 ja MDK-2M asendaja. Ei ole õhutransporditav ega langevarjuga heidetav."
+        "chassis": "Ei ole õhutransporditav ega langevarjuga heidetav."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: MDK-3", "url": "https://odin.t2com.army.mil/WEG/Asset/98fee77354aa89adca1830078f6c33f5", "retrieved": "2026-11-10"}
@@ -3105,22 +3096,21 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Kraavikaevamismasin suurte süvendite ja tankitõrjekraavide kaevamiseks.",
         "crew": "2",
-        "chassis": "AT-T raske suurtükikvedur (T-54 šassii alusel)",
+        "chassis": "AT-T",
         "combatWeight": 28,
         "length": 8,
         "width": 3.4,
         "height": 3.95,
-        "engine": "V-401 V12 diisel",
+        "engine": "V-401 V-12 diisel",
         "power": 415,
         "maxSpeedRoad": 35,
         "range": 500,
         "gradient": 80,
         "sideSlope": 22,
-        "specialEquipment": "Kraavi sügavus kuni 4,5 m, laius ülal 4–4,7 m ja all 3,5 m; töökiirus 387m³/h (üks allikas: 300m³/h). Pikkus kaevamisel 10,23 m, kõrgus 3,48 m; TBK-kaitse ülerõhuga",
+        "specialEquipment": "Kraavi sügavus kuni 4,5 m, laius ülal 4–4,7 m ja all 3,5 m; töökiirus 387 m³/h (teistel andmetel 300 m³/h). Pikkus kaevamisel 10,23 m, kõrgus 3,48 m; TBK-kaitse ülerõhuga",
         "armor": "Soomustamata"
       },
       "notes": {
-        "chassis": "MDK-2 (1959): sama šassii, 27 t, aeglasem tööjõudlus. Asendaja MDK-3."
       },
       "sources": [
         {"name": "Wikipedia: MDK-2M", "url": "https://en.wikipedia.org/wiki/MDK-2M", "retrieved": "2026-10-23"}
@@ -3151,14 +3141,14 @@ window.TTA_DATA = {
         "mainArmament": "2 × kaksiktoruline 30 mm automaatkahur 2A38M (kokku 4 toru), 1400 lasku",
         "samMissiles": "12 × 57E6 / 57E6-E (kahes kuue toruga blokis; kahe astmega, raadio- ja optiline käsujuhtimine, 75–76 kg, lõhkepea 16–20 kg)",
         "rateOfFire": 5000,
-        "sensors": "Avastusradar 2RL80 (S-sagedusala; avastab kuni 40 sihtmärki, avastuskaugus 32–36 km, maks 45 km); jälgimis- ja juhtimisradar 1RS2-1E (24–28 km); optilis-elektrooniline kanal (soojuskaamera ja IR-suunamõõtja, 17–26 km); reaktsiooniaeg 4–6s; kuni 4 raketti korraga 4 sihtmärgile; 10–12 sihtmärki minutis",
+        "sensors": "Avastusradar 2RL80 (S-sagedusala; avastab kuni 40 sihtmärki, avastuskaugus 32–36 km, kuni 45 km); jälgimis- ja juhtimisradar 1RS2-1E (24–28 km); optilis-elektrooniline kanal (soojuskaamera ja IR-suunamõõtja, 17–26 km); reaktsiooniaeg 4–6 s; kuni 4 raketti korraga 4 sihtmärgile; 10–12 sihtmärki minutis",
         "samRange": {"min": 1200, "max": 20000},
         "samAltitude": {"min": 5, "max": 15000},
         "cannonRangeAir": 4000,
         "cannonAltitudeAir": 3000,
         "specialEquipment": "Indeks 96K6; tegutseb autonoomselt või patarei koosseisus; TBK-kaitse",
-        "armor": "Soomustamata, kerge kaitse killustike eest",
-        "emplacementTime": "Ca 5 min"
+        "armor": "Soomustamata, kerge kaitse kildude eest",
+        "emplacementTime": "Umbes 5 min"
       },
       "notes": {
         "chassis": "Pantsir-SM (uuem variant) on soomustatud kabiiniga.",
@@ -3177,7 +3167,7 @@ window.TTA_DATA = {
         "purpose": "Keskmaa õhutõrjeraketikompleksi iseliikuv laskeseade, mis avastab, jälgib ja tabab sihtmärke ise.",
         "typicalUnit": "Armee õhutõrjeraketibrigaad",
         "crew": "4",
-        "chassis": "GM-569 roomikšassii",
+        "chassis": "GM-569",
         "combatWeight": 34,
         "length": 9.3,
         "width": 3.25,
@@ -3193,7 +3183,7 @@ window.TTA_DATA = {
         "samMissiles": "4 × 9M38M1 (685–690 kg, lõhkepea 70 kg, kiirus 850 m/s, poolaktiivne radarsihtimine)",
         "samRange": {"min": 3000, "max": 35000},
         "samAltitude": {"min": 15, "max": 22000},
-        "sensors": "Avastusradar 9S18M1 „Snow Drift“ (avastuskaugus kuni 85 km); tulejuhtimis- ja valgustusradar 9S35 „Fire Dome“ TELARil; reaktsiooniaeg 15–18s; sihtmärgi tabamistõenäosus 0,8–0,95 (õhusõiduk)",
+        "sensors": "Avastusradar 9S18M1 „Snow Drift“ (avastuskaugus kuni 85 km); tulejuhtimis- ja valgustusradar 9S35 „Fire Dome“ laskeseadmel; reaktsiooniaeg 15–18 s; sihtmärgi tabamistõenäosus 0,8–0,95 (õhusõiduk)",
         "specialEquipment": "Kuulub pataljoni 9K37M1 koosseisu koos avastusradari 9S18M1-ga",
         "armor": "Kerge soomus kaitseb kergrelvade tule ja mürsukildude eest",
         "emplacementTime": "5 min"
@@ -3215,7 +3205,7 @@ window.TTA_DATA = {
         "purpose": "Keskmaa õhutõrjeraketikompleksi iseliikuv laskeseade õhusõidukite, tiibrakettide, taktikaliste ballistiliste rakettide ja täppismoona vastu.",
         "typicalUnit": "Armee õhutõrjeraketibrigaad",
         "crew": "4",
-        "chassis": "GM-5955 roomikšassii",
+        "chassis": "GM-5955",
         "combatWeight": 34,
         "length": 7.5,
         "width": 3.3,
@@ -3227,7 +3217,7 @@ window.TTA_DATA = {
         "samMissiles": "6 × 9M317M (581 kg, lõhkepea 62 kg, kiirus kuni 1550 m/s); täiskoormusega 9M317M/9R31M raketid",
         "samRange": {"min": 2500, "max": 70000},
         "samAltitude": {"min": 15, "max": 35000},
-        "sensors": "Masti-radar 9S36M (mast 22 m; avastab tiibrakette 5 m kõrgusel kuni 70 km kauguselt); ülevaaderadar 9S38 (avastuskaugus kuni 160 km); reaktsiooniaeg ca 8–10s; kuni 36 sihtmärki korraga pataljonis, jälgib kuni 300 sihtmärki; max sihtmärgi kiirus 3000 m/s",
+        "sensors": "Radar 9S36M 22 m mastil (avastab tiibrakette 5 m kõrgusel kuni 70 km kauguselt); ülevaaderadar 9S38 (avastuskaugus kuni 160 km); reaktsiooniaeg umbes 8–10 s; kuni 36 sihtmärki korraga pataljonis, jälgib kuni 300 sihtmärki; max sihtmärgi kiirus 3000 m/s",
         "specialEquipment": "Pataljonis koos laadimismasinaga 9A317M ja juhtimispunktiga 9S510M",
         "armor": "Kerge soomus kaitseb kergrelvade tule ja mürsukildude eest"
       },
@@ -3243,7 +3233,7 @@ window.TTA_DATA = {
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Pika- ja keskmaa õhutõrjeraketikompleks õhusõidukite, tiibrakettide ja ballistiliste rakettide tõrjeks (S-300P kasutusel alates 1978. aastast, S-400 alates 2007. aastast).",
         "typicalUnit": "VKS õhutõrjeraketipolk",
-        "chassis": "Radarid ja juhtimispunkt MZKT-7930 8×8 šassiil; laskeseade 5P85TE2 poolhaagisena BAZ-64022 6×6 veokil (või MAZ-543M)",
+        "chassis": "Radarid ja juhtimispunkt: MZKT-7930 8×8; laskeseade 5P85TE2: poolhaagis BAZ-64022 6×6 veokiga (või MAZ-543M)",
         "samMissiles": "S-400: 40N6E (380–400 km), 48N6DM/E3 (240 km), 48N6E2 (200 km), 9M96E2 (120 km), 9M96E (40 km); S-300P: 5V55K 47 km, 5V55R 75 km, 5V55U 150 km, 48N6 150 km. Ühel laskeseadmel kuni 4 raketti (40N6E puhul 2–3)",
         "samRange": {"min": 2000, "max": 380000},
         "samAltitude": {"min": 10, "max": 30000},
@@ -3270,7 +3260,7 @@ window.TTA_DATA = {
         "purpose": "Lühimaa õhutõrjeraketikompleksi iseliikuv laskeseade; otsib sihtmärke liikvel olles, tulistab seisatuselt.",
         "typicalUnit": "Diviisi õhutõrjepolk",
         "crew": "3",
-        "chassis": "GM-5955 roomikšassii (algne Tor: GM-355)",
+        "chassis": "GM-5955 (algne Tor: GM-355)",
         "combatWeight": 32,
         "length": 8,
         "width": 3.2,
@@ -3288,8 +3278,8 @@ window.TTA_DATA = {
         "samMissiles": "8 × 9M330 (165–167 kg, lõhkepea 15 kg, kiirus kuni Mach 2,8–3, raadiokäsujuhtimine; hoitakse vertikaalselt kahes neljases grupis)",
         "samRange": {"min": 1500, "max": 12000},
         "samAltitude": {"min": 10, "max": 6000},
-        "sensors": "Avastusradar „Scrum Half“ (3D, G/H-sagedusala): õhusõidukid 25–27 km, helikopterid 12 km, droonid 9–15 km, jälgib kuni 48 sihtmärki; sihtmärgi jälgimisradar (J/K-sagedusala, kuni 20 km); reaktsiooniaeg 5–12s; 2 sihtmärki ja 4 raketti korraga",
-        "specialEquipment": "Täielik ümberlaadimine 18min; kuni 4 raketti korraga; TBK-kaitse",
+        "sensors": "Avastusradar „Scrum Half“ (3D, G/H-sagedusala): õhusõidukid 25–27 km, helikopterid 12 km, droonid 9–15 km, jälgib kuni 48 sihtmärki; sihtmärgi jälgimisradar (J/K-sagedusala, kuni 20 km); reaktsiooniaeg 5–12 s; 2 sihtmärki ja 4 raketti korraga",
+        "specialEquipment": "Täielik ümberlaadimine 18 min; kuni 4 raketti korraga; TBK-kaitse",
         "armor": "Täielikult keevitatud teras"
       },
       "notes": {
@@ -3311,7 +3301,7 @@ window.TTA_DATA = {
         "purpose": "Iseliikuv neljaraudne 23 mm õhutõrjekahur; saab tulistada liikvel olles.",
         "typicalUnit": "Motolaskur- või tankipolgu õhutõrjepataljon",
         "crew": "4 (ülem, juht, laskur, radarioperaator)",
-        "chassis": "GM-575 roomikšassii",
+        "chassis": "GM-575",
         "combatWeight": 20.5,
         "length": 6.54,
         "width": 3.3,
@@ -3333,13 +3323,13 @@ window.TTA_DATA = {
         "cannonRangeAir": 2500,
         "cannonAltitudeAir": 1500,
         "cannonRangeArmored": 2000,
-        "sensors": "Radar RPK-2 „Tobol“ / 1RL33 (Ku-sagedusala, NATO „Gun Dish“): avastab õhusihtmärke kuni 20 km, jälgib kuni 13 km; reaktsiooniaeg 12–18s; kõrgusnurk −4…+85°",
+        "sensors": "Radar RPK-2 „Tobol“ / 1RL33 (Ku-sagedusala, NATO „Gun Dish“): avastab õhusihtmärke kuni 20 km, jälgib kuni 13 km; reaktsiooniaeg 12–18 s; kõrgusnurk −4…+85°",
         "specialEquipment": "TBK-kaitse ja 81 mm suitsugranaadiheitjad",
         "armor": "Keevitatud teras: kere kuni 15 mm, torn 9,2 mm"
       },
       "notes": {
         "rateOfFire": "Üks toru 850–1000 lasku/min; praktiline kiirus 400 lasku/min.",
-        "gradient": "Wikipedia: 30° ≈ 58%.",
+        "gradient": "Teistel andmetel 30° ≈ 58%.",
         "height": "Radar üles tõstetud 3,57–3,75 m."
       },
       "sources": [
@@ -3372,8 +3362,8 @@ window.TTA_DATA = {
         "samMissiles": "6 × 9M33 (9M33M2 / M3; 126–170 kg, lõhkepea 19–40 kg, raadiokäsujuhtimine)",
         "samRange": {"min": 1500, "max": 10000},
         "samAltitude": {"min": 25, "max": 5000},
-        "sensors": "Radar „Land Roll“ 1S51M3: otsing (G/H-sagedusala) 30–35 km, jälgimine (J) 25–30 km, raketijuhtimine (I) 20–25 km; reaktsiooniaeg ca 26s",
-        "specialEquipment": "Patarei: 4 lahingumasinat + 2 laadimismasinat, ümberlaadimine 5min; TBK-kaitse",
+        "sensors": "Radar „Land Roll“ 1S51M3: otsing (G/H-sagedusala) 30–35 km, jälgimine (J) 25–30 km, raketijuhtimine (I) 20–25 km; reaktsiooniaeg umbes 26 s",
+        "specialEquipment": "Patarei: 4 lahingumasinat + 2 laadimismasinat, ümberlaadimine 5 min; TBK-kaitse",
         "armor": "Kerge soomus"
       },
       "notes": {
@@ -3391,7 +3381,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Barnaul-T automatiseeritud õhutõrje juhtimissüsteemi luure- ja juhtimismoodul: õhutõrjepatarei juhtimispunkt, mis jagab sihtmärgiandmeid alluvatele õhutõrjevahenditele.",
         "typicalUnit": "Õhutõrjepatarei",
-        "chassis": "MT-LBu roomikšassii (9S932-2: BTR-MD; BMP-3 põhine MRU-B näidati 2017)",
+        "chassis": "MT-LBu (9S932-2: BTR-MD)",
         "sensors": "Radar 1L122-1; saab andmeid radaritelt 9S18M, 35N6, P-18M, P-19M või sidekeskuste R-166, R-166-0,5 ja MP-1IM kaudu"
       },
       "sources": [
@@ -3427,7 +3417,7 @@ window.TTA_DATA = {
         "crew": "4",
         "chassis": "MAZ-74106 veok-poolhaagis (MAZ-543 perekond, 8×8)",
         "combatWeight": 60,
-        "sensors": "Faasantennradar; antenni pöörlemine 12s/tiir",
+        "sensors": "Faasantennradar; antenni pöörlemine 12 s/tiir",
         "radarBand": "S-sagedusala (2,9–3,3 GHz)",
         "radarRange": 300,
         "radarTargets": "Kuni 300 sihtmärki korraga; sihtmärgi kiirus kuni 2788 m/s",
@@ -3465,7 +3455,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "S-300P tulejuhtimisradar: jälgib sihtmärke ja juhib rakette.",
         "chassis": "Flap Lid A: haagis (veab Ural-375, KrAZ-255 või KrAZ-260); Flap Lid B: veokil MZKT-7930",
-        "sensors": "Faasantenn ca 10 000 elemendiga; elevatsioon 0–50° (võimalik 75°); sihtmärki jälgitakse raketi kaudu (track-via-missile)",
+        "sensors": "Faasantenn umbes 10 000 elemendiga; elevatsioon 0–50° (võimalik 75°); sihtmärki jälgitakse raketi kaudu",
         "radarBand": "I/J-sagedusala",
         "radarRange": 300,
         "radarTargets": "6 sihtmärki, igaühele 2 raketti"
@@ -3491,7 +3481,7 @@ window.TTA_DATA = {
         "maxSpeedRoad": 65,
         "range": 650,
         "sensors": "Antenn 5,5×2,5 m ja 96 kiirgavat rida; pöörlemine 5 (madalad kõrgused) või 10 p/min (kõik kõrgused); kõrgusnurk −3…+1,5° / −1,5…+20°",
-        "specialEquipment": "TBK-kaitse; sagedushüpe, kõrge mürakindlus; MTBCF 10 000h",
+        "specialEquipment": "TBK-kaitse; sagedushüpe, kõrge mürakindlus; keskmine tõrgeteta tööaeg 10 000 h",
         "radarBand": "C-sagedusala (2,9–3,2 GHz)",
         "radarRange": 300,
         "radarTargets": "100 sihtmärki",
@@ -3508,7 +3498,7 @@ window.TTA_DATA = {
         "purpose": "Õhutõrje luure- ja juhtimissoomuk, mis juhib õhutõrjesoomukeid ja taskuraketimeeskondi.",
         "typicalUnit": "Motolaskur- või tankipolgu õhutõrje juhtimispunkt",
         "crew": "5",
-        "chassis": "MT-LBu roomikšassii",
+        "chassis": "MT-LBu",
         "combatWeight": 15.5,
         "length": 7.21,
         "width": 2.85,
@@ -3519,8 +3509,8 @@ window.TTA_DATA = {
         "maxSpeedOffroad": 30,
         "maxSpeedWater": 6,
         "amphibious": true,
-        "sensors": "Radar 9S80 „Ovod-M-SV“ (X-sagedusala, digitaalne): õhusihtmärkide avastuskaugus 40 km (teistel andmetel 25–30 km), värskendus 5s; jälgib kuni 99 sihtmärki (teistel andmetel ca 35 automaatselt, kuni 8 samaaegselt juhitavat); IFF-päringu seade",
-        "specialEquipment": "Sihtmärgi andmed edastatakse 2–3s jooksul; pidev töö 24h",
+        "sensors": "Radar 9S80 „Ovod-M-SV“ (X-sagedusala, digitaalne): õhusihtmärkide avastuskaugus 40 km (teistel andmetel 25–30 km), värskendus 5 s; jälgib kuni 99 sihtmärki (teistel andmetel umbes 35 automaatselt, kuni 8 samaaegselt juhitavat); IFF-päringu seade",
+        "specialEquipment": "Sihtmärgi andmed edastatakse 2–3 s jooksul; pidev töö 24 h",
         "armor": "Keevitatud alumiiniumkere",
         "radioSets": "R-123MT ja R-111",
         "emplacementTime": "5 min"
@@ -3537,7 +3527,7 @@ window.TTA_DATA = {
         "purpose": "Liikuv meetrilaineradar nähtamatuslennukite avastamiseks; S-300 ja S-400 kaugavastusradar.",
         "crew": "4",
         "chassis": "Ural või KamAZ veok (diiselgeneraatorid ED 2×30-T400); antenniseade poolhaagisel ChMZAP-9907.2 (2 masinat)",
-        "sensors": "AESA-antenn 16×6 m (84 Yagi-elementi), vertikaalne polarisatsioon; 1m² sihtmärk 20 km kõrgusel 380 km, 10 km kõrgusel 270 km; hävitaja (2,5m²) 10 km kõrgusel 250 km; ballistilised sihtmärgid kuni 180 km kõrgusel",
+        "sensors": "AESA-antenn 16×6 m (84 Yagi-elementi), vertikaalne polarisatsioon; 1 m² sihtmärk 20 km kõrgusel 380 km, 10 km kõrgusel 270 km; hävitaja (2,5 m²) 10 km kõrgusel 250 km; ballistilised sihtmärgid kuni 180 km kõrgusel",
         "radarBand": "VHF (150–180 MHz)",
         "radarRange": 500,
         "radarTargets": "Kuni 100 sihtmärki",
@@ -3557,9 +3547,9 @@ window.TTA_DATA = {
     "9M337 Sosna-R": {
       "status": "unverified",
       "values": {
-        "purpose": "Lähitõrje õhutõrjeraketikompleksi iseliikuv laskeseade.",
+        "purpose": "Lähitõrje õhutõrjeraketikompleksi iseliikuv laskeseade (kasutusel alates 2019. aastast).",
         "crew": "3",
-        "chassis": "MT-LB roomikšassii",
+        "chassis": "MT-LB",
         "length": 6.45,
         "width": 2.85,
         "height": 1.87,
@@ -3573,12 +3563,12 @@ window.TTA_DATA = {
         "sideSlope": 30,
         "verticalStep": 0.7,
         "trench": 2.7,
-        "samMissiles": "12 × 9M337 Sosna-R (kahes kuue toruga konteinerblokis; 30,6 kg, koos konteineriga 42 kg; tandem-lõhkepea 7,2 kg; kiirus ca 900 m/s; optiline laserkiirega juhtimine)",
+        "samMissiles": "12 × 9M337 Sosna-R (kahes kuue toruga konteinerblokis; 30,6 kg, koos konteineriga 42 kg; tandem-lõhkepea 7,2 kg; kiirus umbes 900 m/s; optiline laserkiirega juhtimine)",
         "samRange": {"min": 1300, "max": 10000},
         "samAltitude": {"min": 2, "max": 5000},
         "secondaryArmament": "Sosna-variant: kaksiktoruline 30 mm automaatkahur 2A38M (laskekaugus 4 km)",
-        "sensors": "Optilis-elektrooniline sihtimissüsteem (soojuskaamera, TV-kaamera, laserkaugusmõõtja), passiivne avastus 360°; jälgib kuni 50 sihtmärki; reaktsiooniaeg 5–8s; tuli liikvel olles",
-        "specialEquipment": "Kasutusel alates 2019; ümberlaadimine 10min; TBK-kaitse",
+        "sensors": "Optilis-elektrooniline sihtimissüsteem (soojuskaamera, TV-kaamera, laserkaugusmõõtja), passiivne avastus 360°; jälgib kuni 50 sihtmärki; reaktsiooniaeg 5–8 s; tuli liikvel olles",
+        "specialEquipment": "Ümberlaadimine 10 min; TBK-kaitse",
         "armor": "Keevitatud teras 7–14 mm; lisasoomus saadaval"
       },
       "sources": [
@@ -3588,8 +3578,8 @@ window.TTA_DATA = {
     "2S25 Sprut-SD": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhudessantväed (VDV)",
-        "purpose": "Õhudessantvägede (VDV) kerge tankitõrje-liikurkahur tankide hävitamiseks; maaväes ja merejalaväes kasutatakse ka kerge ujuva tankina.",
+        "typicalUnit": "Õhudessantväed",
+        "purpose": "Õhudessantvägede kerge tankitõrje-liikurkahur; maaväes ja merejalaväes kasutatakse seda ka kerge ujuva tankina.",
         "crew": "3",
         "chassis": "Ujuv roomikšassii, hüdropneumaatiline vedrustus (kliirens 190–590 mm)",
         "combatWeight": 18,
@@ -3614,7 +3604,7 @@ window.TTA_DATA = {
         "rateOfFire": 8,
         "secondaryArmament": "Koaksiaalne 7,62 mm PKT (2000 lasku); hilisemates versioonides kaugjuhitav relvajaam",
         "sensors": "Stabiliseeritud kahur ja ülema sihik, laserkaugusmõõtja, ballistiline arvuti; igal meeskonnaliikmel päeva- ja öövaatlusseade",
-        "specialEquipment": "Laskekaugus raketiga ca 4 km; ujub veejoamootoritega, kuni merelaine 3 ballini; TBK-kaitse",
+        "specialEquipment": "Laskekaugus raketiga umbes 4 km; ujub veejoamootoritega, kuni merelaine 3 ballini; TBK-kaitse",
         "armor": "Alumiiniumkere komposiitkattega; ees ±40° kaitseb 23 mm mürsu eest 500 m kauguselt"
       },
       "notes": {
@@ -3630,10 +3620,10 @@ window.TTA_DATA = {
     "BTR-RD": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhudessantväed (VDV)",
-        "purpose": "BTR-D baasil õhudessantvägede tankitõrjemeeskondade soomuk.",
+        "typicalUnit": "Õhudessantväed",
+        "purpose": "Õhudessantvägede tankitõrjemeeskondade soomuk.",
         "crew": "3 + tankitõrjemeeskond (BTR-D põhjal)",
-        "chassis": "BTR-D (õhudessandi roomikšassii)",
+        "chassis": "BTR-D",
         "combatWeight": 8.2,
         "length": 5.88,
         "width": 2.63,
@@ -3652,9 +3642,9 @@ window.TTA_DATA = {
         "caliber": 7.62,
         "mainArmament": "2 × 7,62 mm PKT esikuulipilduja (2000 lasku)",
         "atgm": "9M113 Konkurs / 9M113M Konkurs-M, valikuliselt 9M111 Fagot; kaks stardiseadet 9P135M-1 (katusel parempoolses küljes); vähemalt 4, kuni 12 raketti",
-        "atgmPenetration": "Konkurs: kuni 600 mm RHA; Konkurs-M: 750–800 mm DZ taga",
+        "atgmPenetration": "Konkurs: kuni 600 mm (RHA); Konkurs-M: 750–800 mm (aktiivsoomuse taga)",
         "atgmRange": {"min": 70, "max": 4000},
-        "specialEquipment": "Võib heita langevarjuga; 2019. aastal lisati Kornet (9K135)",
+        "specialEquipment": "2019. aastal lisati Kornet (9K135)",
         "armor": "Alumiiniumkere: piiratud kaitse raskekuulipildujate tule eest; stardiseadme operaator on osaliselt kaitsmata"
       },
       "sources": [
@@ -3666,7 +3656,7 @@ window.TTA_DATA = {
     "Kornet-D": {
       "status": "unverified",
       "values": {
-        "purpose": "Tigr-M 4×4 baasil tankitõrjekompleksi kandur (kasutusel alates 2015. aastast).",
+        "purpose": "Tankitõrjekompleksi kandur (kasutusel alates 2015. aastast).",
         "crew": "2",
         "chassis": "AMS 233144 Tigr-M 4×4 (soomustatud maastur)",
         "length": 4.61,
@@ -3675,13 +3665,13 @@ window.TTA_DATA = {
         "maxSpeedRoad": 140,
         "maxSpeedOffroad": 80,
         "range": 1000,
-        "atgm": "8 × 9M133M Kornet-EM (tandem-HEAT või termobaarilise lõhkepeaga); tulistab kaks raketti alla 1s vahega samale või kahele sihtmärgile",
+        "atgm": "8 × 9M133M Kornet-EM (tandem-kumulatiivne või termobaariline lõhkepea); laseb kaks raketti alla 1 s vahega samale või kahele sihtmärgile",
         "atgmRange": {"min": 150, "max": 8000},
-        "atgmPenetration": "9M133M-2: 1100–1300 mm RHA DZ taga; 3–3,5 m betooni",
-        "specialEquipment": "Laserkiirega juhtimine (SACLOS), automaatjälgija; Kornet-D1 on õhudessandi variant"
+        "atgmPenetration": "9M133M-2: 1100–1300 mm (RHA, aktiivsoomuse taga); betoon 3–3,5 m",
+        "specialEquipment": "Laserkiirega juhtimine, automaatjälgija; Kornet-D1 on õhudessantvägede variant"
       },
       "notes": {
-        "atgmRange": "9M133F-3 (killu-lõhkepea) kuni 10 km; öösel lühem.",
+        "atgmRange": "9M133F-3 (kildlõhkepeaga) kuni 10 km; öösel lühem.",
         "engine": "Võimsus 197–215 hj sõltuvalt mootorist."
       },
       "sources": [
@@ -9428,12 +9418,12 @@ window.TTA_DATA = {
     "1B75 Penicilin": {
       "status": "unverified",
       "values": {
-        "purpose": "Passiivne suurtükiväeluure kompleks: leiab heli ja soojuse järgi vastase suurtükkide, miinipildujate, raketiheitjate ja raketistartide asukoha ilma raadiokiirguseta.",
-        "chassis": "KamAZ-6350 8×8",
+        "purpose": "Passiivne suurtükiväeluure kompleks (kasutusel alates 2020. aastast): leiab heli ja soojuse järgi vastase suurtükkide, miinipildujate, raketiheitjate ja raketistartide asukoha ilma raadiokiirguseta.",
+        "chassis": "KamAZ-6350",
         "driveConfig": "8×8",
         "detectionRange": 25,
         "sensors": "Teleskoopmastil optiline ja infrapuna andurikomplekt 1B75; maapinnale paigutatavad seismilised ja akustilised andurid (1B76)",
-        "specialEquipment": "Side teiste üksustega kuni 40 km; võib töötada automaatrežiimis; juhib ja korrigeerib ka oma suurtükituld. Riiklikud katsetused 2018, lahinguvalves alates 2020"
+        "specialEquipment": "Side teiste üksustega kuni 40 km; võib töötada automaatrežiimis; juhib ja korrigeerib ka oma suurtükituld"
       },
       "sources": [
         {"name": "Wikipedia: Penicillin (counter-artillery system)", "url": "https://en.wikipedia.org/wiki/Penicillin_(counter-artillery_system)", "retrieved": "2026-11-20"}
@@ -9475,7 +9465,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Õhutõrjeüksuste liikuv juhtimispunkt: võtab radarilt vastu õhuolukorra andmed, töötleb need ja edastab alluvatele juhtimispunktidele.",
         "typicalUnit": "Õhutõrjepatarei",
-        "chassis": "BTR-60PB (8×8 ratassoomuk)",
+        "chassis": "BTR-60PB",
         "combatWeight": 10.5,
         "length": 7.22,
         "width": 2.825,
@@ -10051,7 +10041,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Maaväe õhutõrje ühtne komandöri juhtimispunkt: võtab radaritelt ja AWACS-lennukitelt vastu õhuolukorra ning jagab sihtmärgid kuni 6 alluvale õhutõrjeüksusele.",
-        "chassis": "BTR-80 (8×8 ratassoomuk)",
+        "chassis": "BTR-80",
         "specialEquipment": "Töötlustsükkel 1 s; sihtmärgimäärang kõrgemalt juhtimispunktilt alluvatele 2 s",
         "emplacementTime": "5 min (ka kokkupanek)"
       },
@@ -10303,9 +10293,9 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Pioneeribrigaad",
         "productionStatus": {"status": ["new"], "asOf": 2023},
-        "purpose": "Kaugmineerimissüsteem, mis laseb kassettrakettidega miinivälja 5–15 km kaugusele.",
+        "purpose": "Kaugmineerimissüsteem (kasutusel alates 2020. aastast), mis laseb kassettrakettidega miinivälja 5–15 km kaugusele.",
         "crew": "3 (ülem, operaator-sihtur, juht)",
-        "chassis": "KAMAZ-6560 8×8, soomustatud kabiin",
+        "chassis": "KamAZ-6560, soomustatud kabiin",
         "driveConfig": "8×8",
         "length": 10.3,
         "width": 2.5,
@@ -10318,9 +10308,7 @@ window.TTA_DATA = {
         "specialEquipment": "Satelliitnavigatsioon, pardaarvuti ja meteojaam tule korrigeerimiseks; mineeritud ala kantakse elektroonilisele kaardile ja edastatakse kõrgemale staabile. Kompleksi kuulub laadimismasin (samuti KAMAZ-6560) kraanaga, mis vahetab konteinerid"
       },
       "notes": {
-        "firingRange": "Ühe salvoga mineeritakse mõne minutiga mitme jalgpalliväljaku suurune ala.",
-        "mineCapacity": "PTM-4 isehävitus valitav 8, 12, 24 või 48 h järel, isedeaktiveerumine 120 päeva pärast. Osa miine võib isehävitusel mitte plahvatada.",
-        "specialEquipment": "Kasutusel alates 2020; esimene lahingkasutus Ukrainas 2022."
+        "mineCapacity": "PTM-4 isehävitus valitav 8, 12, 24 või 48 h järel, isedeaktiveerumine 120 päeva pärast. Osa miine võib isehävitusel mitte plahvatada."
       },
       "sources": [
         {"name": "Wikipedia: Zemledeliye (minelaying system)", "url": "https://en.wikipedia.org/wiki/Zemledeliye_(minelaying_system)", "retrieved": "2026-11-20"},
@@ -10334,10 +10322,10 @@ window.TTA_DATA = {
       "values": {
         "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Vastutuleradar: jälgib vastase mürskude trajektoori ja määrab tulepositsioonide koordinaadid; töötab koos Zoopark-1M-iga.",
-        "chassis": "BAZ-6910-025 8×8",
+        "chassis": "BAZ-6910-025",
         "driveConfig": "8×8",
         "radarRange": 40,
-        "specialEquipment": "Antennijaam šassii tagaosas. Esmakordselt näidatud 2022; kasutusel alates 2023–2024"
+        "specialEquipment": "Antennijaam šassii tagaosas"
       },
       "notes": {
         "radarRange": "Täpsed andmed on avalikustamata."
@@ -10353,7 +10341,7 @@ window.TTA_DATA = {
     "1V110": {
       "status": "unverified",
       "values": {
-        "purpose": "Järelveetava suurtükiväe patarei vanemohvitseri juhtimismasin (patarei tulejuhtimiskeskus); 1V13 ratastel vaste.",
+        "purpose": "Järelveetava suurtükiväe patarei vanemohvitseri juhtimismasin (patarei tulejuhtimiskeskus).",
         "chassis": "GAZ-66 furgoon"
       },
       "sources": [
@@ -10491,12 +10479,11 @@ window.TTA_DATA = {
     "BTR-ZD": {
       "status": "unverified",
       "values": {
-        "purpose": "Õhudessantvägede õhutõrjesoomuk, mis veab kaht õhutõrje-taskuraketimeeskonda; katusele saab paigaldada ZU-23-2.",
+        "purpose": "Õhudessantvägede õhutõrjesoomuk (kasutusel alates 1984. aastast), mis veab kaht õhutõrje-taskuraketimeeskonda.",
         "typicalUnit": "Õhudessantpolk; Õhudessantdiviisi õhutõrjepataljon",
         "chassis": "BTR-D",
         "samMissiles": "Strela/Igla taskuraketid (2 meeskonda), varuraketid riiulitel",
-        "mainArmament": "Võimalik ZU-23-2 (2 × 23 mm) katusel",
-        "specialEquipment": "Kasutusel alates 1984"
+        "mainArmament": "Võimalik ZU-23-2 (2 × 23 mm) katusel"
       },
       "sources": [
         {"name": "WeaponSystems.net: BTR-ZD Skrezhet", "url": "https://weaponsystems.net/system/64-BTR-ZD+%22Skrezhet%22", "retrieved": "2026-11-25"},
@@ -10506,8 +10493,8 @@ window.TTA_DATA = {
     "BTR-D-ZU23": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhudessantväed (VDV)",
-        "purpose": "BTR-D, mille katusele on paigaldatud ZU-23-2 õhutõrjekahur; kasutatakse õhutõrjeks ja jalaväe tuletoetuseks. Iga ZU-23-2-ga BTR-D ei ole BTR-ZD.",
+        "typicalUnit": "Õhudessantväed",
+        "purpose": "Katusele paigaldatud ZU-23-2 õhutõrjekahuriga soomuk õhutõrjeks ja jalaväe tuletoetuseks.",
         "chassis": "BTR-D",
         "caliber": 23,
         "mainArmament": "ZU-23-2: 2 × 23 mm automaatkahur 2A14",
@@ -10816,7 +10803,7 @@ window.TTA_DATA = {
         "specialEquipment": "Faasantenn ringvaatega; režiimid: madallend (põhirežiim), kõrgus-, kaugavastus- ja mägirežiim"
       },
       "notes": {
-        "radarRange": "Teistes allikates 200–300 km (sõltub sihtmärgist ja kõrgusest)."
+        "radarRange": "Teistel andmetel 200–300 km (sõltub sihtmärgist ja kõrgusest)."
       },
       "sources": [
         {"name": "Armed Conflicts (valka.cz): 48Ja6-K1 Podlet-K1", "url": "https://www.armedconflicts.com/48Ya6-K1-Podlet-K1-t255035", "retrieved": "2026-11-25"},
@@ -10844,7 +10831,7 @@ window.TTA_DATA = {
     "P-18-2 Prima": {
       "status": "unverified",
       "values": {
-        "purpose": "Liikuv avastusradar, P-18 järglane; arendaja väitel avastab ka nähtamatuslennukeid.",
+        "purpose": "Liikuv avastusradar; arendaja väitel avastab ka nähtamatuslennukeid.",
         "crew": "2",
         "radarBand": "VHF",
         "radarRange": 320,
@@ -10860,7 +10847,7 @@ window.TTA_DATA = {
     "S-350 Vitjaz/SA-28": {
       "status": "unverified",
       "values": {
-        "purpose": "Keskmaa õhutõrjeraketikompleks, S-300PS asendaja.",
+        "purpose": "Keskmaa õhutõrjeraketikompleks.",
         "chassis": "BAZ-6909 / BAZ-69092 (kõik masinad)",
         "samMissiles": "Laskeseadmel 50P6 12 × 9M96/9M96E2 (12–120 km) või 9M100 (infrapunasihtimine, 10–15 km)",
         "samRange": {"min": 1500, "max": 120000},
