@@ -376,7 +376,7 @@ def main():
             check("tootmisseisu andmed on korrektsed", not bad, ", ".join(bad))
             # kuvamine (ajutine väärtus, andmeid ei muudeta)
             txt = ev("""() => productionStatusText({status: ['new', 'upgrade'], asOf: 2026}, TTA_FIELDS.fields.productionStatus)""")
-            check("tootmisseis TTA-s", txt == "Uustootmine · Moderniseerimine (seisuga 2026)", txt)
+            check("tootmisseis TTA-s", txt == "Tootmises · Moderniseerimine (seisuga 2026)", txt)
             # kataloogi filter
             p.click("#showModelListBtn"); p.wait_for_selector("#modelListContent .model-list-row")
             n_all = p.locator("#modelListContent .model-list-row").count()
@@ -734,7 +734,7 @@ def main():
             pe = ev("""() => { const e = CATEGORIES.find(x => x.cat === 'Pontoonsillapark'); return e ? I18N.answerText(e.label, e.type) : null; }""")
             check("EN: Pontoonsillapark vastus nimi – liik", pe is None or pe == "PMP pontoon bridge – Pontoon bridge", str(pe))
             st = ev("""() => productionStatusText({status: ['new', 'storage'], asOf: 2026}, TTA_FIELDS.fields.productionStatus)""")
-            check("EN: tootmisseis tõlgitud", st == "New production · Reactivation from storage (as of 2026)", st)
+            check("EN: tootmisseis tõlgitud", st == "In production · Reactivation from storage (as of 2026)", st)
             def home_en():
                 p.goto(base + "/index.html")
                 p.wait_for_function("() => typeof CATEGORIES !== 'undefined' && document.getElementById('appBuildLabel').textContent.includes('version')")
