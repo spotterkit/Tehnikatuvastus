@@ -668,6 +668,15 @@ window.I18N_DATA = {
   },
   // Liigid (CATEGORIES `type`). Terminid: NATOTerm / APP-6, kinnitatud terminiloendiga 13.11.2026.
   "types": {
+    // Uute kategooriate (Seadmed, Raketid ja pommid) põhiliigid (rc119)
+    "Raadiojaam": "Radio",
+    "Luureradar": "Ground surveillance radar",
+    "Tulejuhtimisseade": "Fire control device",
+    "Ballistiline rakett": "Ballistic missile",
+    "Tiibrakett": "Cruise missile",
+    "Õhk-maa rakett": "Air-to-surface missile",
+    "Liugpomm": "Glide bomb",
+    "Pomm": "Bomb",
     "Sidesoomuk": "Signals vehicle",
     "Remondi- ja äraveomasin": "Repair and recovery vehicle",
     "KamAZ-5350 Ekskavaator": "KamAZ-5350 excavator",

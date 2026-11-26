@@ -594,7 +594,39 @@ const CATEGORIES = [
   { label: "Skanda", group: "usv", type: "Mehitamata miinitõrjepaat", cat: "Skanda", files: ["images/usv/skanda.jpg"] },
   { label: "Farvater", group: "usv", type: "Mehitamata uurimis- ja transpordipaat", cat: "Farvater", files: [] },
   { label: "Strekoza", group: "usv", type: "Mehitamata pääste- ja transpordipaat", cat: "Strekoza", files: [] },
-  
-  
+
+  // ==========================================================================
+  // UUED KATEGOORIAD (rc118). Kopeeri näidisrida, eemalda algusest //, täida väljad.
+  // files: [] = mudel ei ilmu äppi enne, kui lisad pildid. Uue liigi (type) tõlge:
+  // data/i18n-en.js → "types". Šabloonirea annab ka Excel (veerg „Šabloon“).
+  // ==========================================================================
+
+  // ----- SEADMED (ülemine kategooria „Seadmed“) -----
+
+  // Kaasaskantavad raadiojaamad (group: "radios")
+  // { label: "", group: "radios", type: "Raadiojaam", cat: "", files: [] },
+
+  // Luureradarid (group: "ground_radars")
+  // { label: "", group: "ground_radars", type: "Luureradar", cat: "", files: [] },
+
+  // Suurtükiväe kaasaskantavad tulejuhtimisseadmed (group: "fire_control")
+  // { label: "", group: "fire_control", type: "Tulejuhtimisseade", cat: "", files: [] },
+
+  // ----- RAKETID JA POMMID (ülemine kategooria „Raketid ja pommid“) – ainult rakett/pomm ise, heitja jääb oma gruppi -----
+
+  // Ballistilised raketid (group: "ballistic_missiles")
+  // { label: "", group: "ballistic_missiles", type: "Ballistiline rakett", cat: "", files: [] },
+
+  // Tiibraketid (group: "cruise_missiles")
+  // { label: "", group: "cruise_missiles", type: "Tiibrakett", cat: "", files: [] },
+
+  // Õhk-maa raketid (group: "air_to_surface_missiles")
+  // { label: "", group: "air_to_surface_missiles", type: "Õhk-maa rakett", cat: "", files: [] },
+
+  // Liugpommid (group: "glide_bombs")
+  // { label: "", group: "glide_bombs", type: "Liugpomm", cat: "", files: [] },
+
+  // Pommid (group: "bombs")
+  // { label: "", group: "bombs", type: "Pomm", cat: "", files: [] },
 
 ];
