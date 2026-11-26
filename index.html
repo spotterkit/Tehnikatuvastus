@@ -1717,7 +1717,7 @@ const kuldEdGrid = document.getElementById('kuldEdGrid');
 const kuldEdMsg = document.getElementById('kuldEdMsg');
 
 const TEST_SIZE = 50;
-const TEST_SIZE_SHORT = 25;   // lühike test: sama valikuloogika ja piirangud nagu 50 küsimuse testil
+const TEST_SIZE_SHORT = 25;   // lühike test: sama valikuloogika; vaikimisi maksimumid TEST_GROUP_LIMITS_SHORT
 const TEST_SIZE_CATS = 10;    // kategooriatest: üks küsimus igast kategooriast, ei kordu ei mudelid ega kategooriad
 let lastTestSize = TEST_SIZE;
 let lastTestMode = 'mix';     // 'mix' (50/25) või 'cats' (10)
@@ -1745,7 +1745,27 @@ const TEST_GROUP_LIMITS = {
   mines: 1,   // maamiinid: MAKSIMUM 1 miin testis (võib ka 0)
   ugv: 1,
   usv: 1,
-  guided_ground_rockets: 1   // pind-pind tüüpi juhitavad raketid
+  guided_ground_rockets: 1,  // pind-pind tüüpi juhitavad raketid
+  trucks: 2,                 // maasturid ning tagala- ja toetusmasinad (kehtib ka 25 küsimuse testis)
+  ad: 3,                     // õhutõrje (kehtib ka 25 küsimuse testis)
+  artillery_recon: 2         // suurtükiväe luure-, juhtimis- ja tulejuhtimissoomukid (kehtib ka 25 küsimuse testis)
+};
+// 25 küsimuse testi vaikimisi maksimumid. Siin olevad numbrid asendavad 25 küsimuse testis
+// ülal oleva tabeli numbri; kategooriad, mida siin pole, kasutavad ülal olevat numbrit.
+const TEST_GROUP_LIMITS_SHORT = {
+  drones: 1,
+  helicopters: 2,
+  comms: 1,
+  ew: 1,
+  weapons: 1,
+  ships: 1,
+  engineer: 2,
+  planes: 2,
+  guided_ground_rockets: 1,
+  forces: 1,
+  recon_special: 1,
+  ranks: 1,
+  trucks: 2
 };
 
 // Tõenäosus, et kategooria üldse testi satub (muidu puudub see testist täielikult).
@@ -1823,8 +1843,12 @@ function setTestModelsIncluded(cats, on){
   saveTestRules();
 }
 function hasTestRuleOverride(g){ return Object.prototype.hasOwnProperty.call(testRuleOverrides, g) && GROUPS.some(x => x.id === g); }
-function defaultTestLimit(g){ return TEST_GROUP_LIMITS[g] === undefined ? null : TEST_GROUP_LIMITS[g]; }
-function testLimitFor(g, custom){ return custom && hasTestRuleOverride(g) ? testRuleOverrides[g] : defaultTestLimit(g); }
+// size: testi pikkus; 25 küsimuse testis kehtivad TEST_GROUP_LIMITS_SHORT numbrid (muidu TEST_GROUP_LIMITS).
+function defaultTestLimit(g, size){
+  if(size === TEST_SIZE_SHORT && TEST_GROUP_LIMITS_SHORT[g] !== undefined) return TEST_GROUP_LIMITS_SHORT[g];
+  return TEST_GROUP_LIMITS[g] === undefined ? null : TEST_GROUP_LIMITS[g];
+}
+function testLimitFor(g, custom, size){ return custom && hasTestRuleOverride(g) ? testRuleOverrides[g] : defaultTestLimit(g, size); }
 function setTestRule(g, v){
   if(v === defaultTestLimit(g)) delete testRuleOverrides[g];
   else testRuleOverrides[g] = v;
@@ -1986,7 +2010,7 @@ function buildUniqueVehiclePool(n){
     if(chosen.length >= target) break;
 
     if(skippedGroups.has(entry.group)) continue;
-    const limit = testLimitFor(entry.group, true);   // vaikereeglid või kasutaja oma (null = piiranguta)
+    const limit = testLimitFor(entry.group, true, n);   // vaikereeglid (50 või 25 küsimust) või kasutaja oma (null = piiranguta)
     const used = groupCounts[entry.group] || 0;
     if(limit !== null && used >= limit) continue;
     const set = testSetOf(entry.group, true);
@@ -6747,7 +6771,9 @@ window.addEventListener('hashchange', startFromHash);
       st.meta.append(off
         ? (total - off) + ' / ' + total + ' ' + (GROUP_COUNT_WORD[g] || 'masinat')
         : groupCountLabel(g, total));
-      st.meta.append(' · vaikimisi ' + limTxt(defaultTestLimit(g)));
+      const dShort = defaultTestLimit(g, TEST_SIZE_SHORT);
+      st.meta.append(' · vaikimisi ' + limTxt(defaultTestLimit(g))
+        + (dShort !== defaultTestLimit(g) ? ' (' + TEST_SIZE_SHORT + ' küsimuse testis ' + limTxt(dShort) + ')' : ''));
       if(off){ st.meta.append(' · '); st.meta.appendChild(el('span', 'tr-ex', off + ' välja jäetud')); }
       const c = chanceNote(g);
       if(c){ st.meta.append(' · '); st.meta.appendChild(el('span', 'tr-chance', c)); }
@@ -7277,7 +7303,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc120'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc121'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
