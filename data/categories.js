@@ -30,7 +30,7 @@ const CATEGORIES = [
   { label: "T-90M", group: "tank", type: "Tank", cat: "T-90M", files: ["T-90M.jpg", "Engineering_Technologies_-_2012_%281-25%29.jpg", "T-90M_MBT_Army-2022_2022-08-20_2397.jpg", "Zapad_2017_%28Proving_Ground_Luzhsky%29_02.jpg", "images/tanks/t90m.webp", "images/tanks/t90m_02.jpg"] },
   { label: "T-90A", group: "tank", type: "Tank", cat: "T-90A", files: ["Moscow_2012_Victory_Day_Parade_Rehearsal%2C_T-90_tank%2C_Russia.jpg", "T-90A_front_Army-2016.jpg", "T-90A_MBT_photo011.jpg", "T-90A_with_OPVT_wading_snorkel_during_river_crossing_training_-_September_2023_01.jpg"] },
   { label: "T-62", group: "tank", type: "Tank", cat: "T-62", files: ["VNPA_T-62_-_092025.jpg", "images/tanks/t62_01.jpg", "ParkPatriot2015part1-64-X3.jpg", "T-62_and_T-62M_tanks_transported_by_train.jpg"] },
-  { label: "BMP-T", group: "tank", type: "Tankituletoetusmasin", cat: "BMP-T", files: ["Terminator_%2840115444250%29.jpg", "Victory_Day_2018_%2827053433837%29.jpg", "BMPT_Terminator_elevated_position_view_at_Army_2022.jpg"] },
+  { label: "BMP-T", group: "tank", type: "Tankituletoetusmasin", cat: "BMP-T", files: ["Terminator_%2840115444250%29.jpg", "Victory_Day_2018_%2827053433837%29.jpg", "BMPT_Terminator_elevated_position_view_at_Army_2022.jpg", "1920px-2012_Eurosatory_Tank.JPG"] },
 
   // Jalaväe lahingumasinad
   { label: "BMP-2", group: "ifv", type: "Jalaväe lahingumasin", cat: "BMP-2", files: ["BMP-2_of_Russian_Ground_Forces.jpg", "BMP-2_%281%29.jpg", "BMP-2_-_TankBiathlon14part1-11.jpg", "images/ifv/bmp2_01.jpg", "images/ifv/bmp2_02.jpg", "Продвижение_подразделений_ВС_РФ_в_ходе_вторжения_на_Украину_012.png"] },
