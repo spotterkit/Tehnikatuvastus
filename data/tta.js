@@ -6271,8 +6271,8 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Motolaskurpolk; Tankipolk",
-        "purpose": "Juhtimis- ja staabisoomuk BMP-1 baasil.",
-        "crew": "3 (kirjetes ka „3 + 4“ ja 6)",
+        "purpose": "Juhtimis- ja staabisoomuk.",
+        "crew": "3 (teistel andmetel 3 + 4 või 6)",
         "combatWeight": 13,
         "length": 6.74,
         "width": 2.94,
@@ -6285,11 +6285,12 @@ window.TTA_DATA = {
         "maxSpeedWater": 7,
         "range": 550,
         "amphibious": true,
-        "mainArmament": "1 × 7,62 mm PKT (2000 padrunit); põhikahur asendatud fikseeritud tornikesega",
-        "armor": "Terasest kere 19 mm, torn 23 mm; lisasoomus ja reaktiivsoomus võimalik; aktiivkaitse puudub",
+        "mainArmament": "7,62 mm PKT (2000 lasku); põhikahur asendatud fikseeritud tornikesega",
+        "armor": "Terasest kere 19 mm, torn 23 mm; lisasoomus ja aktiivsoomus võimalik; aktiivkaitse puudub",
         "specialEquipment": "TNA-3 güroskoopiline navigatsiooniseade; teleskoopmast AMU",
         "radioSets": "2 × R-111, 1 × R-123MT, 1 × R-130M",
-        "commsMastHeight": 10
+        "commsMastHeight": 10,
+        "chassis": "BMP-1"
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BMP-1KSh", "url": "https://odin.t2com.army.mil/WEG/Asset/f6cab3e2c9d8a521d4672efb6b4c7765", "retrieved": "2026-11-10"},
@@ -6299,7 +6300,7 @@ window.TTA_DATA = {
     "R-145BM": {
       "status": "unverified",
       "values": {
-        "purpose": "Juhtimis- ja staabisoomuk BTR-60 baasil.",
+        "purpose": "Juhtimis- ja staabisoomuk.",
         "crew": "2",
         "combatWeight": 10.3,
         "length": 7.56,
@@ -6312,9 +6313,10 @@ window.TTA_DATA = {
         "maxSpeedWater": 10,
         "range": 500,
         "amphibious": true,
-        "mainArmament": "1 × 7,62 mm PKT (2500 padrunit); torn ja 14,5 mm kuulipilduja eemaldatud",
+        "mainArmament": "7,62 mm PKT (2500 lasku); torn ja 14,5 mm kuulipilduja eemaldatud",
         "armor": "Keevitatud teras 5–9 mm; lisasoomuseta; TBK-kaitse",
-        "radioSets": "2 × R-111/171, 1 × R-123/173, 1 × R-145, 1 × R-130M, maa–õhk raadiojaam R-8xx"
+        "radioSets": "2 × R-111/171, 1 × R-123/173, 1 × R-145, 1 × R-130M, maa–õhk raadiojaam R-8xx",
+        "chassis": "BTR-60"
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BTR-60-R-145BM", "url": "https://odin.t2com.army.mil/WEG/Asset/6b939a3396646c911fabfd15c0769812", "retrieved": "2026-11-10"}
@@ -6342,8 +6344,8 @@ window.TTA_DATA = {
         "sideSlope": 40,
         "verticalStep": 0.5,
         "trench": 2,
-        "mainArmament": "1 × 14,5 mm KPVT (500 padrunit)",
-        "secondaryArmament": "1 × 7,62 mm PKT (2500 padrunit); 6 × 81 mm suitsugraanaadiheitjat",
+        "mainArmament": "14,5 mm KPVT (500 lasku)",
+        "secondaryArmament": "7,62 mm PKT (2500 lasku); 6 × 81 mm suitsugranaadiheitjat",
         "armor": "Kere esiosa ja torn peavad vastu 12,7 mm kuulidele; igakülgne kaitse 7,62 mm kuulide ja kildude vastu; TBK-kaitse",
         "radioSets": "3 × R-168-0.1UM, 1 × R-168-5UN-1, 2 × R-168-25U-2, 2 × R-168-100U-2, 1 × R-168-100KA (KV); kaasaskantav satelliitsidejaam R-438M Belozer",
         "commsRange": "R-168-25U-2 25–40 km, R-168-100U-2 25–60 km, R-168-100KA (KV) 25–360 km; satelliitside 5000 km"
@@ -6374,7 +6376,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Armee sideüksus",
-        "purpose": "Juhtimis- ja sidemasin veoki šassiil.",
+        "purpose": "Juhtimis- ja sidemasin.",
         "crew": "7",
         "length": 7.85,
         "width": 2.5,
@@ -6400,7 +6402,7 @@ window.TTA_DATA = {
         "driveConfig": "8×8",
         "specialEquipment": "4 arvutiga automatiseeritud töökohad: andmete kogumine, käskude andmine, elektroonilised kaardid ja olukorrapilt, andmevahetus kõrgemate ja alluvate juhtimispunktidega; krüpteerimisseadmed; navigatsioonisüsteem Azimut (täpsus 30 m); kliimaseade",
         "crew": "6",
-        "chassis": "K1Sh1 (BTR-80 alusel)",
+        "chassis": "K1Sh1 (BTR-80)",
         "combatWeight": 13,
         "length": 7.65,
         "width": 2.9,
@@ -6425,13 +6427,13 @@ window.TTA_DATA = {
     "R-145BM1": {
       "status": "unverified",
       "values": {
-        "purpose": "Juhtimis- ja sidesoomuk BTR-60 baasil.",
+        "purpose": "Juhtimis- ja sidesoomuk.",
         "crew": "2",
         "length": 7.56,
         "width": 2.82,
         "height": 2.31,
         "driveConfig": "8×8",
-        "engine": "Diiselmootor (sama tüüp mis BTR-80-l)",
+        "engine": "Diisel",
         "maxSpeedRoad": 80,
         "maxSpeedWater": 10,
         "range": 500,
@@ -6439,7 +6441,8 @@ window.TTA_DATA = {
         "mainArmament": "Relvastus puudub (BTR-60PB torn alles, kuulipilduja eemaldatud)",
         "specialEquipment": "GPS/GLONASS; öövaatlusseadmed; TBK-kaitse",
         "radioSets": "R-168-100KA, R-168-25U ja R-168-100U (kaks igat)",
-        "powerSupply": "Generaator T-290V; avariitoide 12ST-85RM"
+        "powerSupply": "Generaator T-290V; avariitoide 12ST-85RM",
+        "chassis": "BTR-60"
       },
       "sources": [
         {"name": "Army Recognition: R-145BM1", "url": "https://armyrecognition.com/military-products/army/communication-vehicles-and-systems/r-145bm1-russia-uk", "retrieved": "2026-10-28"}
@@ -6520,7 +6523,7 @@ window.TTA_DATA = {
         "purpose": "Maapealne häirejaam õhu- ja kosmoseradarite mahasurumiseks.",
         "typicalUnit": "Elektroonilise võitluse brigaad",
         "crew": "4",
-        "chassis": "BAZ-6910-022 4-teljeline (Wikipedia) või kaks KamAZ-6350 veokit (COGINT)",
+        "chassis": "BAZ-6910-022 (4 telge) või kaks KamAZ-6350 veokit",
         "frequencyRange": "X-riba 8,5–10,7 GHz; Ku-riba 13,4–17,7 GHz",
         "jammingRange": 300,
         "ewTargets": "Õhuradarilennukid (nt E-8 JSTARS), madalal orbiidil satelliidid, maa- ja õhuradarid, droonid",
@@ -6536,9 +6539,9 @@ window.TTA_DATA = {
     "Lejer-2/Leer-2": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhudessantväed (VDV)",
+        "typicalUnit": "Õhudessantväed",
         "purpose": "Liikuv automatiseeritud raadioluure, suunatuvastuse ja häirimise kompleks; jäljendab ka raadioelektroonilisi süsteeme.",
-        "crew": "3 (tabelis), 2 (pildiallkirjas)",
+        "crew": "3 (teistel andmetel 2)",
         "chassis": "Tigr-M (85Ya6)",
         "frequencyRange": "Häirimine 0,02–2,7 GHz; analüüs 0,0001–18 GHz",
         "jammingRange": 40,
@@ -6609,7 +6612,7 @@ window.TTA_DATA = {
         "specialEquipment": "Seitsmeastmeline teleskoopmast",
         "ewMode": "Raadioluure ja häirimine",
         "emplacementTime": "72 h",
-        "powerSupply": "Neljast antennist koosnevale grupile ca 400 kW generaatorveok KamAZ-6350"
+        "powerSupply": "Neljast antennist koosnevale grupile umbes 400 kW generaatorveok KamAZ-6350"
       },
       "sources": [
         {"name": "Truck Encyclopedia: Murmansk-BN", "url": "https://truck-encyclopedia.com/modern/russia/Kamaz-Murmansk-BN.php", "retrieved": "2026-10-23"},
@@ -6635,7 +6638,7 @@ window.TTA_DATA = {
         "jammingRange": 0.4,
         "jammerPower": 180,
         "ewTargets": "Lähedussüütega ja raadiojuhitavate sütikutega suurtükimürsud ja raketid (detoneeruvad suuremal kõrgusel); VHF-raadioliinid",
-        "specialEquipment": "Kaitstav ala kuni 50ha; töötab automaatselt nii paigal kui ka liikvel; surub alla ka VHF-raadioliine (sh sagedushüpetega). Töövalmidus ooteolekust kuni 10 s",
+        "specialEquipment": "Kaitstav ala kuni 50 ha; töötab automaatselt nii paigal kui ka liikvel; surub alla ka VHF-raadioliine (sh sagedushüpetega). Töövalmidus ooteolekust kuni 10 s",
         "ewMode": "Häirimine",
         "emplacementTime": "10 min"
       },
@@ -6649,7 +6652,7 @@ window.TTA_DATA = {
         "purpose": "Automatiseeritud jaam satelliitside, satelliitnavigatsiooni ja mobiilside avastamiseks, suuna määramiseks ja häirimiseks; kaitseb brigaadi ja diviisi juhtimispunkte täppisrelvade eest.",
         "typicalUnit": "Elektroonilise võitluse rood; Elektroonilise võitluse brigaad",
         "chassis": "Ural-43203 või KamAZ-43114; häirejaam eraldi haagisel",
-        "frequencyRange": "Luure 0,1–2 GHz; häirimine ca 0,1–2 GHz",
+        "frequencyRange": "Luure 0,1–2 GHz; häirimine umbes 0,1–2 GHz",
         "jammingRange": 30,
         "ewTargets": "GPS/NAVSTAR, Inmarsat- ja Iridium-satelliitside, GSM-1900 mobiilid, droonide V/UHF-raadioliinid",
         "ewMode": "Raadioluure, suunatuvastus ja häirimine",
@@ -6687,7 +6690,7 @@ window.TTA_DATA = {
         "purpose": "Soomukil paiknev elektroonilise võitluse kompleks, mis saadab soomuskolonne ja kaitseb neid raadiojuhitavate lõhkekehade ja juhitava relvastuse eest.",
         "typicalUnit": "Elektroonilise võitluse brigaad",
         "crew": "3",
-        "chassis": "K1Sh1 (BTR-80 alusel)",
+        "chassis": "K1Sh1 (BTR-80)",
         "driveConfig": "8×8",
         "amphibious": true,
         "combatWeight": 13.6,
@@ -8751,7 +8754,7 @@ window.TTA_DATA = {
       "values": {
         "typicalUnit": "Sideüksus; TBK-kaitseväed",
         "purpose": "Sidesoomuk raadioside pidamiseks sidesõlme koosseisus või iseseisvalt, ka raadiohäirete korral.",
-        "chassis": "UNSh / K1Sh1 (BTR-80 alusel)",
+        "chassis": "UNSh / K1Sh1 (BTR-80)",
         "driveConfig": "8×8",
         "amphibious": true,
         "commsFrequency": "KV ja UKV"
@@ -8797,9 +8800,9 @@ window.TTA_DATA = {
     "R-416GM Granit-M": {
       "status": "unverified",
       "values": {
-        "purpose": "Häirekindel digitaalne raadioreleejaam strateegilise ja operatiivtasandi välisidevõrkudele.",
+        "purpose": "Häirekindel digitaalne raadioreleejaam (kasutusel alates 2018. aastast) strateegilise ja operatiivtasandi välisidevõrkudele.",
         "typicalUnit": "Sõjaväeringkonna sideüksus",
-        "specialEquipment": "Andmeedastus 4–311 Mbit/s; liikumise ajal ei tööta; töötemperatuur −50…+40°C. Kasutusel alates 2018",
+        "specialEquipment": "Andmeedastus 4–311 Mbit/s; liikumise ajal ei tööta; töötemperatuur −50…+40 °C",
         "commsFrequency": "Dupleks 5,6–6,2 GHz ja 7,9–8,4 GHz",
         "commsRange": "Hüpe kuni 40 km mõõdukalt liigendatud maastikul",
         "commsMastHeight": 30
@@ -8824,8 +8827,8 @@ window.TTA_DATA = {
         "maxSpeedRoad": 100,
         "specialEquipment": "Andmeedastus kuni 8,448 Mbit/s",
         "commsFrequency": "390–645 MHz ja 1550–1850 MHz",
-        "emplacementTime": "≤35 min",
-        "powerSupply": "2 generaatorit AD4-T400-1VM2 + akupuhver, autonoomia ≥48h"
+        "emplacementTime": "Kuni 35 min",
+        "powerSupply": "2 generaatorit AD4-T400-1VM2 + akupuhver, autonoomia vähemalt 48 h"
       },
       "sources": [
         {"name": "Army Recognition: R-419L1 (šassii ja otstarve)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2019/russian-eastern-district-gets-r-419l1-communication-stations", "retrieved": "2026-11-10"},
@@ -8932,7 +8935,7 @@ window.TTA_DATA = {
         "emplacementTime": "15 min"
       },
       "notes": {
-        "crew": "Allikates kirjutatud ka R-330KMV."
+        "crew": "Teistel andmetel ka R-330KMV."
       },
       "sources": [
         {"name": "Militarnyi: Ukrainian military destroy the Russian R-934BMV Borisoglebsk-2 EW system", "url": "https://mil.in.ua/en/news/ukrainian-military-destroy-the-russian-r-934bmv-borisoglebsk-2-ew-system", "retrieved": "2026-10-30"},
@@ -9169,7 +9172,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Raadioreleejaam taktikalise sidekompleksi Redut-2US koosseisus.",
-        "chassis": "KamAZ 6×6 veok",
+        "chassis": "KamAZ",
         "driveConfig": "6×6",
         "specialEquipment": "Antennimoodul: veoki platvormil kokkupandavad antennid (transpordiasendis), taga kungi/aparatuuriruum"
       },
@@ -9507,7 +9510,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Satelliitsidejaam sidepidamiseks sõjaliste ja tsiviilsatelliitide kaudu, ka raadiohäirete korral.",
-        "chassis": "K1Sh1 (BTR-80 alusel)",
+        "chassis": "K1Sh1 (BTR-80)",
         "commsFrequency": "Globus: 4/6 GHz, 7/8 GHz ja 0,2/0,4 GHz; tsiviilsatelliidid Express ja Yamal: 4/6 GHz"
       },
       "sources": [
@@ -9519,7 +9522,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Ühtne juhtimismasin roodu, rühma ja jao tasandi juhtimiseks ja sideks.",
         "typicalUnit": "Rood; Rühm; Jagu",
-        "chassis": "BTR-80 (8×8 ratassoomuk)"
+        "chassis": "BTR-80"
       },
       "sources": [
         {"name": "Army Recognition: BTR-80 (variants)", "url": "https://armyrecognition.com/military-products/army/armoured-personnel-carriers/wheeled-vehicles/btr-80-russia-uk", "retrieved": "2026-11-20"},
@@ -9532,7 +9535,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Juhtimis- ja sidemasin ühenduseks kõrgema staabi ja alluvate üksustega.",
         "typicalUnit": "Armee luureüksus",
-        "chassis": "GAZ Tigr (4×4 soomusauto)"
+        "chassis": "GAZ Tigr"
       },
       "sources": [
         {"name": "Army Recognition: R-145BMA Tigr command post vehicle (2015)", "url": "https://armyrecognition.com/archives/archives-land-defense/land-defense-2015/russian-army-scouts-at-the-army-level-equipped-with-r-145bma-tigr-command-post-vehicle-tass-12510153", "retrieved": "2026-11-20"}
@@ -9568,10 +9571,10 @@ window.TTA_DATA = {
         "frequencyRange": "95–420 MHz",
         "jammerPower": 300,
         "ewTargets": "Raadiokaugsütikuga suurtükimürsud ja raketid – põhjustab nende lõhkemise ohutul kõrgusel",
-        "specialEquipment": "Kaitstav ala vähemalt 50ha; segab vähemalt 40 sütikut sekundis; töötab ka liikumisel. GRAU indeks 1L29; moderniseeritud versioon SPR-2M Rtut-BM",
+        "specialEquipment": "Kaitstav ala vähemalt 50 ha; segab vähemalt 40 sütikut sekundis; töötab ka liikumisel. GRAU indeks 1L29; moderniseeritud versioon SPR-2M Rtut-BM",
         "ewMode": "Häirimine",
         "emplacementTime": "Kuni 4 min",
-        "powerSupply": "27V, 4 kW"
+        "powerSupply": "27 V, 4 kW"
       },
       "notes": {
         "jammerPower": "300 W või rohkem."
@@ -9585,18 +9588,18 @@ window.TTA_DATA = {
     "Shipovnik-Aero": {
       "status": "unverified",
       "values": {
-        "purpose": "Droonitõrje elektroonilise võitluse kompleks: avastab väikesed droonid, surub alla nende juhtimiskanali või võtab drooni üle.",
+        "purpose": "Droonitõrje elektroonilise võitluse kompleks (kasutusel alates 2016. aastast): avastab väikesed droonid, surub alla nende juhtimiskanali või võtab drooni üle.",
         "crew": "3",
         "chassis": "KamAZ-4350",
         "frequencyRange": "Raadioseire 25–2500 MHz; häirimine 400–500, 800–925 ja 2400–2485 MHz",
         "detectionRange": 10,
         "ewTargets": "Väikesed raadiojuhitavad droonid (RQ-11 Ravenist kuni Hermes-tüüpi UAV-deni); ka juhtimispunktid, mobiilside, Wi-Fi, WiMAX ja DECT",
-        "specialEquipment": "Tuvastamisest mahasurumiseni 25 s; suunamäärangu täpsus 2–3°; kasutusel alates 2016",
+        "specialEquipment": "Tuvastamisest mahasurumiseni 25 s; suunamäärangu täpsus 2–3°",
         "ewMode": "Droonitõrje (luure, häirimine, ülevõtmine)",
         "emplacementTime": "20–40 min"
       },
       "notes": {
-        "chassis": "Commonsi foto pealkirja järgi; COGINT raport šassiid ei nimeta."
+        "chassis": "Ainult foto allkirja järgi."
       },
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"}
@@ -9605,11 +9608,11 @@ window.TTA_DATA = {
     "MKTK-1A Judoist": {
       "status": "unverified",
       "values": {
-        "purpose": "Raadiokontrolli kompleks: leiab raadiokiirguse allikad ja määrab nende asukoha; kontrollib oma vägede kaitset vastase tehnilise luure eest.",
+        "purpose": "Raadiokontrolli kompleks (kasutusel alates 2012. aastast): leiab raadiokiirguse allikad ja määrab nende asukoha; kontrollib oma vägede kaitset vastase tehnilise luure eest.",
         "chassis": "KamAZ-4350",
         "frequencyRange": "Raadiokiirgus 0,0001–18 GHz; akustiline ja vibroakustiline 10–20 000 Hz",
         "ewTargets": "Raadiokiirguse allikad; tehnilised infolekkekanalid",
-        "specialEquipment": "3 automatiseeritud töökohta; suunamäärangu viga alla 2–3°; kasutusel alates 2012",
+        "specialEquipment": "3 automatiseeritud töökohta; suunamäärangu viga alla 2–3°",
         "ewMode": "Raadioseire ja suunatuvastus",
         "emplacementTime": "30 min",
         "powerSupply": "3,5 kW"
@@ -9621,14 +9624,14 @@ window.TTA_DATA = {
     "RP-377LA Lorandit": {
       "status": "unverified",
       "values": {
-        "purpose": "UKV-raadioside otsingu, asukoha määramise ja mahasurumise süsteem.",
+        "purpose": "UKV-raadioside otsingu, asukoha määramise ja mahasurumise süsteem (kasutusel alates 2019. aastast).",
         "typicalUnit": "Elektroonilise võitluse rood",
         "crew": "2–3",
         "chassis": "Maastikuauto (nt UAZ) või kantav komplekt",
         "frequencyRange": "0,02–2 GHz",
         "jammerPower": 40,
         "ewTargets": "VHF-raadioside ja juhtimissüsteemide häireallikad",
-        "specialEquipment": "Suunamäärangu viga kuni 3°; kantav versioon 2 kohvris ja 4 kotis; 2 või enam komplekti saab ühendada võrku. Kasutusel alates 2019",
+        "specialEquipment": "Suunamäärangu viga kuni 3°; kantav versioon 2 kohvris ja 4 kotis; 2 või enam komplekti saab ühendada võrku",
         "ewMode": "Raadioluure, suunatuvastus ja häirimine"
       },
       "sources": [
@@ -9639,12 +9642,12 @@ window.TTA_DATA = {
     "Tirada-2S": {
       "status": "unverified",
       "values": {
-        "purpose": "Sidesatelliitide üleslüli häirimise kompleks.",
+        "purpose": "Sidesatelliitide üleslüli häirimise kompleks (kasutusel alates 2019. aastast).",
         "crew": "5",
         "chassis": "KamAZ",
         "frequencyRange": "3–14 GHz (sentimeeterlained)",
         "ewTargets": "Sidesatelliidid (üleslüli häirimine kitsa kiirega); luuredroonide satelliitside",
-        "specialEquipment": "Juhtimiskeskus, side avastamise ja häirimise riistvaraplokk ning generaator; ulatus „mitukümmend kilomeetrit“; kasutusel alates 2019. Kahtlustatakse Starlinki häirimises",
+        "specialEquipment": "Juhtimiskeskus, side avastamise ja häirimise riistvaraplokk ning generaator; ulatus mitukümmend kilomeetrit",
         "ewMode": "Häirimine",
         "emplacementTime": "30 min"
       },
@@ -9655,19 +9658,19 @@ window.TTA_DATA = {
     "Palantin-K": {
       "status": "unverified",
       "values": {
-        "purpose": "Operatiiv-taktikalise tasandi automatiseeritud elektroonilise võitluse kompleks raadioluureks ning raadio- ja mobiilside mahasurumiseks; ühendab mitu elektroonilise võitluse süsteemi ühtseks võrguks.",
+        "purpose": "Operatiiv-taktikalise tasandi automatiseeritud elektroonilise võitluse kompleks (kasutusel alates 2019. aastast) raadioluureks ning raadio- ja mobiilside mahasurumiseks.",
         "typicalUnit": "Elektroonilise võitluse pataljon",
         "chassis": "KamAZ",
         "frequencyRange": "3–30 MHz (HF) ja 30–300 MHz (VHF)",
         "jammingRange": 20,
         "mastHeight": 15,
-        "ewTargets": "Satelliitjuhitav relvastus, mobiil- ja raadioside, droonid ja teised EW-süsteemid",
-        "specialEquipment": "Automatiseeritud häirimiskompleks; ühendab Moskva, Žiteli ja Judoisti ühtseks võrguks. Kasutusel alates 2019",
+        "ewTargets": "Satelliitjuhitav relvastus, mobiil- ja raadioside, droonid ja teised elektroonilise võitluse süsteemid",
+        "specialEquipment": "Ühendab Moskva, Žiteli ja Judoisti ühtseks võrguks",
         "ewMode": "Raadioluure ja häirimine"
       },
       "notes": {
-        "jammingRange": "Raporti tabelis raadioside mahasurumise ulatus 1000 km (raport vastuolu ei selgita).",
-        "chassis": "Commonsi foto pealkirja järgi."
+        "jammingRange": "Teistel andmetel raadioside mahasurumise ulatus 1000 km.",
+        "chassis": "Ainult foto allkirja järgi."
       },
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"},
@@ -10077,7 +10080,7 @@ window.TTA_DATA = {
         "crew": "3",
         "commsFrequency": "KV 1,5–30 MHz; UKV 30–80 MHz",
         "autonomy": 7,
-        "specialEquipment": "Saatja 1 ± 0,2 kW. Kasutusel alates 1996, seeriatootmine 2006; versioonid R-166-0,5 ja R-166S",
+        "specialEquipment": "Saatja 1 ± 0,2 kW; versioonid R-166-0,5 ja R-166S",
         "commsRange": "KV 2000 km paigal / 350 km liikvel, UKV 250 / 70 km",
         "powerSupply": "Voolutarve kuni 16 kW"
       },
@@ -10092,11 +10095,11 @@ window.TTA_DATA = {
     "R-440 ODB": {
       "status": "unverified",
       "values": {
-        "purpose": "Õhudessantvägede satelliitsidesoomuk juhtimispunktide sideks.",
+        "purpose": "Õhudessantvägede satelliitsidesoomuk (kasutusel alates 1989. aastast) juhtimispunktide sideks.",
         "typicalUnit": "Õhudessantdiviisi sidepataljon",
-        "chassis": "BTR-D (õhudessandi roomiksoomuk)",
+        "chassis": "BTR-D",
         "commsFrequency": "Saatmine 5850–5886 ja 5760–5770 MHz; vastuvõtt 3525–3541 ja 3472,5–3482,5 MHz (4/6 GHz)",
-        "specialEquipment": "Kokkupandav paraboolantenn Ø1,2 m katusel; saatja 10 W; kiirus 1,2–9,6 kbit/s; 1 sidesuund. Satelliidid Raduga, Gorizont, Yamal, Express ja Molnija-3. Kasutusel alates 1989",
+        "specialEquipment": "Kokkupandav paraboolantenn Ø1,2 m katusel; saatja 10 W; kiirus 1,2–9,6 kbit/s; 1 sidesuund. Satelliidid Raduga, Gorizont, Yamal, Express ja Molnija-3",
         "commsRange": "Kuni 15 000 km"
       },
       "sources": [
@@ -10907,7 +10910,7 @@ window.TTA_DATA = {
         "typicalUnit": "Pataljon"
       },
       "notes": {
-        "typicalUnit": "Ainult ühe allika (Sina Military) andmetel."
+        "typicalUnit": "Ainult ühe allika andmetel."
       },
       "sources": [
         {"name": "Oryx: Documenting Russian equipment losses (MP-1IM/MP-2IM signals vehicle)", "url": "https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html", "retrieved": "2026-11-25"},
