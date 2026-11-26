@@ -235,6 +235,15 @@
     outline:none;
   }
   input[type=text]:focus{border-color:var(--olive);}
+  /* Puuteekraan: vastuse väli on valikuline; klaviatuur avaneb ainult siis, kui kasutaja seda soovib. */
+  .type-toggle{display:none;width:100%;margin-top:8px;background:none;border:none;padding:6px;color:var(--bone-dim);font-size:13px;text-decoration:underline;text-underline-offset:3px;text-transform:none;letter-spacing:0;cursor:pointer;}
+  body.touch-answer .type-toggle{display:block;}
+  body.touch-answer:not(.typing-open) #guessInput{display:none;}
+  body.touch-answer #runScreen.answered #guessRow, body.touch-answer #runScreen.answered .type-toggle{display:none;}
+  /* Telefonis mahub pilt + vastuse nupud ühele ekraanile (svh: aadressiriba peitmine ei muuda suurust). */
+  @media(max-width:600px){
+    .scope{height:min(46vh, 680px);height:min(46svh, 680px);min-height:200px;}
+  }
   input[type=text]::placeholder{color:var(--bone-dim);}
 
   button{
@@ -1124,10 +1133,11 @@ window.addEventListener('error', function(){ window.__bootErrors++; });
 
     <div class="panel">
       <div class="q-prompt" id="qPrompt" hidden></div>
-      <div class="row">
+      <div class="row" id="guessRow">
         <input type="text" id="guessInput" placeholder="Kirjuta oma vastus (nt T-72, Su-25...)" autocomplete="off">
         <button class="primary" id="revealBtn">Näita vastust</button>
       </div>
+      <button type="button" class="type-toggle" id="typeToggleBtn" aria-controls="guessInput">✎ Kirjuta vastus</button>
 
       <div class="answer-block" id="answerBlock" style="display:none;">
         <div class="your-guess" id="yourGuess"></div>
@@ -2404,7 +2414,7 @@ function sourceLinkLine(info){
 function fillAnswerBlock(cur, guessText){
   yourGuess.innerHTML = guessText
     ? 'Sinu vastus: <b>' + guessText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</b>'
-    : 'Vastus jäeti tühjaks.';
+    : (document.body.classList.contains('touch-answer') && !document.body.classList.contains('typing-open') ? '' : 'Vastus jäeti tühjaks.');
   correctValue.textContent = I18N.answerText(cur.label, cur.type);
   fileLine.innerHTML = '';
   fileLine.appendChild(sourceLinkLine(cur));
@@ -2637,6 +2647,8 @@ function render(){
   } else {
     renderHistory(history[viewIndex]);
   }
+  // Telefonis peidetakse pärast vastuse näitamist „Näita vastust“ rida, et hindamisnupud mahuksid ekraanile.
+  runScreen.classList.toggle('answered', answerBlock.style.display === 'block');
   updateMistakeCompareBtn(viewIndex === null ? null : history[viewIndex]);
   updateNavControls();
 }
@@ -2697,7 +2709,8 @@ async function loadNext(){
       updateScoreUI();
       liveState = { phase: 'ready', current: cur, guessText: '', message: '' };
       render();
-      guessInput.focus();
+      if(answerAutoFocusOk()) guessInput.focus();   // telefonis ei ava klaviatuuri ise (lehekülg hüppaks)
+      else if(scope.getBoundingClientRect().top < 0){ try{ scope.scrollIntoView({block: 'start'}); }catch(e){} }
       return;
     }catch(err){
       lastImageError = String((err && err.message) || err);
@@ -2732,6 +2745,7 @@ function reveal(){
   liveState.phase = 'revealed';
   hideCompareToast();
   render();
+  if(!answerAutoFocusOk()){ try{ markBad.scrollIntoView({block: 'nearest'}); }catch(e){} }
 }
 
 let cmpToastEl = null, cmpToastTimer = null;
@@ -5449,6 +5463,37 @@ histNext.addEventListener('click', () => {
 });
 
 revealBtn.addEventListener('click', reveal);
+
+// Puuteekraaniga seadmes (telefon, tahvel) ei avata klaviatuuri iga pildi juures ise:
+// vastuse väli on peidus ja avaneb nupust „✎ Kirjuta vastus“. Valik jäetakse meelde.
+const TYPE_PREF_KEY = 'tehnikatuvastus.typeAnswer.v1';
+const finePointerMq = window.matchMedia ? window.matchMedia('(hover: hover) and (pointer: fine)') : null;
+function answerAutoFocusOk(){ return !finePointerMq || finePointerMq.matches; }
+const typeToggleBtn = document.getElementById('typeToggleBtn');
+function setTypingOpen(open){
+  document.body.classList.toggle('typing-open', open);
+  typeToggleBtn.textContent = open ? 'Peida vastuse väli' : '✎ Kirjuta vastus';
+  typeToggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function applyTouchAnswerMode(){
+  const touch = !answerAutoFocusOk();
+  document.body.classList.toggle('touch-answer', touch);
+  let pref = false;
+  try{ pref = localStorage.getItem(TYPE_PREF_KEY) === '1'; }catch(e){}
+  setTypingOpen(!touch || pref);
+}
+typeToggleBtn.addEventListener('click', () => {
+  const open = !document.body.classList.contains('typing-open');
+  setTypingOpen(open);
+  try{ localStorage.setItem(TYPE_PREF_KEY, open ? '1' : '0'); }catch(e){}
+  if(open && !guessInput.disabled) guessInput.focus();   // kasutaja ise palus: klaviatuur võib avaneda
+  if(!open){ guessInput.value = ''; if(liveState.phase === 'ready') liveState.guessText = ''; }
+});
+applyTouchAnswerMode();
+if(finePointerMq){
+  if(finePointerMq.addEventListener) finePointerMq.addEventListener('change', applyTouchAnswerMode);
+  else if(finePointerMq.addListener) finePointerMq.addListener(applyTouchAnswerMode);
+}
 document.addEventListener('keydown', e => {
   if(runScreen.style.display === 'none') return; // klahvid ei tee midagi kodumenüüs
   if(viewIndex !== null) return; // ajaloos vaadates klahvid ei tee midagi
@@ -7146,7 +7191,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc115'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc116'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
