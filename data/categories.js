@@ -91,7 +91,7 @@ const CATEGORIES = [
 
   // Mitmikraketiheitjad (reaktiivsuurtükid)
   { label: "BM-21 Grad", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-21 Grad", files: ["BM_-_21_Grad.jpg", "BM-21_Grad_%2803%29.jpg", "images/mlrs/bm21_01.jpg", "ChebarkulExercise2017-02.jpg"] },
-  { label: "Tornado-G/BM-21-1 (2B17M)", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "Tornado-G/BM-21-1 (2B17M)", files: ["Army2016demo-062.jpg", "Хабаровск%2C_репетиция_к_параду_4_мая_2016._Идет_дождь_%2819%29.jpg"] },
+  { label: "2B17M Tornado-G", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "2B17M Tornado-G", files: ["Army2016demo-062.jpg", "Хабаровск%2C_репетиция_к_параду_4_мая_2016._Идет_дождь_%2819%29.jpg"] },
   { label: "BM-27 Uragan", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-27 Uragan", files: ["BM-27_Uragan.jpg", "Uragan_MLRS_of_the_52nd_Artillery_Brigade_%282%29.png", "165th_Artillery_Brigade%27s_9K57_Uragan_MLRS_06.jpg", "Передача_трофейной_украинской_техники_и_вооружения_подразделениям_ЛНР_008.png"] },
   { label: "BM-30 Smertš", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "BM-30 Smertš", files: ["BM-30_Smerch%2C_2010.jpg", "9A52_Smerch_2017-12-24.jpg", "9A52_of_300-mm_multiple_rocket_launching_system_9K58_«Smerch»%2C_Artillery_museum%2C_Saint-Petersburg_pic4.JPG", "BM-30_back_Tula_2016.JPG"] },
   { label: "TOS-1A Solntsepjok", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-1A Solntsepjok", files: ["TZM-T_of_the_TOS-1A_system_%281%29.jpg", "TOS-1A_MRL_during_the_the_May_Parade_2010.jpeg", "TOS-1A_before_firing.jpg"] },
@@ -100,6 +100,7 @@ const CATEGORIES = [
   { label: "TZM-T", group: "mlrs", type: "TOS-1A transpordi- ja laadimismasin", cat: "TZM-T", files: ["TTZM-T_of_the_TOS-1A_system_%287%29.jpg", "TZM-Gusarivka.jpg"] },
   { label: "9T452", group: "mlrs", type: "Mitmikraketiheitja Uragan laadimismasin", cat: "9T452", files: ["RocketArtilleryExercise2020-07.jpg", "RocketArtilleryExercise2020-03.jpg"] },
   { label: "TOS-2 Tosotška", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "TOS-2 Tosotška", files: ['Heavy_flamethrower_system_"Tosochka"_during_the_"Armiya_2022"_exhibition_(side_view).jpg'] },
+  { label: "9P138 Grad-1", group: "mlrs", type: "Mitmikraketiheitja (reaktiivsuurtükk)", cat: "9P138 Grad-1", files: ["9P138_Grad-1_BM-21b.jpg", "9К55_«Град-1»_-_2.jpg"] },
 
   // Järelveetavad suurtükid ja miinipildujad
   { label: "D-30", group: "towed_artillery", type: "Haubits", cat: "D-30", files: ["122mm_howitzer_D-30_-_Armory_masters4.jpg", "122_mm_Howitzer_D-30_2017-12-24.JPG", "D-30A%2C_122-mm_howitzer_04.jpg", "83rd_Guards_Air_Assault_Brigade%27s_artillery_exercise_%2827-03-2020%29_09.jpg", "CombatArtilleryExercise2018-08.jpg"] },
