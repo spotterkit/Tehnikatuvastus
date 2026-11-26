@@ -474,7 +474,7 @@ const CATEGORIES = [
   { label: "Verba 9K333", group: "weapons", type: "Õhutõrjerakett", cat: "Verba (9K333)", files: ["9K333_Verba_MANPAD_at_Military-technical_forum_ARMY-2016_01.jpg"] },
   { label: "PM „Makarov“", group: "weapons", type: "Püstol", cat: "PM „Makarov“", files: ["Makarov_%2828034065%29.jpeg"] },
   { label: "MP-443 „Grach“", group: "weapons", type: "Püstol", cat: "MP-443 „Grach“", files: ["9-мм_Пистолет_Ярыгина_ПЯ_6П35_02.jpg"] },
-  { label: "GSh-18", group: "weapons", type: "Püstol", cat: "GSh-18", files: ["GSh-18.png"] },
+  { label: "GSh-18", group: "weapons", type: "Püstol", cat: "GSh-18", files: ["GSh-18_06.jpg"] },
   { label: "APS „Stechkin“", group: "weapons", type: "Automaatpüstol", cat: "APS „Stechkin“", files: ["Stechkin_APS_03.jpg"] },
   { label: "AKM", group: "weapons", type: "Automaat", cat: "AKM", files: ["AKM_automatkarbin_Ryssland_-_7%2C62x39mm_-_Armémuseum_rightside_noBG.png"] },
   { label: "AKS-74U", group: "weapons", type: "Automaatkarabiin", cat: "AKS-74U", files: ["AKS74U_%28noBG%29.jpg"] },
