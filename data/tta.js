@@ -2577,7 +2577,7 @@ window.TTA_DATA = {
         "armor": "Kere 15mm"
       },
       "notes": {
-        "chassis": "Pikendatud BMD-1 šassii (BTR-D).
+        "chassis": "Pikendatud BMD-1 šassii (BTR-D)."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 1V119", "url": "https://odin.t2com.army.mil/WEG/Asset/ecd7ac12bd7b5f88de0735878b6be95d", "retrieved": "2026-10-28"},
