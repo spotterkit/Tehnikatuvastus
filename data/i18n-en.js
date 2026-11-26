@@ -227,6 +227,8 @@ window.I18N_DATA = {
     "Kirjuta oma vastus (nt {x}, {x}...)": "Type your answer (e.g. {x}, {x}...)",
     "Kirjuta oma vastus (nt T-72, BMP-2...)": "Type your answer (e.g. T-72, BMP-2...)",
     "Näita vastust": "Show answer",
+    "✎ Kirjuta vastus": "✎ Type your answer",
+    "Peida vastuse väli": "Hide answer box",
     "Jäta vahele (uus pilt)": "Skip (new photo)",
     "Järgmine pilt (Enter) →": "Next photo (Enter) →",
     "Sinu vastus:": "Your answer:",
