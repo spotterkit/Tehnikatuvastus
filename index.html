@@ -463,6 +463,10 @@
   .pg-cnt{font-size:11px;color:var(--bone-dim);text-align:right;white-space:nowrap;}
   .tr-item.pg-off .tr-name-txt{color:var(--bone-dim);}
   .tr-item.pg-dis{opacity:.45;}
+  .tr-parent{grid-column:1 / -1;border-left:3px solid var(--olive);margin-top:6px;}
+  .tr-parent .tr-name-txt{font-weight:700;}
+  .tr-item.tr-sub{margin-left:18px;}
+  .tr-parent .tr-row{display:flex;align-items:baseline;gap:10px;}
   .pg-summary{margin:0 0 10px;font-size:12px;color:var(--bone-soft);}
   .pg-summary b{color:var(--amber);}
   .group-check{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;border:1px solid var(--line);background:var(--panel-2);cursor:pointer;}
@@ -1587,7 +1591,23 @@ const GROUPS = [
   { id: "weapons", label: "Relvastus" },
   { id: "forces", label: "Väeliigid ja üksused" },
   { id: "mines", label: "Maamiinid" },
+  // Ülemine kategooria „Seadmed“ (parent: "equipment") – ei ole masinad
+  { id: "radios", label: "Kaasaskantavad raadiojaamad", parent: "equipment" },
+  { id: "ground_radars", label: "Luureradarid", parent: "equipment" },
+  { id: "fire_control", label: "Suurtükiväe kaasaskantavad tulejuhtimisseadmed", parent: "equipment" },
+  // Ülemine kategooria „Raketid ja pommid“ (parent: "munitions") – ainult rakett/pomm ise, heitja jääb oma gruppi
+  { id: "ballistic_missiles", label: "Ballistilised raketid", parent: "munitions" },
+  { id: "cruise_missiles", label: "Tiibraketid", parent: "munitions" },
+  { id: "air_to_surface_missiles", label: "Õhk-maa raketid", parent: "munitions" },
+  { id: "glide_bombs", label: "Liugpommid", parent: "munitions" },
+  { id: "bombs", label: "Pommid", parent: "munitions" },
 ];
+// Ülemised kategooriad (alamgrupid märgitakse GROUPS-is väljaga parent).
+const GROUP_PARENTS = { equipment: 'Seadmed', munitions: 'Raketid ja pommid' };
+const PARENT_COUNT_WORD = { equipment: 'seadet', munitions: 'raketti/pommi' };
+const PARENT_STATS_WORD = { equipment: 'Seadmeid', munitions: 'Rakette ja pomme' };
+const PARENT_ENTRY_NOUN = { equipment: 'Seade', munitions: 'Rakett/pomm' };
+const groupsOfParent = p => GROUPS.filter(g => g.parent === p).map(g => g.id);
 
 // Kategooriad, mis EI ole masinad: loendurites ja siltides kasutatakse nende oma sõna.
 // Täpsustav küsimus pildi juures: auastmete ja väeliikide puhul ei pruugi olla ilmne, mida vastata.
@@ -1596,6 +1616,7 @@ window.groupQuestion = cat => { const e = CATEGORIES.find(x => x.cat === cat); r
 const GROUP_COUNT_WORD = { ranks: 'auastet', weapons: 'relva', forces: 'väeliiki/üksust', mines: 'miini' };   // "5 väeliiki/üksust"
 const GROUP_STATS_WORD = { ranks: 'Auastmeid', weapons: 'Relvi', forces: 'Väeliike ja üksusi', mines: 'Miine' }; // avalehe kokkuvõte
 const GROUP_ENTRY_NOUN = { ranks: 'Auaste', weapons: 'Relv', forces: 'Väeliik/üksus', mines: 'Miin' };      // mudeli akna üldsilt, kui type puudub
+GROUPS.forEach(g => { if(g.parent){ GROUP_COUNT_WORD[g.id] = PARENT_COUNT_WORD[g.parent]; GROUP_ENTRY_NOUN[g.id] = PARENT_ENTRY_NOUN[g.parent]; } });
 const NON_MACHINE_GROUPS = new Set(Object.keys(GROUP_COUNT_WORD));
 I18N.applyData({GROUPS});   // teise keele korral: andmete tekstid tõlkeks (eestikeelne liik jääb väljale typeEt)
 function groupCountLabel(groupId, n){ return n + ' ' + (GROUP_COUNT_WORD[groupId] || 'masinat'); }
@@ -1712,13 +1733,13 @@ let lastTestMode = 'mix';     // 'mix' (50/25) või 'cats' (10)
 const TEST_GROUP_LIMITS = {
   drones: 2,
   ships: 2,
-  planes: 4,
-  helicopters: 4,
-  comms: 3,
+  planes: 3,
+  helicopters: 3,
+  comms: 2,
   ew: 2,
-  recon_special: 4,
-  engineer: 5,
-  ranks: 2,
+  recon_special: 3,
+  engineer: 3,
+  ranks: 1,
   weapons: 2,
   forces: 2,  // väeliigid ja üksused (embleemid/üldfotod): max 2 pilti 50 küsimuse testis
   mines: 1,   // maamiinid: MAKSIMUM 1 miin testis (võib ka 0)
@@ -1736,7 +1757,10 @@ const TEST_GROUP_CHANCE = { mines: 0.3 };
 // Kategooriate komplektid, millel on ÜHINE piirang ja ühine tõenäosus.
 // UGV + USV: ~30% testidest sisaldab kokku täpselt ühe kirje (kas 1 UGV või 1 USV), ülejäänud mitte ühtegi.
 const TEST_GROUP_SETS = [
-  { groups: ['ugv', 'usv'], max: 1, chance: 0.3 }
+  { groups: ['ugv', 'usv'], max: 1, chance: 0.3 },
+  // Seadmed ja Raketid ja pommid: kumbki kuni 1 küsimus ja mitte igas testis (nagu miinid)
+  { groups: groupsOfParent('equipment'), max: 1, chance: 0.3 },
+  { groups: groupsOfParent('munitions'), max: 1, chance: 0.3 }
 ];
 
 // Veeretab, millised kategooriad sellest testist välja jäävad (TEST_GROUP_CHANCE + TEST_GROUP_SETS).
@@ -2863,6 +2887,11 @@ function renderHome(){
   const statParts = ['Masinaid <b>' + machineCount + '</b>'];
   Object.keys(GROUP_STATS_WORD).forEach(id => {
     statParts.push(GROUP_STATS_WORD[id] + ' <b>' + withPhotosAll.filter(e => e.group === id).length + '</b>');
+  });
+  Object.keys(PARENT_STATS_WORD).forEach(p => {
+    const ids = new Set(groupsOfParent(p));
+    const n = withPhotosAll.filter(e => ids.has(e.group)).length;
+    if(n) statParts.push(PARENT_STATS_WORD[p] + ' <b>' + n + '</b>');
   });
   statParts.push('Pilte kokku <b>' + stats.totalPhotos + '</b>');
   statsLine.innerHTML = statParts.join(' · ');
@@ -4484,14 +4513,19 @@ function renderPracticeGroups(){
   const oneCb = document.getElementById('practiceOnePerModel');
   if(oneCb) oneCb.checked = practiceOnePerModel;
   groupGrid.innerHTML = '';
+  const seenParents = new Set();
   GROUPS.forEach(g => {
+    if(g.parent){
+      if(!seenParents.has(g.parent)){ seenParents.add(g.parent); groupGrid.appendChild(practiceParentItem(g.parent)); }
+      if(!practiceOpenGroups.has('parent:' + g.parent) || !practiceModelsOf(g.id).length) return;
+    }
     const models = practiceModelsOf(g.id);
     const n = models.length;
     const sel = selectedGroupIds.has(g.id);
     const inModels = models.filter(e => !practiceExcluded.has(e.cat));
     const open = practiceOpenGroups.has(g.id) && n > 0;
     const item = document.createElement('div');
-    item.className = 'tr-item' + (open ? ' open' : '') + (sel ? '' : ' pg-off') + (n ? '' : ' pg-dis') + (sel && inModels.length < n ? ' changed' : '');
+    item.className = 'tr-item' + (g.parent ? ' tr-sub' : '') + (open ? ' open' : '') + (sel ? '' : ' pg-off') + (n ? '' : ' pg-dis') + (sel && inModels.length < n ? ' changed' : '');
     const row = document.createElement('div'); row.className = 'pg-row';
     const cb = document.createElement('input'); cb.type = 'checkbox'; cb.checked = sel; cb.disabled = n === 0;
     cb.setAttribute('aria-label', g.label + ': harjutusse');
@@ -4515,6 +4549,31 @@ function renderPracticeGroups(){
     if(open){ const box = document.createElement('div'); box.className = 'tr-models'; practiceModelList(g.id, box); item.appendChild(box); }
     groupGrid.appendChild(item);
   });
+}
+
+// Ülemise kategooria (Seadmed, Raketid ja pommid) rida: linnuke valib kõik alamgrupid, nimi avab alamgrupid.
+function practiceParentItem(p){
+  const ids = groupsOfParent(p).filter(id => practiceModelsOf(id).length > 0);
+  const selN = ids.filter(id => selectedGroupIds.has(id)).length;
+  const key = 'parent:' + p, open = practiceOpenGroups.has(key) && ids.length > 0;
+  const item = document.createElement('div');
+  item.className = 'tr-item tr-parent' + (selN ? '' : ' pg-off') + (ids.length ? '' : ' pg-dis');
+  const row = document.createElement('div'); row.className = 'pg-row';
+  const cb = document.createElement('input'); cb.type = 'checkbox'; cb.disabled = !ids.length;
+  cb.checked = ids.length > 0 && selN === ids.length; cb.indeterminate = selN > 0 && selN < ids.length;
+  cb.setAttribute('aria-label', GROUP_PARENTS[p] + ': harjutusse');
+  cb.addEventListener('change', () => { ids.forEach(id => cb.checked ? selectedGroupIds.add(id) : selectedGroupIds.delete(id)); practiceChanged(); });
+  const name = document.createElement('button'); name.type = 'button'; name.className = 'tr-name'; name.disabled = !ids.length;
+  name.setAttribute('aria-expanded', String(open));
+  const caret = document.createElement('span'); caret.className = 'tr-caret'; caret.textContent = open ? '▾' : '▸';
+  const txt = document.createElement('span'); txt.className = 'tr-name-txt'; txt.textContent = GROUP_PARENTS[p];
+  name.append(caret, txt);
+  name.addEventListener('click', () => { if(practiceOpenGroups.has(key)) practiceOpenGroups.delete(key); else practiceOpenGroups.add(key); renderPracticeGroups(); });
+  const cnt = document.createElement('span'); cnt.className = 'pg-cnt';
+  const n = ids.reduce((a, id) => a + practiceModelsOf(id).length, 0);
+  cnt.textContent = groupCountLabel(groupsOfParent(p)[0], n);
+  row.append(cb, name, cnt); item.appendChild(row);
+  return item;
 }
 
 function practiceChanged(){
@@ -6610,7 +6669,34 @@ window.addEventListener('hashchange', startFromHash);
     panel.appendChild(el('div', 'kuld-config-help',
       'Kehtivad 50 ja 25 küsimusega testile (10 küsimuse test ei muutu). Number = mitu mudelit kategooriast võib testi tulla: 0 jätab kategooria välja, tühi = piiranguta. Klõpsa kategooria nimel, et üksikuid mudeleid testist välja jätta. Sinu reeglid jäävad selles brauseris meelde.'));
     const grid = el('div', 'tr-grid');
-    GROUPS.forEach(g => { if(testGroupModelCap(g.id, true)) grid.appendChild(buildItem(g)); });
+    const parentItems = new Map();
+    GROUPS.forEach(g => {
+      if(!testGroupModelCap(g.id, true)) return;
+      if(!g.parent){ grid.appendChild(buildItem(g)); return; }
+      // Ülemise kategooria plokk: nimel klõpsates avanevad alamgrupid; kokku kuni 1 küsimus, mitte igas testis
+      if(!parentItems.has(g.parent)){
+        const key = 'parent:' + g.parent;
+        const pit = el('div', 'tr-item tr-parent'), prow = el('div', 'tr-row');
+        const pname = el('button', 'tr-name'); pname.type = 'button';
+        const pcaret = el('span', 'tr-caret', expanded.has(key) ? '▾' : '▸');
+        pname.append(pcaret, el('span', 'tr-name-txt', GROUP_PARENTS[g.parent]));
+        pname.setAttribute('aria-expanded', String(expanded.has(key)));
+        const set = TEST_GROUP_SETS.find(s => s.groups.includes(g.id));
+        prow.append(pname, el('small', 'tr-meta', set ? 'kokku kuni ' + set.max + ', mitte igas testis' : ''));
+        pit.appendChild(prow); grid.appendChild(pit);
+        const subs = [];
+        parentItems.set(g.parent, subs);
+        pname.addEventListener('click', () => {
+          const open = !expanded.has(key);
+          if(open) expanded.add(key); else expanded.delete(key);
+          pcaret.textContent = open ? '▾' : '▸'; pname.setAttribute('aria-expanded', String(open));
+          subs.forEach(s => { s.hidden = !open; });
+        });
+      }
+      const it = buildItem(g); it.classList.add('tr-sub');
+      it.hidden = !expanded.has('parent:' + g.parent);
+      parentItems.get(g.parent).push(it); grid.appendChild(it);
+    });
     panel.appendChild(grid);
     const foot = el('div', 'tr-foot');
     capEl = el('div', 'tr-cap');
@@ -7191,7 +7277,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc116'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc118'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
