@@ -611,6 +611,7 @@ const CATEGORIES = [
 
   // Luureradarid (group: "ground_radars")
   { label: "PSNR-8M Kredo-M1 1L120", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "PSNR-8M Kredo-M1 1L120", files: ["Kredo-M1_-_IDELF-2008-248.jpg"] },
+  { label: "PSNR-5M Kredo-M 1L133-1", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "PSNR-5M Kredo-M 1L133-1", files: ["ReconCompany4thOTBr71.jpg"] },
   { label: "SBR-5 Fara-1 1L111", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "SBR-5 Fara-1 1L111", files: ["FARA-1_-_IDELF-2008-247_%28cropped%29.jpg"] },
   { label: "SBR-3 Fara-U 1RL136", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "SBR-3 Fara-U 1RL136", files: ["ReconCompany4thOTBr68.jpg"] },
 
