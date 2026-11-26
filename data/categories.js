@@ -614,6 +614,7 @@ const CATEGORIES = [
   { label: "PSNR-5M Kredo-M 1L133-1", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "PSNR-5M Kredo-M 1L133-1", files: ["ReconCompany4thOTBr71.jpg"] },
   { label: "SBR-5 Fara-1 1L111", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "SBR-5 Fara-1 1L111", files: ["FARA-1_-_IDELF-2008-247_%28cropped%29.jpg"] },
   { label: "SBR-3 Fara-U 1RL136", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "SBR-3 Fara-U 1RL136", files: ["ReconCompany4thOTBr68.jpg"] },
+  { label: "Aistenok 1L271", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "Aistenok 1L271", files: ["1L271_Aistyonok_portable_radar%2C_Army-2023.jpg"] },
 
   // Suurtükiväe kaasaskantavad tulejuhtimisseadmed (group: "fire_control")
   // { label: "", group: "fire_control", type: "Tulejuhtimisseade", cat: "", files: [] },
