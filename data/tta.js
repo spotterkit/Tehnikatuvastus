@@ -6,7 +6,7 @@ window.TTA_DATA = {
     "BMD-2": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhudessantvägede (VDV) langevarjur- ja dessantründepolgud (nt 98. õhudessantdiviisi 299. langevarjurpolk)",
+        "typicalUnit": "Õhudessantväed (VDV): langevarjur- ja dessantründepolk",
         "productionStatus": {"status": ["upgrade"], "asOf": 2026},
         "purpose": "Dessandi jalaväe lahingumasin (kasutusel 1985): BMD-1 uue torniga variant, mõeldud BMD-1 asendajaks.",
         "crew": "3 + 4 dessantväelast",
@@ -62,7 +62,7 @@ window.TTA_DATA = {
     "BMD-1": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhudessantvägede (VDV) diviisid ja brigaadid (ajalooliselt; nüüd reservis)",
+        "typicalUnit": "Õhudessantväed (VDV), reservis",
         "purpose": "Ujuv roomikdessandi-jalaväe lahingumasin: annab õhudessantvägedele (VDV) õhust toimetatava soomustoetuse.",
         "crew": "3 + 4 dessantväelast",
         "combatWeight": 7.5,
@@ -102,7 +102,7 @@ window.TTA_DATA = {
     "BMP-2": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Maavägi; vähemal määral merejalavägi ja õhudessantväed (VDV)",
+        "typicalUnit": "Motolaskurpataljon; ka merejalavägi ja õhudessantväed (VDV)",
         "productionStatus": {"status": ["upgrade"], "asOf": 2023},
         "purpose": "Ujuv jalaväe lahingumasin (1980ndad), BMP-1 järglane.",
         "crew": "3 + 7 dessantväelast",
@@ -199,7 +199,7 @@ window.TTA_DATA = {
     "BMP-3": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Motolaskurbrigaadi motolaskurpataljon (2016. aasta struktuur)",
+        "typicalUnit": "Motolaskurpataljon",
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Jalaväe lahingumasin, BMP-1 ja BMP-2 järglane; üks tugevaima relvastusega jalaväe lahingumasinaid.",
         "crew": "3 + 7 dessantväelast (+2 lisakohta)",
@@ -252,7 +252,7 @@ window.TTA_DATA = {
     "BTR-60": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Reservüksused",
+        "typicalUnit": "Reservüksus",
         "productionStatus": {"status": ["storage"], "asOf": 2025},
         "purpose": "Esimene Nõukogude 8×8 soomustransportööride seeriast (BTR-152 asendaja). Soomustransportöörina enam peaaegu ei kasutata; pigem liikuva juhtimispunkti, suurtükiväe eesvaatluse ja sidemasinana.",
         "crew": "2 + 14 dessantväelast",
@@ -297,7 +297,7 @@ window.TTA_DATA = {
     "BTR-70": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Reservüksused",
+        "typicalUnit": "Reservüksus",
         "productionStatus": {"status": ["storage"], "asOf": 2025},
         "purpose": "8×8 soomustransportöör, BTR-60 järglane.",
         "crew": "2 + 9 dessantväelast",
@@ -343,7 +343,7 @@ window.TTA_DATA = {
     "BTR-80": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Motolaskurbrigaadi motolaskurpataljon (soomustransportööridel) (2016. aasta struktuur)",
+        "typicalUnit": "Motolaskurpataljon",
         "productionStatus": {"status": ["storage"], "asOf": 2025},
         "purpose": "Ujuv 8×8 ratassoomustransportöör (kasutusel 1985), BTR-60 ja BTR-70 asendaja.",
         "crew": "3 + 7 dessantväelast",
@@ -386,7 +386,7 @@ window.TTA_DATA = {
     "BTR-82A": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Motolaskurbrigaadi motolaskurpataljon (soomustransportööridel) (2016. aasta struktuur)",
+        "typicalUnit": "Motolaskurpataljon",
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "BTR-80 uusim tootmisversioon parema soomuse ja killuvoodriga (võeti kasutusele 2013).",
         "crew": "3 + 7 dessantväelast",
@@ -421,7 +421,7 @@ window.TTA_DATA = {
     "MT-LB": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Põhjapoolsete motolaskurbrigaadide motolaskurpataljonid; ka suurtükiveduk (nt tankitõrjekahur MT-12) (2016. aasta struktuur)",
+        "typicalUnit": "Motolaskurpataljon; suurtükiväe veduk",
         "productionStatus": {"status": ["storage"], "asOf": 2025},
         "purpose": "Mitmeotstarbeline ujuv roomiksoomuk (kasutusel 1970ndatest): sageli soomustransportöörina, ka suurtükiveduki ja sanitaarmasinana.",
         "crew": "2 + 11 dessantväelast",
@@ -497,7 +497,7 @@ window.TTA_DATA = {
     "BMO-T": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Motolaskurbrigaadi RKBK-kompanii leegiheitjarühm; RKBK-brigaadide ja -polkude leegiheitjapataljonid (2016. aasta struktuur)",
+        "typicalUnit": "TBK-kaitse leegiheitjarühm ja -pataljon",
         "purpose": "T-72 baasil raske soomustatud leegiheitjate transportöör: veab ja toetab leegiheitjate jalaväge.",
         "crew": "2 + 7 leegiheitjat",
         "combatWeight": 43.9,
@@ -525,7 +525,7 @@ window.TTA_DATA = {
     "BMD-4M": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhudessantvägede (VDV) pataljonid (pataljonikomplekt: 31 BMD-4M + 16 BTR-MDM)",
+        "typicalUnit": "Õhudessantväed (VDV): dessantpataljon",
         "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Ujuv jalaväe lahingumasin Vene dessantvägede (VDV) veoks, parema liikuvuse, tulejõu ja kaitsega.",
         "crew": "3 + 6 dessantväelast",
@@ -614,7 +614,7 @@ window.TTA_DATA = {
     "BTR-MDM": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhudessantvägede (VDV) pataljonid (pataljonikomplekt: 31 BMD-4M + 16 BTR-MDM)",
+        "typicalUnit": "Õhudessantväed (VDV): dessantpataljon",
         "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Dessandi- ja õhuründeüksuste ujuv roomiksoomustransportöör vägede ja varustuse veoks; ka juhtimis-, side-, sanitaar- ja logistikaversioonid.",
         "crew": "2 + 13 dessantväelast",
@@ -654,7 +654,7 @@ window.TTA_DATA = {
     "T-62": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Reserv- ja mobilisatsiooniüksused; vabatahtlike pataljonid (nt Alania pataljon)",
+        "typicalUnit": "Reserv- ja mobilisatsiooniüksus; vabatahtlike pataljon",
         "productionStatus": {"status": ["storage"], "asOf": 2025},
         "purpose": "Nõukogude põhitank (1961), oma ajal Nõukogude armee standardtank. Hiljem vananenud ja reservi pandud; 2022 võeti Ukraina sõjaks hoidlatest uuesti kasutusele.",
         "crew": "4",
@@ -704,7 +704,7 @@ window.TTA_DATA = {
     "T-72": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Motolaskurbrigaadi tankipataljon; tankibrigaadid (2016. aasta struktuur)",
+        "typicalUnit": "Tankipataljon; tankibrigaad",
         "productionStatus": {"status": ["upgrade", "storage"], "asOf": 2026},
         "purpose": "Nõukogude põhitankide perekond (tootmises alates 1973); ehitatud ca 25 000, moderniseerimise abil kasutuses aastakümneid.",
         "crew": "3",
@@ -759,7 +759,7 @@ window.TTA_DATA = {
     "T-80": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "2. kaardiväe Tamani ja 4. kaardiväe Kantemirovka diviis (dateerimata andmed); vähesel määral merejalavägi (IISS 2026: ~30)",
+        "typicalUnit": "Tankidiviis; vähesel määral merejalavägi",
         "productionStatus": {"status": ["upgrade", "storage"], "asOf": 2025},
         "purpose": "Põhitank (kasutusel 1976), esimene ainult gaasiturbiinmootoriga seeriatank.",
         "crew": "3",
@@ -854,7 +854,7 @@ window.TTA_DATA = {
     "T-90M": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Tanki- ja motolaskurformeeringud (nt 90. kaardiväe tankidiviis; Kesk-SVR üldväearmee motolaskurformeering)",
+        "typicalUnit": "Tankidiviis; motolaskurdiviis",
         "productionStatus": {"status": ["new", "upgrade"], "asOf": 2026},
         "purpose": "T-90 põhjalikult moderniseeritud versioon („Proryv-3“), esmakordselt avalikult 2017.",
         "crew": "3",
@@ -901,7 +901,7 @@ window.TTA_DATA = {
     "BMP-T": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Tankidiviisi tankipolgu BMPT-kompanii (nt 90. tankidiviis)",
+        "typicalUnit": "Tankipolgu rood",
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Soomusmasin tankide ja teiste soomukite toetamiseks asulalahingus.",
         "crew": "5",
@@ -940,7 +940,7 @@ window.TTA_DATA = {
     "2S1 Gvozdika": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Liikurhaubitsadivisjoni patarei (maaväed ja merejalavägi)",
+        "typicalUnit": "Liikursuurtükipatarei; ka merejalavägi",
         "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "122mm liikurhaubits (kasutusel 1972) MT-LBu šassiil, suurtükiväe tuletoetuseks; oli Nõukogude diviisides laialt kasutusel.",
         "crew": "4",
@@ -987,7 +987,7 @@ window.TTA_DATA = {
     "2S3 Akatsiya": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Manöövribrigaadi liikurhaubitsadivisjon (vanem relv, osas brigaadides); merejalavägi",
+        "typicalUnit": "Liikursuurtükidivisjon; merejalavägi",
         "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "152mm liikurkahur (1968): Nõukogude tanki- ja motolaskurdiviiside suurtükiväepolkude relv.",
         "crew": "4–6",
@@ -1034,7 +1034,7 @@ window.TTA_DATA = {
     "2S19 Msta": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Manöövribrigaadi liikurhaubitsadivisjon (brigaadis 2 divisjoni, kokku 36 tk); ka suurtükiväebrigaadid",
+        "typicalUnit": "Liikursuurtükidivisjon; suurtükibrigaad",
         "productionStatus": {"status": ["upgrade"], "asOf": 2024},
         "purpose": "152mm haubits Msta liikurversioonis (2S19 Msta-S); järelveetav versioon on 2A65 Msta-B.",
         "crew": "5",
@@ -1084,7 +1084,7 @@ window.TTA_DATA = {
     "2S9 Nona": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Mõnes motolaskurpataljonis 2S12 asemel (2016. aasta struktuur)",
+        "typicalUnit": "Õhudessantväed (VDV); mõnes motolaskurpataljonis",
         "purpose": "Õhust heidetav 120mm liikurmiinipilduja (kasutusel 1981).",
         "crew": "4",
         "chassis": "S-120 (BTR-D baasil)",
@@ -1122,15 +1122,16 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S9-1M Nona-S", "url": "https://odin.t2com.army.mil/WEG/Asset/c8f7d048a361903479ad71de6b46247d", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: 2S9 Nona", "url": "https://en.wikipedia.org/wiki/2S9_Nona", "retrieved": "2026-10-07"},
-        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"}
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: 2S9 Nona-S SO-120", "url": "https://armyrecognition.com/military-products/army/artillery-vehicles-and-weapons/mortar-carrier/2s9-nona-s-russia-uk", "retrieved": "2026-11-26"}
       ]
     },
     "2S4 Tjulpan": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Suurtükiväebrigaad (raske toruartillerii)",
+        "typicalUnit": "Suurtükibrigaad",
         "productionStatus": {"status": ["storage"], "asOf": 2024},
-        "purpose": "240mm raske liikurmiinipilduja kaitstud sihtmärkide (nt kindlustatud juhtimispunktid, kaitsekindlustused) ja mäenõlvade taga olevate vägede tabamiseks.",
+        "purpose": "240mm raske liikurmiinipilduja kaitstud sihtmärkide (nt kindlustatud juhtimispunktid, kaitsekindlustused) tabamiseks.",
         "crew": "4 (+5 toetusmasinas)",
         "combatWeight": 27.5,
         "length": 7.94,
@@ -1165,7 +1166,7 @@ window.TTA_DATA = {
     "2S7 Pion": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Suurtükiväebrigaadi raske suurtükiväe divisjon",
+        "typicalUnit": "Suurtükibrigaadi raske suurtükidivisjon",
         "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "Nõukogude 203mm liikurkahur.",
         "crew": "7",
@@ -1248,7 +1249,7 @@ window.TTA_DATA = {
     "2S5 Giatsint-S": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Liikurhaubitsadivisjoni patarei",
+        "typicalUnit": "Liikursuurtükipatarei",
         "productionStatus": {"status": ["upgrade", "storage"], "asOf": 2024},
         "purpose": "152mm liikurkahur: tabab sihtmärke suuremal kaugusel ja suurema tulekiirusega kui 2S3 Akatsiya.",
         "crew": "5",
@@ -1503,7 +1504,7 @@ window.TTA_DATA = {
     "2B11/2S12": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Motolaskurpataljoni miinipildujapatarei (8 miinipildujat)",
+        "typicalUnit": "Motolaskurpataljoni miinipildujapatarei",
         "purpose": "120mm raske miinipilduja 2B11; 2S12 on miinipilduja koos veokiga (pukseeritakse käru 2L81 abil GAZ-66-ga). Suurima kaliibriga kaudtulerelv pataljoni tasandil.",
         "crew": "5 (+2 veduki meeskond)",
         "chassis": "2F510 kaherattaline käru, vedukas GAZ-66",
@@ -1532,7 +1533,7 @@ window.TTA_DATA = {
     "2B14/2B24": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Motolaskurpataljon (6 miinipildujat pataljoni kohta); algselt dessant- ja kergjalavägi",
+        "typicalUnit": "Motolaskurpataljon",
         "purpose": "82mm kantav kaudtulerelv dessandi- ja kergejalaväele; kasutusel ka motolaskuritel.",
         "crew": "4",
         "weightKg": 41.88,
@@ -1555,7 +1556,7 @@ window.TTA_DATA = {
     "2B9 Vasiljok": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhumobiilsed jalaväeüksused; MT-LB-le paigaldatuna maaväed",
+        "typicalUnit": "Jalaväeüksus; MT-LB-le paigaldatuna maavägi",
         "purpose": "82mm automaatne kahur-miinipilduja (1967): rataslafetil, meenutab kerget suurtükki; kasutusel Vene õhumobiilses jalaväes.",
         "crew": "6",
         "weightKg": 645,
@@ -1610,7 +1611,7 @@ window.TTA_DATA = {
     "BM-21 Grad": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Manöövribrigaadi reaktiivsuurtükiväe divisjon (18 tk)",
+        "typicalUnit": "Mitmikraketiheitjadivisjon",
         "productionStatus": {"status": ["storage"], "asOf": 2024},
         "purpose": "122mm mitmikraketiheitja: tugevus on paljude rakettide korraga sihtmärgile laskmises; tõhusaim lühemal kaugusel, vähem täpne kui suurtükivägi.",
         "crew": "5",
@@ -1656,7 +1657,7 @@ window.TTA_DATA = {
     "BM-27 Uragan": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Suurtükiväebrigaadi reaktiivsuurtükiväe divisjon (1–2); ka diviisi suurtükiväepolk",
+        "typicalUnit": "Suurtükibrigaadi mitmikraketiheitjadivisjon; diviisi suurtükipolk",
         "purpose": "220mm mitmikraketiheitja kassettlaskemoona heitmiseks; rakett võib külvata ka jalaväemiine PFM-1.",
         "crew": "4",
         "chassis": "ZIL-135LM 8×8",
@@ -1701,7 +1702,7 @@ window.TTA_DATA = {
     "BM-30 Smertš": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Sõjaväeringkonna suurtükiväebrigaad (Smertši divisjon)",
+        "typicalUnit": "Suurtükibrigaadi mitmikraketiheitjadivisjon",
         "purpose": "Raske 300mm mitmikraketiheitja elavjõu, soomus- ja kergete sihtmärkide tabamiseks koondumisaladel ning suurtükipatareide, juhtimispunktide ja laskemoonaladude vastu.",
         "crew": "4",
         "chassis": "MAZ-543M",
@@ -1791,7 +1792,7 @@ window.TTA_DATA = {
     "Ural-4320 Zvezda-V": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Siseministeeriumi sisejulgeoleku (poolsõjaväelised) väed; 2024 nähtud ka rindel rünnakutes",
+        "typicalUnit": "Siseväed (poolsõjaväelised)",
         "productionStatus": {"status": ["ended"], "asOf": 2024},
         "purpose": "Improviseeritud ratassoomustransportöör: soomustatud pealisehitis veoki šassiil vägede veoks tagalas ja rinde lähedal.",
         "crew": "2–3 + 16",
@@ -1828,7 +1829,7 @@ window.TTA_DATA = {
     "TOS-1A Solntsepjok": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Sõjaväeringkonna RKhBZ (ABK-kaitse) brigaadi raske leegiheitja pataljon (9 masinat); üldväearmee/keemiakaitsepolgu leegiheitjakompanii (3 masinat)",
+        "typicalUnit": "TBK-kaitse brigaadi leegiheitjapataljon; TBK-kaitse polgu leegiheitjarood",
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Termobaariliste rakettidega mitmikraketiheitja (24 toru) vastase kindlustatud positsioonide ja kergelt soomustatud masinate ründamiseks.",
         "crew": "3",
@@ -1874,7 +1875,7 @@ window.TTA_DATA = {
     "TOS-1 Buratino": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "RKhBZ (ABK-kaitse) väed",
+        "typicalUnit": "TBK-kaitseväed",
         "purpose": "Termobaariliste rakettidega mitmikraketiheitja (esialgne versioon, 30 toru) vastase kindlustatud positsioonide ja kergelt soomustatud masinate ründamiseks.",
         "crew": "3",
         "chassis": "T-72 tanki šassii (modifitseeritud)",
@@ -2033,7 +2034,7 @@ window.TTA_DATA = {
     "UR-77": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Pioneeri-sapöörbrigaadi ründe- ja tõkete kõrvaldamise pataljoni raske pioneeritehnika kompanii",
+        "typicalUnit": "Pioneeribrigaadi pioneerirood",
         "purpose": "Demineerimissoomuk, mis rajab reaktiivsete miinitõrjelaengutega koridori läbi miinivälja.",
         "crew": "2",
         "chassis": "2S1 Gvozdika šassii (modifitseeritud MT-LBu)",
@@ -2098,7 +2099,7 @@ window.TTA_DATA = {
       "values": {
         "productionStatus": {"status": ["upgrade"], "asOf": 2026},
         "purpose": "Iseliikuv õhutõrjekahur- ja raketikompleks, mis kaitseb motolaskur- ja tankiüksusi madalal lendavate lennukite, helikopterite ja tiibrakettide eest.",
-        "typicalUnit": "Motolaskur- või tankipolgu õhutõrjeraketi-suurtükiväepataljon; brigaadi õhutõrjepataljon",
+        "typicalUnit": "Motolaskur- või tankipolgu õhutõrjepataljon; brigaadi õhutõrjepataljon",
         "crew": "4",
         "chassis": "GM-352M roomikšassii",
         "combatWeight": 34,
@@ -2150,7 +2151,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Lühimaa õhutõrjeraketisoomuk infrapunasihtimisega rakettidega taktikaliste üksuste kaitseks.",
-        "typicalUnit": "Motolaskur- või tankipolgu õhutõrjeraketi-suurtükiväepataljon; brigaadi õhutõrjepataljon",
+        "typicalUnit": "Motolaskur- või tankipolgu õhutõrjepataljon; brigaadi õhutõrjepataljon",
         "crew": "3 (ülem, operaator, juht)",
         "chassis": "MT-LB",
         "combatWeight": 12.1,
@@ -2193,7 +2194,7 @@ window.TTA_DATA = {
     "PRP-4": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Liikursuurtükiväe divisjoni tulejuhtimisrühm; brigaadi suurtükiväe tulejuhtimispatarei",
+        "typicalUnit": "Liikursuurtükidivisjoni tulejuhtimisrühm; brigaadi suurtükiväe tulejuhtimispatarei",
         "purpose": "Suurtükiväe luure ja tulejuhtimine: määrab sihtmärkide koordinaadid.",
         "crew": "4",
         "chassis": "BMP-1 šassii",
@@ -2297,7 +2298,7 @@ window.TTA_DATA = {
     "9P157-2 Krizantema-S": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Tankitõrjeraketipatarei (harv süsteem, 2022. a alguses u 30 tk; 18 neist oli ette nähtud 2. Tamani motolaskurdiviisile)",
+        "typicalUnit": "Tankitõrjeraketipatarei",
         "purpose": "BMP-3 baasil tankitõrje-liikurversioon raketikompleksiga 9M123 Hrizantema (radari- ja laserjuhtimine).",
         "crew": "2 (operaator, juht)",
         "chassis": "BMP-3 šassii, tornita",
@@ -2336,7 +2337,7 @@ window.TTA_DATA = {
     "9P162 Kornet-T": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Motolaskurbrigaadi tankitõrjepataljoni tankitõrjeraketipatarei (2016. aasta struktuur)",
+        "typicalUnit": "Tankitõrjepataljoni tankitõrjeraketipatarei",
         "purpose": "BMP-3 baasil tankitõrjeversioon Kornet-raketikompleksiga; kasutusel motoriseeritud üksustes.",
         "crew": "2 (juht, ülem-operaator)",
         "chassis": "BMP-3 šassii, tornita",
@@ -2546,7 +2547,7 @@ window.TTA_DATA = {
     "1V119": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhudessantvägede ja merejalaväe suurtükiväe- ja miinipildujaüksused",
+        "typicalUnit": "Õhudessantvägede ja merejalaväe suurtüki- ja miinipildujaüksused",
         "purpose": "Dessandi suurtükiväe juhtimis- ja luuremasin 2S9 „Nona-S“ jaoks (1981): määrab sihtmärgi koordinaadid, arvutab laskeandmed (automaatne tulejuhtimine 1V520, käsitsi PUO-7) ja juhib 2S9 tuld; heidetav langevarjuga koos dessandiga.",
         "crew": "6",
         "chassis": "BTR-D",
@@ -2606,7 +2607,7 @@ window.TTA_DATA = {
     "1V152 (1V126 Kapustnik-B)": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Suurtükiväe divisjon ja patarei (divisjoni juhtimispunkt kuni 4 patareile)",
+        "typicalUnit": "Suurtükidivisjon ja -patarei",
         "purpose": "Kapustnik-B automatiseeritud tulejuhtimissüsteemi ühtne juhtimis- ja vaatlussoomuk (1986): tulejuhi (FIST) ja tuletegevuskeskuse (FDC) variandid.",
         "crew": "3 (kokku kuni 7 inimest)",
         "chassis": "BTR-80 (8x8 ratassoomuk)",
@@ -2675,7 +2676,7 @@ window.TTA_DATA = {
     "IMR-3": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Pioneeri-sapöörbrigaadi ründe- ja tõkete kõrvaldamise pataljoni raske pioneeritehnika kompanii",
+        "typicalUnit": "Pioneeribrigaadi pioneerirood",
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Uue põlvkonna teepuhastus- ja pioneerisoomuk T-90 baasil.",
         "crew": "2",
@@ -3117,7 +3118,7 @@ window.TTA_DATA = {
       "values": {
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Lähi- ja lühimaa õhutõrjekahur- ja raketikompleks objektide ning pikamaa õhutõrjesüsteemide (nt S-400) kaitseks õhusõidukite, täppismoona, tiibrakettide ja droonide eest.",
-        "typicalUnit": "VKS õhutõrjeraketipolk: patarei S-400 kaitseks",
+        "typicalUnit": "VKS õhutõrjeraketipolk",
         "crew": "3",
         "chassis": "KamAZ-6560 8×8",
         "combatWeight": 20,
@@ -3161,7 +3162,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Keskmaa õhutõrjeraketikompleksi iseliikuv laskeseade 9A310M1 (TELAR): avastab, jälgib ja tabab sihtmärke ise.",
-        "typicalUnit": "Üldväearmee õhutõrjeraketibrigaad",
+        "typicalUnit": "Armee õhutõrjeraketibrigaad",
         "crew": "4",
         "chassis": "GM-569 roomikšassii",
         "combatWeight": 34,
@@ -3199,7 +3200,7 @@ window.TTA_DATA = {
       "values": {
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Keskmaa õhutõrjeraketikompleksi iseliikuv laskeseade 9A316M (TELAR); tabab õhusõidukeid, tiibrakette, taktikalisi ballistilisi rakette ja täppismoona.",
-        "typicalUnit": "Üldväearmee õhutõrjeraketibrigaad",
+        "typicalUnit": "Armee õhutõrjeraketibrigaad",
         "crew": "4",
         "chassis": "GM-5955 roomikšassii",
         "combatWeight": 34,
@@ -3228,7 +3229,7 @@ window.TTA_DATA = {
       "values": {
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Pika- ja keskmaa õhutõrjeraketikompleks õhusõidukite, tiibrakettide ja ballistiliste rakettide tõrjeks (S-300P alates 1978, S-400 alates 2007).",
-        "typicalUnit": "VKS õhutõrjeraketipolk (2 pataljoni) õhukaitsediviisis",
+        "typicalUnit": "VKS õhutõrjeraketipolk",
         "chassis": "Radarid ja juhtimispunkt MZKT-7930 8×8 šassiil; laskeseade 5P85TE2 poolhaagisena BAZ-64022 6×6 veokil (või MAZ-543M)",
         "samMissiles": "S-400: 40N6E (380–400km), 48N6DM/E3 (240km), 48N6E2 (200km), 9M96E2 (120km), 9M96E (40km); S-300P: 5V55K 47km, 5V55R 75km, 5V55U 150km, 48N6 150km. Ühel laskeseadmel kuni 4 raketti (40N6E puhul 2–3)",
         "samRange": {"min": 2000, "max": 380000},
@@ -3295,7 +3296,7 @@ window.TTA_DATA = {
       "values": {
         "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Iseliikuv neljaraudne 23mm õhutõrjekahur (1962); saab tulistada liikvel olles.",
-        "typicalUnit": "Motolaskur- või tankipolgu õhutõrjeraketi-suurtükiväepataljon",
+        "typicalUnit": "Motolaskur- või tankipolgu õhutõrjepataljon",
         "crew": "4 (ülem, juht, laskur, radarioperaator)",
         "chassis": "GM-575 roomikšassii",
         "combatWeight": 20.5,
@@ -3340,7 +3341,7 @@ window.TTA_DATA = {
       "values": {
         "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Iseliikuv lühimaa õhutõrjeraketikompleks (9K33 Osa, 1971): sihtmärke otsitakse ja jälgitakse liikvel, tulistatakse seisatuselt.",
-        "typicalUnit": "Diviisi õhutõrjepolk; varem ka brigaadi õhutõrjepataljon",
+        "typicalUnit": "Diviisi õhutõrjepolk",
         "crew": "5",
         "chassis": "BAZ-5937 6×6 (ujuv)",
         "combatWeight": 17.5,
@@ -3376,7 +3377,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Barnaul-T automatiseeritud õhutõrje juhtimissüsteemi luure- ja juhtimismoodul MRU-B: õhutõrjepatarei juhtimispunkt, mis jagab sihtmärgiandmeid alluvatele õhutõrjevahenditele (Tunguska, Tor, Osa, Strela-10M3, Igla).",
-        "typicalUnit": "Õhutõrjepatarei (motolaskurbrigaadid ja õhudessantväed)",
+        "typicalUnit": "Õhutõrjepatarei",
         "chassis": "MT-LBu roomikšassii (9S932-2: BTR-MD; BMP-3 põhine MRU-B näidati 2017)",
         "sensors": "Radar 1L122-1; saab andmeid radaritelt 9S18M, 35N6, P-18M, P-19M või sidekeskuste R-166, R-166-0,5 ja MP-1IM kaudu"
       },
@@ -3492,7 +3493,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Õhutõrje luure- ja juhtimismasin (1985): juhib õhutõrjesoomukeid ZSU-23-4 „Shilka“, Strela-10, Tunguska, Strela-1M ning kaudselt Igla taskuraketid.",
-        "typicalUnit": "Motolaskur- või tankipolgu õhutõrjeülema juhtimispunkt",
+        "typicalUnit": "Motolaskur- või tankipolgu õhutõrje juhtimispunkt",
         "crew": "5",
         "chassis": "MT-LBu roomikšassii",
         "combatWeight": 15.5,
@@ -3574,7 +3575,7 @@ window.TTA_DATA = {
     "2S25 Sprut-SD": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhudessantvägede (VDV) patareid (2009–2011 andmed)",
+        "typicalUnit": "Õhudessantväed (VDV)",
         "purpose": "Dessantvägede (VDV) kerge tankitõrje-liikurkahur vastase tankide otsimiseks ja hävitamiseks; maaväes ja merejalaväes ka kerge ujuv tankina; langevarjuga heidetav.",
         "crew": "3",
         "chassis": "Ujuv roomikšassii, hüdropneumaatiline vedrustus (kliirens 190–590mm)",
@@ -3678,7 +3679,7 @@ window.TTA_DATA = {
     "Mi-8": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Armeelennuväe brigaad; eraldi kopterpolk; ka laevastike mereväe lennuväe kopter- ja segapolgud",
+        "typicalUnit": "Armeelennuväe brigaad; kopterpolk; mereväe lennuvägi",
         "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Keskmine kahe turbiiniga kopter: peamiselt transport, ka õhujuhtimispunkt, relvastatud kopter ja luureplatvorm.",
         "crew": "3 (kaks piloti ja pardamehaanik)",
@@ -3713,7 +3714,7 @@ window.TTA_DATA = {
     "Mi-24/Mi-35": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Armeelennuväe brigaad; eraldi kopterpolk; ka Balti laevastiku segakopterpolk",
+        "typicalUnit": "Armeelennuväe brigaad; kopterpolk",
         "purpose": "Suur ründekopter, mis veab ka kuni 8 inimest dessanti.",
         "crew": "2 (piloot ja relvaoperaator) + valikuliselt tehnik",
         "length": 18.6,
@@ -3752,7 +3753,7 @@ window.TTA_DATA = {
     "Mi-28": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Armeelennuväe brigaad; eraldi kopterpolk",
+        "typicalUnit": "Armeelennuväe brigaad; kopterpolk",
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Kahekohaline ründekopter soomusmasinate vastu igal ajal ja ilmaga; dessandi veo võimet pole.",
         "crew": "2 (piloot ja relvaoperaator)",
@@ -3790,7 +3791,7 @@ window.TTA_DATA = {
     "Ka-52": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Armeelennuväe brigaad; eraldi kopterpolk",
+        "typicalUnit": "Armeelennuväe brigaad; kopterpolk",
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Kahekohaline päeval ja öösel tegutsev lahingukopter; teine meeskonnaliige tegeleb luure ja sihtmärkide määramisega.",
         "crew": "2 (kõrvuti istmed)",
@@ -3830,7 +3831,7 @@ window.TTA_DATA = {
     "Ka-29": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Laevastiku mereväe lennuväe kopterpolk (nt Põhjalaevastiku 830. allveelaevatõrje kopterpolk, Balti laevastiku 396. segakopterpolk, Musta mere laevastiku 318. segalennuväepolk)",
+        "typicalUnit": "Mereväe lennuväe kopterpolk",
         "purpose": "Soomustatud ründe-transpordikopter, opereerib dessantlaevadelt või lennukikandjatelt.",
         "crew": "2 (piloodid)",
         "length": 11.3,
@@ -3859,7 +3860,7 @@ window.TTA_DATA = {
     "Ka-27": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Laevastiku mereväe lennuväe kopterpolk (nt Põhjalaevastiku 830. allveelaevatõrje kopterpolk, Balti laevastiku 396. segakopterpolk, Musta mere laevastiku 318. segalennuväepolk)",
+        "typicalUnit": "Mereväe lennuväe kopterpolk",
         "purpose": "Mereväe kopter allveelaevade jahtimiseks ja transpordiks; allveelaevatõrjeversioon Ka-27PL tegutseb tavaliselt paaris jahtija-tapja meeskonnana.",
         "crew": "3 (piloot, navigaator, hüdroakustik) + 2–3 spetsialisti",
         "length": 11.3,
@@ -3889,7 +3890,7 @@ window.TTA_DATA = {
     "Ka-31": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Nt Musta mere laevastiku 318. segalennuväepolk (Katša); Venemaal vaid üksikud Ka-31R",
+        "typicalUnit": "Mereväe lennuvägi",
         "purpose": "Mereväe eelhoiatus- ja õhuruumi juhtimise kopter.",
         "crew": "2",
         "length": 12.5,
@@ -3948,7 +3949,7 @@ window.TTA_DATA = {
     "Su-25": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VKS ründelennuväepolk; ka segalennuväepolk",
+        "typicalUnit": "VKS ründelennuväepolk",
         "purpose": "Allahelikiirusega ühekohaline ründelennuk maaväe lähitoetuseks.",
         "crew": "1",
         "length": 15.53,
@@ -3985,7 +3986,7 @@ window.TTA_DATA = {
     "Su-34": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VKS pommituslennuväepolk; ka segalennuväepolk",
+        "typicalUnit": "VKS pommituslennuväepolk",
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kahekohaline igailmaline ülehelikiirusega keskmaa-hävituspommitaja, mõeldud eelkõige maa- ja meresihtmärkide vastu.",
         "crew": "2 (kõrvuti istmed)",
@@ -4026,7 +4027,7 @@ window.TTA_DATA = {
     "Su-24": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VKS segalennuväepolk; mereväe lennuväe ründepolk (Balti ja Musta mere laevastik)",
+        "typicalUnit": "VKS segalennuväepolk; mereväe lennuvägi",
         "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Ülehelikiirusega igailmaline taktikaline pommitaja; Su-24MR on taktikalise luure versioon.",
         "crew": "2 (piloot ja relvaoperaator)",
@@ -4063,7 +4064,7 @@ window.TTA_DATA = {
     "Su-27": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VKS hävituslennuväepolk; ka segalennuväepolk",
+        "typicalUnit": "Hävituslennukite polk",
         "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Ülimanööverdusvõimeline hävitaja õhuülekaalu ülesanneteks; hilisemad versioonid suudavad täita peaaegu kõiki õhusõja ülesandeid.",
         "crew": "1 (Su-27UB: 2)",
@@ -4102,7 +4103,7 @@ window.TTA_DATA = {
     "Sukhoi Su-35": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VKS hävituslennuväepolk",
+        "typicalUnit": "Hävituslennukite polk",
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Su-27 õhuülekaalu hävitaja edasiarendus (4++ põlvkond); ründab ka maa- ja meresihtmärke.",
         "crew": "1",
@@ -4142,7 +4143,7 @@ window.TTA_DATA = {
     "Sukhoi Su-33": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Põhjalaevastiku 279. mereväe hävituslennuväepolk (Severomorsk-3)",
+        "typicalUnit": "Mereväe hävituslennukite polk",
         "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Igailmaline lennukikandja hävitaja, eelkõige õhuülekaalu jaoks, mitmeotstarbelise võimega.",
         "crew": "1",
@@ -4179,7 +4180,7 @@ window.TTA_DATA = {
     "MiG-31": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VKS hävituslennuväepolk; ka segalennuväepolk",
+        "typicalUnit": "Hävituslennukite polk",
         "productionStatus": {"status": ["upgrade"], "asOf": 2024},
         "purpose": "Ülehelikiirusega püüdurhävitaja (MiG-25 järglane); MiG-31K kannab aeroballistilist raketti Kh-47M2 Kinžal.",
         "crew": "2 (piloot ja relvaoperaator)",
@@ -4221,7 +4222,7 @@ window.TTA_DATA = {
     "MiG-29": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Põhjalaevastiku 100. mereväe hävituslennuväepolk (MiG-29KR); VKS-is suures osas asendatud Su-30SM-iga",
+        "typicalUnit": "Mereväe hävituslennukite polk",
         "purpose": "Õhuülekaalu hävitaja (1970ndad); paljud hilisemad versioonid on mitmeotstarbelised.",
         "crew": "1 (MiG-29UB: 2)",
         "length": 17.37,
@@ -4259,7 +4260,7 @@ window.TTA_DATA = {
     "Tu-95": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Kauglennuväe raske pommituslennuväediviis (22. kaardiväe ja 326. diviis)",
+        "typicalUnit": "Kauglennuväe pommituslennuväediviis",
         "productionStatus": {"status": ["upgrade"], "asOf": 2025},
         "purpose": "Tuumarelva kandev neljamootoriline turbopropeller-strateegiline pommitaja ja raketikandja (tiibraketid Kh-55, Kh-101).",
         "crew": "6–7",
@@ -4291,7 +4292,7 @@ window.TTA_DATA = {
     "IL-76": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VKS sõjaväetranspordilennuväe (VTA) diviis või polk (2007–2009 andmed)",
+        "typicalUnit": "Sõjaväetranspordilennuväe diviis või polk",
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Neljamootoriline mitmeotstarbeline strateegiline transpordilennuk.",
         "crew": "5",
@@ -4322,7 +4323,7 @@ window.TTA_DATA = {
     "Antonov An-26": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VTA eraldi eskadrill; laevastike mereväe segalennuväepolgud",
+        "typicalUnit": "Sõjaväetranspordilennuväe eskadrill; mereväe segalennuväepolk",
         "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Kahemootoriline turbopropeller-transpordilennuk; teisese ülesandena ka pommitamine tiivaaluste pommiriiulitega.",
         "crew": "5 (kaks piloodi, raadist, pardamehaanik, navigaator)",
@@ -4353,7 +4354,7 @@ window.TTA_DATA = {
     "Antonov An-124": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VKS sõjaväetranspordilennuväe polk (566. polk Seštšas, 235. polk Uljanovskis) (2011. aasta struktuur)",
+        "typicalUnit": "Sõjaväetranspordilennuväe polk",
         "productionStatus": {"status": ["ended", "storage"], "asOf": 2024},
         "purpose": "Suur neljamootoriline strateegiline transpordilennuk.",
         "crew": "8",
@@ -4382,7 +4383,7 @@ window.TTA_DATA = {
     "A-50": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VKS 144. kaugradarluure lennuväepolk / 2457. lennubaas (Ivanovo-Severnõi)",
+        "typicalUnit": "VKS kaugradarluure lennuväepolk",
         "productionStatus": {"status": ["upgrade"], "asOf": 2023},
         "purpose": "Õhust eelhoiatuse ja juhtimise lennuk (AEW&C): juhib kuni 10 hävitajat õhutõrje- või maarünnakuülesannetel.",
         "crew": "15 (5 lennumeeskonda + 10 operaatorit)",
@@ -4412,7 +4413,7 @@ window.TTA_DATA = {
     "Tu-22M": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Kauglennuväe raske pommituslennuväepolk (52. ja 200. polk); 40. segalennuväepolk (Olenja)",
+        "typicalUnit": "Kauglennuväe pommituslennuväepolk",
         "productionStatus": {"status": ["upgrade"], "asOf": 2025},
         "purpose": "Tuumarelva kandev ülehelikiirusega muutuva tiivageomeetriaga kaugpommitaja strateegilisteks ja merelöökideks.",
         "crew": "4",
@@ -4447,7 +4448,7 @@ window.TTA_DATA = {
     "Tu-160": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Kauglennuväe 22. kaardiväe raske pommituslennuväediviis (Engels)",
+        "typicalUnit": "Kauglennuväe pommituslennuväediviis",
         "productionStatus": {"status": ["new", "upgrade"], "asOf": 2025},
         "purpose": "Tuumarelva kandev ülehelikiirusega muutuva tiivageomeetriaga raske strateegiline pommitaja; põhiülesanne kaugelt tulistavate rakettide kandja.",
         "crew": "4",
@@ -4482,7 +4483,7 @@ window.TTA_DATA = {
     "Su-30": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VKS hävitus- ja segalennuväepolk; laevastike mereväe lennuväe ründe- ja hävituspolgud",
+        "typicalUnit": "Hävituslennukite polk; mereväe lennuvägi",
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kahekohaline mitmeotstarbeline igailmaline hävitaja; Su-30SM (Vene versioon) täidab nii õhuülekaalu kui ka maarünnaku ülesandeid.",
         "crew": "2",
@@ -4516,7 +4517,7 @@ window.TTA_DATA = {
     "Su-57": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VKS 23. kaardiväe hävituslennuväepolk (Dzjomgi)",
+        "typicalUnit": "Hävituslennukite polk",
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kahemootoriline varjatud mitmeotstarbeline hävitaja õhulahinguks ning maa- ja merelöökideks.",
         "crew": "1 (Su-57D: 2)",
@@ -4558,7 +4559,7 @@ window.TTA_DATA = {
       "values": {
         "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Taktikaline luuredroon luureks, jälgimiseks ja suurtükitule korrigeerimiseks; kasutatakse ka koos EW-kompleksiga Leer-3.",
-        "typicalUnit": "Droonide luureüksused, sh Rubikoni keskuse luurerühmad (Orlan-10 meeskonnad pikemateks lendudeks)",
+        "typicalUnit": "Mehitamata süsteemide luureüksus",
         "wingspan": 3.1,
         "maxTakeoffWeightKg": 15,
         "payload": 6,
@@ -4622,7 +4623,7 @@ window.TTA_DATA = {
       "values": {
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kaugmaa ründedroon (Shahed-136 Vene versioon) rünnakuteks sügaval tagalas paiknevate objektide vastu.",
-        "typicalUnit": "VKS ründedroonide üksused",
+        "typicalUnit": "VKS ründedroonide üksus",
         "length": 3.5,
         "wingspan": 2.5,
         "maxTakeoffWeightKg": 240,
@@ -4646,7 +4647,7 @@ window.TTA_DATA = {
       "values": {
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Reaktiivmootoriga kaugmaa ründedroon, Geran-2 kiirem edasiarendus.",
-        "typicalUnit": "VKS ründedroonide üksused",
+        "typicalUnit": "VKS ründedroonide üksus",
         "length": 3.5,
         "wingspan": 3,
         "engine": "Turboreaktiivmootor: Geran-4 – Telefly LX-WP-160 (160 kgf) või Telefly TF-TJ2000A (200 kgf); Geran-3 – Telefly JT80",
@@ -4675,7 +4676,7 @@ window.TTA_DATA = {
       "values": {
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Reaktiivmootoriga kaugmaa ründedroon suurema lõhkepeaga.",
-        "typicalUnit": "VKS ründedroonide üksused",
+        "typicalUnit": "VKS ründedroonide üksus",
         "length": 6,
         "wingspan": 3.2,
         "maxTakeoffWeightKg": 850,
@@ -4697,7 +4698,7 @@ window.TTA_DATA = {
     "Molnja-2": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Lennukitüüpi FPV-ründedroonide üksused (nt Rubikoni keskus; allikas ei täpsusta varianti)",
+        "typicalUnit": "Mehitamata süsteemide ründeüksus",
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Odav lühimaa ründedroon (lendav tiib).",
         "wingspan": 1.5,
@@ -4720,7 +4721,7 @@ window.TTA_DATA = {
     "Molnja-1": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Rubikoni keskuse lennukitüüpi FPV-ründedroonide üksus (Molnija perekond, variant täpsustamata)",
+        "typicalUnit": "Mehitamata süsteemide ründeüksus",
         "purpose": "Odav lühimaa ründedroon (lendav tiib).",
         "wingspan": 1.5,
         "maxTakeoffWeightKg": 10,
@@ -5027,7 +5028,7 @@ window.TTA_DATA = {
     "Forpost-R": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Laevastike mereväe lennuväe droonipolgud (Forposti perekond)",
+        "typicalUnit": "Mereväe lennuväe droonipolk",
         "purpose": "Keskmise kõrguse pikaajalise lennu luure- ja ründedroon (juhitavad pommid KAB-20S).",
         "length": 6,
         "wingspan": 9.1,
@@ -5187,7 +5188,7 @@ window.TTA_DATA = {
     "Ropucha II / III klass": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Põhjalaevastik, Balti laevastik, Musta mere laevastik ja Vaikse ookeani laevastik",
+        "typicalUnit": "Põhjalaevastik; Balti laevastik; Musta mere laevastik; Vaikse ookeani laevastik",
         "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Dessantlaev rannale maabumiseks: kuni 450t lasti, ühes variandis 10 tanki ja 340 sõdurit.",
         "standardDisplacement": 3450,
@@ -5241,7 +5242,7 @@ window.TTA_DATA = {
     "Vishnya klass": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Põhjalaevastik, Balti laevastik, Musta mere laevastik ja Vaikse ookeani laevastik",
+        "typicalUnit": "Põhjalaevastik; Balti laevastik; Musta mere laevastik; Vaikse ookeani laevastik",
         "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Luurelaev signaaliluure (SIGINT) kogumiseks ulatusliku andurikomplektiga.",
         "standardDisplacement": 3100,
@@ -5375,7 +5376,7 @@ window.TTA_DATA = {
     "Uragan/Karakurt klass": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Balti laevastik; Musta mere laevastik; Kaspia flotill (Vaikse ookeani laevastikule ehitatakse)",
+        "typicalUnit": "Balti laevastik; Musta mere laevastik; Kaspia flotill",
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Väike raketilaev (kasutusel 2018), Buyan-M-st tugevam ja suurema ulatusega; põhirelvastus Kalibr-tiibraketid või ülehelikiirusega laevavastased raketid P-800 Oniks.",
         "fullDisplacement": 800,
@@ -5426,7 +5427,7 @@ window.TTA_DATA = {
     "Aleksandrit klass": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Põhjalaevastik, Balti laevastik, Musta mere laevastik ja Vaikse ookeani laevastik",
+        "typicalUnit": "Põhjalaevastik; Balti laevastik; Musta mere laevastik; Vaikse ookeani laevastik",
         "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Uusim Vene miinitraaler: kahjutustab või hävitab miine ohutust kaugusest mehitamata sõidukitega.",
         "standardDisplacement": 620,
@@ -5659,7 +5660,7 @@ window.TTA_DATA = {
     "Grachonok klass": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Kõik laevastikud ja Kaspia flotill (mereväebaaside diversioonivastased üksused); ka Rosgvardia",
+        "typicalUnit": "Kõik laevastikud ja Kaspia flotill; ka Rosgvardia",
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Diversioonivastane kaater diversantide ja terroristide tõrjeks mereväebaaside vetes.",
         "fullDisplacement": 138,
@@ -5707,7 +5708,7 @@ window.TTA_DATA = {
     "Raptor klass": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Balti laevastik; Musta mere laevastik (sh Novorossiiski mereväebaasi diversioonivastane üksus)",
+        "typicalUnit": "Balti laevastik; Musta mere laevastik",
         "purpose": "Kiire rannikuvete patrullkaater patrulliks, otsingu- ja päästetöödeks ning vägede veoks (dessant kuni 20 inimest).",
         "fullDisplacement": 23,
         "length": 16.9,
@@ -5729,7 +5730,7 @@ window.TTA_DATA = {
     "Moma klass": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Musta mere laevastik (luurelaevad, projekt 861M)",
+        "typicalUnit": "Musta mere laevastik",
         "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Rannikuvete hüdrograafialaev, kasutatakse ka poide hooldamiseks; ümberehitatud Moma (Projekt 861M) on elektroonilise luure (ELINT) laev.",
         "standardDisplacement": 1200,
@@ -5753,7 +5754,7 @@ window.TTA_DATA = {
     "BREM-D": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhudessantdiviisi eraldi remondipataljon",
+        "typicalUnit": "Õhudessantdiviisi remondi-taastamispataljon",
         "purpose": "BTR-D baasil dessantvägede remondi- ja äraveosoomuk BMD-1 tüüpi masinate remondiks ja evakueerimiseks.",
         "crew": "1",
         "combatWeight": 8,
@@ -6044,7 +6045,7 @@ window.TTA_DATA = {
     "BRM-1K": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Motolaskur- või tankipolgu luurekompanii; diviisi luurepataljon",
+        "typicalUnit": "Polgu luurerood; diviisi luurepataljon",
         "purpose": "BMP-1 šassiil luuresoomuk taktikaliseks luureks; lahinguvälja seireradar PSNR-5 (Tall Mike).",
         "crew": "6 (ülem, juht, raadiooperaator, navigaator, kaks luureoperaatorit)",
         "combatWeight": 13.3,
@@ -6139,7 +6140,7 @@ window.TTA_DATA = {
     "RKhM-6": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "RKBT-kaitse (TBK) brigaadid ja sõjaväeringkondade TBK-luureüksused",
+        "typicalUnit": "TBK-kaitse brigaad; TBK-luureüksus",
         "purpose": "BTR-80 baasil TBK-luuresoomuk (RKhM-4-01 edasiarendus) keemilise, bioloogilise, radioloogilise ja tuumaluure jaoks.",
         "crew": "3",
         "combatWeight": 13.6,
@@ -6172,7 +6173,7 @@ window.TTA_DATA = {
     "Taifun-K KAMAZ-63968, 6x6": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Luurepataljonid ja eriotstarbelised (spetsnaz) brigaadid",
+        "typicalUnit": "Luurepataljon; eriotstarbeline (SpNz) brigaad",
         "purpose": "Typhoon-perekonna miinikindel MRAP-soomuk; 6×6 KamAZ-63968 on ujuv soomustransportöör kaugjuhitava relvamooduliga.",
         "crew": "2 + 16 (kuni, konfiguratsioonist sõltuvalt)",
         "combatWeight": 21,
@@ -6216,7 +6217,7 @@ window.TTA_DATA = {
     "GAZ-233014/TIGR": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Eriüksused (spetsnaz), merejalavägi ja õhudessantväed",
+        "typicalUnit": "Eriüksused (SpNz), merejalavägi ja õhudessantväed",
         "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "4×4 mitmeotstarbeline jalaväe maastikusoomuk Vene relvajõududele ja siseministeeriumile; relvasüsteemide alus (nt Kornet-D, õhutõrje Gibka-S).",
         "driveConfig": "4×4",
@@ -6231,7 +6232,7 @@ window.TTA_DATA = {
     "RÕS/IVECO": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Maaväe toetusüksused ja õhudessantväed (nt 106. kaardiväe õhudessantdiviis); ka siseministeeriumi üksused",
+        "typicalUnit": "Tagalaüksused ja õhudessantväed; ka siseväed",
         "purpose": "Iveco LMV (kerge mitmeotstarbeline taktikaline 4×4 sõiduk, MRAP-omadustega) Vene variant Rõs.",
         "crew": "1 + 4",
         "combatWeight": 7.1,
@@ -6252,7 +6253,7 @@ window.TTA_DATA = {
     "BMP-1Ksh": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Motolaskur- ja tankipolgud",
+        "typicalUnit": "Motolaskur- ja tankipolk",
         "purpose": "Juhtimis- ja staabisoomuk BMP-1 baasil.",
         "crew": "3 (kirjetes ka „3 + 4“ ja 6)",
         "combatWeight": 13,
@@ -6340,7 +6341,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Liikuv satelliitsidejaam strateegilise ja operatiivtasandi staapide mitmekanaliliseks sideks.",
-        "typicalUnit": "Sõjaväeringkonnad, üldväearmeed ning õhuväe ja õhukaitse armeed",
+        "typicalUnit": "Armee ja sõjaväeringkonna sideüksused",
         "crew": "16 (täismehitus), 11 (osaline)",
         "driveConfig": "6×6",
         "specialEquipment": "1,8m satelliiditaldrik, mis sihtib end ise navigatsioonisüsteemi abil; töötab autonoomselt väljal",
@@ -6355,7 +6356,7 @@ window.TTA_DATA = {
     "R-149AKSh-1": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Üldväearmee sideüksused",
+        "typicalUnit": "Armee sideüksus",
         "purpose": "Juhtimis- ja sidemasin veoki šassiil.",
         "crew": "7",
         "length": 7.85,
@@ -6430,7 +6431,7 @@ window.TTA_DATA = {
     "9K720 Iskander/SS-26 Stone": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Üldväearmee raketibrigaad (3 pataljoni × 2 patareid)",
+        "typicalUnit": "Raketibrigaad",
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Liikuv lühimaa-ballistiliste rakettide süsteem: Iskander-M kannab kahte 9M723 kvaasiballistilist raketti, Iskander-K tiibrakette (9M728, 9M729).",
         "crew": "3",
@@ -6454,7 +6455,7 @@ window.TTA_DATA = {
     "SS-21 Totška/SS-21 Scarab": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Üldväearmee raketibrigaad (asendatud Iskanderiga)",
+        "typicalUnit": "Raketibrigaad",
         "purpose": "Taktikaline ballistiline rakett täpseteks löökideks vastase taktikalistele sihtmärkidele; pidi asenduma Iskanderiga, kuid kasutatakse ka Ukraina sõjas.",
         "crew": "3",
         "chassis": "BAZ-5921 ujuv teisaldatav stardiseade",
@@ -6480,7 +6481,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Maapealne S-riba häirejaam AWACS-lennukite ja teiste õhuradarite häirimiseks.",
-        "typicalUnit": "Eraldi elektroonilise sõjapidamise (EW) brigaadid",
+        "typicalUnit": "Elektroonilise võitluse brigaad",
         "crew": "4",
         "chassis": "BAZ-6910-022 8×8",
         "frequencyRange": "2,3–3,7 GHz (S-riba)",
@@ -6500,7 +6501,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Maapealne X- ja Ku-riba häirejaam õhu- ja kosmoseradarite mahasurumiseks.",
-        "typicalUnit": "Sõjaväeringkonna EW-brigaad",
+        "typicalUnit": "Elektroonilise võitluse brigaad",
         "crew": "4",
         "chassis": "BAZ-6910-022 4-teljeline (Wikipedia) või kaks KamAZ-6350 veokit (COGINT)",
         "frequencyRange": "X-riba 8,5–10,7 GHz; Ku-riba 13,4–17,7 GHz",
@@ -6518,7 +6519,7 @@ window.TTA_DATA = {
     "Lejer-2/Leer-2": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhudessantvägede üksused (nt Uljanovskis paiknevad dessantväelased)",
+        "typicalUnit": "Õhudessantväed (VDV)",
         "purpose": "Mobiilne automatiseeritud raadioluure, suunatuvastuse ja häirimise kompleks; jäljendab ka raadioelektroonilisi süsteeme.",
         "crew": "3 (tabelis), 2 (pildiallkirjas)",
         "chassis": "Tigr-M (85Ya6)",
@@ -6538,7 +6539,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Mobiilside luure- ja häirekompleks, mille häireseadmed on droonidel Orlan-10.",
-        "typicalUnit": "Sõjaväeringkonna EW-brigaad; uutes motolaskurdiviisides EW-pataljon",
+        "typicalUnit": "Elektroonilise võitluse brigaad; elektroonilise võitluse pataljon",
         "crew": "5",
         "frequencyRange": "0,935–1,785 GHz",
         "jammingRange": 6,
@@ -6556,7 +6557,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Passiivse raadioluure kompleks õhusihtmärkide avastamiseks, suuna määramiseks ja jälgimiseks; juhib häirimist.",
-        "typicalUnit": "Sõjaväeringkonna EW-brigaad",
+        "typicalUnit": "Elektroonilise võitluse brigaad",
         "crew": "4",
         "chassis": "3 × KamAZ-6350-1335",
         "frequencyRange": "UHF, L, S, C, X, Ku (täpne vahemik teadmata)",
@@ -6575,7 +6576,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Pikamaa KV-side luure ja häirekompleks.",
-        "typicalUnit": "Sõjaväeringkonna EW-brigaad; ka merevägi (475. eraldi EW-keskus)",
+        "typicalUnit": "Elektroonilise võitluse brigaad; merevägi",
         "crew": "2",
         "chassis": "KamAZ-53501 8×8 (iga antenn eraldi veokil)",
         "combatWeight": 15,
@@ -6629,7 +6630,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Automatiseeritud jaam satelliitside, satelliitnavigatsiooni ja mobiilside avastamiseks, suuna määramiseks ja häirimiseks; kaitseb brigaadi ja diviisi juhtimispunkte täppisrelvade eest.",
-        "typicalUnit": "Manöövribrigaadi või -diviisi EW-kompanii; ka EW-brigaadid",
+        "typicalUnit": "Elektroonilise võitluse rood; elektroonilise võitluse brigaad",
         "chassis": "Ural-43203 või KamAZ-43114; häirejaam eraldi haagisel",
         "frequencyRange": "Luure 0,1–2 GHz; häirimine ca 0,1–2 GHz",
         "jammingRange": 30,
@@ -6667,7 +6668,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Soomukil paiknev EW-kompleks, mis saadab soomuskolonne ja kaitseb neid raadiojuhitavate lõhkekehade ning juhitava relvastuse eest.",
-        "typicalUnit": "EW-brigaadid ja -keskused",
+        "typicalUnit": "Elektroonilise võitluse brigaad",
         "crew": "3",
         "chassis": "K1Sh1 (BTR-80 alusel)",
         "driveConfig": "8×8",
@@ -8688,7 +8689,7 @@ window.TTA_DATA = {
     "Kamaz-5350 Z-STS Akhmat": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Tšetšeenia (Kadõrovi) üksused; hiljem ka teised Vene väeüksused",
+        "typicalUnit": "Tšetšeenia üksused; ka teised väeosad",
         "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "6×6 veoki šassiil mitmeotstarbeline soomusauto (10 kohta) Tšetšeenia julgeolekujõududele, muu hulgas jalaväe ja lasti veoks.",
         "crew": "Kuni 10",
@@ -8730,7 +8731,7 @@ window.TTA_DATA = {
     "R-166-0,5": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Sideüksused (nt motolaskurbrigaadi sideüksused; ka ABK-kaitseväed)",
+        "typicalUnit": "Sideüksus; ka TBK-kaitseväed",
         "purpose": "KV/UKV raadiojaam raadioside pidamiseks sidesõlme koosseisus või iseseisvalt, ka raadiohäirete tingimustes; töötab korraga kahes sõltumatus suunas.",
         "chassis": "UNSh / K1Sh1 (BTR-80 alusel)",
         "driveConfig": "8×8",
@@ -8746,7 +8747,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Õhudessantvägede juhtimis- ja staabisoomuk.",
-        "typicalUnit": "Õhudessantvägede polgud ja eraldi pataljonid (sh sidepataljonid)",
+        "typicalUnit": "Õhudessantvägede polk ja pataljon",
         "crew": "6 (ülem, juht, 4 staabiohvitseri)",
         "chassis": "BTR-D",
         "combatWeight": 8.7,
@@ -8779,7 +8780,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Digitaalne häirekindel raadioreleejaam pakettkommutatsiooniga strateegilise ja operatiivtasandi välisidevõrkudele.",
-        "typicalUnit": "Sõjaväeringkonna sideüksused",
+        "typicalUnit": "Sõjaväeringkonna sideüksus",
         "specialEquipment": "Andmeedastus 4–311 Mbit/s; liikumise ajal ei tööta; töötemperatuur −50…+40°C. Kasutusel alates 2018",
         "commsFrequency": "Dupleks 5,6–6,2 GHz ja 7,9–8,4 GHz",
         "commsRange": "Hüpe kuni 40km mõõdukalt liigendatud maastikul",
@@ -8797,7 +8798,7 @@ window.TTA_DATA = {
     "R-419L1": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Üldväearmee sideüksused",
+        "typicalUnit": "Armee sideüksus",
         "purpose": "Digitaalne raadioreleejaam magistraalliinidele ja kaabelliinide asendamiseks taktikalise ja operatiivtasandi välisidesüsteemides.",
         "crew": "4",
         "chassis": "KamAZ-4350",
@@ -8816,7 +8817,7 @@ window.TTA_DATA = {
     "RS-24 Jars / Topol-M": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Strateegiliste raketivägede raketidiviis (raketiarmee koosseisus)",
+        "typicalUnit": "Strateegiliste raketivägede raketidiviis",
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Mitme lõhkepeaga (MIRV) termotuumarelvaga mandritevaheline ballistiline rakett, sisuliselt Topol-M; liikuvatel stardiseadmetel ja raketišahtides.",
         "crew": "3 (stardiseade)",
@@ -8841,7 +8842,7 @@ window.TTA_DATA = {
     "K-300P Bastion-P/SS-C-5 Stooge": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Mereväe rannakaitse raketibrigaad (kõik laevastikud)",
+        "typicalUnit": "Rannakaitse raketibrigaad",
         "purpose": "Liikuv rannakaitse-raketikompleks pinnalaevade (sh lennukikandjarühmad, konvoid, dessantlaevad) tõrjeks; Süürias näidatud ka maismaasihtmärkide ründamise võimet.",
         "crew": "3 (stardiseade)",
         "chassis": "MZKT-7930 8×8",
@@ -8865,7 +8866,7 @@ window.TTA_DATA = {
     "3K60 Bal/SSC-6 Sennight": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Mereväe rannakaitse raketibrigaad (kõik laevastikud)",
+        "typicalUnit": "Rannakaitse raketibrigaad",
         "purpose": "Rannakaitse laevavastane raketikompleks rakettidega Kh-35 Uran (4K51 Rubeži järglane).",
         "chassis": "MZKT-7930 8×8",
         "missileLength": 4.4,
@@ -9162,7 +9163,7 @@ window.TTA_DATA = {
     "IL-78M Midas": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Kauglennuväe õhutankimisüksus (203. kaardiväe õhutankimislennuväepolk)",
+        "typicalUnit": "Kauglennuväe õhutankimispolk",
         "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Il-76 baasil õhutankur: tiivaalused gondlid tangivad taktikalisi lennukeid, kere gondel raskemaid lennukeid.",
         "crew": "6",
@@ -9217,7 +9218,7 @@ window.TTA_DATA = {
     "IL-20M": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Nt Põhjalaevastiku 403. segalennuväepolk",
+        "typicalUnit": "Mereväe segalennuväepolk",
         "productionStatus": {"status": ["ended"], "asOf": 2025},
         "purpose": "Neljamootoriline raadio- ja elektroonilise luure lennuk (COMINT/ELINT).",
         "crew": "13",
@@ -9247,7 +9248,7 @@ window.TTA_DATA = {
     "Il-38 May": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Põhjalaevastiku 403. segalennuväepolk; ka Vaikse ookeani laevastiku mereväe lennuvägi",
+        "typicalUnit": "Mereväe lennuvägi",
         "purpose": "Mereväe patrull- ja allveelaevatõrjelennuk (loodud USA ballistiliste rakettidega allveelaevade vastu).",
         "crew": "7–8",
         "length": 40.185,
@@ -9275,7 +9276,7 @@ window.TTA_DATA = {
     "Yak-130 Mitten": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Krasnodari kõrgema sõjaväelennukooli õppelennuväepolgud; VKS ümberõppekeskused (nt Borisoglebsk)",
+        "typicalUnit": "Sõjaväelennukooli õppelennuväepolk",
         "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Kahekohaline reaktiivõppelennuk ja kerge lahingulennuk; suudab täita kerge ründe- ja luurelennuki ülesandeid.",
         "crew": "2",
@@ -9310,7 +9311,7 @@ window.TTA_DATA = {
     "L-39 Albatros": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Krasnodari kõrgema sõjaväelennukooli õppelennuväepolgud",
+        "typicalUnit": "Sõjaväelennukooli õppelennuväepolk",
         "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Reaktiivõppelennuk pilootide alg- ja edasijõudnute väljaõppeks; lennanud ka kerge ründelennukina.",
         "crew": "2",
@@ -9344,7 +9345,7 @@ window.TTA_DATA = {
     "An-12 Cub": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VTA polk või eraldi eskadrill; ka Põhjalaevastiku 403. segalennuväepolk",
+        "typicalUnit": "Sõjaväetranspordilennuväe polk või eskadrill; mereväe lennuvägi",
         "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Neljamootoriline turbopropeller-transpordilennuk: Nõukogude õhujõudude standardne keskmaa lasti- ja langevarjurite transpordilennuk; ka EW-, VIP- ja tankurversioonid.",
         "crew": "5 (2 pilooti, pardainsener, navigaator, raadist)",
@@ -9378,7 +9379,7 @@ window.TTA_DATA = {
     "An-72 Coaler": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "FSB piirivalveteenistuse lennuvägi (An-72P patrull-lennukid); ka VKS ja mereväe lennuvägi",
+        "typicalUnit": "FSB piirivalve lennuvägi; ka VKS ja mereväe lennuvägi",
         "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Lühikese stardi ja maandumisega (STOL) transpordilennuk.",
         "crew": "5",
@@ -9418,7 +9419,7 @@ window.TTA_DATA = {
     "Tornado-G/BM-21-1 (2B17M)": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Brigaadi või suurtükiväepolgu reaktiivsuurtükiväe divisjon (1 divisjon)",
+        "typicalUnit": "Mitmikraketiheitjadivisjon",
         "purpose": "BM-21 Gradi moderniseerimispakett: uued 122mm raketid (9M538, 9M539, 9M541) suurema tulejõuga.",
         "chassis": "KamAZ 6×6 või Ural-4320",
         "caliber": 122,
@@ -9450,7 +9451,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Õhutõrjeüksuste liikuv juhtimispunkt: võtab radarilt vastu õhuolukorra andmed, töötleb need ja edastab alluvatele juhtimispunktidele.",
-        "typicalUnit": "Lühi- ja lähimaa õhutõrjepatarei",
+        "typicalUnit": "Õhutõrjepatarei",
         "chassis": "BTR-60PB (8×8 ratassoomuk)",
         "combatWeight": 10.5,
         "length": 7.22,
@@ -9497,7 +9498,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Ühtne juhtimismasin kompanii, rühma ja jao tasandi juhtimiseks ja sideks.",
-        "typicalUnit": "Kompanii, rühm ja jagu",
+        "typicalUnit": "Rood, rühm ja jagu",
         "chassis": "BTR-80 (8×8 ratassoomuk)"
       },
       "sources": [
@@ -9510,7 +9511,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Juhtimis- ja sidemasin ühenduseks kõrgema staabi ja alluvate üksustega.",
-        "typicalUnit": "Armee tasandi luureüksused",
+        "typicalUnit": "Armee luureüksus",
         "chassis": "GAZ Tigr (4×4 soomusauto)"
       },
       "sources": [
@@ -9541,7 +9542,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Raadiokaugsütikutega suurtükimürskude ja rakettide segaja: paneb need lõhkema ohutul kõrgusel.",
-        "typicalUnit": "Manöövribrigaadi EW-kompanii",
+        "typicalUnit": "Elektroonilise võitluse rood",
         "crew": "2",
         "chassis": "BTR-70",
         "frequencyRange": "95–420 MHz",
@@ -9601,7 +9602,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "UKV-raadioside otsingu, asukoha määramise ja mahasurumise süsteem.",
-        "typicalUnit": "Manöövribrigaadi EW-kompanii",
+        "typicalUnit": "Elektroonilise võitluse rood",
         "crew": "2–3",
         "chassis": "Maastikuauto (nt UAZ) või kantav komplekt",
         "frequencyRange": "0,02–2 GHz",
@@ -9635,7 +9636,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Operatiiv-taktikalise tasandi automatiseeritud EW-kompleks raadioluureks ning KV-, UKV-, trunk- ja mobiilside mahasurumiseks; ühendab mitu EW-süsteemi ühtseks võrguks.",
-        "typicalUnit": "Üldväearmee EW-pataljon",
+        "typicalUnit": "Elektroonilise võitluse pataljon",
         "chassis": "KamAZ",
         "frequencyRange": "3–30 MHz (HF) ja 30–300 MHz (VHF)",
         "jammingRange": 20,
@@ -9991,7 +9992,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Mehitamata miinitõrjepaat: veeteede ja laevade kaitse, miinilaadsete objektide otsing, merepõhja uurimine ja lasti vedu.",
-        "typicalUnit": "Aleksandrit-klassi (projekt 12700) miinitraalerid",
+        "typicalUnit": "Miinitraalerid",
         "maxSpeedKn": 20,
         "range": 150,
         "specialEquipment": "BL-680 kiirpaadi baasil. Katsetused 2014 Laadogal ja 2019 Sevastopolis"
@@ -10033,7 +10034,6 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Polgu juhtimis- ja staabimasin „Deimos-NMR“ maaväe taktikalise lüli sideks.",
-        "typicalUnit": "Polk",
         "crew": "3",
         "chassis": "GAZ-66 (furgoon K66N); ka Ural-43206 või KamAZ-5350 (furgoon K1.5350D)",
         "combatWeight": 6.44,
@@ -10049,7 +10049,7 @@ window.TTA_DATA = {
     "R-166": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Nt motolaskurbrigaadi sideüksused ja ABK-kaitseväed (41. üldväearmee, 2019)",
+        "typicalUnit": "Sideüksus; ka TBK-kaitseväed",
         "purpose": "Keskmise võimsusega KV/UKV raadiojaam „Artek“; töötab korraga kahes sõltumatus raadiovõrgus, ka raadiohäirete tingimustes.",
         "crew": "3",
         "commsFrequency": "KV 1,5–30 MHz; UKV 30–80 MHz",
@@ -10070,7 +10070,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Õhudessantvägede satelliitsidesoomuk juhtimispunktide sideks (jaam „Kristall-BD“ komplektist R-440).",
-        "typicalUnit": "Õhudessantdiviisi eraldi sidepataljon",
+        "typicalUnit": "Õhudessantdiviisi sidepataljon",
         "chassis": "BTR-D (õhudessandi roomiksoomuk)",
         "commsFrequency": "Saatmine 5850–5886 ja 5760–5770 MHz; vastuvõtt 3525–3541 ja 3472,5–3482,5 MHz (4/6 GHz)",
         "specialEquipment": "Kokkupandav paraboolantenn Ø1,2m katusel; saatja 10W; kiirus 1,2–9,6 kbit/s; 1 sidesuund. Satelliidid Raduga, Gorizont, Yamal, Express ja Molnija-3. Kasutusel alates 1989",
@@ -10167,7 +10167,7 @@ window.TTA_DATA = {
     "Vityaz (DT-10/DT-30)": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Põhjalaevastiku Arktika brigaad",
+        "typicalUnit": "Arktika brigaad",
         "purpose": "Kahelüliline roomikmaastikusõiduk raskete koormate veoks soos, liivas ja lumes ning äärmuslikus kliimas; liigub vees roomikutega.",
         "crew": "5 (esimese lüli kabiinis)",
         "combatWeight": 30,
@@ -10202,7 +10202,7 @@ window.TTA_DATA = {
     "GAZ-3344 Aleut": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Nt Põhjalaevastiku eraldi motolaskurbrigaad (Arktika brigaad, Murmanski lähedal)",
+        "typicalUnit": "Arktika motolaskurbrigaad",
         "purpose": "Kahelüliline ujuv roomikmaastikusõiduk Arktika tingimustesse (sarnane Bv 206-ga).",
         "seats": "Kuni 20 (esilülis 5 koos juhiga)",
         "combatWeight": 11.2,
@@ -10274,7 +10274,7 @@ window.TTA_DATA = {
     "ISDM Zemledelije": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Pioneeribrigaadid (nt 45. eraldi kaardiväe pioneeribrigaad)",
+        "typicalUnit": "Pioneeribrigaad",
         "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Kaugmineerimissüsteem: laseb 122mm kassettrakettidega miinivälja 5–15km kaugusele.",
         "crew": "3 (ülem, operaator-sihtur, juht)",
@@ -10372,7 +10372,6 @@ window.TTA_DATA = {
     "2S35": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Üldväearmee, armeekorpuse või tankiarmee suurtükiväebrigaad (kavandatud)",
         "productionStatus": {"status": ["prototype"], "asOf": 2024},
         "purpose": "152mm liikursuurtükk, uue põlvkonna liikurhaubits.",
         "crew": "2–3",
@@ -10423,7 +10422,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "82mm liikurmiinipilduja soomusauto šassiil, loodud õhudessantvägedele.",
-        "typicalUnit": "Suurtükipatareid, eelkõige õhudessantväed",
+        "typicalUnit": "Suurtükipatarei, eelkõige õhudessantväed",
         "crew": "4",
         "chassis": "KamAZ-4386 „Taifun-VDV“ 4×4",
         "driveConfig": "4×4",
@@ -10446,7 +10445,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Improviseeritud iseliikuv õhutõrjekahur: MT-LB katusele paigaldatud ZU-23-2; kasutatakse objektide lähikaitseks (ka droonide vastu) ja jalaväe tuletoetuseks.",
-        "typicalUnit": "Objektide lähikaitse õhutõrjeüksused",
+        "typicalUnit": "Objektide lähikaitse õhutõrjeüksus",
         "chassis": "MT-LB",
         "caliber": 23,
         "mainArmament": "ZU-23-2: 2 × 23mm automaatkahur 2A14",
@@ -10468,7 +10467,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Õhudessantvägede õhutõrjesoomuk: veab kaht õhutõrje-taskuraketimeeskonda ja varurakette; katusele saab paigaldada ZU-23-2.",
-        "typicalUnit": "Õhudessantpolgud ja diviiside eraldi õhutõrjedivisjonid",
+        "typicalUnit": "Õhudessantpolk; õhudessantdiviisi õhutõrjedivisjon",
         "chassis": "BTR-D",
         "samMissiles": "Strela/Igla taskuraketid (2 meeskonda), varuraketid riiulitel",
         "mainArmament": "Võimalik ZU-23-2 (2 × 23mm) katusel",
@@ -10514,7 +10513,7 @@ window.TTA_DATA = {
     "TOS-2 Tosotška": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Kesksõjaväeringkonna ABK-kaitseüksused",
+        "typicalUnit": "TBK-kaitseüksus",
         "purpose": "Termobaariliste rakettidega raske leegiheitjasüsteem kindlustatud positsioonide ja kergsoomustatud tehnika vastu; oma kraanaga laadimiseks.",
         "chassis": "Ural-63706-0120 6×6",
         "driveConfig": "6×6",
@@ -10584,7 +10583,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Pioneeride puksiirkaater: pukseerib pontoonparvesid ja uurib veekogusid sildade ja parvlaevaülesõitude rajamiseks.",
-        "typicalUnit": "Pontoonparkide koosseisus (nt BMK-MT PP-2005M komplektis)",
+        "typicalUnit": "Pontoonpark",
         "specialEquipment": "Veetakse KamAZ-i kastis; väike kaal ja süvis võimaldavad tegutseda madalas vees ja jääpurdes"
       },
       "sources": [
@@ -10596,7 +10595,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Kerge kahemootoriline õppekopter sõjaväelendurite väljaõppeks.",
-        "typicalUnit": "Syzrani kõrgem sõjaväelennukool (VKS)",
+        "typicalUnit": "Sõjaväelennukool",
         "crew": "1–2",
         "troops": "7–8 reisijat",
         "length": 13.76,
@@ -10619,7 +10618,7 @@ window.TTA_DATA = {
     "Tu-142": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Põhjalaevastiku 403. segalennuväepolk (Tu-142 Kipelovos); Vaikse ookeani laevastiku 310. eraldi kaugallveelaevatõrje lennuväepolk (Kamennõi Rutšei)",
+        "typicalUnit": "Mereväe allveelaevatõrje lennuväepolk",
         "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Kaugmaa allveelaevatõrje- ja mereluurelennuk (Tu-95 baasil).",
         "crew": "11–13",
@@ -10796,7 +10795,7 @@ window.TTA_DATA = {
     "9S18M1": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Õhutõrjeraketibrigaadi divisjon (Buk-M1 kompleks)",
+        "typicalUnit": "Õhutõrjeraketibrigaadi divisjon",
         "purpose": "Buk-M1 (SA-11) õhutõrjeraketikompleksi 3D sihtmärkide avastusradar.",
         "radarBand": "Sentimeeterlaine",
         "radarRange": 85
@@ -10828,7 +10827,6 @@ window.TTA_DATA = {
     "S-350 Vitjaz/SA-28": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "VKS õhutõrjeraketipolk (plaanitud)",
         "purpose": "Keskmaa õhutõrjeraketikompleks, S-300PS asendaja.",
         "chassis": "BAZ-6909 / BAZ-69092 (kõik masinad)",
         "samMissiles": "Laskeseadmel 50P6 12 × 9M96/9M96E2 (12–120km) või 9M100 (infrapunasihtimine, 10–15km)",
@@ -10847,7 +10845,7 @@ window.TTA_DATA = {
     "BPM-97 KamAZ-43269": {
       "status": "unverified",
       "values": {
-        "typicalUnit": "Piirivalve; Strateegiliste raketivägede diviiside terrorismivastased üksused",
+        "typicalUnit": "Piirivalve; Strateegiliste raketivägede julgestusüksused",
         "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "4×4 MRAP-soomustransportöör (KamAZ-4326 šassiil), loodud Vene piirivalvele GAZ-66 asendamiseks; kasutusel ka relvajõududes ja julgeolekuasutustes, ka luuresoomukina.",
         "crew": "Kokku 12 (sh juht ja ülem)",
@@ -10880,7 +10878,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Kompleksne sidemasin: UKV-lähiside, KV-side üle horisondi ja lairiba-raadioreleeside ning juhtme- ja raadioside ühendamine.",
-        "typicalUnit": "MP-2IM: brigaadi/polgu sideüksus; MP-1IM: pataljon"
+        "typicalUnit": "Pataljon"
       },
       "notes": {
         "typicalUnit": "Ainult ühe allika (Sina Military) andmetel."
@@ -10895,7 +10893,7 @@ window.TTA_DATA = {
     "R-330 Mandat": {
       "name": "R-330 Mandat",
       "purpose": "Automatiseeritud raadioluure ja häirete kompleks taktikalise lüli KV- ja UKV-raadioside mahasurumiseks. Raadioside analüüs kuni 60km; häirejaamu juhitakse juhtimispunktist R-330K kuni 30km kauguselt (piitsantenniga 12km).",
-      "typicalUnit": "Manöövribrigaadi või -diviisi EW-kompanii",
+      "typicalUnit": "Elektroonilise võitluse rood",
       "members": [
         {"name": "R-330K", "role": "juhtimispunkt"},
         {"cat": "R-330BM (R-330 Mandat)", "name": "R-330BM", "role": "UKV-häirejaam"},
@@ -10911,7 +10909,7 @@ window.TTA_DATA = {
     "RB-301B Borisoglebsk-2": {
       "name": "RB-301B Borisoglebsk-2",
       "purpose": "Automatiseeritud EW-kompleks KV-, UKV- ja UHF-raadioside avastamiseks, suuna määramiseks ja häirimiseks. 9 masinat (peamiselt MT-LBu); häirejaamu juhitakse juhtimispunktist R-330KMV; kiirgusallikate avastamine vähemalt 30km.",
-      "typicalUnit": "Manöövribrigaadi või -diviisi EW-kompanii",
+      "typicalUnit": "Elektroonilise võitluse rood",
       "members": [
         {"cat": "R-300KMV (RB-301B Borisoglebsk-2)", "name": "R-330KMV", "role": "juhtimispunkt"},
         {"cat": "R-378BMV (RB-301B Borisoglebsk-2)", "name": "R-378BMV", "role": "KV-häirejaam, 2 tk"},
@@ -10928,7 +10926,7 @@ window.TTA_DATA = {
     "1V12 Mašina-S": {
       "name": "1V12 „Mašina-S“",
       "purpose": "Liikursuurtükiväe automatiseeritud tulejuhtimiskomplekt: luure, laskeandmete arvutamine ja tule juhtimine. Teenindab liikursuurtükke 2S1, 2S3, 2S5 ja 2S19; 8 masinat MT-LBu baasil. Kasutusel alates 1974.",
-      "typicalUnit": "Liikursuurtükiväe pataljon",
+      "typicalUnit": "Liikursuurtükidivisjon",
       "members": [
         {"cat": "1V13", "name": "1V13", "role": "patarei tulejuhtimiskeskus, 3 tk"},
         {"name": "1V14", "role": "patarei ülema juhtimis- ja vaatluspunkt, 3 tk"},
@@ -10943,7 +10941,7 @@ window.TTA_DATA = {
     "1V17 Mašina-B": {
       "name": "1V17 „Mašina-B“",
       "purpose": "Järelveetava suurtükiväe ja reaktiivsuurtükiväe automatiseeritud tulejuhtimiskomplekt, 1V12 ratastel vaste: 1V18 ja 1V19 BTR-60 baasil, 1V110 ja 1V111 veokitel. Pataljonis 8 masinat.",
-      "typicalUnit": "Järelveetava suurtükiväe või reaktiivsuurtükiväe pataljon",
+      "typicalUnit": "Järelveetava suurtükiväe või mitmikraketiheitja divisjon",
       "members": [
         {"name": "1V19", "role": "pataljoni ülema juhtimis- ja vaatluspunkt, BTR-60"},
         {"name": "1V111", "role": "pataljoni tulejuhtimiskeskus, ZIL-131"},
@@ -10959,7 +10957,7 @@ window.TTA_DATA = {
     "S-400": {
       "name": "S-400 „Triumf“",
       "purpose": "Pika- ja keskmaa õhutõrjeraketisüsteem: avastusradar 91N6E ja kõrgusradar 96L6E annavad sihtmärgid juhtimispunktile 55K6E, tulejuhtimisradar 92N6E juhib laskeseadmete raketilaskeid. Lisaradarid Nebo-M, Protivnik-GE ja Gamma-S1E.",
-      "typicalUnit": "VKS õhutõrjeraketipolk (2 pataljoni) õhukaitsediviisis",
+      "typicalUnit": "VKS õhutõrjeraketipolk",
       "members": [
         {"name": "55K6E", "role": "juhtimispunkt"},
         {"name": "91N6E", "role": "avastusradar"},
