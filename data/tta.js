@@ -7771,7 +7771,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Survetoimeline jalaväemiin (fugass), mis vigastab peale astujat.",
         "mineHeight": 54,
-        "explosiveType": "RDX/TNT-põhine segu (sarnane Composition B)",
+        "explosiveType": "RDX/TNT-põhine segu",
         "casing": "Survevormitud plast (tavaliselt roheline), must kummist X-kujuline surveplaat"
       },
       "sources": [
@@ -7797,14 +7797,14 @@ window.TTA_DATA = {
     "PFM-1": {
       "status": "unverified",
       "values": {
-        "purpose": "Hajutatav plastist jalaväemiin („liblikas“), mis laotakse kassettidega õhust või raketiheitjaga.",
+        "purpose": "Hajutatav jalaväemiin.",
         "mineLength": 119,
         "mineWidth": 64,
         "mineHeight": 20,
         "explosiveMass": 37,
         "explosiveType": "Vedel lõhkeaine VS-6D või VS-60D",
         "casing": "Polüetüleenist plastkorpus",
-        "delivery": "Kassettides (nt KSF-1S: 64 PFM-1S), laotakse raketiheitjate, miinipildujate, helikopterite ja lennukitega või UMZ-miinilaoturiga"
+        "delivery": "Kassettides (nt KSF-1S: 64 PFM-1S); laotakse raketiheitjate, miinipildujate, kopterite ja lennukitega või miinilaoturiga UMZ"
       },
       "sources": [
         {"name": "Wikipedia: PFM-1 mine", "url": "https://en.wikipedia.org/wiki/PFM-1_mine", "retrieved": "2026-10-23"}
@@ -7813,11 +7813,11 @@ window.TTA_DATA = {
     "POM-2S": {
       "status": "unverified",
       "values": {
-        "purpose": "Hajutatav jalaväe kildmiin, mis laotakse kassettidega raketiheitjast, kopterilt või miinilaoturilt.",
+        "purpose": "Hajutatav jalaväe kildmiin.",
         "mineDiameter": 63,
         "mineHeight": 180,
         "lethalRadius": 16,
-        "delivery": "Kassettidega BM-21 / BM-27 raketiheitjatest, helikopterite VSM-1 süsteemiga, UMZ-miinilaoturiga või PKM-komplektiga"
+        "delivery": "Kassettidega raketiheitjatest BM-21 / BM-27, kopteritelt süsteemiga VSM-1, miinilaoturiga UMZ või komplektiga PKM"
       },
       "sources": [
         {"name": "Wikipedia: POM-2 mine", "url": "https://en.wikipedia.org/wiki/POM-2_mine", "retrieved": "2026-10-23"}
@@ -7829,7 +7829,7 @@ window.TTA_DATA = {
         "purpose": "Hajutatav jalaväe kildmiin seismilise anduriga.",
         "mineMass": 1.3,
         "lethalRadius": 16,
-        "delivery": "Hajutatav (nt ISDM Zemledelie, 5–15 km); laskub langevarjuga ja seisab kuue vedruga jala peal"
+        "delivery": "Hajutatakse (nt ISDM Zemledelie, 5–15 km); laskub langevarjuga ja toetub kuuele vedrujalale"
       },
       "sources": [
         {"name": "Wikipedia: POM-3 mine", "url": "https://en.wikipedia.org/wiki/POM-3_mine", "retrieved": "2026-10-23"}
@@ -7893,7 +7893,7 @@ window.TTA_DATA = {
         "mineHeight": 172,
         "explosiveMass": 660,
         "explosiveType": "TNT",
-        "casing": "Raudkorpus, 2400 eelvormitud terasklilu",
+        "casing": "Raudkorpus, 2400 eelvormitud teraskildu",
         "fragments": 2400,
         "lethalRadius": 25
       },
@@ -8005,7 +8005,7 @@ window.TTA_DATA = {
         "explosiveMass": 2500,
         "explosiveType": "TNT/RDX segu, kumulatiivlaeng",
         "casing": "Silindriline metallkorpus",
-        "fuze": "Magnetiline mõjusüütaja (täislaiuse kahjustus)"
+        "fuze": "Magnetiline mõjusüütaja"
       },
       "sources": [
         {"name": "Wikipedia: TM-72 mine", "url": "https://en.wikipedia.org/wiki/TM-72_mine", "retrieved": "2026-10-23"}
@@ -8014,15 +8014,15 @@ window.TTA_DATA = {
     "TM-83": {
       "status": "unverified",
       "values": {
-        "purpose": "Teeäärne külgmiin: seismiline ja infrapunaandur käivitavad soomust läbistava laengu sõiduki küljele.",
+        "purpose": "Teeäärne külgmiin: seismiline andur ja IR-andur käivitavad soomust läbistava laengu sõiduki küljele.",
         "mineMass": 28.1,
         "mineLength": 455,
         "mineWidth": 377,
         "mineHeight": 440,
         "explosiveMass": 9600,
         "explosiveType": "TG 40/60",
-        "penetration": "100 mm soomust 30° nurga all, 80 mm auk (5–30 m kaugusel)",
-        "fuze": "Seismiline ja infrapunaandur"
+        "penetration": "100 mm soomust 30° nurga all, 80 mm auk (5–30 m kauguselt)",
+        "fuze": "Seismiline andur ja IR-andur"
       },
       "sources": [
         {"name": "Wikipedia: TM-83 mine", "url": "https://en.wikipedia.org/wiki/TM-83_mine", "retrieved": "2026-10-23"}
@@ -8032,13 +8032,13 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Magnetilise mõjusüütajaga tankitõrjemiin, mis läbistab sõiduki põhja.",
-        "penetration": "200 mm soomust 0,45 m kaugusel",
+        "penetration": "200 mm soomust 0,45 m kauguselt",
         "explosiveMass": 6700,
         "fuze": "Kahekanaliline magnetiline mõjusüütaja",
         "mineMass": 11.5,
         "mineDiameter": 320,
         "mineHeight": 131,
-        "explosiveType": "Misznay-Schardini efekti lõhkepea"
+        "explosiveType": "Misznay–Schardini efektiga lõhkepea"
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: TM-89", "url": "https://odin.t2com.army.mil/WEG/Asset/6dd8dfc2969e3929762928a40ce5b9cc", "retrieved": "2026-10-28"},
@@ -8067,7 +8067,7 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Käsitsi paigaldatav suunatud kildmiin, käivitatav käsuga või ohvri poolt.",
         "casing": "Plastkorpus",
-        "delivery": "Käsitsi paigaldatav suunatud kildmiin, komplektis kuni neli miini (käsuga või ohvri poolt käivitatav)"
+        "delivery": "Komplektis kuni neli miini"
       },
       "sources": [
         {"name": "Wikipedia: MOB (landmine)", "url": "https://en.wikipedia.org/wiki/MOB_(landmine)", "retrieved": "2026-10-23"}
@@ -8096,7 +8096,7 @@ window.TTA_DATA = {
         "explosiveMass": 340,
         "explosiveType": "TNT",
         "casing": "Plastkorpus, pruun, must kate keskse eendiga",
-        "delivery": "Rõhu vabastamisel (koormuse eemaldamisel) töötav lõksmiin. Ehituselt PMN-i sarnane, kuid süttib koormuse kadumisel (min 5 kg). Kasutatakse tõstmisvastase seadmena miinidel, millel seda pole, või eraldi lõksuna. Kasutusiga piiramatu, isehävitust pole."
+        "delivery": "Süttib koormuse kadumisel (vähemalt 5 kg); kasutatakse tõstmisvastase seadmena miinidel, millel seda pole, või eraldi lõksuna; kasutusiga piiramatu, isehävitust pole"
       },
       "sources": [
         {"name": "Sappers.org: MS-3", "url": "https://sappers.org/uk/dovidnyk/miny/syurpryzy-i-pastky/ms-3", "retrieved": "2026-10-23"},
@@ -8115,7 +8115,7 @@ window.TTA_DATA = {
         "explosiveMass": 120,
         "explosiveType": "TNT",
         "casing": "Metall, matt oliivroheline",
-        "delivery": "Mitmeotstarbeline lõhkelõks: kasutatav asjade lõksustamiseks, miinide tõstmisvastase seadmena, raudtee-/transpordimiinina või objektimiini süütena. Anduriteks kalde- (20°) ja vibratsiooniandur ning taimer 15 min – 360 h. Süüde MD-9. Lahtimuutmine keelatud."
+        "delivery": "Kasutatakse esemete lõksustamiseks, miinide tõstmisvastase seadmena, raudtee- ja transpordimiinina või objektimiini süütena; kalde- (20°) ja vibratsiooniandur ning taimer 15 min – 360 h; süütur MD-9; kahjutuks tegemine keelatud"
       },
       "sources": [
         {"name": "Sappers.org: MS-4", "url": "https://sappers.org/uk/dovidnyk/miny/syurpryzy-i-pastky/ms-4", "retrieved": "2026-10-23"}
@@ -8131,7 +8131,7 @@ window.TTA_DATA = {
         "mineHeight": 40,
         "explosiveMass": 80,
         "casing": "Plast, roheline",
-        "delivery": "Koormuse vabastamisel töötav lõksmiin. Tõstmisvastane seade PMN, PMN-2, PMN-4, PMD-6M, OZM-72 ja TM-62 sarja miinide all või lõks relvade/varustuse all. Sensori tundlikkus üle 0,25 kg; aktiveerimine 2–2,5 min pärast paigaldust. Lahtimuutmine keelatud."
+        "delivery": "Tõstmisvastane seade PMN, PMN-2, PMN-4, PMD-6M, OZM-72 ja TM-62 seeria miinide all või lõks relvade ja varustuse all; anduri tundlikkus üle 0,25 kg; rakendub 2–2,5 min pärast paigaldust; kahjutuks tegemine keelatud"
       },
       "sources": [
         {"name": "Sappers.org: ML-8", "url": "https://sappers.org/uk/dovidnyk/miny/syurpryzy-i-pastky/ml-8", "retrieved": "2026-10-23"},
@@ -8146,7 +8146,7 @@ window.TTA_DATA = {
         "mineLength": 120,
         "mineDiameter": 36,
         "casing": "Teras",
-        "delivery": "Rõhutoimeline kuulmiin (kineetiline): rõhu all laseb 7,62×25 mm TT padruni, kuul (5,52 g) vigastab jalga. Tundlikkus 7–30 kgf. Sileraudne toru, kummikate ülaosas."
+        "delivery": "Laseb 7,62×25 mm TT padruni (kuul 5,52 g); tundlikkus 7–30 kgf; sileraudne toru, ülaosas kummikate"
       },
       "sources": [
         {"name": "Sappers.org: PMP", "url": "https://sappers.org/uk/dovidnyk/miny/protypihotni-natysknoyi-diyi/pmp", "retrieved": "2026-10-23"},
@@ -8156,14 +8156,14 @@ window.TTA_DATA = {
     "POB Pilka": {
       "status": "unverified",
       "values": {
-        "purpose": "Hüppav jalaväe kildmiin, käivitatav tõmbetraadiga või käsuga.",
+        "purpose": "Hüppav jalaväe kildmiin, käivitatav tõmbetraadiga või käsuga (kasutusel alates 2005. aastast).",
         "mineDiameter": 90,
         "mineHeight": 170,
         "explosiveMass": 510,
         "explosiveType": "TG-40",
         "casing": "Plast; sees terasrõngastest killud (samad siseläbimõõdud, erinevad välisläbimõõdud)",
         "lethalRadius": 20,
-        "delivery": "Hüppav killumiin, tõmbetraadiga (20 m) või käsu alusel (NM süütur, NVU-P/NVU-P2). Võeti kasutusele 2005. OZM-72 asendajana. Detoneerib 0,4–0,6 m kõrgusel. Süüted MUV-2/3/4, MVE-72, MVE-NS, MVE-92. Isehävitust ega tõstmisvastast kaitset pole."
+        "delivery": "Tõmbetraadiga (20 m) või käsuga (süütur NM, NVU-P/NVU-P2); plahvatab 0,4–0,6 m kõrgusel; süütajad MUV-2/3/4, MVE-72, MVE-NS, MVE-92; isehävitus ja tõstmisvastane kaitse puuduvad"
       },
       "sources": [
         {"name": "Sappers.org: POB Pilka", "url": "https://sappers.org/uk/dovidnyk/miny/protypihotni-natyazhnoyi-diyi/pob-pilka", "retrieved": "2026-10-23"}
@@ -8172,14 +8172,14 @@ window.TTA_DATA = {
     "Vkladysh": {
       "status": "unverified",
       "values": {
-        "purpose": "Tõmbetraadiga ringlöögiga kildmiin, mida saab kasutada ka käsigranaadina.",
+        "purpose": "Tõmbetraadiga ringlöögiga kildmiin, mida saab kasutada ka käsigranaadina (kasutusel alates 2007. aastast).",
         "mineMass": 0.83,
         "mineDiameter": 61.5,
         "mineHeight": 170,
         "explosiveMass": 50,
         "explosiveType": "A-IX-1",
         "casing": "Teras (killud moodustuvad rõngastest)",
-        "delivery": "Jalaväevastane kildmiin-käsigranaat ringlöögiga, tõmbetoimeline (4 andurit, kuni 10 m). Võeti kasutusele 2007. Asetatakse ainult käsitsi maapinnale; granaadina viivitus 3–5 s. Isehävitus 3–100 h pärast paigaldust, isetühistus kuni 120 päeva."
+        "delivery": "Tõmbetoimeline (4 andurit, kuni 10 m); paigaldatakse ainult käsitsi maapinnale; granaadina viivitus 3–5 s; isehävitus 3–100 h pärast paigaldust, isetühistus kuni 120 päeva"
       },
       "sources": [
         {"name": "Sappers.org: MIB Vkladysh", "url": "https://sappers.org/uk/dovidnyk/miny/protypihotni-natyazhnoyi-diyi/mib-vkladysh", "retrieved": "2026-10-23"}
@@ -8189,7 +8189,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Lõhkelaeng üksikinimese kaevikupesa rajamiseks külmunud või kõvas pinnases.",
-        "delivery": "Lõhkelaeng üksikinimese kaevikupesa rajamiseks külmunud või kõvas pinnases. Järgnevate laengutega saab pesa laiendada mitmele võitlejale. Komplektis ≈96 mm plastkorpusega KZ-OZ-1."
+        "delivery": "Lisalaengutega saab pesa laiendada mitmele võitlejale; komplektis KZ-OZ-1 (umbes 96 mm plastkorpus)"
       },
       "sources": [
         {"name": "Metis (Fenix Insight): OZ-1", "url": "https://metis.fenixinsight.com/munition/demolitionStore/oz-1", "retrieved": "2026-10-23"}
@@ -8205,7 +8205,7 @@ window.TTA_DATA = {
         "mineHeight": 85,
         "explosiveMass": 320,
         "explosiveType": "TG-40 (TNT ja heksogeeni sulam)",
-        "delivery": "Kumulatiivlaeng raudbetoon- ja metallkonstruktsioonide (sillad, toed, torustikud) lõhkamiseks; töötab igas ilmas ja vee all; elektriline süütamine. Kinnitus eemaldatavate magnetite ja köiega. Läbistus ≈3,6 cm terast / 30 cm raudbetooni."
+        "delivery": "Töötab igas ilmas ja vee all; elektriline süütamine; kinnitus eemaldatavate magnetite ja köiega; läbistab umbes 3,6 cm terast või 30 cm raudbetooni"
       },
       "sources": [
         {"name": "BOCN forum: KZU-2 demolition charge", "url": "https://www.bocn.co.uk/threads/kzu-2-demolition-charge-russia.110648/", "retrieved": "2026-10-23"}
@@ -8222,7 +8222,7 @@ window.TTA_DATA = {
         "explosiveMass": 1000,
         "explosiveType": "MS",
         "casing": "Bakeliit (fenoolplast)",
-        "delivery": "Keskmine magnetmiin (ajastatud objektimiin) metallosadega sihtmärkide vastu (kütusepaagid, torustikud, sõidukid, õhusõidukid, laevad). Kinnitub kahe kaarja magnetiga (hoiujõud 40–60 kg); kasutatav ka vee all kuni 10 m. Viitsüüde VZD-1M või VZD-20M. Kasutavad peamiselt mereväe lahingujuubijad ja merejalavägi."
+        "delivery": "Sihtmärgid ka õhusõidukid ja laevad; kinnitub kahe kaarja magnetiga (hoiujõud 40–60 kg); kasutatav vee all kuni 10 m sügavusel; viitsüütur VZD-1M või VZD-20M; kasutavad peamiselt mereväe lahingutuukrid ja merejalavägi"
       },
       "sources": [
         {"name": "Sappers.org: SPM", "url": "https://sappers.org/uk/dovidnyk/miny/obyektni/spm", "retrieved": "2026-10-23"},
@@ -8240,7 +8240,7 @@ window.TTA_DATA = {
         "explosiveMass": 300,
         "explosiveType": "TG-50",
         "casing": "Bakeliit (fenoolplast), tumepruun",
-        "delivery": "Väike magnetmiin (ajastatud objektimiin, ilma killuefektita). Nõukogude konstruktsioon, kuulub kinnitusmiinide perre BPM / SPM / UPM."
+        "delivery": "Kuulub kinnitusmiinide perekonda BPM / SPM / UPM"
       },
       "sources": [
         {"name": "Sappers.org: MPM", "url": "https://sappers.org/uk/dovidnyk/miny/obyektni/mpm", "retrieved": "2026-10-23"},
@@ -8255,7 +8255,7 @@ window.TTA_DATA = {
         "mineDiameter": 25,
         "mineHeight": 278,
         "casing": "Teras, roheline",
-        "delivery": "Tõmbetraadiga signaalmiin: heli- ja valgussignaal (valju vile kuni 500 m, 12–15 valgusrakett, põlemine 10–12 s, tõus 5–15 m). Kasutati valvepostidel ja positsioonidel Afganistanis ja Tšetšeenias. Isehävitust ega tõstmisvastast kaitset pole."
+        "delivery": "Vile kuuldav kuni 500 m; 12–15 valgusraketti põlevad 10–12 s ja tõusevad 5–15 m; isehävitus ja tõstmisvastane kaitse puuduvad"
       },
       "sources": [
         {"name": "Sappers.org: SM", "url": "https://sappers.org/uk/dovidnyk/miny/syhnalni/sm", "retrieved": "2026-10-23"}
@@ -8269,7 +8269,7 @@ window.TTA_DATA = {
         "mineDiameter": 40,
         "mineHeight": 350,
         "casing": "Teras, roheline",
-        "delivery": "Kombineeritud signaal- ja valgustusmiin (MSK-40P lisab kaks valgus-heli tähte). Neli värvilist signaalitähte (punane, roheline, valge, sinine) ja kümme valgustustähte tõusevad ≈30 m; valgustab 170–200 m raadiuses 23–28 s; vile kuuldav 500–800 m. Kasutusiga 10 aastat."
+        "delivery": "MSK-40P lisab kaks valgus-helitähte; neli värvilist signaaltähte (punane, roheline, valge, sinine) ja kümme valgustustähte tõusevad umbes 30 m kõrgusele; valgustab 170–200 m raadiuses 23–28 s; vile kuuldav 500–800 m; kasutusiga 10 aastat"
       },
       "sources": [
         {"name": "Sappers.org: MSK-40", "url": "https://sappers.org/uk/dovidnyk/miny/syhnalni/msk-40", "retrieved": "2026-10-23"}
@@ -8279,7 +8279,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "purpose": "Universaalne suitsuküünal suitsukatete loomiseks.",
-        "delivery": "Universaalne suitsuseade (suitsuküünal), mis võeti Venemaa kaitsevägedes kasutusele pärast 1975. aastat; kasutab RKhBZ (kiirguse-, keemia- ja bioloogilise kaitse) väed. Seotud DM-11 ja NDSh silindriliste suitsupottidega."
+        "delivery": "Kasutavad RKBK-väed"
       },
       "sources": [
         {"name": "Metis (Fenix Insight): DM-11 smoke pot", "url": "https://metis.fenixinsight.com/munition/miscellaneous/dm-11-smoke-pot", "retrieved": "2026-10-23"}
@@ -8294,8 +8294,8 @@ window.TTA_DATA = {
         "mineWidth": 84,
         "explosiveMass": 1800,
         "explosiveType": "TG-40",
-        "penetration": "70 mm (läbistab soomuki põhja, hävitab veermiku)",
-        "delivery": "Kaugmineerimine: UMZ, kopterid, PKM kantav komplekt. Magnetiline lähedussüütaja; isehävitus 16–24 h."
+        "penetration": "70 mm",
+        "delivery": "Kaugmineerimine: UMZ, kopterid, kantav komplekt PKM; isehävitus 16–24 h"
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: PTM-3", "url": "https://odin.t2com.army.mil/WEG/Asset/2d1dffeab35fc704d693a6e4e781a906", "retrieved": "2026-10-28"}
@@ -8307,7 +8307,7 @@ window.TTA_DATA = {
         "purpose": "Hajutatav magnetilise lähedussüütajaga tankitõrjemiin, programmeeritava isehävitusega.",
         "casing": "Poolsilindrikujuline teraskorpus",
         "fuze": "VT-14 programmeeritav isehävitusega magnetiline lähedussüütaja",
-        "delivery": "Kaugmineerimine kassetis KPTM-4 (2 miini, 9,6 kg), sh kopteritelt. Lahingvalmis 40–80 s pärast; isehävitus 8 h – 120 päeva."
+        "delivery": "Kaugmineerimine kassetis KPTM-4 (2 miini, 9,6 kg), sh kopteritelt; lahinguvalmis 40–80 s pärast; isehävitus 8 h – 120 päeva"
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: PTM-4", "url": "https://odin.t2com.army.mil/WEG/Asset/77333bc0485aa58e061490136de54911", "retrieved": "2026-10-28"}
@@ -8322,7 +8322,7 @@ window.TTA_DATA = {
         "mineHeight": 510,
         "explosiveMass": 2800,
         "penetration": "70 mm",
-        "delivery": "Pealtründav miin: akustilised ja seismilised andurid tuvastavad sihtmärgi, kildpea (EFP) lastakse soomuki katusele. Isehävitus 1–10 päeva."
+        "delivery": "Isehävitus 1–10 päeva"
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: PTKM-1R", "url": "https://odin.t2com.army.mil/WEG/Asset/775ff50993d8834af599b987cd35e177", "retrieved": "2026-10-28"}
@@ -10043,10 +10043,10 @@ window.TTA_DATA = {
         "purpose": "Suur kumulatiivne lõhkelaeng raudbetoonkonstruktsioonide läbistamiseks.",
         "mineMass": 63,
         "explosiveMass": 59000,
-        "delivery": "Suur kumulatiivne lõhkelaeng (paks poolsfääriline vooder, puidust lainekujundaja); läbistab ≈2 m raudbetooni või ≈500 mm terast. Süütamine elektridetonaatoriga EDP-r või detonaatoriga MD-5M"
+        "delivery": "Paks poolsfääriline vooder, puidust lainekujundaja; läbistab umbes 2 m raudbetooni või umbes 500 mm terast; süütamine elektridetonaatoriga EDP-r või detonaatoriga MD-5M"
       },
       "notes": {
-        "mineMass": "≈63 kg, lõhkeainet ≈59 kg."
+        "mineMass": "Umbes 63 kg, lõhkeainet umbes 59 kg."
       },
       "sources": [
         {"name": "Fenix Insight METIS: KZ-4", "url": "https://metis.fenixinsight.com/munition/demolitionStore/kz-4", "retrieved": "2026-11-20"}
@@ -10149,12 +10149,12 @@ window.TTA_DATA = {
     "KFZ-T": {
       "status": "unverified",
       "values": {
-        "purpose": "Kumulatiiv-fugass laeng külmunud pinnase kobestamiseks ning teekatte ja lennuradade purustamiseks.",
+        "purpose": "Kumulatiiv- ja fugasslaenguga lõhkelaeng külmunud pinnase kobestamiseks ning teekatte ja lennuradade purustamiseks.",
         "mineMass": 8.7,
         "mineDiameter": 400,
         "mineLength": 775,
         "explosiveMass": 2690,
-        "delivery": "Kumulatiiv-fugass laeng külmunud pinnase kobestamiseks tankikaeviku rajamisel ning teekatte ja lennuradade purustamiseks; sobib ka sügaval maa sees olevate lõhkekehade hävitamiseks. Kumulatiivlaeng 2,84 kg (lõhkeainet 1,44 kg) teeb augu, fugasslaeng 2,3 kg (lõhkeainet 1,25 kg) viiakse rakettmootoriga auku. Laenguid saab kasutada ka eraldi. Ettevalmistus 3 min; 1 inimene; asendas kaevikulaengu OZ-1",
+        "delivery": "Kasutatakse ka tankikaeviku rajamisel ja sügaval maa sees olevate lõhkekehade hävitamiseks; kumulatiivlaeng 2,84 kg (lõhkeainet 1,44 kg) teeb augu, fugasslaeng 2,3 kg (lõhkeainet 1,25 kg) viiakse rakettmootoriga auku; laenguid saab kasutada ka eraldi; ettevalmistus 3 min, 1 inimene",
         "fuze": "Fugasslaengu süütaja aeglusti 1–3 s; käivitusseadme aeglusti 50–83 s"
       },
       "notes": {
@@ -10170,12 +10170,12 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Väikesed suitsuküünlad lühiajalise maskeeriva suitsukatte loomiseks.",
         "mineMass": 3,
-        "smokeDuration": "ShD-MM: süttimine 7 s, intensiivne suits 3–4,5 min",
+        "smokeDuration": "ShD-MM: süttib 7 s, tihe suits 3–4,5 min",
         "smokeScreen": "ShD-MM: läbipaistmatu suitsukatte pikkus 70–100 m (lainepikkused 0,4–1,5 µm)",
-        "delivery": "Väikesed suitsuküünlad lühiajalise maskeeriva suitsukatte loomiseks. ShD-MM: metallkorpuses metallkloriidsegu (2,6 kg), hõõrdsüütur – rebi foolium ja tõmba nöörist. DM-11: vanem mudel, mida kasutavad RKBK-väed"
+        "delivery": "ShD-MM: metallkorpuses metallkloriidsegu (2,6 kg), hõõrdsüütur (rebi foolium ja tõmba nöörist); DM-11 on vanem mudel, mida kasutavad RKBK-väed"
       },
       "notes": {
-        "mineMass": "ShD-MM."
+        "mineMass": "Andmed kehtivad ShD-MM kohta."
       },
       "sources": [
         {"name": "Fenix Insight METIS: DM-11 Smoke Pot", "url": "https://metis.fenixinsight.com/munition/miscellaneous/dm-11-smoke-pot", "retrieved": "2026-11-20"}
@@ -10186,13 +10186,12 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Suurendatud tõhususega suitsuküünal joon- ja alasuitsukatete loomiseks (ka infrapunas).",
         "mineMass": 11,
-        "smokeDuration": "51 min; töörežiimile jõuab kuni 5 s",
+        "smokeDuration": "51 min; töörežiimile jõuab 5 s jooksul",
         "smokeScreen": "Läbipaistmatu osa nähtavas valguses (0,4–0,76 µm) vähemalt 150 m, infrapunas (2–5,6 µm) vähemalt 30 m",
-        "delivery": "Suurendatud tõhususega suitsuküünal joon- ja alasuitsukatete loomiseks; käivitamine mehaaniliselt või elektriliselt universaalse süüteseadmega; saab paigaldada plokkidena"
+        "delivery": "Käivitatakse mehaaniliselt või elektriliselt universaalse süüteseadmega; saab paigaldada plokkidena"
       },
       "notes": {
-        "mineMass": "Kuni 11 kg.",
-        "smokeDuration": "Allika järgi."
+        "mineMass": "Kuni 11 kg."
       },
       "sources": []
     },
