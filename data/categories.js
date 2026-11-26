@@ -609,7 +609,7 @@ const CATEGORIES = [
   { label: "R-168-5UN Akveduk", group: "radios", type: "Raadiojaam", cat: "R-168-5UN", files: ["R-168-5UN-1_-_4thTankDivisionOpenDay17p2-41.jpg"] },
 
   // Luureradarid (group: "ground_radars")
-  // { label: "", group: "ground_radars", type: "Luureradar", cat: "", files: [] },
+  { label: "PSNR-8 Kredo-M1", group: "ground_radars", type: "Luureradar", cat: "Kredo-M1", files: ["Kredo-M1_-_IDELF-2008-248.jpg"] },
 
   // Suurtükiväe kaasaskantavad tulejuhtimisseadmed (group: "fire_control")
   // { label: "", group: "fire_control", type: "Tulejuhtimisseade", cat: "", files: [] },
