@@ -7,7 +7,7 @@ window.I18N_DATA = {
   "ui": {
     "Koosseis": "Composition",
     "Tootmisseis": "Production status",
-    "Uustootmine": "New production",
+    "Tootmises": "In production",
     "Moderniseerimine": "Modernisation",
     "Taastamine laost": "Reactivation from storage",
     "Tootmine lõppenud": "Production ended",
