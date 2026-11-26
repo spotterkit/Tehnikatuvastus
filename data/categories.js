@@ -609,14 +609,11 @@ const CATEGORIES = [
   { label: "R-168-5UN Akveduk", group: "radios", type: "Raadiojaam", cat: "R-168-5UN Akveduk", files: ["R-168-5UN-1_-_4thTankDivisionOpenDay17p2-41.jpg"] },
   { label: "BaoFeng UV-5R/BaoFeng BF-F8", group: "radios", type: "Raadiojaam", cat: "BaoFeng UV-5R/BaoFeng BF-F8", files: ["Baofeng_UV-5R_transceiver_5.jpg"] },
 
-  // Luureradarid (group: "ground_radars")
+  // Luurejaamad (radarid) ja -seadmed (group: "ground_radars")
   { label: "PSNR-8M Kredo-M1 1L120", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "PSNR-8M Kredo-M1 1L120", files: ["Kredo-M1_-_IDELF-2008-248.jpg"] },
   { label: "PSNR-5M Kredo-M 1L133-1", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "PSNR-5M Kredo-M 1L133-1", files: ["ReconCompany4thOTBr71.jpg"] },
   { label: "SBR-5 Fara-1 1L111", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "SBR-5 Fara-1 1L111", files: ["FARA-1_-_IDELF-2008-247_%28cropped%29.jpg"] },
   { label: "SBR-3 Fara-U 1RL136", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "SBR-3 Fara-U 1RL136", files: ["ReconCompany4thOTBr68.jpg"] },
-  { label: "Aistenok 1L271", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "Aistenok 1L271", files: ["1L271_Aistyonok_portable_radar%2C_Army-2023.jpg"] },
-  { label: "Kredo-1E 1L244-2", group: "ground_radars", type: "Kaasaskantav maismaa luurejaam", cat: "Kredo-1E 1L244-2", files: ["images/ground_radars/CREDO1E.jfif"] },
-  { label: "Ironija/Ironija-M", group: "ground_radars", type: "Luurekompleks", cat: "Ironija/Ironija-M", files: ["images/ground_radars/iroonia.jfif", "images/ground_radars/irooniaM.jpg"] },
 
   // Suurtükiväe kaasaskantavad tulejuhtimisseadmed (group: "fire_control")
   // { label: "", group: "fire_control", type: "Tulejuhtimisseade", cat: "", files: [] },

@@ -672,6 +672,7 @@ window.I18N_DATA = {
     // Uute kategooriate (Seadmed, Raketid ja pommid) põhiliigid (rc119)
     "Raadiojaam": "Radio",
     "Luureradar": "Ground surveillance radar",
+    "Kaasaskantav maismaa luurejaam": "Portable ground surveillance radar",
     "Tulejuhtimisseade": "Fire control device",
     "Ballistiline rakett": "Ballistic missile",
     "Tiibrakett": "Cruise missile",
@@ -1020,7 +1021,7 @@ window.I18N_DATA = {
     "Väeliigid ja üksused": "Branches and units",
     "Maamiinid": "Land mines",
     "Kaasaskantavad raadiojaamad": "Portable radios",
-    "Luureradarid": "Ground surveillance radars",
+    "Luurejaamad (radarid) ja -seadmed": "Surveillance radars and devices",
     "Suurtükiväe kaasaskantavad tulejuhtimisseadmed": "Portable artillery fire control equipment",
     "Ballistilised raketid": "Ballistic missiles",
     "Tiibraketid": "Cruise missiles",
