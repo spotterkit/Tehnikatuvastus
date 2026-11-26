@@ -605,7 +605,8 @@ const CATEGORIES = [
   // ----- SEADMED (ülemine kategooria „Seadmed“) -----
 
   // Kaasaskantavad raadiojaamad (group: "radios")
-  // { label: "", group: "radios", type: "Raadiojaam", cat: "", files: [] },
+  { label: "R-187-P1 Azart", group: "radios", type: "Raadiojaam", cat: "R-187-P1 Azart", files: ["R-187P1_-_4thTankDivisionOpenDay17p2-43.jpg"] },
+  { label: "R-168-5UN Akveduk", group: "radios", type: "Raadiojaam", cat: "R-168-5UN", files: ["R-168-5UN-1_-_4thTankDivisionOpenDay17p2-41.jpg"] },
 
   // Luureradarid (group: "ground_radars")
   // { label: "", group: "ground_radars", type: "Luureradar", cat: "", files: [] },
