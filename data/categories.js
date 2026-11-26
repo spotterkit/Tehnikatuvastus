@@ -286,6 +286,7 @@ const CATEGORIES = [
   { label: "REM-KL", group: "trucks", type: "Remondi- ja äraveomasin", cat: "REM-KL", files: ["Alabino21042017-60.jpg"] },
   { label: "UAZ-23632 Patriot Pickup", group: "trucks", type: "Maastur", cat: "UAZ-23632", files: ["Rehearsal2018-08.jpg"] },
   { label: "Ural-63704 Tornado-U", group: "trucks", type: "Veok", cat: "Ural-63704", files: ["images/trucks/uraltornadou.jfif"] },
+  { label: "MTO-UB1", group: "trucks", type: "Mobiilne töökoda", cat: "MTO-UB1", files: ["MaintenanceBattalion2018-05.jpg", "TB2015ExhibitionP3-32.jpg"] },
   
   // Õhutõrjesoomukid, -juhtimissoomukid ja -radarid
   { label: "STRELA-10/SA-13 Gopher", group: "ad", type: "Õhutõrjesoomuk", cat: "STRELA-10/SA-13 Gopher", files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%284%29.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%283%29.jpg", "MasteringTheArmament2018-01.jpg", "SummerAirborneExercise2018-36.jpg"] },
