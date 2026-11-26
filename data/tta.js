@@ -3847,6 +3847,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe lennuväe kopterpolk",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Mereväe soomustatud transport- ja ründekopter dessantlaevadelt ja lennukikandjatelt tegutsemiseks (kasutusel alates 1987. aastast).",
         "crew": "2",
         "length": 11.3,
@@ -3868,13 +3869,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: Kamov Ka-29", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-29", "retrieved": "2026-10-23"},
-        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "Wikipedia: Kamov Ka-27", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-27", "retrieved": "2026-11-26"}
       ]
     },
     "Ka-27": {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe lennuväe kopterpolk",
+        "productionStatus": {"status": ["ended", "upgrade"], "asOf": 2026},
         "purpose": "Mereväe allveelaevatõrje- ja transpordikopter (kasutusel alates 1981. aastast).",
         "crew": "3 + 2–3",
         "length": 11.3,
@@ -3894,12 +3897,14 @@ window.TTA_DATA = {
         "fuelCapacity": 2940
       },
       "notes": {
-        "sensors": "Ka-27M uuendus lisab AESA-radari."
+        "sensors": "Ka-27M uuendus lisab AESA-radari.",
+        "productionStatus": "Ka-27 koptereid moderniseeritakse Ka-27M-iks."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Ka-27", "url": "https://odin.t2com.army.mil/WEG/Asset/88f8ae48a9604b65064fcdab7146c6ae", "retrieved": "2026-10-28"},
         {"name": "Wikipedia: Kamov Ka-27", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-27", "retrieved": "2026-10-23"},
-        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "Shephard: Russian Navy receives modernised Ka-27M", "url": "https://www.shephardmedia.com/news/defence-helicopter/russian-navy-receives-modernised-ka-27m/", "retrieved": "2026-11-26"}
       ]
     },
     "Ka-31": {
@@ -3967,6 +3972,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "VKS ründelennuväepolk",
+        "productionStatus": {"status": ["ended", "upgrade"], "asOf": 2023},
         "purpose": "Ründelennuk maaväe lähitoetuseks.",
         "crew": "1",
         "length": 15.53,
@@ -3992,12 +3998,15 @@ window.TTA_DATA = {
       },
       "notes": {
         "combatRadius": "Merepinna lähedal 4400 kg relvakoormaga ja kahe lisapaagiga; lennuulatus suurel kõrgusel 1000 km.",
-        "maxSpeed": "Andmed kehtivad Su-25K kohta."
+        "maxSpeed": "Andmed kehtivad Su-25K kohta.",
+        "productionStatus": "Su-25 lennukeid moderniseeritakse Su-25SM3-ks."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Su-25", "url": "https://odin.t2com.army.mil/WEG/Asset/c8c6c485190bb3346d00e901fe24e7ef", "retrieved": "2026-10-28"},
         {"name": "Wikipedia: Sukhoi Su-25", "url": "https://en.wikipedia.org/wiki/Sukhoi_Su-25", "retrieved": "2026-10-23"},
-        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "Janes: Russia's Su-25SM3 'deep upgrade' programme gains pace and scope", "url": "https://www.janes.com/defence-intelligence-insights/defence-news/russias-su-25sm3-deep-upgrade-programme-gains-pace-and-scope", "retrieved": "2026-11-26"},
+        {"name": "EurAsian Times: Russia's frontline Sukhoi attack aircraft set for newer weapon (2023)", "url": "https://eurasiantimes.com/russias-frontline-sukhoi-attack-aircraft-set-for-newer-weapon/", "retrieved": "2026-11-26"}
       ]
     },
     "Su-34": {
@@ -4241,6 +4250,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe hävituslennukite polk",
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Õhuülekaalu hävitaja; paljud hilisemad versioonid on mitmeotstarbelised.",
         "crew": "1",
         "length": 17.37,
@@ -9248,6 +9258,7 @@ window.TTA_DATA = {
     "An-30 Clank": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["ended"], "asOf": 2026},
         "purpose": "Aerofotograafia- ja kaardistamislennuk; kasutatud ka Avatud taeva lepingu vaatluslendudel.",
         "crew": "7",
         "length": 24.26,
@@ -9304,6 +9315,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe lennuvägi",
+        "productionStatus": {"status": ["ended", "upgrade"], "asOf": 2026},
         "purpose": "Mereväe patrull- ja allveelaevatõrjelennuk.",
         "crew": "7–8",
         "length": 40.185,
@@ -9322,10 +9334,14 @@ window.TTA_DATA = {
         "ordnanceLoad": 9000,
         "sensors": "Otsinguradar Berkut („Wet Eye“) nina all; magnetanomaalia detektor (MAD) sabas. Il-38N: Novella P-38 (õhusihtmärgid kuni 90 km, pinnasihtmärgid kuni 320 km, 32 sihtmärki korraga)"
       },
+      "notes": {
+        "productionStatus": "Il-38 lennukeid moderniseeritakse Il-38N-iks."
+      },
       "sources": [
         {"name": "Wikipedia: Ilyushin Il-38", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-38", "retrieved": "2026-11-20"},
         {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
-        {"name": "The Aviationist: Ukrainian Drone Strike Reportedly Destroys Rare Russian Il-38N ASW Aircraft (24 Dec 2025)", "url": "https://theaviationist.com/2025/12/24/drone-strike-on-il-38n/", "retrieved": "2026-11-25"}
+        {"name": "The Aviationist: Ukrainian Drone Strike Reportedly Destroys Rare Russian Il-38N ASW Aircraft (24 Dec 2025)", "url": "https://theaviationist.com/2025/12/24/drone-strike-on-il-38n/", "retrieved": "2026-11-25"},
+        {"name": "Aviation Week: How Russia is modernizing its naval aviation fleet", "url": "https://aviationweek.com/defense/budget-policy-operations/how-russia-modernizing-its-naval-aviation-fleet", "retrieved": "2026-11-26"}
       ]
     },
     "Yak-130 Mitten": {
@@ -10645,6 +10661,7 @@ window.TTA_DATA = {
     "Ansat": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Kerge õppekopter sõjaväelendurite väljaõppeks.",
         "typicalUnit": "Sõjaväelennukool",
         "crew": "1–2",
@@ -10660,10 +10677,12 @@ window.TTA_DATA = {
         "ferryRange": 505
       },
       "notes": {
-        "length": "Andmed kehtivad Ansati põhiversiooni kohta."
+        "length": "Andmed kehtivad Ansati põhiversiooni kohta.",
+        "productionStatus": "Uustootmine on kinnitatud tsiviil-Ansati kohta; Ansat-U tarnete kohta pärast 2017. aastat allikas puudub."
       },
       "sources": [
-        {"name": "Wikipedia: Kazan Ansat", "url": "https://en.wikipedia.org/wiki/Kazan_Ansat", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: Kazan Ansat", "url": "https://en.wikipedia.org/wiki/Kazan_Ansat", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Rostec presents new version of Ansat helicopter with all-Russian components (2024)", "url": "https://www.armyrecognition.com/archives/archives-aerospace-defense/2024/rostec-presents-new-version-of-ansat-helicopter-with-all-russian-components", "retrieved": "2026-11-26"}
       ]
     },
     "Tu-142": {
