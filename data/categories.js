@@ -181,6 +181,7 @@ const CATEGORIES = [
   { label: "Zala Z-16", group: "drones", type: "Luuredroon", cat: "Zala Z-16", files: ["images/drones/zalaz16.jpg"] },
   { label: "Gerbera-2", group: "drones", type: "Mitmeotstarbeline droon", cat: "Gerbera-2", files: ["images/drones/gerbera-2.jpg", "images/drones/gerbera2_1.png"] },
   { label: "Jolka", group: "drones", type: "Püüdurdroon", cat: "Yolka", files: ["Yolka_drone_interceptor.png", "images/drones/yolka.jpg"] },
+  { label: "Molnja-13", group: "drones", type: "Ründedroon", cat: "Molnja-13", files: ["images/drones/molnija13.webp"] },
 
   // Pioneerisoomukid ja tehnika
   { label: "IMR-2", group: "engineer", type: "Teepuhastussoomuk", cat: "IMR-2", files: ["RIAN_archive_734015_Wildfires_in_Moscow_Region%27s_Lukhovitsky_district.jpg", "EngineerFieldRide2017-07.jpg", "AssaultExercise2017-02.jpg"] },
@@ -320,6 +321,8 @@ const CATEGORIES = [
   { label: "S-350 Vitjaz/SA-28", group: "ad", type: "Õhutõrjekompleks", cat: "S-350 Vitjaz/SA-28", files: ["MAKS_Airshow_2013_%28Ramenskoye_Airport%2C_Russia%29_%28520-01%29.jpg"] },
   { label: "9S470M1 (Buki juhtimissoomuk)", group: "ad", type: "ÕT juhtimissoomuk", cat: "9S470M1", files: ["Engineering_Technologies_2010_Part6_0002_copy.jpg"] },
   { label: "9S32M (S-300 juhtimisradar)", group: "ad", type: "ÕT radar", cat: "9S32M", files: ["9S32_engagement_radar_-2.jpg", "S-300V_-_9S32_engagement_radar.jpg"] },
+  { label: "39N6 Kasta-2E2", group: "ad", type: "ÕT radar", cat: "39N6", files: ["39N6E_Kasta-2E2_radar_-_100th_Anniversary_VVS-R_-02.jpg"] },
+  { label: "Valdai", group: "ad", type: "ÕT radar", cat: "Valdai", files: ["images/ad/valdai.jpg] },
 
   // Tankitõrjesoomukid
   { label: "9P149 Shturm-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P149 Shturm-S", files: ["9P149.jpg", "Штурм-С_-_Контрольная_проверка_курсантов_Учебного_центра_боевого_применения_ракетных_войск_и_артиллерии_02.jpg", "images/antitank/shturms_01.jpg", "Army2016demo-028.jpg", "Battle_of_Konotop_24.jpg"] },
