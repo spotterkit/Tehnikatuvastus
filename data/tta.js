@@ -1,7 +1,7 @@
 // TTA andmestik. Võti = mudeli `cat` väärtus index.html CATEGORIES-is (nt "BMD-2").
 // Kirje kuju ja töövoog: vt DATA_NOTES.txt. Sisu hoia puhta JSON-ina – check_release.js kontrollib.
 window.TTA_DATA = {
-  "version": 28,
+  "version": 29,
   "models": {
     "BMD-2": {
       "status": "unverified",
@@ -3257,7 +3257,7 @@ window.TTA_DATA = {
         {"name": "Defense Mirror: Almaz Antey Speeds up Deliveries of Buk M3 Anti Aircraft Systems to Russian Troops (Oct 2023)", "url": "https://www.defensemirror.com/news/35188/Almaz_Antey_Speeds_up_Deliveries_of_Buk_M3_Anti_Aircraft_Systems_to_Russian_Troops", "retrieved": "2026-11-25"}
       ]
     },
-    "S-400 / S-300": {
+    "S-400/S-300": {
       "status": "unverified",
       "values": {
         "productionStatus": {"status": ["new"], "asOf": 2026},
@@ -9027,7 +9027,7 @@ window.TTA_DATA = {
         {"name": "Oryx: Documenting Russian Equipment Losses", "url": "https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html", "retrieved": "2026-11-27"}
       ]
     },
-    "RS-24 Jars / Topol-M": {
+    "RS-24 Jars/Topol-M": {
       "status": "unverified",
       "values": {
         "typicalUnit": "Strateegiliste raketivägede raketidiviis",
@@ -9652,7 +9652,7 @@ window.TTA_DATA = {
         {"name": "Wikipedia: Penicillin (counter-artillery system)", "url": "https://en.wikipedia.org/wiki/Penicillin_(counter-artillery_system)", "retrieved": "2026-11-20"}
       ]
     },
-    "Tornado-G/BM-21-1 (2B17M)": {
+    "2B17M Tornado-G": {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mitmikraketiheitjapataljon",
@@ -11264,6 +11264,391 @@ window.TTA_DATA = {
       "sources": [
         {"name": "ARMSNET: SBR-3 Fara (1RL136)", "url": "https://armsnet.duckdns.org/equipment/0344257d-3e93-4a26-eac9-08de6e3c1543", "retrieved": "2026-11-26"}
       ]
+    },
+    "9M723": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Iskander-M kompleksi poolballistiline lühimaarakett (kasutusel alates 2006. aastast).",
+        "launchPlatform": "Iskander-M laskeseade 9P78 (2 raketti)",
+        "missileLength": 7.3,
+        "missileDiameter": 0.92,
+        "launchWeight": 3800,
+        "warheadMass": 700,
+        "warheadType": "Lõhke-, kassett-, läbistav või termobaariline lõhkepea",
+        "firingRangeMin": 50,
+        "firingRange": 415,
+        "missileSpeed": "Kuni 2100 m/s",
+        "accuracy": "5–7 m (lõppfaasi optoelektrooniline DSMAC-sihtimine)",
+        "guidance": "INS + GLONASS + DSMAC",
+        "engine": "Üheastmeline tahkekütusemootor"
+      },
+      "notes": {
+        "launchWeight": "Teistel andmetel 3750 kg.",
+        "warheadMass": "Allikate järgi 480–700 kg.",
+        "firingRange": "Teistel andmetel kuni 500 km."
+      },
+      "sources": [
+        {"name": "Wikipedia: 9K720 Iskander", "url": "https://en.wikipedia.org/wiki/9K720_Iskander", "retrieved": "2026-11-27"},
+        {"name": "CSIS Missile Threat: Iskander-M", "url": "https://missilethreat.csis.org/missile/ss-26-2/", "retrieved": "2026-11-27"}
+      ]
+    },
+    "Kh-47M2 Kinžal": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Lennukilt lastav ballistiline rakett (kasutusel alates 2017. aastast).",
+        "launchPlatform": "MiG-31K, Tu-22M3M",
+        "missileLength": 7.2,
+        "missileDiameter": 1.2,
+        "launchWeight": 4300,
+        "warheadMass": 480,
+        "warheadType": "Tava- või tuumalõhkepea",
+        "firingRange": 480,
+        "missileSpeed": "Kuni Mach 10",
+        "guidance": "Inertsiaalne, keskfaasis korrektsioon"
+      },
+      "notes": {
+        "missileLength": "Teistel andmetel 8 m.",
+        "missileDiameter": "Teistel andmetel 1 m.",
+        "firingRange": "Koos kandelennuki lennuulatusega kuni 2000 km."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kh-47M2 Kinzhal", "url": "https://en.wikipedia.org/wiki/Kh-47M2_Kinzhal", "retrieved": "2026-11-27"},
+        {"name": "CSIS Missile Threat: Kinzhal", "url": "https://missilethreat.csis.org/missile/kinzhal/", "retrieved": "2026-11-27"}
+      ]
+    },
+    "48N6/5V55 (S-300/S-400 raketid)": {
+      "status": "unverified",
+      "values": {
+        "purpose": "S-300P ja S-400 õhutõrjekomplekside juhitav rakett õhusihtmärkide tõrjeks; sõjas Ukraina vastu on seda kasutatud ka maasihtmärkide ründamiseks.",
+        "launchPlatform": "S-300P ja S-400 laskeseadmed",
+        "missileLength": 7.5,
+        "missileDiameter": 0.519,
+        "launchWeight": 1799,
+        "warheadMass": 143,
+        "firingRange": 150,
+        "missileSpeed": "Kuni 1900 m/s",
+        "guidance": "Poolaktiivne radar"
+      },
+      "notes": {
+        "missileLength": "Andmed kehtivad 48N6 kohta. 5V55: 7–7,25 m.",
+        "launchWeight": "5V55: 1470–1665 kg; 48N6E2/E3: 1835 kg.",
+        "warheadMass": "5V55: 130–133 kg; 48N6E2/E3: 180 kg.",
+        "firingRange": "5V55K 47 km, 5V55R 75 km, 5V55U 150 km; 48N6E2 200 km, 48N6E3/48N6DM 240 km.",
+        "guidance": "5V55K: raadiokäsujuhtimine."
+      },
+      "sources": [
+        {"name": "Wikipedia: S-300 missile system", "url": "https://en.wikipedia.org/wiki/S-300_missile_system", "retrieved": "2026-11-27"},
+        {"name": "Wikipedia: S-400 missile system", "url": "https://en.wikipedia.org/wiki/S-400_missile_system", "retrieved": "2026-11-27"}
+      ]
+    },
+    "Kh-101": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Strateegiliste pommitajate pikamaa tiibrakett (kasutusel alates 2012. aastast).",
+        "launchPlatform": "Tu-95MS (8 raketti), Tu-160 (12 raketti)",
+        "missileLength": 7.45,
+        "launchWeight": 2400,
+        "warheadMass": 400,
+        "warheadType": "Lõhke-, läbistav või kassettlõhkepea (Kh-102: tuumalõhkepea)",
+        "firingRange": 3500,
+        "missileSpeed": "700–720 km/h, max 970 km/h",
+        "accuracy": "6–10 m",
+        "guidance": "INS + GLONASS, maastikukaardiga korrektsioon; uuematel optoelektrooniline lõppotsija"
+      },
+      "notes": {
+        "launchWeight": "Teistel andmetel 2200 kg.",
+        "warheadMass": "Hilisemal versioonil umbes 800 kg."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kh-101", "url": "https://en.wikipedia.org/wiki/Kh-101", "retrieved": "2026-11-27"}
+      ]
+    },
+    "Kh-55/Kh-555": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Strateegiliste pommitajate pikamaa tiibrakett: Kh-55 tuumalõhkepeaga, Kh-555 tavalõhkepeaga.",
+        "launchPlatform": "Tu-95MS, Tu-160",
+        "missileLength": 6.04,
+        "missileDiameter": 0.514,
+        "wingspan": 3.1,
+        "launchWeight": 1500,
+        "warheadMass": 400,
+        "warheadType": "Kh-555: lõhke-, läbistav või kassettlõhkepea; Kh-55: tuumalõhkepea",
+        "firingRange": 3500,
+        "accuracy": "25 m",
+        "guidance": "Inertsiaalne, maastikukaardiga korrektsioon (TERCOM)"
+      },
+      "notes": {
+        "launchWeight": "Kh-55: 1210 kg.",
+        "warheadMass": "Andmed kehtivad Kh-555 kohta.",
+        "firingRange": "Andmed kehtivad Kh-555 kohta. Kh-55: 2500 km, Kh-55SM: 3000 km.",
+        "accuracy": "Andmed kehtivad Kh-55 kohta."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kh-55", "url": "https://en.wikipedia.org/wiki/Kh-55", "retrieved": "2026-11-27"},
+        {"name": "CSIS Missile Threat: Kh-55", "url": "https://missilethreat.csis.org/missile/kh-55/", "retrieved": "2026-11-27"},
+        {"name": "Kyiv Post: Kh-555 Cruise Missile", "url": "https://www.kyivpost.com/post/16482", "retrieved": "2026-11-27"}
+      ]
+    },
+    "Kalibr": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Laevadelt ja allveelaevadelt lastav tiibrakett maasihtmärkide ründamiseks (3M-14, kasutusel alates 2015. aastast).",
+        "launchPlatform": "Pinnalaevad (nt Buyan-M, Karakurt, Admiral Grigorovitš) ja allveelaevad (nt Kilo, Lada, Jassen)",
+        "missileLength": 6.2,
+        "missileDiameter": 0.533,
+        "launchWeight": 1770,
+        "warheadMass": 450,
+        "firingRange": 2500,
+        "missileSpeed": "Mach 0,8",
+        "guidance": "INS + satelliitnavigatsioon, maastikukaardiga korrektsioon (TERCOM), lõppfaasis aktiivne radar"
+      },
+      "notes": {
+        "firingRange": "Hinnangud 1500–2500 km."
+      },
+      "sources": [
+        {"name": "CSIS Missile Threat: 3M-14 Kalibr (SS-N-30A)", "url": "https://missilethreat.csis.org/missile/ss-n-30a/", "retrieved": "2026-11-27"},
+        {"name": "Wikipedia: Kalibr (missile family)", "url": "https://en.wikipedia.org/wiki/3M-54_Kalibr", "retrieved": "2026-11-27"},
+        {"name": "Army Recognition: 3M14 Biryuza", "url": "https://armyrecognition.com/military-products/navy/weapons-systems/missiles/3m14-biryuza-ss-n-30a", "retrieved": "2026-11-27"},
+        {"name": "Missile Defense Advocacy Alliance: 3M-14 Kalibr", "url": "https://missiledefenseadvocacy.org/?p=16601", "retrieved": "2026-11-27"}
+      ]
+    },
+    "P-800": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Ülehelikiirusega laevatõrje-tiibrakett, mida on sõjas Ukraina vastu kasutatud ka maasihtmärkide ründamiseks (kasutusel alates 2002. aastast).",
+        "launchPlatform": "Rannakaitsekompleks Bastion-P; pinnalaevad (nt Buyan-M, Karakurt); allveelaevad (Jassen)",
+        "missileLength": 8.9,
+        "missileDiameter": 0.7,
+        "wingspan": 1.7,
+        "launchWeight": 3000,
+        "warheadMass": 300,
+        "warheadType": "Poolsoomust läbistav lõhkepea",
+        "firingRange": 600,
+        "missileSpeed": "Kuni Mach 2,9 (maapinna lähedal Mach 2)",
+        "guidance": "Inertsiaalne, lõppfaasis aktiivne/passiivne radar"
+      },
+      "notes": {
+        "launchWeight": "Teistel andmetel 3100 kg.",
+        "firingRange": "Oniks-M: 800 km."
+      },
+      "sources": [
+        {"name": "Wikipedia: P-800 Oniks", "url": "https://en.wikipedia.org/wiki/P-800_Oniks", "retrieved": "2026-11-27"}
+      ]
+    },
+    "Kh-35": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Allahelikiirusega laevatõrje-tiibrakett (kasutusel alates 2003. aastast).",
+        "launchPlatform": "Lennukid (Su-24, Su-30SM, Su-34, Su-35 jt), kopterid (Ka-27, Ka-52), laevad ja rannakaitsekompleks Bal",
+        "missileLength": 4.4,
+        "missileDiameter": 0.42,
+        "wingspan": 1.33,
+        "launchWeight": 620,
+        "warheadMass": 145,
+        "firingRange": 130,
+        "missileSpeed": "Mach 0,8 (lendab lainete kohal)",
+        "guidance": "Inertsiaalne, lõppfaasis aktiivne radar"
+      },
+      "notes": {
+        "missileLength": "Lennukilt lastav versioon 3,85 m.",
+        "launchWeight": "Lennukilt lastav versioon 520 kg; Kh-35U 550–670 kg.",
+        "firingRange": "Kh-35U: 7–260 km."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kh-35", "url": "https://en.wikipedia.org/wiki/Kh-35", "retrieved": "2026-11-27"}
+      ]
+    },
+    "S-8": {
+      "status": "unverified",
+      "values": {
+        "purpose": "80 mm juhitamatu rakett lennukitele ja kopteritele (kasutusel alates 1984. aastast).",
+        "launchPlatform": "Ründelennukid ja kopterid, B-8 raketiplokid (7 või 20 raketti)",
+        "missileLength": 1.56,
+        "missileDiameter": 0.08,
+        "launchWeight": 11.5,
+        "warheadMass": 3.6,
+        "warheadType": "Kumulatiiv-, kildlõhke-, suitsu-, süüte-, betoonilõhkuv (S-8BM) või termobaariline (S-8DM) lõhkepea",
+        "firingRangeMin": 1.3,
+        "firingRange": 4,
+        "missileSpeed": "692 m/s"
+      },
+      "notes": {
+        "missileLength": "Variandist sõltuvalt 1,5–1,7 m.",
+        "launchWeight": "Variandist sõltuvalt 11,3–15,2 kg."
+      },
+      "sources": [
+        {"name": "Wikipedia: S-8 rocket", "url": "https://en.wikipedia.org/wiki/S-8_rocket", "retrieved": "2026-11-27"}
+      ]
+    },
+    "Vikhr-1": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Kopterite ja ründelennukite laserjuhitav tankitõrjerakett.",
+        "launchPlatform": "Ka-52, Ka-50, Mi-28NM, Su-25T/Su-25TM",
+        "missileLength": 2.8,
+        "missileDiameter": 0.13,
+        "launchWeight": 45,
+        "warheadType": "Tandem-kumulatiivlõhkepea",
+        "atgmPenetration": "750 mm",
+        "firingRange": 10,
+        "missileSpeed": "610 m/s (Mach 1,8)",
+        "guidance": "Laserkiirjuhtimine"
+      },
+      "notes": {
+        "atgmPenetration": "Teistel andmetel 1000 mm.",
+        "firingRange": "Kopterilt kuni 8 km, öösel 5 km."
+      },
+      "sources": [
+        {"name": "Wikipedia: 9K121 Vikhr", "url": "https://en.wikipedia.org/wiki/9K121_Vikhr", "retrieved": "2026-11-27"}
+      ]
+    },
+    "UMPK": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Juhtimis- ja liugmoodul, mis teeb juhitamatust lennukipommist satelliitjuhtimisega liugpommi (kasutusel alates 2023. aastast).",
+        "launchPlatform": "Su-34, Su-35",
+        "bombWarhead": "FAB-250, FAB-500, FAB-1500, FAB-3000, ODAB-500, ODAB-1500 või RBK-500 pomm",
+        "glideRange": 70,
+        "bombGuidance": "INS + GLONASS (häirekindel antenn Kometa-M)"
+      },
+      "notes": {
+        "glideRange": "Tavaliselt 60–70 km."
+      },
+      "sources": [
+        {"name": "Wikipedia: UMPK (bomb kit)", "url": "https://en.wikipedia.org/wiki/UMPK_(bomb_kit)", "retrieved": "2026-11-27"},
+        {"name": "Wikipedia: FAB-500", "url": "https://en.wikipedia.org/wiki/FAB-500", "retrieved": "2026-11-27"},
+        {"name": "JAPCC: Countering Russia's Glide Bomb Warfare in Ukraine", "url": "https://www.japcc.org/?p=19103", "retrieved": "2026-11-27"},
+        {"name": "FDD's Long War Journal: Russia deploys new, longer-range bombs (2025)", "url": "https://www.fdd.org/analysis/russia-deploys-new-longer-range-bombs-in-war-against-ukraine/", "retrieved": "2026-11-27"}
+      ]
+    },
+    "UMPB": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Tiibadega juhitav liugpomm (kasutusel alates 2024. aastast).",
+        "launchPlatform": "Su-34, Su-30SM, Su-35, Su-24, S-70 Ohhotnik",
+        "bombWarhead": "FAB-250 lõhkepea",
+        "glideRange": 100,
+        "bombGuidance": "INS + satelliitnavigatsioon"
+      },
+      "notes": {
+        "glideRange": "Teistel andmetel 90 km."
+      },
+      "sources": [
+        {"name": "Kyiv Post: What is the UMPB D-30SN?", "url": "https://www.kyivpost.com/post/60717", "retrieved": "2026-11-27"},
+        {"name": "Ukrainska Pravda: Ukrainian intelligence reveals manufacturers of Russian aerial bombs (2025)", "url": "https://www.pravda.com.ua/eng/news/2025/09/22/7531921", "retrieved": "2026-11-27"},
+        {"name": "JAPCC: Countering Russia's Glide Bomb Warfare in Ukraine", "url": "https://www.japcc.org/?p=19103", "retrieved": "2026-11-27"},
+        {"name": "Wikipedia: UMPB D-30SN", "url": "https://en.wikipedia.org/wiki/UMPB_D-30SN", "retrieved": "2026-11-27"}
+      ]
+    },
+    "FAB-500": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Juhitamatu lõhkepomm (FAB-500M-62 kasutusel alates 1962. aastast); FAB-500M-62 pommist tehakse UMPK mooduliga liugpomm.",
+        "launchPlatform": "Ründelennukid ja pommitajad",
+        "bombMass": 500,
+        "bombLength": 2.47,
+        "bombDiameter": 0.4,
+        "bombExplosive": 201
+      },
+      "sources": [
+        {"name": "Wikipedia: FAB-500", "url": "https://en.wikipedia.org/wiki/FAB-500", "retrieved": "2026-11-27"}
+      ]
+    },
+    "OFAB-250-270": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Kildlõhkepomm elavjõu, kergsoomustatud tehnika ja välirajatiste vastu.",
+        "bombMass": 268,
+        "bombLength": 1.456,
+        "bombDiameter": 0.325,
+        "bombExplosive": 92
+      },
+      "notes": {
+        "bombExplosive": "Teistel andmetel 97 kg."
+      },
+      "sources": [
+        {"name": "GlobalSecurity: OFAB 250-270", "url": "https://www.globalsecurity.org/military/world/russia/ofab-250-270.htm", "retrieved": "2026-11-27"},
+        {"name": "Bulcomers KS: OFAB 250-270", "url": "https://bulcomersks.com/military-products/ammunition/aerial-ammunitions/ofab-250-270/", "retrieved": "2026-11-27"},
+        {"name": "Eduard Info 06/2025", "url": "https://info.eduard.com/en/06-2025-1/strana-15", "retrieved": "2026-11-27"}
+      ]
+    },
+    "9S470M1": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Buk-M1 õhutõrjeraketikompleksi juhtimispunkt: võtab vastu avastusradari ja kõrgema juhtimispunkti sihtmärgiandmed ning jagab sihtmärgid laskeseadmetele.",
+        "chassis": "GM-579",
+        "specialEquipment": "Side kuni 6 laskeseadmega samaaegselt"
+      },
+      "sources": [
+        {"name": "Wikipedia: Buk missile system", "url": "https://en.wikipedia.org/wiki/Buk_missile_system", "retrieved": "2026-11-27"},
+        {"name": "Wikipedia: GM chassis", "url": "https://en.wikipedia.org/wiki/GM_chassis", "retrieved": "2026-11-27"},
+        {"name": "Army Recognition: Buk-M1", "url": "https://armyrecognition.com/9d6h", "retrieved": "2026-11-27"},
+        {"name": "Air Power Australia: 9K37 Buk", "url": "https://ausairpower.net/APA-9K37-Buk.html", "retrieved": "2026-11-27"}
+      ]
+    },
+    "9S32M": {
+      "status": "unverified",
+      "values": {
+        "purpose": "S-300V/S-300VM õhutõrjeraketikompleksi mitmekanaliline tulejuhtimisradar: jälgib sihtmärke ja juhib rakette.",
+        "radarRange": 200,
+        "radarTargets": "6 sihtmärki samaaegselt"
+      },
+      "notes": {
+        "radarRange": "9S32-1: 140–150 km."
+      },
+      "sources": [
+        {"name": "Wikipedia: S-300V", "url": "https://en.wikipedia.org/wiki/S-300V", "retrieved": "2026-11-27"}
+      ]
+    },
+    "39N6": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Liikuv madalal lendavate sihtmärkide avastusradar, S-300, S-400 jt õhutõrjesüsteemide lisaradar.",
+        "crew": "2",
+        "specialEquipment": "Kolm masinat (antenn, juhtimispunkt, diiselgeneraator) ja kaks haagist. Sisselülitus 3,3 min, kokkupakkimine 20 min",
+        "radarRange": 41,
+        "radarTargets": "50 jälge ja 200 märki",
+        "emplacementTime": "20 min",
+        "powerSupply": "Kuni 23 kW"
+      },
+      "notes": {
+        "radarRange": "Sihtmärk 100 m kõrgusel; 50 m mastiga 55 km."
+      },
+      "sources": [
+        {"name": "Wikipedia: Kasta 2E", "url": "https://en.wikipedia.org/wiki/Kasta_2E", "retrieved": "2026-11-27"}
+      ]
+    },
+    "Valdai": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Liikuv radarikompleks väikeste droonide ööpäevaringseks automaatseks avastamiseks ja tõrjeks (kasutusel alates 2021. aastast).",
+        "chassis": "KAMAZ",
+        "radarBand": "X-sagedusala",
+        "radarRange": 15,
+        "radarTargets": "Väikesed droonid",
+        "specialEquipment": "Optoelektrooniline jälgimisseade, drooni juhtimiskanali suunamõõtja ja häirimismoodul (juhtimis- ja navigatsioonisignaalid)"
+      },
+      "notes": {
+        "radarRange": "Lähim avastuskaugus 300 m."
+      },
+      "sources": [
+        {"name": "United24 Media: Valday radar destroyed in Crimea (2025)", "url": "https://united24media.com/latest-news/ukrainian-intelligence-destroys-russias-cutting-edge-valday-radar-in-crimea-strike-video-12645", "retrieved": "2026-11-27"},
+        {"name": "Kyiv Post: Explosions destroy Russian anti-drone radars", "url": "https://kyivpost.com/post/47080", "retrieved": "2026-11-27"},
+        {"name": "EurAsian Times: Valdai radar", "url": "https://www.eurasiantimes.com/?p=174921", "retrieved": "2026-11-27"}
+      ]
+    },
+    "RLM-D (Nebo-M)": {
+      "status": "unverified",
+      "values": {
+        "purpose": "Nebo-M radarikompleksi liikuv L-sagedusala radar õhusihtmärkide avastamiseks.",
+        "chassis": "BAZ-6909-015",
+        "radarBand": "L-sagedusala (AESA)",
+        "radarRange": 600
+      },
+      "sources": [
+        {"name": "Wikipedia: Nebo-M", "url": "https://en.wikipedia.org/wiki/Nebo-M", "retrieved": "2026-11-27"}
+      ]
     }
   },
   "systems": {
@@ -11340,7 +11725,7 @@ window.TTA_DATA = {
         {"name": "91N6E", "role": "avastusradar"},
         {"cat": "96L6 Cheese Board", "name": "96L6E", "role": "kõigi kõrguste avastusradar"},
         {"cat": "92N6 Gravestone", "name": "92N6E", "role": "tulejuhtimisradar"},
-        {"cat": "S-400 / S-300", "name": "5P85TE2 / 5P85SE2", "role": "laskeseade"},
+        {"cat": "S-400/S-300", "name": "5P85TE2 / 5P85SE2", "role": "laskeseade"},
         {"cat": "55Zh6M Nebo-M", "name": "Nebo-M", "role": "lisaradar"}
       ],
       "sources": [
@@ -11358,7 +11743,7 @@ window.TTA_DATA = {
         {"cat": "96L6 Cheese Board", "name": "96L6", "role": "avastusradar"},
         {"name": "76N6", "role": "madallennu avastusradar"},
         {"cat": "30N6 Tombstone", "name": "30N6", "role": "tulejuhtimisradar"},
-        {"cat": "S-400 / S-300", "name": "5P85", "role": "laskeseade"}
+        {"cat": "S-400/S-300", "name": "5P85", "role": "laskeseade"}
       ],
       "sources": [
         {"name": "Wikipedia: S-300 missile system", "url": "https://en.wikipedia.org/wiki/S-300_missile_system", "retrieved": "2026-11-25"},

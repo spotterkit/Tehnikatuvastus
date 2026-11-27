@@ -6,7 +6,7 @@
 // Sektsiooni comparePriority: väiksem number = võrdluses eespool ja alati nähtav; ilma selleta = "Kõik andmed" all.
 // Sisu hoia puhta JSON-ina (jutumärgid võtmete ümber, lõpukomasid pole) – check_release.js kontrollib.
 window.TTA_FIELDS = {
-  "version": 14,
+  "version": 15,
   "sections": [
     {"id": "general", "label": "Üldandmed"},
     {"id": "mobility", "label": "Liikuvus"},
@@ -20,7 +20,8 @@ window.TTA_FIELDS = {
     {"id": "radar", "label": "Radar", "comparePriority": 1},
     {"id": "ew", "label": "Elektrooniline sõjapidamine", "comparePriority": 1},
     {"id": "special", "label": "Eriotstarbeline varustus"},
-    {"id": "protection", "label": "Kaitse"}
+    {"id": "protection", "label": "Kaitse"},
+    {"id": "bomb", "label": "Pommi andmed", "comparePriority": 2}
   ],
   "fields": {
     "purpose": {"label": "Otstarve", "type": "text", "section": "general", "order": 1},
@@ -169,6 +170,15 @@ window.TTA_FIELDS = {
     "fragmentationAngle": {"label": "Kildude hajumisnurk", "type": "text", "section": "mine", "order": 32},
     "delivery": {"label": "Paigaldus / kasutus", "type": "text", "section": "mine", "order": 40},
     "smokeDuration": {"label": "Suitsu kestus", "type": "text", "section": "mine", "order": 50},
-    "smokeScreen": {"label": "Suitsuvarjestus", "type": "text", "section": "mine", "order": 52}
+    "smokeScreen": {"label": "Suitsuvarjestus", "type": "text", "section": "mine", "order": 52},
+    "launchPlatform": {"label": "Kandja / heitja", "type": "text", "section": "general", "order": 18},
+    "warheadType": {"label": "Lõhkepea liik", "type": "text", "section": "missile", "order": 15},
+    "bombMass": {"label": "Mass", "type": "number", "section": "bomb", "order": 10, "unit": "kg", "comparable": true},
+    "bombLength": {"label": "Pikkus", "type": "number", "section": "bomb", "order": 12, "unit": "m", "comparable": true},
+    "bombDiameter": {"label": "Läbimõõt", "type": "number", "section": "bomb", "order": 14, "unit": "m", "comparable": true},
+    "bombExplosive": {"label": "Lõhkeaine mass", "type": "number", "section": "bomb", "order": 16, "unit": "kg", "comparable": true, "better": "higher"},
+    "bombWarhead": {"label": "Lõhkepea", "type": "text", "section": "bomb", "order": 18},
+    "glideRange": {"label": "Liugekaugus", "type": "number", "section": "bomb", "order": 20, "unit": "km", "comparable": true, "better": "higher"},
+    "bombGuidance": {"label": "Juhtimine", "type": "text", "section": "bomb", "order": 22}
   }
 };
