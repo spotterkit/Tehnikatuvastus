@@ -299,7 +299,7 @@ const CATEGORIES = [
   { label: "2S6 Tunguska/SA-19 Grison", group: "ad", type: "Õhutõrjesoomuk", cat: "2S6 Tunguska", files: ["2S6M1_Tunguska_M1_at_ARMY-2016.JPG", "Самбекские_высоты%2C_Тунгуска.jpg", "2008_Moscow_Victory_Day_Parade_-_9K22_Tunguska.jpg", "Vostok-2018_military_manoeuvres_%282018-09-13%29_34.jpg"] },
   { label: "SA-8B Gecko", group: "ad", type: "Õhutõrjesoomuk", cat: "SA-8B Gecko", files: ["9K33M3_Osa-AKM_in_VDNKh.jpg", "9K33_Osa_of_the_Russian_Army.jpg", "9may2015NNovgorod-07.jpg"] },
   { label: "9S932-1 Barnaul-T", group: "ad", type: "ÕT juhtimissüsteem", cat: "9S932-1 Barnaul-T", files: ["9S932-1_02.jpg", "images/ad/barnaul-T.jpg"] },
-  { label: "92N6 Gravestone", group: "ad", type: "ÕT radar", cat: "92N6 Gravestone", files: ["92N6A_radar_for_S-400.jpg"] },
+  { label: "92N6 Gravestone", group: "ad", type: "ÕT radar", cat: "92N6 Gravestone", files: ["92N6A_radar_for_S-400.jpg", "Oboronexpo2014part2-35.jpg"] },
   { label: "64N6 Big Bird", group: "ad", type: "ÕT radar", cat: "64N6 Big Bird", files: ["CombatWatch-06.jpg"] },
   { label: "35N6 Kasta-2E", group: "ad", type: "ÕT radar", cat: "35N6 Kasta-2E", files: ["35N6_Kasta_radar_%281%29.jpg", "Engineering_Technologies_2010_Part6_0019_copy.jpg"] },
   { label: "30N6 Tombstone", group: "ad", type: "ÕT radar", cat: "30N6 Tombstone", files: ["Anti-AircraftExercise2019-28.jpg", "Anti-AircraftExercise2019-42.jpg"] },
@@ -638,7 +638,7 @@ const CATEGORIES = [
   { label: "S-8 (80 mm)", group: "air_to_surface_missiles", type: "Juhitamatu rakett", cat: "S-8", files: ["Yellow_Mig-23_rocket_pod_MW.JPG", "Interpolitex2015part1-39.jpg"] },
 
   // Liugpommid (group: "glide_bombs")
-  // { label: "", group: "glide_bombs", type: "Liugpomm", cat: "", files: [] },
+  { label: "UMPK (FAB-250/500/1500/3000)", group: "glide_bombs", type: "Liugpomm", cat: "UMPK", files: ["FAB-3000_with_UMPK_kit.png", "FAB-250_bomb_with_UMPK_kit_-_2024.jpg", "FAB-500T_with_a_UMPK_kit.png"] },
 
   // Pommid (group: "bombs")
   // { label: "", group: "bombs", type: "Pomm", cat: "", files: [] },
