@@ -6605,6 +6605,11 @@ window.TTA_DATA = {
         "typicalUnit": "Elektroonilise võitluse brigaad",
         "crew": "4",
         "chassis": "BAZ-6910-022 8×8",
+        "combatWeight": 35,
+        "length": 11.3,
+        "height": 5.5,
+        "maxSpeedRoad": 115,
+        "range": 850,
         "frequencyRange": "2,3–3,7 GHz (S-riba)",
         "jammingRange": 250,
         "ewTargets": "AWACS-lennukid (nt E-3 Sentry) ja muud õhuradarid, sh raketijuhtimisradarid; Iskanderi jt tähtsate liikuvate sihtmärkide kaitse",
@@ -6627,10 +6632,19 @@ window.TTA_DATA = {
         "typicalUnit": "Elektroonilise võitluse brigaad",
         "crew": "4",
         "chassis": "BAZ-6910-022 (4 telge) või kaks KamAZ-6350 veokit",
+        "combatWeight": 35,
+        "length": 11.3,
+        "height": 5.5,
+        "maxSpeedRoad": 115,
+        "range": 850,
         "frequencyRange": "X-riba 8,5–10,7 GHz; Ku-riba 13,4–17,7 GHz",
         "jammingRange": 300,
         "ewTargets": "Õhuradarilennukid (nt E-8 JSTARS), madalal orbiidil satelliidid, maa- ja õhuradarid, droonid",
         "ewMode": "Häirimine"
+      },
+      "notes": {
+        "combatWeight": "Andmed kehtivad BAZ-6910-022 šassii kohta.",
+        "jammingRange": "Allikate järgi 150–300 km."
       },
       "sources": [
         {"name": "Wikipedia: Krasukha", "url": "https://en.wikipedia.org/wiki/Krasukha_(electronic_warfare_system)", "retrieved": "2026-10-23"},
@@ -6649,10 +6663,11 @@ window.TTA_DATA = {
         "crew": "3",
         "chassis": "Tigr-M (85Ya6)",
         "frequencyRange": "Häirimine 0,02–2,7 GHz; analüüs 0,0001–18 GHz",
-        "jammingRange": 40,
         "ewTargets": "Raadioluure ning raadio- ja mobiilside häirimine",
         "ewMode": "Raadioluure, suunatuvastus, häirimine ja jäljendamine",
-        "emplacementTime": "10 min"
+        "specialEquipment": "Surub korraga alla kuni 12 raadiokiirgusallikat; suunamäärangu täpsus 2–3°; töötab akult 2 h",
+        "emplacementTime": "10 min",
+        "commsRange": "Kuni 40 km (R-168-25U-2); 6 km (R-168)"
       },
       "notes": {
         "crew": "Teistel andmetel 2."
@@ -6671,9 +6686,10 @@ window.TTA_DATA = {
         "purpose": "Mobiilside luure- ja häirekompleks, mille häireseadmed on droonidel Orlan-10.",
         "typicalUnit": "Elektroonilise võitluse brigaad; Elektroonilise võitluse pataljon",
         "crew": "5",
-        "frequencyRange": "0,935–1,785 GHz",
+        "frequencyRange": "0,935–1,785 GHz; juhtimiskanal 0,902–0,922 GHz",
         "jammingRange": 6,
         "ewTargets": "GSM / 3G / 4G mobiilsidevõrgud; mobiilseadmete tuvastamine; töötab koos Orlan-10 droonidega; SMS-ide saatmine kuni 30 km kaugusele",
+        "specialEquipment": "Blokeerib kuni 2000 abonenti ja 3 mobiilioperaatorit; juhib korraga kuni 2 drooni",
         "ewMode": "Raadioluure ja häirimine"
       },
       "sources": [
@@ -6700,8 +6716,7 @@ window.TTA_DATA = {
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
         {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"},
-        {"name": "Hudson Institute: The Fall and Rise of Russian Electronic Warfare", "url": "https://www.hudson.org/national-security-defense/the-fall-and-rise-of-russian-electronic-warfare", "retrieved": "2026-11-25"},
-        {"name": "COGINT: Russian Electronic Warfare Systems – Analytic Insight Report (2023)", "url": "https://sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-27"}
+        {"name": "Hudson Institute: The Fall and Rise of Russian Electronic Warfare", "url": "https://www.hudson.org/national-security-defense/the-fall-and-rise-of-russian-electronic-warfare", "retrieved": "2026-11-25"}
       ]
     },
     "GT-01 Murmansk-BN": {
@@ -6726,6 +6741,9 @@ window.TTA_DATA = {
         "ewMode": "Raadioluure ja häirimine",
         "emplacementTime": "72 h",
         "powerSupply": "Neljast antennist koosnevale grupile umbes 400 kW generaatorveok KamAZ-6350"
+      },
+      "notes": {
+        "jammingRange": "Allikate järgi 5000–8000 km."
       },
       "sources": [
         {"name": "Truck Encyclopedia: Murmansk-BN", "url": "https://truck-encyclopedia.com/modern/russia/Kamaz-Murmansk-BN.php", "retrieved": "2026-10-23"},
@@ -6757,9 +6775,11 @@ window.TTA_DATA = {
         "ewMode": "Häirimine",
         "emplacementTime": "10 min"
       },
+      "notes": {
+        "jammerPower": "Teistel andmetel 250 W."
+      },
       "sources": [
-        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
-        {"name": "COGINT: Russian Electronic Warfare Systems – Analytic Insight Report (2023)", "url": "https://sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-27"}
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
       ]
     },
     "R-330Zh Žitel": {
@@ -6769,11 +6789,15 @@ window.TTA_DATA = {
         "purpose": "Automatiseeritud jaam satelliitside, satelliitnavigatsiooni ja mobiilside avastamiseks, suuna määramiseks ja häirimiseks; kaitseb brigaadi ja diviisi juhtimispunkte täppisrelvade eest.",
         "typicalUnit": "Elektroonilise võitluse rood; Elektroonilise võitluse brigaad",
         "chassis": "Ural-43203 või KamAZ-43114; häirejaam eraldi haagisel",
-        "frequencyRange": "Luure 0,1–2 GHz; häirimine umbes 0,1–2 GHz",
+        "frequencyRange": "Luure 0,1–2 GHz; häirimine 0,8–0,96 GHz, 1,227 GHz, 1,575 GHz, 1,5–1,7 GHz ja 1,7–1,9 GHz",
         "jammingRange": 30,
-        "ewTargets": "GPS/NAVSTAR, Inmarsat- ja Iridium-satelliitside, GSM-1900 mobiilid, droonide V/UHF-raadioliinid",
+        "ewTargets": "GPS/NAVSTAR, Inmarsat- ja Iridium-satelliitside, GSM-900/1800/1900 mobiilside, droonide V/UHF-raadioliinid",
         "ewMode": "Raadioluure, suunatuvastus ja häirimine",
+        "specialEquipment": "Suunamäärangu viga kuni 2°; kuni 12 häiresignaali korraga",
         "emplacementTime": "40 min"
+      },
+      "notes": {
+        "jammingRange": "Teistel andmetel 20–25 km (maapealsed seadmed), õhusõidukitel vähemalt 50 km."
       },
       "sources": [
         {"name": "Wikipedia: R-330Zh Zhitel", "url": "https://en.wikipedia.org/wiki/R-330Zh_Zhitel", "retrieved": "2026-10-23"},
@@ -6826,10 +6850,12 @@ window.TTA_DATA = {
         "ewTargets": "Pataljonitaseme raadioside; raadiojuhitavad lõhkekehad ja miinid; laser- ja videojuhitavad relvad (aerosoolsuits optiliste sensorite abil); GSM",
         "ewMode": "Häirimine"
       },
+      "notes": {
+        "combatWeight": "Teistel andmetel 12 t."
+      },
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
-        {"name": "Russian Defense Policy: 15th Independent EW Brigade", "url": "https://russiandefpolicy.com/tag/15th-independent-ew-brigade/", "retrieved": "2026-11-25"},
-        {"name": "COGINT: Russian Electronic Warfare Systems – Analytic Insight Report (2023)", "url": "https://sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-27"}
+        {"name": "Russian Defense Policy: 15th Independent EW Brigade", "url": "https://russiandefpolicy.com/tag/15th-independent-ew-brigade/", "retrieved": "2026-11-25"}
       ]
     },
     "RB-636AM2 Svet-KU": {
@@ -6840,7 +6866,7 @@ window.TTA_DATA = {
         "chassis": "KamAZ-4350 (ka Ford Transit variant)",
         "frequencyRange": "0,025–18 GHz",
         "ewTargets": "Raadio- ja radarisignaalide signaaliluure ning häirimine; GSM, CDMA2000, UMTS",
-        "specialEquipment": "Töötab koos statsionaarse postiga Svet-VSG",
+        "specialEquipment": "Töötab koos statsionaarse postiga Svet-VSG; suunamäärangu täpsus 5° (30–100 MHz) kuni 2° (1–3 GHz)",
         "ewMode": "Raadioluure ja häirimine",
         "emplacementTime": "10 min",
         "powerSupply": "Voolutarve kuni 3 kW"
@@ -6855,14 +6881,22 @@ window.TTA_DATA = {
       "values": {
         "purpose": "Häirejaam, mis kaitseb vägesid ja väikeseid objekte õhuradarite eest.",
         "crew": "5",
-        "frequencyRange": "13,333–17,544 GHz (Ku-riba)",
-        "jammingRange": 130,
-        "jammerPower": 1100,
+        "frequencyRange": "6,0–8,5 GHz (X-riba)",
+        "jammingRange": 60,
+        "detectionRange": 150,
+        "jammerPower": 2500,
         "ewTargets": "Külgvaaderadarid, relvajuhtimisradarid ja navigatsiooniradarid",
-        "ewMode": "Häirimine"
+        "ewMode": "Häirimine",
+        "powerSupply": "Voolutarve 50 kW"
+      },
+      "notes": {
+        "crew": "Andmed kehtivad SPN-2 kohta.",
+        "jammingRange": "Tulejuhtimisradarid 40–60 km, maastikujälgimisradarid 30–50 km.",
+        "jammerPower": "Kiirgusvõimsus 1250–2500 W."
       },
       "sources": [
-        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
+        {"name": "Air Power Australia: Russian/Soviet/WarPac Ground Based ECM Systems (APA-TR-2009-0501)", "url": "https://www.ausairpower.net/APA-REB-Systems.html", "retrieved": "2026-11-27"}
       ]
     },
     "R-378A (R-330 Mandat)": {
@@ -6899,7 +6933,11 @@ window.TTA_DATA = {
         "frequencyRange": "VHF 30–100 MHz",
         "jammerPower": 1000,
         "ewTargets": "VHF-raadioside: kuni 3 fikseeritud sagedusega liini korraga või 1 sagedushüppega liin",
+        "specialEquipment": "Suunamäärangu viga kuni 2,5°; avastamisest häirimiseni kuni 5 ms",
         "ewMode": "Häirimine"
+      },
+      "notes": {
+        "frequencyRange": "Andmed kehtivad R-330B kohta."
       },
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-28"},
@@ -9090,14 +9128,13 @@ window.TTA_DATA = {
         "ewMode": "Raadioluure ja häirejaamade juhtimine",
         "emplacementTime": "15 min"
       },
-      "notes": {
-        "crew": "Teistel andmetel ka R-330KMV."
-      },
+      "notes": {},
       "sources": [
         {"name": "Militarnyi: Ukrainian military destroy the Russian R-934BMV Borisoglebsk-2 EW system", "url": "https://mil.in.ua/en/news/ukrainian-military-destroy-the-russian-r-934bmv-borisoglebsk-2-ew-system", "retrieved": "2026-10-30"},
         {"name": "Valka.cz: RB-301B Borisoglebsk-2", "url": "https://origin.armedconflicts.com/topic/view/252376", "retrieved": "2026-10-30"},
         {"name": "Defense Express: FPV drones destroy RB-301B Borisoglebsk-2", "url": "https://en.defence-ua.com/news/ukrainian_fpv_drones_destroy_enemys_rb_301b_borisoglebsk_2_ew_system_at_12_15_km_range_video-10811.html", "retrieved": "2026-10-30"},
-        {"name": "U.S. Army OE: Russian Motorized Rifle Divisions To Gain An Electronic Warfare Battalion (2025)", "url": "https://oe.t2com.army.mil/product/russian-motorized-rifle-divisions-to-gain-an-electronic-warfare-battalion/", "retrieved": "2026-11-27"}
+        {"name": "U.S. Army OE: Russian Motorized Rifle Divisions To Gain An Electronic Warfare Battalion (2025)", "url": "https://oe.t2com.army.mil/product/russian-motorized-rifle-divisions-to-gain-an-electronic-warfare-battalion/", "retrieved": "2026-11-27"},
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-27"}
       ]
     },
     "R-378BMV (RB-301B Borisoglebsk-2)": {
@@ -9123,15 +9160,20 @@ window.TTA_DATA = {
         "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Borisoglebsk-2 kompleksi häirejaam lennunduse raadioside häirimiseks.",
         "chassis": "MT-LBu-M",
-        "frequencyRange": "VHF/UHF",
+        "frequencyRange": "Lennunduse raadioside 100–150 ja 220–400 MHz; maapealne raadioside 100–400 MHz",
+        "jammerPower": 500,
         "ewTargets": "Lennunduse raadioside (maa–õhk, õhk–õhk) häirimine",
         "ewMode": "Häirimine",
         "emplacementTime": "15 min"
       },
+      "notes": {
+        "frequencyRange": "Andmed kehtivad R-934B kohta."
+      },
       "sources": [
         {"name": "Militarnyi: Ukrainian military destroy the Russian R-934BMV Borisoglebsk-2 EW system", "url": "https://mil.in.ua/en/news/ukrainian-military-destroy-the-russian-r-934bmv-borisoglebsk-2-ew-system", "retrieved": "2026-10-30"},
         {"name": "Valka.cz: RB-301B Borisoglebsk-2", "url": "https://origin.armedconflicts.com/topic/view/252376", "retrieved": "2026-10-30"},
-        {"name": "U.S. Army OE: Russian Motorized Rifle Divisions To Gain An Electronic Warfare Battalion (2025)", "url": "https://oe.t2com.army.mil/product/russian-motorized-rifle-divisions-to-gain-an-electronic-warfare-battalion/", "retrieved": "2026-11-27"}
+        {"name": "U.S. Army OE: Russian Motorized Rifle Divisions To Gain An Electronic Warfare Battalion (2025)", "url": "https://oe.t2com.army.mil/product/russian-motorized-rifle-divisions-to-gain-an-electronic-warfare-battalion/", "retrieved": "2026-11-27"},
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-27"}
       ]
     },
     "R-325UMV (RB-301B Borisoglebsk-2)": {
@@ -9855,8 +9897,7 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"},
-        {"name": "OE Watch: Russia tests Palantin EW system in Ukraine", "url": "https://oe.t2com.army.mil/product/russia-tests-palantin-electronic-warfare-system-in-ukraine/", "retrieved": "2026-11-25"},
-        {"name": "COGINT: Russian Electronic Warfare Systems – Analytic Insight Report (2023)", "url": "https://sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-27"}
+        {"name": "OE Watch: Russia tests Palantin EW system in Ukraine", "url": "https://oe.t2com.army.mil/product/russia-tests-palantin-electronic-warfare-system-in-ukraine/", "retrieved": "2026-11-25"}
       ]
     },
     "Lada 4x4 pikap": {

@@ -411,7 +411,7 @@ window.WHAT_DATA = {
             {"name": "1RL243 „RUBIKON“", "cat": "1RL243 Rubikon (MASRR)"},
             {"name": "R-330BM", "cat": "R-330BM (R-330 Mandat)"},
             {"name": "R-330BMV", "cat": "RB-301B (RB-301B Borisoglebsk-2)"},
-            {"name": "R-300KMV", "cat": "R-300KMV (RB-301B Borisoglebsk-2)"},
+            {"name": "R-330KMV", "cat": "R-300KMV (RB-301B Borisoglebsk-2)"},
             {"name": "R-378BMV", "cat": "R-378BMV (RB-301B Borisoglebsk-2)"},
             {"name": "R-934BMV", "cat": "R-934BMV (RB-301B Borisoglebsk-2)"},
             {"name": "R-325UMV", "cat": "R-325UMV (RB-301B Borisoglebsk-2)"},

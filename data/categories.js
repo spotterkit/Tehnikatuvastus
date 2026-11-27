@@ -394,7 +394,7 @@ const CATEGORIES = [
   { label: "R-378BMV (RB-301B Borisoglebsk-2)", group: "ew", type: "Raadiohäirete jaam", cat: "R-378BMV (RB-301B Borisoglebsk-2)", files: ["images/ew/r378bmv.jpg"] },
   { label: "R-378A (R-330 Mandat)", group: "ew", type: "Raadiohäirete jaam", cat: "R-378A (R-330 Mandat)", files: ["images/ew/r378a.jpg"] },
   { label: "R-325U (R-330 Mandat)", group: "ew", type: "Raadiohäirete jaam", cat: "R-325U (R-330 Mandat)", files: ["images/ew/r325u.jpg"] },
-  { label: "R-300KMV (RB-301B Borisoglebsk-2)", group: "ew", type: "Mobiilne automatiseeritud juhtimis- ja kontrolljaam", cat: "R-300KMV (RB-301B Borisoglebsk-2)", files: ["images/ew/r300kmv.jpg"] },
+  { label: "R-330KMV (RB-301B Borisoglebsk-2)", group: "ew", type: "Mobiilne automatiseeritud juhtimis- ja kontrolljaam", cat: "R-300KMV (RB-301B Borisoglebsk-2)", files: ["images/ew/r300kmv.jpg"] },
   { label: "GT-01 Murmansk-BN", group: "ew", type: "Raadiohäirete jaam", cat: "GT-01 Murmansk-BN", files: ["Комплекс_РЭБ_Мурманск-БН.png", "images/ew/murmansk.jpg"] },
   { label: "1RL248-4 SPN-4", group: "ew", type: "Raadiohäirete jaam", cat: "1RL248-4 SPN-4", files: ["1RL248-4_SPN-4.jpg"] },
   { label: "Shipovnik-Aero", group: "ew", type: "UAS-vastane EW süsteem", cat: "Shipovnik-Aero", files: ["Shipovnik_ECM_vehicle_%28KAMAZ-4350%29_at_Engineering_Technologies_2012.jpg"] },
