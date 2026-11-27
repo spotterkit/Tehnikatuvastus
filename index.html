@@ -1750,8 +1750,8 @@ const TEST_GROUP_LIMITS = {
   ad: 3,                     // õhutõrje (kehtib ka 25 küsimuse testis)
   artillery_recon: 2         // suurtükiväe luure-, juhtimis- ja tulejuhtimissoomukid (kehtib ka 25 küsimuse testis)
 };
-// 25 küsimuse testi vaikimisi maksimumid. Siin olevad numbrid asendavad 25 küsimuse testis
-// ülal oleva tabeli numbri; kategooriad, mida siin pole, kasutavad ülal olevat numbrit.
+// 25 küsimuse testi vaikimisi maksimumid – OMA TABEL, et proportsioonid jääksid paika.
+// Iga ülal piiratud kategooria peab olema ka siin (muidu kasutaks 25 küsimuse test 50 küsimuse numbrit).
 const TEST_GROUP_LIMITS_SHORT = {
   drones: 1,
   helicopters: 2,
@@ -1765,7 +1765,12 @@ const TEST_GROUP_LIMITS_SHORT = {
   forces: 1,
   recon_special: 1,
   ranks: 1,
-  trucks: 2
+  trucks: 2,
+  ad: 2,
+  artillery_recon: 1,
+  mines: 1,
+  ugv: 1,
+  usv: 1
 };
 
 // Tõenäosus, et kategooria üldse testi satub (muidu puudub see testist täielikult).
@@ -1785,14 +1790,14 @@ const TEST_GROUP_SETS = [
 
 // Veeretab, millised kategooriad sellest testist välja jäävad (TEST_GROUP_CHANCE + TEST_GROUP_SETS).
 // custom = true: kasutaja oma reeglid (50/25 test) – muudetud kategooriatel tõenäosust ega komplekti pole.
-function rollTestSkips(custom){
-  const skipped = new Set(Object.keys(TEST_GROUP_CHANCE).filter(g => !(custom && hasTestRuleOverride(g)) && Math.random() >= TEST_GROUP_CHANCE[g]));
-  TEST_GROUP_SETS.forEach(set => { if(!testSetDissolved(set, custom) && Math.random() >= set.chance) set.groups.forEach(g => skipped.add(g)); });
+function rollTestSkips(custom, size){
+  const skipped = new Set(Object.keys(TEST_GROUP_CHANCE).filter(g => !(custom && hasTestRuleOverride(g, size)) && Math.random() >= TEST_GROUP_CHANCE[g]));
+  TEST_GROUP_SETS.forEach(set => { if(!testSetDissolved(set, custom, size) && Math.random() >= set.chance) set.groups.forEach(g => skipped.add(g)); });
   return skipped;
 }
-function testSetOf(groupId, custom){
+function testSetOf(groupId, custom, size){
   const set = TEST_GROUP_SETS.find(x => x.groups.includes(groupId)) || null;
-  return set && !testSetDissolved(set, custom) ? set : null;
+  return set && !testSetDissolved(set, custom, size) ? set : null;
 }
 // --- Kasutaja oma testireeglid (ainult 50/25 küsimuse testid; 10 küsimuse test kasutab alati vaikereegleid) ---
 // Salvestatakse selles brauseris (localStorage): „Genereeri test“ on õppija enesekontroll tema enda seadmes.
@@ -1801,20 +1806,23 @@ function testSetOf(groupId, custom){
 // ega ühine komplekt (TEST_GROUP_SETS) – kehtib ainult kasutaja number.
 const TEST_RULES_KEY = 'tehnikatuvastus.testRules.v1';
 const TEST_RULE_MAX = 999;
-function loadTestRules(){
+// 50 ja 25 küsimuse testi oma reeglid hoitakse eraldi (salvestuses limits ja limitsShort).
+function loadTestRules(size){
   try{
     const d = JSON.parse(localStorage.getItem(TEST_RULES_KEY) || 'null');
-    if(!d || d.v !== 1 || !d.limits || typeof d.limits !== 'object') return {};
+    const src = d && d.v === 1 ? (size === TEST_SIZE_SHORT ? d.limitsShort : d.limits) : null;
+    if(!src || typeof src !== 'object') return {};
     const out = {};
-    Object.entries(d.limits).forEach(([g, v]) => {
-      const dflt = TEST_GROUP_LIMITS[g] === undefined ? null : TEST_GROUP_LIMITS[g];
-      if(v === dflt) return;   // vaikeväärtusega võrdne (nt vaikeväärtus muutus hiljem) – pole enam muudatus
+    Object.entries(src).forEach(([g, v]) => {
+      if(v === defaultTestLimit(g, size)) return;   // vaikeväärtusega võrdne (nt vaikeväärtus muutus hiljem) – pole enam muudatus
       if(v === null || (Number.isInteger(v) && v >= 0 && v <= TEST_RULE_MAX)) out[g] = v;
     });
     return out;
   }catch(e){ return {}; }
 }
-let testRuleOverrides = loadTestRules();
+let testRuleOverrides = loadTestRules(TEST_SIZE);
+let testRuleOverridesShort = loadTestRules(TEST_SIZE_SHORT);
+function testOverridesFor(size){ return size === TEST_SIZE_SHORT ? testRuleOverridesShort : testRuleOverrides; }
 // Kasutaja välja jäetud mudelid (cat) 50/25 testist. Meelde jäetakse ainult välja jäetud –
 // hiljem äppi lisatud mudelid on testis automaatselt.
 function loadTestExclusions(){
@@ -1827,8 +1835,8 @@ let testExcluded = loadTestExclusions();
 function saveTestRules(){
   try{
     const excluded = [...testExcluded];
-    if(Object.keys(testRuleOverrides).length || excluded.length)
-      localStorage.setItem(TEST_RULES_KEY, JSON.stringify({ v: 1, limits: testRuleOverrides, excluded }));
+    if(Object.keys(testRuleOverrides).length || Object.keys(testRuleOverridesShort).length || excluded.length)
+      localStorage.setItem(TEST_RULES_KEY, JSON.stringify({ v: 1, limits: testRuleOverrides, limitsShort: testRuleOverridesShort, excluded }));
     else localStorage.removeItem(TEST_RULES_KEY);
   }catch(e){ /* privaatrežiim vms: reeglid kehtivad selle lehe eluea jooksul */ }
 }
@@ -1842,16 +1850,20 @@ function setTestModelsIncluded(cats, on){
   cats.forEach(c => { if(on) testExcluded.delete(c); else testExcluded.add(c); });
   saveTestRules();
 }
-function hasTestRuleOverride(g){ return Object.prototype.hasOwnProperty.call(testRuleOverrides, g) && GROUPS.some(x => x.id === g); }
+// size puudub = 50 küsimuse test
+function hasTestRuleOverride(g, size){ return Object.prototype.hasOwnProperty.call(testOverridesFor(size), g) && GROUPS.some(x => x.id === g); }
+function hasAnyTestRuleOverride(g){ return hasTestRuleOverride(g, TEST_SIZE) || hasTestRuleOverride(g, TEST_SIZE_SHORT); }
+function clearTestRuleOverride(g){ delete testRuleOverrides[g]; delete testRuleOverridesShort[g]; }
 // size: testi pikkus; 25 küsimuse testis kehtivad TEST_GROUP_LIMITS_SHORT numbrid (muidu TEST_GROUP_LIMITS).
 function defaultTestLimit(g, size){
   if(size === TEST_SIZE_SHORT && TEST_GROUP_LIMITS_SHORT[g] !== undefined) return TEST_GROUP_LIMITS_SHORT[g];
   return TEST_GROUP_LIMITS[g] === undefined ? null : TEST_GROUP_LIMITS[g];
 }
-function testLimitFor(g, custom, size){ return custom && hasTestRuleOverride(g) ? testRuleOverrides[g] : defaultTestLimit(g, size); }
-function setTestRule(g, v){
-  if(v === defaultTestLimit(g)) delete testRuleOverrides[g];
-  else testRuleOverrides[g] = v;
+function testLimitFor(g, custom, size){ return custom && hasTestRuleOverride(g, size) ? testOverridesFor(size)[g] : defaultTestLimit(g, size); }
+function setTestRule(g, v, size){
+  const o = testOverridesFor(size);
+  if(v === defaultTestLimit(g, size)) delete o[g];
+  else o[g] = v;
   saveTestRules();
 }
 // Mitu mudelit grupist saab testi tulla, arvestades erireegleid (vt buildUniqueVehiclePool).
@@ -1868,15 +1880,15 @@ function testGroupModelCap(g, all){
   return n;
 }
 // Mitu küsimust 50/25 test reeglite järgi maksimaalselt saab (mudelid ei kordu; komplekti ühine max).
-function testCapacity(){
+function testCapacity(size){
   let cap = 0;
   const setCaps = new Map();
   GROUPS.forEach(g => {
     const m = testGroupModelCap(g.id);
     if(!m) return;
-    const lim = testLimitFor(g.id, true);
+    const lim = testLimitFor(g.id, true, size);
     const c = lim === null ? m : Math.min(lim, m);
-    const set = testSetOf(g.id, true);
+    const set = testSetOf(g.id, true, size);
     if(set) setCaps.set(set, (setCaps.get(set) || 0) + c);
     else cap += c;
   });
@@ -1884,15 +1896,15 @@ function testCapacity(){
   return cap;
 }
 function updateTestButtons(){
-  const cap = testCapacity();
+  const cap = testCapacity(TEST_SIZE), capShort = testCapacity(TEST_SIZE_SHORT);
   startTestBtn.disabled = cap === 0;
   startTestBtn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE, cap) + ' küsimust)';
-  startTest25Btn.disabled = cap === 0;
-  startTest25Btn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE_SHORT, cap) + ' küsimust)';
+  startTest25Btn.disabled = capShort === 0;
+  startTest25Btn.textContent = 'Genereeri test (' + Math.min(TEST_SIZE_SHORT, capShort) + ' küsimust)';
   if(window.TestRules) window.TestRules.refresh();
 }
-function testRuleChangeCount(){ return GROUPS.filter(g => hasTestRuleOverride(g.id)).length; }
-function testSetDissolved(set, custom){ return !!custom && set.groups.some(hasTestRuleOverride); }
+function testRuleChangeCount(){ return GROUPS.filter(g => hasAnyTestRuleOverride(g.id)).length; }
+function testSetDissolved(set, custom, size){ return !!custom && set.groups.some(g => hasTestRuleOverride(g, size)); }
 
 
 
@@ -1996,7 +2008,7 @@ function buildUniqueVehiclePool(n){
   const groupCounts = {};
   const subtypeCounts = { bridgeTank: 0, bridgeVehicleOrPontoon: 0, su27Family: 0, adRadar: 0 };
   const target = Math.min(n, eligible.length);
-  const skippedGroups = rollTestSkips(true);
+  const skippedGroups = rollTestSkips(true, n);
   const setCounts = new Map();
 
   // Kõik pildiga mudelid osalevad ühes juhuslikus valikus.
@@ -2013,7 +2025,7 @@ function buildUniqueVehiclePool(n){
     const limit = testLimitFor(entry.group, true, n);   // vaikereeglid (50 või 25 küsimust) või kasutaja oma (null = piiranguta)
     const used = groupCounts[entry.group] || 0;
     if(limit !== null && used >= limit) continue;
-    const set = testSetOf(entry.group, true);
+    const set = testSetOf(entry.group, true, n);
     if(set && (setCounts.get(set) || 0) >= set.max) continue;
 
     if(entry.group === 'engineer'){
@@ -6517,7 +6529,9 @@ window.addEventListener('hashchange', startFromHash);
   .tr-item.changed{border-left-color:var(--amber);background:rgba(212,167,44,.07);}
   .tr-item.open{grid-column:1 / -1;background:var(--bg-0);border-left-color:var(--olive);}
   .tr-item.open.changed{border-left-color:var(--amber);}
-  .tr-row{display:grid;grid-template-columns:minmax(0,1fr) 64px 26px;align-items:center;gap:8px;padding:5px 6px;}
+  .tr-row{display:grid;grid-template-columns:minmax(0,1fr) 52px 52px 26px;align-items:center;gap:6px;padding:5px 6px;}
+  .tr-head{padding-top:0;padding-bottom:0;font-size:10px;color:var(--bone-dim);text-transform:uppercase;letter-spacing:.06em;}
+  .tr-head span:nth-child(2),.tr-head span:nth-child(3){text-align:center;}
   .tr-name{display:flex;gap:6px;align-items:flex-start;min-width:0;padding:0;border:0;background:transparent;color:var(--bone);text-align:left;cursor:pointer;
     font-family:var(--font-body);font-size:12px;line-height:1.25;letter-spacing:0;text-transform:none;white-space:normal;hyphens:manual;-webkit-hyphens:manual;overflow-wrap:normal;}
   .tr-name:hover{color:var(--olive);border:0;}
@@ -6525,7 +6539,7 @@ window.addEventListener('hashchange', startFromHash);
   .tr-name-txt{min-width:0;}
   .tr-name small{display:block;font-size:10px;color:var(--bone-dim);}
   .tr-row input{width:100%;min-width:0;padding:5px 6px;font-size:14px;background:var(--bg-0);color:var(--bone);border:1px solid var(--line);text-align:center;}
-  .tr-item.lim-changed input{border-color:var(--amber);color:var(--amber);}
+  .tr-row input.lim-changed{border-color:var(--amber);color:var(--amber);}
   .tr-row input::placeholder{color:var(--bone-dim);}
   .tr-meta{display:block;font-size:10px;line-height:1.3;color:var(--bone-dim);}
   .tr-meta .tr-chance{color:var(--olive);}
@@ -6547,7 +6561,7 @@ window.addEventListener('hashchange', startFromHash);
   .tr-cap{flex:1 1 220px;font-size:12px;color:var(--bone-dim);}
   .tr-cap b{color:var(--bone);}
   .tr-cap.is-warn{color:var(--amber);}
-  @media(max-width:700px){ .tr-grid{grid-template-columns:1fr;} .tr-models{padding-left:10px;} .tr-models ul{grid-template-columns:1fr;} }
+  @media(max-width:700px){ .tr-grid{grid-template-columns:1fr;} .tr-head + .tr-head{display:none;} .tr-models{padding-left:10px;} .tr-models ul{grid-template-columns:1fr;} }
 </style>
 <script id="testRulesScript">
 // ============================================================================
@@ -6558,7 +6572,7 @@ window.addEventListener('hashchange', startFromHash);
 // Salvestatakse brauserisse (loogika: testRuleOverrides / testExcluded põhiskriptis).
 // ============================================================================
 (function(){
-  // ⚙ nii 50 kui 25 küsimuse nupu kõrval; mõlemad avavad sama paneeli (reeglid on ühised).
+  // ⚙ nii 50 kui 25 küsimuse nupu kõrval; mõlemad avavad sama paneeli (igal real lahter 50 ja 25 küsimuse testi jaoks).
   const btns = [document.getElementById('testRulesBtn'), document.getElementById('testRules25Btn')].filter(Boolean);
   const panel = document.getElementById('testRulesPanel');
   const status = document.getElementById('testRulesStatus');
@@ -6574,24 +6588,24 @@ window.addEventListener('hashchange', startFromHash);
   let capEl = null, resetAllBtn = null;
 
   function chanceNote(g){
-    if(hasTestRuleOverride(g)) return '';
+    if(hasAnyTestRuleOverride(g)) return '';
     if(TEST_GROUP_CHANCE[g] !== undefined) return pct(TEST_GROUP_CHANCE[g]) + ' testidest';
     const set = TEST_GROUP_SETS.find(x => x.groups.includes(g));
-    if(set && !testSetDissolved(set, true)){
+    if(set && !testSetDissolved(set, true, TEST_SIZE) && !testSetDissolved(set, true, TEST_SIZE_SHORT)){
       // lühend sulgudest, kui on (nt „Mehitamata maismaasõidukid (UGV)“ → „UGV“)
       const names = set.groups.map(id => { const l = (GROUPS.find(x => x.id === id) || {label: id}).label; const m = /\(([^)]+)\)\s*$/.exec(l); return m ? m[1] : l; });
       return names.join(' + ') + ' kokku ' + set.max + ', ' + pct(set.chance) + ' testidest';
     }
     return '';
   }
-  const groupChanged = g => hasTestRuleOverride(g) || testGroupExcludedCount(g) > 0;
+  const groupChanged = g => hasAnyTestRuleOverride(g) || testGroupExcludedCount(g) > 0;
 
   function changed(){ updateTestButtons(); }   // nupusildid + refresh()
 
   function resetAll(){
     if(!testRuleChangeCount() && !testExcludedCount()) return;
     if(!confirm('Taastada vaikereeglid? Sinu muudetud maksimumid ja välja jäetud mudelid kustutatakse.')) return;
-    GROUPS.forEach(g => { if(hasTestRuleOverride(g.id)) delete testRuleOverrides[g.id]; });
+    GROUPS.forEach(g => clearTestRuleOverride(g.id));
     testExcluded.clear();
     saveTestRules();
     if(!panel.hidden) build();
@@ -6644,24 +6658,30 @@ window.addEventListener('hashchange', startFromHash);
     const meta = el('small', 'tr-meta');
     txt.appendChild(meta);
     name.append(caret, txt);
-    const inp = el('input');
-    inp.type = 'number'; inp.min = '0'; inp.max = String(TEST_RULE_MAX); inp.step = '1'; inp.inputMode = 'numeric';
-    inp.placeholder = '∞';
-    inp.setAttribute('aria-label', g.label + ': maksimum testis');
+    // kaks lahtrit: 50 ja 25 küsimuse test (eraldi piirangud, et proportsioonid jääksid paika)
+    const mkInp = size => {
+      const i = el('input');
+      i.type = 'number'; i.min = '0'; i.max = String(TEST_RULE_MAX); i.step = '1'; i.inputMode = 'numeric';
+      i.placeholder = '∞';
+      i.title = size + ' küsimuse test';
+      i.setAttribute('aria-label', g.label + ': maksimum ' + size + ' küsimuse testis');
+      i.addEventListener('input', () => {
+        const raw = i.value.trim();
+        if(raw !== '' && !Number.isFinite(Number(raw))) return;
+        setTestRule(g.id, raw === '' ? null : Math.min(TEST_RULE_MAX, Math.max(0, Math.round(Number(raw)))), size);
+        changed();
+      });
+      i.addEventListener('change', () => refresh());
+      i.addEventListener('keydown', ev => { if(ev.key === 'Enter'){ ev.preventDefault(); i.blur(); } });
+      return i;
+    };
+    const inp = mkInp(TEST_SIZE), inpShort = mkInp(TEST_SIZE_SHORT);
     const reset = el('button', 'tr-reset', '↺');
     reset.type = 'button';
     reset.title = 'Taasta selle kategooria vaikimisi maksimum ja kõik mudelid';
     reset.setAttribute('aria-label', g.label + ': taasta vaikimisi');
-    inp.addEventListener('input', () => {
-      const raw = inp.value.trim();
-      if(raw !== '' && !Number.isFinite(Number(raw))) return;
-      setTestRule(g.id, raw === '' ? null : Math.min(TEST_RULE_MAX, Math.max(0, Math.round(Number(raw)))));
-      changed();
-    });
-    inp.addEventListener('change', () => refresh());
-    inp.addEventListener('keydown', ev => { if(ev.key === 'Enter'){ ev.preventDefault(); inp.blur(); } });
     reset.addEventListener('click', () => {
-      delete testRuleOverrides[g.id];
+      clearTestRuleOverride(g.id);
       setTestModelsIncluded(testModelsOf(g.id).map(e => e.cat), true);
       const st = items.get(g.id);
       if(st && st.models) renderModels(g.id, st.models);
@@ -6679,9 +6699,9 @@ window.addEventListener('hashchange', startFromHash);
       if(open) renderModels(g.id, models);
     });
     name.setAttribute('aria-expanded', 'false');
-    row.append(name, inp, reset);
+    row.append(name, inp, inpShort, reset);
     item.append(row, models);
-    items.set(g.id, { item, inp, meta, caret, models, name, countTxt: '' });
+    items.set(g.id, { item, inp, inpShort, meta, caret, models, name, countTxt: '' });
     if(expanded.has(g.id)){
       item.classList.add('open'); caret.textContent = '▾'; name.setAttribute('aria-expanded', 'true');
       models.hidden = false; renderModels(g.id, models);
@@ -6694,8 +6714,14 @@ window.addEventListener('hashchange', startFromHash);
     items.clear();
     panel.appendChild(el('div', 'kuld-config-title', 'Testi reeglid'));
     panel.appendChild(el('div', 'kuld-config-help',
-      'Kehtivad 50 ja 25 küsimusega testile (10 küsimuse test ei muutu). Number = mitu mudelit kategooriast võib testi tulla: 0 jätab kategooria välja, tühi = piiranguta. Klõpsa kategooria nimel, et üksikuid mudeleid testist välja jätta. Sinu reeglid jäävad selles brauseris meelde.'));
+      'Kehtivad 50 ja 25 küsimusega testile (10 küsimuse test ei muutu). Igal real on kaks lahtrit: esimene 50 küsimuse, teine 25 küsimuse testi jaoks. Number = mitu mudelit kategooriast võib testi tulla: 0 jätab kategooria välja, tühi = piiranguta. Klõpsa kategooria nimel, et üksikuid mudeleid testist välja jätta (kehtib mõlemale testile). Sinu reeglid jäävad selles brauseris meelde.'));
     const grid = el('div', 'tr-grid');
+    // veerupealkirjad (kahes veerus kaks korda; kitsal ekraanil ainult üks)
+    for(let k = 0; k < 2; k++){
+      const h = el('div', 'tr-row tr-head');
+      h.append(el('span', '', 'Kategooria'), el('span', '', String(TEST_SIZE)), el('span', '', String(TEST_SIZE_SHORT)), el('span'));
+      grid.appendChild(h);
+    }
     const parentItems = new Map();
     GROUPS.forEach(g => {
       if(!testGroupModelCap(g.id, true)) return;
@@ -6761,38 +6787,41 @@ window.addEventListener('hashchange', startFromHash);
     }
     if(panel.hidden) return;
     items.forEach((st, g) => {
-      const limCh = hasTestRuleOverride(g);
+      const limCh = hasTestRuleOverride(g, TEST_SIZE), limChShort = hasTestRuleOverride(g, TEST_SIZE_SHORT);
       const total = testModelsOf(g).length;
       const off = testGroupExcludedCount(g);
-      st.item.classList.toggle('changed', limCh || off > 0);
-      st.item.classList.toggle('lim-changed', limCh);
-      if(document.activeElement !== st.inp){
-        const v = testLimitFor(g, true);
-        st.inp.value = v === null ? '' : String(v);
-      }
+      st.item.classList.toggle('changed', limCh || limChShort || off > 0);
+      st.inp.classList.toggle('lim-changed', limCh);
+      st.inpShort.classList.toggle('lim-changed', limChShort);
+      [[st.inp, TEST_SIZE], [st.inpShort, TEST_SIZE_SHORT]].forEach(([i, size]) => {
+        if(document.activeElement === i) return;
+        const v = testLimitFor(g, true, size);
+        i.value = v === null ? '' : String(v);
+      });
       st.meta.innerHTML = '';
       st.meta.append(off
         ? (total - off) + ' / ' + total + ' ' + (GROUP_COUNT_WORD[g] || 'masinat')
         : groupCountLabel(g, total));
-      const dShort = defaultTestLimit(g, TEST_SIZE_SHORT);
-      st.meta.append(' · vaikimisi ' + limTxt(defaultTestLimit(g))
-        + (dShort !== defaultTestLimit(g) ? ' (' + TEST_SIZE_SHORT + ' küsimuse testis ' + limTxt(dShort) + ')' : ''));
+      st.meta.append(' · vaikimisi ' + limTxt(defaultTestLimit(g, TEST_SIZE)) + ' / ' + limTxt(defaultTestLimit(g, TEST_SIZE_SHORT)));
       if(off){ st.meta.append(' · '); st.meta.appendChild(el('span', 'tr-ex', off + ' välja jäetud')); }
       const c = chanceNote(g);
       if(c){ st.meta.append(' · '); st.meta.appendChild(el('span', 'tr-chance', c)); }
     });
-    const cap = testCapacity();
-    capEl.classList.toggle('is-warn', cap < TEST_SIZE);
+    const cap = testCapacity(TEST_SIZE), capShort = testCapacity(TEST_SIZE_SHORT);
+    capEl.classList.toggle('is-warn', cap < TEST_SIZE || capShort < TEST_SIZE_SHORT);
     capEl.innerHTML = '';
-    if(cap < TEST_SIZE){
-      capEl.append('Nende reeglitega mahub testi kuni ');
-      capEl.appendChild(el('b', '', String(cap)));
-      capEl.append(' küsimust' + (cap < TEST_SIZE_SHORT ? ' (ka 25 küsimuse test jääb lühemaks).' : ', 50 küsimuse test jääb lühemaks.'));
-    }else{
-      capEl.append('Testi mahub kuni ');
-      capEl.appendChild(el('b', '', String(cap)));
-      capEl.append(' erinevat mudelit.');
-    }
+    [[cap, TEST_SIZE], [capShort, TEST_SIZE_SHORT]].forEach(([c, size], k) => {
+      if(k) capEl.append(' ');
+      if(c < size){
+        capEl.append(size + ' küsimuse test: nende reeglitega mahub kuni ');
+        capEl.appendChild(el('b', '', String(c)));
+        capEl.append(' küsimust.');
+      }else{
+        capEl.append(size + ' küsimuse testi mahub kuni ');
+        capEl.appendChild(el('b', '', String(c)));
+        capEl.append(' erinevat mudelit.');
+      }
+    });
     resetAllBtn.disabled = !any;
   }
 
@@ -7306,7 +7335,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc128'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc129'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
