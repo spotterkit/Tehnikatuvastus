@@ -3071,10 +3071,16 @@ function renderModelList(filterText = ''){
   const ttaCount = withPhotos.filter(getTTA).length;
   const whatCount = withPhotos.filter(getWHAT).length;
   const listParts = ['<b>' + withPhotos.filter(e => !NON_MACHINE_GROUPS.has(e.group)).length + '</b> erinevat masinat'];
+  // Alamgrupid (parent) liidetakse ülemise kategooria alla: „10 seadet“, mitte „3 seadet, 7 seadet“.
+  const countKey = id => { const g = GROUPS.find(x => x.id === id); return (g && g.parent) ? 'parent:' + g.parent : id; };
+  const countWord = key => key.startsWith('parent:') ? PARENT_COUNT_WORD[key.slice(7)] : GROUP_COUNT_WORD[key];
+  const countByKey = new Map();
   Object.keys(GROUP_COUNT_WORD).forEach(id => {
     const k = withPhotos.filter(e => e.group === id).length;
-    if(k > 0) listParts.push('<b>' + k + '</b> ' + GROUP_COUNT_WORD[id]);
+    const key = countKey(id);
+    countByKey.set(key, (countByKey.get(key) || 0) + k);
   });
+  countByKey.forEach((k, key) => { if(k > 0) listParts.push('<b>' + k + '</b> ' + countWord(key)); });
   modelListSummary.innerHTML = 'Kokku ' + listParts.join(', ') + ', <b>'
     + stats.totalPhotos + '</b> pilti. TTA: <b>' + ttaCount + '</b> · WHAT: <b>' + whatCount + '</b> mudelil.';
 
@@ -7364,7 +7370,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc132'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc133'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
