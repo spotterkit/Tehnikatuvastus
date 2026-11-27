@@ -1607,6 +1607,7 @@ const GROUPS = [
   { id: "ballistic_missiles", label: "Ballistilised raketid", parent: "munitions" },
   { id: "cruise_missiles", label: "Tiibraketid", parent: "munitions" },
   { id: "air_to_surface_missiles", label: "Õhk-maa raketid", parent: "munitions" },
+  { id: "surface_to_air_missiles", label: "Maa-õhk raketid", parent: "munitions" },
   { id: "glide_bombs", label: "Liugpommid", parent: "munitions" },
   { id: "bombs", label: "Pommid", parent: "munitions" },
 ];
@@ -7363,7 +7364,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc131'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc132'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
