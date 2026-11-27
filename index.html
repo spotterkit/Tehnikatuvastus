@@ -2437,7 +2437,9 @@ const LOCAL_IMAGE_SOURCES = {
   'images/ew/borisoglebsk2_01.jpg': {name: 'Militarnyi', url: 'https://militarnyi.com/en/news/lithuania-s-defense-ministry-russia-is-expanding-the-scope-of-blocking-gps-signals-in-the-baltic/'},
   'images/ground_radars/CREDO1E.jfif': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
   'images/ground_radars/iroonia.jfif': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
-  'images/ground_radars/irooniaM.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL
+  'images/ground_radars/irooniaM.jpg': LOCAL_IMAGE_SOURCE_RU_SOCIAL,
+  'images/ad/valdai.jpg': {name: 'United24 Media', url: 'https://united24media.com/latest-news/ukrainian-intelligence-destroys-russias-cutting-edge-valday-radar-in-crimea-strike-video-12645'},
+  'images/glide_bombs/umpb.jpg': {name: 'CAT-UXO', url: 'https://cat-uxo.com/explosive-hazards/aircraft-bombs/umpb-d-30sn-aircraft-bomb'}
 };
 function localImageSource(info){
   const path = String((info && (info.rawTitle || info.url)) || '').trim().replace(/^\.\//, '');
@@ -7370,7 +7372,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc133'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc134'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
