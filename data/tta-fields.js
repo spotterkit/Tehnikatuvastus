@@ -1,6 +1,6 @@
 // TTA väljade sõnastik. Uue välja lisamiseks lisa siia üks rida – äpi koodi muutma ei pea.
 // type: "number" (ühik `unit`), "range" ({ "min": .., "max": .. }, ühik `unit`), "text", "boolean",
-//   "status" = valik kindlast loendist `options` (id → silt), väärtus {"status": ["new", "upgrade"], "asOf": 2026}.
+//   "status" = valik kindlast loendist `options` (id → silt), väärtus {"status": ["stocks"], "asOf": 2026}.
 // comparable: true = sobib võrdlusse (range võrreldakse max järgi).
 // better: "higher" | "lower" = võrdluses tõstetakse esile parem väärtus; puudub = ei hinnata (nt mass, mõõtmed).
 // Sektsiooni comparePriority: väiksem number = võrdluses eespool ja alati nähtav; ilma selleta = "Kõik andmed" all.
@@ -26,7 +26,7 @@ window.TTA_FIELDS = {
     "purpose": {"label": "Otstarve", "type": "text", "section": "general", "order": 1},
     "typicalUnit": {"label": "Tüüpiline üksus", "type": "text", "section": "general", "order": 2},
     "system": {"label": "Süsteem", "type": "text", "section": "general", "order": 3, "derived": true},
-    "productionStatus": {"label": "Tootmisseis", "type": "status", "section": "general", "order": 4, "options": {"new": "Tootmises", "upgrade": "Moderniseerimine", "storage": "Taastamine laost", "ended": "Tootmine lõppenud", "prototype": "Prototüüp / väike seeria"}},
+    "productionStatus": {"label": "Tootmisseis", "type": "status", "section": "general", "order": 4, "options": {"new": "Tootmises", "stocks": "Olemasolevad varud", "prototype": "Prototüüp / väike seeria"}},
     "crew": {"label": "Meeskond", "type": "text", "section": "general", "order": 10},
     "chassis": {"label": "Šassii", "type": "text", "section": "general", "order": 15},
     "basePlatform": {"label": "Alusplatvorm", "type": "text", "section": "general", "order": 15, "derived": true},

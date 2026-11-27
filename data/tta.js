@@ -7,7 +7,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Langevarjurpolk; Dessantründepolk",
-        "productionStatus": {"status": ["upgrade"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Õhudessantvägede ujuv lahingumasin (kasutusel alates 1985. aastast).",
         "crew": "3 + 4",
         "combatWeight": 8.2,
@@ -63,7 +63,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Õhudessantvägede reservüksus",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Õhudessantvägede ujuv lahingumasin.",
         "crew": "3 + 4",
         "combatWeight": 7.5,
@@ -104,7 +104,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Motolaskurpataljon; Merejalavägi; Õhudessantväed",
-        "productionStatus": {"status": ["upgrade"], "asOf": 2023},
+        "productionStatus": {"status": ["stocks"], "asOf": 2023},
         "purpose": "Ujuv jalaväe lahingumasin.",
         "crew": "3 + 7",
         "combatWeight": 14.3,
@@ -153,7 +153,7 @@ window.TTA_DATA = {
     "BMP-1": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "Ujuv jalaväe lahingumasin (kasutusel alates 1966. aastast).",
         "crew": "3 + 8",
         "combatWeight": 13.5,
@@ -254,7 +254,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Reservüksus",
-        "productionStatus": {"status": ["storage"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Nõukogude 8×8 soomustransportöör. Praegu kasutatakse seda peamiselt liikuva juhtimispunkti, suurtükiväe eesvaatluse ja sidemasinana.",
         "crew": "2 + 14",
         "combatWeight": 10.3,
@@ -299,7 +299,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Reservüksus",
-        "productionStatus": {"status": ["storage"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "8×8 soomustransportöör.",
         "crew": "2 + 9",
         "combatWeight": 11.5,
@@ -345,7 +345,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Motolaskurpataljon",
-        "productionStatus": {"status": ["storage"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Ujuv 8×8 ratassoomustransportöör (kasutusel alates 1985. aastast).",
         "crew": "3 + 7",
         "combatWeight": 13.6,
@@ -423,7 +423,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Motolaskurpataljon",
-        "productionStatus": {"status": ["storage"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Ujuv roomiksoomuk (kasutusel alates 1970. aastatest), mida kasutatakse soomustransportööri, suurtükiveduki ja sanitaarmasinana.",
         "crew": "2 + 11",
         "combatWeight": 11.9,
@@ -463,7 +463,7 @@ window.TTA_DATA = {
     "MT-LBu": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["storage"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Soomustatud roomiktransportöör, paljude erisoomukite alusplatvorm.",
         "crew": "2 + 6",
         "combatWeight": 15.55,
@@ -576,7 +576,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Õhudessantväed",
-        "productionStatus": {"status": ["ended", "storage"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Õhudessantvägede ujuv roomiksoomustransportöör.",
         "crew": "3 + 10",
         "combatWeight": 8.2,
@@ -658,7 +658,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Reserv- ja mobilisatsiooniüksus; Vabatahtlike pataljon",
-        "productionStatus": {"status": ["storage"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Nõukogude lahingutank.",
         "crew": "4",
         "combatWeight": 40,
@@ -708,7 +708,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Tankipataljon; Tankibrigaad",
-        "productionStatus": {"status": ["upgrade", "storage"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Nõukogude lahingutank (kasutusel alates 1973. aastast).",
         "crew": "3",
         "combatWeight": 44.5,
@@ -763,7 +763,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Tankidiviis; Merejalavägi",
-        "productionStatus": {"status": ["upgrade", "storage"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Nõukogude lahingutank (kasutusel alates 1976. aastast).",
         "crew": "3",
         "combatWeight": 43.7,
@@ -814,7 +814,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Motolaskurbrigaad",
-        "productionStatus": {"status": ["upgrade"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Vene lahingutank, T-90 versioon.",
         "crew": "3",
         "combatWeight": 46,
@@ -848,8 +848,7 @@ window.TTA_DATA = {
         "fording": "Ettevalmistusega 5 m.",
         "rateOfFire": "Laadimisautomaadiga; käsitsi 2–3 lasku/min.",
         "mainGunRange": "APFSDS 2000–3000 m (öösel 2600 m); HEAT ja HE kuni 4000 m.",
-        "hmgRange": "Kord.",
-        "productionStatus": "T-90A tanke ehitatakse ümber T-90M-iks."
+        "hmgRange": "Kord."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: T-90A / T-90S", "url": "https://odin.t2com.army.mil/WEG/Asset/fe236b6992bb19af1774a93f3b52b423", "retrieved": "2026-10-08"},
@@ -861,7 +860,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Tankidiviis; Motolaskurdiviis",
-        "productionStatus": {"status": ["new", "upgrade"], "asOf": 2026},
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Vene lahingutank, T-90 põhjalikult moderniseeritud versioon.",
         "crew": "3",
         "combatWeight": 46.5,
@@ -947,7 +946,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Liikursuurtükipatarei; Merejalavägi",
-        "productionStatus": {"status": ["storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "122 mm liikurhaubits (kasutusel alates 1972. aastast) tuletoetuseks.",
         "crew": "4",
         "chassis": "Modifitseeritud MT-LBu",
@@ -994,7 +993,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Liikursuurtükipataljon; Merejalavägi",
-        "productionStatus": {"status": ["storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "152 mm liikurhaubits.",
         "crew": "4–6",
         "chassis": "Objekt 123",
@@ -1041,7 +1040,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Liikursuurtükipataljon; Suurtükibrigaad",
-        "productionStatus": {"status": ["upgrade"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "152 mm liikurhaubits.",
         "crew": "5",
         "chassis": "T-72",
@@ -1136,7 +1135,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Suurtükibrigaad",
-        "productionStatus": {"status": ["storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "240 mm raske liikurmiinipilduja kindlustatud sihtmärkide tabamiseks.",
         "crew": "4",
         "combatWeight": 27.5,
@@ -1173,7 +1172,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Suurtükibrigaadi raske suurtükipataljon",
-        "productionStatus": {"status": ["storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "Nõukogude 203 mm liikurkahur.",
         "crew": "7",
         "chassis": "Objekt 216",
@@ -1257,7 +1256,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Liikursuurtükipatarei",
-        "productionStatus": {"status": ["upgrade", "storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "152 mm liikurkahur.",
         "crew": "5",
         "combatWeight": 28.2,
@@ -1340,7 +1339,7 @@ window.TTA_DATA = {
     "D-30": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "122 mm järelveetav haubits (kasutusel alates 1960. aastast).",
         "crew": "7",
         "chassis": "Vedukas: MT-LB või Ural-4320",
@@ -1377,7 +1376,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Suurtükibrigaad; Motolaskurdiviisi suurtükipolk",
-        "productionStatus": {"status": ["storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "152 mm järelveetav haubits.",
         "crew": "6–11",
         "weightKg": 7000,
@@ -1406,7 +1405,7 @@ window.TTA_DATA = {
     "2A36": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "152 mm järelveetav kahur (kasutusel alates 1976. aastast) peamiselt vastutuleks.",
         "crew": "8",
         "chassis": "Vedukas: KrAZ-255B, KrAZ-4556 või AT-S",
@@ -1443,7 +1442,7 @@ window.TTA_DATA = {
     "D-20": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "152 mm järelveetav kahurhaubits.",
         "crew": "8",
         "chassis": "Vedukas: 6×6 või 8×8 veoauto",
@@ -1623,7 +1622,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mitmikraketiheitjapataljon",
-        "productionStatus": {"status": ["storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "122 mm mitmikraketiheitja.",
         "crew": "5",
         "chassis": "Ural-375D (BM-21-1: Ural-4320)",
@@ -1803,7 +1802,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Siseväed",
-        "productionStatus": {"status": ["ended"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "Improviseeritud ratassoomustransportöör: soomustatud pealisehitisega veok vägede veoks tagalas ja rinde lähedal.",
         "crew": "2–3 + 16",
         "chassis": "Ural-4320, soomustatud ümberehitus",
@@ -2109,7 +2108,7 @@ window.TTA_DATA = {
     "2S6 Tunguska": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["upgrade"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Õhutõrjekahur- ja raketikompleksi iseliikuv laskeseade, mis kaitseb motolaskur- ja tankiüksusi madalal lendavate lennukite, helikopterite ja tiibrakettide eest.",
         "typicalUnit": "Motolaskur- või tankipolgu õhutõrjepataljon; Brigaadi õhutõrjepataljon",
         "crew": "4",
@@ -2649,7 +2648,7 @@ window.TTA_DATA = {
     "IMR-2": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Teepuhastus- ja pioneerisoomuk, mis rajab sõidukitele läbipääsu varemete, metsatõkete ja saastatud alade kaudu.",
         "crew": "2",
         "chassis": "T-72 (IMR-2M1: T-72A)",
@@ -3248,7 +3247,6 @@ window.TTA_DATA = {
         "emplacementTime": "5 min marsist (35 s ooterežiimist)"
       },
       "notes": {
-        "productionStatus": "Uustootmine kehtib S-400 kohta; S-300 uuemad versioonid on laialt kasutusel, aga uustootmise kohta allikas puudub.",
         "samRange": "Kompleksi miinimumkaugus aerodünaamilistele sihtmärkidele 2 km ja ballistilistele 5 km."
       },
       "sources": [
@@ -3303,7 +3301,7 @@ window.TTA_DATA = {
     "ZSU-23-4": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["ended"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Iseliikuv neljaraudne 23 mm õhutõrjekahur; saab tulistada liikvel olles.",
         "typicalUnit": "Motolaskur- või tankipolgu õhutõrjepataljon",
         "crew": "4",
@@ -3348,7 +3346,7 @@ window.TTA_DATA = {
     "SA-8B Gecko": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Lühimaa õhutõrjeraketikompleksi Osa iseliikuv laskeseade; otsib ja jälgib sihtmärke liikvel olles, tulistab seisatuselt.",
         "typicalUnit": "Diviisi õhutõrjepolk",
         "crew": "5",
@@ -3751,8 +3749,7 @@ window.TTA_DATA = {
         "combatRadius": 450
       },
       "notes": {
-        "hardpoints": "Sisemised punktid kuni 500 kg, välimised kuni 250 kg (kolm punkti mõlemal tiival).",
-        "productionStatus": "Uustootmine kehtib ekspordiks toodetava Mi-35M kohta."
+        "hardpoints": "Sisemised punktid kuni 500 kg, välimised kuni 250 kg (kolm punkti mõlemal tiival)."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Mi-24/Mi-35", "url": "https://odin.t2com.army.mil/WEG/Asset/450917c08512fe367579bbf8ffb18bf8", "retrieved": "2026-10-28"},
@@ -3847,7 +3844,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe lennuväe kopterpolk",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Mereväe soomustatud transport- ja ründekopter dessantlaevadelt ja lennukikandjatelt tegutsemiseks (kasutusel alates 1987. aastast).",
         "crew": "2",
         "length": 11.3,
@@ -3877,7 +3874,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe lennuväe kopterpolk",
-        "productionStatus": {"status": ["ended", "upgrade"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Mereväe allveelaevatõrje- ja transpordikopter (kasutusel alates 1981. aastast).",
         "crew": "3 + 2–3",
         "length": 11.3,
@@ -3897,8 +3894,7 @@ window.TTA_DATA = {
         "fuelCapacity": 2940
       },
       "notes": {
-        "sensors": "Ka-27M uuendus lisab AESA-radari.",
-        "productionStatus": "Ka-27 koptereid moderniseeritakse Ka-27M-iks."
+        "sensors": "Ka-27M uuendus lisab AESA-radari."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Ka-27", "url": "https://odin.t2com.army.mil/WEG/Asset/88f8ae48a9604b65064fcdab7146c6ae", "retrieved": "2026-10-28"},
@@ -3972,7 +3968,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "VKS ründelennuväepolk",
-        "productionStatus": {"status": ["ended", "upgrade"], "asOf": 2023},
+        "productionStatus": {"status": ["stocks"], "asOf": 2023},
         "purpose": "Ründelennuk maaväe lähitoetuseks.",
         "crew": "1",
         "length": 15.53,
@@ -3998,8 +3994,7 @@ window.TTA_DATA = {
       },
       "notes": {
         "combatRadius": "Merepinna lähedal 4400 kg relvakoormaga ja kahe lisapaagiga; lennuulatus suurel kõrgusel 1000 km.",
-        "maxSpeed": "Andmed kehtivad Su-25K kohta.",
-        "productionStatus": "Su-25 lennukeid moderniseeritakse Su-25SM3-ks."
+        "maxSpeed": "Andmed kehtivad Su-25K kohta."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Su-25", "url": "https://odin.t2com.army.mil/WEG/Asset/c8c6c485190bb3346d00e901fe24e7ef", "retrieved": "2026-10-28"},
@@ -4054,7 +4049,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "VKS segalennuväepolk; Mereväe lennuvägi",
-        "productionStatus": {"status": ["ended"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Taktikaline pommitaja.",
         "crew": "2",
         "length": 22.53,
@@ -4091,7 +4086,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Hävituslennukite polk",
-        "productionStatus": {"status": ["ended"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Õhuülekaalu hävitaja; hilisemad versioonid on mitmeotstarbelised.",
         "crew": "1",
         "length": 21.94,
@@ -4170,7 +4165,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe hävituslennukite polk",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Lennukikandjal baseeruv õhuülekaalu hävitaja.",
         "crew": "1",
         "length": 21.19,
@@ -4207,7 +4202,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Hävituslennukite polk",
-        "productionStatus": {"status": ["upgrade", "storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "Püüdurhävitaja.",
         "crew": "2",
         "length": 22.62,
@@ -4236,8 +4231,7 @@ window.TTA_DATA = {
       "notes": {
         "maxSpeed": "Kõrgusel 21 500 m; merepinna lähedal 1500 km/h (Mach 1,23).",
         "combatRadius": "1450 km kiirusel Mach 0,8 ja 10 000 m kõrgusel; 720 km kiirusel Mach 2,35 ja 18 000 m kõrgusel.",
-        "ferryRange": "3000 km 4 × R-33E ja kahe lisapaagiga; 5400 km ühe õhutankimisega.",
-        "productionStatus": "Laost võetud MiG-31B-d moderniseeritakse MiG-31BM-iks."
+        "ferryRange": "3000 km 4 × R-33E ja kahe lisapaagiga; 5400 km ühe õhutankimisega."
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: MiG-31", "url": "https://odin.t2com.army.mil/WEG/Asset/a4669ef1dd64227e040b5bfc32b11855", "retrieved": "2026-10-28"},
@@ -4250,7 +4244,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe hävituslennukite polk",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Õhuülekaalu hävitaja; paljud hilisemad versioonid on mitmeotstarbelised.",
         "crew": "1",
         "length": 17.37,
@@ -4291,7 +4285,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Kauglennuväe pommituslennuväediviis",
-        "productionStatus": {"status": ["upgrade"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Tuumarelva kandev strateegiline pommitaja ja tiibraketikandja.",
         "crew": "6–7",
         "length": 49.13,
@@ -4353,7 +4347,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Sõjaväetranspordilennuväe eskadrill; Mereväe segalennuväepolk",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Transpordilennuk; teisese ülesandena ka pommitamine.",
         "crew": "5",
         "length": 23.8,
@@ -4386,7 +4380,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Sõjaväetranspordilennuväe polk",
-        "productionStatus": {"status": ["ended", "storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "Suur strateegiline transpordilennuk.",
         "crew": "8",
         "length": 69.1,
@@ -4418,7 +4412,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "VKS kaugradarluure lennuväepolk",
-        "productionStatus": {"status": ["upgrade"], "asOf": 2023},
+        "productionStatus": {"status": ["stocks"], "asOf": 2023},
         "purpose": "Kaugradarluure- ja juhtimislennuk hävitajate juhtimiseks õhutõrje- ja maarünnakuülesannetel.",
         "crew": "5 + 10",
         "length": 46.6,
@@ -4448,7 +4442,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Kauglennuväe pommituslennuväepolk",
-        "productionStatus": {"status": ["upgrade"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Tuumarelva kandev kaugpommitaja strateegilisteks ja merelöökideks.",
         "crew": "4",
         "length": 42.46,
@@ -4484,7 +4478,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Kauglennuväe pommituslennuväediviis",
-        "productionStatus": {"status": ["new", "upgrade"], "asOf": 2025},
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Tuumarelva kandev raske strateegiline pommitaja ja kaugmaarakettide kandja.",
         "crew": "4",
         "length": 54.1,
@@ -5232,7 +5226,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Põhjalaevastik; Balti laevastik; Musta mere laevastik; Vaikse ookeani laevastik",
-        "productionStatus": {"status": ["ended"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Suur dessantlaev tankide, sõdurite ja lasti toimetamiseks rannale.",
         "standardDisplacement": 3450,
         "fullDisplacement": 4080,
@@ -5258,7 +5252,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Kaspia flotill; Musta mere laevastik; Balti laevastik",
-        "productionStatus": {"status": ["ended"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Väike raketilaev rannikuvööndis tegutsemiseks ja rannikualade kaitseks.",
         "standardDisplacement": 850,
         "fullDisplacement": 949,
@@ -5286,7 +5280,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Põhjalaevastik; Balti laevastik; Musta mere laevastik; Vaikse ookeani laevastik",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Raadio- ja elektroonilise luure laev.",
         "standardDisplacement": 3100,
         "fullDisplacement": 3470,
@@ -5312,7 +5306,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Balti laevastik",
-        "productionStatus": {"status": ["ended"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Korvett rannikuvete allveelaevatõrjeks.",
         "standardDisplacement": 800,
         "fullDisplacement": 950,
@@ -5338,7 +5332,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Balti laevastik",
-        "productionStatus": {"status": ["ended"], "asOf": 2023},
+        "productionStatus": {"status": ["stocks"], "asOf": 2023},
         "purpose": "Allveelaevatõrjefregatt.",
         "standardDisplacement": 3210,
         "fullDisplacement": 4400,
@@ -5518,7 +5512,7 @@ window.TTA_DATA = {
     "Sovremenny klass": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["ended"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Hävitaja pinnalaevade tõrjeks ning saadetavate laevade kaitseks mere- ja õhuohtude eest.",
         "standardDisplacement": 7940,
         "fullDisplacement": 8480,
@@ -5539,9 +5533,7 @@ window.TTA_DATA = {
         "aviation": "Kopter Ka-27, kopteriplatvorm ja teleskoopangaar",
         "sensors": "Fregat-MP, Mineral-ME, Ehkran, Orekh; hüdrolokaator MGK-355 Platina"
       },
-      "notes": {
-        "productionStatus": "Vene laevastikus on kõik selle klassi laevad teenistusest maha võetud."
-      },
+      "notes": {},
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Sovremenny klass", "url": "https://odin.t2com.army.mil/WEG/Asset/faa46cd6750dce3ce106a9076ae14a26", "retrieved": "2026-10-28"},
         {"name": "Wikipedia: Sovremennyy-class destroyer", "url": "https://en.wikipedia.org/wiki/Sovremennyy-class_destroyer", "retrieved": "2026-10-23"},
@@ -5608,7 +5600,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Balti laevastik; Vaikse ookeani laevastik; Põhjalaevastik",
-        "productionStatus": {"status": ["ended"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Väike raketilaev pinnalaevade tõrjeks.",
         "standardDisplacement": 569,
         "fullDisplacement": 671,
@@ -5634,7 +5626,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Vaikse ookeani laevastik; Balti laevastik; Põhjalaevastik; Musta mere laevastik",
-        "productionStatus": {"status": ["ended"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Dessantkaater tanki või dessantväelaste veoks.",
         "standardDisplacement": 90,
         "fullDisplacement": 145,
@@ -5657,7 +5649,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Kaspia flotill; Balti laevastik; Musta mere laevastik; Vaikse ookeani laevastik",
-        "productionStatus": {"status": ["ended"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Dessantkaater tanki või soomustransportööride veoks.",
         "fullDisplacement": 105,
         "autonomy": 1,
@@ -5682,7 +5674,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Põhjalaevastik; Vaikse ookeani laevastik; Balti laevastik; Kaspia flotill",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Rannikuvete miinitraaler.",
         "standardDisplacement": 400,
         "fullDisplacement": 450,
@@ -5777,7 +5769,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Musta mere laevastik",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Rannikuvete hüdrograafia- ja poide hoolduslaev; ümberehitatud laevu kasutatakse elektroonilise luure laevana.",
         "standardDisplacement": 1200,
         "fullDisplacement": 1542,
@@ -6001,7 +5993,7 @@ window.TTA_DATA = {
     "UAZ-469": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Sõjaväe kerge maastikusõiduk (toodetud alates 1971. aastast).",
         "driveConfig": "4×4",
         "combatWeight": 2.45,
@@ -6024,7 +6016,7 @@ window.TTA_DATA = {
     "GAZ-66": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Sõjaväe maastikuveok.",
         "driveConfig": "4×4",
         "loadCapacity": 2000,
@@ -6125,7 +6117,7 @@ window.TTA_DATA = {
     "BRDM-2 / BRDM-2M": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["storage"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "Ujuv soomustatud luureauto; mitme eriversiooni alus (keemialuure, tankitõrje, õhutõrje, juhtimine).",
         "crew": "4",
         "combatWeight": 7,
@@ -6158,7 +6150,7 @@ window.TTA_DATA = {
     "RKhM-4": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["ended"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "TBK-luuresoomuk kiirgus- ja keemialuureks.",
         "crew": "3",
         "combatWeight": 13.6,
@@ -8366,7 +8358,7 @@ window.TTA_DATA = {
     "BMP-1AM Basurmanin": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["upgrade"], "asOf": 2024},
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "Jalaväe lahingumasin, BMP-1 moderniseeritud versioon.",
         "combatWeight": 14.3,
         "length": 6.735,
@@ -8397,7 +8389,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Motolaskurbrigaad",
-        "productionStatus": {"status": ["upgrade"], "asOf": 2023},
+        "productionStatus": {"status": ["stocks"], "asOf": 2023},
         "purpose": "Jalaväe lahingumasin, BMP-2 moderniseeritud versioon.",
         "crew": "3 + 7",
         "combatWeight": 16,
@@ -8438,7 +8430,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Balti laevastik",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Luurelaevaks ümber ehitatud ahtertraaler.",
         "standardDisplacement": 1020,
         "fullDisplacement": 1238,
@@ -8624,7 +8616,7 @@ window.TTA_DATA = {
     "ZIL-131": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Üldotstarbeline sõjaväeveok.",
         "seats": "3 (kabiinis)",
         "driveConfig": "6×6",
@@ -8896,7 +8888,6 @@ window.TTA_DATA = {
         "specialEquipment": "Kolmeastmeline tahkekütusrakett. Jars: mitu iseseisvalt sihitavat lõhkepead, teistel andmetel 3 × 200 kt, hinnanguliselt kuni 4"
       },
       "notes": {
-        "productionStatus": "Uustootmine kehtib Jarsi kohta; Topol-M-i ei toodeta, see asendatakse Jarsiga.",
         "launchWeight": "Jarsi andmed. Topol-M: umbes 47 t, pikkus umbes 22,7 m, läbimõõt umbes 1,86 m, üks lõhkepea."
       },
       "sources": [
@@ -9231,7 +9222,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Kauglennuväe õhutankimispolk",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Õhutankur taktikaliste ja raskete lennukite tankimiseks.",
         "crew": "6",
         "length": 46.59,
@@ -9246,9 +9237,7 @@ window.TTA_DATA = {
         "ferryRange": 7300,
         "specialEquipment": "3 tankimisgondlit UPAZ Sahhalin: 2 tiibade all taktikaliste lennukite ja 1 kere tagaosas vasakul raskete lennukite tankimiseks; kütust kokku 138 t, sellest üleantav 105,7 t"
       },
-      "notes": {
-        "productionStatus": "Il-78M-i ehitati 1984–1993. Uusi ehitatakse versioonina Il-78M-90A (Venemaa tellimus 10 lennukit, tarneid pole teatatud)."
-      },
+      "notes": {},
       "sources": [
         {"name": "Wikipedia: Ilyushin Il-78", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-78", "retrieved": "2026-11-20"},
         {"name": "Wikipedia: Russian Long Range Aviation", "url": "https://en.wikipedia.org/wiki/Russian_Long_Range_Aviation", "retrieved": "2026-11-25"},
@@ -9258,7 +9247,7 @@ window.TTA_DATA = {
     "An-30 Clank": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Aerofotograafia- ja kaardistamislennuk; kasutatud ka Avatud taeva lepingu vaatluslendudel.",
         "crew": "7",
         "length": 24.26,
@@ -9285,7 +9274,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe segalennuväepolk",
-        "productionStatus": {"status": ["ended"], "asOf": 2025},
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "Raadio- ja elektroonilise luure lennuk.",
         "crew": "13",
         "length": 35.9,
@@ -9315,7 +9304,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe lennuvägi",
-        "productionStatus": {"status": ["ended", "upgrade"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Mereväe patrull- ja allveelaevatõrjelennuk.",
         "crew": "7–8",
         "length": 40.185,
@@ -9334,9 +9323,7 @@ window.TTA_DATA = {
         "ordnanceLoad": 9000,
         "sensors": "Otsinguradar Berkut („Wet Eye“) nina all; magnetanomaalia detektor (MAD) sabas. Il-38N: Novella P-38 (õhusihtmärgid kuni 90 km, pinnasihtmärgid kuni 320 km, 32 sihtmärki korraga)"
       },
-      "notes": {
-        "productionStatus": "Il-38 lennukeid moderniseeritakse Il-38N-iks."
-      },
+      "notes": {},
       "sources": [
         {"name": "Wikipedia: Ilyushin Il-38", "url": "https://en.wikipedia.org/wiki/Ilyushin_Il-38", "retrieved": "2026-11-20"},
         {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
@@ -9383,7 +9370,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Sõjaväelennukooli õppelennuväepolk",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Reaktiivõppelennuk pilootide alg- ja edasijõudnute väljaõppeks; kasutatud ka kerge ründelennukina.",
         "crew": "2",
         "length": 12.13,
@@ -9417,7 +9404,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Sõjaväetranspordilennuväe polk; Sõjaväetranspordilennuväe eskadrill; Mereväe lennuvägi",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Transpordilennuk lasti ja langevarjurite veoks.",
         "crew": "5",
         "length": 33.1,
@@ -9452,7 +9439,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "FSB piirivalve lennuvägi; VKS; Mereväe lennuvägi",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Lühikese stardi ja maandumisega (STOL) transpordilennuk.",
         "crew": "5",
         "length": 28.07,
@@ -10677,8 +10664,7 @@ window.TTA_DATA = {
         "ferryRange": 505
       },
       "notes": {
-        "length": "Andmed kehtivad Ansati põhiversiooni kohta.",
-        "productionStatus": "Uustootmine on kinnitatud tsiviil-Ansati kohta; Ansat-U tarnete kohta pärast 2017. aastat allikas puudub."
+        "length": "Andmed kehtivad Ansati põhiversiooni kohta."
       },
       "sources": [
         {"name": "Wikipedia: Kazan Ansat", "url": "https://en.wikipedia.org/wiki/Kazan_Ansat", "retrieved": "2026-11-25"},
@@ -10689,7 +10675,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe allveelaevatõrje lennuväepolk",
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Kaugmaa allveelaevatõrje- ja mereluurelennuk.",
         "crew": "11–13",
         "length": 53.08,
@@ -10756,7 +10742,7 @@ window.TTA_DATA = {
     "GAZ-3308": {
       "status": "unverified",
       "values": {
-        "productionStatus": {"status": ["ended"], "asOf": 2026},
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Kerge maastikuveok.",
         "driveConfig": "4×4",
         "loadCapacity": 2500,
