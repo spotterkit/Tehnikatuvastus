@@ -689,6 +689,8 @@ window.I18N_DATA = {
     "Õhk-maa rakett": "Air-to-surface missile",
     "Liugpomm": "Glide bomb",
     "Pomm": "Bomb",
+    "Õhutõrjekompleksi rakett": "Surface-to-air missile",
+    "Juhitamatu rakett": "Unguided rocket",
     "Sidesoomuk": "Signals vehicle",
     "Remondi- ja äraveomasin": "Repair and recovery vehicle",
     "KamAZ-5350 Ekskavaator": "KamAZ-5350 excavator",
@@ -913,6 +915,9 @@ window.I18N_DATA = {
   },
   // Mudelinimed, milles on eestikeelne sõna või eestipärane translitereering (võti = eestikeelne label).
   "labels": {
+    "9S470M1 (Buki juhtimissoomuk)": "9S470M1 (Buk command vehicle)",
+    "48N6/5V55 (S-300/S-400 raketid)": "48N6/5V55 (S-300/S-400 missiles)",
+    "Kh-47M2 Kinžal": "Kh-47M2 Kinzhal",
     "9M723 (Iskander-M rakett)": "9M723 (Iskander-M missile)",
     "TOS-2 Tosotška": "TOS-2 Tosochka",
     "Ropucha II / III klass": "Ropucha II / III class",
@@ -1037,6 +1042,7 @@ window.I18N_DATA = {
     "Ballistilised raketid": "Ballistic missiles",
     "Tiibraketid": "Cruise missiles",
     "Õhk-maa raketid": "Air-to-surface missiles",
+    "Maa-õhk raketid": "Surface-to-air missiles",
     "Liugpommid": "Glide bombs",
     "Pommid": "Bombs"
   },

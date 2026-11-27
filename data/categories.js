@@ -628,7 +628,7 @@ const CATEGORIES = [
   // Ballistilised raketid (group: "ballistic_missiles")
   { label: "9M723 (Iskander-M rakett)", group: "ballistic_missiles", type: "Ballistiline rakett", cat: "9M723", files: ["CombatLaunching2018-16.jpg", "CombatLaunching2018-19.jpg"] },
   { label: "Kh-47M2 Kinžal", group: "ballistic_missiles", type: "Ballistiline rakett", cat: "Kh-47M2 Kinžal", files: ["Disposal_of_a_missile_in_Kyiv%2C_2024-01-05_%281%29.jpg", "2018_Moscow_Victory_Day_Parade_66.jpg"] },
-  { label: "48N6/5V55 (S-300/S-400 raketid)", group: "ballistic_missiles", type: "Õhutõrjekompleksi rakett", cat: "48N6/5V55 (S-300/S-400 raketid)", files: ["S-400_missile_48N6E3.jpg"] },
+  { label: "48N6/5V55 (S-300/S-400 raketid)", group: "surface_to_air_missiles", type: "Õhutõrjekompleksi rakett", cat: "48N6/5V55 (S-300/S-400 raketid)", files: ["S-400_missile_48N6E3.jpg"] },
 
   // Tiibraketid (group: "cruise_missiles")
   { label: "Kh-101", group: "cruise_missiles", type: "Tiibrakett", cat: "Kh-101", files: ["H101_missile.jpg", "Russian_Kh-101_missile_shot_in_Vinnytsia_Oblast%2C_2023-01-26_%2801%29.jpg"] },
