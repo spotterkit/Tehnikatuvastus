@@ -293,7 +293,7 @@ const CATEGORIES = [
   { label: "STRELA-10/SA-13 Gopher", group: "ad", type: "Õhutõrjesoomuk", cat: "STRELA-10/SA-13 Gopher", files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%284%29.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%283%29.jpg", "MasteringTheArmament2018-01.jpg", "SummerAirborneExercise2018-36.jpg"] },
   { label: "Pantsir-S1/SA-22 Greyhound", group: "ad", type: "Õhutõrjekompleks", cat: "Pantsir-S1/SA-22 Greyhound", files: ["Astrakhan_Victory_Day_Parade_%28May_9_2015%29_Pantsir-S1_P5090721_2185.jpg", "Панцирь-С1.JPG", "Расчет_ЗРПК_«Панцирь»_уничтожил_ударный_беспилотник_UJ-22_Airborne_ВСУ_002.png"] },
   { label: "Buk-M1/SA-11 Gadfly", group: "ad", type: "Õhutõrjesoomuk", cat: "Buk-M1/SA-11 Gadfly", files: ["Buk-M1-2_9A310M1-2.jpg", "084_-_BUK-M1_SA-17_%27Grizzly%27_%2830927707757%29.jpg", "Engineering_Technologies_2010_Part3_0030_copy.jpg", "ParkPatriot2015part8-26.jpg", "ParkPatriot2015part8-25.jpg"] },
-  { label: "S-400 / S-300", group: "ad", type: "Õhutõrjekompleks", cat: "S-400 / S-300", files: ["Парад_2020_Симферополь_5.jpg", "Anniversary100YearsOld2018-07-18.jpg"] },
+  { label: "S-400 / S-300", group: "ad", type: "Õhutõrjekompleks", cat: "S-400 / S-300", files: ["Парад_2020_Симферополь_5.jpg", "Anniversary100YearsOld2018-07-18.jpg", "S-400_Triumf-34.jpg"] },
   { label: "Tor/SA-15 Gauntlet", group: "ad", type: "Õhutõrjesoomuk", cat: "Tor", files: ["TOR-2M_%2841072268085%29.jpg", "Tor-M2U_Army-2016.jpg", "Anti-AircraftExercise2019-11.jpg", "Холодноярівці_розбили_техніку_окупанта_на_Харківщині_09.jpg", "Anti-AircraftExercise2019-16.jpg"] },
   { label: "ZSU-23-4 Shilka", group: "ad", type: "Õhutõrjesoomuk", cat: "ZSU-23-4", files: ["Shilka_at_Tula_%282017%29.jpg", "ZSU-23-4M4_Shilka-M4_Armia2018.jpg", "Буча-2022_%2812%29.jpg", "%27Shylka%27_ZSU-23-4_ruso.png"] },
   { label: "2S6 Tunguska/SA-19 Grison", group: "ad", type: "Õhutõrjesoomuk", cat: "2S6 Tunguska", files: ["2S6M1_Tunguska_M1_at_ARMY-2016.JPG", "Самбекские_высоты%2C_Тунгуска.jpg", "2008_Moscow_Victory_Day_Parade_-_9K22_Tunguska.jpg", "Vostok-2018_military_manoeuvres_%282018-09-13%29_34.jpg"] },
@@ -368,7 +368,7 @@ const CATEGORIES = [
 
   // Pind-pind tüüpi juhitavad raketid
   { label: "9K720 Iskander/SS-26 Stone", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "9K720 Iskander/SS-26 Stone", files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg","Army-2023_vehicle_showcase_08.jpg", "A_camouflaged_Iskander-M_complex_during_an_exercise_in_Transbaikalia._June_2021.jpg", "Кадры_работы_расчетов_ОТРК_«Искандер»_002.png"] },
-  { label: "SS-21 Totška/SS-21 Scarab", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "SS-21 Totška/SS-21 Scarab", files: ["Tochka-U_rep_parad_Yekat.jpg", "ChemicalExercise2018-01.jpg"] },
+  { label: "SS-21 Totška/SS-21 Scarab", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "SS-21 Totška/SS-21 Scarab", files: ["Tochka-U_rep_parad_Yekat.jpg", "ChemicalExercise2018-01.jpg", "Army-2016_%282016-09-07%29_-_11.jpg"] },
   { label: "RS-24 Jars / Topol-M", group: "guided_ground_rockets", type: "Mandritevaheline ballistiline rakett", cat: "RS-24 Jars / Topol-M", files: ["April_9th_rehearsal_in_Alabino_of_2014_Victory_Day_Parade_(558-57).jpg"] },
   { label: "K-300P Bastion-P/SS-C-5 Stooge", group: "guided_ground_rockets", type: "Rannakaitse-raketikompleks", cat: "K-300P Bastion-P/SS-C-5 Stooge", files: ["Комплекс_Бастион_перед_пуском_ракет.jpg"] },
   { label: "3K60 Bal/SSC-6 Sennight", group: "guided_ground_rockets", type: "Rannakaitse-raketikompleks", cat: "3K60 Bal/SSC-6 Sennight", files: ["Crews_of_the_coastal_missile_system_Bal_of_the_Pacific_Fleet_perform_training_firings_01.jpg", "CoastalMissileExercise2018-06.jpg"] },
@@ -626,6 +626,8 @@ const CATEGORIES = [
 
   // Ballistilised raketid (group: "ballistic_missiles")
   { label: "9M723 (Iskander-M rakett)", group: "ballistic_missiles", type: "Ballistiline rakett", cat: "9M723", files: ["CombatLaunching2018-16.jpg", "CombatLaunching2018-19.jpg"] },
+  { label: "Kh-47M2 Kinžal", group: "ballistic_missiles", type: "Ballistiline rakett", cat: "Kh-47M2 Kinžal", files: ["Disposal_of_a_missile_in_Kyiv%2C_2024-01-05_%281%29.jpg", "2018_Moscow_Victory_Day_Parade_66.jpg"] },
+  { label: "48N6/5V55 (S-300/S-400 raketid)", group: "ballistic_missiles", type: "Õhutõrjekompleksi rakett", cat: "48N6/5V55 (S-300/S-400 raketid)", files: ["S-400_missile_48N6E3.jpg"] },
 
   // Tiibraketid (group: "cruise_missiles")
   { label: "Kh-101", group: "cruise_missiles", type: "Tiibrakett", cat: "Kh-101", files: ["H101_missile.jpg", "Russian_Kh-101_missile_shot_in_Vinnytsia_Oblast%2C_2023-01-26_%2801%29.jpg"] },
