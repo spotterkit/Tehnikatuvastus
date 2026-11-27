@@ -2316,6 +2316,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Tankitõrjeraketipatarei",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Tankitõrjesoomuk tankitõrjekompleksiga Krizantema.",
         "crew": "2",
         "chassis": "BMP-3, tornita",
@@ -2348,7 +2349,8 @@ window.TTA_DATA = {
         {"name": "Wikipedia: 9M123 Khrizantema", "url": "https://en.wikipedia.org/wiki/9M123_Khrizantema", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: BMP-3", "url": "https://en.wikipedia.org/wiki/BMP-3", "retrieved": "2026-11-25"},
         {"name": "FMSO/Army University Press (Grau & Bartles 2016): The Russian Way of War – Force Structure, Tactics and Modernization of the Russian Ground Forces", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
-        {"name": "Defense Express: While boasting about Khrizantemas, Russians prefer not to mention their not so successful Shturm-S and Kornet-T ATGMs (Jun 2023)", "url": "https://en.defence-ua.com/weapon_and_tech/while_boasting_about_khrizantemas_russians_prefer_not_to_mention_their_not_so_successful_shturm_s_and_kornet_t_atgms-7102.html", "retrieved": "2026-11-25"}
+        {"name": "Defense Express: While boasting about Khrizantemas, Russians prefer not to mention their not so successful Shturm-S and Kornet-T ATGMs (Jun 2023)", "url": "https://en.defence-ua.com/weapon_and_tech/while_boasting_about_khrizantemas_russians_prefer_not_to_mention_their_not_so_successful_shturm_s_and_kornet_t_atgms-7102.html", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russian army receives more anti-tank vehicles Shturm-S and Khrizantema-S despite economic sanctions (2023)", "url": "https://armyrecognition.com/news/army-news/2023/russian-army-receives-more-anti-tank-vehicles-shturm-s-and-khrizantema-s-despite-economic-sanctions", "retrieved": "2026-11-27"}
       ]
     },
     "9P162 Kornet-T": {
@@ -3607,6 +3609,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Õhudessantväed",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Õhudessantvägede kerge tankitõrje-liikurkahur; maaväes ja merejalaväes kasutatakse seda ka kerge ujuva tankina.",
         "crew": "3",
         "chassis": "Ujuv roomikšassii, hüdropneumaatiline vedrustus (kliirens 190–590 mm)",
@@ -3642,7 +3645,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2S25 Sprut-SD", "url": "https://odin.t2com.army.mil/WEG/Asset/e4add5b7dcaa7115fe56f9817c7cc1dd", "retrieved": "2026-10-28"},
         {"name": "Wikipedia: 2S25 Sprut-SD", "url": "https://en.wikipedia.org/wiki/2S25_Sprut-SD", "retrieved": "2026-10-23"},
-        {"name": "Army Recognition: Rostec showcases new Sprut-SDM1 light tank with upgraded armor kit at Army-2024", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2024/rostec-showcases-new-sprut-sdm1-light-tank-with-upgraded-armor-kit-at-army-2024", "retrieved": "2026-11-25"}
+        {"name": "Army Recognition: Rostec showcases new Sprut-SDM1 light tank with upgraded armor kit at Army-2024", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2024/rostec-showcases-new-sprut-sdm1-light-tank-with-upgraded-armor-kit-at-army-2024", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Rostec announces production of new 2S25M Sprut-SDM1 125mm amphibious light tank (2023)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2023/rostec-announces-production-of-new-2s25m-sprut-sdm1-125mm-amphibious-light-tank", "retrieved": "2026-11-27"}
       ]
     },
     "BTR-RD": {
@@ -3931,6 +3935,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe lennuvägi",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Mereväe kaugradarluure- ja juhtimiskopter.",
         "crew": "2",
         "length": 12.5,
@@ -3952,7 +3957,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: Ka-31", "url": "https://odin.t2com.army.mil/WEG/Asset/73afd902567e61e87b093258b8136ccf", "retrieved": "2026-10-28"},
         {"name": "Wikipedia: Kamov Ka-31", "url": "https://en.wikipedia.org/wiki/Kamov_Ka-31", "retrieved": "2026-10-23"},
-        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"}
+        {"name": "Militarnyi: Know Your Enemy: Russian Military Aviation in European Russia and Temporarily Occupied Crimea (8 Jan 2026)", "url": "https://militarnyi.com/en/blogs/know-your-enemy-russian-military-aviation-in-european-russia-and-temporarily-occupied-crimea/", "retrieved": "2026-11-25"},
+        {"name": "AIN: Russian Navy Inducts Kamov Ka-31R (2020)", "url": "https://backend.ainonline.com/aviation-news/defense/2020-03-25/russian-navy-inducts-kamov-ka-31r", "retrieved": "2026-11-27"}
       ]
     },
     "Mi-26": {
@@ -5769,6 +5775,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Balti laevastik",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Väike miinitraaler meremiinide otsimiseks sadamasissesõitudes, sadamates ja jõgedel.",
         "standardDisplacement": 131,
         "fullDisplacement": 135,
@@ -5793,6 +5800,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Balti laevastik; Musta mere laevastik",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kiire patrullkaater rannikuvete patrulliks, otsingu- ja päästetöödeks ning dessantväelaste veoks.",
         "fullDisplacement": 23,
         "length": 16.9,
@@ -5808,7 +5816,8 @@ window.TTA_DATA = {
         "atgm": "8 × 9M133 Kornet"
       },
       "sources": [
-        {"name": "Wikipedia: Raptor-class patrol boat", "url": "https://en.wikipedia.org/wiki/Raptor-class_patrol_boat", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: Raptor-class patrol boat", "url": "https://en.wikipedia.org/wiki/Raptor-class_patrol_boat", "retrieved": "2026-10-23"},
+        {"name": "Army Recognition: 17th Project 03160 Raptor-class patrol boat enters in service with Russian Navy (2020)", "url": "https://armyrecognition.com/news/navy-news/2020/17th-project-03160-raptor-class-patrol-boat-enters-in-service-with-russian-navy", "retrieved": "2026-11-27"}
       ]
     },
     "Moma klass": {
@@ -5976,6 +5985,7 @@ window.TTA_DATA = {
     "URAL-43206": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Maastikuveok, Ural-4320 variant.",
         "driveConfig": "4×4",
         "loadCapacity": 4200,
@@ -8636,6 +8646,7 @@ window.TTA_DATA = {
     "Kamaz-65225": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Veok raskete roomikmasinate veoks poolhaagisel.",
         "driveConfig": "6×6",
         "loadCapacity": 17000,
@@ -8655,6 +8666,7 @@ window.TTA_DATA = {
     "UAZ-3153 Hunter": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "driveConfig": "4×4",
         "combatWeight": 1.8,
         "length": 4.1,
@@ -8667,7 +8679,8 @@ window.TTA_DATA = {
         "driveConfig": "UAZ-3153 on UAZ-3151 pika teljevahega versioon; Hunter (UAZ-315195) on selle edasiarendus. Andmed on Hunteri kohta."
       },
       "sources": [
-        {"name": "VehicleSizes: UAZ Hunter (315195)", "url": "https://www.vehiclesizes.com/cars/uaz/hunter/hunter-315195-off-road-vehicle-2003", "retrieved": "2026-10-30"}
+        {"name": "VehicleSizes: UAZ Hunter (315195)", "url": "https://www.vehiclesizes.com/cars/uaz/hunter/hunter-315195-off-road-vehicle-2003", "retrieved": "2026-10-30"},
+        {"name": "MarkLines: UAZ, Russia resumes Hunter SUV production (2025)", "url": "https://www.marklines.com/en/news/333624", "retrieved": "2026-11-27"}
       ]
     },
     "Ulan": {
@@ -8866,6 +8879,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Rosgvardia; Siseväed; Eriüksus",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Mitmeotstarbeline ratassoomuk.",
         "crew": "3 + 6",
         "driveConfig": "4×4",
@@ -9027,6 +9041,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Rannakaitse raketibrigaad",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Rannakaitse laevavastane raketikompleks.",
         "chassis": "MZKT-7930 8×8",
         "missileLength": 4.4,
@@ -9040,7 +9055,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Weapon Systems: 3K60 Bal", "url": "https://weaponsystems.net/system/140-3K60%20Bal", "retrieved": "2026-10-30"},
-        {"name": "Army Recognition: Russian Navy strengthens its coastal missile brigades with Bal and Bastion systems", "url": "https://www.armyrecognition.com/archives/archives-naval-defense/naval-defense-2018/russian-navy-strengthens-its-coastal-missile-brigades-with-bal-and-bastion-systems", "retrieved": "2026-11-25"}
+        {"name": "Army Recognition: Russian Navy strengthens its coastal missile brigades with Bal and Bastion systems", "url": "https://www.armyrecognition.com/archives/archives-naval-defense/naval-defense-2018/russian-navy-strengthens-its-coastal-missile-brigades-with-bal-and-bastion-systems", "retrieved": "2026-11-25"},
+        {"name": "Forecast International: Russian Caspian Flotilla Receiving Bal Missile System (2020)", "url": "https://dsm.forecastinternational.com/2020/01/30/russian-caspian-flotilla-receiving-bal-missile-system/", "retrieved": "2026-11-27"}
       ]
     },
     "9T250": {
@@ -9746,6 +9762,7 @@ window.TTA_DATA = {
     "Shipovnik-Aero": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Droonitõrje elektroonilise võitluse kompleks (kasutusel alates 2016. aastast): avastab väikesed droonid, surub alla nende juhtimiskanali või võtab drooni üle.",
         "crew": "3",
         "chassis": "KamAZ-4350",
@@ -9760,7 +9777,8 @@ window.TTA_DATA = {
         "chassis": "Ainult foto allkirja järgi."
       },
       "sources": [
-        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"}
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"},
+        {"name": "EurAsian Times: Russia 'smashing' 330 Ukrainian UAVs per day; UK report (RUSI) on Russian electronic warfare (2023)", "url": "https://www.eurasiantimes.com/russia-smashing-330-ukrainian-uavs-per-day-uk-report-says-russian-electronic-warfare-wreaks-havoc-on-kyiv", "retrieved": "2026-11-27"}
       ]
     },
     "MKTK-1A Judoist": {
@@ -9782,6 +9800,7 @@ window.TTA_DATA = {
     "RP-377LA Lorandit": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "UKV-raadioside otsingu, asukoha määramise ja mahasurumise süsteem (kasutusel alates 2019. aastast).",
         "typicalUnit": "Elektroonilise võitluse rood",
         "crew": "2–3",
@@ -9794,7 +9813,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"},
-        {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"}
+        {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Ukrainian forces destroy RP-377LA Lorandit (2023)", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/ukrainian-forces-destroy-rp-377la-lorandit-crucial-player-in-russian-army-s-electronic-warfare", "retrieved": "2026-11-27"}
       ]
     },
     "Tirada-2S": {
@@ -10092,6 +10112,7 @@ window.TTA_DATA = {
     "Omitš-2": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Logistika- ja evakuatsioonirobot laskemoona ja varustuse veoks, ründegruppide transpordiks ja haavatute evakueerimiseks.",
         "crew": "0",
         "combatWeight": 0.65,
@@ -11022,6 +11043,7 @@ window.TTA_DATA = {
     "P-18-2 Prima": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Liikuv avastusradar; arendaja väitel avastab ka nähtamatuslennukeid.",
         "crew": "2",
         "radarBand": "VHF",
@@ -11032,7 +11054,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Radartutorial: P-18-2 Prima", "url": "https://www.radartutorial.eu/19.kartei/02.surv2/karte002.en.html", "retrieved": "2026-11-25"},
         {"name": "Shephard: Russia shows new anti-stealth digital VHF radar", "url": "https://www.shephardmedia.com/news/digital-battlespace/russia-shows-new-anti-stealth-digital-vhf-radar/", "retrieved": "2026-11-25"},
-        {"name": "Wikipedia: P-18 radar", "url": "https://en.wikipedia.org/wiki/P-18_radar", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: P-18 radar", "url": "https://en.wikipedia.org/wiki/P-18_radar", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Ukrainian Defense Forces Strike Russian P-18-2 Prima Radar for the First Time (2026)", "url": "https://militarnyi.com/en/news/ukrainian-defense-forces-strike-russian-p-18-2-prima-radar-for-the-first-time/", "retrieved": "2026-11-27"}
       ]
     },
     "S-350 Vitjaz/SA-28": {
@@ -11075,6 +11098,7 @@ window.TTA_DATA = {
     "K-53949 Taifun-K, 4x4": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Miinikindel soomusauto vägede ja sõjaväelasti veoks miiniohtlikel aladel.",
         "crew": "2 + 8",
         "driveConfig": "4×4",
@@ -11084,7 +11108,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Army Technology: Kamaz-53949 Typhoon-K", "url": "https://www.army-technology.com/projects/kamaz-53949-typhoon-k-armoured-vehicle/", "retrieved": "2026-11-25"},
-        {"name": "Defence Blog: Russia showcases its upgraded Typhoon-K armoured vehicle", "url": "https://defence-blog.com/russia-showcases-its-upgraded-typhoon-k-armoured-vehicle/", "retrieved": "2026-11-25"}
+        {"name": "Defence Blog: Russia showcases its upgraded Typhoon-K armoured vehicle", "url": "https://defence-blog.com/russia-showcases-its-upgraded-typhoon-k-armoured-vehicle/", "retrieved": "2026-11-25"},
+        {"name": "Defense Mirror: Rosoboronexport Launches Typhoon-K Armored Vehicle on the Foreign Market (2023)", "url": "https://defensemirror.com/news/34036", "retrieved": "2026-11-27"}
       ]
     },
     "MP-1IM": {
