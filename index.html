@@ -749,6 +749,10 @@
   .model-gallery.open{display:block;}
   .model-gallery-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:12px;}
   .model-gallery-title{font-family:var(--font-display);font-size:24px;color:var(--amber);font-weight:600;}
+  /* NATO nimi: väike hall märge nime järel (nimekiri, galerii pealkiri) ja eraldi real testi vastuse all */
+  .nato-tag{font-family:var(--font-body);font-size:11px;font-weight:400;color:var(--bone-dim);opacity:.8;letter-spacing:.02em;white-space:nowrap;}
+  .nato-tag-title{font-size:13px;vertical-align:middle;}
+  .nato-tag-answer{display:block;margin-top:4px;font-size:12px;}
   .model-gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;}
   .model-gallery-card{border:1px solid var(--line);background:var(--panel);min-height:230px;display:flex;flex-direction:column;}
   .model-gallery-imgwrap{height:280px;background:#0a0c07;display:flex;align-items:center;justify-content:center;overflow:hidden;}
@@ -1876,6 +1880,8 @@ function setTestRule(g, v, size){
   saveTestRules();
 }
 // Mitu mudelit grupist saab testi tulla, arvestades erireegleid (vt buildUniqueVehiclePool).
+// Su-27 pere (testis max 1). Seotud cat-iga, sest nimi võib muutuda (vrd NATO nimed nimes, rc134).
+const SU27_FAMILY_CATS = ['Su-27', 'Su-30', 'Sukhoi Su-33', 'Sukhoi Su-35'];
 function testGroupModelCap(g, all){
   const es = CATEGORIES.filter(e => e.group === g && e.files && e.files.length > 0 && (all || !testExcluded.has(e.cat)));
   let n = es.length;
@@ -1884,7 +1890,7 @@ function testGroupModelCap(g, all){
     capTo1(e => (e.typeEt || e.type) === 'Sillatank');
     capTo1(e => (e.typeEt || e.type) === 'Sillamasin' || (e.typeEt || e.type) === 'Pontoonsillapark');
   }
-  if(g === 'planes') capTo1(e => ['Su-27', 'Su-30', 'Su-33', 'Su-35'].includes(e.label));
+  if(g === 'planes') capTo1(e => SU27_FAMILY_CATS.includes(e.cat));
   if(g === 'ad') capTo1(e => (e.typeEt || e.type) === 'ÕT radar');
   return n;
 }
@@ -2042,7 +2048,7 @@ function buildUniqueVehiclePool(n){
       if(((entry.typeEt || entry.type) === 'Sillamasin' || (entry.typeEt || entry.type) === 'Pontoonsillapark') && subtypeCounts.bridgeVehicleOrPontoon >= 1) continue;
     }
 
-    const isSu27Family = entry.group === 'planes' && ['Su-27', 'Su-30', 'Su-33', 'Su-35'].includes(entry.label);
+    const isSu27Family = entry.group === 'planes' && SU27_FAMILY_CATS.includes(entry.cat);
     if(isSu27Family && subtypeCounts.su27Family >= 1) continue;
 
     const isAdRadar = entry.group === 'ad' && (entry.typeEt || entry.type) === 'ÕT radar';
@@ -2490,6 +2496,8 @@ function fillAnswerBlock(cur, guessText){
     ? 'Sinu vastus: <b>' + guessText.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</b>'
     : (document.body.classList.contains('touch-answer') && !document.body.classList.contains('typing-open') ? '' : 'Vastus jäeti tühjaks.');
   correctValue.textContent = I18N.answerText(cur.label, cur.type);
+  const ant = natoTag(cur, 'nato-tag-answer');   // NATO nimi väikselt vastuse all (ei ole vastuse osa)
+  if(ant) correctValue.appendChild(ant);
   fileLine.innerHTML = '';
   fileLine.appendChild(sourceLinkLine(cur));
 
@@ -2993,7 +3001,7 @@ function modelInStatusFilter(e){
 //  * mitu sõna: iga sõna peab leiduma (järjekord ei loe), nt „luure droon“;
 //  * otsitakse nimest, liigist ja cat-ist; inglise keeles ka eestikeelsest nimest ja liigist.
 function searchNorm(t){
-  return String(t || '').toLocaleLowerCase('et')
+  return String(t || '').toLocaleLowerCase('et').replace(/×/g, 'x')   // rattavalem: „6×6“ = „6x6“
     .replace(/tš|ch/g, 'c').replace(/š|sh/g, 's').replace(/ž|zh/g, 'z').replace(/kh/g, 'h').replace(/y/g, 'j')
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^0-9a-z\u0400-\u04ff]+/g, '');
@@ -3028,8 +3036,11 @@ function searchHit(f, w){
 // Kas mudel sobib? Tagastab järjestuse numbri (0 = nimi algab päringuga, 1 = nimes, 2 = mujal) või -1.
 function modelSearchRank(e, sq){
   if(!sq) return 0;
-  const names = [e.label, e.labelEt].filter(Boolean).map(searchField);
-  const fields = names.concat([e.type, e.typeEt, e.cat].filter(Boolean).map(searchField));
+  const names = [e.label, e.labelEt, e.nato].filter(Boolean).map(searchField);   // NATO nimi loeb nimena
+  // aka = muud nimed (ainult otsing); rattavalem TTA-st (nt „6x6“ leiab kõik 6×6 masinad)
+  const tr = (window.TTA_DATA && window.TTA_DATA.models && window.TTA_DATA.models[e.cat]) || null;
+  const drive = ((tr && tr.values && tr.values.driveConfig) || '').match(/\d+\s*[×x]\s*\d+/);
+  const fields = names.concat([e.type, e.typeEt, e.cat, drive && drive[0]].concat(e.aka || []).filter(Boolean).map(searchField));
   const hit = w => fields.some(f => searchHit(f, w));
   if(!hit(sq.whole) && !sq.words.every(hit)) return -1;
   if(names.some(f => f.s.startsWith(sq.whole))) return 0;
@@ -3109,6 +3120,8 @@ function renderModelList(filterText = ''){
       const n = document.createElement('span');
       n.className = 'm-name';
       n.textContent = e.label;
+      const nt = natoTag(e);
+      if(nt){ n.append(' '); n.appendChild(nt); }
 
       const t = document.createElement('span');
       t.className = 'm-type';
@@ -3522,6 +3535,23 @@ function renderTTAPanel(entry, record){
 // `better` ("higher"/"lower"); massi, mõõtmeid ja teksti ei hinnata.
 // ---------------------------------------------------------------------------
 function entryByCat(cat){ return CATEGORIES.find(e => e.cat === cat) || null; }
+// NATO nimi (categories.js väli `nato`) – ainult siis, kui see pole juba nimes (et sama asi ei korduks).
+function natoOf(e){
+  if(!e) return '';
+  const nato = e.nato || ((e.cat && entryByCat(e.cat)) || {}).nato || '';
+  if(!nato) return '';
+  const k = s => String(s || '').toLocaleLowerCase().replace(/[^0-9a-z]+/g, '');
+  return k(e.labelEt || e.label).includes(k(nato)) ? '' : nato;
+}
+// Väike hall NATO märge nime järele (nimekiri, galerii pealkiri, testi vastus).
+function natoTag(e, cls){
+  const nato = natoOf(e);
+  if(!nato) return null;
+  const s = document.createElement('span');
+  s.className = 'nato-tag' + (cls ? ' ' + cls : '');
+  s.textContent = 'NATO: ' + nato;
+  return s;
+}
 
 // WHAT "related": kui "cat" puudub, otsitakse mudel nime järgi (sidekriipsud, tühikud, jutumärgid ei loe).
 // 1) täpne vaste cat-i või label-iga; 2) cat/label algab nimega + tühik/"/"/"(" (nt "BMM-3" → "BMM-3 Vetluga").
@@ -3992,6 +4022,8 @@ async function openModelGallery(entry, tab, opts){
   updateGalleryBack();
   modelGalleryEyebrow.textContent = entry.type || GROUP_ENTRY_NOUN[entry.group] || 'Mudel';
   modelGalleryTitle.textContent = entry.label;
+  const gnt = natoTag(entry, 'nato-tag-title');
+  if(gnt){ modelGalleryTitle.append(' '); modelGalleryTitle.appendChild(gnt); }
   modelGalleryGrid.innerHTML = '';
   showPhotosView(entry);
   mgPanels.tta.innerHTML = '';
@@ -7372,7 +7404,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc134'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc135'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
