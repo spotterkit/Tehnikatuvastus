@@ -294,7 +294,7 @@ const CATEGORIES = [
   { label: "STRELA-10/SA-13 Gopher", group: "ad", type: "Õhutõrjesoomuk", cat: "STRELA-10/SA-13 Gopher", files: ["9A35_combat_vehicle_9K35_Strela-10_-_TankBiathlon14part2-37.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%284%29.jpg", "9A34_Strela-10_-_4th_Separate_Tank_Brigade_%283%29.jpg", "MasteringTheArmament2018-01.jpg", "SummerAirborneExercise2018-36.jpg"] },
   { label: "Pantsir-S1/SA-22 Greyhound", group: "ad", type: "Õhutõrjekompleks", cat: "Pantsir-S1/SA-22 Greyhound", files: ["Astrakhan_Victory_Day_Parade_%28May_9_2015%29_Pantsir-S1_P5090721_2185.jpg", "Панцирь-С1.JPG", "Расчет_ЗРПК_«Панцирь»_уничтожил_ударный_беспилотник_UJ-22_Airborne_ВСУ_002.png"] },
   { label: "Buk-M1/SA-11 Gadfly", group: "ad", type: "Õhutõrjesoomuk", cat: "Buk-M1/SA-11 Gadfly", files: ["Buk-M1-2_9A310M1-2.jpg", "084_-_BUK-M1_SA-17_%27Grizzly%27_%2830927707757%29.jpg", "Engineering_Technologies_2010_Part3_0030_copy.jpg", "ParkPatriot2015part8-26.jpg", "ParkPatriot2015part8-25.jpg"] },
-  { label: "S-400 / S-300", group: "ad", type: "Õhutõrjekompleks", cat: "S-400 / S-300", files: ["Парад_2020_Симферополь_5.jpg", "Anniversary100YearsOld2018-07-18.jpg", "S-400_Triumf-34.jpg"] },
+  { label: "S-400/S-300", group: "ad", type: "Õhutõrjekompleks", cat: "S-400/S-300", files: ["Парад_2020_Симферополь_5.jpg", "Anniversary100YearsOld2018-07-18.jpg", "S-400_Triumf-34.jpg"] },
   { label: "Tor/SA-15 Gauntlet", group: "ad", type: "Õhutõrjesoomuk", cat: "Tor", files: ["TOR-2M_%2841072268085%29.jpg", "Tor-M2U_Army-2016.jpg", "Anti-AircraftExercise2019-11.jpg", "Холодноярівці_розбили_техніку_окупанта_на_Харківщині_09.jpg", "Anti-AircraftExercise2019-16.jpg"] },
   { label: "ZSU-23-4 Shilka", group: "ad", type: "Õhutõrjesoomuk", cat: "ZSU-23-4", files: ["Shilka_at_Tula_%282017%29.jpg", "ZSU-23-4M4_Shilka-M4_Armia2018.jpg", "Буча-2022_%2812%29.jpg", "%27Shylka%27_ZSU-23-4_ruso.png"] },
   { label: "2S6 Tunguska/SA-19 Grison", group: "ad", type: "Õhutõrjesoomuk", cat: "2S6 Tunguska", files: ["2S6M1_Tunguska_M1_at_ARMY-2016.JPG", "Самбекские_высоты%2C_Тунгуска.jpg", "2008_Moscow_Victory_Day_Parade_-_9K22_Tunguska.jpg", "Vostok-2018_military_manoeuvres_%282018-09-13%29_34.jpg"] },
@@ -307,7 +307,7 @@ const CATEGORIES = [
   { label: "96L6 Cheese Board", group: "ad", type: "ÕT radar", cat: "96L6 Cheese Board", files: ["96L6-TsP_radar_%284%29.png", "96L6E_radar_radar_-_100th_Anniversary_VVS-R_-01.jpg", "96L6-TsP_radar_%283%29.png"] },
   { label: "PPRU-1/PPRU-M1", group: "ad", type: "ÕT luure- ja juhtimissoomuk", cat: "PPRU-1/PPRU-M1", files: ["PPRU-1.jpg", "images/ad/PPRU-M1.jpg", "4thGuardsTankDivisionExercises2011_07.jpg"] },
   { label: "9S912", group: "ad", type: "ÕT juhtimissoomuk", cat: "9S912", files: ["4thGuardsTankDivisionExercises2011_14.jpg"] },
-  { label: "1L119 NEBO-SVU", group: "ad", type: "ÕT radar", cat: "1L119 NEBO-SVU", files: ["images/ad/nebosvu.jpg"] },
+  { label: "1L119 Nebo-SVU", group: "ad", type: "ÕT radar", cat: "1L119 NEBO-SVU", files: ["images/ad/nebosvu.jpg"] },
   { label: "9M337 Sosna-R", group: "ad", type: "Õhutõrjesoomuk", cat: "9M337 Sosna-R", files: ["Army-2018-56.jpg", "images/ad/sosna_01.jpg", "Army-2018-57.jpg"] },
   { label: "Buk-M3/SA-27 Gollum", group: "ad", type: "Õhutõrjesoomuk", cat: "Buk-M3/SA-27 Gollum", files: ["9A317M_Armia2018.jpg", "Расчеты_ЗРК_«Бук-М3»_отразили_удар_условного_противника_по_пункту_базирования_кораблей_Каспийской_флотилии_в_Дагестане.jpg"] },
   { label: "PU-12 (9S482)", group: "ad", type: "ÕT juhtimissoomuk", cat: "PU-12 (9S482)", files: ["BTR_60_-_PU-12.JPG"] },
@@ -323,6 +323,7 @@ const CATEGORIES = [
   { label: "9S32M (S-300 juhtimisradar)", group: "ad", type: "ÕT radar", cat: "9S32M", files: ["9S32_engagement_radar_-2.jpg", "S-300V_-_9S32_engagement_radar.jpg"] },
   { label: "39N6 Kasta-2E2", group: "ad", type: "ÕT radar", cat: "39N6", files: ["39N6E_Kasta-2E2_radar_-_100th_Anniversary_VVS-R_-02.jpg"] },
   { label: "Valdai", group: "ad", type: "Droonitõrje radar", cat: "Valdai", files: ["images/ad/valdai.jpg"] },
+  { label: "RLM-D (Nebo-M)", group: "ad", type: "ÕT radar", cat: "RLM-D (Nebo-M)", files: ["RLM-D_component_of_the_Nebo_M_-03.jpg"] },
 
   // Tankitõrjesoomukid
   { label: "9P149 Shturm-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P149 Shturm-S", files: ["9P149.jpg", "Штурм-С_-_Контрольная_проверка_курсантов_Учебного_центра_боевого_применения_ракетных_войск_и_артиллерии_02.jpg", "images/antitank/shturms_01.jpg", "Army2016demo-028.jpg", "Battle_of_Konotop_24.jpg"] },
@@ -374,7 +375,7 @@ const CATEGORIES = [
   // Pind-pind tüüpi juhitavad raketid
   { label: "9K720 Iskander/SS-26 Stone", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "9K720 Iskander/SS-26 Stone", files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg","Army-2023_vehicle_showcase_08.jpg", "A_camouflaged_Iskander-M_complex_during_an_exercise_in_Transbaikalia._June_2021.jpg", "Кадры_работы_расчетов_ОТРК_«Искандер»_002.png"] },
   { label: "SS-21 Totška/SS-21 Scarab", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "SS-21 Totška/SS-21 Scarab", files: ["Tochka-U_rep_parad_Yekat.jpg", "ChemicalExercise2018-01.jpg", "Army-2016_%282016-09-07%29_-_11.jpg"] },
-  { label: "RS-24 Jars / Topol-M", group: "guided_ground_rockets", type: "Mandritevaheline ballistiline rakett", cat: "RS-24 Jars / Topol-M", files: ["April_9th_rehearsal_in_Alabino_of_2014_Victory_Day_Parade_(558-57).jpg", "Moscow_Victory_Day_Parade_%282019%29_08.jpg"] },
+  { label: "RS-24 Jars/Topol-M", group: "guided_ground_rockets", type: "Mandritevaheline ballistiline rakett", cat: "RS-24 Jars/Topol-M", files: ["April_9th_rehearsal_in_Alabino_of_2014_Victory_Day_Parade_(558-57).jpg", "Moscow_Victory_Day_Parade_%282019%29_08.jpg"] },
   { label: "K-300P Bastion-P/SS-C-5 Stooge", group: "guided_ground_rockets", type: "Rannakaitse-raketikompleks", cat: "K-300P Bastion-P/SS-C-5 Stooge", files: ["Комплекс_Бастион_перед_пуском_ракет.jpg"] },
   { label: "3K60 Bal/SSC-6 Sennight", group: "guided_ground_rockets", type: "Rannakaitse-raketikompleks", cat: "3K60 Bal/SSC-6 Sennight", files: ["Crews_of_the_coastal_missile_system_Bal_of_the_Pacific_Fleet_perform_training_firings_01.jpg", "CoastalMissileExercise2018-06.jpg"] },
   { label: "9T250", group: "guided_ground_rockets", type: "Iskanderi laadimismasin", cat: "9T250", files: ["CombatLaunching2018-10.jpg"] },
@@ -645,12 +646,14 @@ const CATEGORIES = [
   // Õhk-maa raketid (group: "air_to_surface_missiles")
   { label: "Kh-35", group: "air_to_surface_missiles", type: "Õhk-maa rakett", cat: "Kh-35", files: ["Kh-35E_fol_maks2009.jpg"] },
   { label: "S-8 (80 mm)", group: "air_to_surface_missiles", type: "Juhitamatu rakett", cat: "S-8", files: ["Yellow_Mig-23_rocket_pod_MW.JPG", "Interpolitex2015part1-39.jpg"] },
+  { label: "Vihr-1 (9K121)", group: "air_to_surface_missiles", type: "Laserjuhitav tankitõrjerakett", cat: "Vikhr-1", files: ["Vikhr-1_mockup_at_ARMY-2022b.JPG", "9K121_AT12_MAKS2005.jpg"] },
 
   // Liugpommid (group: "glide_bombs")
   { label: "UMPK (FAB-250/500/1500/3000)", group: "glide_bombs", type: "Liugpomm", cat: "UMPK", files: ["FAB-3000_with_UMPK_kit.png", "FAB-250_bomb_with_UMPK_kit_-_2024.jpg", "FAB-500T_with_a_UMPK_kit.png"] },
   { label: "UMPB D-30SN", group: "glide_bombs", type: "Liugpomm", cat: "UMPB", files: ["images/glide_bombs/umpb.jpg"] },
 
   // Pommid (group: "bombs")
-  // { label: "", group: "bombs", type: "Pomm", cat: "", files: [] },
+  { label: "FAB-500", group: "bombs", type: "Pomm", cat: "FAB-500", files: ["Disposal_of_an_air-dropped_bomb_FAB-500_in_Donetsk_Oblast%2C_2024-04-02_%2805%29.jpg"] },
+  { label: "OFAB-250-270", group: "bombs", type: "Pomm", cat: "OFAB-250-270", files: ["ОФАБ-250-270_-_МАКС-2009_01.jpg"] },
 
 ];
