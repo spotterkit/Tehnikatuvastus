@@ -2940,8 +2940,9 @@ function renderHome(){
     const n = withPhotosAll.filter(e => ids.has(e.group)).length;
     if(n) statParts.push(PARENT_STATS_WORD[p] + ' <b>' + n + '</b>');
   });
-  statParts.push('Pilte kokku <b>' + stats.totalPhotos + '</b>');
-  statsLine.innerHTML = statParts.join(' · ');
+  // „Pilte kokku“ on oma real keskel
+  statsLine.innerHTML = statParts.join(' · ') +
+    '<div style="text-align:center;margin-top:4px;">Pilte kokku <b>' + stats.totalPhotos + '</b></div>';
 
   updatePracticeButton();
 }
@@ -7362,7 +7363,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc130'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc131'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
