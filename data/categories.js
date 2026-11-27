@@ -625,10 +625,11 @@ const CATEGORIES = [
   // ----- RAKETID JA POMMID (ülemine kategooria „Raketid ja pommid“) – ainult rakett/pomm ise, heitja jääb oma gruppi -----
 
   // Ballistilised raketid (group: "ballistic_missiles")
-  // { label: "", group: "ballistic_missiles", type: "Ballistiline rakett", cat: "", files: [] },
+  { label: "9M723 (Iskander-M rakett)", group: "ballistic_missiles", type: "Ballistiline rakett", cat: "9M723", files: ["CombatLaunching2018-16.jpg", "CombatLaunching2018-19.jpg"] },
 
   // Tiibraketid (group: "cruise_missiles")
-  // { label: "", group: "cruise_missiles", type: "Tiibrakett", cat: "", files: [] },
+  { label: "Kh-101", group: "cruise_missiles", type: "Tiibrakett", cat: "Kh-101", files: ["H101_missile.jpg", "Russian_Kh-101_missile_shot_in_Vinnytsia_Oblast%2C_2023-01-26_%2801%29.jpg"] },
+  { label: "3M-14 Kalibr", group: "cruise_missiles", type: "Tiibrakett", cat: "Kalibr", files: ["3M-14E_submarine_launched_land_attack_cruise_missile_from_Kalibr-PLE-Club-S_system_01.jpg"] }, 
 
   // Õhk-maa raketid (group: "air_to_surface_missiles")
   // { label: "", group: "air_to_surface_missiles", type: "Õhk-maa rakett", cat: "", files: [] },
