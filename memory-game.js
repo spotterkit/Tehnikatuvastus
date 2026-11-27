@@ -149,26 +149,77 @@ function renderConfig(){
     <div class="mm-cfg-count" id="memCount" aria-live="polite"></div>
     <div class="row"><button type="button" class="primary" id="memStart" style="flex:1;">Alusta</button></div>`;
   const grid = cfg.querySelector('#memGroups');
-  rows.forEach(({g, n}) => {
-    const label = document.createElement('label'); label.className = 'kuld-group-check';
+  const groupLabel = (g, n) => {
+    const label = document.createElement('label'); label.className = 'kuld-group-check' + (g.parent ? ' mm-sub' : '');
+    if(g.parent){ label.dataset.parent = g.parent; label.hidden = !openParents.has(g.parent); }
     const cb = document.createElement('input'); cb.type = 'checkbox'; cb.value = g.id; cb.checked = sel.has(g.id);
-    cb.addEventListener('change', () => { syncGroupsFromChecks(); updateConfigCount(); });
+    cb.addEventListener('change', () => { syncGroupsFromChecks(); syncParentChecks(); updateConfigCount(); });
     const nm = document.createElement('span'); nm.className = 'kg-name'; nm.textContent = g.label;
     const ct = document.createElement('span'); ct.className = 'kg-count'; ct.textContent = groupCountLabel(g.id, n);
-    label.append(cb, nm, ct); grid.appendChild(label);
+    label.append(cb, nm, ct);
+    return label;
+  };
+  // Ülemine kategooria (Seadmed, Raketid ja pommid) on plokk: linnuke valib kõik alamgrupid, ▸ avab alamgrupid.
+  const parentRow = p => {
+    const subs = rows.filter(x => x.g.parent === p);
+    const row = document.createElement('div'); row.className = 'kuld-group-check mm-parent'; row.dataset.parentRow = p;
+    const cb = document.createElement('input'); cb.type = 'checkbox'; cb.setAttribute('aria-label', GROUP_PARENTS[p]);
+    cb.addEventListener('change', () => {
+      grid.querySelectorAll(`label[data-parent="${p}"] input`).forEach(c => c.checked = cb.checked);
+      syncGroupsFromChecks(); syncParentChecks(); updateConfigCount();
+    });
+    const nm = document.createElement('button'); nm.type = 'button'; nm.className = 'kg-name mm-parent-name';
+    const open = openParents.has(p);
+    nm.setAttribute('aria-expanded', String(open));
+    const caret = document.createElement('span'); caret.className = 'tr-caret'; caret.textContent = open ? '▾' : '▸';
+    const txt = document.createElement('span'); txt.textContent = GROUP_PARENTS[p];
+    nm.append(caret, ' ', txt);
+    nm.addEventListener('click', () => {
+      const nowOpen = !openParents.has(p);
+      if(nowOpen) openParents.add(p); else openParents.delete(p);
+      nm.setAttribute('aria-expanded', String(nowOpen));
+      caret.textContent = nowOpen ? '▾' : '▸';
+      grid.querySelectorAll(`label[data-parent="${p}"]`).forEach(l => l.hidden = !nowOpen);
+    });
+    const ct = document.createElement('span'); ct.className = 'kg-count';
+    ct.textContent = groupCountLabel(subs[0].g.id, subs.reduce((a, x) => a + x.n, 0));
+    row.append(cb, nm, ct);
+    return row;
+  };
+  const seenParents = new Set();
+  rows.forEach(({g, n}) => {
+    if(g.parent && !seenParents.has(g.parent)){
+      seenParents.add(g.parent);
+      grid.appendChild(parentRow(g.parent));
+      rows.filter(x => x.g.parent === g.parent).forEach(x => grid.appendChild(groupLabel(x.g, x.n)));
+    }
+    if(!g.parent) grid.appendChild(groupLabel(g, n));
   });
+  syncParentChecks();
   cfg.querySelectorAll('#memSizeRow .seg').forEach(b => b.addEventListener('click', () => {
     prefs.size = Number(b.dataset.n); savePrefs();
     cfg.querySelectorAll('#memSizeRow .seg').forEach(x => x.classList.toggle('is-on', x === b));
     updateConfigCount();
   }));
-  cfg.querySelector('#memAll').addEventListener('click', () => { grid.querySelectorAll('input').forEach(c => c.checked = true); syncGroupsFromChecks(); updateConfigCount(); });
-  cfg.querySelector('#memNone').addEventListener('click', () => { grid.querySelectorAll('input').forEach(c => c.checked = false); syncGroupsFromChecks(); updateConfigCount(); });
+  cfg.querySelector('#memAll').addEventListener('click', () => { grid.querySelectorAll('input').forEach(c => c.checked = true); syncGroupsFromChecks(); syncParentChecks(); updateConfigCount(); });
+  cfg.querySelector('#memNone').addEventListener('click', () => { grid.querySelectorAll('input').forEach(c => c.checked = false); syncGroupsFromChecks(); syncParentChecks(); updateConfigCount(); });
   cfg.querySelector('#memStart').addEventListener('click', () => startGame());
   updateConfigCount();
 }
+const openParents = new Set();   // avatud ülemised kategooriad (ainult selle seansi jooksul)
+// Ploki linnuke: kõik alamgrupid valitud = linnuke, osa = poolik.
+function syncParentChecks(){
+  cfg.querySelectorAll('#memGroups [data-parent-row]').forEach(row => {
+    const p = row.dataset.parentRow;
+    const subs = [...cfg.querySelectorAll(`#memGroups label[data-parent="${p}"] input`)];
+    const n = subs.filter(c => c.checked).length;
+    const cb = row.querySelector('input');
+    cb.checked = subs.length > 0 && n === subs.length;
+    cb.indeterminate = n > 0 && n < subs.length;
+  });
+}
 function syncGroupsFromChecks(){
-  const boxes = [...cfg.querySelectorAll('#memGroups input')];
+  const boxes = [...cfg.querySelectorAll('#memGroups input[value]')];
   // Kõik valitud → null: siis on ka hiljem lisanduvad grupid automaatselt valitud.
   prefs.groups = boxes.every(c => c.checked) ? null : boxes.filter(c => c.checked).map(c => c.value);
   savePrefs();

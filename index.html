@@ -354,6 +354,10 @@
   .kuld-group-check input{width:16px;height:16px;accent-color:var(--olive);flex:0 0 auto;}
   .kuld-group-check .kg-name{flex:1;font-size:11px;line-height:1.3;}
   .kuld-group-check .kg-count{font-size:9px;color:var(--bone-dim);white-space:nowrap;}
+  .kuld-group-check.mm-parent{grid-column:1 / -1;border-left:3px solid var(--olive);cursor:default;}
+  .mm-parent .mm-parent-name{background:none;border:0;padding:0;color:inherit;font:inherit;font-size:11px;font-weight:700;text-align:left;cursor:pointer;}
+  .kuld-group-check.mm-sub{margin-left:18px;}
+  .kuld-group-check.mm-sub[hidden]{display:none;}
   .kuld-panel{border-top:1px solid var(--line);}
   .kuld-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;}
   .kuld-eyebrow{font-size:10px;color:var(--bone-dim);letter-spacing:.14em;text-transform:uppercase;}
@@ -1270,8 +1274,12 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     for(const p of patterns){
       const m = n.match(p.re);
       if(!m) continue;
+      const seen = {};   // sama nimi mitu korda ({n} … {n}): k-s esinemine tõlkes = k-s esinemine originaalis
       return p.out.replace(/\{(\w+)\}/g, (all, name) => {
-        const i = p.names.indexOf(name);
+        const k = seen[name] = (seen[name] || 0) + 1;
+        let i = -1;
+        for(let j = 0, c = 0; j < p.names.length; j++) if(p.names[j] === name && ++c === k){ i = j; break; }
+        if(i < 0) i = p.names.indexOf(name);
         if(i < 0) return all;
         const v = m[i + 1];
         if(name[0] === 'n' || name[0] === 'q' || produced.has(norm(v))) return v;   // {q…} = nimi vms, jääb nagu on
@@ -4661,25 +4669,44 @@ function clearAllGroups(){
 
 
 const KULD_VARIA_ID = 'kuld_varia';
+// Ülemine kategooria (Seadmed, Raketid ja pommid) on kuldvillakus üks plokk: alamgrupid koos ühes tulbas.
+const KULD_PARENT_PREFIX = 'kuld_parent_';
+const kuldParentOf = id => String(id || '').startsWith(KULD_PARENT_PREFIX) ? id.slice(KULD_PARENT_PREFIX.length) : null;
+const kuldParentCount = p => groupsOfParent(p).reduce((sum, id) => sum + countEligible(id), 0);
+// Kuldvillaku „väikesed“ üksused: tavalised alla 5 kirjega grupid ja kõik alamgrupid, mille plokis on kokku alla 5 kirje.
+function kuldSmallGroupIds(){
+  return GROUPS.filter(g => {
+    const n = countEligible(g.id);
+    if(n === 0) return false;
+    return g.parent ? kuldParentCount(g.parent) < 5 : n < 5;
+  }).map(g => g.id);
+}
 
 function getKuldGroupDefs(){
-  const normal = GROUPS.filter(g => countEligible(g.id) >= 5);
-  const smallGroups = GROUPS.filter(g => countEligible(g.id) > 0 && countEligible(g.id) < 5);
-  const variaCount = smallGroups.reduce((sum, g) => sum + countEligible(g.id), 0);
+  const normal = GROUPS.filter(g => !g.parent && countEligible(g.id) >= 5);
+  const parents = Object.keys(GROUP_PARENTS).filter(p => kuldParentCount(p) >= 5)
+    .map(p => ({ id: KULD_PARENT_PREFIX + p, label: GROUP_PARENTS[p], parent: p }));
+  const variaCount = kuldSmallGroupIds().reduce((sum, id) => sum + countEligible(id), 0);
+  const defs = normal.concat(parents);
   if(variaCount >= 5){
-    return normal.concat([{
+    return defs.concat([{
       id: KULD_VARIA_ID,
       label: 'Varia',
       description: 'Väiksemad kategooriad (alla 5 kirjega) koondatuna'
     }]);
   }
-  return normal;
+  return defs;
 }
 
 function getKuldEntries(groupId){
   if(groupId === KULD_VARIA_ID){
-    const smallIds = new Set(GROUPS.filter(g => countEligible(g.id) > 0 && countEligible(g.id) < 5).map(g => g.id));
+    const smallIds = new Set(kuldSmallGroupIds());
     return CATEGORIES.filter(e => smallIds.has(e.group) && e.files && e.files.length > 0);
+  }
+  const p = kuldParentOf(groupId);
+  if(p){
+    const ids = new Set(groupsOfParent(p));
+    return CATEGORIES.filter(e => ids.has(e.group) && e.files && e.files.length > 0);
   }
   return CATEGORIES.filter(e => e.group === groupId && e.files && e.files.length > 0);
 }
@@ -4710,7 +4737,7 @@ function renderKuldConfig(){
 
     const cnt = document.createElement('span');
     cnt.className = 'kg-count';
-    cnt.textContent = groupCountLabel(g.id, n);
+    cnt.textContent = groupCountLabel(g.parent ? groupsOfParent(g.parent)[0] : g.id, n);
 
     label.append(checkbox, name, cnt);
     kuldGroupGrid.appendChild(label);
@@ -5238,7 +5265,7 @@ function kuldPickerFilter(groupId){
   if(!groupId) return null;
   const def = eligibleKuldGroups().find(g => g.id === groupId);
   if(!def) return null;
-  if(groupId === KULD_VARIA_ID){
+  if(groupId === KULD_VARIA_ID || kuldParentOf(groupId)){
     const ids = [...new Set(getKuldEntries(groupId).map(e => e.group))];
     return ids.length ? { label: def.label, groupIds: ids } : null;
   }
@@ -7335,7 +7362,7 @@ window.addEventListener('hashchange', startFromHash);
   const hadController = !!navigator.serviceWorker.controller;
   let controllerReloaded = false;
   let swRegistration = null;
-  const APP_BUILD = 'rc129'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
+  const APP_BUILD = 'rc130'; // tõsta iga release'iga: python tools/bump_version.py --apply (muudab ka SW_VERSION-i); kuvatakse oleku real
   window.__appBuild = APP_BUILD; // kureeritud testi faili jaoks (äpi versioon)
   // Jaluse versioonirida: näitab, millist lehte brauser PRAEGU käitab (ka enne offline-paketi laadimist).
   const buildLabel = document.getElementById('appBuildLabel');
