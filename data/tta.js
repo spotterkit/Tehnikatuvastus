@@ -1090,6 +1090,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Õhudessantväed; Motolaskurpataljon",
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Õhudessantvägede 120 mm liikurmiinipilduja (kasutusel alates 1981. aastast).",
         "crew": "4",
         "chassis": "S-120 (BTR-D baasil)",
@@ -1513,6 +1514,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Motolaskurpataljoni miinipildujapatarei",
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "120 mm raske miinipilduja.",
         "crew": "5",
         "chassis": "2F510 kaherattaline käru, vedukas GAZ-66",
@@ -1542,6 +1544,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Motolaskurpataljon",
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "82 mm kantav miinipilduja õhudessantvägedele ja kergejalaväele; kasutusel ka motolaskuritel.",
         "crew": "4",
         "weightKg": 41.88,
@@ -1558,7 +1561,9 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 2B14 Podnos", "url": "https://odin.t2com.army.mil/WEG/Asset/588e76a8c703fc2004ab3b58124ccbcc", "retrieved": "2026-10-08"},
-        {"name": "Wikipedia: 2B14 Podnos", "url": "https://en.wikipedia.org/wiki/2B14_Podnos", "retrieved": "2026-10-07"}
+        {"name": "Wikipedia: 2B14 Podnos", "url": "https://en.wikipedia.org/wiki/2B14_Podnos", "retrieved": "2026-10-07"},
+        {"name": "Altair: Rosjanie odebrali moździerze 2B24 Podnos (2024)", "url": "https://www.altair.com.pl/wiadomosci/pdf/2582", "retrieved": "2026-11-27"},
+        {"name": "Focus.ua: Сухопутні війська РФ отримали нову партію мінометів 2Б14", "url": "https://focus.ua/uk/voennye-novosti/649750-suhoputni-viyska-rf-otrimali-novu-partiyu-minometiv-2b14-zbroya-stala-legshoyu", "retrieved": "2026-11-27"}
       ]
     },
     "2B9 Vasiljok": {
@@ -2244,6 +2249,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Brigaadi suurtükiväe juhtimis- ja luurepatarei",
+        "productionStatus": {"status": ["stocks"], "asOf": 2024},
         "purpose": "Vastutuleradar: määrab vastase miinipildujate, suurtükkide, raketiheitjate ja taktikaliste rakettide stardipositsioonid mürsu trajektoori järgi; jälgib ka oma suurtüki tule tulemusi.",
         "chassis": "MT-LBu",
         "length": 6.45,
@@ -2267,7 +2273,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "U.S. Army ODIN / WEG: 1L219 Zoopark-1", "url": "https://odin.t2com.army.mil/WEG/Asset/100a6d9e7cd19b088a28e2ec49760597", "retrieved": "2026-10-08"},
         {"name": "Wikipedia: Zoopark-1", "url": "https://en.wikipedia.org/wiki/Zoopark-1", "retrieved": "2026-10-08"},
-        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"}
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-25"},
+        {"name": "Militarnyi: Ukrainian Armed Forces destroy Russian Zoopark-M1 radar (2024)", "url": "https://militarnyi.com/en/news/ukrainian-armed-forces-destroy-russian-zoopark-m1-radar/", "retrieved": "2026-11-27"}
       ]
     },
     "9P149 Shturm-S": {
@@ -10393,6 +10400,7 @@ window.TTA_DATA = {
     "2S34 Hosta": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "120 mm liikurmiinipilduja lähituletoetuseks.",
         "crew": "4",
         "chassis": "Modifitseeritud MT-LBu",
@@ -10422,7 +10430,8 @@ window.TTA_DATA = {
         {"name": "Army Recognition: Russian Land Forces to upgrade 2S1 to 2S34 Hosta (2016)", "url": "https://armyrecognition.com/news/army-news/army-news-2016/russian-land-forces-to-upgrade-its-122mm-2s1-gvozdika-self-propelled-guns-to-2s34-hosta-tass-30804165", "retrieved": "2026-11-25"},
         {"name": "Army Guide: 2S34 Chosta", "url": "https://www.army-guide.com/eng/product4711.html", "retrieved": "2026-11-25"},
         {"name": "WeaponSystems.net: 2S34 Hosta", "url": "https://weaponsystems.net/system/1400-2S34%20Hosta", "retrieved": "2026-11-25"},
-        {"name": "Tank Encyclopedia: 2S34 Hosta", "url": "https://tank-afv.com/modern/Russia/2S34-Chosta.php", "retrieved": "2026-11-25"}
+        {"name": "Tank Encyclopedia: 2S34 Hosta", "url": "https://tank-afv.com/modern/Russia/2S34-Chosta.php", "retrieved": "2026-11-25"},
+        {"name": "Mil.in.ua: Ukrainian soldiers capture enemy Hosta self-propelled howitzer", "url": "https://mil.in.ua/en/news/ukrainian-soldiers-capture-enemy-hosta-self-propelled-howitzer/", "retrieved": "2026-11-27"}
       ]
     },
     "2S35": {
@@ -10476,6 +10485,7 @@ window.TTA_DATA = {
     "2S41": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["prototype"], "asOf": 2023},
         "purpose": "Õhudessantvägede 82 mm liikurmiinipilduja (kasutusel alates 2023. aastast).",
         "typicalUnit": "Õhudessantvägede suurtükipatarei",
         "crew": "4",
@@ -10492,7 +10502,9 @@ window.TTA_DATA = {
         "firingRange": 6
       },
       "sources": [
-        {"name": "Wikipedia: 2S41 Drok", "url": "https://en.wikipedia.org/wiki/2S41_Drok", "retrieved": "2026-11-25"}
+        {"name": "Wikipedia: 2S41 Drok", "url": "https://en.wikipedia.org/wiki/2S41_Drok", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russia delivers experimental batch of self-propelled mortar carrier Drok (2023)", "url": "https://armyrecognition.com/news/army-news/army-news-2023/russia-delivers-an-experimental-batch-of-self-propelled-howitzers-drok-to-the-russian-armed-forces", "retrieved": "2026-11-27"},
+        {"name": "Militarnyi: An experimental batch of Drok self-propelled mortars was manufactured in Russia", "url": "https://militarnyi.com/?p=212458", "retrieved": "2026-11-27"}
       ]
     },
     "MT-LB-ZU23": {
@@ -10568,6 +10580,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "TBK-kaitseüksus",
+        "productionStatus": {"status": ["prototype"], "asOf": 2025},
         "purpose": "Termobaariliste rakettidega raske leegiheitjasüsteem (kasutusel alates 2021. aastast) kindlustatud positsioonide ja kergsoomustatud masinate vastu.",
         "chassis": "Ural-63706-0120",
         "driveConfig": "6×6",
@@ -10581,7 +10594,9 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: TOS-2", "url": "https://en.wikipedia.org/wiki/TOS-2", "retrieved": "2026-11-25"},
-        {"name": "European Security & Defence: Russia poised to expand thermobaric artillery inventory (Nov 2025)", "url": "https://euro-sd.com/2025/11/articles/armament/47751/russia-poised-to-expand-thermobaric-artillery-inventory", "retrieved": "2026-11-25"}
+        {"name": "European Security & Defence: Russia poised to expand thermobaric artillery inventory (Nov 2025)", "url": "https://euro-sd.com/2025/11/articles/armament/47751/russia-poised-to-expand-thermobaric-artillery-inventory", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russia confirms TOS-2 thermobaric rocket launcher deployment in Ukraine (2023)", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/russia-confirms-tos-2-thermobaric-rocket-launcher-deployment-in-ukraine", "retrieved": "2026-11-27"},
+        {"name": "Defense Mirror: Heavy Flame Thrower with New Anti-Drone Protection Delivered to Russian Army (2025)", "url": "https://defensemirror.com/news/40526/Heavy_Flame_Thrower_with_New_Anti_Drone_Protection_Delivered_to_Russian_Army", "retrieved": "2026-11-27"}
       ]
     },
     "Gerbera-2": {
