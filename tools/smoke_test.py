@@ -257,7 +257,7 @@ def main():
             check("mitu sõna, järjekord ei loe", both and both == names("droon luure"), str(len(both)))
             check("tundmatu päring = 0", names("qqqxyz") == [])
             p.fill("#modelListSearch", "t72")
-            on_screen = ev("() => [...document.querySelectorAll('#modelListContent .m-name')].map(x => x.textContent)")
+            on_screen = ev("() => [...document.querySelectorAll('#modelListContent .m-name')].map(x => x.firstChild.textContent)")   # NATO märge (.nato-tag) jääb välja
             check("ekraanil = modelListOrder (↑/↓ sama järjekord)", on_screen == ev("() => modelListOrder('t72').map(e => e.label)") and len(on_screen) > 0)
             p.fill("#modelListSearch", "")
         step("Kataloogi otsing", t_search)
@@ -267,7 +267,7 @@ def main():
             home()
             p.click("#showModelListBtn")
             order = ev("() => modelListOrder('').map(e => e.label)")
-            on_screen = ev("() => [...document.querySelectorAll('#modelListContent .m-name')].map(x => x.textContent)")
+            on_screen = ev("() => [...document.querySelectorAll('#modelListContent .m-name')].map(x => x.firstChild.textContent)")   # NATO märge (.nato-tag) jääb välja
             check("järjekord = nimekiri ekraanil", order == on_screen, f"{len(order)} mudelit")
             ev("() => window.scrollTo(0, 600)")
             p.click("#modelListContent .m-photos >> nth=1")
