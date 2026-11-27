@@ -369,7 +369,7 @@ const CATEGORIES = [
   // Pind-pind tüüpi juhitavad raketid
   { label: "9K720 Iskander/SS-26 Stone", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "9K720 Iskander/SS-26 Stone", files: ["9K720_Iskander_%28SS-26_Stone%29_%2827102990117%29.jpg","Army-2023_vehicle_showcase_08.jpg", "A_camouflaged_Iskander-M_complex_during_an_exercise_in_Transbaikalia._June_2021.jpg", "Кадры_работы_расчетов_ОТРК_«Искандер»_002.png"] },
   { label: "SS-21 Totška/SS-21 Scarab", group: "guided_ground_rockets", type: "Pind-pind tüüpi juhitav rakett", cat: "SS-21 Totška/SS-21 Scarab", files: ["Tochka-U_rep_parad_Yekat.jpg", "ChemicalExercise2018-01.jpg", "Army-2016_%282016-09-07%29_-_11.jpg"] },
-  { label: "RS-24 Jars / Topol-M", group: "guided_ground_rockets", type: "Mandritevaheline ballistiline rakett", cat: "RS-24 Jars / Topol-M", files: ["April_9th_rehearsal_in_Alabino_of_2014_Victory_Day_Parade_(558-57).jpg"] },
+  { label: "RS-24 Jars / Topol-M", group: "guided_ground_rockets", type: "Mandritevaheline ballistiline rakett", cat: "RS-24 Jars / Topol-M", files: ["April_9th_rehearsal_in_Alabino_of_2014_Victory_Day_Parade_(558-57).jpg", "Moscow_Victory_Day_Parade_%282019%29_08.jpg"] },
   { label: "K-300P Bastion-P/SS-C-5 Stooge", group: "guided_ground_rockets", type: "Rannakaitse-raketikompleks", cat: "K-300P Bastion-P/SS-C-5 Stooge", files: ["Комплекс_Бастион_перед_пуском_ракет.jpg"] },
   { label: "3K60 Bal/SSC-6 Sennight", group: "guided_ground_rockets", type: "Rannakaitse-raketikompleks", cat: "3K60 Bal/SSC-6 Sennight", files: ["Crews_of_the_coastal_missile_system_Bal_of_the_Pacific_Fleet_perform_training_firings_01.jpg", "CoastalMissileExercise2018-06.jpg"] },
   { label: "9T250", group: "guided_ground_rockets", type: "Iskanderi laadimismasin", cat: "9T250", files: ["CombatLaunching2018-10.jpg"] },
@@ -634,7 +634,8 @@ const CATEGORIES = [
   { label: "3M-14 Kalibr", group: "cruise_missiles", type: "Tiibrakett", cat: "Kalibr", files: ["3M-14E_submarine_launched_land_attack_cruise_missile_from_Kalibr-PLE-Club-S_system_01.jpg"] }, 
 
   // Õhk-maa raketid (group: "air_to_surface_missiles")
-  // { label: "", group: "air_to_surface_missiles", type: "Õhk-maa rakett", cat: "", files: [] },
+  { label: "Kh-35", group: "air_to_surface_missiles", type: "Õhk-maa rakett", cat: "Kh-35", files: ["Kh-35E_fol_maks2009.jpg"] },
+  { label: "S-8 (80 mm)", group: "air_to_surface_missiles", type: "Juhitamatu rakett", cat: "S-8", files: ["Yellow_Mig-23_rocket_pod_MW.JPG", "Interpolitex2015part1-39.jpg"] },
 
   // Liugpommid (group: "glide_bombs")
   // { label: "", group: "glide_bombs", type: "Liugpomm", cat: "", files: [] },
