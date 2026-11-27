@@ -318,6 +318,7 @@ const CATEGORIES = [
   { label: "9S18M1 Kupol", group: "ad", type: "ÕT radar", cat: "9S18M1", files: ["Buk-M1-2_9S18M1-1.JPG", "images/ad/9s18.jpg"] },
   { label: "P-18-2 Prima", group: "ad", type: "ÕT radar", cat: "P-18-2 Prima", files: ["images/ad/p182prima.jpg"] },
   { label: "S-350 Vitjaz/SA-28", group: "ad", type: "Õhutõrjekompleks", cat: "S-350 Vitjaz/SA-28", files: ["MAKS_Airshow_2013_%28Ramenskoye_Airport%2C_Russia%29_%28520-01%29.jpg"] },
+  { label: "9S470M1 (Buki juhtimissoomuk)", group: "ad", type: "ÕT juhtimissoomuk", cat: "9S470M1", files: ["Engineering_Technologies_2010_Part6_0002_copy.jpg"] },
 
   // Tankitõrjesoomukid
   { label: "9P149 Shturm-S", group: "antitank", type: "Tankitõrjesoomuk", cat: "9P149 Shturm-S", files: ["9P149.jpg", "Штурм-С_-_Контрольная_проверка_курсантов_Учебного_центра_боевого_применения_ракетных_войск_и_артиллерии_02.jpg", "images/antitank/shturms_01.jpg", "Army2016demo-028.jpg", "Battle_of_Konotop_24.jpg"] },
