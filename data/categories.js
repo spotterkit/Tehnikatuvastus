@@ -632,11 +632,15 @@ const CATEGORIES = [
   // Ballistilised raketid (group: "ballistic_missiles")
   { label: "9M723 (Iskander-M rakett)", group: "ballistic_missiles", type: "Ballistiline rakett", cat: "9M723", files: ["CombatLaunching2018-16.jpg", "CombatLaunching2018-19.jpg"] },
   { label: "Kh-47M2 Kinžal", group: "ballistic_missiles", type: "Ballistiline rakett", cat: "Kh-47M2 Kinžal", files: ["Disposal_of_a_missile_in_Kyiv%2C_2024-01-05_%281%29.jpg", "2018_Moscow_Victory_Day_Parade_66.jpg"] },
+
+  // Maa-ühk raketid (group: "surface_to_air_missiles")
   { label: "48N6/5V55 (S-300/S-400 raketid)", group: "surface_to_air_missiles", type: "Õhutõrjekompleksi rakett", cat: "48N6/5V55 (S-300/S-400 raketid)", files: ["S-400_missile_48N6E3.jpg"] },
 
   // Tiibraketid (group: "cruise_missiles")
   { label: "Kh-101", group: "cruise_missiles", type: "Tiibrakett", cat: "Kh-101", files: ["H101_missile.jpg", "Russian_Kh-101_missile_shot_in_Vinnytsia_Oblast%2C_2023-01-26_%2801%29.jpg"] },
+  { label: "Kh-55/Kh-555", group: "cruise_missiles", type: "Tiibrakett", cat: "Kh-55/Kh-555", files: ["H-55_AS-15_Kent_2008_G1.jpg"] },
   { label: "3M-14 Kalibr", group: "cruise_missiles", type: "Tiibrakett", cat: "Kalibr", files: ["3M-14E_submarine_launched_land_attack_cruise_missile_from_Kalibr-PLE-Club-S_system_01.jpg"] }, 
+  { label: "P-800 Oniks", group: "cruise_missiles", type: "Tiibrakett", cat: "P-800", files: ["3M55_Yakhont_Onyx_SS-N-26_Armia_2018.jpg"] },
 
   // Õhk-maa raketid (group: "air_to_surface_missiles")
   { label: "Kh-35", group: "air_to_surface_missiles", type: "Õhk-maa rakett", cat: "Kh-35", files: ["Kh-35E_fol_maks2009.jpg"] },
@@ -644,6 +648,7 @@ const CATEGORIES = [
 
   // Liugpommid (group: "glide_bombs")
   { label: "UMPK (FAB-250/500/1500/3000)", group: "glide_bombs", type: "Liugpomm", cat: "UMPK", files: ["FAB-3000_with_UMPK_kit.png", "FAB-250_bomb_with_UMPK_kit_-_2024.jpg", "FAB-500T_with_a_UMPK_kit.png"] },
+  { label: "UMPB D-30SN", group: "glide_bombs", type: "Liugpomm", cat: "UMPB", files: ["images/glide_bombs/umpb.jpg"] },
 
   // Pommid (group: "bombs")
   // { label: "", group: "bombs", type: "Pomm", cat: "", files: [] },
