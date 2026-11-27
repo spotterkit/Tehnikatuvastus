@@ -2595,6 +2595,7 @@ window.TTA_DATA = {
     "ARK-1": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Vastutuleradar: leiab mürsu trajektoori järgi vastase miinipildujate, suurtükkide, raketiheitjate ja taktikaliste rakettide positsioonid vastutule jaoks.",
         "crew": "4",
         "chassis": "MT-LBu",
@@ -2729,6 +2730,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Brigaadi pioneeripataljon",
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Raske roomikbuldooser teede ja läbipääsude rajamiseks, pinnasvallide ehitamiseks ja kraavide kaevamiseks.",
         "crew": "2 + 6",
         "chassis": "MT-T",
@@ -2751,12 +2753,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BAT-2", "url": "https://odin.t2com.army.mil/WEG/Asset/da0ecdef49dc06c16dc85d8d77d913b6", "retrieved": "2026-11-10"},
-        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-26"}
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-26"},
+        {"name": "Army Recognition: The Soviet-era BAT-2 engineering bulldozer still defends Ukraine's frontline (2023)", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/the-soviet-era-bat-2-engineering-bulldozer-stills-defends-ukraine-s-frontline", "retrieved": "2026-11-27"}
       ]
     },
     "MTU-72": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Sillatank kuni 18 m laiuse kraavi või veetõkke ületamiseks.",
         "crew": "2",
         "chassis": "T-72 (T-72B/T-72M1 ümberehitus)",
@@ -2783,13 +2787,15 @@ window.TTA_DATA = {
         "fording": "Ettevalmistusega kuni 4,5 m."
       },
       "sources": [
-        {"name": "Wikipedia: MT-55", "url": "https://en.wikipedia.org/wiki/MT-55", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: MT-55", "url": "https://en.wikipedia.org/wiki/MT-55", "retrieved": "2026-10-23"},
+        {"name": "Military-Today: MTU-72", "url": "https://www.military-today.com/engineering/mtu_72.htm", "retrieved": "2026-11-27"}
       ]
     },
     "PTS-2": {
       "status": "unverified",
       "values": {
         "typicalUnit": "Brigaadi pioneeripataljon",
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Ujuv roomiktransportöör raskete veokite, relvade, varustuse ja laskemoona veoks üle veetõkete.",
         "chassis": "MT-T (T-64 komponentidega)",
         "length": 12,
@@ -2808,7 +2814,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: PTS (vehicle)", "url": "https://en.wikipedia.org/wiki/PTS_(vehicle)", "retrieved": "2026-10-23"},
-        {"name": "FMSO (Grau): Russian Deliberate River Crossings (2019)", "url": "https://community.apan.org/cfs-file/__key/docpreview-s/00-00-13-80-40/2019_2D00_12_2D00_04-Russian-Deliberate-River-Crossings-_2800_Grau_2900_.pdf", "retrieved": "2026-11-26"}
+        {"name": "FMSO (Grau): Russian Deliberate River Crossings (2019)", "url": "https://community.apan.org/cfs-file/__key/docpreview-s/00-00-13-80-40/2019_2D00_12_2D00_04-Russian-Deliberate-River-Crossings-_2800_Grau_2900_.pdf", "retrieved": "2026-11-26"},
+        {"name": "Tank-AFV: PTS-2", "url": "https://tank-afv.com/coldwar/ussr/PTS-2.php", "retrieved": "2026-11-27"}
       ]
     },
     "PTS-4": {
@@ -2877,6 +2884,7 @@ window.TTA_DATA = {
     "MT-55A": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Sillatank kraavide ja veetõkete ületamiseks.",
         "crew": "2",
         "chassis": "T-55A",
@@ -2904,6 +2912,7 @@ window.TTA_DATA = {
     "MTU-20": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Sillatank (toodetud 1963–1977) kuni 18 m laiuste kraavide ületamiseks.",
         "crew": "2",
         "chassis": "T-55A",
@@ -3030,6 +3039,7 @@ window.TTA_DATA = {
     "Pontoonsillapark": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Kokkuvolditav pontoonsildade komplekt PMP sildade ja parvede ehitamiseks üle veetõkete.",
         "crew": "3",
         "chassis": "KrAZ-255B 6×6 (pontoonide vedaja)",
@@ -3045,6 +3055,7 @@ window.TTA_DATA = {
     "BTM-4M": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["prototype"], "asOf": 2026},
         "purpose": "Kiire kraavikaevur (jäi prototüübiks).",
         "crew": "2",
         "specialEquipment": "Töökiirus tavalises pinnases 1000 m/h ja külmunud pinnases 250 m/h"
@@ -3056,6 +3067,7 @@ window.TTA_DATA = {
     "BTM-3": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Kiire kraavikaevur (toodetud alates 1957. aastast) kaitse- ja sidekraavide kaevamiseks.",
         "crew": "2",
         "chassis": "AT-T",
@@ -3083,6 +3095,7 @@ window.TTA_DATA = {
     "MDK-3": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Kraavikaevamismasin tankitõrjekraavide ning sõidukite ja laskepositsioonide süvendite kaevamiseks.",
         "crew": "2",
         "chassis": "MT-T",
@@ -3102,7 +3115,8 @@ window.TTA_DATA = {
         "chassis": "Ei ole õhutransporditav ega langevarjuga heidetav."
       },
       "sources": [
-        {"name": "U.S. Army ODIN / WEG: MDK-3", "url": "https://odin.t2com.army.mil/WEG/Asset/98fee77354aa89adca1830078f6c33f5", "retrieved": "2026-11-10"}
+        {"name": "U.S. Army ODIN / WEG: MDK-3", "url": "https://odin.t2com.army.mil/WEG/Asset/98fee77354aa89adca1830078f6c33f5", "retrieved": "2026-11-10"},
+        {"name": "Weaponsystems.net: MDK-3", "url": "https://weaponsystems.net/system/307-MDK-3", "retrieved": "2026-11-27"}
       ]
     },
     "MDK-2M": {
@@ -3392,6 +3406,7 @@ window.TTA_DATA = {
     "9S932-1 Barnaul-T": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Barnaul-T automatiseeritud õhutõrje juhtimissüsteemi luure- ja juhtimismoodul: õhutõrjepatarei juhtimispunkt, mis jagab sihtmärgiandmeid alluvatele õhutõrjevahenditele.",
         "typicalUnit": "Õhutõrjepatarei",
         "chassis": "MT-LBu (9S932-2: BTR-MD)",
@@ -5878,6 +5893,7 @@ window.TTA_DATA = {
     "BREM-2": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Remondi- ja äraveosoomuk.",
         "crew": "4",
         "combatWeight": 14,
@@ -8657,6 +8673,7 @@ window.TTA_DATA = {
     "Ulan": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kerge lahtine maastikusõiduk (bagi) rindelogistikaks.",
         "seats": "5 (2 kabiinis, 3 taga)",
         "combatWeight": 0.62,
@@ -8671,19 +8688,22 @@ window.TTA_DATA = {
         "seats": "Osa allikaid omistab need andmed Ulan-2-le."
       },
       "sources": [
-        {"name": "Euromaidan Press: 85 km/h, 600 kg payload – Ulan", "url": "https://euromaidanpress.com/2026/02/09/85-km-h-600-kg-payload-and-defenseless-ukrainian-drones-destroy-russias-logistics-platform/", "retrieved": "2026-10-30"}
+        {"name": "Euromaidan Press: 85 km/h, 600 kg payload – Ulan", "url": "https://euromaidanpress.com/2026/02/09/85-km-h-600-kg-payload-and-defenseless-ukrainian-drones-destroy-russias-logistics-platform/", "retrieved": "2026-10-30"},
+        {"name": "Militarnyi: Альтернатива китайським «гольфкарам»: росіяни нарощують використання всюдиходів «Улан» (2025)", "url": "https://militarnyi.com/uk/news/alternatyva-kytajskym-golfkaram-rosiyany-naroshhuyut-vykorystannya-vsyudyhodiv-ulan/", "retrieved": "2026-11-27"}
       ]
     },
     "Ulan-2": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kerge maastikutransporter isikkoosseisu, laskemoona ja varustuse veoks.",
         "chassis": "GAZ Sobol",
         "driveConfig": "4×4",
         "specialEquipment": "Rindel lisatud keevitatud raam, kummikilbid kildude vastu, terasribid akendel, uste asemel ketid; katusel droonivastane häireseade."
       },
       "sources": [
-        {"name": "Forces News: Chains, grilles and jammers – Russia's Ulan-2", "url": "https://www.forcesnews.com/russia/chains-grilles-and-jammers-russias-ulan-2-and-future-british-army-land-rover", "retrieved": "2026-10-30"}
+        {"name": "Forces News: Chains, grilles and jammers – Russia's Ulan-2", "url": "https://www.forcesnews.com/russia/chains-grilles-and-jammers-russias-ulan-2-and-future-british-army-land-rover", "retrieved": "2026-10-30"},
+        {"name": "Euromaidan Press: Ukrainian forces destroy Russia's newest off-road vehicle Ulan-2 near Pokrovsk (2025)", "url": "https://euromaidanpress.com/2025/12/26/ukrainian-forces-destroy-russias-newest-off-road-vehicle-ulan-2-near-pokrovsk-video/", "retrieved": "2026-11-27"}
       ]
     },
     "ZIL-131": {
@@ -9562,6 +9582,7 @@ window.TTA_DATA = {
     "1B75 Penicilin": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Passiivne suurtükiväeluure kompleks (kasutusel alates 2020. aastast): leiab heli ja soojuse järgi vastase suurtükkide, miinipildujate, raketiheitjate ja raketistartide asukoha ilma raadiokiirguseta.",
         "chassis": "KamAZ-6350",
         "driveConfig": "8×8",
@@ -10333,6 +10354,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Arktika brigaad",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kahelüliline ujuv roomikmaastikusõiduk (toodetud alates 1982. aastast) raskete koormate veoks soos, liivas, lumes ja äärmuslikus kliimas.",
         "crew": "5",
         "combatWeight": 30,
@@ -10368,6 +10390,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Arktika motolaskurbrigaad",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Kahelüliline ujuv roomikmaastikusõiduk Arktika tingimustesse (kasutusel alates 2019. aastast).",
         "seats": "Kuni 20 (esilülis 5 koos juhiga)",
         "combatWeight": 11.2,
@@ -10384,7 +10407,8 @@ window.TTA_DATA = {
         {"name": "Janes: Russia's GAZ-3344-20 Aleut ATV enters service", "url": "https://www.janes.com/defence-intelligence-insights/defence-news/russias-gaz-3344-20-aleut-atv-enters-service", "retrieved": "2026-11-20"},
         {"name": "Army Recognition: GAZ-3344-20 at BIDEC 2017", "url": "https://armyrecognition.com/waac", "retrieved": "2026-11-20"},
         {"name": "Defence Blog: GAZ-3344-20 at BIDEC-2017", "url": "https://defence-blog.com/?p=28228", "retrieved": "2026-11-20"},
-        {"name": "Defence24: Rosja: nowe śniegobłotochody wchodzą na uzbrojenie brygady arktycznej", "url": "https://defence24.pl/sily-zbrojne/rosja-nowe-sniegoblotochody-wchodza-na-uzbrojenie-brygady-arktycznej", "retrieved": "2026-11-25"}
+        {"name": "Defence24: Rosja: nowe śniegobłotochody wchodzą na uzbrojenie brygady arktycznej", "url": "https://defence24.pl/sily-zbrojne/rosja-nowe-sniegoblotochody-wchodza-na-uzbrojenie-brygady-arktycznej", "retrieved": "2026-11-25"},
+        {"name": "Army Recognition: Russian tank unit in Buryatia receive Aleut articulated amphibious vehicles (2021)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2021/russian-tank-unit-in-buryatia-receive-aleut-articulated-amphibious-vehicles", "retrieved": "2026-11-27"}
       ]
     },
     "KAMAZ-6350, 8x8": {
@@ -10635,6 +10659,7 @@ window.TTA_DATA = {
     "BTR-ZD": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Õhudessantvägede õhutõrjesoomuk (kasutusel alates 1984. aastast), mis veab kaht õhutõrje-taskuraketimeeskonda.",
         "typicalUnit": "Õhudessantpolk; Õhudessantdiviisi õhutõrjepataljon",
         "chassis": "BTR-D",
@@ -10649,6 +10674,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Õhudessantväed",
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Katusele paigaldatud ZU-23-2 õhutõrjekahuriga soomuk õhutõrjeks ja jalaväe tuletoetuseks.",
         "chassis": "BTR-D",
         "caliber": 23,
@@ -10816,13 +10842,15 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Motolaskurpataljoni logistikarühm",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Remondi- ja äraveosoomuk.",
         "chassis": "BMP-3",
         "specialEquipment": "Kraana 5 t; vints 20/40 t"
       },
       "sources": [
         {"name": "Wikipedia: BMP-3 (variandid)", "url": "https://en.wikipedia.org/wiki/BMP-3", "retrieved": "2026-11-25"},
-        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-26"}
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-26"},
+        {"name": "Defense Mirror: Russian Military Receives Final Batch of BMP-3 IFVs (2022)", "url": "https://defensemirror.com/news/31183/Russian_Military_Receives_Final_Batch_of_BMP_3_IFVs", "retrieved": "2026-11-27"}
       ]
     },
     "BTS-4A": {
@@ -10942,6 +10970,7 @@ window.TTA_DATA = {
     "Ural-63704": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Maastikuveok relvade, sõjatehnika ja lasti veoks ning poolhaagiste pukseerimiseks; on ka soomustatud versioon.",
         "driveConfig": "6×6",
         "loadCapacity": 16000,
