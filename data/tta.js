@@ -2393,6 +2393,7 @@ window.TTA_DATA = {
     "PRP-3": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Suurtükiväe luure- ja vaatlussoomuk (kasutusel alates 1972. aastast): leiab vastase üksused ja suurtükiväe positsioonid ning annab sihtmärkide koordinaadid tulejuhtimiseks.",
         "crew": "5",
         "chassis": "BMP-1",
@@ -2425,6 +2426,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Brigaadi suurtükiväe juhtimis- ja luurepatarei",
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Lahinguvälja seireradar (kasutusel alates 1975. aastast), mis avastab ja jälgib liikuvaid sihtmärke maal ja vees ning annab suurtükiväele andmeid tule korrigeerimiseks.",
         "crew": "5",
         "chassis": "MT-LB",
@@ -4764,6 +4766,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mehitamata süsteemide ründeüksus",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Odav lühimaa ründedroon.",
         "wingspan": 1.5,
         "maxTakeoffWeightKg": 10,
@@ -4801,6 +4804,7 @@ window.TTA_DATA = {
     "Eleron-3": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Väike lühimaa luuredroon.",
         "length": 0.6,
         "wingspan": 1.47,
@@ -4843,6 +4847,7 @@ window.TTA_DATA = {
     "Zala KUB-2": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Hulkuv laskemoon (ründedroon).",
         "length": 0.95,
         "wingspan": 1.21,
@@ -4913,6 +4918,7 @@ window.TTA_DATA = {
     "Privet-82": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Lühimaa ründedroon.",
         "maxTakeoffWeightKg": 8.5,
         "payload": 5.5,
@@ -4929,6 +4935,7 @@ window.TTA_DATA = {
     "Albatros-M5": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Taktikaline luuredroon.",
         "wingspan": 3.3,
         "maxTakeoffWeightKg": 15,
@@ -4948,6 +4955,7 @@ window.TTA_DATA = {
     "Zala Z-20": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Taktikaline luuredroon.",
         "wingspan": 4,
         "maxTakeoffWeightKg": 17,
@@ -4961,12 +4969,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Zala Z-20", "url": "https://war-sanctions.gur.gov.ua/en/uav/371", "retrieved": "2026-10-23"},
-        {"name": "EDR Magazine: ZALA T-20", "url": "https://www.edrmagazine.eu/interpolitex-2024-zala-aero-unveils-its-t-20-uav", "retrieved": "2026-10-23"}
+        {"name": "EDR Magazine: ZALA T-20", "url": "https://www.edrmagazine.eu/interpolitex-2024-zala-aero-unveils-its-t-20-uav", "retrieved": "2026-10-23"},
+        {"name": "Kyiv Post: Ukrainian forces shoot down rare Russian ZALA Z-20", "url": "https://www.kyivpost.com/post/67525", "retrieved": "2026-11-27"}
       ]
     },
     "Zala Z-16": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Taktikaline luuredroon.",
         "wingspan": 2.815,
         "maxTakeoffWeightKg": 10.5,
@@ -4979,12 +4989,14 @@ window.TTA_DATA = {
         "specialEquipment": "Pneumaatiline start, maandumine langevarjuga"
       },
       "sources": [
-        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Zala Z-16 (421-16E)", "url": "https://war-sanctions.gur.gov.ua/en/uav/272", "retrieved": "2026-10-23"}
+        {"name": "GUR sanktsioonide andmebaas (Ukraina kaitseluure): Zala Z-16 (421-16E)", "url": "https://war-sanctions.gur.gov.ua/en/uav/272", "retrieved": "2026-10-23"},
+        {"name": "dev.ua: Evolution of air drones (2025)", "url": "https://dev.ua/en/news/evoliutsiia-povitrianykh-droniv-1742208728", "retrieved": "2026-11-27"}
       ]
     },
     "V2U AI": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Autonoomne ründedroon tehisintellektil põhineva sihtimisega.",
         "warheadMass": 2.9,
         "engine": "Elektrimootor (Hiina tsiviiltoode)",
@@ -4998,6 +5010,7 @@ window.TTA_DATA = {
     "ZALA Z-54": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Ründedroon autonoomse sihtmärgi tuvastuse ja rünnakuga.",
         "engine": "Kahesilindriline bensiinimootor",
         "maxSpeed": 150,
@@ -5006,12 +5019,14 @@ window.TTA_DATA = {
         "ferryRange": 200
       },
       "sources": [
-        {"name": "U.S. Army ODIN / WEG: ZALA Z-54", "url": "https://odin.t2com.army.mil/WEG/Asset/bec93ebb6310052aa500e96f3cc9cdce", "retrieved": "2026-10-28"}
+        {"name": "U.S. Army ODIN / WEG: ZALA Z-54", "url": "https://odin.t2com.army.mil/WEG/Asset/bec93ebb6310052aa500e96f3cc9cdce", "retrieved": "2026-10-28"},
+        {"name": "ARMSNET: ZALA Z-54", "url": "https://armsnet.duckdns.org/equipment/297aad10-19b2-46d6-e357-08de6e3c1543", "retrieved": "2026-11-27"}
       ]
     },
     "Merlin VR": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Pikaajalise lennuga luuredroon.",
         "wingspan": 5,
         "engine": "Elektrimootor",
@@ -5071,6 +5086,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Mereväe lennuväe droonipolk",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Keskmise kõrguse pikaajalise lennuga luure- ja ründedroon.",
         "length": 6,
         "wingspan": 9.1,
@@ -5095,6 +5111,7 @@ window.TTA_DATA = {
     "KUB-10": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Ründedroon, mis lendab satelliitnavigatsiooni abil eelnevalt määratud koordinaatidele.",
         "maxSpeed": 100,
         "cruiseSpeed": 100,
@@ -5108,6 +5125,7 @@ window.TTA_DATA = {
     "Granat-4": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Taktikaline luuredroon.",
         "length": 2.5,
         "wingspan": 3.8,
@@ -5129,6 +5147,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Motolaskurbrigaad; Mehitamata süsteemide polgu droonitõrjepataljon",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Püüdurdroon vastase droonide hävitamiseks rammimise või lõhkelaenguga.",
         "maxSpeed": 150,
         "serviceCeiling": 5000,
@@ -5143,6 +5162,7 @@ window.TTA_DATA = {
     "Eleron-10": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Väike lühimaa luuredroon.",
         "maxTakeoffWeightKg": 15.5,
         "payload": 2,
@@ -5164,6 +5184,7 @@ window.TTA_DATA = {
     "Eleron-7": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Väike lühimaa luuredroon.",
         "maxTakeoffWeightKg": 7,
         "payload": 1,
@@ -5185,6 +5206,7 @@ window.TTA_DATA = {
     "Kartograf": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Pikaajalise lennuga luure- ja kaardistusdroon.",
         "maxTakeoffWeightKg": 20,
         "payload": 5,
@@ -5203,6 +5225,7 @@ window.TTA_DATA = {
     "Feniks": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Luuredroon.",
         "payload": 8,
         "engine": "Bensiini- ja petrooleumimootor",
@@ -5215,6 +5238,7 @@ window.TTA_DATA = {
     "Sarõz-2": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Taktikaline luuredroon.",
         "maxTakeoffWeightKg": 14,
         "maxSpeed": 108,
@@ -5828,6 +5852,7 @@ window.TTA_DATA = {
     "BREM-1": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Remondi- ja äraveosoomuk vigastatud masinate remondiks välitingimustes ja evakueerimiseks.",
         "crew": "3",
         "combatWeight": 41,
@@ -5845,7 +5870,9 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: BREM-1", "url": "https://odin.t2com.army.mil/WEG/Asset/b5ff7bdc0c7fc6bf8d71d41124e3830c", "retrieved": "2026-10-28"},
-        {"name": "Armedconflicts: BREM-1", "url": "https://www.armedconflicts.com/topic/view/13729", "retrieved": "2026-10-23"}
+        {"name": "Armedconflicts: BREM-1", "url": "https://www.armedconflicts.com/topic/view/13729", "retrieved": "2026-10-23"},
+        {"name": "Army Recognition: Russia receives new batch of BREM-1M armored recovery vehicles (2023)", "url": "https://armyrecognition.com/news/army-news/2023/russia-receives-new-batch-of-brem-1m-armored-recovery-vehicles", "retrieved": "2026-11-27"},
+        {"name": "Militarnyi: Армії Росії передали нові ремонтно-евакуаційні машини БРЕМ-1М (2024)", "url": "https://militarnyi.com/uk/news/armiyi-rosiyi-peredaly-novi-remontno-evakuatsijni-mashyny-brem-1m/", "retrieved": "2026-11-27"}
       ]
     },
     "BREM-2": {
@@ -5953,6 +5980,7 @@ window.TTA_DATA = {
     "KAMAZ-5350, 6x6": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Mustangi perekonna maastikuveok; kasutatakse ka teiste sõjamasinate alusena.",
         "driveConfig": "6×6",
         "combatWeight": 9.2,
@@ -5969,12 +5997,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: KAMAZ-5350", "url": "https://odin.t2com.army.mil/WEG/Asset/359a82ce7d829591311ac849eb3dcc72", "retrieved": "2026-10-28"},
-        {"name": "Wikipedia: KamAZ-5350", "url": "https://en.wikipedia.org/wiki/KamAZ-5350", "retrieved": "2026-10-23"}
+        {"name": "Wikipedia: KamAZ-5350", "url": "https://en.wikipedia.org/wiki/KamAZ-5350", "retrieved": "2026-10-23"},
+        {"name": "The Moscow Times: Russia's KamAZ Sees Nearly Half of Output Shift to Defense Orders (2026)", "url": "https://www.themoscowtimes.com/2026/02/16/russias-kamaz-sees-nearly-half-of-output-shift-to-defense-orders-a91966", "retrieved": "2026-11-27"}
       ]
     },
     "KRAZ-260": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2026},
         "purpose": "Maastikuveok.",
         "driveConfig": "6×6",
         "loadCapacity": 9000,
@@ -6397,6 +6427,7 @@ window.TTA_DATA = {
     "R-441-0 Liven": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Liikuv satelliitsidejaam strateegilise ja operatiivtasandi staapide mitmekanaliliseks sideks.",
         "typicalUnit": "Armee sideüksus; Sõjaväeringkonna sideüksus",
         "crew": "11–16",
@@ -6407,13 +6438,15 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: R-441 Liven", "url": "https://odin.t2com.army.mil/WEG/Asset/486adbee36910f5d8e5d8c3abdf5fbaa", "retrieved": "2026-11-10"},
-        {"name": "FMSO OE Watch: Russia tests R-441 Liven satellite communication in Ukraine (2022)", "url": "https://fmso.tradoc.army.mil/2022/russia-tests-r-441-liven-satellite-communication-in-ukraine/", "retrieved": "2026-11-25"}
+        {"name": "FMSO OE Watch: Russia tests R-441 Liven satellite communication in Ukraine (2022)", "url": "https://fmso.tradoc.army.mil/2022/russia-tests-r-441-liven-satellite-communication-in-ukraine/", "retrieved": "2026-11-25"},
+        {"name": "Defense Express: Ukrainian Partisans Destroyed R-441 Liven Satellite Communications Station (2024)", "url": "https://en.defence-ua.com/news/ukrainian_partisans_destroyed_r_441_liven_satellite_communications_station_in_russia-10821.html", "retrieved": "2026-11-27"}
       ]
     },
     "R-149AKSh-1": {
       "status": "unverified",
       "values": {
         "typicalUnit": "Armee sideüksus",
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Juhtimis- ja sidemasin.",
         "crew": "7",
         "length": 7.85,
@@ -6429,12 +6462,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "U.S. Army ODIN / WEG: R-149AKSh-1", "url": "https://odin.t2com.army.mil/WEG/Asset/0a1de592234f9a261c1dc43971a04e2e", "retrieved": "2026-11-10"},
-        {"name": "Army Recognition: Russian Central Military District signal units receive advanced hardware (Dec 2019)", "url": "https://armyrecognition.com/archives/archives-land-defense/land-defense-2019/russian-central-military-district-signal-units-receive-advanced-hardware", "retrieved": "2026-11-25"}
+        {"name": "Army Recognition: Russian Central Military District signal units receive advanced hardware (Dec 2019)", "url": "https://armyrecognition.com/archives/archives-land-defense/land-defense-2019/russian-central-military-district-signal-units-receive-advanced-hardware", "retrieved": "2026-11-25"},
+        {"name": "Russia lost thousands of military vehicles (Al Arabiya, 2023)", "url": "https://english.alarabiya.net/News/world/2023/07/17/Russia-lost-thousands-of-military-vehicles-equipment-weapons-since-Ukraine-invasion", "retrieved": "2026-11-27"}
       ]
     },
     "R-149MA1": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Ühtne juhtimis- ja staabimasin juhtimiseks ja sideks paigal ja liikvel; kasutatakse ka eesliikuvas juhtimispunktis.",
         "typicalUnit": "Brigaad; Polk",
         "driveConfig": "8×8",
@@ -6459,7 +6494,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Army Recognition: R-149MA1", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2017/russia-communication-units-receive-r-149ma1-vehicle-80806171", "retrieved": "2026-10-28"},
         {"name": "Militarnyi: Ukrainian military seized R-149MA1", "url": "https://militarnyi.com/en/news/the-ukrainian-military-seized-a-russian-r-149ma1-command-post-carrier/", "retrieved": "2026-11-25"},
-        {"name": "Valka.cz: R-149MA1", "url": "https://www.armedconflicts.com/Russian-Command-Staff-Vehicle-R-149MA1-t252192", "retrieved": "2026-11-25"}
+        {"name": "Valka.cz: R-149MA1", "url": "https://www.armedconflicts.com/Russian-Command-Staff-Vehicle-R-149MA1-t252192", "retrieved": "2026-11-25"},
+        {"name": "Russia lost thousands of military vehicles (Al Arabiya, 2023)", "url": "https://english.alarabiya.net/News/world/2023/07/17/Russia-lost-thousands-of-military-vehicles-equipment-weapons-since-Ukraine-invasion", "retrieved": "2026-11-27"}
       ]
     },
     "R-145BM1": {
@@ -6538,6 +6574,7 @@ window.TTA_DATA = {
     "Krasukha-2": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Maapealne häirejaam AWACS-lennukite ja teiste õhuradarite häirimiseks.",
         "typicalUnit": "Elektroonilise võitluse brigaad",
         "crew": "4",
@@ -6552,12 +6589,14 @@ window.TTA_DATA = {
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
         {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"},
         {"name": "Hudson Institute: The Fall and Rise of Russian Electronic Warfare", "url": "https://www.hudson.org/national-security-defense/the-fall-and-rise-of-russian-electronic-warfare", "retrieved": "2026-11-25"},
-        {"name": "Air University (Mendenhall et al.): Adapting to the Spectrum", "url": "https://www.airuniversity.af.edu/Portals/10/AUPress/Papers/WF_100_Mendenhall-et-al_Adapting_To_The_Spectrum.pdf", "retrieved": "2026-11-25"}
+        {"name": "Air University (Mendenhall et al.): Adapting to the Spectrum", "url": "https://www.airuniversity.af.edu/Portals/10/AUPress/Papers/WF_100_Mendenhall-et-al_Adapting_To_The_Spectrum.pdf", "retrieved": "2026-11-25"},
+        {"name": "Indian Defence Review: Russian Electronic Warfare in Ukraine 2022-2023", "url": "http://www.indiandefencereview.com/news/russian-electronic-warfare-in-ukraine-2022-2023/", "retrieved": "2026-11-27"}
       ]
     },
     "Krasukha-4": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Maapealne häirejaam õhu- ja kosmoseradarite mahasurumiseks.",
         "typicalUnit": "Elektroonilise võitluse brigaad",
         "crew": "4",
@@ -6571,13 +6610,15 @@ window.TTA_DATA = {
         {"name": "Wikipedia: Krasukha", "url": "https://en.wikipedia.org/wiki/Krasukha_(electronic_warfare_system)", "retrieved": "2026-10-23"},
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
         {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"},
-        {"name": "Hudson Institute: The Fall and Rise of Russian Electronic Warfare", "url": "https://www.hudson.org/national-security-defense/the-fall-and-rise-of-russian-electronic-warfare", "retrieved": "2026-11-25"}
+        {"name": "Hudson Institute: The Fall and Rise of Russian Electronic Warfare", "url": "https://www.hudson.org/national-security-defense/the-fall-and-rise-of-russian-electronic-warfare", "retrieved": "2026-11-25"},
+        {"name": "CLAWS: Russia-Ukraine War: Lessons from an Electronic Warfare (EW) Perspective (2025)", "url": "https://claws.co.in/russia-ukraine-war-lessons-from-an-electronic-warfare-ew-perspective/", "retrieved": "2026-11-27"}
       ]
     },
     "Lejer-2/Leer-2": {
       "status": "unverified",
       "values": {
         "typicalUnit": "Õhudessantväed",
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Liikuv automatiseeritud raadioluure, suunatuvastuse ja häirimise kompleks; jäljendab ka raadioelektroonilisi süsteeme.",
         "crew": "3",
         "chassis": "Tigr-M (85Ya6)",
@@ -6593,12 +6634,14 @@ window.TTA_DATA = {
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
         {"name": "Army Recognition: Leer-2 and Tirada destroyed", "url": "https://armyrecognition.com/ukraine_-_russia_conflict_war_2022/ukrainian_soldiers_destroy_crucial_russian_leer-2_and_tirade_electronic_warfare_systems.html", "retrieved": "2026-11-25"},
-        {"name": "Defence Blog: Russian airborne troops commissions new Leer-2 electronic warfare systems", "url": "https://defence-blog.com/?p=23870", "retrieved": "2026-11-25"}
+        {"name": "Defence Blog: Russian airborne troops commissions new Leer-2 electronic warfare systems", "url": "https://defence-blog.com/?p=23870", "retrieved": "2026-11-25"},
+        {"name": "Kyiv Post: Analysis: Russia's Electronic Warfare Equipment (2024)", "url": "https://www.kyivpost.com/analysis/32435", "retrieved": "2026-11-27"}
       ]
     },
     "RB-341B Lejer-3/Leer-3": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Mobiilside luure- ja häirekompleks, mille häireseadmed on droonidel Orlan-10.",
         "typicalUnit": "Elektroonilise võitluse brigaad; Elektroonilise võitluse pataljon",
         "crew": "5",
@@ -6617,6 +6660,7 @@ window.TTA_DATA = {
     "Moskva-1": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Passiivse raadioluure kompleks õhusihtmärkide avastamiseks, suuna määramiseks ja jälgimiseks; juhib häirimist.",
         "typicalUnit": "Elektroonilise võitluse brigaad",
         "crew": "4",
@@ -6630,12 +6674,14 @@ window.TTA_DATA = {
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
         {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"},
-        {"name": "Hudson Institute: The Fall and Rise of Russian Electronic Warfare", "url": "https://www.hudson.org/national-security-defense/the-fall-and-rise-of-russian-electronic-warfare", "retrieved": "2026-11-25"}
+        {"name": "Hudson Institute: The Fall and Rise of Russian Electronic Warfare", "url": "https://www.hudson.org/national-security-defense/the-fall-and-rise-of-russian-electronic-warfare", "retrieved": "2026-11-25"},
+        {"name": "COGINT: Russian Electronic Warfare Systems – Analytic Insight Report (2023)", "url": "https://sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-27"}
       ]
     },
     "GT-01 Murmansk-BN": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Pikamaa KV-side luure- ja häirekompleks.",
         "typicalUnit": "Elektroonilise võitluse brigaad; Merevägi",
         "crew": "2",
@@ -6658,12 +6704,14 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Truck Encyclopedia: Murmansk-BN", "url": "https://truck-encyclopedia.com/modern/russia/Kamaz-Murmansk-BN.php", "retrieved": "2026-10-23"},
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
-        {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"}
+        {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"},
+        {"name": "CLAWS: Russia-Ukraine War: Lessons from an Electronic Warfare (EW) Perspective (2025)", "url": "https://claws.co.in/russia-ukraine-war-lessons-from-an-electronic-warfare-ew-perspective/", "retrieved": "2026-11-27"}
       ]
     },
     "SPR-2M RTUT-BM": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Raadiosütikute segaja, mis kaitseb vägesid raadiosütikuga mürskude ja miinide eest: paneb need lõhkema ohutul kõrgusel või lülitab sütiku kontaktrežiimile.",
         "crew": "2",
         "chassis": "MT-LBu",
@@ -6684,12 +6732,14 @@ window.TTA_DATA = {
         "emplacementTime": "10 min"
       },
       "sources": [
-        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
+        {"name": "COGINT: Russian Electronic Warfare Systems – Analytic Insight Report (2023)", "url": "https://sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-27"}
       ]
     },
     "R-330Zh Žitel": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Automatiseeritud jaam satelliitside, satelliitnavigatsiooni ja mobiilside avastamiseks, suuna määramiseks ja häirimiseks; kaitseb brigaadi ja diviisi juhtimispunkte täppisrelvade eest.",
         "typicalUnit": "Elektroonilise võitluse rood; Elektroonilise võitluse brigaad",
         "chassis": "Ural-43203 või KamAZ-43114; häirejaam eraldi haagisel",
@@ -6712,6 +6762,7 @@ window.TTA_DATA = {
     "RB-301B (RB-301B Borisoglebsk-2)": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Borisoglebsk-2 kompleksi häirejaam.",
         "chassis": "MT-LBu",
         "frequencyRange": "HF 3–30 MHz; VHF 30–300 MHz; UHF 0,3–3 GHz",
@@ -6722,12 +6773,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Wikipedia: Borisoglebsk-2", "url": "https://en.wikipedia.org/wiki/Borisoglebsk-2", "retrieved": "2026-10-23"},
-        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
+        {"name": "U.S. Army OE: Russian Motorized Rifle Divisions To Gain An Electronic Warfare Battalion (2025)", "url": "https://oe.t2com.army.mil/product/russian-motorized-rifle-divisions-to-gain-an-electronic-warfare-battalion/", "retrieved": "2026-11-27"}
       ]
     },
     "RB-531B Infauna": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Soomukil paiknev elektroonilise võitluse kompleks, mis saadab soomuskolonne ja kaitseb neid raadiojuhitavate lõhkekehade ja juhitava relvastuse eest.",
         "typicalUnit": "Elektroonilise võitluse brigaad",
         "crew": "3",
@@ -6749,12 +6802,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
-        {"name": "Russian Defense Policy: 15th Independent EW Brigade", "url": "https://russiandefpolicy.com/tag/15th-independent-ew-brigade/", "retrieved": "2026-11-25"}
+        {"name": "Russian Defense Policy: 15th Independent EW Brigade", "url": "https://russiandefpolicy.com/tag/15th-independent-ew-brigade/", "retrieved": "2026-11-25"},
+        {"name": "COGINT: Russian Electronic Warfare Systems – Analytic Insight Report (2023)", "url": "https://sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-27"}
       ]
     },
     "RB-636AM2 Svet-KU": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Signaaliluure ning raadio- ja mobiilside häirimise kompleks.",
         "chassis": "KamAZ-4350 (ka Ford Transit variant)",
         "frequencyRange": "0,025–18 GHz",
@@ -6765,7 +6820,8 @@ window.TTA_DATA = {
         "powerSupply": "Voolutarve kuni 3 kW"
       },
       "sources": [
-        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"}
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-23"},
+        {"name": "Espreso: Ukrainian army destroys Russia's rare Svet-KU electronic warfare system (2023)", "url": "https://global.espreso.tv/ukrainian-army-destroys-russias-rare-svet-ku-electronic-warfare-system", "retrieved": "2026-11-27"}
       ]
     },
     "1RL248-4 SPN-4": {
@@ -6786,6 +6842,7 @@ window.TTA_DATA = {
     "R-378A (R-330 Mandat)": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "R-330 Mandati KV-raadioside häirejaam.",
         "chassis": "Ural-43293",
         "driveConfig": "6×6",
@@ -6803,12 +6860,14 @@ window.TTA_DATA = {
         "powerSupply": "Eraldi haagisel generaator ED30-T400-1RPM1"
       },
       "sources": [
-        {"name": "U.S. Army ODIN / WEG: R-378A", "url": "https://odin.t2com.army.mil/WEG/Asset/3fa5f0fa37e3cae64a60969366c95465", "retrieved": "2026-10-28"}
+        {"name": "U.S. Army ODIN / WEG: R-378A", "url": "https://odin.t2com.army.mil/WEG/Asset/3fa5f0fa37e3cae64a60969366c95465", "retrieved": "2026-10-28"},
+        {"name": "Jamestown: Electronic Warfare in Contemporary Russian Military Thought (2025)", "url": "https://jamestown.org/electronic-warfare-in-contemporary-russian-military-thought/", "retrieved": "2026-11-27"}
       ]
     },
     "R-330BM (R-330 Mandat)": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "R-330 Mandati UKV-raadioside häirejaam.",
         "chassis": "MT-LBu",
         "frequencyRange": "VHF 30–100 MHz",
@@ -6818,7 +6877,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-10-28"},
-        {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"}
+        {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"},
+        {"name": "Jamestown: Electronic Warfare in Contemporary Russian Military Thought (2025)", "url": "https://jamestown.org/electronic-warfare-in-contemporary-russian-military-thought/", "retrieved": "2026-11-27"}
       ]
     },
     "AK-74M": {
@@ -8475,6 +8535,7 @@ window.TTA_DATA = {
     "Skat-450M": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Süvaluuredroon, mis edastab sihtmärkide koordinaate kaugrelvadele, sh Iskander-M-ile.",
         "sensors": "Optiline kaamera ja termokaamera",
         "specialEquipment": "Töötemperatuur −45…+45 °C"
@@ -8488,6 +8549,7 @@ window.TTA_DATA = {
     "Supercam S180": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Väike taktikaline luuredroon.",
         "wingspan": 1.8,
         "payload": 5,
@@ -8497,12 +8559,14 @@ window.TTA_DATA = {
         "specialEquipment": "Lendav tiib; start elastse või pneumaatilise katapuldiga, maandumine langevarjuga"
       },
       "sources": [
-        {"name": "EDR Magazine: Dubai Airshow 2025 – Supercam S180", "url": "https://www.edrmagazine.eu/dubai-airshow-2025-unmanned-systems-group-unveiled-the-supercam-s180-reconnaissance-uav", "retrieved": "2026-10-30"}
+        {"name": "EDR Magazine: Dubai Airshow 2025 – Supercam S180", "url": "https://www.edrmagazine.eu/dubai-airshow-2025-unmanned-systems-group-unveiled-the-supercam-s180-reconnaissance-uav", "retrieved": "2026-10-30"},
+        {"name": "Militarnyi: Russia Demonstrates Supercam S180 Recon Drone With Claimed Anti-FPV System (2026)", "url": "https://militarnyi.com/en/news/russia-demonstrates-supercam-s180-recon-drone-with-claimed-anti-fpv-system/", "retrieved": "2026-11-27"}
       ]
     },
     "Eleron-16": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Droon luureks, jälgimiseks, tule korrigeerimiseks ja vastase elektroonika häirimiseks.",
         "maxTakeoffWeightKg": 20,
         "payload": 6,
@@ -8523,6 +8587,7 @@ window.TTA_DATA = {
     "Parodija": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Peibutusdroon, mis jäljendab radaril Geran/Shahedi peegeldust ja koormab õhutõrjet.",
         "specialEquipment": "Lõhkepead ei ole; Luneburgi lääts"
       },
@@ -8533,6 +8598,7 @@ window.TTA_DATA = {
     "Ajaks V300": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Vertikaalstardiga luuredroon, mille juhtimine ei sõltu GPS-signaalist.",
         "wingspan": 3,
         "maxTakeoffWeightKg": 20,
@@ -8651,6 +8717,7 @@ window.TTA_DATA = {
     "URAL-4320": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Üldotstarbeline maastikuveok lasti, inimeste ja haagiste veoks.",
         "seats": "3 kabiinis + 27 kastis",
         "driveConfig": "6×6",
@@ -8675,6 +8742,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Õhudessantväed",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Miinikindel ratassoomuk lahinguülesannete toetuseks, isikkoosseisu ja lasti veoks ning meditsiiniliseks toeks.",
         "crew": "8",
         "driveConfig": "4×4",
@@ -8697,7 +8765,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Army Technology: Typhoon-VDV K-4386", "url": "https://www.army-technology.com/projects/typhoon-vdv-k-4386/", "retrieved": "2026-10-30"},
         {"name": "Army Recognition: New K-4386 Typhoon-VDV 4x4 armored vehicles in Ukraine for Russian airborne troops", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/conflicts-in-the-world/russia-ukraine-war-2022/new-k-4386-typhoon-vdv-4x4-armored-vehicles-in-ukraine-for-russian-airborne-troops", "retrieved": "2026-11-25"},
-        {"name": "Defence Blog: Russian airborne troops receives new armored vehicles", "url": "https://defence-blog.com/?p=59702", "retrieved": "2026-11-25"}
+        {"name": "Defence Blog: Russian airborne troops receives new armored vehicles", "url": "https://defence-blog.com/?p=59702", "retrieved": "2026-11-25"},
+        {"name": "Wikipedia: Typhoon (armored fighting vehicles family)", "url": "https://en.wikipedia.org/wiki/Typhoon_(armored_fighting_vehicles_family)", "retrieved": "2026-11-27"}
       ]
     },
     "Taifun-U Ural-53099": {
@@ -8728,6 +8797,7 @@ window.TTA_DATA = {
     "Taifun-U Ural-63095, 6x6": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Moodulpõhiste miinikindlate soomukite perekond; kasutatakse luure-, juhtimis-, staabi-, elektroonilise võitluse, side- ja sanitaarmasinana.",
         "crew": "3 + 16",
         "driveConfig": "6×6",
@@ -8748,7 +8818,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Wikipedia: Ural Typhoon", "url": "https://en.wikipedia.org/wiki/Ural_Typhoon", "retrieved": "2026-10-30"},
         {"name": "Warwheels: Typhoon-U Ural-63095", "url": "https://warwheels.net/Typhoon-U-Ural63095-63099mrapINDEX.html", "retrieved": "2026-10-30"},
-        {"name": "Army Recognition: Russian reconnaissance and special forces units will receive Typhoon-K and Typhoon-U MRAPs", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2016/russian-reconnaissance-and-special-forces-units-will-receive-typhoon-k-and-typhoon-u-mraps-1270516", "retrieved": "2026-11-25"}
+        {"name": "Army Recognition: Russian reconnaissance and special forces units will receive Typhoon-K and Typhoon-U MRAPs", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2016/russian-reconnaissance-and-special-forces-units-will-receive-typhoon-k-and-typhoon-u-mraps-1270516", "retrieved": "2026-11-25"},
+        {"name": "Wikipedia: Typhoon (armored fighting vehicles family)", "url": "https://en.wikipedia.org/wiki/Typhoon_(armored_fighting_vehicles_family)", "retrieved": "2026-11-27"}
       ]
     },
     "Kamaz-5350 Z-STS Akhmat": {
@@ -8796,6 +8867,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Sideüksus; TBK-kaitseväed",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Sidesoomuk raadioside pidamiseks sidesõlme koosseisus või iseseisvalt, ka raadiohäirete korral.",
         "chassis": "UNSh / K1Sh1 (BTR-80)",
         "driveConfig": "8×8",
@@ -8804,7 +8876,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Militarnyi: The Armed Forces seized the Russian R-166-0.5 radio station", "url": "https://militarnyi.com/en/news/the-armed-forces-had-seized-the-russian-r-166-0-5-radio-station-in-the-sumy-region/", "retrieved": "2026-10-30"},
-        {"name": "Shephard: Russian Army receives Artek systems", "url": "https://www.shephardmedia.com/news/digital-battlespace/russian-army-receives-artek-modernised-stations", "retrieved": "2026-11-25"}
+        {"name": "Shephard: Russian Army receives Artek systems", "url": "https://www.shephardmedia.com/news/digital-battlespace/russian-army-receives-artek-modernised-stations", "retrieved": "2026-11-25"},
+        {"name": "Oryx: Documenting Russian Equipment Losses", "url": "https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html", "retrieved": "2026-11-27"}
       ]
     },
     "BMD-1Ksh": {
@@ -8843,6 +8916,7 @@ window.TTA_DATA = {
     "R-416GM Granit-M": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2024},
         "purpose": "Häirekindel digitaalne raadioreleejaam (kasutusel alates 2018. aastast) strateegilise ja operatiivtasandi välisidevõrkudele.",
         "typicalUnit": "Sõjaväeringkonna sideüksus",
         "specialEquipment": "Andmeedastus 4–311 Mbit/s; liikumise ajal ei tööta; töötemperatuur −50…+40 °C",
@@ -8856,13 +8930,15 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Euromaidan Press: Russians lose state-of-the-art R-416GM", "url": "https://euromaidanpress.com/?p=277187", "retrieved": "2026-10-30"},
         {"name": "Valka.cz: R-416G-MS", "url": "https://origin.armedconflicts.com/-t296839", "retrieved": "2026-10-30"},
-        {"name": "RBC-Ukraine: R-416G-MS destroyed (2026)", "url": "https://newsukraine.rbc.ua/news/rare-600k-russian-communications-station-1774530597.html", "retrieved": "2026-11-25"}
+        {"name": "RBC-Ukraine: R-416G-MS destroyed (2026)", "url": "https://newsukraine.rbc.ua/news/rare-600k-russian-communications-station-1774530597.html", "retrieved": "2026-11-25"},
+        {"name": "Newsweek: Russia's Newest State-of-the-Art Radar Destroyed in Rare Ukraine Footage (2024)", "url": "https://www.newsweek.com/russian-radar-destroyed-drone-ukraine-war-footage-1912462", "retrieved": "2026-11-27"}
       ]
     },
     "R-419L1": {
       "status": "unverified",
       "values": {
         "typicalUnit": "Armee sideüksus",
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Digitaalne raadioreleejaam magistraalliinidele ja kaabelliinide asendamiseks taktikalise ja operatiivtasandi välisidesüsteemides.",
         "crew": "4",
         "chassis": "KamAZ-4350",
@@ -8875,7 +8951,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Army Recognition: R-419L1 (šassii ja otstarve)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2019/russian-eastern-district-gets-r-419l1-communication-stations", "retrieved": "2026-11-10"},
-        {"name": "Army Recognition: Russian Central Military District signal units receive advanced hardware (Dec 2019)", "url": "https://armyrecognition.com/archives/archives-land-defense/land-defense-2019/russian-central-military-district-signal-units-receive-advanced-hardware", "retrieved": "2026-11-25"}
+        {"name": "Army Recognition: Russian Central Military District signal units receive advanced hardware (Dec 2019)", "url": "https://armyrecognition.com/archives/archives-land-defense/land-defense-2019/russian-central-military-district-signal-units-receive-advanced-hardware", "retrieved": "2026-11-25"},
+        {"name": "Oryx: Documenting Russian Equipment Losses", "url": "https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html", "retrieved": "2026-11-27"}
       ]
     },
     "RS-24 Jars / Topol-M": {
@@ -8969,6 +9046,7 @@ window.TTA_DATA = {
     "R-300KMV (RB-301B Borisoglebsk-2)": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Borisoglebsk-2 kompleksi juhtimispunkt: automaatne raadioluure ja häirete jaotamine häirejaamadele.",
         "crew": "4",
         "chassis": "MT-LBu-M",
@@ -8982,12 +9060,14 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Militarnyi: Ukrainian military destroy the Russian R-934BMV Borisoglebsk-2 EW system", "url": "https://mil.in.ua/en/news/ukrainian-military-destroy-the-russian-r-934bmv-borisoglebsk-2-ew-system", "retrieved": "2026-10-30"},
         {"name": "Valka.cz: RB-301B Borisoglebsk-2", "url": "https://origin.armedconflicts.com/topic/view/252376", "retrieved": "2026-10-30"},
-        {"name": "Defense Express: FPV drones destroy RB-301B Borisoglebsk-2", "url": "https://en.defence-ua.com/news/ukrainian_fpv_drones_destroy_enemys_rb_301b_borisoglebsk_2_ew_system_at_12_15_km_range_video-10811.html", "retrieved": "2026-10-30"}
+        {"name": "Defense Express: FPV drones destroy RB-301B Borisoglebsk-2", "url": "https://en.defence-ua.com/news/ukrainian_fpv_drones_destroy_enemys_rb_301b_borisoglebsk_2_ew_system_at_12_15_km_range_video-10811.html", "retrieved": "2026-10-30"},
+        {"name": "U.S. Army OE: Russian Motorized Rifle Divisions To Gain An Electronic Warfare Battalion (2025)", "url": "https://oe.t2com.army.mil/product/russian-motorized-rifle-divisions-to-gain-an-electronic-warfare-battalion/", "retrieved": "2026-11-27"}
       ]
     },
     "R-378BMV (RB-301B Borisoglebsk-2)": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Borisoglebsk-2 kompleksi KV-raadioside häirejaam.",
         "chassis": "MT-LBu-M",
         "frequencyRange": "KL (HF)",
@@ -8997,12 +9077,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Militarnyi: Ukrainian military destroy the Russian R-934BMV Borisoglebsk-2 EW system", "url": "https://mil.in.ua/en/news/ukrainian-military-destroy-the-russian-r-934bmv-borisoglebsk-2-ew-system", "retrieved": "2026-10-30"},
-        {"name": "Valka.cz: RB-301B Borisoglebsk-2", "url": "https://origin.armedconflicts.com/topic/view/252376", "retrieved": "2026-10-30"}
+        {"name": "Valka.cz: RB-301B Borisoglebsk-2", "url": "https://origin.armedconflicts.com/topic/view/252376", "retrieved": "2026-10-30"},
+        {"name": "U.S. Army OE: Russian Motorized Rifle Divisions To Gain An Electronic Warfare Battalion (2025)", "url": "https://oe.t2com.army.mil/product/russian-motorized-rifle-divisions-to-gain-an-electronic-warfare-battalion/", "retrieved": "2026-11-27"}
       ]
     },
     "R-934BMV (RB-301B Borisoglebsk-2)": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Borisoglebsk-2 kompleksi häirejaam lennunduse raadioside häirimiseks.",
         "chassis": "MT-LBu-M",
         "frequencyRange": "VHF/UHF",
@@ -9012,12 +9094,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Militarnyi: Ukrainian military destroy the Russian R-934BMV Borisoglebsk-2 EW system", "url": "https://mil.in.ua/en/news/ukrainian-military-destroy-the-russian-r-934bmv-borisoglebsk-2-ew-system", "retrieved": "2026-10-30"},
-        {"name": "Valka.cz: RB-301B Borisoglebsk-2", "url": "https://origin.armedconflicts.com/topic/view/252376", "retrieved": "2026-10-30"}
+        {"name": "Valka.cz: RB-301B Borisoglebsk-2", "url": "https://origin.armedconflicts.com/topic/view/252376", "retrieved": "2026-10-30"},
+        {"name": "U.S. Army OE: Russian Motorized Rifle Divisions To Gain An Electronic Warfare Battalion (2025)", "url": "https://oe.t2com.army.mil/product/russian-motorized-rifle-divisions-to-gain-an-electronic-warfare-battalion/", "retrieved": "2026-11-27"}
       ]
     },
     "R-325UMV (RB-301B Borisoglebsk-2)": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Borisoglebsk-2 kompleksi häirejaam taktikalise raadioside häirimiseks.",
         "chassis": "MT-LBu-M",
         "frequencyRange": "VHF/UHF",
@@ -9027,12 +9111,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Militarnyi: Ukrainian military destroy the Russian R-934BMV Borisoglebsk-2 EW system", "url": "https://mil.in.ua/en/news/ukrainian-military-destroy-the-russian-r-934bmv-borisoglebsk-2-ew-system", "retrieved": "2026-10-30"},
-        {"name": "Valka.cz: RB-301B Borisoglebsk-2", "url": "https://origin.armedconflicts.com/topic/view/252376", "retrieved": "2026-10-30"}
+        {"name": "Valka.cz: RB-301B Borisoglebsk-2", "url": "https://origin.armedconflicts.com/topic/view/252376", "retrieved": "2026-10-30"},
+        {"name": "U.S. Army OE: Russian Motorized Rifle Divisions To Gain An Electronic Warfare Battalion (2025)", "url": "https://oe.t2com.army.mil/product/russian-motorized-rifle-divisions-to-gain-an-electronic-warfare-battalion/", "retrieved": "2026-11-27"}
       ]
     },
     "R-378B (R-330 Mandat)": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "R-330 Mandati KV-raadioside häirejaam.",
         "frequencyRange": "KL (HF)",
         "ewTargets": "Lühilaine raadioside häirimine",
@@ -9040,12 +9126,14 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Valka.cz: R-330K Mandat", "url": "https://www.armedconflicts.com/-t70573", "retrieved": "2026-10-30"},
-        {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"}
+        {"name": "Armada International: Russian Radiation (2022)", "url": "https://www.armadainternational.com/2022/01/ukraine-russia-electronic-warfare/", "retrieved": "2026-11-25"},
+        {"name": "Jamestown: Electronic Warfare in Contemporary Russian Military Thought (2025)", "url": "https://jamestown.org/electronic-warfare-in-contemporary-russian-military-thought/", "retrieved": "2026-11-27"}
       ]
     },
     "R-325U (R-330 Mandat)": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["stocks"], "asOf": 2025},
         "purpose": "R-330 Mandati KV/UKV-raadioside häirejaam.",
         "frequencyRange": "KL/UKL (HF/VHF)",
         "ewTargets": "Raadioside häirimine",
@@ -9053,7 +9141,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Valka.cz: R-330K Mandat", "url": "https://www.armedconflicts.com/-t70573", "retrieved": "2026-10-30"},
-        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-25"}
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-25"},
+        {"name": "Jamestown: Electronic Warfare in Contemporary Russian Military Thought (2025)", "url": "https://jamestown.org/electronic-warfare-in-contemporary-russian-military-thought/", "retrieved": "2026-11-27"}
       ]
     },
     "APS „Stechkin“": {
@@ -9213,6 +9302,7 @@ window.TTA_DATA = {
     "R-431AM": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Raadioreleejaam taktikalise sidekompleksi Redut-2US koosseisus.",
         "chassis": "KamAZ",
         "driveConfig": "6×6",
@@ -9222,7 +9312,8 @@ window.TTA_DATA = {
         "chassis": "Pildi järgi; täpne KamAZi mudel teadmata."
       },
       "sources": [
-        {"name": "GlobalSecurity: Palantin", "url": "https://www.globalsecurity.org/military/world/russia/palatine.htm", "retrieved": "2026-10-30"}
+        {"name": "GlobalSecurity: Palantin", "url": "https://www.globalsecurity.org/military/world/russia/palatine.htm", "retrieved": "2026-10-30"},
+        {"name": "Oryx: Documenting Russian Equipment Losses", "url": "https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html", "retrieved": "2026-11-27"}
       ]
     },
     "IL-78M Midas": {
@@ -9552,6 +9643,7 @@ window.TTA_DATA = {
     "R-439MD2": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2022},
         "purpose": "Satelliitsidejaam sidepidamiseks sõjaliste ja tsiviilsatelliitide kaudu, ka raadiohäirete korral.",
         "chassis": "K1Sh1 (BTR-80)",
         "commsFrequency": "Globus: 4/6 GHz, 7/8 GHz ja 0,2/0,4 GHz; tsiviilsatelliidid Express ja Yamal: 4/6 GHz"
@@ -9563,6 +9655,7 @@ window.TTA_DATA = {
     "R-149MA3": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Ühtne juhtimismasin roodu, rühma ja jao tasandi juhtimiseks ja sideks.",
         "typicalUnit": "Rood; Rühm; Jagu",
         "chassis": "BTR-80"
@@ -9570,7 +9663,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Army Recognition: BTR-80 (variants)", "url": "https://armyrecognition.com/military-products/army/armoured-personnel-carriers/wheeled-vehicles/btr-80-russia-uk", "retrieved": "2026-11-20"},
         {"name": "Wikipedia: BTR-80", "url": "https://en.wikipedia.org/wiki/BTR-80", "retrieved": "2026-11-20"},
-        {"name": "ARMSNET: R-149MA3", "url": "https://armsnet.duckdns.org/equipment/1134a1f2-e2e9-494d-e76c-08de6e3c1543", "retrieved": "2026-11-25"}
+        {"name": "ARMSNET: R-149MA3", "url": "https://armsnet.duckdns.org/equipment/1134a1f2-e2e9-494d-e76c-08de6e3c1543", "retrieved": "2026-11-25"},
+        {"name": "Russia lost thousands of military vehicles (Al Arabiya, 2023)", "url": "https://english.alarabiya.net/News/world/2023/07/17/Russia-lost-thousands-of-military-vehicles-equipment-weapons-since-Ukraine-invasion", "retrieved": "2026-11-27"}
       ]
     },
     "R-145BMA": {
@@ -9685,6 +9779,7 @@ window.TTA_DATA = {
     "Tirada-2S": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Sidesatelliitide üleslüli häirimise kompleks (kasutusel alates 2019. aastast).",
         "crew": "5",
         "chassis": "KamAZ",
@@ -9695,12 +9790,14 @@ window.TTA_DATA = {
         "emplacementTime": "30 min"
       },
       "sources": [
-        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"}
+        {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"},
+        {"name": "Ukrinform: Ukrainian border guards destroy advanced Russian EW system Tirada-2 (2026)", "url": "https://www.ukrinform.net/rubric-ato/4085270-ukrainian-border-guards-destroy-advanced-russian-ew-system-tirada2.html", "retrieved": "2026-11-27"}
       ]
     },
     "Palantin-K": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "Operatiiv-taktikalise tasandi automatiseeritud elektroonilise võitluse kompleks (kasutusel alates 2019. aastast) raadioluureks ning raadio- ja mobiilside mahasurumiseks.",
         "typicalUnit": "Elektroonilise võitluse pataljon",
         "chassis": "KamAZ",
@@ -9717,7 +9814,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "COGINT Analytic Insight Report: Russian EW Systems (2023)", "url": "https://www.sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-20"},
-        {"name": "OE Watch: Russia tests Palantin EW system in Ukraine", "url": "https://oe.t2com.army.mil/product/russia-tests-palantin-electronic-warfare-system-in-ukraine/", "retrieved": "2026-11-25"}
+        {"name": "OE Watch: Russia tests Palantin EW system in Ukraine", "url": "https://oe.t2com.army.mil/product/russia-tests-palantin-electronic-warfare-system-in-ukraine/", "retrieved": "2026-11-25"},
+        {"name": "COGINT: Russian Electronic Warfare Systems – Analytic Insight Report (2023)", "url": "https://sprotyvg7.com.ua/wp-content/uploads/2023/11/COGINT_Analytic_Insight_Report_Russian_EW_Systems__231119_114942.pdf", "retrieved": "2026-11-27"}
       ]
     },
     "Lada 4x4 pikap": {
@@ -9741,6 +9839,7 @@ window.TTA_DATA = {
     "BREM-80U": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Remondi- ja äraveosoomuk tankide toetamiseks lahinguväljal.",
         "crew": "4",
         "chassis": "T-80U",
@@ -9759,7 +9858,8 @@ window.TTA_DATA = {
       },
       "sources": [
         {"name": "Army Recognition: Russia Sends Upgraded BREM-80 Recovery Vehicles with Anti-Drone Protection (2026)", "url": "https://armyrecognition.com/news/army-news/2026/russia-sends-upgraded-brem-80-recovery-vehicles-with-anti-drone-protection-to-ukraine-front", "retrieved": "2026-11-24"},
-        {"name": "Army Recognition: Russia Unveils New BREM-80U Armored Recovery Tank (2024)", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/defence-security-industry-technology/russia-unveils-new-brem-80u-armored-recovery-tank-featuring-enhanced-anti-drone-armor", "retrieved": "2026-11-24"}
+        {"name": "Army Recognition: Russia Unveils New BREM-80U Armored Recovery Tank (2024)", "url": "https://armyrecognition.com/focus-analysis-conflicts/army/defence-security-industry-technology/russia-unveils-new-brem-80u-armored-recovery-tank-featuring-enhanced-anti-drone-armor", "retrieved": "2026-11-24"},
+        {"name": "Defense Mirror: Russia Troops Receive Upgraded BREM-80 Armored Recovery Vehicles (2026)", "url": "https://defensemirror.com/news/41151/Russia_Troops_Receive_Upgraded_BREM_80_Armored_Recovery_Vehicles", "retrieved": "2026-11-27"}
       ]
     },
     "ATsG-5-4320": {
@@ -10290,6 +10390,7 @@ window.TTA_DATA = {
     "KAMAZ-6350, 8x8": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Taktikaline veok, peamiselt relvasüsteemide ja eriseadmete alus.",
         "seats": "1 + 2 kabiinis",
         "driveConfig": "8×8",
@@ -10315,7 +10416,9 @@ window.TTA_DATA = {
       "sources": [
         {"name": "WeaponSystems.net: KamAZ-6350", "url": "https://weaponsystems.net/system/1280-KamAZ-6350", "retrieved": "2026-11-20"},
         {"name": "Army Recognition: Kamaz 6350 artillery tractor (2011)", "url": "https://www.armyrecognition.com/archives/archives-land-defense/land-defense-2011/russia-22-december-2011-news-uk", "retrieved": "2026-11-20"},
-        {"name": "Defence24: Rosyjskie opancerzone ciężarówki coraz liczniejsze", "url": "https://defence24.pl/sily-zbrojne/rosyjskie-opancerzone-ciezarowki-coraz-liczniejsze", "retrieved": "2026-11-25"}
+        {"name": "Defence24: Rosyjskie opancerzone ciężarówki coraz liczniejsze", "url": "https://defence24.pl/sily-zbrojne/rosyjskie-opancerzone-ciezarowki-coraz-liczniejsze", "retrieved": "2026-11-25"},
+        {"name": "Wikipedia: KamAZ-5350", "url": "https://en.wikipedia.org/wiki/KamAZ-5350", "retrieved": "2026-11-27"},
+        {"name": "The Moscow Times: Russia's KamAZ Sees Nearly Half of Output Shift to Defense Orders (2026)", "url": "https://www.themoscowtimes.com/2026/02/16/russias-kamaz-sees-nearly-half-of-output-shift-to-defense-orders-a91966", "retrieved": "2026-11-27"}
       ]
     },
     "R-161PU": {
@@ -10602,6 +10705,7 @@ window.TTA_DATA = {
     "Gerbera-2": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Kaugmaa ründe- ja luuredroon, Gerbera suurendatud versioon.",
         "length": 3,
         "ferryRange": 1200,
@@ -10623,6 +10727,7 @@ window.TTA_DATA = {
     "Yolka": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Käest startiv ühekordne püüdurdroon väikeste droonide hävitamiseks otsetabamusega (kasutusel alates 2025. aastast).",
         "maxTakeoffWeightKg": 1.3,
         "maxSpeed": 230,
@@ -10775,6 +10880,7 @@ window.TTA_DATA = {
       "status": "unverified",
       "values": {
         "typicalUnit": "Pataljoni logistikarühm",
+        "productionStatus": {"status": ["new"], "asOf": 2026},
         "purpose": "Mustangi perekonna taktikaline veok.",
         "driveConfig": "4×4",
         "loadCapacity": 4000,
@@ -10788,7 +10894,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Wikipedia: KamAZ-4350", "url": "https://en.wikipedia.org/wiki/KamAZ-4350", "retrieved": "2026-11-25"},
         {"name": "WeaponSystems.net: KamAZ-4350", "url": "https://weaponsystems.net/system/1278-KamAZ-4350", "retrieved": "2026-11-25"},
-        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-26"}
+        {"name": "FMSO (Grau & Bartles): The Russian Way of War (2016)", "url": "https://ia800705.us.archive.org/0/items/The_Russian_Way_of_War_Force_Structure_Tactics_and_Moderniza/The_Russian_Way_of_War__Force_Structure_Tactics_and_Modernization_of_the_Russian_Ground_Forces_Dr._Lester_W._Grau_and_Charles_K._Bartles.pdf", "retrieved": "2026-11-26"},
+        {"name": "The Moscow Times: Russia's KamAZ Sees Nearly Half of Output Shift to Defense Orders (2026)", "url": "https://www.themoscowtimes.com/2026/02/16/russias-kamaz-sees-nearly-half-of-output-shift-to-defense-orders-a91966", "retrieved": "2026-11-27"}
       ]
     },
     "UAZ Patriot": {
@@ -10807,6 +10914,7 @@ window.TTA_DATA = {
     "UAZ-23632": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2023},
         "purpose": "UAZ Patrioti pikapversioon; Vene maaväes kasutusel.",
         "driveConfig": "4×4",
         "loadCapacity": 725
@@ -10901,6 +11009,7 @@ window.TTA_DATA = {
     "S-350 Vitjaz/SA-28": {
       "status": "unverified",
       "values": {
+        "productionStatus": {"status": ["new"], "asOf": 2025},
         "purpose": "Keskmaa õhutõrjeraketikompleks.",
         "chassis": "BAZ-6909 / BAZ-69092 (kõik masinad)",
         "samMissiles": "Laskeseadmel 50P6 12 × 9M96/9M96E2 (12–120 km) või 9M100 (infrapunasihtimine, 10–15 km)",
@@ -10913,7 +11022,8 @@ window.TTA_DATA = {
       "sources": [
         {"name": "Wikipedia: S-350E Vityaz 50R6", "url": "https://en.wikipedia.org/wiki/S-350E_Vityaz_50R6", "retrieved": "2026-11-25"},
         {"name": "Jamestown: New S-350 Missile System Will Strengthen Russian Air Defense (2020)", "url": "https://jamestown.org/program/new-s-350-missile-system-will-strengthen-russian-air-defense/", "retrieved": "2026-11-25"},
-        {"name": "Militarnyi: Russian Vityaz – a threat from the latest S-350 air defense system (Dec 2023)", "url": "https://militarnyi.com/en/articles/russian-vityaz-a-threat-from-the-latest-s-350-air-defense-system/", "retrieved": "2026-11-25"}
+        {"name": "Militarnyi: Russian Vityaz – a threat from the latest S-350 air defense system (Dec 2023)", "url": "https://militarnyi.com/en/articles/russian-vityaz-a-threat-from-the-latest-s-350-air-defense-system/", "retrieved": "2026-11-25"},
+        {"name": "Defence Blog: Russia ramps up production of S-400 and S-350 systems (2025)", "url": "https://defence-blog.com/russia-ramps-up-production-of-s-400-and-s-350-systems/", "retrieved": "2026-11-27"}
       ]
     },
     "BPM-97 KamAZ-43269": {
